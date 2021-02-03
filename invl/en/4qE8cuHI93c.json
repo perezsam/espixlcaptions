@@ -1,0 +1,3708 @@
+{
+  "video_id": "4qE8cuHI93c",
+  "title": "Unity 4.3 - 2D Game Development Walkthrough",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 4295.0,
+      "text": "In Unity 4.3 we&#39;re launching our first set of 2D features."
+    },
+    {
+      "index": 2,
+      "start_time": 4295.0,
+      "end_time": 6295.0,
+      "text": "To compliment this we have constructed a"
+    },
+    {
+      "index": 3,
+      "start_time": 6295.0,
+      "end_time": 8295.0,
+      "text": "demo project with these tools."
+    },
+    {
+      "index": 4,
+      "start_time": 8295.0,
+      "end_time": 11527.0,
+      "text": "Our 2D platformer is nicknamed &#39;Tower Bridge Defence&#39;"
+    },
+    {
+      "index": 5,
+      "start_time": 11527.0,
+      "end_time": 13776.0,
+      "text": "It depicts London&#39;s Tower Bridge in the midst"
+    },
+    {
+      "index": 6,
+      "start_time": 13776.0,
+      "end_time": 15556.0,
+      "text": "of an alien invasion."
+    },
+    {
+      "index": 7,
+      "start_time": 15556.0,
+      "end_time": 17955.0,
+      "text": "It&#39;s a completely sprite-based, physics driven"
+    },
+    {
+      "index": 8,
+      "start_time": 17955.0,
+      "end_time": 20216.0,
+      "text": "2D sample level that we hope will help you"
+    },
+    {
+      "index": 9,
+      "start_time": 20216.0,
+      "end_time": 23472.0,
+      "text": "understand how 2D games are put together in Unity."
+    },
+    {
+      "index": 10,
+      "start_time": 23472.0,
+      "end_time": 25472.0,
+      "text": "This video will discuss the background and"
+    },
+    {
+      "index": 11,
+      "start_time": 25472.0,
+      "end_time": 28184.0,
+      "text": "foreground construction, characters, effects,"
+    },
+    {
+      "index": 12,
+      "start_time": 28184.0,
+      "end_time": 30184.0,
+      "text": "camera tracking, animation and scripting"
+    },
+    {
+      "index": 13,
+      "start_time": 30184.0,
+      "end_time": 31639.0,
+      "text": "used in the demo."
+    },
+    {
+      "index": 14,
+      "start_time": 31639.0,
+      "end_time": 33653.0,
+      "text": "To begin with, let&#39;s discuss the basics"
+    },
+    {
+      "index": 15,
+      "start_time": 33653.0,
+      "end_time": 36860.0,
+      "text": "of working in 2D in Unity."
+    },
+    {
+      "index": 16,
+      "start_time": 36860.0,
+      "end_time": 39291.0,
+      "text": "Firstly, when working in 2D, you should set the"
+    },
+    {
+      "index": 17,
+      "start_time": 39291.0,
+      "end_time": 41221.0,
+      "text": "Editor Behaviour Mode to 2D"
+    },
+    {
+      "index": 18,
+      "start_time": 41221.0,
+      "end_time": 43040.0,
+      "text": "for various settings."
+    },
+    {
+      "index": 19,
+      "start_time": 43040.0,
+      "end_time": 45040.0,
+      "text": "This can be done when making a new project"
+    },
+    {
+      "index": 20,
+      "start_time": 45040.0,
+      "end_time": 47040.0,
+      "text": "using the drop-down on the project wizard"
+    },
+    {
+      "index": 21,
+      "start_time": 47040.0,
+      "end_time": 49543.0,
+      "text": "or during a project by choosing"
+    },
+    {
+      "index": 22,
+      "start_time": 49543.0,
+      "end_time": 53172.0,
+      "text": "Edit - Project Settings - Editor from the top menu."
+    },
+    {
+      "index": 23,
+      "start_time": 53172.0,
+      "end_time": 55172.0,
+      "text": "This means that by default textures"
+    },
+    {
+      "index": 24,
+      "start_time": 55172.0,
+      "end_time": 57172.0,
+      "text": "will be imported as sprites and the"
+    },
+    {
+      "index": 25,
+      "start_time": 57172.0,
+      "end_time": 59630.0,
+      "text": "Scene View will default to 2D mode."
+    },
+    {
+      "index": 26,
+      "start_time": 59630.0,
+      "end_time": 61630.0,
+      "text": "This new mode gives you a completely orthographic"
+    },
+    {
+      "index": 27,
+      "start_time": 61630.0,
+      "end_time": 64420.0,
+      "text": "view in which to construct 2D games."
+    },
+    {
+      "index": 28,
+      "start_time": 64420.0,
+      "end_time": 66806.0,
+      "text": "It also hides the usual 3D gizmo"
+    },
+    {
+      "index": 29,
+      "start_time": 66806.0,
+      "end_time": 69197.0,
+      "text": "in the top right of the view, giving you more space"
+    },
+    {
+      "index": 30,
+      "start_time": 69197.0,
+      "end_time": 71941.0,
+      "text": "to work in. Aside from these settings the work"
+    },
+    {
+      "index": 31,
+      "start_time": 71941.0,
+      "end_time": 74244.0,
+      "text": "flows for 2D have been designed to mirror"
+    },
+    {
+      "index": 32,
+      "start_time": 74244.0,
+      "end_time": 77040.0,
+      "text": "existing Unity approaches to 3D game creation."
+    },
+    {
+      "index": 33,
+      "start_time": 77040.0,
+      "end_time": 79040.0,
+      "text": "So if you already know a little about Unity"
+    },
+    {
+      "index": 34,
+      "start_time": 79040.0,
+      "end_time": 81040.0,
+      "text": "you&#39;ll be in a great position to start making"
+    },
+    {
+      "index": 35,
+      "start_time": 81040.0,
+      "end_time": 82929.0,
+      "text": "2D games right away."
+    },
+    {
+      "index": 36,
+      "start_time": 82929.0,
+      "end_time": 84929.0,
+      "text": "It&#39;s worth noting at this stage that you can"
+    },
+    {
+      "index": 37,
+      "start_time": 84929.0,
+      "end_time": 87219.0,
+      "text": "still mix 2D and 3D in Unity,"
+    },
+    {
+      "index": 38,
+      "start_time": 87219.0,
+      "end_time": 89722.0,
+      "text": "so if you want to add 3D elements to your 2D game"
+    },
+    {
+      "index": 39,
+      "start_time": 89722.0,
+      "end_time": 93366.0,
+      "text": "or vice versa you can do that with no worries."
+    },
+    {
+      "index": 40,
+      "start_time": 93366.0,
+      "end_time": 95496.0,
+      "text": "Let&#39;s take a look at the demo project itself,"
+    },
+    {
+      "index": 41,
+      "start_time": 95496.0,
+      "end_time": 98812.0,
+      "text": "and how we built it up one stage at a time."
+    },
+    {
+      "index": 42,
+      "start_time": 98812.0,
+      "end_time": 100812.0,
+      "text": "We began by sketching out the level design"
+    },
+    {
+      "index": 43,
+      "start_time": 100812.0,
+      "end_time": 102812.0,
+      "text": "for this sample level and then went about"
+    },
+    {
+      "index": 44,
+      "start_time": 102812.0,
+      "end_time": 105312.0,
+      "text": "recreating the layout in Photoshop."
+    },
+    {
+      "index": 45,
+      "start_time": 105312.0,
+      "end_time": 107312.0,
+      "text": "Creating and exporting the layers,"
+    },
+    {
+      "index": 46,
+      "start_time": 107312.0,
+      "end_time": 109312.0,
+      "text": "we were able to import these in to Unity"
+    },
+    {
+      "index": 47,
+      "start_time": 109312.0,
+      "end_time": 118373.0,
+      "text": "using the new Sprite type."
+    },
+    {
+      "index": 48,
+      "start_time": 118373.0,
+      "end_time": 121306.0,
+      "text": "In order to create parallaxing in our background later,"
+    },
+    {
+      "index": 49,
+      "start_time": 121306.0,
+      "end_time": 123666.0,
+      "text": "we kept some of the background elements separate"
+    },
+    {
+      "index": 50,
+      "start_time": 123666.0,
+      "end_time": 126515.0,
+      "text": "and placed them on to a Background Sorting Layer."
+    },
+    {
+      "index": 51,
+      "start_time": 126515.0,
+      "end_time": 130159.0,
+      "text": "Yet another new feature of 2D development in Unity."
+    },
+    {
+      "index": 52,
+      "start_time": 130158.99999999999,
+      "end_time": 132841.0,
+      "text": "Having assigned all of our backgrounds to this layer,"
+    },
+    {
+      "index": 53,
+      "start_time": 132841.0,
+      "end_time": 135157.0,
+      "text": "we could then use the Order In Layer property"
+    },
+    {
+      "index": 54,
+      "start_time": 135157.0,
+      "end_time": 137379.0,
+      "text": "of the Sprite Renderer to sort them."
+    },
+    {
+      "index": 55,
+      "start_time": 137379.0,
+      "end_time": 139379.0,
+      "text": "Once we were happy with their positions"
+    },
+    {
+      "index": 56,
+      "start_time": 139379.0,
+      "end_time": 141379.0,
+      "text": "we could lock the Background Sorting Layer"
+    },
+    {
+      "index": 57,
+      "start_time": 141379.0,
+      "end_time": 143379.0,
+      "text": "so that when we added foreground elements"
+    },
+    {
+      "index": 58,
+      "start_time": 143379.0,
+      "end_time": 145379.0,
+      "text": "we didn&#39;t need to worry about accidentally"
+    },
+    {
+      "index": 59,
+      "start_time": 145379.0,
+      "end_time": 147751.0,
+      "text": "dragging background elements around."
+    },
+    {
+      "index": 60,
+      "start_time": 147751.0,
+      "end_time": 149751.0,
+      "text": "This is done using the Layers pull-down in the"
+    },
+    {
+      "index": 61,
+      "start_time": 149751.0,
+      "end_time": 152817.0,
+      "text": "top right of the interface."
+    },
+    {
+      "index": 62,
+      "start_time": 152817.0,
+      "end_time": 155531.0,
+      "text": "Because the background elements are purely decorative"
+    },
+    {
+      "index": 63,
+      "start_time": 155531.0,
+      "end_time": 157531.0,
+      "text": "we did not require any additional components"
+    },
+    {
+      "index": 64,
+      "start_time": 157531.0,
+      "end_time": 159531.0,
+      "text": "on the sprite game object."
+    },
+    {
+      "index": 65,
+      "start_time": 159531.0,
+      "end_time": 161531.0,
+      "text": "They were parented to an empty game object"
+    },
+    {
+      "index": 66,
+      "start_time": 161531.0,
+      "end_time": 164201.0,
+      "text": "that has a simple script to handle parallaxing"
+    },
+    {
+      "index": 67,
+      "start_time": 164201.0,
+      "end_time": 166201.0,
+      "text": "called BackgroundParallax."
+    },
+    {
+      "index": 68,
+      "start_time": 166201.0,
+      "end_time": 168643.0,
+      "text": "For more information you&#39;ll find this script"
+    },
+    {
+      "index": 69,
+      "start_time": 168643.0,
+      "end_time": 174914.0,
+      "text": "fully commented in the Scripts folder."
+    },
+    {
+      "index": 70,
+      "start_time": 174914.0,
+      "end_time": 176914.0,
+      "text": "Next up came the creation of the foreground elements"
+    },
+    {
+      "index": 71,
+      "start_time": 176914.0,
+      "end_time": 179790.0,
+      "text": "that our characters would actually traverse."
+    },
+    {
+      "index": 72,
+      "start_time": 179790.0,
+      "end_time": 182280.0,
+      "text": "We designed London&#39;s Tower Bridge with a UFO"
+    },
+    {
+      "index": 73,
+      "start_time": 182280.0,
+      "end_time": 183466.0,
+      "text": "landed in the centre."
+    },
+    {
+      "index": 74,
+      "start_time": 183466.0,
+      "end_time": 185466.0,
+      "text": "The character has the run of the environment"
+    },
+    {
+      "index": 75,
+      "start_time": 185466.0,
+      "end_time": 187466.0,
+      "text": "as enemies spawn from the skies and begin"
+    },
+    {
+      "index": 76,
+      "start_time": 187466.0,
+      "end_time": 189216.0,
+      "text": "to navigate around the level."
+    },
+    {
+      "index": 77,
+      "start_time": 189216.0,
+      "end_time": 191216.0,
+      "text": "As such, each piece of the foreground required"
+    },
+    {
+      "index": 78,
+      "start_time": 191216.0,
+      "end_time": 193632.0,
+      "text": "a collider for characters to walk upon."
+    },
+    {
+      "index": 79,
+      "start_time": 193632.0,
+      "end_time": 195632.0,
+      "text": "For most of the environment we used 2D"
+    },
+    {
+      "index": 80,
+      "start_time": 195632.0,
+      "end_time": 197632.0,
+      "text": "box colliders for efficiency,"
+    },
+    {
+      "index": 81,
+      "start_time": 197632.0,
+      "end_time": 202505.0,
+      "text": "but the UFO itself has a more complex shape."
+    },
+    {
+      "index": 82,
+      "start_time": 202505.0,
+      "end_time": 204505.0,
+      "text": "Unity&#39;s Polygon Collider allowed us to"
+    },
+    {
+      "index": 83,
+      "start_time": 204505.0,
+      "end_time": 206878.0,
+      "text": "automate creation of the collider itself"
+    },
+    {
+      "index": 84,
+      "start_time": 206878.0,
+      "end_time": 208724.0,
+      "text": "based on the shape of the sprite."
+    },
+    {
+      "index": 85,
+      "start_time": 208724.0,
+      "end_time": 210724.0,
+      "text": "It even meant that we could tweak the shape of"
+    },
+    {
+      "index": 86,
+      "start_time": 210724.0,
+      "end_time": 212053.0,
+      "text": "the collider later."
+    },
+    {
+      "index": 87,
+      "start_time": 212053.0,
+      "end_time": 214164.0,
+      "text": "Moving, adding or subtracting points"
+    },
+    {
+      "index": 88,
+      "start_time": 214164.0,
+      "end_time": 216164.0,
+      "text": "of the collider shape to make it more"
+    },
+    {
+      "index": 89,
+      "start_time": 216164.0,
+      "end_time": 218664.0,
+      "text": "appropriate to walk over."
+    },
+    {
+      "index": 90,
+      "start_time": 218664.0,
+      "end_time": 220664.0,
+      "text": "To sort these foregrounds we created a"
+    },
+    {
+      "index": 91,
+      "start_time": 220664.0,
+      "end_time": 223154.0,
+      "text": "Foregrounds Sorting Layer, which was drawn"
+    },
+    {
+      "index": 92,
+      "start_time": 223154.0,
+      "end_time": 228875.0,
+      "text": "above the backgrounds in the Tags And Layers manager."
+    },
+    {
+      "index": 93,
+      "start_time": 228875.0,
+      "end_time": 233709.0,
+      "text": "Next, let&#39;s take a look at our hero."
+    },
+    {
+      "index": 94,
+      "start_time": 233709.0,
+      "end_time": 235598.0,
+      "text": "Our player character was yet again designed"
+    },
+    {
+      "index": 95,
+      "start_time": 235598.0,
+      "end_time": 237598.0,
+      "text": "in Photoshop, and for this demo"
+    },
+    {
+      "index": 96,
+      "start_time": 237598.0,
+      "end_time": 239598.0,
+      "text": "we chose to make a character with independent"
+    },
+    {
+      "index": 97,
+      "start_time": 239598.0,
+      "end_time": 241598.0,
+      "text": "limbs and features in the style of"
+    },
+    {
+      "index": 98,
+      "start_time": 241598.0,
+      "end_time": 243598.0,
+      "text": "2D hits such as Rayman."
+    },
+    {
+      "index": 99,
+      "start_time": 243598.0,
+      "end_time": 245598.0,
+      "text": "Our other option would have been to design"
+    },
+    {
+      "index": 100,
+      "start_time": 245598.0,
+      "end_time": 248140.0,
+      "text": "a sprite sheet-based animation and design each"
+    },
+    {
+      "index": 101,
+      "start_time": 248140.0,
+      "end_time": 249643.0,
+      "text": "each frame in Photoshop,"
+    },
+    {
+      "index": 102,
+      "start_time": 249643.0,
+      "end_time": 252365.0,
+      "text": "an approach we use later for the background Swan,"
+    },
+    {
+      "index": 103,
+      "start_time": 252365.0,
+      "end_time": 255072.0,
+      "text": "which we&#39;ll discuss later in the video."
+    },
+    {
+      "index": 104,
+      "start_time": 255072.0,
+      "end_time": 257072.0,
+      "text": "Because our character had independent elements"
+    },
+    {
+      "index": 105,
+      "start_time": 257072.0,
+      "end_time": 260196.0,
+      "text": "that we wish to animate we finalised the design"
+    },
+    {
+      "index": 106,
+      "start_time": 260196.00000000003,
+      "end_time": 262196.0,
+      "text": "and then moved his bodily elements in to separate"
+    },
+    {
+      "index": 107,
+      "start_time": 262196.0,
+      "end_time": 265408.0,
+      "text": "spaces on our canvas to allow Unity to isolate them"
+    },
+    {
+      "index": 108,
+      "start_time": 265408.0,
+      "end_time": 268763.0,
+      "text": "as separate sprites in the Importer."
+    },
+    {
+      "index": 109,
+      "start_time": 268763.0,
+      "end_time": 270763.0,
+      "text": "This meant that we could then arrange all of"
+    },
+    {
+      "index": 110,
+      "start_time": 270763.0,
+      "end_time": 273096.0,
+      "text": "our sprites as separate elements to be animated."
+    },
+    {
+      "index": 111,
+      "start_time": 273096.0,
+      "end_time": 275495.0,
+      "text": "We placed these on to a new Character Sorting Layer"
+    },
+    {
+      "index": 112,
+      "start_time": 275495.0,
+      "end_time": 278167.0,
+      "text": "that we created, and then used Z values in the"
+    },
+    {
+      "index": 113,
+      "start_time": 278167.0,
+      "end_time": 288811.0,
+      "text": "transform to sort their rendering depth."
+    },
+    {
+      "index": 114,
+      "start_time": 288811.0,
+      "end_time": 290811.0,
+      "text": "All of these sprites are then arranged under an"
+    },
+    {
+      "index": 115,
+      "start_time": 290811.0,
+      "end_time": 292811.0,
+      "text": "empty game object, which has all of our"
+    },
+    {
+      "index": 116,
+      "start_time": 292811.0,
+      "end_time": 296591.0,
+      "text": "controls scripting, colliders, physics, excetera attached to it."
+    },
+    {
+      "index": 117,
+      "start_time": 296591.0,
+      "end_time": 298591.0,
+      "text": "Once we&#39;d done this we were able to use the newly"
+    },
+    {
+      "index": 118,
+      "start_time": 298591.0,
+      "end_time": 301041.0,
+      "text": "upgraded Animation window to create"
+    },
+    {
+      "index": 119,
+      "start_time": 301041.0,
+      "end_time": 303906.0,
+      "text": "Idle, Run, Jump, Shoot and Death animations"
+    },
+    {
+      "index": 120,
+      "start_time": 303906.0,
+      "end_time": 307095.0,
+      "text": "by animating each of the character&#39;s sprites over time."
+    },
+    {
+      "index": 121,
+      "start_time": 307095.0,
+      "end_time": 309795.0,
+      "text": "With the new Dopesheet View in the Animation window"
+    },
+    {
+      "index": 122,
+      "start_time": 309795.0,
+      "end_time": 313414.0,
+      "text": "this is easier than ever."
+    },
+    {
+      "index": 123,
+      "start_time": 313414.0,
+      "end_time": 316006.0,
+      "text": "We simply add animation to the parent object"
+    },
+    {
+      "index": 124,
+      "start_time": 316006.0,
+      "end_time": 319403.0,
+      "text": "and then create keyframes for any of the child objects."
+    },
+    {
+      "index": 125,
+      "start_time": 319403.0,
+      "end_time": 321403.0,
+      "text": "Moving the playhead to where we want"
+    },
+    {
+      "index": 126,
+      "start_time": 321403.0,
+      "end_time": 323403.0,
+      "text": "and then moving the various parts of the character"
+    },
+    {
+      "index": 127,
+      "start_time": 323403.0,
+      "end_time": 327313.0,
+      "text": "to automatically keyframe the animation."
+    },
+    {
+      "index": 128,
+      "start_time": 327313.0,
+      "end_time": 329644.0,
+      "text": "The ability to switch between Curve and Dopesheet"
+    },
+    {
+      "index": 129,
+      "start_time": 329644.0,
+      "end_time": 332448.0,
+      "text": "representation of our animation makes it easier than"
+    },
+    {
+      "index": 130,
+      "start_time": 332448.0,
+      "end_time": 336730.0,
+      "text": "ever to adjust timing and design."
+    },
+    {
+      "index": 131,
+      "start_time": 336730.0,
+      "end_time": 338730.0,
+      "text": "With these animations created we can"
+    },
+    {
+      "index": 132,
+      "start_time": 338730.0,
+      "end_time": 341370.0,
+      "text": "then design a state machine for our character"
+    },
+    {
+      "index": 133,
+      "start_time": 341370.0,
+      "end_time": 343801.0,
+      "text": "so that when called upon in code, differing animations"
+    },
+    {
+      "index": 134,
+      "start_time": 343801.0,
+      "end_time": 345277.0,
+      "text": "could be played."
+    },
+    {
+      "index": 135,
+      "start_time": 345277.0,
+      "end_time": 347277.0,
+      "text": "the animator controller for the character is"
+    },
+    {
+      "index": 136,
+      "start_time": 347277.0,
+      "end_time": 350574.0,
+      "text": "not driving a 3D biped, so we simply deselect"
+    },
+    {
+      "index": 137,
+      "start_time": 350574.0,
+      "end_time": 353673.0,
+      "text": "Apply Root Motion and select Animate Physics"
+    },
+    {
+      "index": 138,
+      "start_time": 353673.0,
+      "end_time": 355673.0,
+      "text": "in order to drive our animations in time with"
+    },
+    {
+      "index": 139,
+      "start_time": 355673.0,
+      "end_time": 357287.0,
+      "text": "the physics engine."
+    },
+    {
+      "index": 140,
+      "start_time": 357287.0,
+      "end_time": 359858.0,
+      "text": "In order to traverse the environment our hero has a"
+    },
+    {
+      "index": 141,
+      "start_time": 359858.0,
+      "end_time": 362231.0,
+      "text": "circle collider at his feet and a box collider"
+    },
+    {
+      "index": 142,
+      "start_time": 362231.0,
+      "end_time": 364564.0,
+      "text": "to cover the rest of his body outline."
+    },
+    {
+      "index": 143,
+      "start_time": 364564.0,
+      "end_time": 367067.0,
+      "text": "This means he can smoothly walk up and down hills"
+    },
+    {
+      "index": 144,
+      "start_time": 367067.0,
+      "end_time": 369802.0,
+      "text": "and when he jumps his head will hit the ceiling."
+    },
+    {
+      "index": 145,
+      "start_time": 369802.0,
+      "end_time": 372537.0,
+      "text": "In order to control the character and it&#39;s animations"
+    },
+    {
+      "index": 146,
+      "start_time": 372537.0,
+      "end_time": 376038.0,
+      "text": "we wrote a script that moves him via 2D physics forces."
+    },
+    {
+      "index": 147,
+      "start_time": 376038.0,
+      "end_time": 378038.0,
+      "text": "This means that we can apply physics to him"
+    },
+    {
+      "index": 148,
+      "start_time": 378038.0,
+      "end_time": 380038.0,
+      "text": "and the enemies during the game for more"
+    },
+    {
+      "index": 149,
+      "start_time": 380038.0,
+      "end_time": 381427.0,
+      "text": "dynamic game play."
+    },
+    {
+      "index": 150,
+      "start_time": 381427.0,
+      "end_time": 383814.0,
+      "text": "In our PlayerControl script for the character"
+    },
+    {
+      "index": 151,
+      "start_time": 383814.0,
+      "end_time": 385814.0,
+      "text": "we check for player input."
+    },
+    {
+      "index": 152,
+      "start_time": 385814.0,
+      "end_time": 387814.0,
+      "text": "We use this to apply physics forces"
+    },
+    {
+      "index": 153,
+      "start_time": 387814.0,
+      "end_time": 390766.0,
+      "text": "for movement and also send the value of the input"
+    },
+    {
+      "index": 154,
+      "start_time": 390766.0,
+      "end_time": 393487.0,
+      "text": "to the animator, which in turn defines which"
+    },
+    {
+      "index": 155,
+      "start_time": 393487.0,
+      "end_time": 396475.0,
+      "text": "animation should be playing and smoothly transitions"
+    },
+    {
+      "index": 156,
+      "start_time": 396475.0,
+      "end_time": 398475.0,
+      "text": "between the different animation clips that"
+    },
+    {
+      "index": 157,
+      "start_time": 398475.0,
+      "end_time": 400475.0,
+      "text": "we&#39;ve created as states."
+    },
+    {
+      "index": 158,
+      "start_time": 400475.0,
+      "end_time": 402475.0,
+      "text": "The great thing about using the animator to"
+    },
+    {
+      "index": 159,
+      "start_time": 402475.0,
+      "end_time": 404475.0,
+      "text": "create states from animation clips is"
+    },
+    {
+      "index": 160,
+      "start_time": 404475.0,
+      "end_time": 406861.0,
+      "text": "that we can go and tweak speeds of animation"
+    },
+    {
+      "index": 161,
+      "start_time": 406861.0,
+      "end_time": 408861.0,
+      "text": "to match our physics velocities"
+    },
+    {
+      "index": 162,
+      "start_time": 408861.0,
+      "end_time": 443129.0,
+      "text": "without having to reanimate anything"
+    },
+    {
+      "index": 163,
+      "start_time": 443129.0,
+      "end_time": 445129.0,
+      "text": "The FixedUpdate function evaluates with"
+    },
+    {
+      "index": 164,
+      "start_time": 445129.0,
+      "end_time": 447588.0,
+      "text": "each physics step, and the first thing we"
+    },
+    {
+      "index": 165,
+      "start_time": 447588.0,
+      "end_time": 449588.0,
+      "text": "do with this is to feed the value of Horizontal"
+    },
+    {
+      "index": 166,
+      "start_time": 449588.0,
+      "end_time": 453950.0,
+      "text": "input in to the Speed parameter of our animator."
+    },
+    {
+      "index": 167,
+      "start_time": 453950.0,
+      "end_time": 455950.0,
+      "text": "The transition between Idle and Run"
+    },
+    {
+      "index": 168,
+      "start_time": 455950.0,
+      "end_time": 457950.0,
+      "text": "in our simple state machine requires"
+    },
+    {
+      "index": 169,
+      "start_time": 457950.0,
+      "end_time": 461718.0,
+      "text": "that the Speed parameter is above 0.1."
+    },
+    {
+      "index": 170,
+      "start_time": 461718.0,
+      "end_time": 464025.0,
+      "text": "When it is, the animator blends from Idle"
+    },
+    {
+      "index": 171,
+      "start_time": 464025.0,
+      "end_time": 471857.0,
+      "text": "in to the Run state."
+    },
+    {
+      "index": 172,
+      "start_time": 471857.0,
+      "end_time": 473857.0,
+      "text": "We then go on to add forces to the player&#39;s"
+    },
+    {
+      "index": 173,
+      "start_time": 473857.0,
+      "end_time": 477184.0,
+      "text": "2D physics component, the rigidbody2D,"
+    },
+    {
+      "index": 174,
+      "start_time": 477184.0,
+      "end_time": 479626.0,
+      "text": "in order to move him around."
+    },
+    {
+      "index": 175,
+      "start_time": 479626.0,
+      "end_time": 482521.0,
+      "text": "We also handle which direction the character is facing"
+    },
+    {
+      "index": 176,
+      "start_time": 482521.0,
+      "end_time": 484702.0,
+      "text": "based on the value of Horizontal input,"
+    },
+    {
+      "index": 177,
+      "start_time": 484702.0,
+      "end_time": 487710.0,
+      "text": "checking whether it is above or below 0."
+    },
+    {
+      "index": 178,
+      "start_time": 487710.0,
+      "end_time": 490557.0,
+      "text": "This is because in Unity, holding the left input key"
+    },
+    {
+      "index": 179,
+      "start_time": 490557.0,
+      "end_time": 495073.0,
+      "text": "returns a value of -1, where right returns positive 1."
+    },
+    {
+      "index": 180,
+      "start_time": 495073.0,
+      "end_time": 498700.0,
+      "text": "Depending on input, we then call a simple flip function,"
+    },
+    {
+      "index": 181,
+      "start_time": 498700.0,
+      "end_time": 501477.0,
+      "text": "which reverses the X scale of the character,"
+    },
+    {
+      "index": 182,
+      "start_time": 501477.0,
+      "end_time": 506848.0,
+      "text": "giving him the appearance of facing the opposite direction."
+    },
+    {
+      "index": 183,
+      "start_time": 506848.0,
+      "end_time": 508848.0,
+      "text": "To decide whether the player is grounded"
+    },
+    {
+      "index": 184,
+      "start_time": 508848.0,
+      "end_time": 511605.0,
+      "text": "we added a layer in Unity called Ground"
+    },
+    {
+      "index": 185,
+      "start_time": 511605.0,
+      "end_time": 523397.0,
+      "text": "and applied it to all of our walkable foreground surfaces."
+    },
+    {
+      "index": 186,
+      "start_time": 523397.00000000006,
+      "end_time": 525969.0,
+      "text": "We then used the Linecast function in 2D"
+    },
+    {
+      "index": 187,
+      "start_time": 525969.0,
+      "end_time": 527969.0,
+      "text": "to check whether something on the Ground layer"
+    },
+    {
+      "index": 188,
+      "start_time": 527969.0,
+      "end_time": 530234.0,
+      "text": "is below the character&#39;s feet."
+    },
+    {
+      "index": 189,
+      "start_time": 530234.0,
+      "end_time": 532777.0,
+      "text": "To customise this more easily we created"
+    },
+    {
+      "index": 190,
+      "start_time": 532777.0,
+      "end_time": 534777.0,
+      "text": "an empty game object to use as a point"
+    },
+    {
+      "index": 191,
+      "start_time": 534777.0,
+      "end_time": 536777.0,
+      "text": "at which to check for the ground."
+    },
+    {
+      "index": 192,
+      "start_time": 536777.0,
+      "end_time": 539083.0,
+      "text": "By adding a gizmo to this empty object"
+    },
+    {
+      "index": 193,
+      "start_time": 539083.0,
+      "end_time": 541083.0,
+      "text": "we are able to manipulate how far below"
+    },
+    {
+      "index": 194,
+      "start_time": 541083.0,
+      "end_time": 543083.0,
+      "text": "the character we&#39;ll check for the ground."
+    },
+    {
+      "index": 195,
+      "start_time": 543083.0,
+      "end_time": 545486.0,
+      "text": "From a gameplay perspective this means that"
+    },
+    {
+      "index": 196,
+      "start_time": 545486.0,
+      "end_time": 548456.0,
+      "text": "the character can only jump when grounded."
+    },
+    {
+      "index": 197,
+      "start_time": 548456.0,
+      "end_time": 550456.0,
+      "text": "Check out the rest of the comments in the script for more"
+    },
+    {
+      "index": 198,
+      "start_time": 550456.0,
+      "end_time": 552648.0,
+      "text": "information on the control of the player."
+    },
+    {
+      "index": 199,
+      "start_time": 552648.0,
+      "end_time": 554648.0,
+      "text": "We will discuss the player&#39;s weapon"
+    },
+    {
+      "index": 200,
+      "start_time": 554648.0,
+      "end_time": 555879.0,
+      "text": "later in this video."
+    },
+    {
+      "index": 201,
+      "start_time": 555879.0,
+      "end_time": 557879.0,
+      "text": "Next, let&#39;s take a look at how the camera"
+    },
+    {
+      "index": 202,
+      "start_time": 557879.0,
+      "end_time": 561291.0,
+      "text": "tracks the player in our demo."
+    },
+    {
+      "index": 203,
+      "start_time": 561291.0,
+      "end_time": 564352.0,
+      "text": "In 2D games, much like 3D, the motion of"
+    },
+    {
+      "index": 204,
+      "start_time": 564352.0,
+      "end_time": 566352.0,
+      "text": "the camera tracking the action can make"
+    },
+    {
+      "index": 205,
+      "start_time": 566352.0,
+      "end_time": 567824.0,
+      "text": "or break your game."
+    },
+    {
+      "index": 206,
+      "start_time": 567824.0,
+      "end_time": 570581.0,
+      "text": "For a classic 2D platformer, we looked at the mechanics"
+    },
+    {
+      "index": 207,
+      "start_time": 570581.0,
+      "end_time": 573625.0,
+      "text": "of one of the most interesting camera in 2D gaming history,"
+    },
+    {
+      "index": 208,
+      "start_time": 573625.0,
+      "end_time": 576651.0,
+      "text": "the camera from Super Mario World on the Super Nintendo"
+    },
+    {
+      "index": 209,
+      "start_time": 576651.0,
+      "end_time": 578651.0,
+      "text": "or Super Famicom."
+    },
+    {
+      "index": 210,
+      "start_time": 578651.0,
+      "end_time": 580651.0,
+      "text": "In Super Mario world the camera tracks"
+    },
+    {
+      "index": 211,
+      "start_time": 580651.0,
+      "end_time": 582651.0,
+      "text": "horizontally, but uses a dead zone"
+    },
+    {
+      "index": 212,
+      "start_time": 582651.0,
+      "end_time": 585119.0,
+      "text": "or margin in the centre of the viewport"
+    },
+    {
+      "index": 213,
+      "start_time": 585119.0,
+      "end_time": 587119.0,
+      "text": "in which the character can move a little"
+    },
+    {
+      "index": 214,
+      "start_time": 587119.0,
+      "end_time": 589342.0,
+      "text": "without the camera tracking."
+    },
+    {
+      "index": 215,
+      "start_time": 589342.0,
+      "end_time": 591635.0,
+      "text": "Once the character moved beyond this margin"
+    },
+    {
+      "index": 216,
+      "start_time": 591635.0,
+      "end_time": 594047.0,
+      "text": "the camera tracks back toward the player."
+    },
+    {
+      "index": 217,
+      "start_time": 594047.0,
+      "end_time": 596867.0,
+      "text": "The Super Mario World camera used particular heights"
+    },
+    {
+      "index": 218,
+      "start_time": 596867.0,
+      "end_time": 599544.0,
+      "text": "to snap to vertically, but we didn&#39;t need this"
+    },
+    {
+      "index": 219,
+      "start_time": 599544.0,
+      "end_time": 601544.0,
+      "text": "kind of detail for our game as we"
+    },
+    {
+      "index": 220,
+      "start_time": 601544.0,
+      "end_time": 603878.0,
+      "text": "do not have a long level in the X axis"
+    },
+    {
+      "index": 221,
+      "start_time": 603878.0,
+      "end_time": 607210.0,
+      "text": "but more of a stage on which the action takes place."
+    },
+    {
+      "index": 222,
+      "start_time": 607210.0,
+      "end_time": 609210.0,
+      "text": "For this reason our camera employs"
+    },
+    {
+      "index": 223,
+      "start_time": 609210.0,
+      "end_time": 618779.0,
+      "text": "similar tracking vertically as it does horizontally."
+    },
+    {
+      "index": 224,
+      "start_time": 618779.0,
+      "end_time": 620779.0,
+      "text": "Take a look at the CameraFollow script on the"
+    },
+    {
+      "index": 225,
+      "start_time": 620779.0,
+      "end_time": 623138.0,
+      "text": "mainCamera game object to see comments"
+    },
+    {
+      "index": 226,
+      "start_time": 623138.0,
+      "end_time": 626135.0,
+      "text": "on how it achieves this effect."
+    },
+    {
+      "index": 227,
+      "start_time": 626135.0,
+      "end_time": 627845.0,
+      "text": "There are several effects in the game,"
+    },
+    {
+      "index": 228,
+      "start_time": 627845.0,
+      "end_time": 629845.0,
+      "text": "but most important is our heroes ability"
+    },
+    {
+      "index": 229,
+      "start_time": 629845.0,
+      "end_time": 632732.0,
+      "text": "to slay the alien onslaught he&#39;s faced with."
+    },
+    {
+      "index": 230,
+      "start_time": 632732.0,
+      "end_time": 636338.0,
+      "text": "Our hero shoots a bazooka which has animated recoil."
+    },
+    {
+      "index": 231,
+      "start_time": 636338.0,
+      "end_time": 638898.0,
+      "text": "This action is made up of several parts."
+    },
+    {
+      "index": 232,
+      "start_time": 638898.0,
+      "end_time": 641643.0,
+      "text": "First we listen for key input and when the Fire key is"
+    },
+    {
+      "index": 233,
+      "start_time": 641643.0,
+      "end_time": 643962.0,
+      "text": "pressed we instantiate a rocket,"
+    },
+    {
+      "index": 234,
+      "start_time": 643962.0,
+      "end_time": 647969.0,
+      "text": "play an audio clip and trigger an animation state to play."
+    },
+    {
+      "index": 235,
+      "start_time": 647969.0,
+      "end_time": 649969.0,
+      "text": "Let&#39;s break this down even further."
+    },
+    {
+      "index": 236,
+      "start_time": 649969.0,
+      "end_time": 652418.0,
+      "text": "in order to play the Shoot animation while other"
+    },
+    {
+      "index": 237,
+      "start_time": 652418.0,
+      "end_time": 654418.0,
+      "text": "animations such as Run are playing we"
+    },
+    {
+      "index": 238,
+      "start_time": 654418.0,
+      "end_time": 656418.0,
+      "text": "created a separate layer within our animator"
+    },
+    {
+      "index": 239,
+      "start_time": 656418.0,
+      "end_time": 657677.0,
+      "text": "called Shooting."
+    },
+    {
+      "index": 240,
+      "start_time": 657677.0,
+      "end_time": 659677.0,
+      "text": "By setting the Weight property to 1 here"
+    },
+    {
+      "index": 241,
+      "start_time": 659677.0,
+      "end_time": 662532.0,
+      "text": "we can totally override motion in the base layer"
+    },
+    {
+      "index": 242,
+      "start_time": 662532.0,
+      "end_time": 664532.0,
+      "text": "on any parts of our character that are animated"
+    },
+    {
+      "index": 243,
+      "start_time": 664532.0,
+      "end_time": 680499.0,
+      "text": "by clips on the shooting layer."
+    },
+    {
+      "index": 244,
+      "start_time": 680499.0,
+      "end_time": 682499.0,
+      "text": "In this layer we switch to the Shoot animation"
+    },
+    {
+      "index": 245,
+      "start_time": 682499.0,
+      "end_time": 685351.0,
+      "text": "from any state, when the Shoot trigger"
+    },
+    {
+      "index": 246,
+      "start_time": 685351.0,
+      "end_time": 687351.0,
+      "text": "parameter is called from code."
+    },
+    {
+      "index": 247,
+      "start_time": 687351.0,
+      "end_time": 692700.0,
+      "text": "Let&#39;s take a look at the Gun script in charge of this."
+    },
+    {
+      "index": 248,
+      "start_time": 692700.0,
+      "end_time": 695140.0,
+      "text": "Here you can see that we address the animator"
+    },
+    {
+      "index": 249,
+      "start_time": 695140.0,
+      "end_time": 697402.0,
+      "text": "and set that trigger to True."
+    },
+    {
+      "index": 250,
+      "start_time": 697402.0,
+      "end_time": 700513.0,
+      "text": "Triggers simply act as a switch and reset themselves to false"
+    },
+    {
+      "index": 251,
+      "start_time": 700513.0,
+      "end_time": 703247.0,
+      "text": "on the next frame so that they can be called again,"
+    },
+    {
+      "index": 252,
+      "start_time": 703247.0,
+      "end_time": 706011.0,
+      "text": "which is perfect for actions such as shooting."
+    },
+    {
+      "index": 253,
+      "start_time": 706011.0,
+      "end_time": 708673.0,
+      "text": "In addition to setting the animation we fire the"
+    },
+    {
+      "index": 254,
+      "start_time": 708673.0,
+      "end_time": 710673.0,
+      "text": "rockets themselves from this script,"
+    },
+    {
+      "index": 255,
+      "start_time": 710673.0,
+      "end_time": 712673.0,
+      "text": "playing an audio clip and dependent upon"
+    },
+    {
+      "index": 256,
+      "start_time": 712673.0,
+      "end_time": 714673.0,
+      "text": "the direction that the player is facing"
+    },
+    {
+      "index": 257,
+      "start_time": 714673.0,
+      "end_time": 717775.0,
+      "text": "we instantiate a rocket and give it a velocity"
+    },
+    {
+      "index": 258,
+      "start_time": 717775.0,
+      "end_time": 721276.0,
+      "text": "that&#39;s positive or negative in the X axis."
+    },
+    {
+      "index": 259,
+      "start_time": 721276.0,
+      "end_time": 723933.0,
+      "text": "This script is attached to the Gun empty game object"
+    },
+    {
+      "index": 260,
+      "start_time": 723933.0,
+      "end_time": 725294.0,
+      "text": "in the hero&#39;s hierarchy."
+    },
+    {
+      "index": 261,
+      "start_time": 725294.0,
+      "end_time": 728078.0,
+      "text": "We place code like this on to an empty game object"
+    },
+    {
+      "index": 262,
+      "start_time": 728078.0,
+      "end_time": 730078.0,
+      "text": "as it allows us to easily position"
+    },
+    {
+      "index": 263,
+      "start_time": 730078.0,
+      "end_time": 731663.0,
+      "text": "where the rockets are created."
+    },
+    {
+      "index": 264,
+      "start_time": 731663.0,
+      "end_time": 733663.0,
+      "text": "We do this by placing the empty object"
+    },
+    {
+      "index": 265,
+      "start_time": 733663.0,
+      "end_time": 736010.0,
+      "text": "at the end of the barrel of the bazooka"
+    },
+    {
+      "index": 266,
+      "start_time": 736010.0,
+      "end_time": 738010.0,
+      "text": "and then we use it&#39;s own position as the"
+    },
+    {
+      "index": 267,
+      "start_time": 738010.0,
+      "end_time": 760248.0,
+      "text": "point at which to spawn the rockets."
+    },
+    {
+      "index": 268,
+      "start_time": 760248.0,
+      "end_time": 762804.0,
+      "text": "The rocket itself has a 2D rigidbody"
+    },
+    {
+      "index": 269,
+      "start_time": 762804.0,
+      "end_time": 764804.0,
+      "text": "and we assign a velocity to that in order"
+    },
+    {
+      "index": 270,
+      "start_time": 764804.0,
+      "end_time": 766804.0,
+      "text": "to make it move."
+    },
+    {
+      "index": 271,
+      "start_time": 766804.0,
+      "end_time": 769096.0,
+      "text": "It has a sprite swap flame exhaust"
+    },
+    {
+      "index": 272,
+      "start_time": 769096.0,
+      "end_time": 772826.0,
+      "text": "plus a particle system for smoke."
+    },
+    {
+      "index": 273,
+      "start_time": 772826.0,
+      "end_time": 776482.0,
+      "text": "The particle system also accepts the new sprite type of graphics"
+    },
+    {
+      "index": 274,
+      "start_time": 776482.0,
+      "end_time": 778482.0,
+      "text": "so by adding a sprite sheet of smoke puffs"
+    },
+    {
+      "index": 275,
+      "start_time": 778482.0,
+      "end_time": 780482.0,
+      "text": "to a material we can assign it to the"
+    },
+    {
+      "index": 276,
+      "start_time": 780482.0,
+      "end_time": 784149.0,
+      "text": "texture sheet animation module of the particle system"
+    },
+    {
+      "index": 277,
+      "start_time": 784149.0,
+      "end_time": 786232.0,
+      "text": "and we get instant animation of our"
+    },
+    {
+      "index": 278,
+      "start_time": 786232.0,
+      "end_time": 796122.0,
+      "text": "sprites for the particle emission."
+    },
+    {
+      "index": 279,
+      "start_time": 796122.0,
+      "end_time": 798935.0,
+      "text": "When our rockets hit an enemy or part of the environment"
+    },
+    {
+      "index": 280,
+      "start_time": 798935.0,
+      "end_time": 800935.0,
+      "text": "the rocket itself is destroyed and"
+    },
+    {
+      "index": 281,
+      "start_time": 800935.0,
+      "end_time": 802935.0,
+      "text": "an explosion is spawned."
+    },
+    {
+      "index": 282,
+      "start_time": 802935.0,
+      "end_time": 804935.0,
+      "text": "The explosion is simply a sprite game object"
+    },
+    {
+      "index": 283,
+      "start_time": 804935.0,
+      "end_time": 807731.0,
+      "text": "that animates through a sprite sheet that we have created."
+    },
+    {
+      "index": 284,
+      "start_time": 807731.0,
+      "end_time": 810311.0,
+      "text": "Yet again using sorting layers to render this"
+    },
+    {
+      "index": 285,
+      "start_time": 810311.0,
+      "end_time": 816174.0,
+      "text": "at the lowest layer order of our foreground objects."
+    },
+    {
+      "index": 286,
+      "start_time": 816174.0,
+      "end_time": 818174.0,
+      "text": "When adding sprite-based animation like this"
+    },
+    {
+      "index": 287,
+      "start_time": 818174.0,
+      "end_time": 820174.0,
+      "text": "we setup the sprites themselves by"
+    },
+    {
+      "index": 288,
+      "start_time": 820174.0,
+      "end_time": 822174.0,
+      "text": "selecting the file in our Project Panel"
+    },
+    {
+      "index": 289,
+      "start_time": 822174.0,
+      "end_time": 824576.0,
+      "text": "and choosing the Sprite Mode Multiple."
+    },
+    {
+      "index": 290,
+      "start_time": 824576.0,
+      "end_time": 826576.0,
+      "text": "This gives us access to the sprite editor"
+    },
+    {
+      "index": 291,
+      "start_time": 826576.0,
+      "end_time": 829757.0,
+      "text": "which allows us to slice manually or automatically."
+    },
+    {
+      "index": 292,
+      "start_time": 829757.0,
+      "end_time": 832406.0,
+      "text": "Once happy with the selection of sprites from our file"
+    },
+    {
+      "index": 293,
+      "start_time": 832406.0,
+      "end_time": 834406.0,
+      "text": "we simply hit Apply and Unity"
+    },
+    {
+      "index": 294,
+      "start_time": 834406.0,
+      "end_time": 836765.0,
+      "text": "generates the sprites as children of that file"
+    },
+    {
+      "index": 295,
+      "start_time": 836765.0,
+      "end_time": 839707.0,
+      "text": "to be used in our project."
+    },
+    {
+      "index": 296,
+      "start_time": 839707.0,
+      "end_time": 841693.0,
+      "text": "So that&#39;s our rocket in a nutshell."
+    },
+    {
+      "index": 297,
+      "start_time": 841693.0,
+      "end_time": 843693.0,
+      "text": "We will discuss the mechanics of killing the enemies"
+    },
+    {
+      "index": 298,
+      "start_time": 843693.0,
+      "end_time": 847102.0,
+      "text": "later in this video in the section about enemies."
+    },
+    {
+      "index": 299,
+      "start_time": 847102.0,
+      "end_time": 849448.0,
+      "text": "Let&#39;s return to the player character now and look at"
+    },
+    {
+      "index": 300,
+      "start_time": 849448.0,
+      "end_time": 852194.0,
+      "text": "how we handle health and taking damage."
+    },
+    {
+      "index": 301,
+      "start_time": 852194.0,
+      "end_time": 854194.0,
+      "text": "Health is stored as a float and"
+    },
+    {
+      "index": 302,
+      "start_time": 854194.0,
+      "end_time": 856190.0,
+      "text": "with each interaction with a tagged enemy"
+    },
+    {
+      "index": 303,
+      "start_time": 856190.0,
+      "end_time": 858548.0,
+      "text": "we call the TakeDamage function."
+    },
+    {
+      "index": 304,
+      "start_time": 858548.0,
+      "end_time": 860548.0,
+      "text": "This is only allowed to occur after the"
+    },
+    {
+      "index": 305,
+      "start_time": 860548.0,
+      "end_time": 862548.0,
+      "text": "repeatDamagePeriod has passed"
+    },
+    {
+      "index": 306,
+      "start_time": 862548.0,
+      "end_time": 866524.0,
+      "text": "to avoid the player being killed very quickly."
+    },
+    {
+      "index": 307,
+      "start_time": 866524.0,
+      "end_time": 869136.0,
+      "text": "To allow the player to escape enemies more easily"
+    },
+    {
+      "index": 308,
+      "start_time": 869136.0,
+      "end_time": 871136.0,
+      "text": "and to show the player that they are being hurt"
+    },
+    {
+      "index": 309,
+      "start_time": 871136.0,
+      "end_time": 873136.0,
+      "text": "we make the act of taking damage"
+    },
+    {
+      "index": 310,
+      "start_time": 873136.0,
+      "end_time": 874847.0,
+      "text": "repel the character physically."
+    },
+    {
+      "index": 311,
+      "start_time": 874847.0,
+      "end_time": 877540.0,
+      "text": "To achieve this the TakeDamage function briefly"
+    },
+    {
+      "index": 312,
+      "start_time": 877540.0,
+      "end_time": 879540.0,
+      "text": "stops the player from jumping"
+    },
+    {
+      "index": 313,
+      "start_time": 879540.0,
+      "end_time": 882125.0,
+      "text": "and finds a vector from the enemy to the player"
+    },
+    {
+      "index": 314,
+      "start_time": 882125.0,
+      "end_time": 884125.0,
+      "text": "and repels him in that direction"
+    },
+    {
+      "index": 315,
+      "start_time": 884125.0,
+      "end_time": 886125.0,
+      "text": "by adding a physics force."
+    },
+    {
+      "index": 316,
+      "start_time": 886125.0,
+      "end_time": 888684.0,
+      "text": "The hurtForce variable is exposed in the Inspector"
+    },
+    {
+      "index": 317,
+      "start_time": 888684.0,
+      "end_time": 891323.0,
+      "text": "as public so that it can be tweaked"
+    },
+    {
+      "index": 318,
+      "start_time": 891323.0,
+      "end_time": 893323.0,
+      "text": "to adjust this element of game play without"
+    },
+    {
+      "index": 319,
+      "start_time": 893323.0,
+      "end_time": 895323.0,
+      "text": "returning to the script."
+    },
+    {
+      "index": 320,
+      "start_time": 895323.0,
+      "end_time": 897323.0,
+      "text": "In addition to repelling the player,"
+    },
+    {
+      "index": 321,
+      "start_time": 897323.0,
+      "end_time": 899810.0,
+      "text": "we of course subtract from the player&#39;s health."
+    },
+    {
+      "index": 322,
+      "start_time": 899810.0,
+      "end_time": 902209.0,
+      "text": "and update the player&#39;s health bar."
+    },
+    {
+      "index": 323,
+      "start_time": 902209.0,
+      "end_time": 904624.0,
+      "text": "To signify the decrease in health we subtract"
+    },
+    {
+      "index": 324,
+      "start_time": 904624.0,
+      "end_time": 906885.0,
+      "text": "from the width of the bar and use a colour lerp"
+    },
+    {
+      "index": 325,
+      "start_time": 906885.0,
+      "end_time": 909825.0,
+      "text": "to transition it&#39;s colour between green and red,"
+    },
+    {
+      "index": 326,
+      "start_time": 909825.0,
+      "end_time": 912640.0,
+      "text": "both by finding the percentage that the current health is"
+    },
+    {
+      "index": 327,
+      "start_time": 912640.0,
+      "end_time": 914640.0,
+      "text": "of the full health amount."
+    },
+    {
+      "index": 328,
+      "start_time": 914640.0,
+      "end_time": 917873.0,
+      "text": "The health bar simply comprises of two sprites,"
+    },
+    {
+      "index": 329,
+      "start_time": 917873.0,
+      "end_time": 919965.0,
+      "text": "one for the outline of the bar and the other"
+    },
+    {
+      "index": 330,
+      "start_time": 919965.0,
+      "end_time": 921744.0,
+      "text": "for the bar itself."
+    },
+    {
+      "index": 331,
+      "start_time": 921744.0,
+      "end_time": 923744.0,
+      "text": "This was again designed in Photoshop and then"
+    },
+    {
+      "index": 332,
+      "start_time": 923744.0,
+      "end_time": 925954.0,
+      "text": "the two separate elements were exported."
+    },
+    {
+      "index": 333,
+      "start_time": 925954.0,
+      "end_time": 927954.0,
+      "text": "In the import settings for these sprites"
+    },
+    {
+      "index": 334,
+      "start_time": 927954.0,
+      "end_time": 930470.0,
+      "text": "we set their pivot to the middle left of the graphic"
+    },
+    {
+      "index": 335,
+      "start_time": 930470.0,
+      "end_time": 948573.0,
+      "text": "so that when it scales down it shrinks towards the left."
+    },
+    {
+      "index": 336,
+      "start_time": 948573.0,
+      "end_time": 950573.0,
+      "text": "These two sprites are placed under an empty"
+    },
+    {
+      "index": 337,
+      "start_time": 950573.0,
+      "end_time": 952573.0,
+      "text": "parent game object which has a simple script"
+    },
+    {
+      "index": 338,
+      "start_time": 952573.0,
+      "end_time": 954573.0,
+      "text": "on it which makes it follow the player."
+    },
+    {
+      "index": 339,
+      "start_time": 954573.0,
+      "end_time": 956621.0,
+      "text": "We do this by setting the position to the"
+    },
+    {
+      "index": 340,
+      "start_time": 956621.0,
+      "end_time": 958621.0,
+      "text": "same as the player object&#39;s position"
+    },
+    {
+      "index": 341,
+      "start_time": 958621.0,
+      "end_time": 960621.0,
+      "text": "plus an offset that we&#39;ve made public to allow"
+    },
+    {
+      "index": 342,
+      "start_time": 960621.0,
+      "end_time": 976215.0,
+      "text": "for adjustment in the Inspector."
+    },
+    {
+      "index": 343,
+      "start_time": 976215.0,
+      "end_time": 978215.0,
+      "text": "When the player has 0 health remaining"
+    },
+    {
+      "index": 344,
+      "start_time": 978215.0,
+      "end_time": 980215.0,
+      "text": "we allow him to fall through the level by"
+    },
+    {
+      "index": 345,
+      "start_time": 980215.0,
+      "end_time": 982629.0,
+      "text": "setting his colliders to triggers,"
+    },
+    {
+      "index": 346,
+      "start_time": 982629.0,
+      "end_time": 984629.0,
+      "text": "and we move him to the very front of rendering"
+    },
+    {
+      "index": 347,
+      "start_time": 984629.0,
+      "end_time": 988194.0,
+      "text": "by placing his sprite renderers on the UI Sorting layer,"
+    },
+    {
+      "index": 348,
+      "start_time": 988194.0,
+      "end_time": 991594.0,
+      "text": "one we&#39;ve made to render in front of everything in the game."
+    },
+    {
+      "index": 349,
+      "start_time": 991594.0,
+      "end_time": 994223.0,
+      "text": "We have 2 animations for when the player dies."
+    },
+    {
+      "index": 350,
+      "start_time": 994223.0,
+      "end_time": 997252.0,
+      "text": "1 called Death, where he loses his hat and gun"
+    },
+    {
+      "index": 351,
+      "start_time": 997252.0,
+      "end_time": 998631.0,
+      "text": "and another called Falling."
+    },
+    {
+      "index": 352,
+      "start_time": 998631.0,
+      "end_time": 1000631.0,
+      "text": "We naturally transition in to Falling once"
+    },
+    {
+      "index": 353,
+      "start_time": 1000630.0,
+      "end_time": 1004001.0,
+      "text": "the Death animation completes by using the Exit Time"
+    },
+    {
+      "index": 354,
+      "start_time": 1004000.0,
+      "end_time": 1010776.0,
+      "text": "as our transition condition in the animator."
+    },
+    {
+      "index": 355,
+      "start_time": 1010780.0,
+      "end_time": 1012780.0,
+      "text": "Finally, to stop the player moving the character"
+    },
+    {
+      "index": 356,
+      "start_time": 1012780.0,
+      "end_time": 1015280.0,
+      "text": "or shooting during the Death sequence"
+    },
+    {
+      "index": 357,
+      "start_time": 1015280.0,
+      "end_time": 1018342.0,
+      "text": "we disable the PlayerControl and Gun scripts."
+    },
+    {
+      "index": 358,
+      "start_time": 1018340.0,
+      "end_time": 1020731.0,
+      "text": "Because the Die function is made as public"
+    },
+    {
+      "index": 359,
+      "start_time": 1020730.0,
+      "end_time": 1023331.0,
+      "text": "we can call it from elsewhere, such as if the player"
+    },
+    {
+      "index": 360,
+      "start_time": 1023330.0,
+      "end_time": 1025039.0,
+      "text": "falls in to the water."
+    },
+    {
+      "index": 361,
+      "start_time": 1025040.0,
+      "end_time": 1027732.0,
+      "text": "To reset the game once the player does hit the water"
+    },
+    {
+      "index": 362,
+      "start_time": 1027730.0,
+      "end_time": 1029730.0,
+      "text": "we have a KillTrigger object, which simply"
+    },
+    {
+      "index": 363,
+      "start_time": 1029730.0,
+      "end_time": 1032460.0,
+      "text": "comprises of a trigger collider and a script."
+    },
+    {
+      "index": 364,
+      "start_time": 1032460.0,
+      "end_time": 1035010.0,
+      "text": "For most of the game the purpose of the Remover script"
+    },
+    {
+      "index": 365,
+      "start_time": 1035010.0,
+      "end_time": 1037010.0,
+      "text": "is to remove our enemy objects that fall in"
+    },
+    {
+      "index": 366,
+      "start_time": 1037010.0,
+      "end_time": 1039786.0,
+      "text": "to the river, and instantiate a splash animation"
+    },
+    {
+      "index": 367,
+      "start_time": 1039790.0,
+      "end_time": 1041443.0,
+      "text": "and sound effect."
+    },
+    {
+      "index": 368,
+      "start_time": 1041440.0,
+      "end_time": 1043999.0,
+      "text": "However, when the player is detected by this trigger"
+    },
+    {
+      "index": 369,
+      "start_time": 1044000.0,
+      "end_time": 1047091.0,
+      "text": "we call the Die function in the PlayerHealth script"
+    },
+    {
+      "index": 370,
+      "start_time": 1047089.9999999999,
+      "end_time": 1049090.0,
+      "text": "and also disable CameraTracking"
+    },
+    {
+      "index": 371,
+      "start_time": 1049090.0,
+      "end_time": 1051090.0,
+      "text": "whilst moving the player off screen"
+    },
+    {
+      "index": 372,
+      "start_time": 1051090.0,
+      "end_time": 1054525.0,
+      "text": "and calling a co-routiene that pauses for 2 seconds"
+    },
+    {
+      "index": 373,
+      "start_time": 1054530.0,
+      "end_time": 1057082.0,
+      "text": "and then reloads the level."
+    },
+    {
+      "index": 374,
+      "start_time": 1057080.0,
+      "end_time": 1059080.0,
+      "text": "But let&#39;s not dwell on the death of the player,"
+    },
+    {
+      "index": 375,
+      "start_time": 1059080.0,
+      "end_time": 1061080.0,
+      "text": "let&#39;s look at his survival and the tools that we give"
+    },
+    {
+      "index": 376,
+      "start_time": 1061080.0,
+      "end_time": 1062482.0,
+      "text": "him to do that."
+    },
+    {
+      "index": 377,
+      "start_time": 1062480.0,
+      "end_time": 1064480.0,
+      "text": "Our game features 2 airdropped crates that"
+    },
+    {
+      "index": 378,
+      "start_time": 1064480.0,
+      "end_time": 1067123.0,
+      "text": "assist the player, 1 containing a bomb,"
+    },
+    {
+      "index": 379,
+      "start_time": 1067120.0,
+      "end_time": 1070407.0,
+      "text": "the other a med kit to boost health."
+    },
+    {
+      "index": 380,
+      "start_time": 1070410.0,
+      "end_time": 1072962.0,
+      "text": "These crate drops are made up of 2 parts."
+    },
+    {
+      "index": 381,
+      "start_time": 1072960.0,
+      "end_time": 1078043.0,
+      "text": "The crate itself and a parachute."
+    },
+    {
+      "index": 382,
+      "start_time": 1078050.0,
+      "end_time": 1081315.0,
+      "text": "These 2 elements are nested beneath an empty parent object"
+    },
+    {
+      "index": 383,
+      "start_time": 1081310.0,
+      "end_time": 1083767.0,
+      "text": "to allow us to animate them as a group."
+    },
+    {
+      "index": 384,
+      "start_time": 1083770.0,
+      "end_time": 1085770.0,
+      "text": "We position the 2 sprites so that the parachute&#39;s"
+    },
+    {
+      "index": 385,
+      "start_time": 1085770.0,
+      "end_time": 1089047.0,
+      "text": "centre is at the centre of the parent."
+    },
+    {
+      "index": 386,
+      "start_time": 1089050.0,
+      "end_time": 1091912.0,
+      "text": "This way the animation can swing left and right"
+    },
+    {
+      "index": 387,
+      "start_time": 1091910.0,
+      "end_time": 1095310.0,
+      "text": "as if the entire parachuting crate is floating to the ground."
+    },
+    {
+      "index": 388,
+      "start_time": 1095310.0,
+      "end_time": 1097310.0,
+      "text": "We then simply add a rigidbody to cause"
+    },
+    {
+      "index": 389,
+      "start_time": 1097310.0,
+      "end_time": 1099310.0,
+      "text": "gravity to pull the object down"
+    },
+    {
+      "index": 390,
+      "start_time": 1099310.0,
+      "end_time": 1101310.0,
+      "text": "and add colliders to the crate so that"
+    },
+    {
+      "index": 391,
+      "start_time": 1101310.0,
+      "end_time": 1103310.0,
+      "text": "we can detect when it lands and when"
+    },
+    {
+      "index": 392,
+      "start_time": 1103310.0,
+      "end_time": 1104965.0,
+      "text": "the player picks up the crate."
+    },
+    {
+      "index": 393,
+      "start_time": 1104960.0,
+      "end_time": 1106960.0,
+      "text": "Upon landing we transition to a second"
+    },
+    {
+      "index": 394,
+      "start_time": 1106960.0,
+      "end_time": 1110511.0,
+      "text": "animation state which scales the parachute down."
+    },
+    {
+      "index": 395,
+      "start_time": 1110510.0,
+      "end_time": 1113305.0,
+      "text": "Like other parts of our game, the animator handles"
+    },
+    {
+      "index": 396,
+      "start_time": 1113310.0,
+      "end_time": 1114918.0,
+      "text": "the states of the object."
+    },
+    {
+      "index": 397,
+      "start_time": 1114920.0,
+      "end_time": 1116920.0,
+      "text": "We can see that by default it plays the"
+    },
+    {
+      "index": 398,
+      "start_time": 1116920.0,
+      "end_time": 1118920.0,
+      "text": "floatDown animation state"
+    },
+    {
+      "index": 399,
+      "start_time": 1118920.0,
+      "end_time": 1120920.0,
+      "text": "but then switches to a landing state"
+    },
+    {
+      "index": 400,
+      "start_time": 1120920.0,
+      "end_time": 1123976.0,
+      "text": "when the trigger Land is set to true."
+    },
+    {
+      "index": 401,
+      "start_time": 1123970.0,
+      "end_time": 1127381.0,
+      "text": "In our script we do this using an onTriggerEnter function,"
+    },
+    {
+      "index": 402,
+      "start_time": 1127380.0,
+      "end_time": 1129729.0,
+      "text": "which detects the ground via a tag."
+    },
+    {
+      "index": 403,
+      "start_time": 1129730.0,
+      "end_time": 1132820.0,
+      "text": "We also detatch the crate itself from the parent object"
+    },
+    {
+      "index": 404,
+      "start_time": 1132820.0,
+      "end_time": 1135096.0,
+      "text": "and give it a rigidbody of it&#39;s own"
+    },
+    {
+      "index": 405,
+      "start_time": 1135100.0,
+      "end_time": 1137492.0,
+      "text": "so that it can interact with the environment"
+    },
+    {
+      "index": 406,
+      "start_time": 1137490.0,
+      "end_time": 1140624.0,
+      "text": "resting realistically on a slope if it lands on one."
+    },
+    {
+      "index": 407,
+      "start_time": 1140620.0,
+      "end_time": 1143668.0,
+      "text": "Let&#39;s focus on the bomb first of all."
+    },
+    {
+      "index": 408,
+      "start_time": 1143670.0,
+      "end_time": 1145670.0,
+      "text": "Picking up the bomb crate is handled on the"
+    },
+    {
+      "index": 409,
+      "start_time": 1145670.0,
+      "end_time": 1148473.0,
+      "text": "BombPickup script, attached to the crate."
+    },
+    {
+      "index": 410,
+      "start_time": 1148470.0,
+      "end_time": 1151052.0,
+      "text": "We pickup the crate by destroying it and adding to"
+    },
+    {
+      "index": 411,
+      "start_time": 1151060.0,
+      "end_time": 1153060.0,
+      "text": "the count of bombs that the player has"
+    },
+    {
+      "index": 412,
+      "start_time": 1153060.0,
+      "end_time": 1155060.0,
+      "text": "in the script attached to the player called"
+    },
+    {
+      "index": 413,
+      "start_time": 1155060.0,
+      "end_time": 1157560.0,
+      "text": "LayBombs"
+    },
+    {
+      "index": 414,
+      "start_time": 1157560.0,
+      "end_time": 1159560.0,
+      "text": "The LayBombs script simply checks if"
+    },
+    {
+      "index": 415,
+      "start_time": 1159560.0,
+      "end_time": 1161560.0,
+      "text": "the player is carrying a bomb"
+    },
+    {
+      "index": 416,
+      "start_time": 1161560.0,
+      "end_time": 1163560.0,
+      "text": "and then instantiates an instance"
+    },
+    {
+      "index": 417,
+      "start_time": 1163560.0,
+      "end_time": 1167427.0,
+      "text": "of the Bomb prefab."
+    },
+    {
+      "index": 418,
+      "start_time": 1167420.0,
+      "end_time": 1169948.0,
+      "text": "The Bomb prefab has a timed fuse"
+    },
+    {
+      "index": 419,
+      "start_time": 1169950.0,
+      "end_time": 1172145.0,
+      "text": "which waits by using an yield within the"
+    },
+    {
+      "index": 420,
+      "start_time": 1172150.0,
+      "end_time": 1174150.0,
+      "text": "BombDetonation co-routiene"
+    },
+    {
+      "index": 421,
+      "start_time": 1174150.0,
+      "end_time": 1176802.0,
+      "text": "before calling the Explode function."
+    },
+    {
+      "index": 422,
+      "start_time": 1176800.0,
+      "end_time": 1179546.0,
+      "text": "The Explode function performs several actions."
+    },
+    {
+      "index": 423,
+      "start_time": 1179550.0,
+      "end_time": 1181550.0,
+      "text": "First it resets the bombLaid variable"
+    },
+    {
+      "index": 424,
+      "start_time": 1181550.0,
+      "end_time": 1183802.0,
+      "text": "to allow another bomb to be deployed,"
+    },
+    {
+      "index": 425,
+      "start_time": 1183800.0,
+      "end_time": 1185800.0,
+      "text": "it tells the pickup spawner it is allowed to"
+    },
+    {
+      "index": 426,
+      "start_time": 1185800.0,
+      "end_time": 1187800.0,
+      "text": "spawn a new crate drop and kills"
+    },
+    {
+      "index": 427,
+      "start_time": 1187800.0,
+      "end_time": 1190521.0,
+      "text": "enemies within a defined blast radian."
+    },
+    {
+      "index": 428,
+      "start_time": 1190520.0,
+      "end_time": 1193060.0,
+      "text": "Let&#39;s take a look at how this last part works."
+    },
+    {
+      "index": 429,
+      "start_time": 1193060.0,
+      "end_time": 1195060.0,
+      "text": "Because bombs are lethal to enemies regardless of"
+    },
+    {
+      "index": 430,
+      "start_time": 1195060.0,
+      "end_time": 1197182.0,
+      "text": "their remaining hit points we use the"
+    },
+    {
+      "index": 431,
+      "start_time": 1197180.0,
+      "end_time": 1199976.0,
+      "text": "Physics.OverlapCircleAll to collect all objects"
+    },
+    {
+      "index": 432,
+      "start_time": 1199980.0,
+      "end_time": 1203474.0,
+      "text": "tagged Enemy within a certain radius of the bomb."
+    },
+    {
+      "index": 433,
+      "start_time": 1203470.0,
+      "end_time": 1206612.0,
+      "text": "We then run a foreach loop for every enemy found"
+    },
+    {
+      "index": 434,
+      "start_time": 1206610.0,
+      "end_time": 1210661.0,
+      "text": "setting their health to 0 finding a vector from where the bomb was"
+    },
+    {
+      "index": 435,
+      "start_time": 1210660.0,
+      "end_time": 1212660.0,
+      "text": "to where the enemy is, in order to apply"
+    },
+    {
+      "index": 436,
+      "start_time": 1212660.0,
+      "end_time": 1216301.0,
+      "text": "a force in the direction of that vector."
+    },
+    {
+      "index": 437,
+      "start_time": 1216300.0,
+      "end_time": 1218534.0,
+      "text": "Once the foreach loop is complete"
+    },
+    {
+      "index": 438,
+      "start_time": 1218540.0,
+      "end_time": 1221383.0,
+      "text": "we play and instantiate visual effects,"
+    },
+    {
+      "index": 439,
+      "start_time": 1221380.0,
+      "end_time": 1223380.0,
+      "text": "play an audio clip for the explosion"
+    },
+    {
+      "index": 440,
+      "start_time": 1223380.0,
+      "end_time": 1226874.0,
+      "text": "and of course destroy the bomb itself."
+    },
+    {
+      "index": 441,
+      "start_time": 1226880.0,
+      "end_time": 1229257.0,
+      "text": "The visual of the explosion is twofold."
+    },
+    {
+      "index": 442,
+      "start_time": 1229250.0,
+      "end_time": 1231250.0,
+      "text": "The main part is a simple circle that appears"
+    },
+    {
+      "index": 443,
+      "start_time": 1231250.0,
+      "end_time": 1233581.0,
+      "text": "briefly and is then destroyed"
+    },
+    {
+      "index": 444,
+      "start_time": 1233580.0,
+      "end_time": 1235580.0,
+      "text": "and the second part is a particle system of"
+    },
+    {
+      "index": 445,
+      "start_time": 1235580.0,
+      "end_time": 1237580.0,
+      "text": "stars that reuses the same sprites"
+    },
+    {
+      "index": 446,
+      "start_time": 1237580.0,
+      "end_time": 1242262.0,
+      "text": "as our rocket explosion."
+    },
+    {
+      "index": 447,
+      "start_time": 1242270.0,
+      "end_time": 1244270.0,
+      "text": "For efficiency we keep this particle"
+    },
+    {
+      "index": 448,
+      "start_time": 1244270.0,
+      "end_time": 1246270.0,
+      "text": "system in the scene at all times"
+    },
+    {
+      "index": 449,
+      "start_time": 1246270.0,
+      "end_time": 1248270.0,
+      "text": "and when it is required we use code"
+    },
+    {
+      "index": 450,
+      "start_time": 1248270.0,
+      "end_time": 1252516.0,
+      "text": "to move the system to the desired position and play it."
+    },
+    {
+      "index": 451,
+      "start_time": 1252510.0,
+      "end_time": 1254510.0,
+      "text": "This keeps the particle system in memory"
+    },
+    {
+      "index": 452,
+      "start_time": 1254510.0,
+      "end_time": 1257010.0,
+      "text": "and makes the game more efficient."
+    },
+    {
+      "index": 453,
+      "start_time": 1257010.0,
+      "end_time": 1259010.0,
+      "text": "It&#39;s worth noting that we can do this"
+    },
+    {
+      "index": 454,
+      "start_time": 1259010.0,
+      "end_time": 1261010.0,
+      "text": "because we know we will only have 1"
+    },
+    {
+      "index": 455,
+      "start_time": 1261010.0,
+      "end_time": 1264667.0,
+      "text": "single explosion in the scene at any one time"
+    },
+    {
+      "index": 456,
+      "start_time": 1264670.0,
+      "end_time": 1267796.0,
+      "text": "as the player can only throw 1 bomb at a time."
+    },
+    {
+      "index": 457,
+      "start_time": 1267790.0,
+      "end_time": 1269790.0,
+      "text": "This is why keeping our particle system in the"
+    },
+    {
+      "index": 458,
+      "start_time": 1269790.0,
+      "end_time": 1271790.0,
+      "text": "scene and replaying it is more"
+    },
+    {
+      "index": 459,
+      "start_time": 1271790.0,
+      "end_time": 1275710.0,
+      "text": "efficient than creating instances and then removing them."
+    },
+    {
+      "index": 460,
+      "start_time": 1275710.0,
+      "end_time": 1277614.0,
+      "text": "With the rocket explosion however,"
+    },
+    {
+      "index": 461,
+      "start_time": 1277620.0,
+      "end_time": 1279620.0,
+      "text": "we can have many at once so we do"
+    },
+    {
+      "index": 462,
+      "start_time": 1279620.0,
+      "end_time": 1282120.0,
+      "text": "need to spawn and remove them."
+    },
+    {
+      "index": 463,
+      "start_time": 1282120.0,
+      "end_time": 1284120.0,
+      "text": "Now let&#39;s take a look at what happens when our player"
+    },
+    {
+      "index": 464,
+      "start_time": 1284120.0,
+      "end_time": 1286620.0,
+      "text": "kills an enemy and scores points."
+    },
+    {
+      "index": 465,
+      "start_time": 1286620.0,
+      "end_time": 1288438.0,
+      "text": "This is done in 2 parts,"
+    },
+    {
+      "index": 466,
+      "start_time": 1288440.0,
+      "end_time": 1291672.0,
+      "text": "a scoring animation that plays showing 100 points earned"
+    },
+    {
+      "index": 467,
+      "start_time": 1291670.0,
+      "end_time": 1293670.0,
+      "text": "and the score UI at the top of the screen"
+    },
+    {
+      "index": 468,
+      "start_time": 1293670.0,
+      "end_time": 1295530.0,
+      "text": "that increments."
+    },
+    {
+      "index": 469,
+      "start_time": 1295530.0,
+      "end_time": 1298305.0,
+      "text": "The score animation is made up to 2 number sprites,"
+    },
+    {
+      "index": 470,
+      "start_time": 1298300.0,
+      "end_time": 1300190.0,
+      "text": "a 1 and a 0."
+    },
+    {
+      "index": 471,
+      "start_time": 1300190.0,
+      "end_time": 1302869.0,
+      "text": "We place this in the scene under an empty parent object"
+    },
+    {
+      "index": 472,
+      "start_time": 1302870.0,
+      "end_time": 1306034.0,
+      "text": "and animated them using a simple destroyer script to"
+    },
+    {
+      "index": 473,
+      "start_time": 1306040.0,
+      "end_time": 1309190.0,
+      "text": "remove them from the scene when the animation is complete."
+    },
+    {
+      "index": 474,
+      "start_time": 1309190.0,
+      "end_time": 1311190.0,
+      "text": "We call the destroyer function in the script"
+    },
+    {
+      "index": 475,
+      "start_time": 1311190.0,
+      "end_time": 1313190.0,
+      "text": "by placing an animation event"
+    },
+    {
+      "index": 476,
+      "start_time": 1313190.0,
+      "end_time": 1326146.0,
+      "text": "at the end of the timeline."
+    },
+    {
+      "index": 477,
+      "start_time": 1326140.0,
+      "end_time": 1329701.0,
+      "text": "The ScoreUI itself is a simple GUI text component"
+    },
+    {
+      "index": 478,
+      "start_time": 1329700.0,
+      "end_time": 1331700.0,
+      "text": "with a custom font and script that manages"
+    },
+    {
+      "index": 479,
+      "start_time": 1331700.0,
+      "end_time": 1333700.0,
+      "text": "the score for the player."
+    },
+    {
+      "index": 480,
+      "start_time": 1333700.0,
+      "end_time": 1336756.0,
+      "text": "The Score variable is public, meaning that we can address it"
+    },
+    {
+      "index": 481,
+      "start_time": 1336760.0,
+      "end_time": 1338981.0,
+      "text": "from the Enemy script when they are killed"
+    },
+    {
+      "index": 482,
+      "start_time": 1338980.0,
+      "end_time": 1340980.0,
+      "text": "and add 100 points to the value."
+    },
+    {
+      "index": 483,
+      "start_time": 1340980.0,
+      "end_time": 1342980.0,
+      "text": "Speaking of the enemies, let&#39;s take a look"
+    },
+    {
+      "index": 484,
+      "start_time": 1342980.0,
+      "end_time": 1345480.0,
+      "text": "at them more in depth now."
+    },
+    {
+      "index": 485,
+      "start_time": 1345480.0,
+      "end_time": 1348260.0,
+      "text": "In our game we have 2 types of alien enemy,"
+    },
+    {
+      "index": 486,
+      "start_time": 1348260.0,
+      "end_time": 1350854.0,
+      "text": "a green slug-like monster and a smarter"
+    },
+    {
+      "index": 487,
+      "start_time": 1350850.0,
+      "end_time": 1352850.0,
+      "text": "alien that brought his ship with him for"
+    },
+    {
+      "index": 488,
+      "start_time": 1352850.0,
+      "end_time": 1354559.0,
+      "text": "protection during the invasion."
+    },
+    {
+      "index": 489,
+      "start_time": 1354560.0,
+      "end_time": 1356560.0,
+      "text": "These characters share the same script"
+    },
+    {
+      "index": 490,
+      "start_time": 1356560.0,
+      "end_time": 1358560.0,
+      "text": "as the behaviour is very similar"
+    },
+    {
+      "index": 491,
+      "start_time": 1358560.0,
+      "end_time": 1360878.0,
+      "text": "and we allow for differing movement speeds"
+    },
+    {
+      "index": 492,
+      "start_time": 1360880.0,
+      "end_time": 1362880.0,
+      "text": "and amounts of hit points by setting"
+    },
+    {
+      "index": 493,
+      "start_time": 1362880.0,
+      "end_time": 1366637.0,
+      "text": "these as public variables in the Inspector."
+    },
+    {
+      "index": 494,
+      "start_time": 1366640.0,
+      "end_time": 1369095.0,
+      "text": "Each enemy has it&#39;s own Walk animation."
+    },
+    {
+      "index": 495,
+      "start_time": 1369090.0,
+      "end_time": 1371090.0,
+      "text": "The slug has a moving tail, whist the"
+    },
+    {
+      "index": 496,
+      "start_time": 1371090.0,
+      "end_time": 1375991.0,
+      "text": "ship-based enemy rocks back and forth as it approaches."
+    },
+    {
+      "index": 497,
+      "start_time": 1375990.0,
+      "end_time": 1377990.0,
+      "text": "For the slug we used the sprite importer"
+    },
+    {
+      "index": 498,
+      "start_time": 1377990.0,
+      "end_time": 1379990.0,
+      "text": "to define the tail section of the graphic"
+    },
+    {
+      "index": 499,
+      "start_time": 1379990.0,
+      "end_time": 1381990.0,
+      "text": "as a separate sprite element,"
+    },
+    {
+      "index": 500,
+      "start_time": 1381990.0,
+      "end_time": 1384434.0,
+      "text": "meaning that we could animate it individually"
+    },
+    {
+      "index": 501,
+      "start_time": 1384440.0,
+      "end_time": 1387477.0,
+      "text": "and avoid having to scale the entire sprite."
+    },
+    {
+      "index": 502,
+      "start_time": 1387470.0,
+      "end_time": 1389470.0,
+      "text": "By setting the pivot to the right"
+    },
+    {
+      "index": 503,
+      "start_time": 1389470.0,
+      "end_time": 1392119.0,
+      "text": "we are able to animate the tail expanding and contracting"
+    },
+    {
+      "index": 504,
+      "start_time": 1392120.0,
+      "end_time": 1396471.0,
+      "text": "from that point."
+    },
+    {
+      "index": 505,
+      "start_time": 1396470.0,
+      "end_time": 1399913.0,
+      "text": "For added character we then move the eyelid up and down"
+    },
+    {
+      "index": 506,
+      "start_time": 1399920.0,
+      "end_time": 1401920.0,
+      "text": "and we use the Z value to sort the sprites"
+    },
+    {
+      "index": 507,
+      "start_time": 1401920.0,
+      "end_time": 1404861.0,
+      "text": "amongst one another, the eye being below the eyelid"
+    },
+    {
+      "index": 508,
+      "start_time": 1404860.0,
+      "end_time": 1408866.0,
+      "text": "so that we could animate it over the top."
+    },
+    {
+      "index": 509,
+      "start_time": 1408860.0,
+      "end_time": 1411263.0,
+      "text": "The second enemy&#39;s animation was much simpler"
+    },
+    {
+      "index": 510,
+      "start_time": 1411270.0,
+      "end_time": 1415800.0,
+      "text": "and just meant that we rotated it back and forth."
+    },
+    {
+      "index": 511,
+      "start_time": 1415800.0,
+      "end_time": 1417800.0,
+      "text": "For the mechanics of moving the enemies"
+    },
+    {
+      "index": 512,
+      "start_time": 1417800.0,
+      "end_time": 1421231.0,
+      "text": "we drive them by setting the velocity of the rigidbody."
+    },
+    {
+      "index": 513,
+      "start_time": 1421230.0,
+      "end_time": 1423890.0,
+      "text": "When they encounter an obstacle such as a wall"
+    },
+    {
+      "index": 514,
+      "start_time": 1423890.0,
+      "end_time": 1427827.0,
+      "text": "they detect this by using a Physics.OverlapPoint function,"
+    },
+    {
+      "index": 515,
+      "start_time": 1427830.0,
+      "end_time": 1431321.0,
+      "text": "which checks for a point in space overlapping a collider."
+    },
+    {
+      "index": 516,
+      "start_time": 1431320.0,
+      "end_time": 1433857.0,
+      "text": "Our walls, the towers at each side of the level,"
+    },
+    {
+      "index": 517,
+      "start_time": 1433850.0,
+      "end_time": 1435846.0,
+      "text": "are tagged as obstacles."
+    },
+    {
+      "index": 518,
+      "start_time": 1435850.0,
+      "end_time": 1439161.0,
+      "text": "When this function detects them it calls the Flip function,"
+    },
+    {
+      "index": 519,
+      "start_time": 1439160.0,
+      "end_time": 1441766.0,
+      "text": "it reverses the X scale of the enemy"
+    },
+    {
+      "index": 520,
+      "start_time": 1441770.0,
+      "end_time": 1444073.0,
+      "text": "sending them moving in a different direction."
+    },
+    {
+      "index": 521,
+      "start_time": 1444070.0,
+      "end_time": 1446070.0,
+      "text": "To kill the enemies, each time a rocket collides"
+    },
+    {
+      "index": 522,
+      "start_time": 1446070.0,
+      "end_time": 1449036.0,
+      "text": "with them it&#39;s script calls the Hurt function on"
+    },
+    {
+      "index": 523,
+      "start_time": 1449040.0,
+      "end_time": 1454966.0,
+      "text": "the particular enemy that it&#39;s hit."
+    },
+    {
+      "index": 524,
+      "start_time": 1454960.0,
+      "end_time": 1456960.0,
+      "text": "In this function we subtract 1 from the"
+    },
+    {
+      "index": 525,
+      "start_time": 1456960.0,
+      "end_time": 1459211.0,
+      "text": "hit points of the particular enemy."
+    },
+    {
+      "index": 526,
+      "start_time": 1459210.0,
+      "end_time": 1461210.0,
+      "text": "We then keep tabs on the enemy&#39;s health"
+    },
+    {
+      "index": 527,
+      "start_time": 1461210.0,
+      "end_time": 1463210.0,
+      "text": "inside the fixed update function."
+    },
+    {
+      "index": 528,
+      "start_time": 1463210.0,
+      "end_time": 1471226.0,
+      "text": "If it drops to 0 we call the Death function."
+    },
+    {
+      "index": 529,
+      "start_time": 1471230.0,
+      "end_time": 1473917.0,
+      "text": "When they die we perform a number of functions."
+    },
+    {
+      "index": 530,
+      "start_time": 1473920.0,
+      "end_time": 1475920.0,
+      "text": "Firstly we disable all sprite renderers"
+    },
+    {
+      "index": 531,
+      "start_time": 1475920.0,
+      "end_time": 1477920.0,
+      "text": "as our 2D characters are made up of a"
+    },
+    {
+      "index": 532,
+      "start_time": 1477920.0,
+      "end_time": 1480945.0,
+      "text": "number of sprite objects that are animated."
+    },
+    {
+      "index": 533,
+      "start_time": 1480940.0,
+      "end_time": 1482940.0,
+      "text": "This is because we simply want to swap out the"
+    },
+    {
+      "index": 534,
+      "start_time": 1482940.0,
+      "end_time": 1484940.0,
+      "text": "animated elements for a single sprite"
+    },
+    {
+      "index": 535,
+      "start_time": 1484940.0,
+      "end_time": 1487744.0,
+      "text": "of the dead character"
+    },
+    {
+      "index": 536,
+      "start_time": 1487740.0,
+      "end_time": 1489740.0,
+      "text": "We do this with the main sprite renderer by"
+    },
+    {
+      "index": 537,
+      "start_time": 1489740.0,
+      "end_time": 1491740.0,
+      "text": "setting it to use the sprite assigned to"
+    },
+    {
+      "index": 538,
+      "start_time": 1491740.0,
+      "end_time": 1494160.0,
+      "text": "the deadEnemy variable."
+    },
+    {
+      "index": 539,
+      "start_time": 1494170.0,
+      "end_time": 1496170.0,
+      "text": "We then add to the score using the public"
+    },
+    {
+      "index": 540,
+      "start_time": 1496170.0,
+      "end_time": 1498170.0,
+      "text": "variable in the Score script"
+    },
+    {
+      "index": 541,
+      "start_time": 1498170.0,
+      "end_time": 1500749.0,
+      "text": "and we add some visual flare to the enemy&#39;s death"
+    },
+    {
+      "index": 542,
+      "start_time": 1500740.0,
+      "end_time": 1504444.0,
+      "text": "by adding torque to spin them as they die."
+    },
+    {
+      "index": 543,
+      "start_time": 1504450.0,
+      "end_time": 1506450.0,
+      "text": "Because we need the enemies to fall through the"
+    },
+    {
+      "index": 544,
+      "start_time": 1506450.0,
+      "end_time": 1508883.0,
+      "text": "environment and land in the river when they die"
+    },
+    {
+      "index": 545,
+      "start_time": 1508880.0,
+      "end_time": 1510880.0,
+      "text": "we find all colliders on the object"
+    },
+    {
+      "index": 546,
+      "start_time": 1510880.0,
+      "end_time": 1513588.0,
+      "text": "and set their IsTrigger parameter to true."
+    },
+    {
+      "index": 547,
+      "start_time": 1513590.0,
+      "end_time": 1515140.0,
+      "text": "This means that they will pass through the"
+    },
+    {
+      "index": 548,
+      "start_time": 1515140.0,
+      "end_time": 1517418.0,
+      "text": "environment colliders."
+    },
+    {
+      "index": 549,
+      "start_time": 1517420.0,
+      "end_time": 1520057.0,
+      "text": "We then choose from an array of death audio clips"
+    },
+    {
+      "index": 550,
+      "start_time": 1520050.0,
+      "end_time": 1522050.0,
+      "text": "and play one of them back, before creating"
+    },
+    {
+      "index": 551,
+      "start_time": 1522050.0,
+      "end_time": 1527872.0,
+      "text": "an instance of the Score animation we showed you earlier."
+    },
+    {
+      "index": 552,
+      "start_time": 1527880.0,
+      "end_time": 1529880.0,
+      "text": "To remove the dead enemy from the scene"
+    },
+    {
+      "index": 553,
+      "start_time": 1529880.0,
+      "end_time": 1531880.0,
+      "text": "we rely on the killTrigger object"
+    },
+    {
+      "index": 554,
+      "start_time": 1531880.0,
+      "end_time": 1534766.0,
+      "text": "It performs the same function as discussed earlier"
+    },
+    {
+      "index": 555,
+      "start_time": 1534760.0,
+      "end_time": 1536760.0,
+      "text": "as any non-player object touching it"
+    },
+    {
+      "index": 556,
+      "start_time": 1536760.0,
+      "end_time": 1539948.0,
+      "text": "will cause a splash animation and remove that object."
+    },
+    {
+      "index": 557,
+      "start_time": 1539950.0,
+      "end_time": 1541950.0,
+      "text": "The sound effect of them hitting the water is"
+    },
+    {
+      "index": 558,
+      "start_time": 1541950.0,
+      "end_time": 1543950.0,
+      "text": "an audio clip attached to the animated"
+    },
+    {
+      "index": 559,
+      "start_time": 1543950.0,
+      "end_time": 1545950.0,
+      "text": "splash which plays on awake"
+    },
+    {
+      "index": 560,
+      "start_time": 1545950.0,
+      "end_time": 1547950.0,
+      "text": "so that when we create an instance of the animated"
+    },
+    {
+      "index": 561,
+      "start_time": 1547950.0,
+      "end_time": 1555153.0,
+      "text": "object we hear the sound right away."
+    },
+    {
+      "index": 562,
+      "start_time": 1555150.0,
+      "end_time": 1557150.0,
+      "text": "To finish the game level re decorated the"
+    },
+    {
+      "index": 563,
+      "start_time": 1557150.0,
+      "end_time": 1559150.0,
+      "text": "background with a number of moving props"
+    },
+    {
+      "index": 564,
+      "start_time": 1559150.0,
+      "end_time": 1562299.0,
+      "text": "in order to make our game environment feel more dynamic."
+    },
+    {
+      "index": 565,
+      "start_time": 1562300.0,
+      "end_time": 1565701.0,
+      "text": "We added flying swans, plus buses and taxis that drive"
+    },
+    {
+      "index": 566,
+      "start_time": 1565700.0,
+      "end_time": 1567122.0,
+      "text": "along the river bank."
+    },
+    {
+      "index": 567,
+      "start_time": 1567120.0,
+      "end_time": 1570629.0,
+      "text": "First was the swan, which was created from a sprite sheet,"
+    },
+    {
+      "index": 568,
+      "start_time": 1570630.0,
+      "end_time": 1572630.0,
+      "text": "drawn in Photoshop and imported using"
+    },
+    {
+      "index": 569,
+      "start_time": 1572630.0,
+      "end_time": 1574630.0,
+      "text": "the Multiple Sprite Mode import setting"
+    },
+    {
+      "index": 570,
+      "start_time": 1574630.0,
+      "end_time": 1576047.0,
+      "text": "in the Inspector."
+    },
+    {
+      "index": 571,
+      "start_time": 1576050.0,
+      "end_time": 1578799.0,
+      "text": "By choosing this approach Unity automates choosing"
+    },
+    {
+      "index": 572,
+      "start_time": 1578800.0,
+      "end_time": 1580800.0,
+      "text": "each frame in the sheet and importing"
+    },
+    {
+      "index": 573,
+      "start_time": 1580800.0,
+      "end_time": 1582800.0,
+      "text": "it as a separate sprite under the parent"
+    },
+    {
+      "index": 574,
+      "start_time": 1582800.0,
+      "end_time": 1584579.0,
+      "text": "hierarchy of the asset."
+    },
+    {
+      "index": 575,
+      "start_time": 1584580.0,
+      "end_time": 1587280.0,
+      "text": "Because this is a linear set of animation frames"
+    },
+    {
+      "index": 576,
+      "start_time": 1587280.0,
+      "end_time": 1589280.0,
+      "text": "we could simply drag all of these sprites in to the"
+    },
+    {
+      "index": 577,
+      "start_time": 1589280.0,
+      "end_time": 1592347.0,
+      "text": "scene to let Unity animate them for us."
+    },
+    {
+      "index": 578,
+      "start_time": 1592350.0,
+      "end_time": 1595321.0,
+      "text": "Et voila, our animated swan is ready to add"
+    },
+    {
+      "index": 579,
+      "start_time": 1595320.0,
+      "end_time": 1597762.0,
+      "text": "as a background element."
+    },
+    {
+      "index": 580,
+      "start_time": 1597760.0,
+      "end_time": 1600166.0,
+      "text": "The swan was then given a rigidbody2D"
+    },
+    {
+      "index": 581,
+      "start_time": 1600170.0,
+      "end_time": 1602170.0,
+      "text": "so that we can use velocity to send it"
+    },
+    {
+      "index": 582,
+      "start_time": 1602170.0,
+      "end_time": 1603374.0,
+      "text": "across the screen."
+    },
+    {
+      "index": 583,
+      "start_time": 1603370.0,
+      "end_time": 1609258.0,
+      "text": "As with the bus and the cab, the swan is saved as a prefab."
+    },
+    {
+      "index": 584,
+      "start_time": 1609260.0,
+      "end_time": 1611260.0,
+      "text": "For the bus and taxi prefabs we"
+    },
+    {
+      "index": 585,
+      "start_time": 1611260.0,
+      "end_time": 1613260.0,
+      "text": "simply separated the bodies and wheels of"
+    },
+    {
+      "index": 586,
+      "start_time": 1613260.0,
+      "end_time": 1615260.0,
+      "text": "the vehicles in the sprite importer"
+    },
+    {
+      "index": 587,
+      "start_time": 1615260.0,
+      "end_time": 1618395.0,
+      "text": "and made a simple bobbing animation."
+    },
+    {
+      "index": 588,
+      "start_time": 1618390.0,
+      "end_time": 1620791.0,
+      "text": "Applying a 2d rigidbody to these as well,"
+    },
+    {
+      "index": 589,
+      "start_time": 1620790.0,
+      "end_time": 1622790.0,
+      "text": "we were able to drive them across the screen"
+    },
+    {
+      "index": 590,
+      "start_time": 1622790.0,
+      "end_time": 1627276.0,
+      "text": "using velocity."
+    },
+    {
+      "index": 591,
+      "start_time": 1627280.0,
+      "end_time": 1630272.0,
+      "text": "For all 3 props, the bus, taxi and the swan"
+    },
+    {
+      "index": 592,
+      "start_time": 1630270.0,
+      "end_time": 1632270.0,
+      "text": "we created a script we could reuse"
+    },
+    {
+      "index": 593,
+      "start_time": 1632270.0,
+      "end_time": 1634270.0,
+      "text": "which is in charge of spawning them."
+    },
+    {
+      "index": 594,
+      "start_time": 1634270.0,
+      "end_time": 1636615.0,
+      "text": "The BackgroundPropsSpawner script"
+    },
+    {
+      "index": 595,
+      "start_time": 1636620.0,
+      "end_time": 1639842.0,
+      "text": "also handles the frequency, a speed to give them"
+    },
+    {
+      "index": 596,
+      "start_time": 1639840.0,
+      "end_time": 1641840.0,
+      "text": "and where on screen to spawn them."
+    },
+    {
+      "index": 597,
+      "start_time": 1641840.0,
+      "end_time": 1644523.0,
+      "text": "This meant that we could make 3 creator objects"
+    },
+    {
+      "index": 598,
+      "start_time": 1644520.0,
+      "end_time": 1646520.0,
+      "text": "with the same script on."
+    },
+    {
+      "index": 599,
+      "start_time": 1646520.0,
+      "end_time": 1648520.0,
+      "text": "Changing which prefab will be spawned"
+    },
+    {
+      "index": 600,
+      "start_time": 1648520.0,
+      "end_time": 1650520.0,
+      "text": "and what properties to give it."
+    },
+    {
+      "index": 601,
+      "start_time": 1650520.0,
+      "end_time": 1653853.0,
+      "text": "Take a look at the comments in the script to learn more."
+    },
+    {
+      "index": 602,
+      "start_time": 1653850.0,
+      "end_time": 1656168.0,
+      "text": "Finally, for more background dynamism,"
+    },
+    {
+      "index": 603,
+      "start_time": 1656170.0,
+      "end_time": 1661321.0,
+      "text": "we added rolling clouds, panning river details and fog."
+    },
+    {
+      "index": 604,
+      "start_time": 1661320.0,
+      "end_time": 1664522.0,
+      "text": "We did this by adding 2 instances of the background sprite"
+    },
+    {
+      "index": 605,
+      "start_time": 1664530.0,
+      "end_time": 1668009.0,
+      "text": "to a parent object and simply used animation to slowly"
+    },
+    {
+      "index": 606,
+      "start_time": 1668000.0,
+      "end_time": 1670000.0,
+      "text": "pan them across the screen."
+    },
+    {
+      "index": 607,
+      "start_time": 1670000.0,
+      "end_time": 1672648.0,
+      "text": "Because this animation loops our animation will"
+    },
+    {
+      "index": 608,
+      "start_time": 1672650.0,
+      "end_time": 1679183.0,
+      "text": "continue indefinitely."
+    },
+    {
+      "index": 609,
+      "start_time": 1679190.0,
+      "end_time": 1681036.0,
+      "text": "And that&#39;s how we made our game."
+    },
+    {
+      "index": 610,
+      "start_time": 1681030.0,
+      "end_time": 1683030.0,
+      "text": "We hope this overview has given you some idea of"
+    },
+    {
+      "index": 611,
+      "start_time": 1683030.0,
+      "end_time": 1685515.0,
+      "text": "how we create 2D games in Unity,"
+    },
+    {
+      "index": 612,
+      "start_time": 1685520.0,
+      "end_time": 1687520.0,
+      "text": "and we&#39;ll be creating more simply projects and"
+    },
+    {
+      "index": 613,
+      "start_time": 1687520.0,
+      "end_time": 1688975.0,
+      "text": "tutorials in the future."
+    },
+    {
+      "index": 614,
+      "start_time": 1688970.0,
+      "end_time": 1691688.0,
+      "text": "We look forward to your feedback on Unity4.3"
+    },
+    {
+      "index": 615,
+      "start_time": 1691690.0,
+      "end_time": 1693690.0,
+      "text": "and we can&#39;t wait to see the great 2D titles"
+    },
+    {
+      "index": 616,
+      "start_time": 1693690.0,
+      "end_time": 1694960.0,
+      "text": "that you&#39;ll come up with."
+    },
+    {
+      "index": 617,
+      "start_time": 1694960.0,
+      "end_time": 1704960.0,
+      "text": "Thanks for watching."
+    }
+  ]
+}

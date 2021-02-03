@@ -1,0 +1,1446 @@
+{
+  "video_id": "BBF3ZMi8WK4",
+  "title": "Embedded Programming Lesson 19: GNU-ARM and Eclipse",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3090.0,
+      "end_time": 8550.0,
+      "text": "Welcome to the Modern Embedded Systems Programming course. My name is Miro Samek and in this"
+    },
+    {
+      "index": 2,
+      "start_time": 8550.0,
+      "end_time": 13420.0,
+      "text": "lesson I have decided to finally give in to the popular demand and switch the development"
+    },
+    {
+      "index": 3,
+      "start_time": 13420.0,
+      "end_time": 19860.0,
+      "text": "toolset from IAR to the free and unlimited GNU-ARM compiler and the Eclipse-based Integrated"
+    },
+    {
+      "index": 4,
+      "start_time": 19860.0,
+      "end_time": 24000.0,
+      "text": "Development Environment."
+    },
+    {
+      "index": 5,
+      "start_time": 24000.0,
+      "end_time": 28109.0,
+      "text": "The switch of the toolset is actually a good opportunity to review the code and to see"
+    },
+    {
+      "index": 6,
+      "start_time": 28109.0,
+      "end_time": 33280.0,
+      "text": "what \"code portability\" means in practice. As you will see, much of the code you've written"
+    },
+    {
+      "index": 7,
+      "start_time": 33280.0,
+      "end_time": 38390.0,
+      "text": "so far will work with GNU-ARM without any changes, mostly due to the compliance with"
+    },
+    {
+      "index": 8,
+      "start_time": 38390.0,
+      "end_time": 45040.0,
+      "text": "the Cortex Microcontroller Software Interface Standard (CMSIS). However, a few IAR-specific"
+    },
+    {
+      "index": 9,
+      "start_time": 45040.0,
+      "end_time": 49309.0,
+      "text": "extensions in the startup code as well as board-support package will have to be replaced"
+    },
+    {
+      "index": 10,
+      "start_time": 49309.0,
+      "end_time": 51600.0,
+      "text": "with the GNU compiler equivalents."
+    },
+    {
+      "index": 11,
+      "start_time": 51600.0,
+      "end_time": 57620.0,
+      "text": "So, today let's start with downloading and installing a development toolset for GNU-ARM."
+    },
+    {
+      "index": 12,
+      "start_time": 57620.0,
+      "end_time": 62940.0,
+      "text": "Actually, there are many choices of such toolsets, but you need to look for a toolset that supports"
+    },
+    {
+      "index": 13,
+      "start_time": 62940.0,
+      "end_time": 68719.0,
+      "text": "your board. Here, the most important factor is the support for the specific debugger interface,"
+    },
+    {
+      "index": 14,
+      "start_time": 68719.0,
+      "end_time": 76310.0,
+      "text": "which in case of the TivaC LaunchPad board is the Stellaris-ICDI."
+    },
+    {
+      "index": 15,
+      "start_time": 76310.0,
+      "end_time": 82579.0,
+      "text": "Since the board comes from Texas Instruments, the logical place to look is the TI.com website,"
+    },
+    {
+      "index": 16,
+      "start_time": 82579.0,
+      "end_time": 87639.0,
+      "text": "where indeed you can find the toolset called Code Composer Studio (CCS)."
+    },
+    {
+      "index": 17,
+      "start_time": 87639.0,
+      "end_time": 92889.0,
+      "text": "As usual these days, instead of giving you a specific fixed URL for downloading CCS,"
+    },
+    {
+      "index": 18,
+      "start_time": 92889.0,
+      "end_time": 103659.0,
+      "text": "which most likely won't work in a few weeks from now, I recommend using the search box."
+    },
+    {
+      "index": 19,
+      "start_time": 103659.0,
+      "end_time": 114270.0,
+      "text": "So, when you search for CCS, you quickly find the right web-page."
+    },
+    {
+      "index": 20,
+      "start_time": 114270.0,
+      "end_time": 119559.0,
+      "text": "In the download section, you can read that the CCS tool can be used for free with no"
+    },
+    {
+      "index": 21,
+      "start_time": 119559.0,
+      "end_time": 126200.0,
+      "text": "limits with the GNU-GCC toolset."
+    },
+    {
+      "index": 22,
+      "start_time": 126200.0,
+      "end_time": 130229.0,
+      "text": "Click on the Windows download, which will lead you to the registration page and some"
+    },
+    {
+      "index": 23,
+      "start_time": 130229.00000000001,
+      "end_time": 135519.0,
+      "text": "more forms to fill to comply with the export control regulations."
+    },
+    {
+      "index": 24,
+      "start_time": 135519.0,
+      "end_time": 144069.0,
+      "text": "Eventually, however, you should be able to download the CCS setup program for windows."
+    },
+    {
+      "index": 25,
+      "start_time": 144069.0,
+      "end_time": 148040.0,
+      "text": "You need to launch it and agree to the licensing terms."
+    },
+    {
+      "index": 26,
+      "start_time": 148040.0,
+      "end_time": 152689.0,
+      "text": "In the next step you can choose the installation directory. You can leave the default, or choose"
+    },
+    {
+      "index": 27,
+      "start_time": 152689.0,
+      "end_time": 157140.0,
+      "text": "your own destination, but I would strongly recommend against using directory names with"
+    },
+    {
+      "index": 28,
+      "start_time": 157140.0,
+      "end_time": 162540.0,
+      "text": "spaces or any non-standard characters."
+    },
+    {
+      "index": 29,
+      "start_time": 162540.0,
+      "end_time": 168480.0,
+      "text": "The following step allows you to choose the CCS components. Here you need to expand the"
+    },
+    {
+      "index": 30,
+      "start_time": 168480.0,
+      "end_time": 174469.0,
+      "text": "32-bit ARM MCUs and select the Tiva-C Series support. Also, you need to explicitly select"
+    },
+    {
+      "index": 31,
+      "start_time": 174469.0,
+      "end_time": 182579.0,
+      "text": "the GCC ARM Compiler."
+    },
+    {
+      "index": 32,
+      "start_time": 182579.0,
+      "end_time": 188159.0,
+      "text": "You don't need to make any more choices, so finally click Finish to start the installation,"
+    },
+    {
+      "index": 33,
+      "start_time": 188159.0,
+      "end_time": 193319.0,
+      "text": "which can take a couple of minutes."
+    },
+    {
+      "index": 34,
+      "start_time": 193319.0,
+      "end_time": 198879.0,
+      "text": "When you launch Code Composer Studio, it will ask you for the location of the \"workspace\"."
+    },
+    {
+      "index": 35,
+      "start_time": 198879.0,
+      "end_time": 203859.0,
+      "text": "The concept of a \"workspace\" is common in all toolsets based on Eclipse and is intended"
+    },
+    {
+      "index": 36,
+      "start_time": 203859.0,
+      "end_time": 207159.0,
+      "text": "to group together related projects."
+    },
+    {
+      "index": 37,
+      "start_time": 207159.0,
+      "end_time": 212670.0,
+      "text": "From what I see, most people tend to use one default workspace for everything they do,"
+    },
+    {
+      "index": 38,
+      "start_time": 212670.0,
+      "end_time": 218510.0,
+      "text": "but I recommend that you use separate workspaces for your different project groups. Specifically,"
+    },
+    {
+      "index": 39,
+      "start_time": 218510.0,
+      "end_time": 225730.0,
+      "text": "I recommend that you use a dedicated workspace for this Embedded Programming Course."
+    },
+    {
+      "index": 40,
+      "start_time": 225730.0,
+      "end_time": 230889.0,
+      "text": "Since I keep all the projects for this course in the directory \"embedded_programming\", I"
+    },
+    {
+      "index": 41,
+      "start_time": 230889.0,
+      "end_time": 241749.0,
+      "text": "also create the CCS workspace there, in the \"ccs\" subdirectory."
+    },
+    {
+      "index": 42,
+      "start_time": 241749.0,
+      "end_time": 247430.0,
+      "text": "So finally you are ready to create your first project. This part is specific to this particular"
+    },
+    {
+      "index": 43,
+      "start_time": 247430.0,
+      "end_time": 253049.0,
+      "text": "re-packaging of Eclipse as Code Composer Studio, but the general process is similar in all"
+    },
+    {
+      "index": 44,
+      "start_time": 253049.0,
+      "end_time": 258090.0,
+      "text": "Eclipse based Integrated Development Environments."
+    },
+    {
+      "index": 45,
+      "start_time": 258089.99999999997,
+      "end_time": 263180.0,
+      "text": "The first selection you make for a new project is the embedded target. Here you need to choose"
+    },
+    {
+      "index": 46,
+      "start_time": 263180.0,
+      "end_time": 270110.0,
+      "text": "the Tiva-C family and the specific TM4C MCU within the family that is soldered on your"
+    },
+    {
+      "index": 47,
+      "start_time": 270110.0,
+      "end_time": 272590.0,
+      "text": "TivaC LaunchPad board."
+    },
+    {
+      "index": 48,
+      "start_time": 272590.0,
+      "end_time": 280780.0,
+      "text": "Next, you choose the connection to the target, which in case of your LanchPad is the Stellaris-ICDI."
+    },
+    {
+      "index": 49,
+      "start_time": 280780.0,
+      "end_time": 284930.0,
+      "text": "Please note that the support for this particular debugger interface was the primary reason"
+    },
+    {
+      "index": 50,
+      "start_time": 284930.0,
+      "end_time": 291690.0,
+      "text": "you selected the CCS toolset in the first place."
+    },
+    {
+      "index": 51,
+      "start_time": 291690.0,
+      "end_time": 297120.0,
+      "text": "In the next step, you need to name the project. Here, I suggest a generic name \"lesson\" for"
+    },
+    {
+      "index": 52,
+      "start_time": 297120.0,
+      "end_time": 302050.0,
+      "text": "projects belonging to this Embedded Programming Course. This name will be fitting for all"
+    },
+    {
+      "index": 53,
+      "start_time": 302050.0,
+      "end_time": 306650.0,
+      "text": "upcoming lessons, because you will simply clone this original project instead of creating"
+    },
+    {
+      "index": 54,
+      "start_time": 306650.0,
+      "end_time": 310590.0,
+      "text": "a new project from scratch each time."
+    },
+    {
+      "index": 55,
+      "start_time": 310590.0,
+      "end_time": 314870.0,
+      "text": "For the same reason, you also cannot create the project in the default location inside"
+    },
+    {
+      "index": 56,
+      "start_time": 314870.0,
+      "end_time": 319750.0,
+      "text": "the workspace directory. Instead, you create the project in the directory where you keep"
+    },
+    {
+      "index": 57,
+      "start_time": 319750.0,
+      "end_time": 325150.0,
+      "text": "all previous lessons. On my machine this is \"embedded_programming\", but it can be different"
+    },
+    {
+      "index": 58,
+      "start_time": 325150.0,
+      "end_time": 329229.0,
+      "text": "on your computer."
+    },
+    {
+      "index": 59,
+      "start_time": 329229.0,
+      "end_time": 334110.0,
+      "text": "To finish with the project location, you need to add the lesson19 sub-directory for this"
+    },
+    {
+      "index": 60,
+      "start_time": 334110.0,
+      "end_time": 336150.0,
+      "text": "particular project"
+    },
+    {
+      "index": 61,
+      "start_time": 336150.0,
+      "end_time": 340910.0,
+      "text": "The next and final step is critical. Here, you need to select the GNU toolset instead"
+    },
+    {
+      "index": 62,
+      "start_time": 340910.0,
+      "end_time": 349080.0,
+      "text": "of the default TI compiler for ARM."
+    },
+    {
+      "index": 63,
+      "start_time": 349080.0,
+      "end_time": 354870.0,
+      "text": "When you click Finish, CCS will create your \"lesson\" project in the workspace and in the"
+    },
+    {
+      "index": 64,
+      "start_time": 354870.0,
+      "end_time": 358360.0,
+      "text": "\"lesson19\" directory on disk."
+    },
+    {
+      "index": 65,
+      "start_time": 358360.0,
+      "end_time": 362970.0,
+      "text": "You can build the project by clicking on the hammer button at the top. As you can see,"
+    },
+    {
+      "index": 66,
+      "start_time": 362970.0,
+      "end_time": 366460.0,
+      "text": "the build process succeeds with 0 problems."
+    },
+    {
+      "index": 67,
+      "start_time": 366460.0,
+      "end_time": 372220.0,
+      "text": "So, let's take a quick look at the code that CCS has generated for this project."
+    },
+    {
+      "index": 68,
+      "start_time": 372220.0,
+      "end_time": 377129.0,
+      "text": "First, you get the main.c file with the empty main() function."
+    },
+    {
+      "index": 69,
+      "start_time": 377129.0,
+      "end_time": 383370.0,
+      "text": "Second, is the startup code, which is very typical for code supplied by silicon vendors."
+    },
+    {
+      "index": 70,
+      "start_time": 383370.0,
+      "end_time": 389220.0,
+      "text": "Unfortunately, it has all the shortcomings that I've covered in lessons 13, 14, and 15."
+    },
+    {
+      "index": 71,
+      "start_time": 389220.0,
+      "end_time": 394949.0,
+      "text": "For starters, this startup code uses proprietary exception names that are not compliant with"
+    },
+    {
+      "index": 72,
+      "start_time": 394949.0,
+      "end_time": 396389.0,
+      "text": "CMSIS."
+    },
+    {
+      "index": 73,
+      "start_time": 396389.0,
+      "end_time": 402330.0,
+      "text": "Also, the vector table requires editing every time you start or stop using a given interrupt"
+    },
+    {
+      "index": 74,
+      "start_time": 402330.0,
+      "end_time": 407930.0,
+      "text": "handler. For example, to use the SysTick_Handler interrupt, you would need to modify the appropriate"
+    },
+    {
+      "index": 75,
+      "start_time": 407930.0,
+      "end_time": 412699.0,
+      "text": "entry in the vector table, and you would also need to declare a prototype of the handler"
+    },
+    {
+      "index": 76,
+      "start_time": 412699.0,
+      "end_time": 420840.0,
+      "text": "at the top of the file."
+    },
+    {
+      "index": 77,
+      "start_time": 420840.0,
+      "end_time": 426210.0,
+      "text": "And finally, the provided implementation of the exception handlers contains endless loops"
+    },
+    {
+      "index": 78,
+      "start_time": 426210.0,
+      "end_time": 432210.0,
+      "text": "that tie up the CPU. In other words, if any of such exception handler is ever executed,"
+    },
+    {
+      "index": 79,
+      "start_time": 432210.0,
+      "end_time": 437770.0,
+      "text": "the system will freeze, which the user will perceive as denial of service. This is not"
+    },
+    {
+      "index": 80,
+      "start_time": 437770.0,
+      "end_time": 443530.0,
+      "text": "acceptable in any production-grade code."
+    },
+    {
+      "index": 81,
+      "start_time": 443530.0,
+      "end_time": 448659.0,
+      "text": "The generated code also contains the file with the extension .lds, which is the linker"
+    },
+    {
+      "index": 82,
+      "start_time": 448659.0,
+      "end_time": 453909.0,
+      "text": "script. The purpose of this file is to tell the linker where ROM and RAM are located in"
+    },
+    {
+      "index": 83,
+      "start_time": 453909.0,
+      "end_time": 459280.0,
+      "text": "the address space and where to place various program sections. You saw an example of a"
+    },
+    {
+      "index": 84,
+      "start_time": 459280.0,
+      "end_time": 464460.0,
+      "text": "linker script for the IAR toolset in lesson 14. Here you have a linker script for the"
+    },
+    {
+      "index": 85,
+      "start_time": 464460.0,
+      "end_time": 466150.0,
+      "text": "GNU toolset."
+    },
+    {
+      "index": 86,
+      "start_time": 466150.0,
+      "end_time": 470259.0,
+      "text": "This is again a beaten-path linker script, which matches the startup code."
+    },
+    {
+      "index": 87,
+      "start_time": 470259.0,
+      "end_time": 476210.0,
+      "text": "Among others, it allocates the stack as the last section in RAM. In my opinion this is"
+    },
+    {
+      "index": 88,
+      "start_time": 476210.0,
+      "end_time": 482030.0,
+      "text": "a mistake, because stack grows toward the lower addresses on ARM, and so a stack overflow"
+    },
+    {
+      "index": 89,
+      "start_time": 482030.0,
+      "end_time": 487280.0,
+      "text": "could damage the RAM sections above it. In fact, this seems the likely cause of failure"
+    },
+    {
+      "index": 90,
+      "start_time": 487280.0,
+      "end_time": 492469.0,
+      "text": "in the infamous Toyota unintended acceleration cases, as I have described in the article"
+    },
+    {
+      "index": 91,
+      "start_time": 492469.0,
+      "end_time": 497340.0,
+      "text": "\"Are we shooting ourselves in the foot with stack overflow?\". I provide a link to this"
+    },
+    {
+      "index": 92,
+      "start_time": 497340.0,
+      "end_time": 501560.0,
+      "text": "article in the comment section for this video."
+    },
+    {
+      "index": 93,
+      "start_time": 501560.0,
+      "end_time": 509199.0,
+      "text": "So, it seems that the code generated by CCS is not terribly usable, but the good news"
+    },
+    {
+      "index": 94,
+      "start_time": 509199.0,
+      "end_time": 514740.0,
+      "text": "is that you can fix all the issues in it by applying the lessons you've learned so far."
+    },
+    {
+      "index": 95,
+      "start_time": 514740.0,
+      "end_time": 520610.0,
+      "text": "The first thing then is to copy all the relevant code from the previous lesson18 to the lesson19"
+    },
+    {
+      "index": 96,
+      "start_time": 520610.0,
+      "end_time": 528380.0,
+      "text": "folder. The usable files are: bsp.h, bsp.c, main.c, startup_tm4c.c, and the master header"
+    },
+    {
+      "index": 97,
+      "start_time": 528380.0,
+      "end_time": 534900.0,
+      "text": "file for your TM4C MCU."
+    },
+    {
+      "index": 98,
+      "start_time": 534900.0,
+      "end_time": 542710.0,
+      "text": "Interestingly, the files copied to the lesson19 folder immediately show up inside your project."
+    },
+    {
+      "index": 99,
+      "start_time": 542710.0,
+      "end_time": 547570.0,
+      "text": "This is how all Eclipse projects behave. All source files in the project directory are"
+    },
+    {
+      "index": 100,
+      "start_time": 547570.0,
+      "end_time": 552450.0,
+      "text": "automatically included in the project and you don't need to explicitly add them as it"
+    },
+    {
+      "index": 101,
+      "start_time": 552450.0,
+      "end_time": 556670.0,
+      "text": "was the case in the IAR Embedded Workbench IDE."
+    },
+    {
+      "index": 102,
+      "start_time": 556670.0,
+      "end_time": 560410.0,
+      "text": "This Eclipse policy has its disadvantages too, however."
+    },
+    {
+      "index": 103,
+      "start_time": 560410.0,
+      "end_time": 565070.0,
+      "text": "For example, now you have two startup files in the project, so you need to delete one"
+    },
+    {
+      "index": 104,
+      "start_time": 565070.0,
+      "end_time": 572360.0,
+      "text": "of them."
+    },
+    {
+      "index": 105,
+      "start_time": 572360.0,
+      "end_time": 577270.0,
+      "text": "So let's try to build this project."
+    },
+    {
+      "index": 106,
+      "start_time": 577270.0,
+      "end_time": 579980.0,
+      "text": "This time you get some errors."
+    },
+    {
+      "index": 107,
+      "start_time": 579980.0,
+      "end_time": 586910.0,
+      "text": "The first error is that the compiler cannot find the include file \"core_cm4.h\". This file"
+    },
+    {
+      "index": 108,
+      "start_time": 586910.0,
+      "end_time": 592090.0,
+      "text": "is part of the CMSIS, which is not directly available in Code Composer Studio, as it was"
+    },
+    {
+      "index": 109,
+      "start_time": 592090.0,
+      "end_time": 594770.0,
+      "text": "in IAR Embedded Workbench."
+    },
+    {
+      "index": 110,
+      "start_time": 594770.0,
+      "end_time": 599310.0,
+      "text": "This is not a big problem, as you can easily provide CMSIS yourself."
+    },
+    {
+      "index": 111,
+      "start_time": 599310.0,
+      "end_time": 604950.0,
+      "text": "Here, I have prepared for you a directory CMSIS, which contains the core header files"
+    },
+    {
+      "index": 112,
+      "start_time": 604950.0,
+      "end_time": 610270.0,
+      "text": "in the sub-directory Include."
+    },
+    {
+      "index": 113,
+      "start_time": 610270.0,
+      "end_time": 614190.0,
+      "text": "You should copy the CMIS directory into the folder where you keep the lessons of this"
+    },
+    {
+      "index": 114,
+      "start_time": 614190.0,
+      "end_time": 621080.0,
+      "text": "video course. That way you can re-use CMSIS in all upcoming lessons."
+    },
+    {
+      "index": 115,
+      "start_time": 621080.0,
+      "end_time": 626030.0,
+      "text": "Of course copying a directory is not enough, because you also need to tell the compiler"
+    },
+    {
+      "index": 116,
+      "start_time": 626030.0,
+      "end_time": 631370.0,
+      "text": "to look for include files in this new directory CMSIS/Include."
+    },
+    {
+      "index": 117,
+      "start_time": 631370.0,
+      "end_time": 637170.0,
+      "text": "You accomplish this by means of the project Properties dialog box, which you open by right-clicking"
+    },
+    {
+      "index": 118,
+      "start_time": 637170.0,
+      "end_time": 642280.0,
+      "text": "on the project and selecting the Properties pop-up menu."
+    },
+    {
+      "index": 119,
+      "start_time": 642280.0,
+      "end_time": 648360.0,
+      "text": "Specifically, you need to choose the Directories property in the GNU Compiler group, where"
+    },
+    {
+      "index": 120,
+      "start_time": 648360.0,
+      "end_time": 652630.0,
+      "text": "you find the \"include paths\" pane."
+    },
+    {
+      "index": 121,
+      "start_time": 652630.0,
+      "end_time": 658340.0,
+      "text": "To add a new include directory, click on the plus button."
+    },
+    {
+      "index": 122,
+      "start_time": 658340.0,
+      "end_time": 671610.0,
+      "text": "The first, easy way is to simply browse your file system for the CMSIS/Include directory."
+    },
+    {
+      "index": 123,
+      "start_time": 671610.0,
+      "end_time": 676570.0,
+      "text": "But the big drawback of doing this is that you add an *absolute* include path, which"
+    },
+    {
+      "index": 124,
+      "start_time": 676570.0,
+      "end_time": 681490.0,
+      "text": "will only work on your computer with this specific C:\\\\embedded_programming\\\\CMSIS directory."
+    },
+    {
+      "index": 125,
+      "start_time": 681490.0,
+      "end_time": 689370.0,
+      "text": "A much better approach is to create a *relative* include path, which will work on any computer."
+    },
+    {
+      "index": 126,
+      "start_time": 689370.0,
+      "end_time": 696940.0,
+      "text": "The Eclipse IDE allows you to create relative paths by means of system variables. Specifically,"
+    },
+    {
+      "index": 127,
+      "start_time": 696940.0,
+      "end_time": 703450.0,
+      "text": "in the list of these variables, you can choose PROJECT_LOC, which will create paths relative"
+    },
+    {
+      "index": 128,
+      "start_time": 703450.0,
+      "end_time": 708340.0,
+      "text": "to the project location."
+    },
+    {
+      "index": 129,
+      "start_time": 708340.0,
+      "end_time": 716090.0,
+      "text": "From the project location, you need to go one level up, and then you append CMSIS/Include."
+    },
+    {
+      "index": 130,
+      "start_time": 716090.0,
+      "end_time": 721110.0,
+      "text": "Regarding the use of directory separators, on Windows you can use either back-slashes"
+    },
+    {
+      "index": 131,
+      "start_time": 721110.0,
+      "end_time": 732380.0,
+      "text": "or forward-slashes. I use forward-slashes, because they seem more universal."
+    },
+    {
+      "index": 132,
+      "start_time": 732380.0,
+      "end_time": 737010.0,
+      "text": "When you build again, you see that the previous include error is gone, but you got a bunch"
+    },
+    {
+      "index": 133,
+      "start_time": 737010.0,
+      "end_time": 745210.0,
+      "text": "of new errors."
+    },
+    {
+      "index": 134,
+      "start_time": 745210.0,
+      "end_time": 750500.0,
+      "text": "As it turns out, most of these new errors come from the startup code. This should not"
+    },
+    {
+      "index": 135,
+      "start_time": 750500.0,
+      "end_time": 755210.0,
+      "text": "be actually that surprising, because this code was written with IAR-specific extensions"
+    },
+    {
+      "index": 136,
+      "start_time": 755210.0,
+      "end_time": 759790.0,
+      "text": "to the C language, which the GNU compiler does not recognize."
+    },
+    {
+      "index": 137,
+      "start_time": 759790.0,
+      "end_time": 765510.0,
+      "text": "So, here I have prepared for you the startup code, which was re-written with the GNU-specific"
+    },
+    {
+      "index": 138,
+      "start_time": 765510.0,
+      "end_time": 768210.0,
+      "text": "extensions to the C language."
+    },
+    {
+      "index": 139,
+      "start_time": 768210.0,
+      "end_time": 773190.0,
+      "text": "As you will see in a minute, the startup code must closely match the linker script, so I"
+    },
+    {
+      "index": 140,
+      "start_time": 773190.0,
+      "end_time": 776600.0,
+      "text": "included a matching linker script as well."
+    },
+    {
+      "index": 141,
+      "start_time": 776600.0,
+      "end_time": 781330.0,
+      "text": "To include these files in the project is simply copy them over to the lesson19 directory."
+    },
+    {
+      "index": 142,
+      "start_time": 781330.0,
+      "end_time": 786220.0,
+      "text": "I need to allow overwriting the previous linker script and I also need to remove the previous"
+    },
+    {
+      "index": 143,
+      "start_time": 786220.0,
+      "end_time": 791330.0,
+      "text": "startup code."
+    },
+    {
+      "index": 144,
+      "start_time": 791330.0,
+      "end_time": 796300.0,
+      "text": "When you switch over to the Eclipse IDE, you can see that the project is immediately updated"
+    },
+    {
+      "index": 145,
+      "start_time": 796300.0,
+      "end_time": 799440.0,
+      "text": "with the new files."
+    },
+    {
+      "index": 146,
+      "start_time": 799440.0,
+      "end_time": 802870.0,
+      "text": "Let's quickly review the code, so that you know how it works."
+    },
+    {
+      "index": 147,
+      "start_time": 802870.0,
+      "end_time": 807920.0,
+      "text": "First, in contrast to the old file, the new GNU-specific startup code is compliant with"
+    },
+    {
+      "index": 148,
+      "start_time": 807920.0,
+      "end_time": 811760.0,
+      "text": "the latest CMSIS 4.3.0."
+    },
+    {
+      "index": 149,
+      "start_time": 811760.0,
+      "end_time": 817760.0,
+      "text": "When you scroll down to the vector table, you can see that it has a special attribute"
+    },
+    {
+      "index": 150,
+      "start_time": 817760.0,
+      "end_time": 824580.0,
+      "text": "section(.isr_vector). This is a GNU-specific extension, which tells the compiler to place"
+    },
+    {
+      "index": 151,
+      "start_time": 824580.0,
+      "end_time": 830860.0,
+      "text": "the following symbol--the vector table in this case--in the specified section."
+    },
+    {
+      "index": 152,
+      "start_time": 830860.0,
+      "end_time": 838760.0,
+      "text": "To see where this section is, you can open the new GNU linker script, where you can see"
+    },
+    {
+      "index": 153,
+      "start_time": 838760.0,
+      "end_time": 844550.0,
+      "text": "that .isr_vector is the first section in ROM."
+    },
+    {
+      "index": 154,
+      "start_time": 844550.0,
+      "end_time": 850450.0,
+      "text": "The ROM section, in turn, is located at address 0, so the vector table at the beginning of"
+    },
+    {
+      "index": 155,
+      "start_time": 850450.0,
+      "end_time": 856220.0,
+      "text": "ROM is also at zero, which is exactly what the ARM CPU needs."
+    },
+    {
+      "index": 156,
+      "start_time": 856220.0,
+      "end_time": 860950.0,
+      "text": "As you hopefully remember from lesson-15, the first element of the ARM vector table"
+    },
+    {
+      "index": 157,
+      "start_time": 860950.0,
+      "end_time": 868750.0,
+      "text": "is the initial top of stack. So, here you see an ampersand, meaning address of, __stack_end__"
+    },
+    {
+      "index": 158,
+      "start_time": 868750.0,
+      "end_time": 872360.0,
+      "text": "cast on an int."
+    },
+    {
+      "index": 159,
+      "start_time": 872360.0,
+      "end_time": 877720.0,
+      "text": "The symbol __stack_end__ comes again from the linker script. Indeed, when you scroll"
+    },
+    {
+      "index": 160,
+      "start_time": 877720.0,
+      "end_time": 887040.0,
+      "text": "a bit down, you can see the .stack section as the first section in RAM."
+    },
+    {
+      "index": 161,
+      "start_time": 887040.0,
+      "end_time": 892490.0,
+      "text": "Contrary to the beaten-path approach of putting the stack at the last section in RAM, I recommend"
+    },
+    {
+      "index": 162,
+      "start_time": 892490.0,
+      "end_time": 897990.0,
+      "text": "placing it at the first section. That way, a stack overflow won't be able to damage any"
+    },
+    {
+      "index": 163,
+      "start_time": 897990.0,
+      "end_time": 904700.0,
+      "text": "other RAM sections. As an additional bonus, a stack overflowing into the un-mapped memory"
+    },
+    {
+      "index": 164,
+      "start_time": 904700.0,
+      "end_time": 910320.0,
+      "text": "below RAM will be detected automatically by executing the HardFault exception, so you"
+    },
+    {
+      "index": 165,
+      "start_time": 910320.0,
+      "end_time": 912510.0,
+      "text": "will know about it."
+    },
+    {
+      "index": 166,
+      "start_time": 912510.0,
+      "end_time": 917570.0,
+      "text": "Speaking of the stack, you can change its size by adjusting the symbol STACK_SIZE at"
+    },
+    {
+      "index": 167,
+      "start_time": 917570.0,
+      "end_time": 922640.0,
+      "text": "the top of the linker script."
+    },
+    {
+      "index": 168,
+      "start_time": 922640.0,
+      "end_time": 928320.0,
+      "text": "Going back to the startup code, the symbol __stack_end__ is provided by the linker, but"
+    },
+    {
+      "index": 169,
+      "start_time": 928320.0,
+      "end_time": 934940.0,
+      "text": "the compiler does not know about it. To tell the compiler, you need to declare __stack_end__"
+    },
+    {
+      "index": 170,
+      "start_time": 934940.0,
+      "end_time": 944140.0,
+      "text": "as an external variable at the top of the startup file."
+    },
+    {
+      "index": 171,
+      "start_time": 944140.0,
+      "end_time": 948640.0,
+      "text": "The other elements of the vector table are addresses of handler functions for Cortex-M"
+    },
+    {
+      "index": 172,
+      "start_time": 948640.0,
+      "end_time": 954440.0,
+      "text": "exceptions and interrupts. As you can see, the table already contains all the specific"
+    },
+    {
+      "index": 173,
+      "start_time": 954440.0,
+      "end_time": 960080.0,
+      "text": "handlers, with names compliant with CMSIS, so you don't need to edit the code at all"
+    },
+    {
+      "index": 174,
+      "start_time": 960080.0,
+      "end_time": 963910.0,
+      "text": "to use any of these exceptions or interrupts."
+    },
+    {
+      "index": 175,
+      "start_time": 963910.0,
+      "end_time": 968730.0,
+      "text": "At the same time, if you don't use a given exception or interrupt, it will be automatically"
+    },
+    {
+      "index": 176,
+      "start_time": 968730.0,
+      "end_time": 972680.0,
+      "text": "replaced by the Default_Handler implementation."
+    },
+    {
+      "index": 177,
+      "start_time": 972680.0,
+      "end_time": 981000.0,
+      "text": "This is accomplished by means of a pair of GNU-specific attributes weak and alias."
+    },
+    {
+      "index": 178,
+      "start_time": 981000.0,
+      "end_time": 989630.0,
+      "text": "The weak attribute means that such a symbol definition can be overridden by another definition"
+    },
+    {
+      "index": 179,
+      "start_time": 989630.0,
+      "end_time": 994360.0,
+      "text": "and the linker will quietly discard the weak definition without reporting that the symbol"
+    },
+    {
+      "index": 180,
+      "start_time": 994360.0,
+      "end_time": 996130.0,
+      "text": "was defined twice."
+    },
+    {
+      "index": 181,
+      "start_time": 996130.0,
+      "end_time": 1001550.0,
+      "text": "The alias attribute means that if the symbol is not defined, the alias symbol should be"
+    },
+    {
+      "index": 182,
+      "start_time": 1001550.0,
+      "end_time": 1002850.0,
+      "text": "used instead."
+    },
+    {
+      "index": 183,
+      "start_time": 1002850.0,
+      "end_time": 1008200.0,
+      "text": "So, for example, if you define the SysTick_Handler in your application, the linker will take"
+    },
+    {
+      "index": 184,
+      "start_time": 1008200.0,
+      "end_time": 1014440.0,
+      "text": "your non-weak definition. If you don't define SysTick_Hanler, the linker will take the Default_Handler"
+    },
+    {
+      "index": 185,
+      "start_time": 1014440.0,
+      "end_time": 1019010.0,
+      "text": "alias for it and will not report any errors."
+    },
+    {
+      "index": 186,
+      "start_time": 1019010.0,
+      "end_time": 1023940.0,
+      "text": "Notice though that not all handlers are aliased. This is because the standard fault handlers"
+    },
+    {
+      "index": 187,
+      "start_time": 1023940.0,
+      "end_time": 1028939.0,
+      "text": "are actually defined in this startup code so that you don't need to define them in your"
+    },
+    {
+      "index": 188,
+      "start_time": 1028940.0,
+      "end_time": 1037940.0,
+      "text": "application."
+    },
+    {
+      "index": 189,
+      "start_time": 1037940.0,
+      "end_time": 1043471.0,
+      "text": "But these handlers are not the primitive endless loops with denial of service. The provided"
+    },
+    {
+      "index": 190,
+      "start_time": 1043470.0,
+      "end_time": 1047769.0,
+      "text": "implementations use inline assembly to carefully avoid any use of the stack, which might be"
+    },
+    {
+      "index": 191,
+      "start_time": 1047770.0,
+      "end_time": 1053001.0,
+      "text": "corrupted at this point. The assembly code stores the information about the fault in"
+    },
+    {
+      "index": 192,
+      "start_time": 1053000.0,
+      "end_time": 1061450.0,
+      "text": "r0 and r1 registers and then branches to assert_handler, where you can perform your last damage control."
+    },
+    {
+      "index": 193,
+      "start_time": 1061450.0,
+      "end_time": 1067220.0,
+      "text": "Here you encounter another GNU-specific attribute \"naked\", which instructs the compiler not"
+    },
+    {
+      "index": 194,
+      "start_time": 1067220.0,
+      "end_time": 1071419.0,
+      "text": "do any stack operations for this function."
+    },
+    {
+      "index": 195,
+      "start_time": 1071420.0,
+      "end_time": 1077380.0,
+      "text": "When you try to build again, you still have an error, this time in bsp.c."
+    },
+    {
+      "index": 196,
+      "start_time": 1077380.0,
+      "end_time": 1083501.0,
+      "text": "By now you should know what's the problem. The extended keyword __stackless was an IAR"
+    },
+    {
+      "index": 197,
+      "start_time": 1083500.0,
+      "end_time": 1091379.0,
+      "text": "extension for stackless functions. In GNU, you need to replace it with attribute(\"naked\")."
+    },
+    {
+      "index": 198,
+      "start_time": 1091380.0,
+      "end_time": 1097581.0,
+      "text": "Another build. This time, the compiler complains about __enable_interrupts(), which was an"
+    },
+    {
+      "index": 199,
+      "start_time": 1097580.0,
+      "end_time": 1107809.0,
+      "text": "IAR intrinsic function. In GNU this operation needs to be replaced with __enable_irq()."
+    },
+    {
+      "index": 200,
+      "start_time": 1107810.0,
+      "end_time": 1114861.0,
+      "text": "Another build, and..., Hallelujah! No errors at all."
+    },
+    {
+      "index": 201,
+      "start_time": 1114860.0,
+      "end_time": 1119980.0,
+      "text": "Congratulations, you have just finished your first port of deeply embedded code from one"
+    },
+    {
+      "index": 202,
+      "start_time": 1119980.0,
+      "end_time": 1124190.0,
+      "text": "toolset to another."
+    },
+    {
+      "index": 203,
+      "start_time": 1124190.0,
+      "end_time": 1127509.0,
+      "text": "Time to plug in your Tiva LaunchPad board and test the code."
+    },
+    {
+      "index": 204,
+      "start_time": 1127510.0,
+      "end_time": 1132270.0,
+      "text": "To download the code to the flash memory of the board and start debugging, you press the"
+    },
+    {
+      "index": 205,
+      "start_time": 1132270.0,
+      "end_time": 1134640.0,
+      "text": "bug button at the top."
+    },
+    {
+      "index": 206,
+      "start_time": 1134640.0,
+      "end_time": 1140560.0,
+      "text": "The debugger is setup to stop at the beginning of main and indeed it does. Press the Go button"
+    },
+    {
+      "index": 207,
+      "start_time": 1140560.0,
+      "end_time": 1145280.0,
+      "text": "to run the code and watch the LED change color once a second."
+    },
+    {
+      "index": 208,
+      "start_time": 1145280.0,
+      "end_time": 1150101.0,
+      "text": "Click on the Pause button to break into the code and watch it stop in the background loop."
+    },
+    {
+      "index": 209,
+      "start_time": 1150100.0,
+      "end_time": 1155470.0,
+      "text": "By the way, the different screen layout that you see now is called in Eclipse the \"Debug"
+    },
+    {
+      "index": 210,
+      "start_time": 1155470.0,
+      "end_time": 1159679.0,
+      "text": "Perspective\". This is to differentiate this view from the \"Edit Perspective\" that you"
+    },
+    {
+      "index": 211,
+      "start_time": 1159680.0,
+      "end_time": 1163581.0,
+      "text": "saw during editing the code."
+    },
+    {
+      "index": 212,
+      "start_time": 1163580.0,
+      "end_time": 1168419.0,
+      "text": "The Debug Perspective provides all the debugger views that you encountered in IAR, such as"
+    },
+    {
+      "index": 213,
+      "start_time": 1168420.0,
+      "end_time": 1172451.0,
+      "text": "the disassembly view."
+    },
+    {
+      "index": 214,
+      "start_time": 1172450.0,
+      "end_time": 1181629.0,
+      "text": "You can also single-step through the code and watch the LED being turned on and off."
+    },
+    {
+      "index": 215,
+      "start_time": 1181630.0,
+      "end_time": 1185851.0,
+      "text": "You can set breakpoints, like for example inside the SysTick_Handler to see how frequently"
+    },
+    {
+      "index": 216,
+      "start_time": 1185850.0,
+      "end_time": 1202440.0,
+      "text": "this interrupt is called."
+    },
+    {
+      "index": 217,
+      "start_time": 1202440.0,
+      "end_time": 1206679.0,
+      "text": "To stop the debug session and return to the \"Edit Perspective\", press the Stop button"
+    },
+    {
+      "index": 218,
+      "start_time": 1206680.0,
+      "end_time": 1209170.0,
+      "text": "at the top."
+    },
+    {
+      "index": 219,
+      "start_time": 1209170.0,
+      "end_time": 1213150.0,
+      "text": "As the final step of this lesson, let's modify the behavior of the code copied from your"
+    },
+    {
+      "index": 220,
+      "start_time": 1213150.0,
+      "end_time": 1222721.0,
+      "text": "previous IAR project to change the color of the toggled LED from red to blue, for example."
+    },
+    {
+      "index": 221,
+      "start_time": 1222720.0,
+      "end_time": 1232340.0,
+      "text": "Build the project and start debugging as before..."
+    },
+    {
+      "index": 222,
+      "start_time": 1232340.0,
+      "end_time": 1237320.0,
+      "text": "Watch the LED blink in a new color."
+    },
+    {
+      "index": 223,
+      "start_time": 1237320.0,
+      "end_time": 1241419.0,
+      "text": "This concludes this lesson about switching the toolset to GNU-ARM and Eclipse-based Code"
+    },
+    {
+      "index": 224,
+      "start_time": 1241420.0,
+      "end_time": 1247540.0,
+      "text": "Composer Studio (CCS). The startup code and linker script from this lesson are much closer"
+    },
+    {
+      "index": 225,
+      "start_time": 1247540.0,
+      "end_time": 1253010.0,
+      "text": "to production-quality than the typical code distributed by silicon vendors. The code is"
+    },
+    {
+      "index": 226,
+      "start_time": 1253010.0,
+      "end_time": 1259941.0,
+      "text": "compliant with CMSIS and will work with any toolset based on GNU-ARM, not just with CCS."
+    },
+    {
+      "index": 227,
+      "start_time": 1259940.0,
+      "end_time": 1266289.0,
+      "text": "You can easily adapt it for any ARM Cortex-M microcontroller."
+    },
+    {
+      "index": 228,
+      "start_time": 1266290.0,
+      "end_time": 1271331.0,
+      "text": "If you'd like to learn more about using the free GNU-ARM toolset, I would recommend my"
+    },
+    {
+      "index": 229,
+      "start_time": 1271330.0,
+      "end_time": 1278320.0,
+      "text": "10-part article \"Building Bare Metal ARM Systems with GNU\", which in 2007 was the most popular"
+    },
+    {
+      "index": 230,
+      "start_time": 1278320.0,
+      "end_time": 1282720.0,
+      "text": "article on Embedded.com."
+    },
+    {
+      "index": 231,
+      "start_time": 1282720.0,
+      "end_time": 1288919.0,
+      "text": "This article talks about the classic ARM7/ARM9 cores, but much of the information still applies"
+    },
+    {
+      "index": 232,
+      "start_time": 1288920.0,
+      "end_time": 1294760.0,
+      "text": "to Cortex-M as well. I provide a link to this article in the description of this video on"
+    },
+    {
+      "index": 233,
+      "start_time": 1294760.0,
+      "end_time": 1299091.0,
+      "text": "YouTube."
+    },
+    {
+      "index": 234,
+      "start_time": 1299090.0,
+      "end_time": 1307629.0,
+      "text": "The project download for this lesson will come in two parts: the usual lesson19.zip"
+    },
+    {
+      "index": 235,
+      "start_time": 1307630.0,
+      "end_time": 1313500.0,
+      "text": "archive with the CCS project and code for the lesson and the CMSIS.zip archive with"
+    },
+    {
+      "index": 236,
+      "start_time": 1313500.0,
+      "end_time": 1317111.0,
+      "text": "the CMSIS code."
+    },
+    {
+      "index": 237,
+      "start_time": 1317110.0,
+      "end_time": 1321730.0,
+      "text": "In the next lesson I will finally talk about race conditions, which is a concept that you"
+    },
+    {
+      "index": 238,
+      "start_time": 1321730.0,
+      "end_time": 1325940.0,
+      "text": "absolutely need to understand to effectively work with interrupts."
+    },
+    {
+      "index": 239,
+      "start_time": 1325940.0,
+      "end_time": 1331909.0,
+      "text": "If you like this channel, please subscribe to stay tuned. You can also visit state-machine.com/quickstart"
+    },
+    {
+      "index": 240,
+      "start_time": 1331910.0,
+      "end_time": 1341910.0,
+      "text": "for the class notes and project file downloads."
+    }
+  ]
+}

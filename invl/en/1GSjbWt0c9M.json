@@ -1,0 +1,1026 @@
+{
+  "video_id": "1GSjbWt0c9M",
+  "title": "Representing Numbers and Letters with Binary: Crash Course Computer Science #4",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3040.0,
+      "end_time": 6100.0,
+      "text": "Hi I’m Carrie Anne, this is Crash Course Computer Science"
+    },
+    {
+      "index": 2,
+      "start_time": 6100.0,
+      "end_time": 10540.0,
+      "text": "and today we’re going to talk about how computers store and represent numerical data."
+    },
+    {
+      "index": 3,
+      "start_time": 10540.0,
+      "end_time": 12250.0,
+      "text": "Which means we’ve got to talk about Math!"
+    },
+    {
+      "index": 4,
+      "start_time": 12250.0,
+      "end_time": 13260.0,
+      "text": "But don’t worry."
+    },
+    {
+      "index": 5,
+      "start_time": 13260.0,
+      "end_time": 16680.0,
+      "text": "Every single one of you already knows exactly what you need to know to follow along."
+    },
+    {
+      "index": 6,
+      "start_time": 16680.0,
+      "end_time": 20860.0,
+      "text": "So, last episode we talked about how transistors can be used to build logic gates, which can"
+    },
+    {
+      "index": 7,
+      "start_time": 20860.0,
+      "end_time": 22700.0,
+      "text": "evaluate boolean statements."
+    },
+    {
+      "index": 8,
+      "start_time": 22700.0,
+      "end_time": 26020.0,
+      "text": "And in boolean algebra, there are only two, binary values: true and false."
+    },
+    {
+      "index": 9,
+      "start_time": 26020.0,
+      "end_time": 29790.0,
+      "text": "But if we only have two values, how in the world do we represent information beyond just"
+    },
+    {
+      "index": 10,
+      "start_time": 29790.0,
+      "end_time": 30880.0,
+      "text": "these two values?"
+    },
+    {
+      "index": 11,
+      "start_time": 30880.0,
+      "end_time": 32780.0,
+      "text": "That’s where the Math comes in."
+    },
+    {
+      "index": 12,
+      "start_time": 32780.0,
+      "end_time": 41680.0,
+      "text": "INTRO"
+    },
+    {
+      "index": 13,
+      "start_time": 41680.0,
+      "end_time": 46720.0,
+      "text": "So, as we mentioned last episode, a single binary value can be used to represent a number."
+    },
+    {
+      "index": 14,
+      "start_time": 46720.0,
+      "end_time": 52140.0,
+      "text": "Instead of true and false, we can call these two states 1 and 0 which is actually incredibly useful."
+    },
+    {
+      "index": 15,
+      "start_time": 52140.0,
+      "end_time": 55980.0,
+      "text": "And if we want to represent larger things we just need to add more binary digits."
+    },
+    {
+      "index": 16,
+      "start_time": 55980.0,
+      "end_time": 59190.0,
+      "text": "This works exactly the same way as the decimal numbers that we’re all familiar with."
+    },
+    {
+      "index": 17,
+      "start_time": 59190.0,
+      "end_time": 64440.0,
+      "text": "With decimal numbers there are &quot;only&quot; 10 possible values a single digit can be; 0 through 9,"
+    },
+    {
+      "index": 18,
+      "start_time": 64440.0,
+      "end_time": 67610.0,
+      "text": "and to get numbers larger than 9 we just start adding more digits to the front."
+    },
+    {
+      "index": 19,
+      "start_time": 67610.0,
+      "end_time": 69120.0,
+      "text": "We can do the same with binary."
+    },
+    {
+      "index": 20,
+      "start_time": 69120.0,
+      "end_time": 72710.0,
+      "text": "For example, let’s take the number two hundred and sixty three."
+    },
+    {
+      "index": 21,
+      "start_time": 72710.0,
+      "end_time": 74880.0,
+      "text": "What does this number actually represent?"
+    },
+    {
+      "index": 22,
+      "start_time": 74880.0,
+      "end_time": 78920.0,
+      "text": "Well, it means we’ve got 2 one-hundreds, 6 tens, and 3 ones."
+    },
+    {
+      "index": 23,
+      "start_time": 78920.0,
+      "end_time": 81510.0,
+      "text": "If you add those all together, we’ve got 263."
+    },
+    {
+      "index": 24,
+      "start_time": 81510.0,
+      "end_time": 84380.0,
+      "text": "Notice how each column has a different multiplier."
+    },
+    {
+      "index": 25,
+      "start_time": 84380.0,
+      "end_time": 87520.0,
+      "text": "In this case, it’s 100, 10, and 1."
+    },
+    {
+      "index": 26,
+      "start_time": 87520.0,
+      "end_time": 90340.0,
+      "text": "Each multiplier is ten times larger than the one to the right."
+    },
+    {
+      "index": 27,
+      "start_time": 90340.0,
+      "end_time": 95340.0,
+      "text": "That&#39;s because each column has ten possible digits to work with, 0 through 9, after which"
+    },
+    {
+      "index": 28,
+      "start_time": 95340.0,
+      "end_time": 97340.0,
+      "text": "you have to carry one to the next column."
+    },
+    {
+      "index": 29,
+      "start_time": 97340.0,
+      "end_time": 102380.0,
+      "text": "For this reason, it’s called base-ten notation, also called decimal since deci means ten."
+    },
+    {
+      "index": 30,
+      "start_time": 102380.0,
+      "end_time": 105900.0,
+      "text": "AND Binary works exactly the same way, it’s just base-two."
+    },
+    {
+      "index": 31,
+      "start_time": 105900.0,
+      "end_time": 109460.0,
+      "text": "That’s because there are only two possible digits in binary – 1 and 0."
+    },
+    {
+      "index": 32,
+      "start_time": 109460.0,
+      "end_time": 113900.0,
+      "text": "This means that each multiplier has to be two times larger than the column to its right."
+    },
+    {
+      "index": 33,
+      "start_time": 113900.0,
+      "end_time": 117640.0,
+      "text": "Instead of hundreds, tens, and ones, we now have fours, twos and ones."
+    },
+    {
+      "index": 34,
+      "start_time": 117640.0,
+      "end_time": 120460.0,
+      "text": "Take for example the binary number: 101."
+    },
+    {
+      "index": 35,
+      "start_time": 120460.0,
+      "end_time": 124020.0,
+      "text": "This means we have 1 four, 0 twos, and 1 one."
+    },
+    {
+      "index": 36,
+      "start_time": 124020.0,
+      "end_time": 127119.0,
+      "text": "Add those all together and we’ve got the number 5 in base ten."
+    },
+    {
+      "index": 37,
+      "start_time": 127119.0,
+      "end_time": 130700.0,
+      "text": "But to represent larger numbers, binary needs a lot more digits."
+    },
+    {
+      "index": 38,
+      "start_time": 130699.99999999999,
+      "end_time": 132209.0,
+      "text": "Take this number in binary 10110111."
+    },
+    {
+      "index": 39,
+      "start_time": 132209.0,
+      "end_time": 134480.0,
+      "text": "We can convert it to decimal in the same way."
+    },
+    {
+      "index": 40,
+      "start_time": 134480.0,
+      "end_time": 144220.0,
+      "text": "We have 1 x 128, 0 x 64, 1 x 32, 1 x 16, 0 x 8, 1 x 4, 1 x 2, and 1 x 1."
+    },
+    {
+      "index": 41,
+      "start_time": 144220.0,
+      "end_time": 146660.0,
+      "text": "Which all adds up to 183."
+    },
+    {
+      "index": 42,
+      "start_time": 146660.0,
+      "end_time": 149060.0,
+      "text": "Math with binary numbers isn’t hard either."
+    },
+    {
+      "index": 43,
+      "start_time": 149060.0,
+      "end_time": 152600.0,
+      "text": "Take for example decimal addition of 183 plus 19."
+    },
+    {
+      "index": 44,
+      "start_time": 152600.0,
+      "end_time": 157820.0,
+      "text": "First we add 3 + 9, that’s 12, so we put 2 as the sum and carry 1 to the ten’s column."
+    },
+    {
+      "index": 45,
+      "start_time": 157820.0,
+      "end_time": 163080.0,
+      "text": "Now we add 8 plus 1 plus the 1 we carried, thats 10, so the sum is 0 carry 1."
+    },
+    {
+      "index": 46,
+      "start_time": 163080.0,
+      "end_time": 166120.0,
+      "text": "Finally we add 1 plus the 1 we carried, which equals 2."
+    },
+    {
+      "index": 47,
+      "start_time": 166120.0,
+      "end_time": 168300.0,
+      "text": "So the total sum is 202."
+    },
+    {
+      "index": 48,
+      "start_time": 168300.0,
+      "end_time": 170580.0,
+      "text": "Here’s the same sum but in binary."
+    },
+    {
+      "index": 49,
+      "start_time": 170580.0,
+      "end_time": 172960.0,
+      "text": "Just as before, we start with the ones column."
+    },
+    {
+      "index": 50,
+      "start_time": 172960.0,
+      "end_time": 175820.0,
+      "text": "Adding 1+1 results in 2, even in binary."
+    },
+    {
+      "index": 51,
+      "start_time": 175820.0,
+      "end_time": 180889.0,
+      "text": "But, there is no symbol &quot;2&quot; so we use 10 and put 0 as our sum and carry the 1."
+    },
+    {
+      "index": 52,
+      "start_time": 180889.0,
+      "end_time": 182269.0,
+      "text": "Just like in our decimal example."
+    },
+    {
+      "index": 53,
+      "start_time": 182269.0,
+      "end_time": 188020.0,
+      "text": "1 plus 1, plus the 1 carried, equals 3 or 11 in binary, so we put the sum as 1 and we"
+    },
+    {
+      "index": 54,
+      "start_time": 188020.0,
+      "end_time": 189540.0,
+      "text": "carry 1 again, and so on."
+    },
+    {
+      "index": 55,
+      "start_time": 189540.0,
+      "end_time": 194150.0,
+      "text": "We end up with 11001010, which is the same as the number 202 in base ten."
+    },
+    {
+      "index": 56,
+      "start_time": 194150.0,
+      "end_time": 197400.0,
+      "text": "Each of these binary digits, 1 or 0, is called a “bit”."
+    },
+    {
+      "index": 57,
+      "start_time": 197400.0,
+      "end_time": 201820.0,
+      "text": "So in these last few examples, we were using 8-bit numbers with their lowest value of zero"
+    },
+    {
+      "index": 58,
+      "start_time": 201820.0,
+      "end_time": 206980.0,
+      "text": "and highest value is 255, which requires all 8 bits to be set to 1."
+    },
+    {
+      "index": 59,
+      "start_time": 206980.0,
+      "end_time": 210900.0,
+      "text": "Thats 256 different values, or 2 to the 8th power."
+    },
+    {
+      "index": 60,
+      "start_time": 210900.0,
+      "end_time": 214300.0,
+      "text": "You might have heard of 8-bit computers, or 8-bit graphics or audio."
+    },
+    {
+      "index": 61,
+      "start_time": 214300.0,
+      "end_time": 218040.0,
+      "text": "These were computers that did most of their operations in chunks of 8 bits."
+    },
+    {
+      "index": 62,
+      "start_time": 218040.0,
+      "end_time": 222940.0,
+      "text": "But 256 different values isn’t a lot to work with, so it meant things like 8-bit games"
+    },
+    {
+      "index": 63,
+      "start_time": 222940.0,
+      "end_time": 226800.0,
+      "text": "were limited to 256 different colors for their graphics."
+    },
+    {
+      "index": 64,
+      "start_time": 226800.0,
+      "end_time": 231780.0,
+      "text": "And 8-bits is such a common size in computing, it has a special word: a byte."
+    },
+    {
+      "index": 65,
+      "start_time": 231780.0,
+      "end_time": 233139.0,
+      "text": "A byte is 8 bits."
+    },
+    {
+      "index": 66,
+      "start_time": 233139.0,
+      "end_time": 235930.0,
+      "text": "If you’ve got 10 bytes, it means you’ve really got 80 bits."
+    },
+    {
+      "index": 67,
+      "start_time": 235930.0,
+      "end_time": 238960.0,
+      "text": "You’ve heard of kilobytes, megabytes, gigabytes and so on."
+    },
+    {
+      "index": 68,
+      "start_time": 238960.0,
+      "end_time": 241820.0,
+      "text": "These prefixes denote different scales of data."
+    },
+    {
+      "index": 69,
+      "start_time": 241820.0,
+      "end_time": 246580.0,
+      "text": "Just like one kilogram is a thousand grams, 1 kilobyte is a thousand bytes…. or really"
+    },
+    {
+      "index": 70,
+      "start_time": 246580.0,
+      "end_time": 247940.0,
+      "text": "8000 bits."
+    },
+    {
+      "index": 71,
+      "start_time": 247940.0,
+      "end_time": 251340.0,
+      "text": "Mega is a million bytes (MB), and giga is a billion bytes (GB)."
+    },
+    {
+      "index": 72,
+      "start_time": 251340.0,
+      "end_time": 255120.0,
+      "text": "Today you might even have a hard drive that has 1 terabyte (TB) of storage."
+    },
+    {
+      "index": 73,
+      "start_time": 255120.0,
+      "end_time": 257479.0,
+      "text": "That&#39;s 8 trillion ones and zeros."
+    },
+    {
+      "index": 74,
+      "start_time": 257478.99999999997,
+      "end_time": 258479.99999999997,
+      "text": "But hold on!"
+    },
+    {
+      "index": 75,
+      "start_time": 258480.00000000003,
+      "end_time": 259480.00000000003,
+      "text": "That’s not always true."
+    },
+    {
+      "index": 76,
+      "start_time": 259480.00000000003,
+      "end_time": 264640.0,
+      "text": "In binary, a kilobyte has two to the power of 10 bytes, or 1024."
+    },
+    {
+      "index": 77,
+      "start_time": 264640.0,
+      "end_time": 268630.0,
+      "text": "1000 is also right when talking about kilobytes, but we should acknowledge it isn’t the only"
+    },
+    {
+      "index": 78,
+      "start_time": 268630.0,
+      "end_time": 269630.0,
+      "text": "correct definition."
+    },
+    {
+      "index": 79,
+      "start_time": 269630.0,
+      "end_time": 274500.0,
+      "text": "You’ve probably also heard the term 32-bit or 64-bit computers – you’re almost certainly"
+    },
+    {
+      "index": 80,
+      "start_time": 274500.0,
+      "end_time": 275910.0,
+      "text": "using one right now."
+    },
+    {
+      "index": 81,
+      "start_time": 275910.0,
+      "end_time": 279330.0,
+      "text": "What this means is that they operate in chunks of 32 or 64 bits."
+    },
+    {
+      "index": 82,
+      "start_time": 279330.0,
+      "end_time": 280820.0,
+      "text": "That’s a lot of bits!"
+    },
+    {
+      "index": 83,
+      "start_time": 280820.0,
+      "end_time": 285600.0,
+      "text": "The largest number you can represent with 32 bits is just under 4.3 billion."
+    },
+    {
+      "index": 84,
+      "start_time": 285600.0,
+      "end_time": 287860.0,
+      "text": "Which is thirty-two 1&#39;s in binary."
+    },
+    {
+      "index": 85,
+      "start_time": 287860.0,
+      "end_time": 292250.0,
+      "text": "This is why our Instagram photos are so smooth and pretty – they are composed of millions"
+    },
+    {
+      "index": 86,
+      "start_time": 292250.0,
+      "end_time": 296030.0,
+      "text": "of colors, because computers today use 32-bit color graphics"
+    },
+    {
+      "index": 87,
+      "start_time": 296030.0,
+      "end_time": 300260.0,
+      "text": "Of course, not everything is a positive number - like my bank account in college."
+    },
+    {
+      "index": 88,
+      "start_time": 300260.0,
+      "end_time": 303320.0,
+      "text": "So we need a way to represent positive and negative numbers."
+    },
+    {
+      "index": 89,
+      "start_time": 303320.0,
+      "end_time": 308280.0,
+      "text": "Most computers use the first bit for the sign: 1 for negative, 0 for positive numbers, and"
+    },
+    {
+      "index": 90,
+      "start_time": 308280.0,
+      "end_time": 311280.0,
+      "text": "then use the remaining 31 bits for the number itself."
+    },
+    {
+      "index": 91,
+      "start_time": 311280.0,
+      "end_time": 314420.0,
+      "text": "That gives us a range of roughly plus or minus two billion."
+    },
+    {
+      "index": 92,
+      "start_time": 314420.0,
+      "end_time": 317960.0,
+      "text": "While this is a pretty big range of numbers, it’s not enough for many tasks."
+    },
+    {
+      "index": 93,
+      "start_time": 317960.0,
+      "end_time": 323360.0,
+      "text": "There are 7 billion people on the earth, and the US national debt is almost 20 trillion dollars after all."
+    },
+    {
+      "index": 94,
+      "start_time": 323360.0,
+      "end_time": 325800.0,
+      "text": "This is why 64-bit numbers are useful."
+    },
+    {
+      "index": 95,
+      "start_time": 325800.0,
+      "end_time": 330480.0,
+      "text": "The largest value a 64-bit number can represent is around 9.2 quintillion!"
+    },
+    {
+      "index": 96,
+      "start_time": 330480.0,
+      "end_time": 334540.0,
+      "text": "That’s a lot of possible numbers and will hopefully stay above the US national debt for a while!"
+    },
+    {
+      "index": 97,
+      "start_time": 334540.0,
+      "end_time": 338840.0,
+      "text": "Most importantly, as we’ll discuss in a later episode, computers must label locations"
+    },
+    {
+      "index": 98,
+      "start_time": 338840.0,
+      "end_time": 343110.0,
+      "text": "in their memory, known as addresses, in order to store and retrieve values."
+    },
+    {
+      "index": 99,
+      "start_time": 343110.0,
+      "end_time": 347020.0,
+      "text": "As computer memory has grown to gigabytes and terabytes – that’s trillions of bytes"
+    },
+    {
+      "index": 100,
+      "start_time": 347020.0,
+      "end_time": 350410.0,
+      "text": "– it was necessary to have 64-bit memory addresses as well."
+    },
+    {
+      "index": 101,
+      "start_time": 350410.0,
+      "end_time": 353901.0,
+      "text": "In addition to negative and positive numbers, computers must deal with numbers that are"
+    },
+    {
+      "index": 102,
+      "start_time": 353901.0,
+      "end_time": 360450.0,
+      "text": "not whole numbers, like 12.7 and 3.14, or maybe even stardate: 43989.1."
+    },
+    {
+      "index": 103,
+      "start_time": 360450.0,
+      "end_time": 364140.0,
+      "text": "These are called “floating point” numbers, because the decimal point can float around"
+    },
+    {
+      "index": 104,
+      "start_time": 364140.0,
+      "end_time": 365380.0,
+      "text": "in the middle of number."
+    },
+    {
+      "index": 105,
+      "start_time": 365380.0,
+      "end_time": 368380.0,
+      "text": "Several methods have been developed to represent floating point numbers."
+    },
+    {
+      "index": 106,
+      "start_time": 368380.0,
+      "end_time": 371780.0,
+      "text": "The most common of which is the IEEE 754 standard."
+    },
+    {
+      "index": 107,
+      "start_time": 371780.0,
+      "end_time": 374690.0,
+      "text": "And you thought historians were the only people bad at naming things!"
+    },
+    {
+      "index": 108,
+      "start_time": 374690.0,
+      "end_time": 379110.0,
+      "text": "In essence, this standard stores decimal values sort of like scientific notation."
+    },
+    {
+      "index": 109,
+      "start_time": 379110.0,
+      "end_time": 385800.0,
+      "text": "For example, 625.9 can be written as 0.6259 x 10^3."
+    },
+    {
+      "index": 110,
+      "start_time": 385800.0,
+      "end_time": 390210.0,
+      "text": "There are two important numbers here: the .6259 is called the significand."
+    },
+    {
+      "index": 111,
+      "start_time": 390210.0,
+      "end_time": 391360.0,
+      "text": "And 3 is the exponent."
+    },
+    {
+      "index": 112,
+      "start_time": 391360.0,
+      "end_time": 395750.0,
+      "text": "In a 32-bit floating point number, the first bit is used for the sign of the number -- positive"
+    },
+    {
+      "index": 113,
+      "start_time": 395750.0,
+      "end_time": 396750.0,
+      "text": "or negative."
+    },
+    {
+      "index": 114,
+      "start_time": 396750.0,
+      "end_time": 401080.0,
+      "text": "The next 8 bits are used to store the exponent and the remaining 23 bits are used to store"
+    },
+    {
+      "index": 115,
+      "start_time": 401080.0,
+      "end_time": 402080.0,
+      "text": "the significand."
+    },
+    {
+      "index": 116,
+      "start_time": 402080.0,
+      "end_time": 406500.0,
+      "text": "Ok, we’ve talked a lot about numbers, but your name is probably composed of letters,"
+    },
+    {
+      "index": 117,
+      "start_time": 406500.0,
+      "end_time": 409970.0,
+      "text": "so it’s really useful for computers to also have a way to represent text."
+    },
+    {
+      "index": 118,
+      "start_time": 409970.0,
+      "end_time": 413320.0,
+      "text": "However, rather than have a special form of storage for letters,"
+    },
+    {
+      "index": 119,
+      "start_time": 413320.0,
+      "end_time": 416140.0,
+      "text": "computers simply use numbers to represent letters."
+    },
+    {
+      "index": 120,
+      "start_time": 416140.0,
+      "end_time": 419420.0,
+      "text": "The most straightforward approach might be to simply number the letters of the alphabet:"
+    },
+    {
+      "index": 121,
+      "start_time": 419420.0,
+      "end_time": 422560.0,
+      "text": "A being 1, B being 2, C 3, and so on."
+    },
+    {
+      "index": 122,
+      "start_time": 422560.0,
+      "end_time": 427070.0,
+      "text": "In fact, Francis Bacon, the famous English writer, used five-bit sequences to encode"
+    },
+    {
+      "index": 123,
+      "start_time": 427070.0,
+      "end_time": 431880.0,
+      "text": "all 26 letters of the English alphabet to send secret messages back in the 1600s."
+    },
+    {
+      "index": 124,
+      "start_time": 431880.0,
+      "end_time": 436670.0,
+      "text": "And five bits can store 32 possible values – so that’s enough for the 26 letters,"
+    },
+    {
+      "index": 125,
+      "start_time": 436670.0,
+      "end_time": 440060.0,
+      "text": "but not enough for punctuation, digits, and upper and lower case letters."
+    },
+    {
+      "index": 126,
+      "start_time": 440060.0,
+      "end_time": 444020.0,
+      "text": "Enter ASCII, the American Standard Code for Information Interchange."
+    },
+    {
+      "index": 127,
+      "start_time": 444020.0,
+      "end_time": 449710.0,
+      "text": "Invented in 1963, ASCII was a 7-bit code, enough to store 128 different values."
+    },
+    {
+      "index": 128,
+      "start_time": 449710.0,
+      "end_time": 453550.0,
+      "text": "With this expanded range, it could encode capital letters, lowercase letters, digits"
+    },
+    {
+      "index": 129,
+      "start_time": 453550.0,
+      "end_time": 457080.0,
+      "text": "0 through 9, and symbols like the @ sign and punctuation marks."
+    },
+    {
+      "index": 130,
+      "start_time": 457080.0,
+      "end_time": 462340.0,
+      "text": "For example, a lowercase ‘a’ is represented by the number 97, while a capital ‘A’ is 65."
+    },
+    {
+      "index": 131,
+      "start_time": 462340.0,
+      "end_time": 465590.0,
+      "text": "A colon is 58 and a closed parenthesis is 41."
+    },
+    {
+      "index": 132,
+      "start_time": 465590.0,
+      "end_time": 469980.0,
+      "text": "ASCII even had a selection of special command codes, such as a newline character to tell"
+    },
+    {
+      "index": 133,
+      "start_time": 469980.0,
+      "end_time": 472500.0,
+      "text": "the computer where to wrap a line to the next row."
+    },
+    {
+      "index": 134,
+      "start_time": 472500.0,
+      "end_time": 476460.0,
+      "text": "In older computer systems, the line of text would literally continue off the edge of the"
+    },
+    {
+      "index": 135,
+      "start_time": 476460.0,
+      "end_time": 479110.0,
+      "text": "screen if you didn’t include a new line character!"
+    },
+    {
+      "index": 136,
+      "start_time": 479110.0,
+      "end_time": 482920.0,
+      "text": "Because ASCII was such an early standard, it became widely used, and critically, allowed"
+    },
+    {
+      "index": 137,
+      "start_time": 482920.0,
+      "end_time": 486510.0,
+      "text": "different computers built by different companies to exchange data."
+    },
+    {
+      "index": 138,
+      "start_time": 486510.0,
+      "end_time": 490580.0,
+      "text": "This ability to universally exchange information is called “interoperability”."
+    },
+    {
+      "index": 139,
+      "start_time": 490580.0,
+      "end_time": 495120.0,
+      "text": "However, it did have a major limitation: it was really only designed for English."
+    },
+    {
+      "index": 140,
+      "start_time": 495120.0,
+      "end_time": 499440.0,
+      "text": "Fortunately, there are 8 bits in a byte, not 7, and it soon became popular to use codes"
+    },
+    {
+      "index": 141,
+      "start_time": 499440.0,
+      "end_time": 505270.0,
+      "text": "128 through 255, previously unused, for &quot;national&quot; characters."
+    },
+    {
+      "index": 142,
+      "start_time": 505270.0,
+      "end_time": 510030.0,
+      "text": "In the US, those extra numbers were largely used to encode additional symbols, like mathematical"
+    },
+    {
+      "index": 143,
+      "start_time": 510030.0,
+      "end_time": 513750.0,
+      "text": "notation, graphical elements, and common accented characters."
+    },
+    {
+      "index": 144,
+      "start_time": 513750.0,
+      "end_time": 517789.0,
+      "text": "On the other hand, while the Latin characters were used universally, Russian computers used"
+    },
+    {
+      "index": 145,
+      "start_time": 517789.0,
+      "end_time": 522300.0,
+      "text": "the extra codes to encode Cyrillic characters, and Greek computers, Greek letters, and so on."
+    },
+    {
+      "index": 146,
+      "start_time": 522299.99999999994,
+      "end_time": 525279.0,
+      "text": "And national character codes worked pretty well for most countries."
+    },
+    {
+      "index": 147,
+      "start_time": 525279.0,
+      "end_time": 529360.0,
+      "text": "The problem was, if you opened an email written in Latvian on a Turkish computer, the result"
+    },
+    {
+      "index": 148,
+      "start_time": 529360.0,
+      "end_time": 531709.0,
+      "text": "was completely incomprehensible."
+    },
+    {
+      "index": 149,
+      "start_time": 531709.0,
+      "end_time": 536350.0,
+      "text": "And things totally broke with the rise of computing in Asia, as languages like Chinese and Japanese"
+    },
+    {
+      "index": 150,
+      "start_time": 536350.0,
+      "end_time": 538040.0,
+      "text": "have thousands of characters."
+    },
+    {
+      "index": 151,
+      "start_time": 538040.0,
+      "end_time": 540820.0,
+      "text": "There was no way to encode all those characters in 8-bits!"
+    },
+    {
+      "index": 152,
+      "start_time": 540820.0,
+      "end_time": 546600.0,
+      "text": "In response, each country invented multi-byte encoding schemes, all of which were mutually incompatible."
+    },
+    {
+      "index": 153,
+      "start_time": 546600.0,
+      "end_time": 551160.0,
+      "text": "The Japanese were so familiar with this encoding problem that they had a special name for it:"
+    },
+    {
+      "index": 154,
+      "start_time": 551160.0,
+      "end_time": 553660.0,
+      "text": "&quot;mojibake&quot;, which means &quot;scrambled text&quot;."
+    },
+    {
+      "index": 155,
+      "start_time": 553660.0,
+      "end_time": 557100.0,
+      "text": "And so it was born – Unicode – one format to rule them all."
+    },
+    {
+      "index": 156,
+      "start_time": 557100.0,
+      "end_time": 561420.0,
+      "text": "Devised in 1992 to finally do away with all of the different international schemes"
+    },
+    {
+      "index": 157,
+      "start_time": 561420.0,
+      "end_time": 563980.0,
+      "text": "it replaced them with one universal encoding scheme."
+    },
+    {
+      "index": 158,
+      "start_time": 563980.0,
+      "end_time": 568840.0,
+      "text": "The most common version of Unicode uses 16 bits with space for over a million codes -"
+    },
+    {
+      "index": 159,
+      "start_time": 568840.0,
+      "end_time": 572180.0,
+      "text": "enough for every single character from every language ever used –"
+    },
+    {
+      "index": 160,
+      "start_time": 572180.0,
+      "end_time": 576260.0,
+      "text": "more than 120,000 of them in over 100 types of script"
+    },
+    {
+      "index": 161,
+      "start_time": 576260.0,
+      "end_time": 580000.0,
+      "text": "plus space for mathematical symbols and even graphical characters like Emoji."
+    },
+    {
+      "index": 162,
+      "start_time": 580000.0,
+      "end_time": 583740.0,
+      "text": "And in the same way that ASCII defines a scheme for encoding letters as binary numbers,"
+    },
+    {
+      "index": 163,
+      "start_time": 583740.0,
+      "end_time": 586340.0,
+      "text": "other file formats – like MP3s or GIFs – use"
+    },
+    {
+      "index": 164,
+      "start_time": 586340.0,
+      "end_time": 590880.0,
+      "text": "binary numbers to encode sounds or colors of a pixel in our photos, movies, and music."
+    },
+    {
+      "index": 165,
+      "start_time": 590880.0,
+      "end_time": 595460.0,
+      "text": "Most importantly, under the hood it all comes down to long sequences of bits."
+    },
+    {
+      "index": 166,
+      "start_time": 595460.0,
+      "end_time": 600020.0,
+      "text": "Text messages, this YouTube video, every webpage on the internet, and even your computer’s"
+    },
+    {
+      "index": 167,
+      "start_time": 600020.0,
+      "end_time": 603730.0,
+      "text": "operating system, are nothing but long sequences of 1s and 0s."
+    },
+    {
+      "index": 168,
+      "start_time": 603730.0,
+      "end_time": 607329.0,
+      "text": "So next week, we’ll start talking about how your computer starts manipulating those"
+    },
+    {
+      "index": 169,
+      "start_time": 607329.0,
+      "end_time": 610829.0,
+      "text": "binary sequences, for our first true taste of computation."
+    },
+    {
+      "index": 170,
+      "start_time": 610829.0,
+      "end_time": 620829.0,
+      "text": "Thanks for watching. See you next week."
+    }
+  ]
+}

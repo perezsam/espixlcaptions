@@ -1,0 +1,3600 @@
+{
+  "video_id": "FTr3n7uBIuE",
+  "title": "Convolutional Neural Networks - The Math of Intelligence (Week 4)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 5759.0,
+      "text": "Hello world its Siraj, and we're going to build a convolutional network using no libraries!"
+    },
+    {
+      "index": 2,
+      "start_time": 5759.0,
+      "end_time": 10799.0,
+      "text": "I mean just Numpy... but no libraries! No Tensorflow, no PyTorch, none of it."
+    },
+    {
+      "index": 3,
+      "start_time": 10980.0,
+      "end_time": 17340.0,
+      "text": "We're going to look at the math behind it and we're going to build it with just Numpy for Matrix math, in Python, okay?"
+    },
+    {
+      "index": 4,
+      "start_time": 17340.0,
+      "end_time": 20069.0,
+      "text": "And what it's going to be able to do - let me just start off with this demo"
+    },
+    {
+      "index": 5,
+      "start_time": 20140.0,
+      "end_time": 22949.0,
+      "text": "to start off with - what it's going to be able to do is"
+    },
+    {
+      "index": 6,
+      "start_time": 23170.0,
+      "end_time": 27420.0,
+      "text": "recognize any character that you type in, or not type in but draw in with your mouse."
+    },
+    {
+      "index": 7,
+      "start_time": 27640.0,
+      "end_time": 29820.0,
+      "text": "So you could draw a six like that,"
+    },
+    {
+      "index": 8,
+      "start_time": 29820.0,
+      "end_time": 34169.0,
+      "text": "and then hit submit. It'll start working and then it will say it's a six."
+    },
+    {
+      "index": 9,
+      "start_time": 34170.0,
+      "end_time": 38640.0,
+      "text": "And then if you don't want you to use a six, you could say a letter like 'A'. Any number or letter,"
+    },
+    {
+      "index": 10,
+      "start_time": 38640.0,
+      "end_time": 41219.0,
+      "text": "it's going to be able to detect/predict."
+    },
+    {
+      "index": 11,
+      "start_time": 41350.0,
+      "end_time": 47190.0,
+      "text": "So it's gonna be really cool because we basically we're wrapping it into a web app using the Flask web, framework"
+    },
+    {
+      "index": 12,
+      "start_time": 47410.0,
+      "end_time": 51360.0,
+      "text": "so it's going to be super awesome. Okay, so that's what we're going to do today and"
+    },
+    {
+      "index": 13,
+      "start_time": 51940.0,
+      "end_time": 55710.0,
+      "text": "this is our first neural network that we're building in this course from scratch."
+    },
+    {
+      "index": 14,
+      "start_time": 55710.0,
+      "end_time": 57779.0,
+      "text": "I mean, we made one in the weekly video"
+    },
+    {
+      "index": 15,
+      "start_time": 57780.0,
+      "end_time": 64320.0,
+      "text": "but this is the real, you know, hardcore convolutional network with all the layers, all the functions, everything okay?"
+    },
+    {
+      "index": 16,
+      "start_time": 64319.99999999999,
+      "end_time": 66839.0,
+      "text": "So let's start off with what it's inspired by: Well"
+    },
+    {
+      "index": 17,
+      "start_time": 66840.0,
+      "end_time": 73470.0,
+      "text": "it's inspired by Yann LeCun the genius, no it's not.  So Yann LeCun is a director of AI at Facebook"
+    },
+    {
+      "index": 18,
+      "start_time": 73470.0,
+      "end_time": 75659.0,
+      "text": "he's a total G. He is awesome"
+    },
+    {
+      "index": 19,
+      "start_time": 76180.0,
+      "end_time": 80549.0,
+      "text": "because he was inspired by these original two guys, right here,"
+    },
+    {
+      "index": 20,
+      "start_time": 81100.0,
+      "end_time": 86040.0,
+      "text": "who published a paper in I think '68 or early 60s or 70s?"
+    },
+    {
+      "index": 21,
+      "start_time": 86040.0,
+      "end_time": 88049.0,
+      "text": "But the paper was on the mammalian"
+    },
+    {
+      "index": 22,
+      "start_time": 88210.0,
+      "end_time": 93509.0,
+      "text": "visual cortex, and the idea they had was - and so here's a great image of it. Let me make it a lot bigger."
+    },
+    {
+      "index": 23,
+      "start_time": 94040.0,
+      "end_time": 95960.0,
+      "text": "This has to be a lot bigger."
+    },
+    {
+      "index": 24,
+      "start_time": 95960.0,
+      "end_time": 102000.0,
+      "text": "So the idea they had was that mammals all see in a very similar way, and that way is"
+    },
+    {
+      "index": 25,
+      "start_time": 102000.0,
+      "end_time": 106240.0,
+      "text": "hierarchical. So you have a collection of cells, and these cells or neurons."
+    },
+    {
+      "index": 26,
+      "start_time": 106240.0,
+      "end_time": 111700.0,
+      "text": "And these cells cluster, and these clusters represent different features that are learned."
+    },
+    {
+      "index": 27,
+      "start_time": 111700.0,
+      "end_time": 116070.0,
+      "text": "Okay so here, in terms of Neuroscience, they call these clusters V1, V2..."
+    },
+    {
+      "index": 28,
+      "start_time": 116070.0,
+      "end_time": 119699.0,
+      "text": "You know they have names for all these clusters in the brain these clusters of neurons"
+    },
+    {
+      "index": 29,
+      "start_time": 120340.0,
+      "end_time": 125909.0,
+      "text": "Before IT posterior, all the neuroscience terminology, but what we need to know is that at a high level"
+    },
+    {
+      "index": 30,
+      "start_time": 125979.0,
+      "end_time": 130500.0,
+      "text": "what's happening is every time you see something a - a"
+    },
+    {
+      "index": 31,
+      "start_time": 130989.0,
+      "end_time": 137339.0,
+      "text": "series of clusters or layers of neurons are being activated. Whenever you see something, whenever you detect something"
+    },
+    {
+      "index": 32,
+      "start_time": 137620.0,
+      "end_time": 141870.0,
+      "text": "to be more accurate. So if I detect a dog or if you know face or whatever"
+    },
+    {
+      "index": 33,
+      "start_time": 142180.0,
+      "end_time": 146489.0,
+      "text": "it's going to be a series of layers or clusters of neurons that fire and"
+    },
+    {
+      "index": 34,
+      "start_time": 146620.0,
+      "end_time": 149759.0,
+      "text": "each of these clusters are going to detect a set of features."
+    },
+    {
+      "index": 35,
+      "start_time": 150370.0,
+      "end_time": 155730.0,
+      "text": "Ok and these features are going to be more abstract the the higher up the hierarchy of clusters"
+    },
+    {
+      "index": 36,
+      "start_time": 155730.0,
+      "end_time": 160109.0,
+      "text": "You can think of it as a vertical hierarchy or even a horizontal hierarchy - it doesn't matter -"
+    },
+    {
+      "index": 37,
+      "start_time": 160109.0,
+      "end_time": 166079.0,
+      "text": "but the idea is that there is a hierarchy of features. And at the start these features are very simple:"
+    },
+    {
+      "index": 38,
+      "start_time": 166079.0,
+      "end_time": 171300.0,
+      "text": "They're lines and edges, but then they get more abstract and they become shapes and then they become"
+    },
+    {
+      "index": 39,
+      "start_time": 171500.0,
+      "end_time": 176009.0,
+      "text": "more complex shapes and eventually at the highest level at the highest cluster level"
+    },
+    {
+      "index": 40,
+      "start_time": 176470.0,
+      "end_time": 180779.0,
+      "text": "exist the entire face or the entire dog or whatever it is and"
+    },
+    {
+      "index": 41,
+      "start_time": 182049.0,
+      "end_time": 189179.0,
+      "text": "this is how the mammalian visual cortex works. And so what Yann LeCun said and his team in '98 when they published"
+    },
+    {
+      "index": 42,
+      "start_time": 189560.0,
+      "end_time": 194040.0,
+      "text": "probably the landmark paper of convolutional nets. Which is kind of arguable"
+    },
+    {
+      "index": 43,
+      "start_time": 194040.0,
+      "end_time": 200920.0,
+      "text": "I guess because Kreschvy's imagenet paper was pretty good and and I think in 2012, but anyway Yann LeCun's a G alright."
+    },
+    {
+      "index": 44,
+      "start_time": 200920.0,
+      "end_time": 202269.0,
+      "text": "I just want to say that. *start of auto generated subtitles*"
+    },
+    {
+      "index": 45,
+      "start_time": 202269.0,
+      "end_time": 209819.0,
+      "text": "He had the idea to be inspired by three things three features of the human or the Mammalian visual Cortex"
+    },
+    {
+      "index": 46,
+      "start_time": 210220.0,
+      "end_time": 213269.0,
+      "text": "local connections, and that means the clusters between neurons"
+    },
+    {
+      "index": 47,
+      "start_time": 213269.0,
+      "end_time": 220408.0,
+      "text": "how each neuron each set of neurons in a cluster Klux are connected to each other and they represent some set of features and"
+    },
+    {
+      "index": 48,
+      "start_time": 220510.0,
+      "end_time": 226019.0,
+      "text": "then the idea of layering how these there's a hierarchy of features that are learned and"
+    },
+    {
+      "index": 49,
+      "start_time": 226720.0,
+      "end_time": 228009.0,
+      "text": "Spatial Invariants"
+    },
+    {
+      "index": 50,
+      "start_time": 228009.0,
+      "end_time": 230939.0,
+      "text": "What does this mean this word spatial invariance it means that?"
+    },
+    {
+      "index": 51,
+      "start_time": 231129.0,
+      "end_time": 236219.0,
+      "text": "Whenever you or I detect something whether it's let's say we reciting a shoe right. We see a shoe"
+    },
+    {
+      "index": 52,
+      "start_time": 236379.0,
+      "end_time": 242099.0,
+      "text": "You know it's a shoe right if it's a yeezy if it's a you know adidas. Whatever it is"
+    },
+    {
+      "index": 53,
+      "start_time": 242109.0,
+      "end_time": 248789.0,
+      "text": "You know it's a shoe. It could be shaped this way, or this way it could be rotated or transformed no matter how it varies"
+    },
+    {
+      "index": 54,
+      "start_time": 249639.0,
+      "end_time": 252418.0,
+      "text": "We still can detect that it's a shoe. We know it's a shoe"
+    },
+    {
+      "index": 55,
+      "start_time": 252419.0,
+      "end_time": 257429.0,
+      "text": "So we are it is the way its position is it's spatially invariant"
+    },
+    {
+      "index": 56,
+      "start_time": 257430.0,
+      "end_time": 262919.0,
+      "text": "We can still detect what it is and so those three concepts were what inspired?"
+    },
+    {
+      "index": 57,
+      "start_time": 263770.0,
+      "end_time": 265770.0,
+      "text": "first of convolutional Neural networks"
+    },
+    {
+      "index": 58,
+      "start_time": 266090.0,
+      "end_time": 273099.0,
+      "text": "programatic Neural Networks designed to Mimic the Mammalian Visual Cortex how cool is that it's so cool, so"
+    },
+    {
+      "index": 59,
+      "start_time": 273770.0,
+      "end_time": 278590.0,
+      "text": "How does this thing work let's look at how this works so we have a set of layers, okay?"
+    },
+    {
+      "index": 60,
+      "start_time": 278590.0,
+      "end_time": 280899.0,
+      "text": "And we'll talk about what these layers mean, right?"
+    },
+    {
+      "index": 61,
+      "start_time": 280900.0,
+      "end_time": 285759.0,
+      "text": "What is layer a layer in each case is a series?"
+    },
+    {
+      "index": 62,
+      "start_time": 286069.0,
+      "end_time": 292598.0,
+      "text": "It's a series of operations that we're applying okay, so let's let's talk about this right, so we have some input image"
+    },
+    {
+      "index": 63,
+      "start_time": 292599.0,
+      "end_time": 298119.0,
+      "text": "So let's say this is the orange that's the image and you'll notice by the way that this image"
+    },
+    {
+      "index": 64,
+      "start_time": 298120.0,
+      "end_time": 300519.0,
+      "text": "This is a convolutional network by the way. This is what we're building"
+    },
+    {
+      "index": 65,
+      "start_time": 300860.0,
+      "end_time": 303190.0,
+      "text": "Okay, you'll notice that this image right here"
+    },
+    {
+      "index": 66,
+      "start_time": 303190.0,
+      "end_time": 305380.0,
+      "text": "or this image of the convolutional Network"
+    },
+    {
+      "index": 67,
+      "start_time": 305539.0,
+      "end_time": 308889.0,
+      "text": "Isn't what you normally look at when you think of Neural network, right?"
+    },
+    {
+      "index": 68,
+      "start_time": 308889.0,
+      "end_time": 314948.0,
+      "text": "You always see that image of the circles and everything connected. So why is it different for convolutional networks because"
+    },
+    {
+      "index": 69,
+      "start_time": 315710.0,
+      "end_time": 322359.0,
+      "text": "Every layer in a convolutional network isn't connected to every so every neuron in every layer isn't"
+    },
+    {
+      "index": 70,
+      "start_time": 322580.0,
+      "end_time": 325359.0,
+      "text": "Connected to every other neuron in the next layer. Why?"
+    },
+    {
+      "index": 71,
+      "start_time": 326750.0,
+      "end_time": 329469.0,
+      "text": "Because that would be too computationally expensive"
+    },
+    {
+      "index": 72,
+      "start_time": 329469.0,
+      "end_time": 332739.0,
+      "text": "I'll go over that in a second, but the idea is that if you if you see here?"
+    },
+    {
+      "index": 73,
+      "start_time": 332900.0,
+      "end_time": 340569.0,
+      "text": "There is a part of the image that is connected this little square of that orange and that is called the receptive field okay?"
+    },
+    {
+      "index": 74,
+      "start_time": 340569.0,
+      "end_time": 343749.0,
+      "text": "I'm going to go over all this it's going to make more and more sense you're going to be more confused"
+    },
+    {
+      "index": 75,
+      "start_time": 343750.0,
+      "end_time": 348969.0,
+      "text": "It's going to it's going to make more and more sense as I go further and further and depth here so so so stay with"
+    },
+    {
+      "index": 76,
+      "start_time": 348969.0,
+      "end_time": 354339.0,
+      "text": "Me here, so we have a receptive field okay. That is some part of the image that we are focused on"
+    },
+    {
+      "index": 77,
+      "start_time": 354590.0,
+      "end_time": 355870.0,
+      "text": "We are by focused"
+    },
+    {
+      "index": 78,
+      "start_time": 355870.0,
+      "end_time": 361269.0,
+      "text": "I mean that is the part of the image that we apply a convolution operation to okay"
+    },
+    {
+      "index": 79,
+      "start_time": 361270.0,
+      "end_time": 365829.0,
+      "text": "And we take that receptive field and we slide it across the image, okay?"
+    },
+    {
+      "index": 80,
+      "start_time": 365830.0,
+      "end_time": 367870.0,
+      "text": "You're going to do exactly what I'm talking about in a second"
+    },
+    {
+      "index": 81,
+      "start_time": 367870.0,
+      "end_time": 371289.0,
+      "text": "I'm just going it over at a high level we slide over the image"
+    },
+    {
+      "index": 82,
+      "start_time": 371289.0,
+      "end_time": 378759.0,
+      "text": "We are applying a dot product between our weight matrix at a layer and every part of that image iteratively, okay"
+    },
+    {
+      "index": 83,
+      "start_time": 378759.0,
+      "end_time": 386468.0,
+      "text": "And so that the reason that they look different the convolutional networks look different is two reasons really the first reason is that not?"
+    },
+    {
+      "index": 84,
+      "start_time": 386690.0,
+      "end_time": 390309.0,
+      "text": "Every neuron in each layer is connected to every other neuron in the next layer"
+    },
+    {
+      "index": 85,
+      "start_time": 390310.0,
+      "end_time": 395709.0,
+      "text": "It's only a part of that because it would be a to borrow from discrete math a combinatorial"
+    },
+    {
+      "index": 86,
+      "start_time": 396289.0,
+      "end_time": 403799.0,
+      "text": "Explode to connect every single pixel value in an image to every single pixel value in the next layer of features"
+    },
+    {
+      "index": 87,
+      "start_time": 403930.0,
+      "end_time": 407070.0,
+      "text": "Right, it'll be just a huge amount so what we do instead is we"
+    },
+    {
+      "index": 88,
+      "start_time": 407770.0,
+      "end_time": 411750.0,
+      "text": "Take a part of that image, and we iteratively slide over it, okay"
+    },
+    {
+      "index": 89,
+      "start_time": 411750.0,
+      "end_time": 414720.0,
+      "text": "So at a high level you understand the sliding part right think of it as a flashlight"
+    },
+    {
+      "index": 90,
+      "start_time": 415000.0,
+      "end_time": 416039.0,
+      "text": "Okay, think of it"
+    },
+    {
+      "index": 91,
+      "start_time": 416039.0,
+      "end_time": 422009.0,
+      "text": "Think of the the filter at each layer that shines over the receptive field that box as a flashlight"
+    },
+    {
+      "index": 92,
+      "start_time": 422009.0,
+      "end_time": 429119.0,
+      "text": "And you're shining over the image, and you're and you're applying dot products to all of these numbers, okay, just like that, okay?"
+    },
+    {
+      "index": 93,
+      "start_time": 429120.0,
+      "end_time": 432780.0,
+      "text": "I'm going to keep going into this that was just a high so you're not supposed to understand it all yet, okay?"
+    },
+    {
+      "index": 94,
+      "start_time": 432780.0,
+      "end_time": 435839.0,
+      "text": "That was that's very high level. We're still going Deeper. We're going b"
+    },
+    {
+      "index": 95,
+      "start_time": 435840.0,
+      "end_time": 440459.0,
+      "text": "We're going deep okay, so check out this beautiful image right here, isn't it beautiful. It's very beautiful"
+    },
+    {
+      "index": 96,
+      "start_time": 440710.0,
+      "end_time": 445169.0,
+      "text": "Also, you're beautiful for watching this so thank you for watching this okay, so I?"
+    },
+    {
+      "index": 97,
+      "start_time": 446289.0,
+      "end_time": 451169.0,
+      "text": "Love my pen so much seriously you guys are amazing seriously you guys are the reason I do this every week"
+    },
+    {
+      "index": 98,
+      "start_time": 451870.0,
+      "end_time": 453550.0,
+      "text": "okay, so I"
+    },
+    {
+      "index": 99,
+      "start_time": 453550.0,
+      "end_time": 456030.0,
+      "text": "By the way, I want to say one more thing to go on a tangent"
+    },
+    {
+      "index": 100,
+      "start_time": 456550.0,
+      "end_time": 460800.0,
+      "text": "The people who subscribe to my channel no one thought they existed we are"
+    },
+    {
+      "index": 101,
+      "start_time": 461320.0,
+      "end_time": 467999.0,
+      "text": "Programmers who are smart and we are also cool no one thought these people existed, but we exist, okay?"
+    },
+    {
+      "index": 102,
+      "start_time": 468000.0,
+      "end_time": 471809.0,
+      "text": "We are smart and we are cool. So you are amazing, okay?"
+    },
+    {
+      "index": 103,
+      "start_time": 471810.0,
+      "end_time": 476760.0,
+      "text": "Anyway back to this what this is is another way of looking at the network right? We're just looking at different ways"
+    },
+    {
+      "index": 104,
+      "start_time": 476760.0,
+      "end_time": 484260.0,
+      "text": "We're looking at different ways so we can build a spatially invariant image in our head of what a convolutional network is like right?"
+    },
+    {
+      "index": 105,
+      "start_time": 484780.0,
+      "end_time": 489720.0,
+      "text": "No matter what that image is we're going to learn to recognize a convolutional network when we see one"
+    },
+    {
+      "index": 106,
+      "start_time": 489720.0,
+      "end_time": 494909.0,
+      "text": "I'm just trying to you know metta applying this logic to what we're learning so what happens that each layer"
+    },
+    {
+      "index": 107,
+      "start_time": 495250.0,
+      "end_time": 502769.0,
+      "text": "We are applying a series of dot products between the weight matrices and the input Matrix okay, and so what happens is"
+    },
+    {
+      "index": 108,
+      "start_time": 503620.0,
+      "end_time": 505949.0,
+      "text": "Let's we'll get a third image okay, so there's a third image"
+    },
+    {
+      "index": 109,
+      "start_time": 506169.0,
+      "end_time": 512639.0,
+      "text": "What happens is we perform a series of operations okay at each layer and so we could think of different"
+    },
+    {
+      "index": 110,
+      "start_time": 512708.99999999994,
+      "end_time": 516568.99999999994,
+      "text": "We could think of splitting up a convolutional network into two"
+    },
+    {
+      "index": 111,
+      "start_time": 517149.0,
+      "end_time": 520619.0,
+      "text": "Separate categories the first category is feature learning"
+    },
+    {
+      "index": 112,
+      "start_time": 520620.0,
+      "end_time": 523739.0,
+      "text": "and that's what's happening at the at head of the"
+    },
+    {
+      "index": 113,
+      "start_time": 524020.0,
+      "end_time": 529020.0,
+      "text": "Head to the middle to almost a tail end of the network and at the very tail end is"
+    },
+    {
+      "index": 114,
+      "start_time": 529600.0,
+      "end_time": 532650.0,
+      "text": "Classification, so there's two parts there's the feature learning part"
+    },
+    {
+      "index": 115,
+      "start_time": 532650.0,
+      "end_time": 538079.0,
+      "text": "And then there's the classification part and to put a feature learning part what happens are three"
+    },
+    {
+      "index": 116,
+      "start_time": 538450.0,
+      "end_time": 542009.0,
+      "text": "Operations over and over and over again, and we can call them"
+    },
+    {
+      "index": 117,
+      "start_time": 542680.0,
+      "end_time": 545460.0,
+      "text": "Convolutional blocks let's just call them convolutional blocks"
+    },
+    {
+      "index": 118,
+      "start_time": 545460.0,
+      "end_time": 550710.0,
+      "text": "I'm coining the term so what happens is we first apply convolution, then we apply"
+    },
+    {
+      "index": 119,
+      "start_time": 551170.0,
+      "end_time": 556680.0,
+      "text": "Riilu or any kind of activation and then we apply pooling and we repeat that"
+    },
+    {
+      "index": 120,
+      "start_time": 556680.0,
+      "end_time": 561359.0,
+      "text": "That's that's a single block three operations in a single convolutional block okay?"
+    },
+    {
+      "index": 121,
+      "start_time": 561360.0,
+      "end_time": 567840.0,
+      "text": "So convolution reroute Pooley repeat convolution reroute pooling repeat convolution remove pooling, okay?"
+    },
+    {
+      "index": 122,
+      "start_time": 567840.0,
+      "end_time": 574499.0,
+      "text": "And usually you know you have three blocks at least I literally building inception by Google then you have 15 15 of these"
+    },
+    {
+      "index": 123,
+      "start_time": 575170.0,
+      "end_time": 581160.0,
+      "text": "but you you know you have these convolutional blocks and at the very end then you flatten that output into a"
+    },
+    {
+      "index": 124,
+      "start_time": 581560.0,
+      "end_time": 583110.0,
+      "text": "Smaller dimensional Vector"
+    },
+    {
+      "index": 125,
+      "start_time": 583110.0,
+      "end_time": 586590.0,
+      "text": "And then you apply a fully connected layer to it so that means that you then"
+    },
+    {
+      "index": 126,
+      "start_time": 586840.0,
+      "end_time": 591059.0,
+      "text": "Connect all the neurons and one layer to the next one just because we want to then"
+    },
+    {
+      "index": 127,
+      "start_time": 591490.0,
+      "end_time": 594090.0,
+      "text": "Harness all of the learnings that we've learned so far"
+    },
+    {
+      "index": 128,
+      "start_time": 594090.0,
+      "end_time": 597389.0,
+      "text": "That's why we fully connect at the end and then we take those learnings"
+    },
+    {
+      "index": 129,
+      "start_time": 597390.0,
+      "end_time": 602759.0,
+      "text": "And we squash it into a set of probability values with our last softmax function"
+    },
+    {
+      "index": 130,
+      "start_time": 603640.0,
+      "end_time": 608879.0,
+      "text": "and then we take the max value all those probabilities and each of these probabilities is a probability for"
+    },
+    {
+      "index": 131,
+      "start_time": 609220.0,
+      "end_time": 615870.0,
+      "text": "Specific class that it could be and we take the max value let's say 72% as and we'll say okay. Well"
+    },
+    {
+      "index": 132,
+      "start_time": 616180.0,
+      "end_time": 619289.0,
+      "text": "72% for Banana, and now we know it's a banana okay, so"
+    },
+    {
+      "index": 133,
+      "start_time": 619840.0,
+      "end_time": 624569.0,
+      "text": "Hopefully you get some of it, but it's very confusing so I know we're about to go even deeper"
+    },
+    {
+      "index": 134,
+      "start_time": 624570.0,
+      "end_time": 630090.0,
+      "text": "Okay, so get ready for this. I haven't even started yet, so I haven't even started yet, okay, so anyway"
+    },
+    {
+      "index": 135,
+      "start_time": 631270.0,
+      "end_time": 633479.0,
+      "text": "Step one so for step one"
+    },
+    {
+      "index": 136,
+      "start_time": 633610.0,
+      "end_time": 638969.0,
+      "text": "We are preparing a data set of images right so when you think of an image you think of a Matrix"
+    },
+    {
+      "index": 137,
+      "start_time": 639340.0,
+      "end_time": 643469.0,
+      "text": "Hopefully a matrix of pixel values if you don't think of it that way think of it think of it that way now"
+    },
+    {
+      "index": 138,
+      "start_time": 643900.0,
+      "end_time": 648629.0,
+      "text": "You're thinking of an image as a matrix of pixels rows by Columns and each of these"
+    },
+    {
+      "index": 139,
+      "start_time": 649360.0,
+      "end_time": 651360.0,
+      "text": "each of these"
+    },
+    {
+      "index": 140,
+      "start_time": 652750.0,
+      "end_time": 656950.0,
+      "text": "points in the Matrix represent a pixel right between zero and 255"
+    },
+    {
+      "index": 141,
+      "start_time": 657560.0,
+      "end_time": 664210.0,
+      "text": "But it's actually better in terms of convolutional networks to think of an image as a three-dimensional Matrix"
+    },
+    {
+      "index": 142,
+      "start_time": 664210.0,
+      "end_time": 668109.0,
+      "text": "And you're like what no, well, it's good enough, so it's three dimensions"
+    },
+    {
+      "index": 143,
+      "start_time": 668110.0,
+      "end_time": 674080.0,
+      "text": "So the first dimension is the length of the image the second dimension is the width and the third dimension is the depth so wait"
+    },
+    {
+      "index": 144,
+      "start_time": 674080.0,
+      "end_time": 676210.0,
+      "text": "What is the depth because the depth?"
+    },
+    {
+      "index": 145,
+      "start_time": 676670.0,
+      "end_time": 683830.0,
+      "text": "Represents the channels and there are three channels for images red Green and blue unless you're talking about grayscale, then there's black then"
+    },
+    {
+      "index": 146,
+      "start_time": 683830.0,
+      "end_time": 688179.0,
+      "text": "There's you know black and white, but we're talking about color images okay, so there are three channels"
+    },
+    {
+      "index": 147,
+      "start_time": 688180.0,
+      "end_time": 690609.0,
+      "text": "And you have these dimensions for each of the channels?"
+    },
+    {
+      "index": 148,
+      "start_time": 690610.0,
+      "end_time": 696310.0,
+      "text": "So these values in each of these in each of these 2d matrices for and there are three of them"
+    },
+    {
+      "index": 149,
+      "start_time": 696830.0,
+      "end_time": 698540.0,
+      "text": "represent the"
+    },
+    {
+      "index": 150,
+      "start_time": 698540.0,
+      "end_time": 700520.0,
+      "text": "the"
+    },
+    {
+      "index": 151,
+      "start_time": 700520.0,
+      "end_time": 705609.0,
+      "text": "Amount of redness or the amount of greenness or the amount of blueness between 0 and 255?"
+    },
+    {
+      "index": 152,
+      "start_time": 706010.0,
+      "end_time": 707800.0,
+      "text": "so in terms of convolutional nets"
+    },
+    {
+      "index": 153,
+      "start_time": 707800.0,
+      "end_time": 711039.0,
+      "text": "We think of images as three-dimensional pixels, okay?"
+    },
+    {
+      "index": 154,
+      "start_time": 711040.0,
+      "end_time": 715780.0,
+      "text": "So I wanted to say that part ok so, that's that's that's what we think of our image as our input image"
+    },
+    {
+      "index": 155,
+      "start_time": 715780.0,
+      "end_time": 718569.0,
+      "text": "And it has an associated label"
+    },
+    {
+      "index": 156,
+      "start_time": 718570.0,
+      "end_time": 723549.0,
+      "text": "Right we're talking about supervised learning learning the mapping between the input Data and the output label"
+    },
+    {
+      "index": 157,
+      "start_time": 723920.0,
+      "end_time": 728140.0,
+      "text": "Dog image dog label learn the mapping given a new dog image. What is a label?"
+    },
+    {
+      "index": 158,
+      "start_time": 728140.0,
+      "end_time": 731020.0,
+      "text": "Well, you just learned it right so and we learn it through"
+    },
+    {
+      "index": 159,
+      "start_time": 731540.0,
+      "end_time": 737049.0,
+      "text": "Back propagation back propagate to update weights remember the rhyme. You know what it is. Hey"
+    },
+    {
+      "index": 160,
+      "start_time": 737050.0,
+      "end_time": 740919.0,
+      "text": "I haven't wrapped yet in the series, but I will don't worry. It's coming anyway, so"
+    },
+    {
+      "index": 161,
+      "start_time": 741800.0,
+      "end_time": 747490.0,
+      "text": "Every image is a matrix of pixel values. We know this we know that they're between 0 and 255 and"
+    },
+    {
+      "index": 162,
+      "start_time": 749390.0,
+      "end_time": 751840.0,
+      "text": "We can use several training Data sets. They're two really"
+    },
+    {
+      "index": 163,
+      "start_time": 752420.0,
+      "end_time": 756670.0,
+      "text": "Popular ones there's C4, and there's cocoa, and there's a bunch of other ones as well"
+    },
+    {
+      "index": 164,
+      "start_time": 756670.0,
+      "end_time": 761500.0,
+      "text": "but basically these are huge data sets and you can find smaller versions of them and"
+    },
+    {
+      "index": 165,
+      "start_time": 761810.0,
+      "end_time": 767830.0,
+      "text": "Each of these images their dogs their cars or airplanes their people whatever they all have labels for them"
+    },
+    {
+      "index": 166,
+      "start_time": 768620.0,
+      "end_time": 770679.0,
+      "text": "Handmade labels by Humans which is great for us"
+    },
+    {
+      "index": 167,
+      "start_time": 772220.0,
+      "end_time": 775810.0,
+      "text": "Ok so that's that's it. That's step one step one is to get your training data"
+    },
+    {
+      "index": 168,
+      "start_time": 775810.0,
+      "end_time": 781660.0,
+      "text": "Which is your images which are your images step two is to perform convolution now you might be asking what is"
+    },
+    {
+      "index": 169,
+      "start_time": 782180.0,
+      "end_time": 786640.0,
+      "text": "convolution well I'm here to tell you that convolution is an operation that is dope as"
+    },
+    {
+      "index": 170,
+      "start_time": 787440.0,
+      "end_time": 791240.0,
+      "text": "Here's white stove because it's not just used in computer science and machine learning"
+    },
+    {
+      "index": 171,
+      "start_time": 791340.0,
+      "end_time": 797600.0,
+      "text": "It's used in almost every field of engineering think of convolution as two paint buckets you have one paint bucket"
+    },
+    {
+      "index": 172,
+      "start_time": 797600.0,
+      "end_time": 801889.0,
+      "text": "Which is red another one. Which is blue and what you do is just smear it all over yourself"
+    },
+    {
+      "index": 173,
+      "start_time": 801930.0,
+      "end_time": 805099.0,
+      "text": "No, you don't do that what you do is you take these two paint buckets?"
+    },
+    {
+      "index": 174,
+      "start_time": 805100.0,
+      "end_time": 809600.0,
+      "text": "And you combine them into one paint bucket and that new paint bucket is going to be a new color"
+    },
+    {
+      "index": 175,
+      "start_time": 810210.0,
+      "end_time": 817519.0,
+      "text": "Whatever that combination of colors is that's convolution convolution is taking two separate types of Data or two"
+    },
+    {
+      "index": 176,
+      "start_time": 818700.0,
+      "end_time": 826040.0,
+      "text": "Matrices and then applying and it's an operation that combines them so you can think of convolution as synonymous to combination, okay?"
+    },
+    {
+      "index": 177,
+      "start_time": 826080.0,
+      "end_time": 830449.0,
+      "text": "Then why do we apply it? Why do we say that for convolutional networks because what we're doing is"
+    },
+    {
+      "index": 178,
+      "start_time": 831360.0,
+      "end_time": 836029.0,
+      "text": "We are combining the values for each of these layers with the input Matrix"
+    },
+    {
+      "index": 179,
+      "start_time": 836190.0,
+      "end_time": 840890.0,
+      "text": "So think of the input as that Matrix right and so well, it's a three dimensional"
+    },
+    {
+      "index": 180,
+      "start_time": 841530.0,
+      "end_time": 846439.0,
+      "text": "It's a three d tensor right but we're applying it to each of these dimensions right so three of them"
+    },
+    {
+      "index": 181,
+      "start_time": 846440.0,
+      "end_time": 850760.0,
+      "text": "So just think of it as a matrix for right now, and so what we do is we take this"
+    },
+    {
+      "index": 182,
+      "start_time": 851910.0,
+      "end_time": 855619.0,
+      "text": "So at each layer at each layer. There is a weight"
+    },
+    {
+      "index": 183,
+      "start_time": 855620.0,
+      "end_time": 862130.0,
+      "text": "So by the way okay, so there's a lot of interchangeable terms in machine learning and it's easy to get confused here"
+    },
+    {
+      "index": 184,
+      "start_time": 862130.0,
+      "end_time": 866180.0,
+      "text": "but I want to set the record straight for a second weight is the same as"
+    },
+    {
+      "index": 185,
+      "start_time": 866730.0,
+      "end_time": 871279.0,
+      "text": "feature Matrix is the same as feature map is the same as a"
+    },
+    {
+      "index": 186,
+      "start_time": 872100.0,
+      "end_time": 878899.0,
+      "text": "Filter in this case in for convolutional networks, so you'll see these or even Kernel Kernel is a different one. There's actually five"
+    },
+    {
+      "index": 187,
+      "start_time": 879600.0,
+      "end_time": 885469.0,
+      "text": "Interchangeable terms I can see how it's going to be confusing but if you get the basic idea of you have an input Matrix"
+    },
+    {
+      "index": 188,
+      "start_time": 885990.0,
+      "end_time": 888979.0,
+      "text": "Which is your image, and then you have a set of Matrices?"
+    },
+    {
+      "index": 189,
+      "start_time": 889530.0,
+      "end_time": 891030.0,
+      "text": "which are your"
+    },
+    {
+      "index": 190,
+      "start_time": 891030.0,
+      "end_time": 895489.0,
+      "text": "Features that are learned you know edges shapes more abstract shapes"
+    },
+    {
+      "index": 191,
+      "start_time": 896430.0,
+      "end_time": 900049.0,
+      "text": "That's it. That's that's all it is Matrix Dot product"
+    },
+    {
+      "index": 192,
+      "start_time": 900660.0,
+      "end_time": 906769.0,
+      "text": "Matrices that are being multiplied by Matrices all the way through that's that's all it is matrices that are being multiplied by Matrices"
+    },
+    {
+      "index": 193,
+      "start_time": 907020.0,
+      "end_time": 908630.0,
+      "text": "Always are just a chain of them, okay"
+    },
+    {
+      "index": 194,
+      "start_time": 908630.0,
+      "end_time": 909780.0,
+      "text": "So what happens for?"
+    },
+    {
+      "index": 195,
+      "start_time": 909780.0,
+      "end_time": 916579.0,
+      "text": "Convolution is we take a Matrix and we multiply it by all the values in this matrix at a certain region right and so this"
+    },
+    {
+      "index": 196,
+      "start_time": 916580.0,
+      "end_time": 921179.0,
+      "text": "Is what I was talking about when I was saying we have a receptive field because we don't just multiply it all at once"
+    },
+    {
+      "index": 197,
+      "start_time": 921450.0,
+      "end_time": 923290.0,
+      "text": "We multiply by a little part of it"
+    },
+    {
+      "index": 198,
+      "start_time": 923290.0,
+      "end_time": 928019.0,
+      "text": "Okay, the receptive field and we slide it and we can define what that interval is that Sliding-window?"
+    },
+    {
+      "index": 199,
+      "start_time": 928020.0,
+      "end_time": 931920.0,
+      "text": "I know I'm talking about without coding the coding is coming believe me the coding is coming"
+    },
+    {
+      "index": 200,
+      "start_time": 931920.0,
+      "end_time": 934379.0,
+      "text": "But just check this out for a second we got it learned"
+    },
+    {
+      "index": 201,
+      "start_time": 934990.0,
+      "end_time": 936700.0,
+      "text": "conceptually first"
+    },
+    {
+      "index": 202,
+      "start_time": 936700.0,
+      "end_time": 944100.0,
+      "text": "So we are multiplying the feature Matrix by that input image just for every row and every Column or just multiply multiply multiply"
+    },
+    {
+      "index": 203,
+      "start_time": 944230.0,
+      "end_time": 951239.0,
+      "text": "And what happens is we have this new Matrix that results the output and that output is considered the convolve feature"
+    },
+    {
+      "index": 204,
+      "start_time": 951520.0,
+      "end_time": 956009.0,
+      "text": "Okay, and so what we do is we use that output as the input for them to the next layer"
+    },
+    {
+      "index": 205,
+      "start_time": 956010.0,
+      "end_time": 961200.0,
+      "text": "And we repeat the process over and over and over again obviously. There's two more parts here. There's the"
+    },
+    {
+      "index": 206,
+      "start_time": 961870.0,
+      "end_time": 967830.0,
+      "text": "Activation the Riilu and then there's the pooling which I'll talk about as well, but that's the basic idea between convolution"
+    },
+    {
+      "index": 207,
+      "start_time": 967830.0,
+      "end_time": 969340.0,
+      "text": "And that's what we call it"
+    },
+    {
+      "index": 208,
+      "start_time": 969340.0,
+      "end_time": 971020.0,
+      "text": "convolution because we are"
+    },
+    {
+      "index": 209,
+      "start_time": 971020.0,
+      "end_time": 977970.0,
+      "text": "Combining or convolving the wave Matrix or filter or Kernel, whatever you want to call it feature map by that input"
+    },
+    {
+      "index": 210,
+      "start_time": 978220.0,
+      "end_time": 983879.0,
+      "text": "we're combining it using the help and using that output as the input for the next layer after activating it and"
+    },
+    {
+      "index": 211,
+      "start_time": 984400.0,
+      "end_time": 985540.0,
+      "text": "pulling it"
+    },
+    {
+      "index": 212,
+      "start_time": 985540.0,
+      "end_time": 988170.0,
+      "text": "Okay, so that's convolution and also"
+    },
+    {
+      "index": 213,
+      "start_time": 990130.0,
+      "end_time": 994920.0,
+      "text": "Right so we apply through all of those dimensions for that for that input Matrix, okay?"
+    },
+    {
+      "index": 214,
+      "start_time": 994920.0,
+      "end_time": 1001009.0,
+      "text": "and that gives us our activation map or feature map or filter right so many different interchangeable terms here, so"
+    },
+    {
+      "index": 215,
+      "start_time": 1001860.0,
+      "end_time": 1006169.0,
+      "text": "Anyway, so it's computed using the dot product so you might be thinking well, okay?"
+    },
+    {
+      "index": 216,
+      "start_time": 1006170.0,
+      "end_time": 1008170.0,
+      "text": "I see how there is a dot product"
+    },
+    {
+      "index": 217,
+      "start_time": 1008180.0,
+      "end_time": 1010369.0,
+      "text": "I see how there's matrix multiplication"
+    },
+    {
+      "index": 218,
+      "start_time": 1010470.0,
+      "end_time": 1016879.0,
+      "text": "But how does that really tell us what features there are I see you're still making the connection probably why?"
+    },
+    {
+      "index": 219,
+      "start_time": 1017880.0,
+      "end_time": 1023960.0,
+      "text": "Understandably why these series of major operations help us detect features. Well, here's what happens"
+    },
+    {
+      "index": 220,
+      "start_time": 1025079.9999999999,
+      "end_time": 1029418.9999999999,
+      "text": "What happens is this and here's the great thing about Matrices and having several of them?"
+    },
+    {
+      "index": 221,
+      "start_time": 1031829.9999999999,
+      "end_time": 1033719.9999999999,
+      "text": "when we"
+    },
+    {
+      "index": 222,
+      "start_time": 1033720.0,
+      "end_time": 1039350.0,
+      "text": "Learn a filter or weight, whatever you want to call it. You know what moving forward let's just call it filter, okay?"
+    },
+    {
+      "index": 223,
+      "start_time": 1039349.9999999999,
+      "end_time": 1042799.9999999999,
+      "text": "I'm just saying let's just call it filter moving forward for the rest of this video"
+    },
+    {
+      "index": 224,
+      "start_time": 1043290.0,
+      "end_time": 1047509.0,
+      "text": "when we learn a filter over time by training it on mouth mouth pictures for example a"
+    },
+    {
+      "index": 225,
+      "start_time": 1047700.0,
+      "end_time": 1050330.0,
+      "text": "Filter is going to look like this at let's say at the first layer"
+    },
+    {
+      "index": 226,
+      "start_time": 1050330.0,
+      "end_time": 1054199.0,
+      "text": "We we learn a filter for detecting a that looks like this right this curve right here"
+    },
+    {
+      "index": 227,
+      "start_time": 1054230.0,
+      "end_time": 1058189.0,
+      "text": "And so what's what the filters going to look like for detecting the specific type of curve?"
+    },
+    {
+      "index": 228,
+      "start_time": 1058590.0,
+      "end_time": 1062209.0,
+      "text": "It's going to be a very Sparse filter that means there's a lot of zeros"
+    },
+    {
+      "index": 229,
+      "start_time": 1062790.0,
+      "end_time": 1068779.0,
+      "text": "Except so there's all these zeros except for right here. You see this 30 30 30 30 and notice that these values"
+    },
+    {
+      "index": 230,
+      "start_time": 1069390.0,
+      "end_time": 1072589.0,
+      "text": "Represent the shake they go in this direction of a shape"
+    },
+    {
+      "index": 231,
+      "start_time": 1072590.0,
+      "end_time": 1079459.0,
+      "text": "and so what happens is when we take this filter and perform the dot product you know we convolve it with"
+    },
+    {
+      "index": 232,
+      "start_time": 1080010.0,
+      "end_time": 1083689.0,
+      "text": "whatever part of the mouse if it's over a part of the mouse that"
+    },
+    {
+      "index": 233,
+      "start_time": 1084210.0,
+      "end_time": 1089750.0,
+      "text": "Matches that feature exactly then we when we multiply all of those"
+    },
+    {
+      "index": 234,
+      "start_time": 1090180.0,
+      "end_time": 1097400.0,
+      "text": "When we when we perform the dot product between all those values and sum them up that's the convolution operation right there, okay? Just"
+    },
+    {
+      "index": 235,
+      "start_time": 1098250.0,
+      "end_time": 1100309.0,
+      "text": "It's going to be a big number, okay?"
+    },
+    {
+      "index": 236,
+      "start_time": 1100310.0,
+      "end_time": 1104450.0,
+      "text": "So then we know that we've detected a feature because we've we've multiplied it sum it up"
+    },
+    {
+      "index": 237,
+      "start_time": 1104450.0,
+      "end_time": 1106450.0,
+      "text": "and there's a large number, and if there's not"
+    },
+    {
+      "index": 238,
+      "start_time": 1107070.0,
+      "end_time": 1113809.0,
+      "text": "If we multiply it loads let's say we have that receptive field over a different part of the mouse and that that curve doesn't exist"
+    },
+    {
+      "index": 239,
+      "start_time": 1114030.0,
+      "end_time": 1120709.0,
+      "text": "Then it's going to be zero right because if you look between these 30 30 30 values and that the equivalent"
+    },
+    {
+      "index": 240,
+      "start_time": 1121470.0,
+      "end_time": 1128660.0,
+      "text": "Locations on this pixel representation of the mouse image these are zeros and so what happens when you multiply zero Bi 30u"
+    },
+    {
+      "index": 241,
+      "start_time": 1129000.0,
+      "end_time": 1135410.0,
+      "text": "Get zero right, so that's why it's important to make the rest of the so the data that's irrelevant"
+    },
+    {
+      "index": 242,
+      "start_time": 1135410.0,
+      "end_time": 1138499.0,
+      "text": "We want it to be zero right in the in the feature"
+    },
+    {
+      "index": 243,
+      "start_time": 1138900.0,
+      "end_time": 1145550.0,
+      "text": "maps are in the filters that we learn in the filters that we learn we want the irrelevant parts to be 0 and in the"
+    },
+    {
+      "index": 244,
+      "start_time": 1145680.0,
+      "end_time": 1147391.0,
+      "text": "images okay, and"
+    },
+    {
+      "index": 245,
+      "start_time": 1147390.0,
+      "end_time": 1149390.0,
+      "text": "N in the input images"
+    },
+    {
+      "index": 246,
+      "start_time": 1150210.0,
+      "end_time": 1151620.0,
+      "text": "So I"
+    },
+    {
+      "index": 247,
+      "start_time": 1151620.0,
+      "end_time": 1155089.0,
+      "text": "so I can actually go even more into convolution, but"
+    },
+    {
+      "index": 248,
+      "start_time": 1155670.0,
+      "end_time": 1158629.0,
+      "text": "It's not really necessary, but it is super dope it is super dope though"
+    },
+    {
+      "index": 249,
+      "start_time": 1158630.0,
+      "end_time": 1162260.0,
+      "text": "This is a great blog post by the way, I definitely encourage you to read this blog post"
+    },
+    {
+      "index": 250,
+      "start_time": 1162450.0,
+      "end_time": 1165559.0,
+      "text": "It's linked in the notebook, but this dude Tim Tim"
+    },
+    {
+      "index": 251,
+      "start_time": 1165660.0,
+      "end_time": 1171079.0,
+      "text": "he goes into this idea of convolution and he talks about how it's applied to all these different engineering fields and"
+    },
+    {
+      "index": 252,
+      "start_time": 1172770.0,
+      "end_time": 1174770.0,
+      "text": "he goes into"
+    },
+    {
+      "index": 253,
+      "start_time": 1175230.0,
+      "end_time": 1176340.0,
+      "text": "the"
+    },
+    {
+      "index": 254,
+      "start_time": 1176340.0,
+      "end_time": 1182030.0,
+      "text": "Formula the formula for the convolutional Theorem is what he called it is what it's called, okay?"
+    },
+    {
+      "index": 255,
+      "start_time": 1182030.0,
+      "end_time": 1183960.0,
+      "text": "And I'm just going to go over this at a high level"
+    },
+    {
+      "index": 256,
+      "start_time": 1183960.0,
+      "end_time": 1189230.0,
+      "text": "But the convolution Theorem is this general theorem for discrete well?"
+    },
+    {
+      "index": 257,
+      "start_time": 1189230.0,
+      "end_time": 1195740.0,
+      "text": "There's a discrete version and a continuous version right discrete is if there's you know 1 or 0 black or white you know definite?"
+    },
+    {
+      "index": 258,
+      "start_time": 1196350.0,
+      "end_time": 1203809.0,
+      "text": "Classes that something could be or is continuous is if it could be an infinite amount of values between 0 & 1 point 5"
+    },
+    {
+      "index": 259,
+      "start_time": 1204300.0,
+      "end_time": 1207110.0,
+      "text": "0.25 you know 0.7 infinity in that direction"
+    },
+    {
+      "index": 260,
+      "start_time": 1207840.0,
+      "end_time": 1211490.0,
+      "text": "But here's the here's the formula for it and so let me make it bigger"
+    },
+    {
+      "index": 261,
+      "start_time": 1212010.0,
+      "end_time": 1216799.0,
+      "text": "Just really quickly, and we'll get back to it because it's really cool, but the convolution Theorem states that"
+    },
+    {
+      "index": 262,
+      "start_time": 1219420.0,
+      "end_time": 1225649.0,
+      "text": "We and so in it's a general theorem that can be applied to any any any set of problems"
+    },
+    {
+      "index": 263,
+      "start_time": 1225650.0,
+      "end_time": 1230960.0,
+      "text": "But in terms of what's relevant to us is called is the convolutional Theorem apply to"
+    },
+    {
+      "index": 264,
+      "start_time": 1231990.0,
+      "end_time": 1236719.0,
+      "text": "Matrix operations, so what we can do is we can say what it what it says is"
+    },
+    {
+      "index": 265,
+      "start_time": 1236720.0,
+      "end_time": 1240079.0,
+      "text": "It's the input times the kernel, and it's the dot product"
+    },
+    {
+      "index": 266,
+      "start_time": 1240080.0,
+      "end_time": 1241140.0,
+      "text": "it's a dot product between"
+    },
+    {
+      "index": 267,
+      "start_time": 1241140.0,
+      "end_time": 1247640.0,
+      "text": "Two different matrices and we perform that for every value in all of those matrices and we do that for all of the values that"
+    },
+    {
+      "index": 268,
+      "start_time": 1247640.0,
+      "end_time": 1253549.0,
+      "text": "We have and we sum them up together, and that's what the sigma term represents, and we and we actually express that right here"
+    },
+    {
+      "index": 269,
+      "start_time": 1253550.0,
+      "end_time": 1257120.0,
+      "text": "Right this operation right here this multiplication in summation is the same thing"
+    },
+    {
+      "index": 270,
+      "start_time": 1257120.0,
+      "end_time": 1261439.0,
+      "text": "but it's a more complex way of looking at it or more mathematically accurate way and"
+    },
+    {
+      "index": 271,
+      "start_time": 1261840.0,
+      "end_time": 1266299.0,
+      "text": "also the fast fourier transform is is brought up by this and"
+    },
+    {
+      "index": 272,
+      "start_time": 1267570.0,
+      "end_time": 1272299.0,
+      "text": "The fat Fourier Transform take some spatial Data and it converts it into fourier space"
+    },
+    {
+      "index": 273,
+      "start_time": 1272370.0,
+      "end_time": 1277250.0,
+      "text": "Which is like a waveform and you see this a lot in your day to day life whenever you're looking at"
+    },
+    {
+      "index": 274,
+      "start_time": 1278340.0,
+      "end_time": 1282350.0,
+      "text": "Some sound you know you're listening to some sound and you look at your MP3 player?"
+    },
+    {
+      "index": 275,
+      "start_time": 1282350.0,
+      "end_time": 1286309.0,
+      "text": "And you see the wave that's at the fourier transform happening, but I won't go into that"
+    },
+    {
+      "index": 276,
+      "start_time": 1286310.0,
+      "end_time": 1291740.0,
+      "text": "That's that's for sound in audio, but anyway, it's really cool a blog post definitely check it out ok so back to this"
+    },
+    {
+      "index": 277,
+      "start_time": 1293640.0,
+      "end_time": 1298549.0,
+      "text": "Until we talked about convolution now. We're going to talk about pooling right? So what is pooling, so"
+    },
+    {
+      "index": 278,
+      "start_time": 1299130.0,
+      "end_time": 1301549.0,
+      "text": "Whenever we apply convolution to some image"
+    },
+    {
+      "index": 279,
+      "start_time": 1301550.0,
+      "end_time": 1305899.0,
+      "text": "what's going to happen at every layer is we're going to get a series of feature of"
+    },
+    {
+      "index": 280,
+      "start_time": 1306270.0,
+      "end_time": 1312409.0,
+      "text": "So each of the weights are going to consist of multiple images and each of these images are going to be"
+    },
+    {
+      "index": 281,
+      "start_time": 1313890.0,
+      "end_time": 1319219.0,
+      "text": "At every layer there's going to be more and smaller images so the first few layers are going to be"
+    },
+    {
+      "index": 282,
+      "start_time": 1319530.0,
+      "end_time": 1321040.0,
+      "text": "huge images right and"
+    },
+    {
+      "index": 283,
+      "start_time": 1321040.0,
+      "end_time": 1325109.0,
+      "text": "Then at the next few layers are going to be more of those but they're going to be smaller and it's going to get"
+    },
+    {
+      "index": 284,
+      "start_time": 1325270.0,
+      "end_time": 1331319.0,
+      "text": "Just like that okay, and then we squash it with some fully connected layer, so we get some probability values with a soft Max"
+    },
+    {
+      "index": 285,
+      "start_time": 1331510.0,
+      "end_time": 1332770.0,
+      "text": "But anyway"
+    },
+    {
+      "index": 286,
+      "start_time": 1332770.0,
+      "end_time": 1338939.0,
+      "text": "What pooling does is it word is it dense is it makes the Matrix the major seeds that we learn?"
+    },
+    {
+      "index": 287,
+      "start_time": 1339970.0,
+      "end_time": 1345510.0,
+      "text": "more Dense here's what I mean, so if you if you perform convolution between an input and a"
+    },
+    {
+      "index": 288,
+      "start_time": 1346030.0,
+      "end_time": 1348869.0,
+      "text": "Feature Matrix or a weight Matrix or filter?"
+    },
+    {
+      "index": 289,
+      "start_time": 1349510.0,
+      "end_time": 1351839.0,
+      "text": "It's going to result in a Matrix right?"
+    },
+    {
+      "index": 290,
+      "start_time": 1351840.0,
+      "end_time": 1355079.0,
+      "text": "But this Matrix is going to be pretty big it's going to be a pretty big Matrix"
+    },
+    {
+      "index": 291,
+      "start_time": 1355300.0,
+      "end_time": 1359939.0,
+      "text": "what we can do is we can take the most important parts of that Matrix and"
+    },
+    {
+      "index": 292,
+      "start_time": 1360400.0,
+      "end_time": 1367170.0,
+      "text": "Pass that on and what that's going to do is it's going to reduce the computational complexity of our model, okay?"
+    },
+    {
+      "index": 293,
+      "start_time": 1367170.0,
+      "end_time": 1370379.0,
+      "text": "So that's what pooling is all about to pooling tester"
+    },
+    {
+      "index": 294,
+      "start_time": 1370380.0,
+      "end_time": 1374400.0,
+      "text": "There's different types of pooling max pooling is the most used type of pooling by the way"
+    },
+    {
+      "index": 295,
+      "start_time": 1375160.0,
+      "end_time": 1376360.0,
+      "text": "It'll basically"
+    },
+    {
+      "index": 296,
+      "start_time": 1376360.0,
+      "end_time": 1379410.0,
+      "text": "Multiply so what happens is we strive?"
+    },
+    {
+      "index": 297,
+      "start_time": 1379410.0,
+      "end_time": 1382949.0,
+      "text": "We have some we define some windows size and then construed size"
+    },
+    {
+      "index": 298,
+      "start_time": 1382950.0,
+      "end_time": 1387689.0,
+      "text": "So how what are the intervals that we look at and we say okay? So for each of these windows?"
+    },
+    {
+      "index": 299,
+      "start_time": 1387690.0,
+      "end_time": 1392940.0,
+      "text": "Let's take the max value so for so for this one right here for 6 0 8"
+    },
+    {
+      "index": 300,
+      "start_time": 1393250.0,
+      "end_time": 1398880.0,
+      "text": "The max value would be 8 and so for 1 3 12 9 ob 12 right so we just take the biggest number"
+    },
+    {
+      "index": 301,
+      "start_time": 1398880.0,
+      "end_time": 1401280.0,
+      "text": "it's really simple actually we just take the biggest number and"
+    },
+    {
+      "index": 302,
+      "start_time": 1401620.0,
+      "end_time": 1405689.0,
+      "text": "we just do that for all of them and that that's what pooling is all about and so it's going to"
+    },
+    {
+      "index": 303,
+      "start_time": 1407080.0,
+      "end_time": 1414750.0,
+      "text": "just give us that the most relevant parts of the image if you think of these these verities values in the nD Matrix as"
+    },
+    {
+      "index": 304,
+      "start_time": 1415210.0,
+      "end_time": 1422069.0,
+      "text": "Pixel intensities by taking the maximum intense the the pixel with the most intensity or the the highest intensity"
+    },
+    {
+      "index": 305,
+      "start_time": 1422140.0,
+      "end_time": 1428969.0,
+      "text": "We're getting that feature that is the most relevant you see what I'm saying. It's a least opaque feature to use the term from"
+    },
+    {
+      "index": 306,
+      "start_time": 1430240.0,
+      "end_time": 1432240.0,
+      "text": "image"
+    },
+    {
+      "index": 307,
+      "start_time": 1432250.0,
+      "end_time": 1440099.0,
+      "text": "Math anyway, so we talked about pooling and we talked about we talked about activation and so now"
+    },
+    {
+      "index": 308,
+      "start_time": 1442690.0,
+      "end_time": 1446460.0,
+      "text": "Now we talked about convolution and we talked about pooling and so now the third part is"
+    },
+    {
+      "index": 309,
+      "start_time": 1447580.0,
+      "end_time": 1452790.0,
+      "text": "Normalization or activation so remember how I said how it would be it's so important that"
+    },
+    {
+      "index": 310,
+      "start_time": 1452990.0,
+      "end_time": 1456529.0,
+      "text": "Have these values that are not related to our image B0"
+    },
+    {
+      "index": 311,
+      "start_time": 1456530.0,
+      "end_time": 1461780.0,
+      "text": "We want them to be zero so the result is zero if the if the feature is not detected well"
+    },
+    {
+      "index": 312,
+      "start_time": 1461780.0,
+      "end_time": 1468080.0,
+      "text": "The way we do that is using Riilu and to relive stands for rectified Linear unit it's an activation function"
+    },
+    {
+      "index": 313,
+      "start_time": 1468590.0,
+      "end_time": 1475370.0,
+      "text": "It's an activation function. Okay. We use activation functions throughout, New York Neural networks, and we use them because it is"
+    },
+    {
+      "index": 314,
+      "start_time": 1475980.0,
+      "end_time": 1477690.0,
+      "text": "You can also call them"
+    },
+    {
+      "index": 315,
+      "start_time": 1477690.0,
+      "end_time": 1481700.0,
+      "text": "Nonlinearities because they make our model able to learn"
+    },
+    {
+      "index": 316,
+      "start_time": 1482430.0,
+      "end_time": 1484580.0,
+      "text": "non-linear functions not just linear functions"
+    },
+    {
+      "index": 317,
+      "start_time": 1484580.0,
+      "end_time": 1490760.0,
+      "text": "But non-linear functions so any kind of function right the universal function approximation theorem, we talked about that"
+    },
+    {
+      "index": 318,
+      "start_time": 1491490.0,
+      "end_time": 1493230.0,
+      "text": "activation functions helped make this happen"
+    },
+    {
+      "index": 319,
+      "start_time": 1493230.0,
+      "end_time": 1499789.0,
+      "text": "and so riilu is a specific special kind of activation function that turns all negative numbers into"
+    },
+    {
+      "index": 320,
+      "start_time": 1500430.0,
+      "end_time": 1503510.0,
+      "text": "Zero so that's why it's going to make the math easier"
+    },
+    {
+      "index": 321,
+      "start_time": 1503510.0,
+      "end_time": 1508819.0,
+      "text": "It won't make the math break for our convolutional networks will apply reloop so basically what we do is for every"
+    },
+    {
+      "index": 322,
+      "start_time": 1508980.0,
+      "end_time": 1513289.0,
+      "text": "single Pixel value in the in the input to this Riilu activation function"
+    },
+    {
+      "index": 323,
+      "start_time": 1513300.0,
+      "end_time": 1517850.0,
+      "text": "We turn it if it's a negative. We just say make a zero. It's super simple. It will be one line of code"
+    },
+    {
+      "index": 324,
+      "start_time": 1517850.0,
+      "end_time": 1519850.0,
+      "text": "You'll see exactly what I'm talking about"
+    },
+    {
+      "index": 325,
+      "start_time": 1520050.0,
+      "end_time": 1524779.0,
+      "text": "Okay, so that's that's those are our blocks, so that's how our convolutional blocks work"
+    },
+    {
+      "index": 326,
+      "start_time": 1525450.0,
+      "end_time": 1533090.0,
+      "text": "However, there is another step that I didn't talk about that is a nice-to-have and state-of-the-art convolutional networks always use it and that's called"
+    },
+    {
+      "index": 327,
+      "start_time": 1533160.0,
+      "end_time": 1535580.0,
+      "text": "dropout so Geoffrey Hinton the guy who invented"
+    },
+    {
+      "index": 328,
+      "start_time": 1537420.0,
+      "end_time": 1541370.0,
+      "text": "Neural Networks invented a feature invented a technique called Dropout"
+    },
+    {
+      "index": 329,
+      "start_time": 1541370.0,
+      "end_time": 1544459.0,
+      "text": "And what dropout is is a good analogy is?"
+    },
+    {
+      "index": 330,
+      "start_time": 1544860.0,
+      "end_time": 1549649.0,
+      "text": "Old people or not old people, but people who are stuck in their ways let me let me okay"
+    },
+    {
+      "index": 331,
+      "start_time": 1549650.0,
+      "end_time": 1553790.0,
+      "text": "So what dropout does is it turns neurons on and off randomly?"
+    },
+    {
+      "index": 332,
+      "start_time": 1553830.0,
+      "end_time": 1559699.0,
+      "text": "What do I mean by that that I mean the matrices for each weight value is converted to zero?"
+    },
+    {
+      "index": 333,
+      "start_time": 1560040.0,
+      "end_time": 1566840.0,
+      "text": "Randomly at some layer of the network and so what happens is by doing this our network is forced to learn new"
+    },
+    {
+      "index": 334,
+      "start_time": 1567150.0,
+      "end_time": 1570920.0,
+      "text": "Representations for the Data new Pathways that that data has to flow through it"
+    },
+    {
+      "index": 335,
+      "start_time": 1570920.0,
+      "end_time": 1574700.0,
+      "text": "Can't always flow through this neuron and the reason we use it is to prevent"
+    },
+    {
+      "index": 336,
+      "start_time": 1575040.0,
+      "end_time": 1579260.0,
+      "text": "Overfitting right we want to prevent overfitting we've born preventing to fit to the data"
+    },
+    {
+      "index": 337,
+      "start_time": 1579560.0,
+      "end_time": 1584609.0,
+      "text": "Think of it as you know the older you get the more and your ways of thinking you're you are right?"
+    },
+    {
+      "index": 338,
+      "start_time": 1584610.0,
+      "end_time": 1587010.0,
+      "text": "and so it's harder to think of new ways of"
+    },
+    {
+      "index": 339,
+      "start_time": 1587260.0,
+      "end_time": 1594780.0,
+      "text": "thinking right because you're so set in some ways so a way to prevent that is to have a novel crazy experience whether it's"
+    },
+    {
+      "index": 340,
+      "start_time": 1595180.0,
+      "end_time": 1599789.0,
+      "text": "Skydiving or taking psychedelics or whatever it is and what that does is it creates new Pathways"
+    },
+    {
+      "index": 341,
+      "start_time": 1599790.0,
+      "end_time": 1606989.0,
+      "text": "So you're not so you're kind of forced your brain is forced to make new pathways and this increases your generalization ability"
+    },
+    {
+      "index": 342,
+      "start_time": 1606990.0,
+      "end_time": 1608990.0,
+      "text": "And you're not so over fit"
+    },
+    {
+      "index": 343,
+      "start_time": 1609340.0,
+      "end_time": 1611999.0,
+      "text": "That's a very rough abstract analogy"
+    },
+    {
+      "index": 344,
+      "start_time": 1612000.0,
+      "end_time": 1618359.0,
+      "text": "But basically dropout is not as complexify sounds dropped out can be done in three lines of code so definitely check out this"
+    },
+    {
+      "index": 345,
+      "start_time": 1619000.0,
+      "end_time": 1620831.0,
+      "text": "Blog post as well that I've linked"
+    },
+    {
+      "index": 346,
+      "start_time": 1620830.0,
+      "end_time": 1622259.0,
+      "text": "But what it does is it?"
+    },
+    {
+      "index": 347,
+      "start_time": 1622260.0,
+      "end_time": 1629280.0,
+      "text": "Just randomly pick some neurons in a layer to set to zero right so it's just it's just three lines, okay"
+    },
+    {
+      "index": 348,
+      "start_time": 1629280.0,
+      "end_time": 1634200.0,
+      "text": "And you can look at it in this notebook, right? So that's and then our last step is probability conversion"
+    },
+    {
+      "index": 349,
+      "start_time": 1634200.0,
+      "end_time": 1640559.0,
+      "text": "So we've got this huge set of values right all these little small images that are represented by this huge output Matrix"
+    },
+    {
+      "index": 350,
+      "start_time": 1640870.0,
+      "end_time": 1645120.0,
+      "text": "And we want to take this huge set of values and make some sense out of it"
+    },
+    {
+      "index": 351,
+      "start_time": 1645120.0,
+      "end_time": 1647520.0,
+      "text": "We want to make probabilities out of it and the way"
+    },
+    {
+      "index": 352,
+      "start_time": 1647520.0,
+      "end_time": 1652800.0,
+      "text": "We do that is using a soft max at the end a soft max is the type of function and it looks like this"
+    },
+    {
+      "index": 353,
+      "start_time": 1652870.0,
+      "end_time": 1655020.0,
+      "text": "This is a soft max function right here"
+    },
+    {
+      "index": 354,
+      "start_time": 1655020.0,
+      "end_time": 1658320.0,
+      "text": "But what we do is we plug these values into the soft max function"
+    },
+    {
+      "index": 355,
+      "start_time": 1658320.0,
+      "end_time": 1665729.0,
+      "text": "And it's going to output a set of probability values discrete probability values for each of the classes that we're trying to predict"
+    },
+    {
+      "index": 356,
+      "start_time": 1665950.0,
+      "end_time": 1669689.0,
+      "text": "Okay, and then what we'll do is given all those probability values"
+    },
+    {
+      "index": 357,
+      "start_time": 1669690.0,
+      "end_time": 1676289.0,
+      "text": "We'll pick the biggest one using our max the arg max function in numpy and that's going to give us the most likely class"
+    },
+    {
+      "index": 358,
+      "start_time": 1677560.0,
+      "end_time": 1684179.0,
+      "text": "okay, those are the seven steps of a feat a full-forward task through a convolutional network looks like that and"
+    },
+    {
+      "index": 359,
+      "start_time": 1685390.0,
+      "end_time": 1687960.0,
+      "text": "So now you might be wondering well, okay?"
+    },
+    {
+      "index": 360,
+      "start_time": 1687960.0,
+      "end_time": 1695579.0,
+      "text": "So how do we train this thing well using gradient descent right and one apply to Neural networks gradient gradient descent is called"
+    },
+    {
+      "index": 361,
+      "start_time": 1697540.0,
+      "end_time": 1703529.0,
+      "text": "Back propagation exactly, I hope you got that right anyway okay? So how do we learn these Magic numbers, right?"
+    },
+    {
+      "index": 362,
+      "start_time": 1703530.0,
+      "end_time": 1707399.0,
+      "text": "How do we learn what these weight values should be what the feature should be?"
+    },
+    {
+      "index": 363,
+      "start_time": 1707710.0,
+      "end_time": 1713939.0,
+      "text": "Back propagation is how we do it right and so we've talked quite a bit about back propagation and gradient descent"
+    },
+    {
+      "index": 364,
+      "start_time": 1713940.0,
+      "end_time": 1715530.0,
+      "text": "But I'll do a little"
+    },
+    {
+      "index": 365,
+      "start_time": 1715530.0,
+      "end_time": 1717520.0,
+      "text": "over it again"
+    },
+    {
+      "index": 366,
+      "start_time": 1717520.0,
+      "end_time": 1720570.0,
+      "text": "But the idea is that we have some error that we're computing right?"
+    },
+    {
+      "index": 367,
+      "start_time": 1720700.0,
+      "end_time": 1725639.0,
+      "text": "This is super supervised learning we have a we have a human label right for some data"
+    },
+    {
+      "index": 368,
+      "start_time": 1725650.0,
+      "end_time": 1730979.0,
+      "text": "So we put in a dog image or a bicycle image to look at this image to look to relate to this image here"
+    },
+    {
+      "index": 369,
+      "start_time": 1730980.0,
+      "end_time": 1736770.0,
+      "text": "We put in a bicycle image in the bike label. We pass it through the each layer dot product dot product up"
+    },
+    {
+      "index": 370,
+      "start_time": 1736770.0,
+      "end_time": 1741239.0,
+      "text": "you know dot product activation function pool dot product repeat repeat Softmax or"
+    },
+    {
+      "index": 371,
+      "start_time": 1741610.0,
+      "end_time": 1748710.0,
+      "text": "squash into probability values pick the biggest one and we have some prediction value and what we do is we compare the prediction value to"
+    },
+    {
+      "index": 372,
+      "start_time": 1748710.0,
+      "end_time": 1753479.0,
+      "text": "The out the actual value and we get an error and we take our error and we compute the partial"
+    },
+    {
+      "index": 373,
+      "start_time": 1753670.0,
+      "end_time": 1759149.0,
+      "text": "Derivative of the error with respect to each weight value going backwards in the network okay like this"
+    },
+    {
+      "index": 374,
+      "start_time": 1760390.0,
+      "end_time": 1768359.0,
+      "text": "Okay, and so for regression we use the mean squared error if we're using linear regression regression and for classification we use the softmax function"
+    },
+    {
+      "index": 375,
+      "start_time": 1768670.0,
+      "end_time": 1774149.0,
+      "text": "so remember how in the first neural network we built an in there linear regression example we use a"
+    },
+    {
+      "index": 376,
+      "start_time": 1775930.0,
+      "end_time": 1779369.0,
+      "text": "We use mean squared error to compute the error and now we're using the softmax"
+    },
+    {
+      "index": 377,
+      "start_time": 1779620.0,
+      "end_time": 1783960.0,
+      "text": "So we'll take the so we'll take the partial derivative of the error with respect to our weights"
+    },
+    {
+      "index": 378,
+      "start_time": 1783960.0,
+      "end_time": 1789029.0,
+      "text": "And then that's going to give us the gradient value that we then update each of those weight values"
+    },
+    {
+      "index": 379,
+      "start_time": 1790000.0,
+      "end_time": 1797369.0,
+      "text": "Recursively going backward in the network, and that's how it learns what those features what the ideal feature the weight Matrix value should be"
+    },
+    {
+      "index": 380,
+      "start_time": 1798250.0,
+      "end_time": 1800250.0,
+      "text": "But what about the other?"
+    },
+    {
+      "index": 381,
+      "start_time": 1800290.0,
+      "end_time": 1805979.0,
+      "text": "what about the other magic numbers what about the number of neurons and the number of features and the size of those features in the"
+    },
+    {
+      "index": 382,
+      "start_time": 1805980.0,
+      "end_time": 1811920.0,
+      "text": "Pooling window side and the windows tried well those that is an active area of research there are best practices"
+    },
+    {
+      "index": 383,
+      "start_time": 1812410.0,
+      "end_time": 1820080.0,
+      "text": "For values that you should use for those for those hyper parameters right the tuning knobs of our network and Andrey Karpati had some great"
+    },
+    {
+      "index": 384,
+      "start_time": 1820570.0,
+      "end_time": 1824639.0,
+      "text": "material on this he's probably the leading source for convolutional networks right now in terms of"
+    },
+    {
+      "index": 385,
+      "start_time": 1825490.0,
+      "end_time": 1827490.0,
+      "text": "Written content and"
+    },
+    {
+      "index": 386,
+      "start_time": 1828820.0,
+      "end_time": 1829620.0,
+      "text": "Yeah, I mean"
+    },
+    {
+      "index": 387,
+      "start_time": 1829620.0,
+      "end_time": 1831010.0,
+      "text": "This is an active area of research"
+    },
+    {
+      "index": 388,
+      "start_time": 1831010.0,
+      "end_time": 1832840.0,
+      "text": "Finding out what the ideal hyper"
+    },
+    {
+      "index": 389,
+      "start_time": 1832840.0,
+      "end_time": 1838709.0,
+      "text": "parameters for our neural network should be and we're still learning what it should be what what what how we can get them rather than"
+    },
+    {
+      "index": 390,
+      "start_time": 1838710.0,
+      "end_time": 1843090.0,
+      "text": "Just guessing and checking which is what we do right now. Which is kind of like you know?"
+    },
+    {
+      "index": 391,
+      "start_time": 1843730.0,
+      "end_time": 1848670.0,
+      "text": "Not is not as optimal right so anyway last two things now"
+    },
+    {
+      "index": 392,
+      "start_time": 1848670.0,
+      "end_time": 1852029.0,
+      "text": "We're going to with the code when is it the time to use this well? We know it to classify images"
+    },
+    {
+      "index": 393,
+      "start_time": 1852030.0,
+      "end_time": 1855300.0,
+      "text": "We've talked about that, but you can also use them to generate images"
+    },
+    {
+      "index": 394,
+      "start_time": 1855300.0,
+      "end_time": 1855941.0,
+      "text": "and that's"
+    },
+    {
+      "index": 395,
+      "start_time": 1855940.0,
+      "end_time": 1857940.0,
+      "text": "For later on that's a little more advanced"
+    },
+    {
+      "index": 396,
+      "start_time": 1857980.0,
+      "end_time": 1862529.0,
+      "text": "But to give you a little spoiler or a little teaser in fact this is a my entra deep learning playlist"
+    },
+    {
+      "index": 397,
+      "start_time": 1862630.0,
+      "end_time": 1866700.0,
+      "text": "You take a convolutional network you flip it and then you call it a D-- convolutional network"
+    },
+    {
+      "index": 398,
+      "start_time": 1866700.0,
+      "end_time": 1872669.0,
+      "text": "And then you can take some text and create an image out of text. How crazy is that okay?"
+    },
+    {
+      "index": 399,
+      "start_time": 1873700.0,
+      "end_time": 1879269.0,
+      "text": "There's also generative models where you have two networks fighting each other and you can generate new images a whole bunch of really cool"
+    },
+    {
+      "index": 400,
+      "start_time": 1879370.0,
+      "end_time": 1885869.0,
+      "text": "Crazies and stuff you can do, but anyway when should you use a convolutional network anytime you have spatial"
+    },
+    {
+      "index": 401,
+      "start_time": 1886420.0,
+      "end_time": 1887701.0,
+      "text": "2d or 3D data"
+    },
+    {
+      "index": 402,
+      "start_time": 1887700.0,
+      "end_time": 1894929.0,
+      "text": "what do I mean well obviously images are spatial the word spatial implies that the space the positioning of the data matters, so"
+    },
+    {
+      "index": 403,
+      "start_time": 1895930.0,
+      "end_time": 1899369.0,
+      "text": "sound you can apply to sound images or text where the the"
+    },
+    {
+      "index": 404,
+      "start_time": 1899920.0,
+      "end_time": 1906659.0,
+      "text": "The position of the text matters right because we have a flashlight or filter and we're convolving over an image, right?"
+    },
+    {
+      "index": 405,
+      "start_time": 1907660.0,
+      "end_time": 1912119.0,
+      "text": "But if you have some data like say customer data or if you were to just flip the rows and columns"
+    },
+    {
+      "index": 406,
+      "start_time": 1912400.0,
+      "end_time": 1915269.0,
+      "text": "It doesn't matter what order. They're in. They're still you know?"
+    },
+    {
+      "index": 407,
+      "start_time": 1915910.0,
+      "end_time": 1921240.0,
+      "text": "They're still features so a good rule of thumb. Is if you swap out the rows and columns of your data set and"
+    },
+    {
+      "index": 408,
+      "start_time": 1922090.0,
+      "end_time": 1927119.0,
+      "text": "It's just as useful like the space doesn't matter then you don't want to use a Cnn. It helps you do"
+    },
+    {
+      "index": 409,
+      "start_time": 1927790.0,
+      "end_time": 1934230.0,
+      "text": "Okay, and a great and last thing the great example of using Cnn's are for robot learning you can use a CnN for object Detection"
+    },
+    {
+      "index": 410,
+      "start_time": 1934230.0,
+      "end_time": 1936220.0,
+      "text": "And you can use a CnN for grasp"
+    },
+    {
+      "index": 411,
+      "start_time": 1936220.0,
+      "end_time": 1940289.0,
+      "text": "Learning and combine the two and then you can get a robot that cooks which is really cool"
+    },
+    {
+      "index": 412,
+      "start_time": 1940290.0,
+      "end_time": 1946139.0,
+      "text": "I've got a great tensorflow example and a great adversarial networks example. Okay. Let's go into the code now"
+    },
+    {
+      "index": 413,
+      "start_time": 1946720.0,
+      "end_time": 1952350.0,
+      "text": "And so what I'm going to do is I'm going to look at the class for the convolutional network in dump"
+    },
+    {
+      "index": 414,
+      "start_time": 1952350.0,
+      "end_time": 1954360.0,
+      "text": "I as well as the prediction class"
+    },
+    {
+      "index": 415,
+      "start_time": 1954360.0,
+      "end_time": 1961829.0,
+      "text": "There's two classes here okay, so these are our three inputs pickle is for saving and loading our serialized Model"
+    },
+    {
+      "index": 416,
+      "start_time": 1961830.0,
+      "end_time": 1968220.0,
+      "text": "What do I mean pickle is pythons way of having a platform or language agnostic way of saving Data?"
+    },
+    {
+      "index": 417,
+      "start_time": 1968220.0,
+      "end_time": 1969639.0,
+      "text": "So you can load it up later"
+    },
+    {
+      "index": 418,
+      "start_time": 1969640.0,
+      "end_time": 1974070.0,
+      "text": "Tentacle uses it a bunch of other libraries use it as well num pies or Matrix math"
+    },
+    {
+      "index": 419,
+      "start_time": 1974070.0,
+      "end_time": 1975129.0,
+      "text": "And we've got our own little"
+    },
+    {
+      "index": 420,
+      "start_time": 1975130.0,
+      "end_time": 1981300.0,
+      "text": "Custom class for pre-processing the data because we don't care about that part we care about the machine learning part, okay?"
+    },
+    {
+      "index": 421,
+      "start_time": 1981310.0,
+      "end_time": 1988410.0,
+      "text": "So let's talk about our light ocr or object optical character recognition class in our initialize function"
+    },
+    {
+      "index": 422,
+      "start_time": 1988410.0,
+      "end_time": 1990450.0,
+      "text": "We're going to load the weights from the pickle file"
+    },
+    {
+      "index": 423,
+      "start_time": 1990450.0,
+      "end_time": 1991560.0,
+      "text": "And then store it"
+    },
+    {
+      "index": 424,
+      "start_time": 1991560.0,
+      "end_time": 1997200.0,
+      "text": "And then store all the labels that we've loaded we'll define how many rows and columns in an image load up our"
+    },
+    {
+      "index": 425,
+      "start_time": 1997600.0,
+      "end_time": 2003469.0,
+      "text": "Convolutional networks using the light Cnn function with our saved weights, so assuming we've already trained our network"
+    },
+    {
+      "index": 426,
+      "start_time": 2003470.0,
+      "end_time": 2009439.0,
+      "text": "We load it with the saved weights from the pickle file, and then we defined a number of pooling letters, okay?"
+    },
+    {
+      "index": 427,
+      "start_time": 2009440.0,
+      "end_time": 2013580.0,
+      "text": "So once we have that then we can use this predict function so given some new image"
+    },
+    {
+      "index": 428,
+      "start_time": 2013740.0,
+      "end_time": 2019790.0,
+      "text": "we'll reshape the image so it's in the correct size to perform the dot product between that image and the first layer of"
+    },
+    {
+      "index": 429,
+      "start_time": 2019920.0,
+      "end_time": 2021920.0,
+      "text": "our convolutional Network"
+    },
+    {
+      "index": 430,
+      "start_time": 2021960.0,
+      "end_time": 2024529.0,
+      "text": "And will it will we'll put it"
+    },
+    {
+      "index": 431,
+      "start_time": 2024530.0,
+      "end_time": 2029629.0,
+      "text": "We'll feed it into our network and it's going to output a prediction probability for a class and we'll return it"
+    },
+    {
+      "index": 432,
+      "start_time": 2029630.0,
+      "end_time": 2037040.0,
+      "text": "Okay, super-high level we haven't even coated our cnn. That's that's our first class. That's a prediction class now now"
+    },
+    {
+      "index": 433,
+      "start_time": 2037040.0,
+      "end_time": 2037980.0,
+      "text": "we're going to look at the"
+    },
+    {
+      "index": 434,
+      "start_time": 2037980.0,
+      "end_time": 2043339.0,
+      "text": "convolutional Network class and what I'm going to do is I'm going to I'm going to go over the code and I'm going to"
+    },
+    {
+      "index": 435,
+      "start_time": 2043620.0,
+      "end_time": 2045620.0,
+      "text": "Code some parts of it"
+    },
+    {
+      "index": 436,
+      "start_time": 2046500.0,
+      "end_time": 2049250.0,
+      "text": "So now we'll look at our convolutional network class, okay?"
+    },
+    {
+      "index": 437,
+      "start_time": 2049250.0,
+      "end_time": 2051000.0,
+      "text": "so in our initialize function"
+    },
+    {
+      "index": 438,
+      "start_time": 2051000.0,
+      "end_time": 2052830.0,
+      "text": "Will initialize two lists one?"
+    },
+    {
+      "index": 439,
+      "start_time": 2052830.0,
+      "end_time": 2059239.0,
+      "text": "To store the layers that we've learned the the weights of each layer and then the size of the pooling area for max pooling"
+    },
+    {
+      "index": 440,
+      "start_time": 2059250.0,
+      "end_time": 2062810.0,
+      "text": "Okay, we'll load up our weights from our pickle file"
+    },
+    {
+      "index": 441,
+      "start_time": 2062810.0,
+      "end_time": 2067189.0,
+      "text": "Just like this, and then we have our predict function know in our predict function"
+    },
+    {
+      "index": 442,
+      "start_time": 2067190.0,
+      "end_time": 2068940.0,
+      "text": "That's where the real magic is happening, right?"
+    },
+    {
+      "index": 443,
+      "start_time": 2068940.0,
+      "end_time": 2075260.0,
+      "text": "Let's code what this looks like so given some input x we're going to feed it through all of these layers, right?"
+    },
+    {
+      "index": 444,
+      "start_time": 2076110.0000000002,
+      "end_time": 2078679.0000000002,
+      "text": "And so what happens is we will"
+    },
+    {
+      "index": 445,
+      "start_time": 2079199.9999999998,
+      "end_time": 2083719.9999999998,
+      "text": "Say okay, so the first layer is going to be a convolutional layer, okay?"
+    },
+    {
+      "index": 446,
+      "start_time": 2083719.9999999998,
+      "end_time": 2085519.9999999998,
+      "text": "We're going to define what all of these functions"
+    },
+    {
+      "index": 447,
+      "start_time": 2085520.0,
+      "end_time": 2090590.0,
+      "text": "Look like look like but the first layer is going to be that convolutional layer will feed in that first image"
+    },
+    {
+      "index": 448,
+      "start_time": 2090630.0,
+      "end_time": 2091760.0,
+      "text": "And we'll say okay"
+    },
+    {
+      "index": 449,
+      "start_time": 2091760.0000000002,
+      "end_time": 2095809.0000000002,
+      "text": "well\nThis is the first layers with a zeroth layer will say border mode equals full"
+    },
+    {
+      "index": 450,
+      "start_time": 2096090.0000000002,
+      "end_time": 2102259.0,
+      "text": "And I'll talk about that part later on but that's it for that, and so what happens is x equals this layer, okay?"
+    },
+    {
+      "index": 451,
+      "start_time": 2102260.0,
+      "end_time": 2107270.0,
+      "text": "So that's our first layer, and then our next layer is going to be real ooh, so we'll say okay"
+    },
+    {
+      "index": 452,
+      "start_time": 2107270.0,
+      "end_time": 2114729.0,
+      "text": "Now let's apply an activation to the outputs of the previous layer, okay, and then we'll say equal to that"
+    },
+    {
+      "index": 453,
+      "start_time": 2115340.0,
+      "end_time": 2119709.0,
+      "text": "Okay, so we'll set the output from the previous letter equal to the input of this player"
+    },
+    {
+      "index": 454,
+      "start_time": 2119710.0,
+      "end_time": 2122740.0,
+      "text": "And then we keep going we'd say okay, so we've got another"
+    },
+    {
+      "index": 455,
+      "start_time": 2123440.0,
+      "end_time": 2128320.0,
+      "text": "CnN. We have another convolutional layer, and we do the same thing here. We say okay"
+    },
+    {
+      "index": 456,
+      "start_time": 2128360.0,
+      "end_time": 2130449.0,
+      "text": "Take the in output from the previous layer"
+    },
+    {
+      "index": 457,
+      "start_time": 2130450.0,
+      "end_time": 2132080.0,
+      "text": "we'll define what the"
+    },
+    {
+      "index": 458,
+      "start_time": 2132080.0,
+      "end_time": 2137529.0,
+      "text": "Name of this layer is as well as a border mode which I'll talk about the very end of this we have a border mode"
+    },
+    {
+      "index": 459,
+      "start_time": 2137690.0,
+      "end_time": 2139690.0,
+      "text": "Which is valid and then?"
+    },
+    {
+      "index": 460,
+      "start_time": 2140300.0,
+      "end_time": 2146080.0,
+      "text": "We say okay well, we'll set the output of that equal to the input of this and just keep repeating now"
+    },
+    {
+      "index": 461,
+      "start_time": 2146080.0,
+      "end_time": 2148689.0,
+      "text": "it's time for us to apply A"
+    },
+    {
+      "index": 462,
+      "start_time": 2149270.0,
+      "end_time": 2150650.0,
+      "text": "nother"
+    },
+    {
+      "index": 463,
+      "start_time": 2150650.0,
+      "end_time": 2155769.0,
+      "text": "Non-linearity, so we'll just go ahead and apply our non-linearity again, remember these are convolutional blocks"
+    },
+    {
+      "index": 464,
+      "start_time": 2155770.0,
+      "end_time": 2156500.0,
+      "text": "oh"
+    },
+    {
+      "index": 465,
+      "start_time": 2156500.0,
+      "end_time": 2163750.0,
+      "text": "And we also want to pool so also the order with which you can do this varies right you can do this in different ways"
+    },
+    {
+      "index": 466,
+      "start_time": 2164060.0,
+      "end_time": 2166449.0,
+      "text": "And yeah, so I'm doing in a certain way right now"
+    },
+    {
+      "index": 467,
+      "start_time": 2166700.0,
+      "end_time": 2169240.0,
+      "text": "You know we could change it around it would change our result"
+    },
+    {
+      "index": 468,
+      "start_time": 2169430.0,
+      "end_time": 2174250.0,
+      "text": "but the order map the ordering within the block it can be can be different okay, so"
+    },
+    {
+      "index": 469,
+      "start_time": 2175280.0,
+      "end_time": 2180219.0,
+      "text": "Right so we're going to pool. It's we're going to pick the most relevant features from from that"
+    },
+    {
+      "index": 470,
+      "start_time": 2183110.0,
+      "end_time": 2189579.0,
+      "text": "From that output and then we're going to perform dropout to prevent overfitting and we're going to say there's going to be 0.25 percent"
+    },
+    {
+      "index": 471,
+      "start_time": 2189860.0,
+      "end_time": 2192249.0,
+      "text": "Chance that a neuron is going to be"
+    },
+    {
+      "index": 472,
+      "start_time": 2192650.0,
+      "end_time": 2199869.0,
+      "text": "Deactivated that will turn it off set it to zero and that's our dropout probability value, and then now we're getting into our"
+    },
+    {
+      "index": 473,
+      "start_time": 2200900.0,
+      "end_time": 2202430.0,
+      "text": "our"
+    },
+    {
+      "index": 474,
+      "start_time": 2202430.0,
+      "end_time": 2208510.0,
+      "text": "The second category of our network not the feature learning part for the classification part, and we'll say ok so let's flatten this layer"
+    },
+    {
+      "index": 475,
+      "start_time": 2208510.0,
+      "end_time": 2213160.0,
+      "text": "Let's reduce the dimensionality of all that that data so it's something that we can then"
+    },
+    {
+      "index": 476,
+      "start_time": 2214820.0,
+      "end_time": 2222640.0,
+      "text": "Learn from and say well, let's put 7 equal to 7 and then we'll say once again turn that output into our"
+    },
+    {
+      "index": 477,
+      "start_time": 2224210.0,
+      "end_time": 2229090.0,
+      "text": "Inputs here, okay, and so then we have another dense layer"
+    },
+    {
+      "index": 478,
+      "start_time": 2229090.0,
+      "end_time": 2234340.0,
+      "text": "We just we just keep going with our first dense layer, and that means we're going to it's a fully connected layer"
+    },
+    {
+      "index": 479,
+      "start_time": 2234340.0,
+      "end_time": 2236340.0,
+      "text": "So we're combining everything that we've learned"
+    },
+    {
+      "index": 480,
+      "start_time": 2236570.0,
+      "end_time": 2242080.0,
+      "text": "Because we're getting really close to squashing these values into a set of probability values"
+    },
+    {
+      "index": 481,
+      "start_time": 2242080.0,
+      "end_time": 2246160.0,
+      "text": "So we want to take all of our learnings and combine them with a fully connected layer"
+    },
+    {
+      "index": 482,
+      "start_time": 2247790.0,
+      "end_time": 2251110.0,
+      "text": "and so we'll combine them with a fully connect layer and then"
+    },
+    {
+      "index": 483,
+      "start_time": 2253640.0,
+      "end_time": 2258339.0,
+      "text": "We'll squash it now with our sigmoid or no not our sigmoid our softmax function"
+    },
+    {
+      "index": 484,
+      "start_time": 2259010.0,
+      "end_time": 2261790.0,
+      "text": "Okay, and then that's going to give us our"
+    },
+    {
+      "index": 485,
+      "start_time": 2262340.0,
+      "end_time": 2267819.0,
+      "text": "Output probability, and then we're going to say well which of the probabilities do we want we want them max one, right?"
+    },
+    {
+      "index": 486,
+      "start_time": 2267820.0,
+      "end_time": 2273490.0,
+      "text": "We want the max probability and we'll classify it. Just like that and return that value okay"
+    },
+    {
+      "index": 487,
+      "start_time": 2273490.0,
+      "end_time": 2277779.0,
+      "text": "That's the highest level and so if you're using kaos or one of these high level libraries"
+    },
+    {
+      "index": 488,
+      "start_time": 2277790.0,
+      "end_time": 2282940.0,
+      "text": "This is all your code would look like but we're going to do is we're going to look at these functions as well, okay?"
+    },
+    {
+      "index": 489,
+      "start_time": 2283040.0,
+      "end_time": 2285040.0,
+      "text": "So let's look at these functions"
+    },
+    {
+      "index": 490,
+      "start_time": 2287330.0,
+      "end_time": 2289161.0,
+      "text": "you'll start off with the"
+    },
+    {
+      "index": 491,
+      "start_time": 2289160.0,
+      "end_time": 2292059.0,
+      "text": "Convolutional layer function and have your notebook open with me as well"
+    },
+    {
+      "index": 492,
+      "start_time": 2292060.0,
+      "end_time": 2295960.0,
+      "text": "So you could go over this the link is in the description if you don't know now"
+    },
+    {
+      "index": 493,
+      "start_time": 2295960.0,
+      "end_time": 2301000.0,
+      "text": "You know if you don't know now you know so for our convolutional layer given some input image"
+    },
+    {
+      "index": 494,
+      "start_time": 2301040.0,
+      "end_time": 2302590.0,
+      "text": "We're going to say well"
+    },
+    {
+      "index": 495,
+      "start_time": 2302590.0,
+      "end_time": 2306309.0,
+      "text": "We'll store our feature maps and the bias value in these two variables features and bias"
+    },
+    {
+      "index": 496,
+      "start_time": 2306380.0,
+      "end_time": 2312369.0,
+      "text": "Will define how big our filter or patch is going to be how many features do we want how big is our image?"
+    },
+    {
+      "index": 497,
+      "start_time": 2312470.0,
+      "end_time": 2317859.0,
+      "text": "How many channels RGB so 3 and then how many images do we have so given those values?"
+    },
+    {
+      "index": 498,
+      "start_time": 2317860.0,
+      "end_time": 2320799.0,
+      "text": "We'll define a border mode so a border mode so is"
+    },
+    {
+      "index": 499,
+      "start_time": 2321320.0,
+      "end_time": 2326350.0,
+      "text": "so when you apply full to border mode in this case it means that the filter has to go outside the"
+    },
+    {
+      "index": 500,
+      "start_time": 2326480.0,
+      "end_time": 2332139.0,
+      "text": "Bounds of the input by filter size divided by 2 the area outside of the input is normally padded with zeros"
+    },
+    {
+      "index": 501,
+      "start_time": 2332270.0,
+      "end_time": 2337090.0,
+      "text": "and the border mode valid is when you get an output that it's smaller than the input because the"
+    },
+    {
+      "index": 502,
+      "start_time": 2337160.0,
+      "end_time": 2340869.0,
+      "text": "Convolution is only computed where the input and the filter fully overlap"
+    },
+    {
+      "index": 503,
+      "start_time": 2342230.0,
+      "end_time": 2345369.0,
+      "text": "Ok and they'll give us different. They'll give us different"
+    },
+    {
+      "index": 504,
+      "start_time": 2346910.0,
+      "end_time": 2354549.0,
+      "text": "Classification results accuracy results, and it's good to test both options. So what we'll do is. We'll initialize our feature Matrix for this layer as"
+    },
+    {
+      "index": 505,
+      "start_time": 2355250.0,
+      "end_time": 2356920.0,
+      "text": "Convolve zeros it's going to be a bunch of zeros"
+    },
+    {
+      "index": 506,
+      "start_time": 2356920.0,
+      "end_time": 2361659.0,
+      "text": "And then we'll say ok so for every image that we have for every feature in that image"
+    },
+    {
+      "index": 507,
+      "start_time": 2361670.0,
+      "end_time": 2367539.0,
+      "text": "Let's initialize a convolve image as empty and then for each channels or doing it for each of the 3 channels"
+    },
+    {
+      "index": 508,
+      "start_time": 2367670.0,
+      "end_time": 2370029.0,
+      "text": "Let's extract the feature from our feature map"
+    },
+    {
+      "index": 509,
+      "start_time": 2370400.0,
+      "end_time": 2373990.0,
+      "text": "Define a channel specific part of our image and then perform"
+    },
+    {
+      "index": 510,
+      "start_time": 2374180.0,
+      "end_time": 2379509.0,
+      "text": "convolution on our image using that given feature filter, so notice this convolve 2D function"
+    },
+    {
+      "index": 511,
+      "start_time": 2379510.0,
+      "end_time": 2384860.0,
+      "text": "It's where actual convolution operation is happening. This is more of a wrapper for that actual"
+    },
+    {
+      "index": 512,
+      "start_time": 2385410.0,
+      "end_time": 2391520.0,
+      "text": "Mathematical operation so once we have that we'll add a bias and a bias acts as our anchor for our network"
+    },
+    {
+      "index": 513,
+      "start_time": 2391520.0,
+      "end_time": 2396139.0,
+      "text": "It's kind of at the y-intercept. It's kind of like a starting point for our model to exist and"
+    },
+    {
+      "index": 514,
+      "start_time": 2396930.0,
+      "end_time": 2401000.0,
+      "text": "Then we'll add it to our list of convolve features for this for this layer, okay?"
+    },
+    {
+      "index": 515,
+      "start_time": 2401000.0,
+      "end_time": 2405530.0,
+      "text": "And it will return that as our feature map our set of filter values our weight Matrices"
+    },
+    {
+      "index": 516,
+      "start_time": 2405900.0,
+      "end_time": 2408350.0,
+      "text": "and so let's look at this convolve to the"
+    },
+    {
+      "index": 517,
+      "start_time": 2408840.0,
+      "end_time": 2413719.0,
+      "text": "Function so in our convolve 2D function will define the tensor dimension of the image and the feature"
+    },
+    {
+      "index": 518,
+      "start_time": 2414060.0,
+      "end_time": 2417229.0,
+      "text": "Will get a target dimension and then these two lines?"
+    },
+    {
+      "index": 519,
+      "start_time": 2417990.0,
+      "end_time": 2419990.0,
+      "text": "perform this this"
+    },
+    {
+      "index": 520,
+      "start_time": 2421740.0,
+      "end_time": 2428090.0,
+      "text": "Operation this convolution Theorem that we defined right here or performing a dot product between the input and the kernel or feature"
+    },
+    {
+      "index": 521,
+      "start_time": 2428460.0,
+      "end_time": 2430460.0,
+      "text": "for for all of those"
+    },
+    {
+      "index": 522,
+      "start_time": 2431580.0,
+      "end_time": 2432590.0,
+      "text": "weight values"
+    },
+    {
+      "index": 523,
+      "start_time": 2432590.0,
+      "end_time": 2436100.0,
+      "text": "and then we're summing them all up and that's going to be our output and"
+    },
+    {
+      "index": 524,
+      "start_time": 2436170.0,
+      "end_time": 2443090.0,
+      "text": "so the fast fourier function in numpy does this very well and so we can just use that as fft to"
+    },
+    {
+      "index": 525,
+      "start_time": 2443400.0,
+      "end_time": 2445820.0,
+      "text": "But that's it's a multiplication and a summation operation"
+    },
+    {
+      "index": 526,
+      "start_time": 2446610.0,
+      "end_time": 2449059.0,
+      "text": "Okay, and so then we have our target value and then"
+    },
+    {
+      "index": 527,
+      "start_time": 2449850.0,
+      "end_time": 2452779.0,
+      "text": "Once we have our target value. We could say okay"
+    },
+    {
+      "index": 528,
+      "start_time": 2452940.0,
+      "end_time": 2457639.0,
+      "text": "let's have a starting point and an ending point and our target value is going to be within that range of"
+    },
+    {
+      "index": 529,
+      "start_time": 2458130.0,
+      "end_time": 2461690.0,
+      "text": "What we want to return as the convolve feature right so we have some"
+    },
+    {
+      "index": 530,
+      "start_time": 2462330.0,
+      "end_time": 2464509.0,
+      "text": "bounding box that we want to apply this to"
+    },
+    {
+      "index": 531,
+      "start_time": 2465360.0,
+      "end_time": 2471289.0,
+      "text": "Okay, so then so we have that so what else do we have so we start off with our convolutional layer and then we had"
+    },
+    {
+      "index": 532,
+      "start_time": 2471290.0,
+      "end_time": 2472110.0,
+      "text": "our"
+    },
+    {
+      "index": 533,
+      "start_time": 2472110.0,
+      "end_time": 2476959.0,
+      "text": "Riilu so what is really really super Simple Riilu Riilu is just"
+    },
+    {
+      "index": 534,
+      "start_time": 2478020.0,
+      "end_time": 2479760.0,
+      "text": "forgiving so for for some"
+    },
+    {
+      "index": 535,
+      "start_time": 2479760.0,
+      "end_time": 2480780.0,
+      "text": "Matrix of zeros"
+    },
+    {
+      "index": 536,
+      "start_time": 2480780.0,
+      "end_time": 2486439.0,
+      "text": "it will go through every single pixel value in the input Matrix and if it's a negative number we just turn it into"
+    },
+    {
+      "index": 537,
+      "start_time": 2486660.0,
+      "end_time": 2492680.0,
+      "text": "Zero that's it. That's real ooh okay, and then so we have we had talked about real, ooh, we've talked about convolution"
+    },
+    {
+      "index": 538,
+      "start_time": 2492680.0,
+      "end_time": 2499040.0,
+      "text": "We have to talk about pooling. So what does max pooling look like so given our learned features and our images"
+    },
+    {
+      "index": 539,
+      "start_time": 2499230.0,
+      "end_time": 2502939.0,
+      "text": "Let's initialize our more dense feature lists as empty and so here's what we do"
+    },
+    {
+      "index": 540,
+      "start_time": 2503610.0,
+      "end_time": 2507889.0,
+      "text": "we're going to we're going to take the max values of all of those parts of the"
+    },
+    {
+      "index": 541,
+      "start_time": 2508050.0,
+      "end_time": 2508850.0,
+      "text": "input image"
+    },
+    {
+      "index": 542,
+      "start_time": 2508850.0,
+      "end_time": 2512809.0,
+      "text": "right so we can say we're going to say for each image and for each feature map the"
+    },
+    {
+      "index": 543,
+      "start_time": 2512940.0,
+      "end_time": 2518730.0,
+      "text": "By the ro the finest starting an ending point okay, which we define with our pool size hyper parameter"
+    },
+    {
+      "index": 544,
+      "start_time": 2518730.0,
+      "end_time": 2522569.0,
+      "text": "And so for each columns. We've got a set of rows and columns for each image"
+    },
+    {
+      "index": 545,
+      "start_time": 2522850.0,
+      "end_time": 2525329.0,
+      "text": "There's a notice a lot of nesting happening here"
+    },
+    {
+      "index": 546,
+      "start_time": 2525370.0,
+      "end_time": 2528030.0,
+      "text": "We're going to Define start and end points for the columns as well"
+    },
+    {
+      "index": 547,
+      "start_time": 2528030.0,
+      "end_time": 2532769.0,
+      "text": "And then we're going to say Define a patch given our define starting and ending points"
+    },
+    {
+      "index": 548,
+      "start_time": 2532770.0,
+      "end_time": 2538050.0,
+      "text": "There's some some bounding box and then take the max value from that patch using NP"
+    },
+    {
+      "index": 549,
+      "start_time": 2538050.0,
+      "end_time": 2541349.0,
+      "text": "Dot max and that patch is what moves around right?"
+    },
+    {
+      "index": 550,
+      "start_time": 2542500.0,
+      "end_time": 2544050.0,
+      "text": "for all parts of that image"
+    },
+    {
+      "index": 551,
+      "start_time": 2544050.0,
+      "end_time": 2549629.0,
+      "text": "And then we return that and we're going to store all of that in our pooled features of Matrix right here"
+    },
+    {
+      "index": 552,
+      "start_time": 2549630.0,
+      "end_time": 2555450.0,
+      "text": "And we return that as the output and that's what we pass on in the convolutional network, okay?"
+    },
+    {
+      "index": 553,
+      "start_time": 2555450.0,
+      "end_time": 2562829.0,
+      "text": "So that's what max pooling is okay, so we talked about convolution Riilu max pooling and then drop out so for dropouts"
+    },
+    {
+      "index": 554,
+      "start_time": 2565300.0,
+      "end_time": 2570959.0,
+      "text": "Right we have our probability value that we define is 0.25 and we just multiply it by the input, okay"
+    },
+    {
+      "index": 555,
+      "start_time": 2570960.0,
+      "end_time": 2574290.0,
+      "text": "And that what that's going to do is going to turn on or off"
+    },
+    {
+      "index": 556,
+      "start_time": 2574720.0,
+      "end_time": 2577379.0,
+      "text": "Some part of the Matrix into so on and off"
+    },
+    {
+      "index": 557,
+      "start_time": 2577380.0,
+      "end_time": 2582660.0,
+      "text": "I mean 0 will make it either 0 or not 0 so it will so then our data will have to learn to either"
+    },
+    {
+      "index": 558,
+      "start_time": 2583330.0,
+      "end_time": 2585510.0,
+      "text": "Be multiplied by it or find a different pathway"
+    },
+    {
+      "index": 559,
+      "start_time": 2586420.0,
+      "end_time": 2590819.0,
+      "text": "That's where dropout and then we talked about drop valve and convolution"
+    },
+    {
+      "index": 560,
+      "start_time": 2591340.0,
+      "end_time": 2596340.0,
+      "text": "Flattening dense and Softmax, so for flattening. It's just it's a tensor transformation"
+    },
+    {
+      "index": 561,
+      "start_time": 2596500.0,
+      "end_time": 2600899.0,
+      "text": "We just reduce the dimensionality of the input, okay, and then"
+    },
+    {
+      "index": 562,
+      "start_time": 2601690.0,
+      "end_time": 2603690.0,
+      "text": "for our"
+    },
+    {
+      "index": 563,
+      "start_time": 2605140.0,
+      "end_time": 2608369.0,
+      "text": "Dense layer our dent is our fully connected layer now"
+    },
+    {
+      "index": 564,
+      "start_time": 2608370.0,
+      "end_time": 2613290.0,
+      "text": "This is the generic layer that you would see in a fee for network input times weight"
+    },
+    {
+      "index": 565,
+      "start_time": 2613870.0,
+      "end_time": 2618359.0,
+      "text": "And then you add a bias right which is the dot product right here. This is this is a dense layer"
+    },
+    {
+      "index": 566,
+      "start_time": 2618360.0,
+      "end_time": 2620430.0,
+      "text": "We just take our inputs and away at a bias that"
+    },
+    {
+      "index": 567,
+      "start_time": 2620740.0,
+      "end_time": 2621790.0,
+      "text": "means we just"
+    },
+    {
+      "index": 568,
+      "start_time": 2621790.0,
+      "end_time": 2627869.0,
+      "text": "Perform the dot product between the full weight Matrix and the full weight Matrix instead of doing it at all the layers because that would"
+    },
+    {
+      "index": 569,
+      "start_time": 2627870.0,
+      "end_time": 2631530.0,
+      "text": "Be way to computation computationally expensive for image data"
+    },
+    {
+      "index": 570,
+      "start_time": 2631570.0,
+      "end_time": 2635700.0,
+      "text": "We perform it as one fully one fully connected or dense layer at the end"
+    },
+    {
+      "index": 571,
+      "start_time": 2635700.0,
+      "end_time": 2639270.0,
+      "text": "And that's a way for us to combine all of our learnings together so we can then"
+    },
+    {
+      "index": 572,
+      "start_time": 2639820.0,
+      "end_time": 2641820.0,
+      "text": "promptly squash it with a"
+    },
+    {
+      "index": 573,
+      "start_time": 2641890.0,
+      "end_time": 2643890.0,
+      "text": "soft Max function"
+    },
+    {
+      "index": 574,
+      "start_time": 2644440.0,
+      "end_time": 2651909.0,
+      "text": "Okay, so then for our a softmax layer, and then we have classify so for our softmax layer, we will"
+    },
+    {
+      "index": 575,
+      "start_time": 2653570.0,
+      "end_time": 2657160.0,
+      "text": "So this is the this is the formula for softmax programmatically speaking"
+    },
+    {
+      "index": 576,
+      "start_time": 2657860.0,
+      "end_time": 2660849.0,
+      "text": "But what it does is going to output a set of probability values?"
+    },
+    {
+      "index": 577,
+      "start_time": 2660850.0,
+      "end_time": 2666520.0,
+      "text": "And then we'll classify those values by taking the R max the largest probability and that is our output"
+    },
+    {
+      "index": 578,
+      "start_time": 2667310.0,
+      "end_time": 2669310.0,
+      "text": "Okay, so that is our"
+    },
+    {
+      "index": 579,
+      "start_time": 2669470.0,
+      "end_time": 2672549.0,
+      "text": "forward pass through the network okay, and"
+    },
+    {
+      "index": 580,
+      "start_time": 2673670.0,
+      "end_time": 2675670.0,
+      "text": "so"
+    },
+    {
+      "index": 581,
+      "start_time": 2677330.0,
+      "end_time": 2679510.0,
+      "text": "Yes, that is our forward pass through the network"
+    },
+    {
+      "index": 582,
+      "start_time": 2687440.0,
+      "end_time": 2692470.0,
+      "text": "So back so back propagation works pretty much the same way as I've talked about before several times"
+    },
+    {
+      "index": 583,
+      "start_time": 2692930.0,
+      "end_time": 2698710.0,
+      "text": "Graded send back propagation works the same way we take the partial derivative of our error with respect to our waste and then recursively"
+    },
+    {
+      "index": 584,
+      "start_time": 2698810.0,
+      "end_time": 2705370.0,
+      "text": "Update our weights using that gradient value that we gradient equals partial derivative equals Delta interchangeable words"
+    },
+    {
+      "index": 585,
+      "start_time": 2705440.0,
+      "end_time": 2709690.0,
+      "text": "But here's a great simple example right here where we after the forward pass we?"
+    },
+    {
+      "index": 586,
+      "start_time": 2710960.0,
+      "end_time": 2712730.0,
+      "text": "Do the same thing in reverse order?"
+    },
+    {
+      "index": 587,
+      "start_time": 2712730.0,
+      "end_time": 2714760.0,
+      "text": "So we calculate the gradient of those weights"
+    },
+    {
+      "index": 588,
+      "start_time": 2714760.0,
+      "end_time": 2720489.0,
+      "text": "And then back and then multiply them by the previous layer and then for our Javascript portion"
+    },
+    {
+      "index": 589,
+      "start_time": 2720650.0,
+      "end_time": 2723309.0,
+      "text": "We are taking the drawing from the user"
+    },
+    {
+      "index": 590,
+      "start_time": 2723310.0,
+      "end_time": 2727660.0,
+      "text": "Here's the main code for that paint window in a canvas and we are going to say"
+    },
+    {
+      "index": 591,
+      "start_time": 2728030.0,
+      "end_time": 2732459.0,
+      "text": "Capture the mouse's positions capture all those points in that image with an event listener"
+    },
+    {
+      "index": 592,
+      "start_time": 2732590.0,
+      "end_time": 2734920.0,
+      "text": "And we're going to say on paint so whenever the user"
+    },
+    {
+      "index": 593,
+      "start_time": 2735080.0,
+      "end_time": 2741220.0,
+      "text": "Actually starts moving that painting whenever that mouse stops clicking and then the user hits the submit button will save that"
+    },
+    {
+      "index": 594,
+      "start_time": 2741410.0,
+      "end_time": 2745750.0,
+      "text": "Snapshot of that image, and then feed that into the network and that's our flask app"
+    },
+    {
+      "index": 595,
+      "start_time": 2745910.0,
+      "end_time": 2749799.0,
+      "text": "We'll define two routes one for our home and then one for that image for the network"
+    },
+    {
+      "index": 596,
+      "start_time": 2749840.0,
+      "end_time": 2751150.0,
+      "text": "We can deploy to the web"
+    },
+    {
+      "index": 597,
+      "start_time": 2751150.0,
+      "end_time": 2756849.0,
+      "text": "There's a heroku app you could definitely check out the link link is in the description as well check out the notebook, and yeah"
+    },
+    {
+      "index": 598,
+      "start_time": 2756850.0,
+      "end_time": 2760930.0,
+      "text": "That's it. Please subscribe for more programming videos and for now. I've got to do a fourier transform"
+    },
+    {
+      "index": 599,
+      "start_time": 2761840.0,
+      "end_time": 2763840.0,
+      "text": "So thanks for watching"
+    }
+  ]
+}

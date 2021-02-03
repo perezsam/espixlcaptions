@@ -1,0 +1,4086 @@
+{
+  "video_id": "0JWGFMtDDy0",
+  "title": "Using Google Cloud and TensorFlow on Android Things (Google I/O '17)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 4248.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 2,
+      "start_time": 6140.0,
+      "end_time": 7680.0,
+      "text": "SAM BEDER: Hi, everyone."
+    },
+    {
+      "index": 3,
+      "start_time": 7680.0,
+      "end_time": 10459.0,
+      "text": "My name is Sam Beder, and I&#39;m a product manager"
+    },
+    {
+      "index": 4,
+      "start_time": 10460.0,
+      "end_time": 11897.0,
+      "text": "on Android Things."
+    },
+    {
+      "index": 5,
+      "start_time": 11897.0,
+      "end_time": 13730.0,
+      "text": "Today, I&#39;m going to talk to you about Google"
+    },
+    {
+      "index": 6,
+      "start_time": 13730.0,
+      "end_time": 16400.0,
+      "text": "services on Android Things, and how"
+    },
+    {
+      "index": 7,
+      "start_time": 16400.0,
+      "end_time": 18770.0,
+      "text": "adding these services to your device"
+    },
+    {
+      "index": 8,
+      "start_time": 18770.0,
+      "end_time": 21800.0,
+      "text": "can unlock your device&#39;s potential."
+    },
+    {
+      "index": 9,
+      "start_time": 21800.0,
+      "end_time": 24140.0,
+      "text": "What I really want to convince you of today"
+    },
+    {
+      "index": 10,
+      "start_time": 24140.0,
+      "end_time": 27320.0,
+      "text": "is not only is integrating Google services on Android"
+    },
+    {
+      "index": 11,
+      "start_time": 27320.0,
+      "end_time": 31190.0,
+      "text": "Things really, really easy and really, really seamless,"
+    },
+    {
+      "index": 12,
+      "start_time": 31190.0,
+      "end_time": 34250.0,
+      "text": "but it can make a huge difference in the use cases"
+    },
+    {
+      "index": 13,
+      "start_time": 34250.0,
+      "end_time": 38970.0,
+      "text": "that you can put on your device as well as for your end users."
+    },
+    {
+      "index": 14,
+      "start_time": 38970.0,
+      "end_time": 42350.0,
+      "text": "And I know this year, we have many sessions on Android Things"
+    },
+    {
+      "index": 15,
+      "start_time": 42350.0,
+      "end_time": 44680.0,
+      "text": "as well as demos in the sandbox area,"
+    },
+    {
+      "index": 16,
+      "start_time": 44680.0,
+      "end_time": 47150.0,
+      "text": "and code labs to learn more about what&#39;s"
+    },
+    {
+      "index": 17,
+      "start_time": 47150.0,
+      "end_time": 49519.0,
+      "text": "possible on Android Things."
+    },
+    {
+      "index": 18,
+      "start_time": 49520.0,
+      "end_time": 52400.0,
+      "text": "I also know that many of you are coming to this session"
+    },
+    {
+      "index": 19,
+      "start_time": 52400.0,
+      "end_time": 55400.0,
+      "text": "already with ideas of devices that you"
+    },
+    {
+      "index": 20,
+      "start_time": 55400.0,
+      "end_time": 59720.0,
+      "text": "want to make on Android Things or for IoT devices in general."
+    },
+    {
+      "index": 21,
+      "start_time": 59720.0,
+      "end_time": 62847.0,
+      "text": "And I want to show you today all the compelling use cases"
+    },
+    {
+      "index": 22,
+      "start_time": 62847.0,
+      "end_time": 65180.0,
+      "text": "that you can get when you integrate some of these Google"
+    },
+    {
+      "index": 23,
+      "start_time": 65180.00000000001,
+      "end_time": 67800.0,
+      "text": "services."
+    },
+    {
+      "index": 24,
+      "start_time": 67800.0,
+      "end_time": 69410.0,
+      "text": "So I&#39;m going to go through a number of services today."
+    },
+    {
+      "index": 25,
+      "start_time": 69410.0,
+      "end_time": 72890.0,
+      "text": "First, I&#39;m going to talk about Google Play services, which"
+    },
+    {
+      "index": 26,
+      "start_time": 72890.0,
+      "end_time": 76820.0,
+      "text": "includes a whole suite of tools such as the mobile Vision"
+    },
+    {
+      "index": 27,
+      "start_time": 76820.0,
+      "end_time": 82250.0,
+      "text": "APIs, location services, as well as Firebase."
+    },
+    {
+      "index": 28,
+      "start_time": 82250.0,
+      "end_time": 84740.0,
+      "text": "After that, I&#39;m going to dive into Firebase in a little bit"
+    },
+    {
+      "index": 29,
+      "start_time": 84740.0,
+      "end_time": 87530.0,
+      "text": "more detail to show you how the real time"
+    },
+    {
+      "index": 30,
+      "start_time": 87530.0,
+      "end_time": 90350.0,
+      "text": "database that Firebase provides can"
+    },
+    {
+      "index": 31,
+      "start_time": 90350.0,
+      "end_time": 93100.0,
+      "text": "allow you to publish and persist data"
+    },
+    {
+      "index": 32,
+      "start_time": 93100.0,
+      "end_time": 96380.0,
+      "text": "and events in interesting ways."
+    },
+    {
+      "index": 33,
+      "start_time": 96380.0,
+      "end_time": 98509.0,
+      "text": "After that, I&#39;m going go into TensorFlow,"
+    },
+    {
+      "index": 34,
+      "start_time": 98510.0,
+      "end_time": 100100.0,
+      "text": "and how TensorFlow--"
+    },
+    {
+      "index": 35,
+      "start_time": 100100.0,
+      "end_time": 102380.0,
+      "text": "we think-- is the perfect application"
+    },
+    {
+      "index": 36,
+      "start_time": 102380.0,
+      "end_time": 104929.0,
+      "text": "of the powerful on-device processing"
+    },
+    {
+      "index": 37,
+      "start_time": 104930.0,
+      "end_time": 107900.0,
+      "text": "of your Android Things device to really add intelligence"
+    },
+    {
+      "index": 38,
+      "start_time": 107900.0,
+      "end_time": 110390.0,
+      "text": "to that device."
+    },
+    {
+      "index": 39,
+      "start_time": 110390.0,
+      "end_time": 112880.0,
+      "text": "Next, I&#39;m going to talk about Google Cloud platform"
+    },
+    {
+      "index": 40,
+      "start_time": 112880.0,
+      "end_time": 114949.0,
+      "text": "and how using Google Cloud platform,"
+    },
+    {
+      "index": 41,
+      "start_time": 114950.0,
+      "end_time": 118310.0,
+      "text": "you can train, visualize, and take action"
+    },
+    {
+      "index": 42,
+      "start_time": 118310.0,
+      "end_time": 119600.0,
+      "text": "on your devices in the field."
+    },
+    {
+      "index": 43,
+      "start_time": 121140.0,
+      "end_time": 123990.0,
+      "text": "Finally, I&#39;m going to touch on the Google Assistant and all"
+    },
+    {
+      "index": 44,
+      "start_time": 123990.0,
+      "end_time": 125509.0,
+      "text": "the amazing use cases that you can"
+    },
+    {
+      "index": 45,
+      "start_time": 125510.0,
+      "end_time": 128270.0,
+      "text": "get when you integrate the Google Assistant on Android"
+    },
+    {
+      "index": 46,
+      "start_time": 128270.00000000001,
+      "end_time": 130340.00000000001,
+      "text": "Things."
+    },
+    {
+      "index": 47,
+      "start_time": 130340.0,
+      "end_time": 132260.0,
+      "text": "Before I dive into these services,"
+    },
+    {
+      "index": 48,
+      "start_time": 132260.0,
+      "end_time": 136400.0,
+      "text": "I want to quickly go over Android Things."
+    },
+    {
+      "index": 49,
+      "start_time": 136400.0,
+      "end_time": 140250.0,
+      "text": "So, Android Things is based on a system on module design."
+    },
+    {
+      "index": 50,
+      "start_time": 140250.0,
+      "end_time": 144800.0,
+      "text": "This means that we work really closely with our silicon"
+    },
+    {
+      "index": 51,
+      "start_time": 144800.0,
+      "end_time": 148220.0,
+      "text": "partners to bring you modules which you can place directly"
+    },
+    {
+      "index": 52,
+      "start_time": 148220.0,
+      "end_time": 150560.0,
+      "text": "into your IoT devices."
+    },
+    {
+      "index": 53,
+      "start_time": 150560.0,
+      "end_time": 153170.0,
+      "text": "Now, these modules are such that it&#39;s"
+    },
+    {
+      "index": 54,
+      "start_time": 153170.0,
+      "end_time": 155899.0,
+      "text": "economical to put them in devices when you&#39;re"
+    },
+    {
+      "index": 55,
+      "start_time": 155900.0,
+      "end_time": 160460.0,
+      "text": "making millions of devices or if you have a very small run,"
+    },
+    {
+      "index": 56,
+      "start_time": 160460.0,
+      "end_time": 162959.0,
+      "text": "or if you&#39;re just prototyping a device."
+    },
+    {
+      "index": 57,
+      "start_time": 162959.0,
+      "end_time": 164750.0,
+      "text": "So earlier today, we actually had a session"
+    },
+    {
+      "index": 58,
+      "start_time": 164750.0,
+      "end_time": 167930.0,
+      "text": "specifically on going from prototype to production"
+    },
+    {
+      "index": 59,
+      "start_time": 167930.0,
+      "end_time": 171230.0,
+      "text": "on Android Things, which can give you more detail about how"
+    },
+    {
+      "index": 60,
+      "start_time": 171230.0,
+      "end_time": 174649.0,
+      "text": "it&#39;s feasible to do all this, all the hardware design,"
+    },
+    {
+      "index": 61,
+      "start_time": 174650.0,
+      "end_time": 179330.0,
+      "text": "and bring your device to production on Android Things."
+    },
+    {
+      "index": 62,
+      "start_time": 179330.0,
+      "end_time": 181640.0,
+      "text": "The Android Things operating system"
+    },
+    {
+      "index": 63,
+      "start_time": 181640.0,
+      "end_time": 185700.0,
+      "text": "is then placed on top of these modules."
+    },
+    {
+      "index": 64,
+      "start_time": 185700.0,
+      "end_time": 187790.0,
+      "text": "So Android Things is a new vertical"
+    },
+    {
+      "index": 65,
+      "start_time": 187790.0,
+      "end_time": 192490.0,
+      "text": "of Android built for IoT devices."
+    },
+    {
+      "index": 66,
+      "start_time": 192500.0,
+      "end_time": 195200.0,
+      "text": "Since we work so closely with our silicon partners,"
+    },
+    {
+      "index": 67,
+      "start_time": 195200.0,
+      "end_time": 198829.0,
+      "text": "we&#39;re able to maintain these modules in new ways."
+    },
+    {
+      "index": 68,
+      "start_time": 198830.0,
+      "end_time": 204200.0,
+      "text": "It allows these devices to be more secure and updateable."
+    },
+    {
+      "index": 69,
+      "start_time": 204200.0,
+      "end_time": 206780.0,
+      "text": "Also, since it&#39;s an Android vertical,"
+    },
+    {
+      "index": 70,
+      "start_time": 206780.0,
+      "end_time": 208790.0,
+      "text": "you get all the Android APIs they&#39;re"
+    },
+    {
+      "index": 71,
+      "start_time": 208790.0,
+      "end_time": 213590.0,
+      "text": "used to for Android development as well as the developer tools"
+    },
+    {
+      "index": 72,
+      "start_time": 213590.0,
+      "end_time": 216620.0,
+      "text": "and the Android ecosystem."
+    },
+    {
+      "index": 73,
+      "start_time": 216620.0,
+      "end_time": 218900.0,
+      "text": "In addition, on Android Things we&#39;ve"
+    },
+    {
+      "index": 74,
+      "start_time": 218900.0,
+      "end_time": 223700.0,
+      "text": "added some new APIs such as peripheral iO and user"
+    },
+    {
+      "index": 75,
+      "start_time": 223700.0,
+      "end_time": 226609.0,
+      "text": "drivers that allow you to control the hardware"
+    },
+    {
+      "index": 76,
+      "start_time": 226610.0,
+      "end_time": 230600.0,
+      "text": "on your device in new ways."
+    },
+    {
+      "index": 77,
+      "start_time": 230600.0,
+      "end_time": 233900.0,
+      "text": "We&#39;ve also added support for a zero display"
+    },
+    {
+      "index": 78,
+      "start_time": 233900.0,
+      "end_time": 237630.0,
+      "text": "build for IoT devices without a screen."
+    },
+    {
+      "index": 79,
+      "start_time": 237630.0,
+      "end_time": 241160.0,
+      "text": "But really the key piece of Android Things, I believe,"
+    },
+    {
+      "index": 80,
+      "start_time": 241160.0,
+      "end_time": 243560.0,
+      "text": "is the services on top."
+    },
+    {
+      "index": 81,
+      "start_time": 243560.0,
+      "end_time": 247730.0,
+      "text": "Because of the API surface that Android Things provides,"
+    },
+    {
+      "index": 82,
+      "start_time": 247730.0,
+      "end_time": 249769.0,
+      "text": "it makes it much easier for Google"
+    },
+    {
+      "index": 83,
+      "start_time": 249770.0,
+      "end_time": 254300.0,
+      "text": "to put our services on top of Android Things."
+    },
+    {
+      "index": 84,
+      "start_time": 254300.0,
+      "end_time": 257990.0,
+      "text": "I say endless possibilities here because not only does Google"
+    },
+    {
+      "index": 85,
+      "start_time": 257990.0,
+      "end_time": 259820.0,
+      "text": "already support all the services I&#39;m"
+    },
+    {
+      "index": 86,
+      "start_time": 259820.0,
+      "end_time": 262790.0,
+      "text": "going to walk you through today, but any services"
+    },
+    {
+      "index": 87,
+      "start_time": 262790.0,
+      "end_time": 266630.0,
+      "text": "that Google makes in the future will be much more portable"
+    },
+    {
+      "index": 88,
+      "start_time": 266630.0,
+      "end_time": 271180.0,
+      "text": "on Android Things because of this API surface."
+    },
+    {
+      "index": 89,
+      "start_time": 271180.0,
+      "end_time": 273560.0,
+      "text": "So now, let&#39;s start diving into some of these services."
+    },
+    {
+      "index": 90,
+      "start_time": 273560.0,
+      "end_time": 275910.0,
+      "text": "Let&#39;s talk about Google Play services and all"
+    },
+    {
+      "index": 91,
+      "start_time": 275910.0,
+      "end_time": 279290.0,
+      "text": "the useful tools that it provides."
+    },
+    {
+      "index": 92,
+      "start_time": 279290.0,
+      "end_time": 280940.0,
+      "text": "Google Play services gives you access"
+    },
+    {
+      "index": 93,
+      "start_time": 280940.0,
+      "end_time": 284460.0,
+      "text": "to a suite of tools, some of which you see here."
+    },
+    {
+      "index": 94,
+      "start_time": 284460.0,
+      "end_time": 286799.0,
+      "text": "So you get things like the mobile vision APIs,"
+    },
+    {
+      "index": 95,
+      "start_time": 286800.0,
+      "end_time": 290870.0,
+      "text": "which allow you to leverage the intelligence in your Android"
+    },
+    {
+      "index": 96,
+      "start_time": 290870.0,
+      "end_time": 294620.0,
+      "text": "camera to identify people in an image"
+    },
+    {
+      "index": 97,
+      "start_time": 294620.0,
+      "end_time": 298970.0,
+      "text": "as well as faces and their expressions."
+    },
+    {
+      "index": 98,
+      "start_time": 298970.0,
+      "end_time": 302720.0,
+      "text": "You also get the nearby APIs, which lets you--"
+    },
+    {
+      "index": 99,
+      "start_time": 302720.0,
+      "end_time": 305450.0,
+      "text": "when you have two devices near each other--"
+    },
+    {
+      "index": 100,
+      "start_time": 305450.0,
+      "end_time": 307650.0,
+      "text": "allows those devices to interact with each other"
+    },
+    {
+      "index": 101,
+      "start_time": 307650.0,
+      "end_time": 310109.0,
+      "text": "in interesting ways."
+    },
+    {
+      "index": 102,
+      "start_time": 310110.0,
+      "end_time": 312840.0,
+      "text": "You get all the Cast APIs, which lets you"
+    },
+    {
+      "index": 103,
+      "start_time": 312840.0,
+      "end_time": 316919.0,
+      "text": "from your Android device cast to a cast enabled device"
+    },
+    {
+      "index": 104,
+      "start_time": 316920.0,
+      "end_time": 319800.0,
+      "text": "somewhere else."
+    },
+    {
+      "index": 105,
+      "start_time": 319800.0,
+      "end_time": 322440.0,
+      "text": "Next, you get all the location services,"
+    },
+    {
+      "index": 106,
+      "start_time": 322440.0,
+      "end_time": 324750.0,
+      "text": "which lets you query things like,"
+    },
+    {
+      "index": 107,
+      "start_time": 324750.0,
+      "end_time": 330500.0,
+      "text": "what are the cafes near me and what are their hours."
+    },
+    {
+      "index": 108,
+      "start_time": 330500.0,
+      "end_time": 332780.0,
+      "text": "You also get the Google Fit APIs,"
+    },
+    {
+      "index": 109,
+      "start_time": 332780.0,
+      "end_time": 336140.0,
+      "text": "which allow you to attach sensors and accelerometers"
+    },
+    {
+      "index": 110,
+      "start_time": 336140.0,
+      "end_time": 339800.0,
+      "text": "to your device and then visualize"
+    },
+    {
+      "index": 111,
+      "start_time": 339800.0,
+      "end_time": 344877.0,
+      "text": "this data as steps or other activities in interesting ways."
+    },
+    {
+      "index": 112,
+      "start_time": 344877.0,
+      "end_time": 346460.0,
+      "text": "Finally, you get Firebase, which we&#39;ll"
+    },
+    {
+      "index": 113,
+      "start_time": 346460.0,
+      "end_time": 349719.0,
+      "text": "talk about more in a minute."
+    },
+    {
+      "index": 114,
+      "start_time": 349720.0,
+      "end_time": 353380.0,
+      "text": "Some of you might know about CTF certification"
+    },
+    {
+      "index": 115,
+      "start_time": 353380.0,
+      "end_time": 357730.0,
+      "text": "and how CTF certification is a necessary step in order"
+    },
+    {
+      "index": 116,
+      "start_time": 357730.0,
+      "end_time": 360760.0,
+      "text": "to get these Google Play services."
+    },
+    {
+      "index": 117,
+      "start_time": 360760.0,
+      "end_time": 363500.0,
+      "text": "With Android Things, because of our hardware model"
+    },
+    {
+      "index": 118,
+      "start_time": 363500.0,
+      "end_time": 365860.0,
+      "text": "that I just talked about, these modules"
+    },
+    {
+      "index": 119,
+      "start_time": 365860.0,
+      "end_time": 368470.0,
+      "text": "actually come pre-certified."
+    },
+    {
+      "index": 120,
+      "start_time": 368470.0,
+      "end_time": 370830.0,
+      "text": "So they&#39;re all pre-CTF certified,"
+    },
+    {
+      "index": 121,
+      "start_time": 370830.0,
+      "end_time": 375180.0,
+      "text": "meaning Google Play Services will work right out of the box."
+    },
+    {
+      "index": 122,
+      "start_time": 375180.0,
+      "end_time": 377320.0,
+      "text": "You have to do absolutely no work"
+    },
+    {
+      "index": 123,
+      "start_time": 377320.0,
+      "end_time": 380100.0,
+      "text": "to get these Google Play services on your Android Things"
+    },
+    {
+      "index": 124,
+      "start_time": 380100.0,
+      "end_time": 380500.0,
+      "text": "device."
+    },
+    {
+      "index": 125,
+      "start_time": 383120.0,
+      "end_time": 384760.0,
+      "text": "We also have, for Android Things,"
+    },
+    {
+      "index": 126,
+      "start_time": 384760.0,
+      "end_time": 389500.0,
+      "text": "a custom IoT variant of Google Play services."
+    },
+    {
+      "index": 127,
+      "start_time": 389500.0,
+      "end_time": 391300.0,
+      "text": "Now I actually think this is a pretty big deal."
+    },
+    {
+      "index": 128,
+      "start_time": 391300.0,
+      "end_time": 394960.0,
+      "text": "This allows us to make Google Play services more lightweight"
+    },
+    {
+      "index": 129,
+      "start_time": 394960.0,
+      "end_time": 398620.0,
+      "text": "by taking out things like phone specific UI elements"
+    },
+    {
+      "index": 130,
+      "start_time": 398620.0,
+      "end_time": 400720.0,
+      "text": "and game libraries that we don&#39;t think"
+    },
+    {
+      "index": 131,
+      "start_time": 400720.0,
+      "end_time": 403240.0,
+      "text": "are relevant for IoT devices."
+    },
+    {
+      "index": 132,
+      "start_time": 403240.0,
+      "end_time": 405730.0,
+      "text": "We also give you a signed out experience"
+    },
+    {
+      "index": 133,
+      "start_time": 405730.0,
+      "end_time": 407210.0,
+      "text": "of Google Play services."
+    },
+    {
+      "index": 134,
+      "start_time": 407210.0,
+      "end_time": 410890.0,
+      "text": "So, no unauthenticated APIs because these just aren&#39;t"
+    },
+    {
+      "index": 135,
+      "start_time": 410890.0,
+      "end_time": 414280.0,
+      "text": "relevant for many IoT devices."
+    },
+    {
+      "index": 136,
+      "start_time": 414280.0,
+      "end_time": 417340.0,
+      "text": "So now, let&#39;s dive into Firebase in a little bit more detail."
+    },
+    {
+      "index": 137,
+      "start_time": 417340.0,
+      "end_time": 420169.0,
+      "text": "I&#39;m going to walk you through one of our code samples."
+    },
+    {
+      "index": 138,
+      "start_time": 420170.0,
+      "end_time": 424240.0,
+      "text": "So this is the code sample for a smart doorbell using Firebase."
+    },
+    {
+      "index": 139,
+      "start_time": 424240.0,
+      "end_time": 427160.0,
+      "text": "It involves one of our supported boards,"
+    },
+    {
+      "index": 140,
+      "start_time": 427160.0,
+      "end_time": 429944.0,
+      "text": "as well as a button and a camera."
+    },
+    {
+      "index": 141,
+      "start_time": 429944.0,
+      "end_time": 431860.0,
+      "text": "So I&#39;m going to walk you through this diagram."
+    },
+    {
+      "index": 142,
+      "start_time": 431860.0,
+      "end_time": 435280.0,
+      "text": "On the left, you see a user interacting"
+    },
+    {
+      "index": 143,
+      "start_time": 435280.0,
+      "end_time": 436950.0,
+      "text": "with the smart doorbell."
+    },
+    {
+      "index": 144,
+      "start_time": 436951.0,
+      "end_time": 439450.0,
+      "text": "What happens is, they press the button on the smart doorbell"
+    },
+    {
+      "index": 145,
+      "start_time": 439450.0,
+      "end_time": 441670.0,
+      "text": "and the camera takes a picture of them."
+    },
+    {
+      "index": 146,
+      "start_time": 441670.0,
+      "end_time": 443980.0,
+      "text": "On the right, there&#39;s another user"
+    },
+    {
+      "index": 147,
+      "start_time": 443980.0,
+      "end_time": 447100.0,
+      "text": "who, in their Android phone, they"
+    },
+    {
+      "index": 148,
+      "start_time": 447100.0,
+      "end_time": 450700.0,
+      "text": "can use an app to connect to a Firebase database that"
+    },
+    {
+      "index": 149,
+      "start_time": 450700.0,
+      "end_time": 453920.0,
+      "text": "can retrieve that image in real time."
+    },
+    {
+      "index": 150,
+      "start_time": 453920.0,
+      "end_time": 455290.0,
+      "text": "So how does this work?"
+    },
+    {
+      "index": 151,
+      "start_time": 455290.0,
+      "end_time": 459220.0,
+      "text": "When you press the button on the smart camera,"
+    },
+    {
+      "index": 152,
+      "start_time": 459220.0,
+      "end_time": 461140.0,
+      "text": "the camera takes a picture of you."
+    },
+    {
+      "index": 153,
+      "start_time": 461140.0,
+      "end_time": 464240.0,
+      "text": "Then, using the Android Firebase SDK,"
+    },
+    {
+      "index": 154,
+      "start_time": 464240.0,
+      "end_time": 466270.0,
+      "text": "which uses the Google Play services APIs"
+    },
+    {
+      "index": 155,
+      "start_time": 466270.0,
+      "end_time": 469210.0,
+      "text": "all on the device, it sends this image"
+    },
+    {
+      "index": 156,
+      "start_time": 469210.0,
+      "end_time": 472450.0,
+      "text": "to the Firebase database in the cloud."
+    },
+    {
+      "index": 157,
+      "start_time": 472450.0,
+      "end_time": 474849.0,
+      "text": "The user on the other end can then"
+    },
+    {
+      "index": 158,
+      "start_time": 474850.0,
+      "end_time": 477910.0,
+      "text": "use the exact same Google Play services and Android Firebase"
+    },
+    {
+      "index": 159,
+      "start_time": 477910.0,
+      "end_time": 481960.0,
+      "text": "SDK on their phone to connect to this Firebase database"
+    },
+    {
+      "index": 160,
+      "start_time": 481960.0,
+      "end_time": 484159.0,
+      "text": "and retrieve that image."
+    },
+    {
+      "index": 161,
+      "start_time": 484160.0,
+      "end_time": 487600.0,
+      "text": "In our code sample, we also send this image"
+    },
+    {
+      "index": 162,
+      "start_time": 487600.0,
+      "end_time": 491170.0,
+      "text": "to the Cloud Vision APIs to get additional annotations"
+    },
+    {
+      "index": 163,
+      "start_time": 491170.0,
+      "end_time": 493160.0,
+      "text": "about what&#39;s in the image."
+    },
+    {
+      "index": 164,
+      "start_time": 493160.0,
+      "end_time": 496650.0,
+      "text": "So these annotations could be something like, in this image"
+    },
+    {
+      "index": 165,
+      "start_time": 496650.0,
+      "end_time": 499400.0,
+      "text": "there is a person holding a package."
+    },
+    {
+      "index": 166,
+      "start_time": 499400.0,
+      "end_time": 503241.0,
+      "text": "So that can give you additional context about what&#39;s going on."
+    },
+    {
+      "index": 167,
+      "start_time": 503242.0,
+      "end_time": 503950.0,
+      "text": "It&#39;s pretty cool."
+    },
+    {
+      "index": 168,
+      "start_time": 503950.0,
+      "end_time": 507400.0,
+      "text": "If you actually go and build this demo, you can see."
+    },
+    {
+      "index": 169,
+      "start_time": 507400.0,
+      "end_time": 510760.0,
+      "text": "When you press the button and it takes a picture, in less than a"
+    },
+    {
+      "index": 170,
+      "start_time": 510760.0,
+      "end_time": 512808.0,
+      "text": "second the picture will appear."
+    },
+    {
+      "index": 171,
+      "start_time": 512808.0,
+      "end_time": 514819.0,
+      "text": "And then a few seconds later, after the image"
+    },
+    {
+      "index": 172,
+      "start_time": 514820.00000000006,
+      "end_time": 517720.00000000006,
+      "text": "is propagated through the Cloud Vision APIs,"
+    },
+    {
+      "index": 173,
+      "start_time": 517720.0,
+      "end_time": 520700.0,
+      "text": "the annotations will appear as well."
+    },
+    {
+      "index": 174,
+      "start_time": 520700.00000000006,
+      "end_time": 522280.00000000006,
+      "text": "So to really show you how this works,"
+    },
+    {
+      "index": 175,
+      "start_time": 522280.0,
+      "end_time": 524237.0,
+      "text": "I&#39;m going to walk through some of the code that"
+    },
+    {
+      "index": 176,
+      "start_time": 524238.00000000006,
+      "end_time": 525670.0,
+      "text": "pushes this data to Firebase."
+    },
+    {
+      "index": 177,
+      "start_time": 529260.0,
+      "end_time": 531600.0,
+      "text": "So the first line you see here is just"
+    },
+    {
+      "index": 178,
+      "start_time": 531600.0,
+      "end_time": 534870.0,
+      "text": "creating a new door ring instance"
+    },
+    {
+      "index": 179,
+      "start_time": 534870.0,
+      "end_time": 538890.0,
+      "text": "that we&#39;re going to use in our Firebase database."
+    },
+    {
+      "index": 180,
+      "start_time": 538890.0,
+      "end_time": 541530.0,
+      "text": "Then, all we need to do to make this data appear"
+    },
+    {
+      "index": 181,
+      "start_time": 541530.0,
+      "end_time": 545850.0,
+      "text": "in our Firebase database is set the appropriate fields"
+    },
+    {
+      "index": 182,
+      "start_time": 545850.0,
+      "end_time": 548500.0,
+      "text": "of our door ring instance."
+    },
+    {
+      "index": 183,
+      "start_time": 548500.0,
+      "end_time": 550740.0,
+      "text": "So here you can see in the highlighted portion,"
+    },
+    {
+      "index": 184,
+      "start_time": 550740.0,
+      "end_time": 555000.0,
+      "text": "we&#39;re setting the time stamp and the image fields so that--"
+    },
+    {
+      "index": 185,
+      "start_time": 555000.0,
+      "end_time": 558270.0,
+      "text": "with the server time stamp and the image URL--"
+    },
+    {
+      "index": 186,
+      "start_time": 558270.0,
+      "end_time": 561900.0,
+      "text": "and then this image as well as the timestamp"
+    },
+    {
+      "index": 187,
+      "start_time": 561900.0,
+      "end_time": 563100.0,
+      "text": "will appear in our Firebase database"
+    },
+    {
+      "index": 188,
+      "start_time": 563100.0,
+      "end_time": 566819.0,
+      "text": "to be retrieved by the user on the other side."
+    },
+    {
+      "index": 189,
+      "start_time": 566820.0,
+      "end_time": 568740.0,
+      "text": "As I mentioned in our code sample,"
+    },
+    {
+      "index": 190,
+      "start_time": 568740.0,
+      "end_time": 571830.0,
+      "text": "we also send our images to the Cloud Vision APIs"
+    },
+    {
+      "index": 191,
+      "start_time": 571830.0,
+      "end_time": 573990.0,
+      "text": "to get those annotations."
+    },
+    {
+      "index": 192,
+      "start_time": 573990.0,
+      "end_time": 576540.0,
+      "text": "So, we do that by calling the Cloud Vision APIs"
+    },
+    {
+      "index": 193,
+      "start_time": 576540.0,
+      "end_time": 579240.0,
+      "text": "and then simply setting the appropriate field"
+    },
+    {
+      "index": 194,
+      "start_time": 579240.0,
+      "end_time": 583320.0,
+      "text": "for those annotations so that that additional context"
+    },
+    {
+      "index": 195,
+      "start_time": 583320.0,
+      "end_time": 589100.0,
+      "text": "will appear as well for the user on the other end."
+    },
+    {
+      "index": 196,
+      "start_time": 589100.0,
+      "end_time": 591550.0,
+      "text": "So, Firebase is one of the many Google Play services"
+    },
+    {
+      "index": 197,
+      "start_time": 591550.0,
+      "end_time": 593752.0,
+      "text": "that you get with Android Things."
+    },
+    {
+      "index": 198,
+      "start_time": 593752.0,
+      "end_time": 595709.0,
+      "text": "But in the interest of time, I can&#39;t talk about"
+    },
+    {
+      "index": 199,
+      "start_time": 595710.0,
+      "end_time": 597420.0,
+      "text": "all the Google Play services."
+    },
+    {
+      "index": 200,
+      "start_time": 597420.0,
+      "end_time": 599354.0,
+      "text": "So instead, I want to move on to TensorFlow."
+    },
+    {
+      "index": 201,
+      "start_time": 602330.0,
+      "end_time": 606140.0,
+      "text": "We really think that TensorFlow is the perfect application"
+    },
+    {
+      "index": 202,
+      "start_time": 606140.0,
+      "end_time": 610757.0,
+      "text": "for the on device processing of your Android Things device."
+    },
+    {
+      "index": 203,
+      "start_time": 610757.0,
+      "end_time": 613339.0,
+      "text": "So, as you&#39;ve heard from some of the previous talks on Android"
+    },
+    {
+      "index": 204,
+      "start_time": 613340.0,
+      "end_time": 616190.0,
+      "text": "Things, Android Things is not really"
+    },
+    {
+      "index": 205,
+      "start_time": 616190.0,
+      "end_time": 619580.0,
+      "text": "well suited if you&#39;re just making a simple sensor."
+    },
+    {
+      "index": 206,
+      "start_time": 619580.0,
+      "end_time": 622640.0,
+      "text": "To fully utilize the Android Things platform,"
+    },
+    {
+      "index": 207,
+      "start_time": 622640.0,
+      "end_time": 624150.0,
+      "text": "it should be doing more."
+    },
+    {
+      "index": 208,
+      "start_time": 624150.0,
+      "end_time": 628160.0,
+      "text": "There should be some intelligence on this device."
+    },
+    {
+      "index": 209,
+      "start_time": 628160.0,
+      "end_time": 630680.0,
+      "text": "You might wonder, though, if you&#39;re making an internet"
+    },
+    {
+      "index": 210,
+      "start_time": 630680.0,
+      "end_time": 633199.0,
+      "text": "connected device-- an IoT device--"
+    },
+    {
+      "index": 211,
+      "start_time": 633200.0,
+      "end_time": 636870.0,
+      "text": "why do you actually need this on device processing?"
+    },
+    {
+      "index": 212,
+      "start_time": 636870.0,
+      "end_time": 638630.0,
+      "text": "There&#39;s actually several reasons why"
+    },
+    {
+      "index": 213,
+      "start_time": 638630.0,
+      "end_time": 641600.0,
+      "text": "this could be really important."
+    },
+    {
+      "index": 214,
+      "start_time": 641600.0,
+      "end_time": 643280.0,
+      "text": "One reason has to do with bandwidth."
+    },
+    {
+      "index": 215,
+      "start_time": 643280.0,
+      "end_time": 646640.0,
+      "text": "If, for example, you&#39;re making a camera that&#39;s"
+    },
+    {
+      "index": 216,
+      "start_time": 646640.0,
+      "end_time": 649480.0,
+      "text": "counting the number of people in a line"
+    },
+    {
+      "index": 217,
+      "start_time": 649480.0,
+      "end_time": 651600.0,
+      "text": "and you just care about that number,"
+    },
+    {
+      "index": 218,
+      "start_time": 651600.0,
+      "end_time": 653390.0,
+      "text": "by only propagating out that number"
+    },
+    {
+      "index": 219,
+      "start_time": 653390.0,
+      "end_time": 655220.0,
+      "text": "you save huge amounts on bandwidth"
+    },
+    {
+      "index": 220,
+      "start_time": 655220.0,
+      "end_time": 658760.0,
+      "text": "by not needing to send the image anywhere."
+    },
+    {
+      "index": 221,
+      "start_time": 658760.0,
+      "end_time": 661850.0,
+      "text": "The second reason for on device processing"
+    },
+    {
+      "index": 222,
+      "start_time": 661850.0,
+      "end_time": 665760.0,
+      "text": "has to do with when you have intermittent connectivity."
+    },
+    {
+      "index": 223,
+      "start_time": 665760.0,
+      "end_time": 668540.0,
+      "text": "So if your device is only sometimes connected"
+    },
+    {
+      "index": 224,
+      "start_time": 668540.0,
+      "end_time": 671860.0,
+      "text": "to the internet, for it to be really functional"
+    },
+    {
+      "index": 225,
+      "start_time": 671860.0,
+      "end_time": 674270.0,
+      "text": "it needs to have on device processing for when"
+    },
+    {
+      "index": 226,
+      "start_time": 674270.0,
+      "end_time": 676610.0,
+      "text": "it&#39;s offline."
+    },
+    {
+      "index": 227,
+      "start_time": 676610.0,
+      "end_time": 678890.0,
+      "text": "The next reason for on device processing"
+    },
+    {
+      "index": 228,
+      "start_time": 678890.0,
+      "end_time": 682860.0,
+      "text": "has to do with the principle of least privilege."
+    },
+    {
+      "index": 229,
+      "start_time": 682860.0,
+      "end_time": 687230.0,
+      "text": "So if you, again, had that camera where all you care about"
+    },
+    {
+      "index": 230,
+      "start_time": 687230.0,
+      "end_time": 690830.0,
+      "text": "is the number of people standing in a line,"
+    },
+    {
+      "index": 231,
+      "start_time": 690830.0,
+      "end_time": 692450.0,
+      "text": "by the principle of least privilege"
+    },
+    {
+      "index": 232,
+      "start_time": 692450.0,
+      "end_time": 694760.0,
+      "text": "you should only be propagating that number"
+    },
+    {
+      "index": 233,
+      "start_time": 694760.0,
+      "end_time": 698240.0,
+      "text": "even if you trust the other and where you&#39;re sending it."
+    },
+    {
+      "index": 234,
+      "start_time": 698240.0,
+      "end_time": 700490.0,
+      "text": "There&#39;s also some regulatory reasons"
+    },
+    {
+      "index": 235,
+      "start_time": 700490.0,
+      "end_time": 704390.0,
+      "text": "where this could be important for your use case."
+    },
+    {
+      "index": 236,
+      "start_time": 704390.0,
+      "end_time": 706490.0,
+      "text": "The final reason for device processing"
+    },
+    {
+      "index": 237,
+      "start_time": 706490.0,
+      "end_time": 709290.0,
+      "text": "has to do with real time applications."
+    },
+    {
+      "index": 238,
+      "start_time": 709290.0,
+      "end_time": 711110.0,
+      "text": "So if you&#39;re, for example, making"
+    },
+    {
+      "index": 239,
+      "start_time": 711110.0,
+      "end_time": 715190.0,
+      "text": "a robot that has to navigate through an environment,"
+    },
+    {
+      "index": 240,
+      "start_time": 715190.0,
+      "end_time": 717240.0,
+      "text": "you want to have on device processing"
+    },
+    {
+      "index": 241,
+      "start_time": 717240.0,
+      "end_time": 719210.0,
+      "text": "so if something comes in front of that robot,"
+    },
+    {
+      "index": 242,
+      "start_time": 719210.0,
+      "end_time": 722770.0,
+      "text": "you&#39;ll be able to react to the situation."
+    },
+    {
+      "index": 243,
+      "start_time": 722770.0,
+      "end_time": 726400.0,
+      "text": "Again, I want to mention that we have a code lab for TensorFlow"
+    },
+    {
+      "index": 244,
+      "start_time": 726400.0,
+      "end_time": 727339.0,
+      "text": "and Android Things."
+    },
+    {
+      "index": 245,
+      "start_time": 727340.0,
+      "end_time": 731147.0,
+      "text": "So you can try it out in the code lab area or at home."
+    },
+    {
+      "index": 246,
+      "start_time": 731147.0,
+      "end_time": 732980.0,
+      "text": "But to really show you TensorFlow in action,"
+    },
+    {
+      "index": 247,
+      "start_time": 732980.0,
+      "end_time": 735620.0,
+      "text": "I actually want to do a live demo so we can really"
+    },
+    {
+      "index": 248,
+      "start_time": 735620.0,
+      "end_time": 738640.0,
+      "text": "see that it works."
+    },
+    {
+      "index": 249,
+      "start_time": 738640.0,
+      "end_time": 739740.0,
+      "text": "So what I have here--"
+    },
+    {
+      "index": 250,
+      "start_time": 739740.0,
+      "end_time": 741780.0,
+      "text": "it&#39;s a pretty simple setup."
+    },
+    {
+      "index": 251,
+      "start_time": 741780.0,
+      "end_time": 743819.0,
+      "text": "We have one of our supported boards, which"
+    },
+    {
+      "index": 252,
+      "start_time": 743820.0,
+      "end_time": 748110.0,
+      "text": "is a Raspberry Pi in this case, as well as a button, a camera,"
+    },
+    {
+      "index": 253,
+      "start_time": 748110.0,
+      "end_time": 750000.0,
+      "text": "and a speaker."
+    },
+    {
+      "index": 254,
+      "start_time": 750000.0,
+      "end_time": 751170.0,
+      "text": "The button&#39;s here on top."
+    },
+    {
+      "index": 255,
+      "start_time": 751170.0,
+      "end_time": 754890.0,
+      "text": "The camera is actually located in this little Android head&#39;s"
+    },
+    {
+      "index": 256,
+      "start_time": 754890.0,
+      "end_time": 755970.0,
+      "text": "eye."
+    },
+    {
+      "index": 257,
+      "start_time": 755970.0,
+      "end_time": 757560.0,
+      "text": "So it&#39;s in its eye right there."
+    },
+    {
+      "index": 258,
+      "start_time": 757560.0,
+      "end_time": 759719.0,
+      "text": "And then the speaker&#39;s in its mouth."
+    },
+    {
+      "index": 259,
+      "start_time": 759720.0,
+      "end_time": 763320.0,
+      "text": "So what&#39;s going to happen is, when I press the button,"
+    },
+    {
+      "index": 260,
+      "start_time": 763320.0,
+      "end_time": 765360.0,
+      "text": "the camera will take a picture."
+    },
+    {
+      "index": 261,
+      "start_time": 765360.0,
+      "end_time": 768990.0,
+      "text": "That image is then sent through a TensorFlow model located"
+    },
+    {
+      "index": 262,
+      "start_time": 768990.0,
+      "end_time": 770980.0,
+      "text": "locally on the device."
+    },
+    {
+      "index": 263,
+      "start_time": 770980.0,
+      "end_time": 773670.0,
+      "text": "And then the speaker will then say what that TensorFlow"
+    },
+    {
+      "index": 264,
+      "start_time": 773670.0,
+      "end_time": 776170.0,
+      "text": "model thinks it saw."
+    },
+    {
+      "index": 265,
+      "start_time": 776170.0,
+      "end_time": 778920.0,
+      "text": "So for you here today, I have various dog"
+    },
+    {
+      "index": 266,
+      "start_time": 778920.0,
+      "end_time": 783750.0,
+      "text": "breeds because locally on this TensorFlow model, I have"
+    },
+    {
+      "index": 267,
+      "start_time": 783750.0,
+      "end_time": 786210.0,
+      "text": "what&#39;s called the Inception Model."
+    },
+    {
+      "index": 268,
+      "start_time": 786210.0,
+      "end_time": 790800.0,
+      "text": "Now the Inception Model is a model provided by Google"
+    },
+    {
+      "index": 269,
+      "start_time": 790800.0,
+      "end_time": 794130.0,
+      "text": "that&#39;s able to identify thousands of objects, including"
+    },
+    {
+      "index": 270,
+      "start_time": 794130.0,
+      "end_time": 795300.0,
+      "text": "dog breeds."
+    },
+    {
+      "index": 271,
+      "start_time": 795300.0,
+      "end_time": 798600.0,
+      "text": "So let&#39;s see if it can do it."
+    },
+    {
+      "index": 272,
+      "start_time": 798600.0,
+      "end_time": 803130.0,
+      "text": "I just need to line up the image and--"
+    },
+    {
+      "index": 273,
+      "start_time": 803130.0,
+      "end_time": 804630.0,
+      "text": "GOOGLE ASSISTANT: I see a Dalmatian."
+    },
+    {
+      "index": 274,
+      "start_time": 804630.0,
+      "end_time": 805710.0,
+      "text": "SAM BEDER: All right."
+    },
+    {
+      "index": 275,
+      "start_time": 805710.0,
+      "end_time": 807170.0,
+      "text": "So for those of you couldn&#39;t see--"
+    },
+    {
+      "index": 276,
+      "start_time": 807170.0,
+      "end_time": 807670.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 277,
+      "start_time": 807670.0,
+      "end_time": 808329.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 278,
+      "start_time": 808330.0,
+      "end_time": 809205.0,
+      "text": "Deserves an applause."
+    },
+    {
+      "index": 279,
+      "start_time": 811200.0,
+      "end_time": 812880.0,
+      "text": "It is, in fact, a dalmatian."
+    },
+    {
+      "index": 280,
+      "start_time": 812880.0,
+      "end_time": 817800.0,
+      "text": "But let&#39;s do it one more time to show you that it, you know,"
+    },
+    {
+      "index": 281,
+      "start_time": 817800.0,
+      "end_time": 818910.0,
+      "text": "can do more than just one dog breed."
+    },
+    {
+      "index": 282,
+      "start_time": 818910.0,
+      "end_time": 821175.0,
+      "text": "So this time I have a French bulldog."
+    },
+    {
+      "index": 283,
+      "start_time": 824410.0,
+      "end_time": 825490.0,
+      "text": "All right."
+    },
+    {
+      "index": 284,
+      "start_time": 825490.0,
+      "end_time": 826900.0,
+      "text": "Line it up again."
+    },
+    {
+      "index": 285,
+      "start_time": 826900.0,
+      "end_time": 827689.0,
+      "text": "Hope for the best."
+    },
+    {
+      "index": 286,
+      "start_time": 829841.0,
+      "end_time": 831590.0,
+      "text": "GOOGLE ASSISTANT: Hey, that looks like me."
+    },
+    {
+      "index": 287,
+      "start_time": 831590.0,
+      "end_time": 832400.0,
+      "text": "Just kidding."
+    },
+    {
+      "index": 288,
+      "start_time": 832400.0,
+      "end_time": 833430.0,
+      "text": "I see a French bulldog."
+    },
+    {
+      "index": 289,
+      "start_time": 833431.0,
+      "end_time": 833930.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 290,
+      "start_time": 833930.0,
+      "end_time": 835400.0,
+      "text": "SAM BEDER: All right."
+    },
+    {
+      "index": 291,
+      "start_time": 835400.0,
+      "end_time": 837290.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 292,
+      "start_time": 837290.0,
+      "end_time": 839180.0,
+      "text": "Good job, little guy."
+    },
+    {
+      "index": 293,
+      "start_time": 839180.0,
+      "end_time": 842660.0,
+      "text": "So as I mentioned, this is all running totally locally."
+    },
+    {
+      "index": 294,
+      "start_time": 842660.0,
+      "end_time": 844670.0,
+      "text": "So this is not connected to the internet at all,"
+    },
+    {
+      "index": 295,
+      "start_time": 844670.0,
+      "end_time": 849339.0,
+      "text": "and since this is battery powered, it&#39;s totally portable."
+    },
+    {
+      "index": 296,
+      "start_time": 849340.0,
+      "end_time": 852910.0,
+      "text": "So I think that this example really"
+    },
+    {
+      "index": 297,
+      "start_time": 852910.0,
+      "end_time": 855339.0,
+      "text": "shows you some of the power you can get with TensorFlow."
+    },
+    {
+      "index": 298,
+      "start_time": 855340.0,
+      "end_time": 857500.0,
+      "text": "So now, let&#39;s actually walk through some"
+    },
+    {
+      "index": 299,
+      "start_time": 857500.0,
+      "end_time": 859910.0,
+      "text": "of the code that makes this integration possible."
+    },
+    {
+      "index": 300,
+      "start_time": 861540.0,
+      "end_time": 864510.0,
+      "text": "This first page, as you can see, is pretty simple."
+    },
+    {
+      "index": 301,
+      "start_time": 864510.0,
+      "end_time": 868410.0,
+      "text": "And this just shows us loading up the appropriate TensorFlow"
+    },
+    {
+      "index": 302,
+      "start_time": 868410.0,
+      "end_time": 871890.0,
+      "text": "library to be used by our device."
+    },
+    {
+      "index": 303,
+      "start_time": 871890.0,
+      "end_time": 874199.0,
+      "text": "The first thing I want you to note here"
+    },
+    {
+      "index": 304,
+      "start_time": 874200.0,
+      "end_time": 878400.0,
+      "text": "is that we&#39;re actually only loading the same libraries"
+    },
+    {
+      "index": 305,
+      "start_time": 878400.0,
+      "end_time": 880620.0,
+      "text": "as is used by Android."
+    },
+    {
+      "index": 306,
+      "start_time": 880620.0,
+      "end_time": 884250.0,
+      "text": "So, all the TensorFlow code that works on Android"
+    },
+    {
+      "index": 307,
+      "start_time": 884250.0,
+      "end_time": 886740.0,
+      "text": "will also work on Android Things."
+    },
+    {
+      "index": 308,
+      "start_time": 886740.0,
+      "end_time": 888210.0,
+      "text": "All of the samples that you already"
+    },
+    {
+      "index": 309,
+      "start_time": 888210.0,
+      "end_time": 891360.0,
+      "text": "have on Android for TensorFlow you can import immediately"
+    },
+    {
+      "index": 310,
+      "start_time": 891360.0,
+      "end_time": 893760.0,
+      "text": "to Android Things."
+    },
+    {
+      "index": 311,
+      "start_time": 893760.0,
+      "end_time": 895890.0,
+      "text": "The second thing I want you to note"
+    },
+    {
+      "index": 312,
+      "start_time": 895890.0,
+      "end_time": 897680.0,
+      "text": "is that here we&#39;re actually only loading"
+    },
+    {
+      "index": 313,
+      "start_time": 897680.0,
+      "end_time": 901890.0,
+      "text": "in the inference libraries of TensorFlow."
+    },
+    {
+      "index": 314,
+      "start_time": 901890.0,
+      "end_time": 906000.0,
+      "text": "TensorFlow is basically composed of two sets of libraries."
+    },
+    {
+      "index": 315,
+      "start_time": 906000.0,
+      "end_time": 909690.0,
+      "text": "There&#39;s training, which is where you give it thousands"
+    },
+    {
+      "index": 316,
+      "start_time": 909690.0,
+      "end_time": 911790.0,
+      "text": "of images along with labels--"
+    },
+    {
+      "index": 317,
+      "start_time": 911790.0,
+      "end_time": 915449.0,
+      "text": "so you can make that model that can make those predictions."
+    },
+    {
+      "index": 318,
+      "start_time": 915450.0,
+      "end_time": 917520.0,
+      "text": "And then there&#39;s the inference libraries,"
+    },
+    {
+      "index": 319,
+      "start_time": 917520.0,
+      "end_time": 919949.0,
+      "text": "where you&#39;re using that model that you trained to actually"
+    },
+    {
+      "index": 320,
+      "start_time": 919950.0,
+      "end_time": 922524.0,
+      "text": "make those predictions."
+    },
+    {
+      "index": 321,
+      "start_time": 922524.0,
+      "end_time": 924815.0,
+      "text": "So now, let&#39;s go through some of the core functionality"
+    },
+    {
+      "index": 322,
+      "start_time": 924815.0,
+      "end_time": 928510.0,
+      "text": "to actually do those predictions."
+    },
+    {
+      "index": 323,
+      "start_time": 928510.0,
+      "end_time": 931180.0,
+      "text": "So these are the steps to actually run input data"
+    },
+    {
+      "index": 324,
+      "start_time": 931180.0,
+      "end_time": 933280.0,
+      "text": "through a TensorFlow model."
+    },
+    {
+      "index": 325,
+      "start_time": 933280.0,
+      "end_time": 936400.0,
+      "text": "The first method you see there, the feed method,"
+    },
+    {
+      "index": 326,
+      "start_time": 936400.0,
+      "end_time": 939290.0,
+      "text": "is where you&#39;re actually loading in your input data."
+    },
+    {
+      "index": 327,
+      "start_time": 939290.0,
+      "end_time": 940839.0,
+      "text": "So we have three arguments."
+    },
+    {
+      "index": 328,
+      "start_time": 940840.0,
+      "end_time": 942610.0,
+      "text": "There&#39;s the input layer name, which"
+    },
+    {
+      "index": 329,
+      "start_time": 942610.0,
+      "end_time": 946300.0,
+      "text": "is simply that first layer of your TensorFlow model"
+    },
+    {
+      "index": 330,
+      "start_time": 946300.0,
+      "end_time": 949209.0,
+      "text": "where you&#39;re going to put your input data."
+    },
+    {
+      "index": 331,
+      "start_time": 949210.0,
+      "end_time": 952540.0,
+      "text": "Next, there&#39;s tensor dimensions which simply describes"
+    },
+    {
+      "index": 332,
+      "start_time": 952540.0,
+      "end_time": 955000.0,
+      "text": "the structure of your input layer"
+    },
+    {
+      "index": 333,
+      "start_time": 955000.0,
+      "end_time": 958330.0,
+      "text": "so you can understand what&#39;s going into your model."
+    },
+    {
+      "index": 334,
+      "start_time": 958330.0,
+      "end_time": 959837.0,
+      "text": "Then you have image pixels, which"
+    },
+    {
+      "index": 335,
+      "start_time": 959837.0,
+      "end_time": 961420.0,
+      "text": "is the actual input data which you are"
+    },
+    {
+      "index": 336,
+      "start_time": 961420.0,
+      "end_time": 963280.0,
+      "text": "going to make predictions on."
+    },
+    {
+      "index": 337,
+      "start_time": 963280.0,
+      "end_time": 967900.0,
+      "text": "So here in our case, since we&#39;re taking a picture, of course"
+    },
+    {
+      "index": 338,
+      "start_time": 967900.0,
+      "end_time": 970689.0,
+      "text": "the input data is pixels."
+    },
+    {
+      "index": 339,
+      "start_time": 970690.0,
+      "end_time": 973630.0,
+      "text": "But this same type of TensorFlow model"
+    },
+    {
+      "index": 340,
+      "start_time": 973630.0,
+      "end_time": 976790.0,
+      "text": "will work across many use cases."
+    },
+    {
+      "index": 341,
+      "start_time": 976790.0,
+      "end_time": 980829.0,
+      "text": "So if instead you had just sensor data or a combination"
+    },
+    {
+      "index": 342,
+      "start_time": 980830.0,
+      "end_time": 983170.0,
+      "text": "of sensor data and camera data, you"
+    },
+    {
+      "index": 343,
+      "start_time": 983170.0,
+      "end_time": 985689.0,
+      "text": "could use the same type of TensorFlow model"
+    },
+    {
+      "index": 344,
+      "start_time": 985690.0,
+      "end_time": 988430.0,
+      "text": "and it would still work."
+    },
+    {
+      "index": 345,
+      "start_time": 988430.0,
+      "end_time": 991280.0,
+      "text": "So the next slide, the actual highlighted portion,"
+    },
+    {
+      "index": 346,
+      "start_time": 991280.0,
+      "end_time": 993420.0,
+      "text": "is where the actual work gets done."
+    },
+    {
+      "index": 347,
+      "start_time": 993420.0,
+      "end_time": 994699.0,
+      "text": "So we call it the run method--"
+    },
+    {
+      "index": 348,
+      "start_time": 994700.0,
+      "end_time": 997880.0,
+      "text": "to actually run this input data through our TensorFlow model"
+    },
+    {
+      "index": 349,
+      "start_time": 997880.0,
+      "end_time": 1000800.0,
+      "text": "to get that prediction on the other side."
+    },
+    {
+      "index": 350,
+      "start_time": 1000800.0,
+      "end_time": 1002530.0,
+      "text": "So here, we just need to provide the output layer"
+    },
+    {
+      "index": 351,
+      "start_time": 1002530.0,
+      "end_time": 1005270.0,
+      "text": "where we want the data to go."
+    },
+    {
+      "index": 352,
+      "start_time": 1005270.0,
+      "end_time": 1007510.0,
+      "text": "Finally, we need to fetch our data so we can use it."
+    },
+    {
+      "index": 353,
+      "start_time": 1007510.0,
+      "end_time": 1010900.0,
+      "text": "So we call it Fetch along with an output array"
+    },
+    {
+      "index": 354,
+      "start_time": 1010900.0,
+      "end_time": 1012800.0,
+      "text": "to store our data."
+    },
+    {
+      "index": 355,
+      "start_time": 1012800.0,
+      "end_time": 1015160.0,
+      "text": "Now, this output array is composed"
+    },
+    {
+      "index": 356,
+      "start_time": 1015160.0,
+      "end_time": 1019240.0,
+      "text": "of elements that correspond to the confidence"
+    },
+    {
+      "index": 357,
+      "start_time": 1019240.0,
+      "end_time": 1023420.0,
+      "text": "that an object is what we saw in the image."
+    },
+    {
+      "index": 358,
+      "start_time": 1023420.0,
+      "end_time": 1026500.0,
+      "text": "So in our first example, we predicted dalmatian."
+    },
+    {
+      "index": 359,
+      "start_time": 1026500.0,
+      "end_time": 1029980.0,
+      "text": "That means that the element with highest confidence"
+    },
+    {
+      "index": 360,
+      "start_time": 1029980.0,
+      "end_time": 1033760.0,
+      "text": "was that that corresponded to dalmatian."
+    },
+    {
+      "index": 361,
+      "start_time": 1033760.0,
+      "end_time": 1036490.0,
+      "text": "You could actually do a little bit more nuanced things"
+    },
+    {
+      "index": 362,
+      "start_time": 1036490.0,
+      "end_time": 1038270.0,
+      "text": "with these results."
+    },
+    {
+      "index": 363,
+      "start_time": 1038270.0,
+      "end_time": 1042608.0,
+      "text": "So for example, if there&#39;s two results that"
+    },
+    {
+      "index": 364,
+      "start_time": 1042609.9999999999,
+      "end_time": 1045311.9999999999,
+      "text": "both were highly confident, you could say,"
+    },
+    {
+      "index": 365,
+      "start_time": 1045310.0,
+      "end_time": 1047810.0,
+      "text": "I think it&#39;s one of these two things."
+    },
+    {
+      "index": 366,
+      "start_time": 1047810.0,
+      "end_time": 1052270.0,
+      "text": "And if there were no results above a certain threshold"
+    },
+    {
+      "index": 367,
+      "start_time": 1052270.0,
+      "end_time": 1054400.0,
+      "text": "of confidence, you could say, I don&#39;t"
+    },
+    {
+      "index": 368,
+      "start_time": 1054400.0,
+      "end_time": 1055880.0,
+      "text": "know what&#39;s in this image."
+    },
+    {
+      "index": 369,
+      "start_time": 1055880.0,
+      "end_time": 1058780.0,
+      "text": "So even once you have your output of confidences,"
+    },
+    {
+      "index": 370,
+      "start_time": 1058780.0,
+      "end_time": 1063990.0,
+      "text": "you can do a little bit extra depending on your use case."
+    },
+    {
+      "index": 371,
+      "start_time": 1063990.0,
+      "end_time": 1067196.0,
+      "text": "So as I mentioned, this demo is running completely locally."
+    },
+    {
+      "index": 372,
+      "start_time": 1067200.0,
+      "end_time": 1068574.0,
+      "text": "But I think that there&#39;s actually"
+    },
+    {
+      "index": 373,
+      "start_time": 1068570.0,
+      "end_time": 1072350.0,
+      "text": "more interesting things that we can do once we also connect"
+    },
+    {
+      "index": 374,
+      "start_time": 1072350.0,
+      "end_time": 1075350.0,
+      "text": "devices like this to the cloud."
+    },
+    {
+      "index": 375,
+      "start_time": 1075350.0,
+      "end_time": 1077330.0,
+      "text": "So next, I want to talk about Google Cloud"
+    },
+    {
+      "index": 376,
+      "start_time": 1077330.0,
+      "end_time": 1081889.0,
+      "text": "Platform and specifically Cloud IoT Core."
+    },
+    {
+      "index": 377,
+      "start_time": 1081890.0,
+      "end_time": 1085400.0,
+      "text": "So Cloud IoT Core is a new offering"
+    },
+    {
+      "index": 378,
+      "start_time": 1085400.0,
+      "end_time": 1088370.0,
+      "text": "that we&#39;re announcing here at iO that&#39;s specifically"
+    },
+    {
+      "index": 379,
+      "start_time": 1088370.0,
+      "end_time": 1093570.0,
+      "text": "for connecting IoT devices to the Google Cloud Platform."
+    },
+    {
+      "index": 380,
+      "start_time": 1093570.0,
+      "end_time": 1096200.0,
+      "text": "Now, the Google Cloud Platform has a number of services."
+    },
+    {
+      "index": 381,
+      "start_time": 1096200.0,
+      "end_time": 1099610.0,
+      "text": "You can do things like MQTT protocol support."
+    },
+    {
+      "index": 382,
+      "start_time": 1099610.0,
+      "end_time": 1102800.0,
+      "text": "MQTT is a lightweight protocol that&#39;s"
+    },
+    {
+      "index": 383,
+      "start_time": 1102800.0,
+      "end_time": 1108970.0,
+      "text": "used for communications as well as many industrial purposes."
+    },
+    {
+      "index": 384,
+      "start_time": 1108970.0,
+      "end_time": 1112220.0,
+      "text": "Cloud IoT Core is also a 100% managed service."
+    },
+    {
+      "index": 385,
+      "start_time": 1112220.0,
+      "end_time": 1114790.0,
+      "text": "This means you get things like automatic load balancing"
+    },
+    {
+      "index": 386,
+      "start_time": 1114790.0,
+      "end_time": 1117420.0,
+      "text": "and resource pre-provisioning."
+    },
+    {
+      "index": 387,
+      "start_time": 1117420.0,
+      "end_time": 1120610.0,
+      "text": "You can connect one device to Cloud IoT Core or a million"
+    },
+    {
+      "index": 388,
+      "start_time": 1120610.0,
+      "end_time": 1125199.0,
+      "text": "devices, and all these things still work the same way."
+    },
+    {
+      "index": 389,
+      "start_time": 1125200.0,
+      "end_time": 1127160.0,
+      "text": "There&#39;s also a global access point,"
+    },
+    {
+      "index": 390,
+      "start_time": 1127160.0,
+      "end_time": 1130420.0,
+      "text": "which means that no matter what region your device is in,"
+    },
+    {
+      "index": 391,
+      "start_time": 1130420.0,
+      "end_time": 1132400.0,
+      "text": "it can use the same configurations"
+    },
+    {
+      "index": 392,
+      "start_time": 1132400.0,
+      "end_time": 1136310.0,
+      "text": "and connect to the same Google Cloud."
+    },
+    {
+      "index": 393,
+      "start_time": 1136310.0,
+      "end_time": 1139149.0,
+      "text": "Cloud IoT Core also comes with a Device Manager"
+    },
+    {
+      "index": 394,
+      "start_time": 1139150.0,
+      "end_time": 1142234.0,
+      "text": "that can allow you to interact with your devices in the field."
+    },
+    {
+      "index": 395,
+      "start_time": 1142230.0,
+      "end_time": 1143645.0,
+      "text": "So you get things like the ability"
+    },
+    {
+      "index": 396,
+      "start_time": 1143650.0,
+      "end_time": 1147220.0,
+      "text": "to configure individual devices that you have in the field,"
+    },
+    {
+      "index": 397,
+      "start_time": 1147220.0,
+      "end_time": 1148900.0,
+      "text": "as well as control those devices,"
+    },
+    {
+      "index": 398,
+      "start_time": 1148900.0,
+      "end_time": 1152755.0,
+      "text": "set up alerts, and set up role level access controls."
+    },
+    {
+      "index": 399,
+      "start_time": 1152760.0,
+      "end_time": 1154635.0,
+      "text": "Role level access controls could be something"
+    },
+    {
+      "index": 400,
+      "start_time": 1154630.0,
+      "end_time": 1158680.0,
+      "text": "like allowing one user to be able to have read and write"
+    },
+    {
+      "index": 401,
+      "start_time": 1158680.0,
+      "end_time": 1162490.0,
+      "text": "access over a set of devices, and then another user"
+    },
+    {
+      "index": 402,
+      "start_time": 1162490.0,
+      "end_time": 1168140.0,
+      "text": "could only have read access or a subset of those devices."
+    },
+    {
+      "index": 403,
+      "start_time": 1168140.0,
+      "end_time": 1169870.0,
+      "text": "So as I mentioned, Cloud IoT Core"
+    },
+    {
+      "index": 404,
+      "start_time": 1169870.0,
+      "end_time": 1172270.0,
+      "text": "also connects you to all the benefits"
+    },
+    {
+      "index": 405,
+      "start_time": 1172270.0,
+      "end_time": 1174940.0,
+      "text": "of Google Cloud Platform."
+    },
+    {
+      "index": 406,
+      "start_time": 1174940.0,
+      "end_time": 1177160.0,
+      "text": "This diagram shows you a bunch of the benefits"
+    },
+    {
+      "index": 407,
+      "start_time": 1177160.0,
+      "end_time": 1178867.0,
+      "text": "that Google Cloud Platform provides."
+    },
+    {
+      "index": 408,
+      "start_time": 1178870.0,
+      "end_time": 1180703.0,
+      "text": "And I&#39;m not going to go through all of them,"
+    },
+    {
+      "index": 409,
+      "start_time": 1180700.0,
+      "end_time": 1182130.0,
+      "text": "but just to point out a few."
+    },
+    {
+      "index": 410,
+      "start_time": 1182130.0,
+      "end_time": 1185410.0,
+      "text": "You get things like BigQuery and BigData"
+    },
+    {
+      "index": 411,
+      "start_time": 1185410.0,
+      "end_time": 1188440.0,
+      "text": "that allow you to input all the data that you&#39;re gathering"
+    },
+    {
+      "index": 412,
+      "start_time": 1188440.0,
+      "end_time": 1192700.0,
+      "text": "from your Android Things devices and then visualize and query"
+    },
+    {
+      "index": 413,
+      "start_time": 1192700.0,
+      "end_time": 1194470.0,
+      "text": "over that data."
+    },
+    {
+      "index": 414,
+      "start_time": 1194470.0,
+      "end_time": 1198520.0,
+      "text": "You also get CloudML, to make even more complicated machine"
+    },
+    {
+      "index": 415,
+      "start_time": 1198520.0,
+      "end_time": 1201970.0,
+      "text": "learning models based on all the data you&#39;ve collected"
+    },
+    {
+      "index": 416,
+      "start_time": 1201970.0,
+      "end_time": 1205390.0,
+      "text": "using the power of the cloud."
+    },
+    {
+      "index": 417,
+      "start_time": 1205390.0,
+      "end_time": 1207580.0,
+      "text": "Finally, you get all the analytics tools"
+    },
+    {
+      "index": 418,
+      "start_time": 1207580.0,
+      "end_time": 1209379.0,
+      "text": "that Google Cloud Platform provides,"
+    },
+    {
+      "index": 419,
+      "start_time": 1209380.0,
+      "end_time": 1212380.0,
+      "text": "to visualize and set up alerts on your data"
+    },
+    {
+      "index": 420,
+      "start_time": 1212380.0,
+      "end_time": 1216810.0,
+      "text": "and take action on the devices you have in the field."
+    },
+    {
+      "index": 421,
+      "start_time": 1216810.0,
+      "end_time": 1219399.0,
+      "text": "So to understand these analytics a little bit better,"
+    },
+    {
+      "index": 422,
+      "start_time": 1219400.0,
+      "end_time": 1223130.0,
+      "text": "I&#39;m going to go through one more demo."
+    },
+    {
+      "index": 423,
+      "start_time": 1223130.0,
+      "end_time": 1226360.0,
+      "text": "So this demo is actually running live in our sandbox area."
+    },
+    {
+      "index": 424,
+      "start_time": 1226360.0,
+      "end_time": 1228879.0,
+      "text": "And this is just a screenshot of it working."
+    },
+    {
+      "index": 425,
+      "start_time": 1228880.0,
+      "end_time": 1231670.0,
+      "text": "What we&#39;ve done here is we&#39;ve set up"
+    },
+    {
+      "index": 426,
+      "start_time": 1231670.0,
+      "end_time": 1234310.0,
+      "text": "a bunch of environmental stations"
+    },
+    {
+      "index": 427,
+      "start_time": 1234310.0,
+      "end_time": 1236679.0,
+      "text": "running on Android Things and spread them"
+    },
+    {
+      "index": 428,
+      "start_time": 1236680.0,
+      "end_time": 1239170.0,
+      "text": "around Mountain View campus."
+    },
+    {
+      "index": 429,
+      "start_time": 1239170.0,
+      "end_time": 1240730.0,
+      "text": "Now, these environmental stations"
+    },
+    {
+      "index": 430,
+      "start_time": 1240730.0,
+      "end_time": 1242710.0,
+      "text": "have a bunch of sensors on them, things"
+    },
+    {
+      "index": 431,
+      "start_time": 1242710.0,
+      "end_time": 1245440.0,
+      "text": "like humidity sensor, temperature sensor, air"
+    },
+    {
+      "index": 432,
+      "start_time": 1245440.0,
+      "end_time": 1250570.0,
+      "text": "pressure sensor, luminosity sensor, and motion detection."
+    },
+    {
+      "index": 433,
+      "start_time": 1250570.0,
+      "end_time": 1254200.0,
+      "text": "And then we&#39;re able to aggregate all this data in the cloud"
+    },
+    {
+      "index": 434,
+      "start_time": 1254200.0,
+      "end_time": 1256750.0,
+      "text": "by connecting it through a Cloud IoT Core."
+    },
+    {
+      "index": 435,
+      "start_time": 1256750.0,
+      "end_time": 1258970.0,
+      "text": "So on the left, you can see some of the data"
+    },
+    {
+      "index": 436,
+      "start_time": 1258970.0,
+      "end_time": 1262120.0,
+      "text": "from some of these devices they were able to aggregate."
+    },
+    {
+      "index": 437,
+      "start_time": 1262120.0,
+      "end_time": 1264820.0,
+      "text": "We can also see average temperatures"
+    },
+    {
+      "index": 438,
+      "start_time": 1264820.0,
+      "end_time": 1267560.0,
+      "text": "and other analytics on our data."
+    },
+    {
+      "index": 439,
+      "start_time": 1267560.0,
+      "end_time": 1271120.0,
+      "text": "We can also dive into one specific device"
+    },
+    {
+      "index": 440,
+      "start_time": 1271120.0,
+      "end_time": 1273250.0,
+      "text": "to really see more data on what&#39;s"
+    },
+    {
+      "index": 441,
+      "start_time": 1273250.0,
+      "end_time": 1276490.0,
+      "text": "going on with that device as well as more time series"
+    },
+    {
+      "index": 442,
+      "start_time": 1276490.0,
+      "end_time": 1281830.0,
+      "text": "data on how that device has performed over time."
+    },
+    {
+      "index": 443,
+      "start_time": 1281830.0,
+      "end_time": 1284679.0,
+      "text": "You might notice, though, that this demo shows you"
+    },
+    {
+      "index": 444,
+      "start_time": 1284680.0,
+      "end_time": 1288610.0,
+      "text": "really well that you can connect these devices to Google Cloud."
+    },
+    {
+      "index": 445,
+      "start_time": 1288610.0,
+      "end_time": 1292409.0,
+      "text": "But it doesn&#39;t really utilize the on device processing"
+    },
+    {
+      "index": 446,
+      "start_time": 1292410.0,
+      "end_time": 1295460.0,
+      "text": "that I talked about with my TensorFlow demo."
+    },
+    {
+      "index": 447,
+      "start_time": 1295460.0,
+      "end_time": 1298630.0,
+      "text": "So next, I want to go over a few more examples that"
+    },
+    {
+      "index": 448,
+      "start_time": 1298630.0,
+      "end_time": 1302140.0,
+      "text": "show you these two services working together."
+    },
+    {
+      "index": 449,
+      "start_time": 1302140.0,
+      "end_time": 1304730.0,
+      "text": "Because when you combine TensorFlow and Google Cloud"
+    },
+    {
+      "index": 450,
+      "start_time": 1304730.0,
+      "end_time": 1307900.0,
+      "text": "Platform, I think you can do some really amazingly"
+    },
+    {
+      "index": 451,
+      "start_time": 1307900.0,
+      "end_time": 1311110.0,
+      "text": "powerful things."
+    },
+    {
+      "index": 452,
+      "start_time": 1311110.0,
+      "end_time": 1313750.0,
+      "text": "So my first example kind of extends"
+    },
+    {
+      "index": 453,
+      "start_time": 1313750.0,
+      "end_time": 1317860.0,
+      "text": "this environmental station demo that I just walked you through."
+    },
+    {
+      "index": 454,
+      "start_time": 1317860.0,
+      "end_time": 1321550.0,
+      "text": "Imagine instead of just putting these environmental stations"
+    },
+    {
+      "index": 455,
+      "start_time": 1321550.0,
+      "end_time": 1324340.0,
+      "text": "around, we actually connected them"
+    },
+    {
+      "index": 456,
+      "start_time": 1324340.0,
+      "end_time": 1327700.0,
+      "text": "to a smart vending machine."
+    },
+    {
+      "index": 457,
+      "start_time": 1327700.0,
+      "end_time": 1329320.0,
+      "text": "We were then able to use all the input"
+    },
+    {
+      "index": 458,
+      "start_time": 1329320.0,
+      "end_time": 1331990.0,
+      "text": "data from our environmental station"
+    },
+    {
+      "index": 459,
+      "start_time": 1331990.0,
+      "end_time": 1335830.0,
+      "text": "to have a machine learning model using TensorFlow running"
+    },
+    {
+      "index": 460,
+      "start_time": 1335830.0,
+      "end_time": 1338200.0,
+      "text": "locally on this device."
+    },
+    {
+      "index": 461,
+      "start_time": 1338200.0,
+      "end_time": 1341110.0,
+      "text": "You could predict things like supply and demand"
+    },
+    {
+      "index": 462,
+      "start_time": 1341110.0,
+      "end_time": 1343209.0,
+      "text": "based on that vending machine&#39;s environment,"
+    },
+    {
+      "index": 463,
+      "start_time": 1343210.0,
+      "end_time": 1345100.0,
+      "text": "and then optimize when this vending"
+    },
+    {
+      "index": 464,
+      "start_time": 1345100.0,
+      "end_time": 1348250.0,
+      "text": "machine would be restocked."
+    },
+    {
+      "index": 465,
+      "start_time": 1348250.0,
+      "end_time": 1350140.0,
+      "text": "You could also connect all of your vending"
+    },
+    {
+      "index": 466,
+      "start_time": 1350140.0,
+      "end_time": 1354700.0,
+      "text": "machines to the cloud and do even more complicated analysis"
+    },
+    {
+      "index": 467,
+      "start_time": 1354700.0,
+      "end_time": 1355720.0,
+      "text": "on those vending machines."
+    },
+    {
+      "index": 468,
+      "start_time": 1355720.0,
+      "end_time": 1358000.0,
+      "text": "You could do inventory analysis to figure out"
+    },
+    {
+      "index": 469,
+      "start_time": 1358000.0,
+      "end_time": 1362380.0,
+      "text": "which items are performing best in which environments,"
+    },
+    {
+      "index": 470,
+      "start_time": 1362380.0,
+      "end_time": 1365800.0,
+      "text": "and you could also do even better prediction models"
+    },
+    {
+      "index": 471,
+      "start_time": 1365800.0,
+      "end_time": 1368830.0,
+      "text": "based on all the data you&#39;re collecting."
+    },
+    {
+      "index": 472,
+      "start_time": 1368830.0,
+      "end_time": 1370689.0,
+      "text": "This is actually a perfect example"
+    },
+    {
+      "index": 473,
+      "start_time": 1370690.0,
+      "end_time": 1373730.0,
+      "text": "to do what we call federated learning."
+    },
+    {
+      "index": 474,
+      "start_time": 1373730.0,
+      "end_time": 1378190.0,
+      "text": "So, federated learning is when we have multiple machines that"
+    },
+    {
+      "index": 475,
+      "start_time": 1378190.0,
+      "end_time": 1381220.0,
+      "text": "are all able to learn locally, but based"
+    },
+    {
+      "index": 476,
+      "start_time": 1381220.0,
+      "end_time": 1384160.0,
+      "text": "on those local learning we can aggregate"
+    },
+    {
+      "index": 477,
+      "start_time": 1384160.0,
+      "end_time": 1386410.0,
+      "text": "that data to make an even better machine learning"
+    },
+    {
+      "index": 478,
+      "start_time": 1386410.0,
+      "end_time": 1388540.0,
+      "text": "model in the cloud."
+    },
+    {
+      "index": 479,
+      "start_time": 1388540.0,
+      "end_time": 1393670.0,
+      "text": "So here, you can imagine having one vending machine in a school"
+    },
+    {
+      "index": 480,
+      "start_time": 1393670.0,
+      "end_time": 1396460.0,
+      "text": "and another vending machine in a stadium,"
+    },
+    {
+      "index": 481,
+      "start_time": 1396460.0,
+      "end_time": 1400390.0,
+      "text": "and both vending machines would have very personalized models"
+    },
+    {
+      "index": 482,
+      "start_time": 1400390.0,
+      "end_time": 1401980.0,
+      "text": "based on their environment."
+    },
+    {
+      "index": 483,
+      "start_time": 1401980.0,
+      "end_time": 1404440.0,
+      "text": "But they would also both benefit from each other"
+    },
+    {
+      "index": 484,
+      "start_time": 1404440.0,
+      "end_time": 1408310.0,
+      "text": "by aggregating their data in the cloud."
+    },
+    {
+      "index": 485,
+      "start_time": 1408310.0,
+      "end_time": 1410169.0,
+      "text": "This is also a good example that shows"
+    },
+    {
+      "index": 486,
+      "start_time": 1410170.0,
+      "end_time": 1412930.0,
+      "text": "you can do interesting things without a camera just using"
+    },
+    {
+      "index": 487,
+      "start_time": 1412930.0,
+      "end_time": 1414460.0,
+      "text": "sensor data."
+    },
+    {
+      "index": 488,
+      "start_time": 1414460.0,
+      "end_time": 1417650.0,
+      "text": "But my next example goes over a camera use case"
+    },
+    {
+      "index": 489,
+      "start_time": 1417650.0,
+      "end_time": 1421780.0,
+      "text": "because I think that cameras are perfect applications for doing"
+    },
+    {
+      "index": 490,
+      "start_time": 1421780.0,
+      "end_time": 1424700.0,
+      "text": "some of this on device processing."
+    },
+    {
+      "index": 491,
+      "start_time": 1424700.0,
+      "end_time": 1427000.0,
+      "text": "So imagine you have a grocery store."
+    },
+    {
+      "index": 492,
+      "start_time": 1427000.0,
+      "end_time": 1429370.0,
+      "text": "And the grocery store puts up cameras"
+    },
+    {
+      "index": 493,
+      "start_time": 1429370.0,
+      "end_time": 1432939.0,
+      "text": "to count the number of people standing in line."
+    },
+    {
+      "index": 494,
+      "start_time": 1432940.0,
+      "end_time": 1435130.0,
+      "text": "This camera would use a TensorFlow model"
+    },
+    {
+      "index": 495,
+      "start_time": 1435130.0,
+      "end_time": 1437350.0,
+      "text": "that&#39;s locally able to count that number of people"
+    },
+    {
+      "index": 496,
+      "start_time": 1437350.0,
+      "end_time": 1441250.0,
+      "text": "in the image and propagate that number to the cloud."
+    },
+    {
+      "index": 497,
+      "start_time": 1441250.0,
+      "end_time": 1445390.0,
+      "text": "You could use this data to open the optimal number of registers"
+    },
+    {
+      "index": 498,
+      "start_time": 1445390.0,
+      "end_time": 1447820.0,
+      "text": "at any given time so you never have"
+    },
+    {
+      "index": 499,
+      "start_time": 1447820.0,
+      "end_time": 1450939.0,
+      "text": "to wait in line at the grocery store again."
+    },
+    {
+      "index": 500,
+      "start_time": 1450940.0,
+      "end_time": 1452860.0,
+      "text": "With all of your aggregated data,"
+    },
+    {
+      "index": 501,
+      "start_time": 1452860.0,
+      "end_time": 1454929.0,
+      "text": "you could also do more complicated machine"
+    },
+    {
+      "index": 502,
+      "start_time": 1454930.0,
+      "end_time": 1456670.0,
+      "text": "learning models."
+    },
+    {
+      "index": 503,
+      "start_time": 1456670.0,
+      "end_time": 1459100.0,
+      "text": "You could predict how many people"
+    },
+    {
+      "index": 504,
+      "start_time": 1459100.0,
+      "end_time": 1463900.0,
+      "text": "you should staff at your grocery store on any given day."
+    },
+    {
+      "index": 505,
+      "start_time": 1463900.0,
+      "end_time": 1465520.0,
+      "text": "You could also see how optimal each grocery"
+    },
+    {
+      "index": 506,
+      "start_time": 1465520.0,
+      "end_time": 1467230.0,
+      "text": "store is performing and the differences"
+    },
+    {
+      "index": 507,
+      "start_time": 1467230.0,
+      "end_time": 1470160.0,
+      "text": "between grocery stores."
+    },
+    {
+      "index": 508,
+      "start_time": 1470160.0,
+      "end_time": 1472740.0,
+      "text": "This could even be useful for the shoppers--"
+    },
+    {
+      "index": 509,
+      "start_time": 1472740.0,
+      "end_time": 1474330.0,
+      "text": "the end users."
+    },
+    {
+      "index": 510,
+      "start_time": 1474330.0,
+      "end_time": 1476370.0,
+      "text": "You can imagine making a mobile app"
+    },
+    {
+      "index": 511,
+      "start_time": 1476370.0,
+      "end_time": 1479129.0,
+      "text": "where, at home, you can check how long the grocery store"
+    },
+    {
+      "index": 512,
+      "start_time": 1479130.0,
+      "end_time": 1482100.0,
+      "text": "line is so that you never are frustrated"
+    },
+    {
+      "index": 513,
+      "start_time": 1482100.0,
+      "end_time": 1484679.0,
+      "text": "by having to wait in line because you&#39;ll know in advance"
+    },
+    {
+      "index": 514,
+      "start_time": 1484680.0,
+      "end_time": 1487960.0,
+      "text": "what the situation will be."
+    },
+    {
+      "index": 515,
+      "start_time": 1487960.0,
+      "end_time": 1490600.0,
+      "text": "The next use case I want to go over"
+    },
+    {
+      "index": 516,
+      "start_time": 1490600.0,
+      "end_time": 1493449.0,
+      "text": "brought in this camera example a little bit more"
+    },
+    {
+      "index": 517,
+      "start_time": 1493450.0,
+      "end_time": 1496435.0,
+      "text": "and applies it to an industrial use case."
+    },
+    {
+      "index": 518,
+      "start_time": 1499200.0,
+      "end_time": 1502410.0,
+      "text": "So imagine with a factory that, let&#39;s say, makes pizzas."
+    },
+    {
+      "index": 519,
+      "start_time": 1502410.0,
+      "end_time": 1506940.0,
+      "text": "And we add a camera that&#39;s able to do quality control"
+    },
+    {
+      "index": 520,
+      "start_time": 1506940.0,
+      "end_time": 1510420.0,
+      "text": "to increase both the quality and the efficiency"
+    },
+    {
+      "index": 521,
+      "start_time": 1510420.0,
+      "end_time": 1513330.0,
+      "text": "for this industrial application."
+    },
+    {
+      "index": 522,
+      "start_time": 1513330.0,
+      "end_time": 1516300.0,
+      "text": "I should note that we have another talk that&#39;s"
+    },
+    {
+      "index": 523,
+      "start_time": 1516300.0,
+      "end_time": 1520300.0,
+      "text": "specifically on enterprise use cases on Android Things."
+    },
+    {
+      "index": 524,
+      "start_time": 1520300.0,
+      "end_time": 1521800.0,
+      "text": "So you should listen to that talk"
+    },
+    {
+      "index": 525,
+      "start_time": 1521800.0,
+      "end_time": 1523560.0,
+      "text": "if you want to know more about what&#39;s"
+    },
+    {
+      "index": 526,
+      "start_time": 1523560.0,
+      "end_time": 1525870.0,
+      "text": "possible on Android Things for some"
+    },
+    {
+      "index": 527,
+      "start_time": 1525870.0,
+      "end_time": 1529580.0,
+      "text": "of these industrial applications."
+    },
+    {
+      "index": 528,
+      "start_time": 1529580.0,
+      "end_time": 1532300.0,
+      "text": "So in this case, we would have a TensorFlow model"
+    },
+    {
+      "index": 529,
+      "start_time": 1532300.0,
+      "end_time": 1537460.0,
+      "text": "that&#39;s locally able to learn how to accept and reject pizzas by,"
+    },
+    {
+      "index": 530,
+      "start_time": 1537460.0,
+      "end_time": 1542320.0,
+      "text": "for example, counting the number of toppings of each pizza."
+    },
+    {
+      "index": 531,
+      "start_time": 1542320.0,
+      "end_time": 1544330.0,
+      "text": "So as we see some of these pizzas go by,"
+    },
+    {
+      "index": 532,
+      "start_time": 1544330.0,
+      "end_time": 1548530.0,
+      "text": "most of them we&#39;ll see will have six tomatoes and five olives."
+    },
+    {
+      "index": 533,
+      "start_time": 1548530.0,
+      "end_time": 1549760.0,
+      "text": "And so they&#39;re accepted."
+    },
+    {
+      "index": 534,
+      "start_time": 1549760.0,
+      "end_time": 1552820.0,
+      "text": "But then soon, we&#39;ll come to one-- this one--"
+    },
+    {
+      "index": 535,
+      "start_time": 1552820.0,
+      "end_time": 1555400.0,
+      "text": "that one-- that has too many tomatoes--"
+    },
+    {
+      "index": 536,
+      "start_time": 1555400.0,
+      "end_time": 1557620.0,
+      "text": "too few tomatoes-- and too few olives."
+    },
+    {
+      "index": 537,
+      "start_time": 1557620.0,
+      "end_time": 1558399.0,
+      "text": "Sorry."
+    },
+    {
+      "index": 538,
+      "start_time": 1558400.0,
+      "end_time": 1561170.0,
+      "text": "Too few tomatoes and too many olives."
+    },
+    {
+      "index": 539,
+      "start_time": 1561170.0,
+      "end_time": 1563676.0,
+      "text": "So we reject that pizza."
+    },
+    {
+      "index": 540,
+      "start_time": 1563680.0,
+      "end_time": 1565504.0,
+      "text": "We could also propagate this data"
+    },
+    {
+      "index": 541,
+      "start_time": 1565500.0,
+      "end_time": 1567970.0,
+      "text": "to the cloud to do more analysis such as track"
+    },
+    {
+      "index": 542,
+      "start_time": 1567970.0,
+      "end_time": 1571270.0,
+      "text": "our throughput and flag if our error rate goes"
+    },
+    {
+      "index": 543,
+      "start_time": 1571270.0,
+      "end_time": 1572930.0,
+      "text": "above a certain threshold and we want"
+    },
+    {
+      "index": 544,
+      "start_time": 1572930.0,
+      "end_time": 1577240.0,
+      "text": "to do a manual check on our machines."
+    },
+    {
+      "index": 545,
+      "start_time": 1577240.0,
+      "end_time": 1579310.0,
+      "text": "There&#39;s one more use case I want to go over"
+    },
+    {
+      "index": 546,
+      "start_time": 1579310.0,
+      "end_time": 1583190.0,
+      "text": "that uses machine learning in a slightly different way."
+    },
+    {
+      "index": 547,
+      "start_time": 1583190.0,
+      "end_time": 1586750.0,
+      "text": "So that&#39;s going to be reinforcement learning applied"
+    },
+    {
+      "index": 548,
+      "start_time": 1586750.0,
+      "end_time": 1588325.0,
+      "text": "to an agricultural use case."
+    },
+    {
+      "index": 549,
+      "start_time": 1591350.0,
+      "end_time": 1593209.0,
+      "text": "So imagine we have a field that has"
+    },
+    {
+      "index": 550,
+      "start_time": 1593210.0,
+      "end_time": 1595970.0,
+      "text": "a bunch of moisture sensors in the ground,"
+    },
+    {
+      "index": 551,
+      "start_time": 1595970.0,
+      "end_time": 1598530.0,
+      "text": "as well as sprinklers."
+    },
+    {
+      "index": 552,
+      "start_time": 1598530.0,
+      "end_time": 1601460.0,
+      "text": "And these are all connected to a central hub"
+    },
+    {
+      "index": 553,
+      "start_time": 1601460.0,
+      "end_time": 1604190.0,
+      "text": "running Android Things."
+    },
+    {
+      "index": 554,
+      "start_time": 1604190.0,
+      "end_time": 1606550.0,
+      "text": "Now, this Android Things hub could"
+    },
+    {
+      "index": 555,
+      "start_time": 1606550.0,
+      "end_time": 1609440.0,
+      "text": "do some machine learning to optimize"
+    },
+    {
+      "index": 556,
+      "start_time": 1609440.0,
+      "end_time": 1612530.0,
+      "text": "exactly what the output of when and how much"
+    },
+    {
+      "index": 557,
+      "start_time": 1612530.0,
+      "end_time": 1615410.0,
+      "text": "water each sprinkler should output"
+    },
+    {
+      "index": 558,
+      "start_time": 1615410.0,
+      "end_time": 1618650.0,
+      "text": "to optimize our crop growth."
+    },
+    {
+      "index": 559,
+      "start_time": 1618650.0,
+      "end_time": 1620400.0,
+      "text": "You may have heard of DeepMind."
+    },
+    {
+      "index": 560,
+      "start_time": 1620400.0,
+      "end_time": 1622640.0,
+      "text": "Sundar actually mentioned it in his keynote"
+    },
+    {
+      "index": 561,
+      "start_time": 1622640.0,
+      "end_time": 1625370.0,
+      "text": "as a company at Alphabet that recently"
+    },
+    {
+      "index": 562,
+      "start_time": 1625370.0,
+      "end_time": 1629389.0,
+      "text": "made AlphaGo, which beat the best go player in the world."
+    },
+    {
+      "index": 563,
+      "start_time": 1629390.0,
+      "end_time": 1631510.0,
+      "text": "Now, this used reinforcement learning"
+    },
+    {
+      "index": 564,
+      "start_time": 1631510.0,
+      "end_time": 1633135.0,
+      "text": "in really powerful ways."
+    },
+    {
+      "index": 565,
+      "start_time": 1633140.0,
+      "end_time": 1634765.0,
+      "text": "And I think that reinforcement learning"
+    },
+    {
+      "index": 566,
+      "start_time": 1634760.0,
+      "end_time": 1637970.0,
+      "text": "is an amazing tool that could also be used on Android Things"
+    },
+    {
+      "index": 567,
+      "start_time": 1637970.0,
+      "end_time": 1640220.0,
+      "text": "really well."
+    },
+    {
+      "index": 568,
+      "start_time": 1640220.0,
+      "end_time": 1643580.0,
+      "text": "With reinforcement learning, you could discover some nuanced use"
+    },
+    {
+      "index": 569,
+      "start_time": 1643580.0,
+      "end_time": 1645919.0,
+      "text": "cases, such as--"
+    },
+    {
+      "index": 570,
+      "start_time": 1645920.0,
+      "end_time": 1649490.0,
+      "text": "imagine your hill had a hill on it."
+    },
+    {
+      "index": 571,
+      "start_time": 1649490.0,
+      "end_time": 1651230.0,
+      "text": "In that case, you may actually want"
+    },
+    {
+      "index": 572,
+      "start_time": 1651230.0,
+      "end_time": 1654380.0,
+      "text": "to water the crops at the bottom of the hill"
+    },
+    {
+      "index": 573,
+      "start_time": 1654380.0,
+      "end_time": 1656766.0,
+      "text": "less than those at the top of the hill"
+    },
+    {
+      "index": 574,
+      "start_time": 1656770.0,
+      "end_time": 1658644.0,
+      "text": "because the sprinklers at the top of the hill"
+    },
+    {
+      "index": 575,
+      "start_time": 1658640.0,
+      "end_time": 1661265.0,
+      "text": "might have runoff water that&#39;ll add"
+    },
+    {
+      "index": 576,
+      "start_time": 1661270.0,
+      "end_time": 1665395.0,
+      "text": "the extra water to the crops at the bottom of the hill."
+    },
+    {
+      "index": 577,
+      "start_time": 1665390.0,
+      "end_time": 1667370.0,
+      "text": "So Android Things makes integrations"
+    },
+    {
+      "index": 578,
+      "start_time": 1667370.0,
+      "end_time": 1670340.0,
+      "text": "like these really seamless, and provides you"
+    },
+    {
+      "index": 579,
+      "start_time": 1670340.0,
+      "end_time": 1672659.0,
+      "text": "the tools to do anything that you imagine."
+    },
+    {
+      "index": 580,
+      "start_time": 1675580.0,
+      "end_time": 1678550.0,
+      "text": "And I think that using things like TensorFlow and cloud"
+    },
+    {
+      "index": 581,
+      "start_time": 1678550.0,
+      "end_time": 1682690.0,
+      "text": "together can also do some really amazing use cases that you"
+    },
+    {
+      "index": 582,
+      "start_time": 1682690.0,
+      "end_time": 1684160.0,
+      "text": "can&#39;t do with just one."
+    },
+    {
+      "index": 583,
+      "start_time": 1684160.0,
+      "end_time": 1688360.0,
+      "text": "Combining these services could do so much more for your device"
+    },
+    {
+      "index": 584,
+      "start_time": 1688360.0,
+      "end_time": 1690850.0,
+      "text": "and for your end users."
+    },
+    {
+      "index": 585,
+      "start_time": 1690850.0,
+      "end_time": 1693280.0,
+      "text": "There&#39;s one more service I want to talk about today,"
+    },
+    {
+      "index": 586,
+      "start_time": 1693280.0,
+      "end_time": 1695920.0,
+      "text": "and that&#39;s the Google Assistant."
+    },
+    {
+      "index": 587,
+      "start_time": 1695920.0,
+      "end_time": 1699365.0,
+      "text": "So Android Things supports the Google Assistant SDK."
+    },
+    {
+      "index": 588,
+      "start_time": 1699360.0,
+      "end_time": 1702155.0,
+      "text": "Now, there is a huge number of use cases"
+    },
+    {
+      "index": 589,
+      "start_time": 1702160.0,
+      "end_time": 1705310.0,
+      "text": "that we think the Assistant can do for you."
+    },
+    {
+      "index": 590,
+      "start_time": 1705310.0,
+      "end_time": 1709000.0,
+      "text": "It allows you to connect to all the knowledge of Google"
+    },
+    {
+      "index": 591,
+      "start_time": 1709000.0,
+      "end_time": 1713740.0,
+      "text": "as well as allows you to control the devices in your home."
+    },
+    {
+      "index": 592,
+      "start_time": 1713740.0,
+      "end_time": 1715780.0,
+      "text": "Again, we have a code lab that goes"
+    },
+    {
+      "index": 593,
+      "start_time": 1715780.0,
+      "end_time": 1719290.0,
+      "text": "over getting Android Things to work with the Google Assistant."
+    },
+    {
+      "index": 594,
+      "start_time": 1719290.0,
+      "end_time": 1723800.0,
+      "text": "So you can do it at home or you can do it in our sandbox area."
+    },
+    {
+      "index": 595,
+      "start_time": 1723800.0,
+      "end_time": 1726639.0,
+      "text": "We also partnered with AIY, which"
+    },
+    {
+      "index": 596,
+      "start_time": 1726640.0,
+      "end_time": 1728890.0,
+      "text": "is a group at Google that makes kits"
+    },
+    {
+      "index": 597,
+      "start_time": 1728890.0,
+      "end_time": 1732670.0,
+      "text": "for do it yourself artificial intelligence makers."
+    },
+    {
+      "index": 598,
+      "start_time": 1732670.0,
+      "end_time": 1734800.0,
+      "text": "And so what you see on the screen here is the kit"
+    },
+    {
+      "index": 599,
+      "start_time": 1734800.0,
+      "end_time": 1736330.0,
+      "text": "they recently released--"
+    },
+    {
+      "index": 600,
+      "start_time": 1736330.0,
+      "end_time": 1739389.0,
+      "text": "the voice kit-- that is one of the easiest ways"
+    },
+    {
+      "index": 601,
+      "start_time": 1739390.0,
+      "end_time": 1741760.0,
+      "text": "that you can get started with Android Things"
+    },
+    {
+      "index": 602,
+      "start_time": 1741760.0,
+      "end_time": 1745360.0,
+      "text": "working with the Google Assistant."
+    },
+    {
+      "index": 603,
+      "start_time": 1745360.0,
+      "end_time": 1746979.0,
+      "text": "Before I end my talk today, I want"
+    },
+    {
+      "index": 604,
+      "start_time": 1746980.0,
+      "end_time": 1750670.0,
+      "text": "to go over one more feature of Android Things,"
+    },
+    {
+      "index": 605,
+      "start_time": 1750670.0,
+      "end_time": 1754600.0,
+      "text": "and that&#39;s the Android Things Developer Console."
+    },
+    {
+      "index": 606,
+      "start_time": 1754600.0,
+      "end_time": 1756399.0,
+      "text": "The Android Things Developer Console"
+    },
+    {
+      "index": 607,
+      "start_time": 1756400.0,
+      "end_time": 1759380.0,
+      "text": "brings all these services together."
+    },
+    {
+      "index": 608,
+      "start_time": 1759380.0,
+      "end_time": 1761770.0,
+      "text": "It&#39;s our new Developer Portal, which"
+    },
+    {
+      "index": 609,
+      "start_time": 1761770.0,
+      "end_time": 1763300.0,
+      "text": "we&#39;re going to release soon, that"
+    },
+    {
+      "index": 610,
+      "start_time": 1763300.0,
+      "end_time": 1766810.0,
+      "text": "lets you add all these services to a device in a really"
+    },
+    {
+      "index": 611,
+      "start_time": 1766810.0,
+      "end_time": 1768970.0,
+      "text": "simple way."
+    },
+    {
+      "index": 612,
+      "start_time": 1768970.0,
+      "end_time": 1771910.0,
+      "text": "The key with the Android Things developer console"
+    },
+    {
+      "index": 613,
+      "start_time": 1771910.0,
+      "end_time": 1773770.0,
+      "text": "is customization."
+    },
+    {
+      "index": 614,
+      "start_time": 1773770.0,
+      "end_time": 1776950.0,
+      "text": "You get ultimate control of exactly what services"
+    },
+    {
+      "index": 615,
+      "start_time": 1776950.0,
+      "end_time": 1779140.0,
+      "text": "will go on your device when using the Android Things"
+    },
+    {
+      "index": 616,
+      "start_time": 1779140.0,
+      "end_time": 1781900.0,
+      "text": "Developer Console."
+    },
+    {
+      "index": 617,
+      "start_time": 1781900.0,
+      "end_time": 1784175.0,
+      "text": "You also get device management and updates."
+    },
+    {
+      "index": 618,
+      "start_time": 1784180.0,
+      "end_time": 1786735.0,
+      "text": "So this Allows you to create your projects"
+    },
+    {
+      "index": 619,
+      "start_time": 1786730.0,
+      "end_time": 1790420.0,
+      "text": "as well as upload your own APKs for your own device"
+    },
+    {
+      "index": 620,
+      "start_time": 1790420.0,
+      "end_time": 1793210.0,
+      "text": "functionality and push those feature updates"
+    },
+    {
+      "index": 621,
+      "start_time": 1793210.0,
+      "end_time": 1796180.0,
+      "text": "to your devices in the field."
+    },
+    {
+      "index": 622,
+      "start_time": 1796180.0,
+      "end_time": 1797860.0,
+      "text": "The Android Things Developer Console"
+    },
+    {
+      "index": 623,
+      "start_time": 1797860.0,
+      "end_time": 1801110.0,
+      "text": "is also where you&#39;ll get all the updates from Google."
+    },
+    {
+      "index": 624,
+      "start_time": 1801110.0,
+      "end_time": 1802719.0,
+      "text": "So these are the security updates"
+    },
+    {
+      "index": 625,
+      "start_time": 1802720.0,
+      "end_time": 1808210.0,
+      "text": "and the feature updates that will make your devices secure."
+    },
+    {
+      "index": 626,
+      "start_time": 1808210.0,
+      "end_time": 1811120.0,
+      "text": "Now, since you get total control with the Developer Console"
+    },
+    {
+      "index": 627,
+      "start_time": 1811120.0,
+      "end_time": 1814500.0,
+      "text": "you get to control which updates you take"
+    },
+    {
+      "index": 628,
+      "start_time": 1814500.0,
+      "end_time": 1817220.0,
+      "text": "and exactly when these updates push out."
+    },
+    {
+      "index": 629,
+      "start_time": 1817220.0,
+      "end_time": 1819880.0,
+      "text": "But I believe that the customization of The Developer"
+    },
+    {
+      "index": 630,
+      "start_time": 1819880.0,
+      "end_time": 1823330.0,
+      "text": "Console gives you the control to really create anything"
+    },
+    {
+      "index": 631,
+      "start_time": 1823330.0,
+      "end_time": 1827649.0,
+      "text": "that you can imagine, unlocking this unlimited potential"
+    },
+    {
+      "index": 632,
+      "start_time": 1827650.0,
+      "end_time": 1830374.0,
+      "text": "of what we think is possible of Android Things,"
+    },
+    {
+      "index": 633,
+      "start_time": 1830370.0,
+      "end_time": 1832286.0,
+      "text": "especially when combined with Google services."
+    },
+    {
+      "index": 634,
+      "start_time": 1835230.0,
+      "end_time": 1837930.0,
+      "text": "So to summarize, Android Things gives you"
+    },
+    {
+      "index": 635,
+      "start_time": 1837930.0,
+      "end_time": 1842700.0,
+      "text": "that platform that makes hardware development feasible."
+    },
+    {
+      "index": 636,
+      "start_time": 1842700.0,
+      "end_time": 1844260.0,
+      "text": "It gives you all the Android APIs"
+    },
+    {
+      "index": 637,
+      "start_time": 1844260.0,
+      "end_time": 1846690.0,
+      "text": "to make your development process easy,"
+    },
+    {
+      "index": 638,
+      "start_time": 1846690.0,
+      "end_time": 1849570.0,
+      "text": "combined with this system on module design"
+    },
+    {
+      "index": 639,
+      "start_time": 1849570.0,
+      "end_time": 1853350.0,
+      "text": "to make it quick and economical to make a prototype"
+    },
+    {
+      "index": 640,
+      "start_time": 1853350.0,
+      "end_time": 1856350.0,
+      "text": "and also bring that device to production."
+    },
+    {
+      "index": 641,
+      "start_time": 1856350.0,
+      "end_time": 1858629.0,
+      "text": "But the services on top, I believe,"
+    },
+    {
+      "index": 642,
+      "start_time": 1858630.0,
+      "end_time": 1861510.0,
+      "text": "are the huge factor that allows you to really"
+    },
+    {
+      "index": 643,
+      "start_time": 1861510.0,
+      "end_time": 1864480.0,
+      "text": "innovate and enhance your device as well as bring"
+    },
+    {
+      "index": 644,
+      "start_time": 1864480.0,
+      "end_time": 1867510.0,
+      "text": "new features to your users."
+    },
+    {
+      "index": 645,
+      "start_time": 1867510.0,
+      "end_time": 1869400.0,
+      "text": "So we have Google Play services, which"
+    },
+    {
+      "index": 646,
+      "start_time": 1869400.0,
+      "end_time": 1872940.0,
+      "text": "gives you this suite of tools like the mobile vision APIs,"
+    },
+    {
+      "index": 647,
+      "start_time": 1872940.0,
+      "end_time": 1876620.0,
+      "text": "location services, as well as Firebase."
+    },
+    {
+      "index": 648,
+      "start_time": 1876620.0,
+      "end_time": 1879709.0,
+      "text": "You get TensorFlow, which uses the powerful on device"
+    },
+    {
+      "index": 649,
+      "start_time": 1879710.0,
+      "end_time": 1881160.0,
+      "text": "processing of your Android Things"
+    },
+    {
+      "index": 650,
+      "start_time": 1881160.0,
+      "end_time": 1885640.0,
+      "text": "device to add that intelligence to your device."
+    },
+    {
+      "index": 651,
+      "start_time": 1885640.0,
+      "end_time": 1888420.0,
+      "text": "You also get Google Cloud Platform, and specifically"
+    },
+    {
+      "index": 652,
+      "start_time": 1888420.0,
+      "end_time": 1891570.0,
+      "text": "Cloud IoT Core to connect your device"
+    },
+    {
+      "index": 653,
+      "start_time": 1891570.0,
+      "end_time": 1895659.0,
+      "text": "to the even greater intelligence of the cloud."
+    },
+    {
+      "index": 654,
+      "start_time": 1895660.0,
+      "end_time": 1897540.0,
+      "text": "And finally, you get the Google Assistant,"
+    },
+    {
+      "index": 655,
+      "start_time": 1897540.0,
+      "end_time": 1899250.0,
+      "text": "the latest and greatest in Google&#39;s"
+    },
+    {
+      "index": 656,
+      "start_time": 1899250.0,
+      "end_time": 1901980.0,
+      "text": "personal assistant technology."
+    },
+    {
+      "index": 657,
+      "start_time": 1901980.0,
+      "end_time": 1904920.0,
+      "text": "All these services, and any that come in the future,"
+    },
+    {
+      "index": 658,
+      "start_time": 1904920.0,
+      "end_time": 1906930.0,
+      "text": "will fit on top of Android Things"
+    },
+    {
+      "index": 659,
+      "start_time": 1906930.0,
+      "end_time": 1909195.0,
+      "text": "to unlock this potential of your device."
+    },
+    {
+      "index": 660,
+      "start_time": 1909190.0,
+      "end_time": 1913115.0,
+      "text": "I want to leave you today with my call to action."
+    },
+    {
+      "index": 661,
+      "start_time": 1913120.0,
+      "end_time": 1914580.0,
+      "text": "We have a huge number of sessions"
+    },
+    {
+      "index": 662,
+      "start_time": 1914580.0,
+      "end_time": 1918149.0,
+      "text": "on Android Things this year, as well as demos and code"
+    },
+    {
+      "index": 663,
+      "start_time": 1918150.0,
+      "end_time": 1920130.0,
+      "text": "labs for you to learn more about what&#39;s"
+    },
+    {
+      "index": 664,
+      "start_time": 1920130.0,
+      "end_time": 1922500.0,
+      "text": "possible on Android Things."
+    },
+    {
+      "index": 665,
+      "start_time": 1922500.0,
+      "end_time": 1924180.0,
+      "text": "We also have a developer site where"
+    },
+    {
+      "index": 666,
+      "start_time": 1924180.0,
+      "end_time": 1927360.0,
+      "text": "you can visit to download the latest Android Things image"
+    },
+    {
+      "index": 667,
+      "start_time": 1927360.0,
+      "end_time": 1929820.0,
+      "text": "and start making your idea."
+    },
+    {
+      "index": 668,
+      "start_time": 1929820.0,
+      "end_time": 1933000.0,
+      "text": "I encourage you to add some of these Google services"
+    },
+    {
+      "index": 669,
+      "start_time": 1933000.0,
+      "end_time": 1935970.0,
+      "text": "to your device to see how powerful they really can"
+    },
+    {
+      "index": 670,
+      "start_time": 1935970.0,
+      "end_time": 1939600.0,
+      "text": "be, and then tell us about it."
+    },
+    {
+      "index": 671,
+      "start_time": 1939600.0,
+      "end_time": 1942300.0,
+      "text": "Join our developer community, where thousands of people"
+    },
+    {
+      "index": 672,
+      "start_time": 1942300.0,
+      "end_time": 1945870.0,
+      "text": "are already asking questions, sharing their ideas,"
+    },
+    {
+      "index": 673,
+      "start_time": 1945870.0,
+      "end_time": 1950159.0,
+      "text": "sharing their prototypes, and getting feedback."
+    },
+    {
+      "index": 674,
+      "start_time": 1950160.0,
+      "end_time": 1951800.0,
+      "text": "Again, I&#39;m Sam Beder."
+    },
+    {
+      "index": 675,
+      "start_time": 1951800.0,
+      "end_time": 1954870.0,
+      "text": "And I look forward to hearing about all the amazing devices"
+    },
+    {
+      "index": 676,
+      "start_time": 1954870.0,
+      "end_time": 1957300.0,
+      "text": "that you&#39;re building on Android Things that integrate"
+    },
+    {
+      "index": 677,
+      "start_time": 1957300.0,
+      "end_time": 1959790.0,
+      "text": "these powerful Google services."
+    },
+    {
+      "index": 678,
+      "start_time": 1959790.0,
+      "end_time": 1960629.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 679,
+      "start_time": 1960630.0,
+      "end_time": 1963510.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 680,
+      "start_time": 1963510.0,
+      "end_time": 1970500.0,
+      "text": "[MUSIC PLAYING]"
+    }
+  ]
+}

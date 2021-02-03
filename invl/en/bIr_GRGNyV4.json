@@ -1,0 +1,1452 @@
+{
+  "video_id": "bIr_GRGNyV4",
+  "title": "6   5   The CURE Algorithm 15 13 Advanced",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 260.0,
+      "end_time": 2260.0,
+      "text": "Welcome back to Mining of Massive Datasets."
+    },
+    {
+      "index": 2,
+      "start_time": 2260.0,
+      "end_time": 3229.0,
+      "text": "We&#39;re going to continue or"
+    },
+    {
+      "index": 3,
+      "start_time": 3230.0,
+      "end_time": 6870.0,
+      "text": "discussion of clustering by looking at the CURE Algorithm."
+    },
+    {
+      "index": 4,
+      "start_time": 6870.0,
+      "end_time": 10810.0,
+      "text": "CURE is an acronym that stands for Clustering Using Representatives."
+    },
+    {
+      "index": 5,
+      "start_time": 10810.0,
+      "end_time": 13660.0,
+      "text": "But before we get to the algorithm itself, let&#39;s see why we need it."
+    },
+    {
+      "index": 6,
+      "start_time": 16309.000000000002,
+      "end_time": 20900.0,
+      "text": "Remember, we&#39;ve looked at the, BFR algorithm, or"
+    },
+    {
+      "index": 7,
+      "start_time": 20100.0,
+      "end_time": 23590.0,
+      "text": "the Bradley-Fayyad-Reina algorithm, in the last lecture, for"
+    },
+    {
+      "index": 8,
+      "start_time": 23590.0,
+      "end_time": 26840.0,
+      "text": "clustering very large datasets that don&#39;t fit in memory."
+    },
+    {
+      "index": 9,
+      "start_time": 26840.0,
+      "end_time": 30870.0,
+      "text": "The BFR algorithm is great, because you can scan the data in one pass, and"
+    },
+    {
+      "index": 10,
+      "start_time": 30870.0,
+      "end_time": 32340.0,
+      "text": "obtain clusters."
+    },
+    {
+      "index": 11,
+      "start_time": 32340.000000000004,
+      "end_time": 35900.0,
+      "text": "The problem, though, is that the BFR algorithm makes very"
+    },
+    {
+      "index": 12,
+      "start_time": 35900.0,
+      "end_time": 39500.0,
+      "text": "strong assumptions about the data, and about what the clusters look like."
+    },
+    {
+      "index": 13,
+      "start_time": 39500.0,
+      "end_time": 42950.0,
+      "text": "The first assumption that the BFR Algorithm makes is that the clusters"
+    },
+    {
+      "index": 14,
+      "start_time": 42950.0,
+      "end_time": 45470.0,
+      "text": "are normally distributed in each dimension."
+    },
+    {
+      "index": 15,
+      "start_time": 45470.0,
+      "end_time": 48980.0,
+      "text": "That in each dimension there is a fixed centroid and"
+    },
+    {
+      "index": 16,
+      "start_time": 48980.0,
+      "end_time": 54769.0,
+      "text": "a fixed standard deviation that the, that each cluster follows along each dimension."
+    },
+    {
+      "index": 17,
+      "start_time": 54770.0,
+      "end_time": 57910.0,
+      "text": "The second strong assumption that the BFR Algorithm makes is"
+    },
+    {
+      "index": 18,
+      "start_time": 57910.0,
+      "end_time": 59529.0,
+      "text": "that the axes are fixed."
+    },
+    {
+      "index": 19,
+      "start_time": 59530.0,
+      "end_time": 63180.0,
+      "text": "So the clusters then, if you follow both these assumptions, the,"
+    },
+    {
+      "index": 20,
+      "start_time": 63180.0,
+      "end_time": 67430.0,
+      "text": "that the clusters are normally distributed in each dimension and the axes are fixed."
+    },
+    {
+      "index": 21,
+      "start_time": 67430.0,
+      "end_time": 72670.0,
+      "text": "The clusters that are discovered by the BFR Algorithm had this"
+    },
+    {
+      "index": 22,
+      "start_time": 72670.0,
+      "end_time": 75330.0,
+      "text": "the cigar kind of shape that, that you see here on the left."
+    },
+    {
+      "index": 23,
+      "start_time": 76330.0,
+      "end_time": 81830.0,
+      "text": "it, it, it could either be a horizontal cigar shape or a vertical cigar shape."
+    },
+    {
+      "index": 24,
+      "start_time": 81830.0,
+      "end_time": 86440.0,
+      "text": "Or a circle, which is kind of a limiting case of, of an ellipse."
+    },
+    {
+      "index": 25,
+      "start_time": 86440.0,
+      "end_time": 90340.0,
+      "text": "But if your clusters actually are not oriented along the x or"
+    },
+    {
+      "index": 26,
+      "start_time": 90340.0,
+      "end_time": 94740.0,
+      "text": "the y axis in this case, or along the axis in general in the multi-dimensional case,"
+    },
+    {
+      "index": 27,
+      "start_time": 94740.0,
+      "end_time": 99250.0,
+      "text": "but are at an angle to the axis as, as I show in the, in the fig,"
+    },
+    {
+      "index": 28,
+      "start_time": 99250.0,
+      "end_time": 101590.0,
+      "text": "in, in the second picture here."
+    },
+    {
+      "index": 29,
+      "start_time": 101590.0,
+      "end_time": 102970.0,
+      "text": "that&#39;s, that&#39;s not okay."
+    },
+    {
+      "index": 30,
+      "start_time": 104170.0,
+      "end_time": 110510.0,
+      "text": "The BFR Algorithm will not find a cluster that looks like a tilted ellipse."
+    },
+    {
+      "index": 31,
+      "start_time": 110510.0,
+      "end_time": 115702.0,
+      "text": "It can only find clusters that look like either upright or horizontal ellipses."
+    },
+    {
+      "index": 32,
+      "start_time": 115702.0,
+      "end_time": 120481.0,
+      "text": "And clusters actually look very, very different, like the picture on"
+    },
+    {
+      "index": 33,
+      "start_time": 120481.0,
+      "end_time": 125196.0,
+      "text": "the extreme right here where there are two clusters and the clusters look kind of"
+    },
+    {
+      "index": 34,
+      "start_time": 125197.0,
+      "end_time": 130168.0,
+      "text": "like crescent moons except in, in opposite directions, those would definitely not be"
+    },
+    {
+      "index": 35,
+      "start_time": 130168.0,
+      "end_time": 134300.0,
+      "text": "found by the BFR Algorithm because they don&#39;t look like cigars at all."
+    },
+    {
+      "index": 36,
+      "start_time": 134300.0,
+      "end_time": 136760.0,
+      "text": "They don&#39;t look like ellipses at all or in any dimension."
+    },
+    {
+      "index": 37,
+      "start_time": 136760.0,
+      "end_time": 141310.0,
+      "text": "So, that&#39;s the kind of cluster that will never be found by the BFR Algorithm."
+    },
+    {
+      "index": 38,
+      "start_time": 141310.0,
+      "end_time": 142340.0,
+      "text": "So the BFR Algorithm,"
+    },
+    {
+      "index": 39,
+      "start_time": 142340.0,
+      "end_time": 146490.0,
+      "text": "even though it&#39;s super efficient makes the strong assumptions the clusters are going"
+    },
+    {
+      "index": 40,
+      "start_time": 146490.0,
+      "end_time": 151440.0,
+      "text": "to look like the, the pictures on the extreme left, and not like the other two."
+    },
+    {
+      "index": 41,
+      "start_time": 151440.0,
+      "end_time": 153378.0,
+      "text": "And we&#39;d like to avoid this assumption, and"
+    },
+    {
+      "index": 42,
+      "start_time": 153378.0,
+      "end_time": 156386.0,
+      "text": "try to find clusters regardless of what they actually look like,"
+    },
+    {
+      "index": 43,
+      "start_time": 156387.0,
+      "end_time": 159972.0,
+      "text": "because we don&#39;t control what the clusters look like in the, in the, in the data."
+    },
+    {
+      "index": 44,
+      "start_time": 162982.0,
+      "end_time": 169680.0,
+      "text": "The CURE Algorithm tries to fix this problem with the with the BFR Algorithm."
+    },
+    {
+      "index": 45,
+      "start_time": 169680.0,
+      "end_time": 173533.0,
+      "text": "The CURE Algorithm assumes a Euclidean distance."
+    },
+    {
+      "index": 46,
+      "start_time": 173533.0,
+      "end_time": 177369.0,
+      "text": "I remember a Euclidean distance metric means between any two points, we can"
+    },
+    {
+      "index": 47,
+      "start_time": 177370.0,
+      "end_time": 183300.0,
+      "text": "always find a mid point of two points by taking the average of those two points."
+    },
+    {
+      "index": 48,
+      "start_time": 183300.0,
+      "end_time": 184660.0,
+      "text": "However, the CURE Algorithm,"
+    },
+    {
+      "index": 49,
+      "start_time": 184660.0,
+      "end_time": 189790.0,
+      "text": "unlike the BFR Algorithm, allows clusters to assume any shape whatsoever."
+    },
+    {
+      "index": 50,
+      "start_time": 189800.0,
+      "end_time": 193300.0,
+      "text": "There is no restriction on the, on the shape of the clusters."
+    },
+    {
+      "index": 51,
+      "start_time": 193300.0,
+      "end_time": 197710.0,
+      "text": "So in the CURE Algorithm any of these clusters, the the, the first,"
+    },
+    {
+      "index": 52,
+      "start_time": 197710.0,
+      "end_time": 200100.0,
+      "text": "the second, or the third are perfectly fine."
+    },
+    {
+      "index": 53,
+      "start_time": 200100.0,
+      "end_time": 204109.0,
+      "text": "The CURE Algorithm works, can find clusters of, of those shapes."
+    },
+    {
+      "index": 54,
+      "start_time": 205410.0,
+      "end_time": 207100.0,
+      "text": "Now difference between the CURE Algorithm and"
+    },
+    {
+      "index": 55,
+      "start_time": 207100.0,
+      "end_time": 213510.0,
+      "text": "the BFR Algorithm is that the BFR we represent each cluster using its centroid."
+    },
+    {
+      "index": 56,
+      "start_time": 213510.0,
+      "end_time": 216910.0,
+      "text": "Whereas in the CURE Algorithm, we&#39;re going to use instead of a centroid,"
+    },
+    {
+      "index": 57,
+      "start_time": 216910.0,
+      "end_time": 220650.0,
+      "text": "we&#39;re going to represent each cluster by a collection of representative points."
+    },
+    {
+      "index": 58,
+      "start_time": 220650.0,
+      "end_time": 222675.0,
+      "text": "So, instead of representing a cluster by one point,"
+    },
+    {
+      "index": 59,
+      "start_time": 222675.0,
+      "end_time": 224880.0,
+      "text": "we&#39;re going to represent it by many points."
+    },
+    {
+      "index": 60,
+      "start_time": 226280.0,
+      "end_time": 230800.0,
+      "text": "Here&#39;s an example of a dataset where the clusters don&#39;t look anything at"
+    },
+    {
+      "index": 61,
+      "start_time": 230800.0,
+      "end_time": 233350.0,
+      "text": "all like ellipses or cigars."
+    },
+    {
+      "index": 62,
+      "start_time": 233350.0,
+      "end_time": 238190.0,
+      "text": "So, this data, on x axis we have the age of faculty members at"
+    },
+    {
+      "index": 63,
+      "start_time": 238190.0,
+      "end_time": 243329.0,
+      "text": "a university like Stanford and on the y axis we have their salaries."
+    },
+    {
+      "index": 64,
+      "start_time": 243330.0,
+      "end_time": 247200.0,
+      "text": "Now these are, these are, this is not the actual data, but more a representation of"
+    },
+    {
+      "index": 65,
+      "start_time": 247200.0,
+      "end_time": 251810.0,
+      "text": "what the data might look like, although it&#39;s based on, on real world experience."
+    },
+    {
+      "index": 66,
+      "start_time": 251810.0,
+      "end_time": 256850.0,
+      "text": "Now, the, this, the data points marked by h,"
+    },
+    {
+      "index": 67,
+      "start_time": 256850.00000000003,
+      "end_time": 260350.00000000003,
+      "text": "are salaries of faculty members in the humanities."
+    },
+    {
+      "index": 68,
+      "start_time": 260350.00000000003,
+      "end_time": 266100.0,
+      "text": "Where the, data points marked with an e are salaries of faculty members in,"
+    },
+    {
+      "index": 69,
+      "start_time": 266100.0,
+      "end_time": 268700.0,
+      "text": "in engineering, departments."
+    },
+    {
+      "index": 70,
+      "start_time": 268700.0,
+      "end_time": 273750.0,
+      "text": "And as you can see, it&#39;s apparent from the, from the graph here, that in"
+    },
+    {
+      "index": 71,
+      "start_time": 273750.0,
+      "end_time": 277940.0,
+      "text": "the humanities the, the starting salary is, is somewhat lower than in engineering."
+    },
+    {
+      "index": 72,
+      "start_time": 277940.0,
+      "end_time": 280890.0,
+      "text": "A humanities, faculty member starts at a much lower salary than"
+    },
+    {
+      "index": 73,
+      "start_time": 280890.0,
+      "end_time": 282400.0,
+      "text": "an engineering faculty member."
+    },
+    {
+      "index": 74,
+      "start_time": 282400.0,
+      "end_time": 285760.0,
+      "text": "But, as, over time, as their tenure increases,"
+    },
+    {
+      "index": 75,
+      "start_time": 285760.0,
+      "end_time": 289710.0,
+      "text": "the salary of a humanities, faculty member, keeps increasing and"
+    },
+    {
+      "index": 76,
+      "start_time": 289710.0,
+      "end_time": 294210.0,
+      "text": "eventually overtakes the salary of a an engineering faculty member."
+    },
+    {
+      "index": 77,
+      "start_time": 294211.0,
+      "end_time": 298566.0,
+      "text": "But in the salary of engineering faculty members increases a little bit with their"
+    },
+    {
+      "index": 78,
+      "start_time": 298566.0,
+      "end_time": 302950.0,
+      "text": "tenure, but then kind of flattens out, it doesn&#39;t increase beyond that."
+    },
+    {
+      "index": 79,
+      "start_time": 302950.0,
+      "end_time": 307840.0,
+      "text": "And this is just a phenomenon that has been observed in, in terms of salaries at,"
+    },
+    {
+      "index": 80,
+      "start_time": 307840.0,
+      "end_time": 313340.0,
+      "text": "at most universities and presumably this is because, in,"
+    },
+    {
+      "index": 81,
+      "start_time": 313340.0,
+      "end_time": 318289.0,
+      "text": "in the engineering departments the fields keep changing so"
+    },
+    {
+      "index": 82,
+      "start_time": 318290.0,
+      "end_time": 322260.0,
+      "text": "much that there&#39;s a lot of value in bringing in new"
+    },
+    {
+      "index": 83,
+      "start_time": 322260.0,
+      "end_time": 327620.0,
+      "text": "faculty with with new interests and and new you know, new expertise."
+    },
+    {
+      "index": 84,
+      "start_time": 327620.0,
+      "end_time": 332110.0,
+      "text": "Whereas in the humanities I guess you age better as you age."
+    },
+    {
+      "index": 85,
+      "start_time": 334520.0,
+      "end_time": 340109.0,
+      "text": "So if you sort of look at the look at these two sets of salaries and"
+    },
+    {
+      "index": 86,
+      "start_time": 340110.0,
+      "end_time": 345290.0,
+      "text": "you try to cluster them, what you really want in an ideal world is, is, is two,"
+    },
+    {
+      "index": 87,
+      "start_time": 345290.0,
+      "end_time": 346870.0,
+      "text": "is two clusters."
+    },
+    {
+      "index": 88,
+      "start_time": 346870.0,
+      "end_time": 350810.0,
+      "text": "One that you know looks at the engineering salaries,"
+    },
+    {
+      "index": 89,
+      "start_time": 350810.0,
+      "end_time": 353755.0,
+      "text": "and one that looks at the humanities salaries and see it,"
+    },
+    {
+      "index": 90,
+      "start_time": 353755.0,
+      "end_time": 359480.0,
+      "text": "and cleanly separate out these two data points into, into two separate clusters."
+    },
+    {
+      "index": 91,
+      "start_time": 359480.0,
+      "end_time": 362970.0,
+      "text": "Now when you&#39;re looking at the data, remember you do know that some of"
+    },
+    {
+      "index": 92,
+      "start_time": 362970.0,
+      "end_time": 367308.0,
+      "text": "these of salaries corresponding to engineering faculty members and"
+    },
+    {
+      "index": 93,
+      "start_time": 367308.0,
+      "end_time": 370391.0,
+      "text": "some to humanities facilities members so so"
+    },
+    {
+      "index": 94,
+      "start_time": 370391.0,
+      "end_time": 374300.0,
+      "text": "the clustering algorithm doesn&#39;t have access to this information but you&#39;d yet"
+    },
+    {
+      "index": 95,
+      "start_time": 374300.0,
+      "end_time": 378559.0,
+      "text": "like it to find these find these clusters in the data."
+    },
+    {
+      "index": 96,
+      "start_time": 378560.0,
+      "end_time": 381420.0,
+      "text": "Now it&#39;s too much to hope that a clustering algorithm can actually"
+    },
+    {
+      "index": 97,
+      "start_time": 381420.0,
+      "end_time": 385270.0,
+      "text": "find these exact clusters because these are overlapping clusters, and"
+    },
+    {
+      "index": 98,
+      "start_time": 385270.0,
+      "end_time": 389799.0,
+      "text": "most clustering algorithm cannot find cluster that actually overlap with"
+    },
+    {
+      "index": 99,
+      "start_time": 389800.0,
+      "end_time": 393200.0,
+      "text": "with each other where a single data point is in two clusters."
+    },
+    {
+      "index": 100,
+      "start_time": 393200.0,
+      "end_time": 396780.0,
+      "text": "But at the very least, we can hope that the clustering algorithm finds some"
+    },
+    {
+      "index": 101,
+      "start_time": 396780.0,
+      "end_time": 398549.0,
+      "text": "approximation for these clusters."
+    },
+    {
+      "index": 102,
+      "start_time": 398550.0,
+      "end_time": 404570.0,
+      "text": "For example we might want it to discover one cluster there."
+    },
+    {
+      "index": 103,
+      "start_time": 404570.0,
+      "end_time": 407610.0,
+      "text": "Another cluster there."
+    },
+    {
+      "index": 104,
+      "start_time": 407610.0,
+      "end_time": 410600.0,
+      "text": "And a third cluster there."
+    },
+    {
+      "index": 105,
+      "start_time": 410600.0,
+      "end_time": 416430.0,
+      "text": "So that would be a nice, nice outcome for from from any clustering algorithm."
+    },
+    {
+      "index": 106,
+      "start_time": 416430.0,
+      "end_time": 419920.0,
+      "text": "And the CURE Algorithm can indeed find clusters of this nature."
+    },
+    {
+      "index": 107,
+      "start_time": 421820.0,
+      "end_time": 424210.0,
+      "text": "The CURE Algorithm is a two pass algorithm."
+    },
+    {
+      "index": 108,
+      "start_time": 424210.0,
+      "end_time": 426840.0,
+      "text": "And let&#39;s look at the, the first pass of the two pass algorithm."
+    },
+    {
+      "index": 109,
+      "start_time": 426840.0,
+      "end_time": 428530.0,
+      "text": "In the first pass,"
+    },
+    {
+      "index": 110,
+      "start_time": 428530.0,
+      "end_time": 434469.0,
+      "text": "we sample a random set of points from the, dataset that&#39;s given to us."
+    },
+    {
+      "index": 111,
+      "start_time": 434470.0,
+      "end_time": 438190.0,
+      "text": "Remember the dataset is really large and doesn&#39;t fit in memory at all."
+    },
+    {
+      "index": 112,
+      "start_time": 438190.0,
+      "end_time": 439922.0,
+      "text": "It&#39;s sitting on disk somewhere."
+    },
+    {
+      "index": 113,
+      "start_time": 439922.0,
+      "end_time": 443620.0,
+      "text": "But we&#39;re going to randomly sample a point from this very large dataset."
+    },
+    {
+      "index": 114,
+      "start_time": 443620.0,
+      "end_time": 447194.0,
+      "text": "And we&#39;re only going to sample enough points, that, that fit in memory."
+    },
+    {
+      "index": 115,
+      "start_time": 447194.0,
+      "end_time": 451960.0,
+      "text": "we&#39;ll, we&#39;ve covered techniques for, sampling, in another lecture, so"
+    },
+    {
+      "index": 116,
+      "start_time": 451960.0,
+      "end_time": 454100.0,
+      "text": "you know how to do this already."
+    },
+    {
+      "index": 117,
+      "start_time": 454100.0,
+      "end_time": 457836.0,
+      "text": "Now, once we have a lot of, sample points that, you know, that"
+    },
+    {
+      "index": 118,
+      "start_time": 457836.0,
+      "end_time": 461720.0,
+      "text": "you&#39;ve randomly sampled, we&#39;re going to use any main memory clustering algorithm."
+    },
+    {
+      "index": 119,
+      "start_time": 461720.0,
+      "end_time": 464900.0,
+      "text": "So, for example, you can use a hierarchical clustering algorithm that"
+    },
+    {
+      "index": 120,
+      "start_time": 464900.0,
+      "end_time": 466919.0,
+      "text": "we covered in our previous lecture."
+    },
+    {
+      "index": 121,
+      "start_time": 466920.0,
+      "end_time": 471970.0,
+      "text": "And you can cluster the the sample points that are in memory using the hierarchical"
+    },
+    {
+      "index": 122,
+      "start_time": 471970.0,
+      "end_time": 475260.0,
+      "text": "clustering algorithm to create an initial set of clusters."
+    },
+    {
+      "index": 123,
+      "start_time": 476540.0,
+      "end_time": 477290.0,
+      "text": "Right?"
+    },
+    {
+      "index": 124,
+      "start_time": 477290.0,
+      "end_time": 481400.0,
+      "text": "And because hierarchical clustering is is, is, is,"
+    },
+    {
+      "index": 125,
+      "start_time": 481400.0,
+      "end_time": 486260.0,
+      "text": "is a complex algorithm, it can actually find clusters of the nature you know,"
+    },
+    {
+      "index": 126,
+      "start_time": 486260.0,
+      "end_time": 489690.0,
+      "text": "it doesn&#39;t have any kind of restriction on the kind of clusters that it can find."
+    },
+    {
+      "index": 127,
+      "start_time": 489690.0,
+      "end_time": 491440.0,
+      "text": "So it can find clusters of any shape."
+    },
+    {
+      "index": 128,
+      "start_time": 492860.0,
+      "end_time": 496270.0,
+      "text": "Now, once we&#39;ve actually clustered the sample points, and fi,"
+    },
+    {
+      "index": 129,
+      "start_time": 496270.0,
+      "end_time": 499310.0,
+      "text": "figured out initial sort of clusters, for each of those clusters,"
+    },
+    {
+      "index": 130,
+      "start_time": 499310.0,
+      "end_time": 502200.0,
+      "text": "we&#39;re going to pick representative points to represent them."
+    },
+    {
+      "index": 131,
+      "start_time": 502200.0,
+      "end_time": 506100.0,
+      "text": "So what we&#39;re going to do, is we&#39;re going to pick a number, k, and"
+    },
+    {
+      "index": 132,
+      "start_time": 506100.0,
+      "end_time": 510880.0,
+      "text": "let&#39;s say 4, and we&#39;re going to find pick k representative points for each cluster."
+    },
+    {
+      "index": 133,
+      "start_time": 511930.0,
+      "end_time": 515180.0,
+      "text": "Now our goal is to, you know, take a cluster like this."
+    },
+    {
+      "index": 134,
+      "start_time": 515179.0,
+      "end_time": 519939.0,
+      "text": "Let&#39;s say, here&#39;s a cluster that, that we found using hierarchical clustering."
+    },
+    {
+      "index": 135,
+      "start_time": 519940.00000000006,
+      "end_time": 524880.0,
+      "text": "And we want to find a representative point, that are, you know, as far away"
+    },
+    {
+      "index": 136,
+      "start_time": 524880.0,
+      "end_time": 528268.0,
+      "text": "from each other to sort of get a good coverage of the cluster as possible."
+    },
+    {
+      "index": 137,
+      "start_time": 528268.0,
+      "end_time": 531585.0,
+      "text": "For example, we might want to, if, if we find the first representative point there,"
+    },
+    {
+      "index": 138,
+      "start_time": 531585.0,
+      "end_time": 535850.0,
+      "text": "you might want to find the second there, the third there, and the fourth there."
+    },
+    {
+      "index": 139,
+      "start_time": 535850.0,
+      "end_time": 540280.0,
+      "text": "So we have four points that are sort of well distributed in the cluster and"
+    },
+    {
+      "index": 140,
+      "start_time": 540280.0,
+      "end_time": 544834.0,
+      "text": "if they, they cover as much of the cluster&#39;s, you know, volume as possible."
+    },
+    {
+      "index": 141,
+      "start_time": 544834.0,
+      "end_time": 549300.0,
+      "text": "And the, you know, we&#39;ve sort of in our previous lecture,"
+    },
+    {
+      "index": 142,
+      "start_time": 549300.0,
+      "end_time": 554860.0,
+      "text": "we&#39;ve discussed how to pick, points that are as dispersed as possible in a cluster."
+    },
+    {
+      "index": 143,
+      "start_time": 554860.0,
+      "end_time": 559965.0,
+      "text": "The technique is to, for each cluster, first pick, the first point at random, and"
+    },
+    {
+      "index": 144,
+      "start_time": 559965.0,
+      "end_time": 563390.0,
+      "text": "then you pick the second point to be within the cluster but"
+    },
+    {
+      "index": 145,
+      "start_time": 563390.0,
+      "end_time": 565970.0,
+      "text": "be as far away from the first point as possible."
+    },
+    {
+      "index": 146,
+      "start_time": 565970.0,
+      "end_time": 569820.0,
+      "text": "And you pick the third point to be still within the cluster but"
+    },
+    {
+      "index": 147,
+      "start_time": 569820.0,
+      "end_time": 572590.0,
+      "text": "as far away from points one and two as possible, and so on."
+    },
+    {
+      "index": 148,
+      "start_time": 572590.0,
+      "end_time": 575641.0,
+      "text": "And we&#39;ve covered this technique in a, in a previous previous lecture."
+    },
+    {
+      "index": 149,
+      "start_time": 576700.0,
+      "end_time": 579815.0,
+      "text": "So once we&#39;ve picked these representative points you know,"
+    },
+    {
+      "index": 150,
+      "start_time": 579815.0,
+      "end_time": 583930.0,
+      "text": "what we&#39;re going to do is that we&#39;re going to create the synthetic points."
+    },
+    {
+      "index": 151,
+      "start_time": 583930.0,
+      "end_time": 587410.0,
+      "text": "And the synthetic points are obtained by moving each,"
+    },
+    {
+      "index": 152,
+      "start_time": 587410.0,
+      "end_time": 592540.0,
+      "text": "representative point a certain, distance towards the centroid of the cluster."
+    },
+    {
+      "index": 153,
+      "start_time": 592540.0,
+      "end_time": 594380.0,
+      "text": "Right? So, we have the cluster."
+    },
+    {
+      "index": 154,
+      "start_time": 594380.0,
+      "end_time": 595680.0,
+      "text": "We know its centroid."
+    },
+    {
+      "index": 155,
+      "start_time": 595680.0,
+      "end_time": 598209.0,
+      "text": "And we have these, these k representative points."
+    },
+    {
+      "index": 156,
+      "start_time": 598210.0,
+      "end_time": 601230.0,
+      "text": "Now, we&#39;re going to take each representative point and we&#39;re going to"
+    },
+    {
+      "index": 157,
+      "start_time": 601230.0,
+      "end_time": 606450.0,
+      "text": "create a synthetic point, that is obtained by moving the representative point"
+    },
+    {
+      "index": 158,
+      "start_time": 606450.0,
+      "end_time": 610370.0,
+      "text": "a fixed fraction, maybe 20%, towards the centroid of the cluster."
+    },
+    {
+      "index": 159,
+      "start_time": 610370.0,
+      "end_time": 614690.0,
+      "text": "And the 20% here is a, is a parameter to the algorithm."
+    },
+    {
+      "index": 160,
+      "start_time": 614690.0,
+      "end_time": 617710.0,
+      "text": "So let&#39;s, let&#39;s look at an example, that should make this clear."
+    },
+    {
+      "index": 161,
+      "start_time": 618910.0,
+      "end_time": 621250.0,
+      "text": "So, here are faculty salary data."
+    },
+    {
+      "index": 162,
+      "start_time": 622250.0,
+      "end_time": 626130.0,
+      "text": "And let&#39;s say when you run a hierarchical clustering on a sample of the data,"
+    },
+    {
+      "index": 163,
+      "start_time": 626130.0,
+      "end_time": 630100.0,
+      "text": "let&#39;s say that this is in fact a sample of the data and not the actual data."
+    },
+    {
+      "index": 164,
+      "start_time": 630100.0,
+      "end_time": 634103.0,
+      "text": "When you run a hierarchical clustering on this, let&#39;s say the,"
+    },
+    {
+      "index": 165,
+      "start_time": 634103.0,
+      "end_time": 636579.0,
+      "text": "the here is the first cluster that&#39;s found."
+    },
+    {
+      "index": 166,
+      "start_time": 636580.0,
+      "end_time": 639310.0,
+      "text": "Here is the second cluster and here&#39;s the third cluster."
+    },
+    {
+      "index": 167,
+      "start_time": 639310.0,
+      "end_time": 642380.0,
+      "text": "So we end up with these three clusters that are found by"
+    },
+    {
+      "index": 168,
+      "start_time": 642380.0,
+      "end_time": 645530.0,
+      "text": "the hierarchical clustering algorithm."
+    },
+    {
+      "index": 169,
+      "start_time": 645530.0,
+      "end_time": 647720.0,
+      "text": "Now, once we&#39;ve found these clustering algorithms,"
+    },
+    {
+      "index": 170,
+      "start_time": 647720.0,
+      "end_time": 652000.0,
+      "text": "let&#39;s take one of these clusters and and"
+    },
+    {
+      "index": 171,
+      "start_time": 652000.0,
+      "end_time": 657970.0,
+      "text": "let&#39;s say we want to find four remote, or representative point for each cluster."
+    },
+    {
+      "index": 172,
+      "start_time": 657970.0,
+      "end_time": 660600.0,
+      "text": "And let&#39;s start at the cluster to the right."
+    },
+    {
+      "index": 173,
+      "start_time": 660600.0,
+      "end_time": 663430.0,
+      "text": "And there, there&#39;s the first representative point,"
+    },
+    {
+      "index": 174,
+      "start_time": 663430.0,
+      "end_time": 666489.0,
+      "text": "let&#39;s say it&#39;s the one that there that we&#39;ve ended up picking."
+    },
+    {
+      "index": 175,
+      "start_time": 666490.0,
+      "end_time": 670390.0,
+      "text": "Now we want to pick the second representative point to be in this"
+    },
+    {
+      "index": 176,
+      "start_time": 670390.0,
+      "end_time": 674500.0,
+      "text": "cluster, but as far away from the first representative point as possible."
+    },
+    {
+      "index": 177,
+      "start_time": 674500.0,
+      "end_time": 676938.0,
+      "text": "So that&#39;s the point we end up picking."
+    },
+    {
+      "index": 178,
+      "start_time": 676938.0,
+      "end_time": 679680.0,
+      "text": "The third representative point is going to be,"
+    },
+    {
+      "index": 179,
+      "start_time": 679680.0,
+      "end_time": 683160.0,
+      "text": "still in the cluster but as far away from these two points as possible."
+    },
+    {
+      "index": 180,
+      "start_time": 683160.0,
+      "end_time": 686880.0,
+      "text": "So we end up with that point there."
+    },
+    {
+      "index": 181,
+      "start_time": 686880.0,
+      "end_time": 690430.0,
+      "text": "And the fourth representative point similarly ends up being that,"
+    },
+    {
+      "index": 182,
+      "start_time": 690430.0,
+      "end_time": 691819.0,
+      "text": "that point there."
+    },
+    {
+      "index": 183,
+      "start_time": 691820.0,
+      "end_time": 694260.0,
+      "text": "Now, once you have picked these four remote points for"
+    },
+    {
+      "index": 184,
+      "start_time": 694260.0,
+      "end_time": 699680.0,
+      "text": "the cluster we&#39;re going to move these points towards a centroid of the cluster."
+    },
+    {
+      "index": 185,
+      "start_time": 699680.0,
+      "end_time": 702337.0,
+      "text": "No, we, we don&#39;t actually going to affect the data itself."
+    },
+    {
+      "index": 186,
+      "start_time": 702337.0,
+      "end_time": 706785.0,
+      "text": "But we&#39;re going to you know, pick synthetic points that are closer to"
+    },
+    {
+      "index": 187,
+      "start_time": 706785.0,
+      "end_time": 712000.0,
+      "text": "the centroid of a cluster than the remote points that we&#39;ve actually picked."
+    },
+    {
+      "index": 188,
+      "start_time": 712000.0,
+      "end_time": 713344.0,
+      "text": "Now the centroid of the,"
+    },
+    {
+      "index": 189,
+      "start_time": 713344.0,
+      "end_time": 717632.0,
+      "text": "of the cluster is somewhere in the middle of the cluster there so each of"
+    },
+    {
+      "index": 190,
+      "start_time": 717632.0,
+      "end_time": 721676.0,
+      "text": "these points is move, going to move towards the center of the circle here."
+    },
+    {
+      "index": 191,
+      "start_time": 721677.0,
+      "end_time": 725304.0,
+      "text": "So when you move the points 20% towards the centroid, we end up"
+    },
+    {
+      "index": 192,
+      "start_time": 725304.0,
+      "end_time": 729857.0,
+      "text": "with these synthetic points and these synthetic points are manufactured points,"
+    },
+    {
+      "index": 193,
+      "start_time": 729857.0,
+      "end_time": 733259.0,
+      "text": "are going to be the representative points for this cluster."
+    },
+    {
+      "index": 194,
+      "start_time": 735180.0,
+      "end_time": 738170.0,
+      "text": "And we repeat this process for the other clusters as well."
+    },
+    {
+      "index": 195,
+      "start_time": 738170.0,
+      "end_time": 740253.0,
+      "text": "So for each cluster we end up with k,"
+    },
+    {
+      "index": 196,
+      "start_time": 740254.0,
+      "end_time": 744713.0,
+      "text": "in this case 4, represented points representing that cluster."
+    },
+    {
+      "index": 197,
+      "start_time": 748853.0,
+      "end_time": 751569.0,
+      "text": "So that&#39;s the first pass of the CURE Algorithm."
+    },
+    {
+      "index": 198,
+      "start_time": 751570.0,
+      "end_time": 756170.0,
+      "text": "In the, in the second pass, of the, of the algorithm, we scan the whole dataset."
+    },
+    {
+      "index": 199,
+      "start_time": 756170.0,
+      "end_time": 756900.0,
+      "text": "Remember, so"
+    },
+    {
+      "index": 200,
+      "start_time": 756900.0,
+      "end_time": 761699.0,
+      "text": "far we&#39;ve been working with, a sample of the dataset that fits in memory."
+    },
+    {
+      "index": 201,
+      "start_time": 761700.0,
+      "end_time": 765520.0,
+      "text": "Now we go back to the whole dataset and, which is sitting on disc."
+    },
+    {
+      "index": 202,
+      "start_time": 765520.0,
+      "end_time": 769300.0,
+      "text": "And we re-scan the whole dataset, and visit each point p."
+    },
+    {
+      "index": 203,
+      "start_time": 769300.0,
+      "end_time": 771820.0,
+      "text": "And, and we&#39;re going to take the point p and"
+    },
+    {
+      "index": 204,
+      "start_time": 771820.0,
+      "end_time": 774610.0,
+      "text": "we&#39;re going to place it in the cluster that&#39;s closest to it."
+    },
+    {
+      "index": 205,
+      "start_time": 774610.0,
+      "end_time": 776710.0,
+      "text": "And the definition of closest is very simple."
+    },
+    {
+      "index": 206,
+      "start_time": 776710.0,
+      "end_time": 782500.0,
+      "text": "We&#39;re going to find the point you know, the, we&#39;re going to take p, and we&#39;re"
+    },
+    {
+      "index": 207,
+      "start_time": 782500.0,
+      "end_time": 786359.0,
+      "text": "going to find the, the, among the set of representative points of all the clusters."
+    },
+    {
+      "index": 208,
+      "start_time": 786360.0,
+      "end_time": 790100.0,
+      "text": "We&#39;re going to find the representative point, that&#39;s closest to p, and"
+    },
+    {
+      "index": 209,
+      "start_time": 790100.0,
+      "end_time": 794100.0,
+      "text": "we&#39;re going to assign p to the cluster, belonging to that representative point."
+    },
+    {
+      "index": 210,
+      "start_time": 796730.0,
+      "end_time": 797946.0,
+      "text": "And that&#39;s it."
+    },
+    {
+      "index": 211,
+      "start_time": 797946.0,
+      "end_time": 802619.0,
+      "text": "It&#39;s a very, very simple algorithm, where we just scan the data in one pass, and"
+    },
+    {
+      "index": 212,
+      "start_time": 802619.0,
+      "end_time": 807742.0,
+      "text": "we place, each point, in, in its closest cluster, which is the cluster,"
+    },
+    {
+      "index": 213,
+      "start_time": 807742.0,
+      "end_time": 810900.0,
+      "text": "with the closest representative point."
+    },
+    {
+      "index": 214,
+      "start_time": 813383.0,
+      "end_time": 818150.0,
+      "text": "Now the CURE is a, it&#39;s a very, very simple algorithm as as we saw."
+    },
+    {
+      "index": 215,
+      "start_time": 818150.0,
+      "end_time": 820720.0,
+      "text": "It just requires a main memory sample and"
+    },
+    {
+      "index": 216,
+      "start_time": 820720.0,
+      "end_time": 823920.0,
+      "text": "clustered cluster, finding some representative points, and"
+    },
+    {
+      "index": 217,
+      "start_time": 823920.0,
+      "end_time": 830280.0,
+      "text": "then one scan of the entire dataset to place each data point into you know,"
+    },
+    {
+      "index": 218,
+      "start_time": 830280.0,
+      "end_time": 834589.0,
+      "text": "in, into the closest cluster, but surprisingly CURE really works well for"
+    },
+    {
+      "index": 219,
+      "start_time": 834590.0,
+      "end_time": 838840.0,
+      "text": "a large number of used cases in finding, complicated clusters of the,"
+    },
+    {
+      "index": 220,
+      "start_time": 838840.0,
+      "end_time": 841240.0,
+      "text": "of the kind that we saw with the faculty&#39;s salaries and so on."
+    },
+    {
+      "index": 221,
+      "start_time": 843110.0,
+      "end_time": 846640.0,
+      "text": "Our discussion of the CURE Algorithm wraps up our discussion of clustering,"
+    },
+    {
+      "index": 222,
+      "start_time": 846640.0,
+      "end_time": 848880.0,
+      "text": "which we&#39;ve covered over the past several lectures."
+    },
+    {
+      "index": 223,
+      "start_time": 848880.0,
+      "end_time": 852120.0,
+      "text": "Remember that the clustering point, problem is one where we&#39;re"
+    },
+    {
+      "index": 224,
+      "start_time": 852120.0,
+      "end_time": 855690.0,
+      "text": "given a large set of points with a notion of distance between the points,"
+    },
+    {
+      "index": 225,
+      "start_time": 855690.0,
+      "end_time": 858800.0,
+      "text": "usually in a very high-dimensional data space."
+    },
+    {
+      "index": 226,
+      "start_time": 858800.0,
+      "end_time": 863400.0,
+      "text": "And we, and our go, goal is to group these points into some number of clusters,"
+    },
+    {
+      "index": 227,
+      "start_time": 863400.0,
+      "end_time": 866219.0,
+      "text": "with the points that are closer together being in the same cluster."
+    },
+    {
+      "index": 228,
+      "start_time": 867620.0,
+      "end_time": 870710.0,
+      "text": "We&#39;ll look at a variety of algorithms to do clustering."
+    },
+    {
+      "index": 229,
+      "start_time": 870710.0,
+      "end_time": 874450.0,
+      "text": "We started with Agglomerative hierarchical clustering where we"
+    },
+    {
+      "index": 230,
+      "start_time": 874450.0,
+      "end_time": 877630.0,
+      "text": "looked at the notion of centroid and clustroid."
+    },
+    {
+      "index": 231,
+      "start_time": 877630.0,
+      "end_time": 881250.0,
+      "text": "We realize that hierarchical clustering, while it&#39;s extremely flexible and"
+    },
+    {
+      "index": 232,
+      "start_time": 881250.0,
+      "end_time": 885810.0,
+      "text": "can produce clusters of any shape, it&#39;s really, really complex."
+    },
+    {
+      "index": 233,
+      "start_time": 885810.0,
+      "end_time": 887589.0,
+      "text": "And it doesn&#39;t really work well or"
+    },
+    {
+      "index": 234,
+      "start_time": 887590.0,
+      "end_time": 891110.0,
+      "text": "scale well to large datasets that don&#39;t fit in memory."
+    },
+    {
+      "index": 235,
+      "start_time": 891110.0,
+      "end_time": 894750.0,
+      "text": "Thus we looked at other algorithms that scale well to large dataset."
+    },
+    {
+      "index": 236,
+      "start_time": 894750.0,
+      "end_time": 896620.0,
+      "text": "We started with a k-means algorithm."
+    },
+    {
+      "index": 237,
+      "start_time": 896620.0,
+      "end_time": 899980.0,
+      "text": "Then we looked at the BFR or the Bradley-Fayyad-Reina algorithm"
+    },
+    {
+      "index": 238,
+      "start_time": 899980.0,
+      "end_time": 903600.0,
+      "text": "which an implementation of k-means for really large datasets."
+    },
+    {
+      "index": 239,
+      "start_time": 903600.0,
+      "end_time": 906260.0,
+      "text": "But we found out that BFR has certain limitations."
+    },
+    {
+      "index": 240,
+      "start_time": 906260.0,
+      "end_time": 908580.0,
+      "text": "So we looked at another algorithm called CURE or"
+    },
+    {
+      "index": 241,
+      "start_time": 908580.0,
+      "end_time": 911590.0,
+      "text": "Clustering Using Representatives that overcomes these limitations."
+    }
+  ]
+}

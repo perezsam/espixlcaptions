@@ -1,0 +1,6666 @@
+{
+  "video_id": "fTUwdXUFfI8",
+  "title": "TensorFlow and Deep Learning without a PhD, Part 2 (Google Cloud Next '17)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 1314.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 2,
+      "start_time": 3066.0,
+      "end_time": 6360.0,
+      "text": "MARTIN GORNER: So thank you for filling the house."
+    },
+    {
+      "index": 3,
+      "start_time": 6360.0,
+      "end_time": 8160.0,
+      "text": "I&#39;m really impressed that TensorFlow"
+    },
+    {
+      "index": 4,
+      "start_time": 8160.0,
+      "end_time": 9510.0,
+      "text": "is getting so much attention."
+    },
+    {
+      "index": 5,
+      "start_time": 9510.0,
+      "end_time": 12840.0,
+      "text": "But I think the technology deserves it."
+    },
+    {
+      "index": 6,
+      "start_time": 12840.0,
+      "end_time": 17170.0,
+      "text": "So I&#39;m happy about that."
+    },
+    {
+      "index": 7,
+      "start_time": 17170.0,
+      "end_time": 20790.0,
+      "text": "So today, or yesterday, we built a neural network"
+    },
+    {
+      "index": 8,
+      "start_time": 20790.0,
+      "end_time": 23010.0,
+      "text": "for recognizing handwritten digits."
+    },
+    {
+      "index": 9,
+      "start_time": 23010.0,
+      "end_time": 25830.0,
+      "text": "And we went through dense neural networks"
+    },
+    {
+      "index": 10,
+      "start_time": 25830.0,
+      "end_time": 28080.0,
+      "text": "and convolutional neural networks."
+    },
+    {
+      "index": 11,
+      "start_time": 28080.0,
+      "end_time": 31710.0,
+      "text": "And today, I want to build with you another kind of network,"
+    },
+    {
+      "index": 12,
+      "start_time": 31710.0,
+      "end_time": 34660.0,
+      "text": "a recurrent neural network."
+    },
+    {
+      "index": 13,
+      "start_time": 34660.0,
+      "end_time": 35520.0,
+      "text": "So let&#39;s go."
+    },
+    {
+      "index": 14,
+      "start_time": 35520.0,
+      "end_time": 40590.0,
+      "text": "A couple of reminders from yesterday."
+    },
+    {
+      "index": 15,
+      "start_time": 40590.0,
+      "end_time": 45540.0,
+      "text": "You remember, we started with this initial one layer neural"
+    },
+    {
+      "index": 16,
+      "start_time": 45540.0,
+      "end_time": 46560.0,
+      "text": "network."
+    },
+    {
+      "index": 17,
+      "start_time": 46560.0,
+      "end_time": 50460.0,
+      "text": "And I need you to remember the formula"
+    },
+    {
+      "index": 18,
+      "start_time": 50460.0,
+      "end_time": 52380.0,
+      "text": "for one layer of a neural network"
+    },
+    {
+      "index": 19,
+      "start_time": 52380.0,
+      "end_time": 54670.0,
+      "text": "because we will be using it."
+    },
+    {
+      "index": 20,
+      "start_time": 54670.0,
+      "end_time": 58500.0,
+      "text": "So we were reading in pixels."
+    },
+    {
+      "index": 21,
+      "start_time": 58500.0,
+      "end_time": 61770.0,
+      "text": "But it works for any input vector, of course."
+    },
+    {
+      "index": 22,
+      "start_time": 61770.0,
+      "end_time": 66090.0,
+      "text": "And you remember, we said that the neurons"
+    },
+    {
+      "index": 23,
+      "start_time": 66090.0,
+      "end_time": 70500.0,
+      "text": "do weighted sums of all of their inputs, they add in bias,"
+    },
+    {
+      "index": 24,
+      "start_time": 70500.0,
+      "end_time": 74050.0,
+      "text": "and they feed that through some activation function."
+    },
+    {
+      "index": 25,
+      "start_time": 74050.0,
+      "end_time": 75330.0,
+      "text": "Here, softmax."
+    },
+    {
+      "index": 26,
+      "start_time": 75330.0,
+      "end_time": 76590.0,
+      "text": "It can be another function."
+    },
+    {
+      "index": 27,
+      "start_time": 76590.0,
+      "end_time": 79320.0,
+      "text": "It&#39;s just a function, value in, value out."
+    },
+    {
+      "index": 28,
+      "start_time": 79320.0,
+      "end_time": 83130.0,
+      "text": "But usually, in neural networks, it&#39;s a non-linear function."
+    },
+    {
+      "index": 29,
+      "start_time": 83130.0,
+      "end_time": 88410.0,
+      "text": "And we wrote this one layer neural network"
+    },
+    {
+      "index": 30,
+      "start_time": 88410.0,
+      "end_time": 90780.0,
+      "text": "using a matrix multiply, blah, blah, blah,"
+    },
+    {
+      "index": 31,
+      "start_time": 90780.0,
+      "end_time": 94470.0,
+      "text": "we&#39;ve seen all that, as this formula."
+    },
+    {
+      "index": 32,
+      "start_time": 94470.0,
+      "end_time": 100290.0,
+      "text": "And you remember, we did this not for just one image,"
+    },
+    {
+      "index": 33,
+      "start_time": 100290.0,
+      "end_time": 102440.0,
+      "text": "but we actually wrote this formula"
+    },
+    {
+      "index": 34,
+      "start_time": 102440.0,
+      "end_time": 106120.0,
+      "text": "processing 100 images at a time."
+    },
+    {
+      "index": 35,
+      "start_time": 106120.0,
+      "end_time": 108720.0,
+      "text": "So in x, we have a batch of images,"
+    },
+    {
+      "index": 36,
+      "start_time": 108720.0,
+      "end_time": 110880.0,
+      "text": "a whole batch, 100 images."
+    },
+    {
+      "index": 37,
+      "start_time": 110880.0,
+      "end_time": 114270.0,
+      "text": "And then x times w are all the weighted sums for our neurons."
+    },
+    {
+      "index": 38,
+      "start_time": 114270.0,
+      "end_time": 115320.0,
+      "text": "We add the biases."
+    },
+    {
+      "index": 39,
+      "start_time": 115320.0,
+      "end_time": 118430.0,
+      "text": "We feed that through our activation function."
+    },
+    {
+      "index": 40,
+      "start_time": 118430.0,
+      "end_time": 122340.0,
+      "text": "And we obtain a batch of predictions."
+    },
+    {
+      "index": 41,
+      "start_time": 122340.0,
+      "end_time": 127140.0,
+      "text": "So in our case, since we were classifying handwritten digits,"
+    },
+    {
+      "index": 42,
+      "start_time": 127140.0,
+      "end_time": 129699.0,
+      "text": "those predictions are 10 numbers,"
+    },
+    {
+      "index": 43,
+      "start_time": 129699.00000000001,
+      "end_time": 133750.0,
+      "text": "which are the probabilities of these digits being a 0, a 1, 2,"
+    },
+    {
+      "index": 44,
+      "start_time": 133750.0,
+      "end_time": 135540.0,
+      "text": "3, and so on."
+    },
+    {
+      "index": 45,
+      "start_time": 135540.0,
+      "end_time": 137430.0,
+      "text": "And so we obtained those probabilities"
+    },
+    {
+      "index": 46,
+      "start_time": 137430.0,
+      "end_time": 140790.0,
+      "text": "as the outputs of our 10 neurons."
+    },
+    {
+      "index": 47,
+      "start_time": 140790.0,
+      "end_time": 143280.0,
+      "text": "OK, so whenever you see this formula,"
+    },
+    {
+      "index": 48,
+      "start_time": 143280.0,
+      "end_time": 145650.0,
+      "text": "we will see it again a lot today,"
+    },
+    {
+      "index": 49,
+      "start_time": 145650.0,
+      "end_time": 148650.0,
+      "text": "you think, one layer of a neural network."
+    },
+    {
+      "index": 50,
+      "start_time": 148650.0,
+      "end_time": 151020.0,
+      "text": "OK?"
+    },
+    {
+      "index": 51,
+      "start_time": 151020.0,
+      "end_time": 154560.0,
+      "text": "And then also, what I need you to remember"
+    },
+    {
+      "index": 52,
+      "start_time": 154560.0,
+      "end_time": 161130.0,
+      "text": "is that once we get our output from the neural network,"
+    },
+    {
+      "index": 53,
+      "start_time": 161130.0,
+      "end_time": 165540.0,
+      "text": "the way we train it is that we give it examples."
+    },
+    {
+      "index": 54,
+      "start_time": 165540.0,
+      "end_time": 168870.0,
+      "text": "It produces some prediction."
+    },
+    {
+      "index": 55,
+      "start_time": 168870.0,
+      "end_time": 172540.0,
+      "text": "And then we say, no, no, no, no, no, that&#39;s not what we wanted."
+    },
+    {
+      "index": 56,
+      "start_time": 172540.0,
+      "end_time": 174270.0,
+      "text": "This is what you should predict."
+    },
+    {
+      "index": 57,
+      "start_time": 174270.0,
+      "end_time": 176130.0,
+      "text": "We give it the correct answer."
+    },
+    {
+      "index": 58,
+      "start_time": 176130.0,
+      "end_time": 179280.0,
+      "text": "And to do that, we have to encode this correct answer"
+    },
+    {
+      "index": 59,
+      "start_time": 179280.0,
+      "end_time": 180900.0,
+      "text": "in a similar format."
+    },
+    {
+      "index": 60,
+      "start_time": 180900.0,
+      "end_time": 184710.0,
+      "text": "So it&#39;s called-- it&#39;s a very basic type of encoding."
+    },
+    {
+      "index": 61,
+      "start_time": 184710.0,
+      "end_time": 186750.0,
+      "text": "It&#39;s called one hot encoding."
+    },
+    {
+      "index": 62,
+      "start_time": 186750.0,
+      "end_time": 190260.0,
+      "text": "And basically here, if we have 10 categories,"
+    },
+    {
+      "index": 63,
+      "start_time": 190260.0,
+      "end_time": 196210.0,
+      "text": "specifying one answer category means encoding it as 10 0s,"
+    },
+    {
+      "index": 64,
+      "start_time": 196210.0,
+      "end_time": 200970.0,
+      "text": "but just one 1 somewhere in the middle, and the index of the 1"
+    },
+    {
+      "index": 65,
+      "start_time": 200970.0,
+      "end_time": 202920.0,
+      "text": "here, it&#39;s at index 6."
+    },
+    {
+      "index": 66,
+      "start_time": 202920.0,
+      "end_time": 206460.0,
+      "text": "Means that the correct answer was a 6, OK?"
+    },
+    {
+      "index": 67,
+      "start_time": 206460.0,
+      "end_time": 211520.0,
+      "text": "So in this shape, it becomes possible to compute"
+    },
+    {
+      "index": 68,
+      "start_time": 211520.0,
+      "end_time": 214320.0,
+      "text": "a distance between what the network predicts"
+    },
+    {
+      "index": 69,
+      "start_time": 214320.0,
+      "end_time": 216240.0,
+      "text": "and what we know to be true."
+    },
+    {
+      "index": 70,
+      "start_time": 216240.0,
+      "end_time": 219450.0,
+      "text": "And that distance, we call that our error function."
+    },
+    {
+      "index": 71,
+      "start_time": 219450.0,
+      "end_time": 222700.0,
+      "text": "Or sometimes, it&#39;s called the loss function."
+    },
+    {
+      "index": 72,
+      "start_time": 222700.0,
+      "end_time": 225420.0,
+      "text": "That&#39;s what we use to guide our training."
+    },
+    {
+      "index": 73,
+      "start_time": 225420.0,
+      "end_time": 230160.0,
+      "text": "So during training, we give it an example, produces an output."
+    },
+    {
+      "index": 74,
+      "start_time": 230160.0,
+      "end_time": 232740.0,
+      "text": "We say, no, no, no, that&#39;s not what we wanted."
+    },
+    {
+      "index": 75,
+      "start_time": 232740.0,
+      "end_time": 236790.0,
+      "text": "Compute the distance between what the network says"
+    },
+    {
+      "index": 76,
+      "start_time": 236790.0,
+      "end_time": 238440.0,
+      "text": "and what we know to be true."
+    },
+    {
+      "index": 77,
+      "start_time": 238440.0,
+      "end_time": 242160.0,
+      "text": "And from that distance, we derive the gradient."
+    },
+    {
+      "index": 78,
+      "start_time": 242160.0,
+      "end_time": 243690.0,
+      "text": "And then, we follow the gradient."
+    },
+    {
+      "index": 79,
+      "start_time": 243690.0,
+      "end_time": 245670.0,
+      "text": "And that modifies the weights and biases."
+    },
+    {
+      "index": 80,
+      "start_time": 245670.0,
+      "end_time": 249240.0,
+      "text": "And that&#39;s what training is about, OK?"
+    },
+    {
+      "index": 81,
+      "start_time": 249240.0,
+      "end_time": 255700.0,
+      "text": "So now, let&#39;s look at this neural network."
+    },
+    {
+      "index": 82,
+      "start_time": 255700.0,
+      "end_time": 257890.0,
+      "text": "So it should look familiar."
+    },
+    {
+      "index": 83,
+      "start_time": 257890.0,
+      "end_time": 259380.0,
+      "text": "It&#39;s a vector as an input."
+    },
+    {
+      "index": 84,
+      "start_time": 259380.0,
+      "end_time": 263790.0,
+      "text": "It has a middle layer using the hyperbolic tangent"
+    },
+    {
+      "index": 85,
+      "start_time": 263790.0,
+      "end_time": 266020.0,
+      "text": "as an activation function."
+    },
+    {
+      "index": 86,
+      "start_time": 266020.0,
+      "end_time": 268170.0,
+      "text": "So we&#39;ve seen the sigmoid last time,"
+    },
+    {
+      "index": 87,
+      "start_time": 268170.0,
+      "end_time": 271890.0,
+      "text": "which is let&#39;s say the simplest possible function going"
+    },
+    {
+      "index": 88,
+      "start_time": 271890.0,
+      "end_time": 274700.0,
+      "text": "from 0 to 1 continuously."
+    },
+    {
+      "index": 89,
+      "start_time": 274700.0,
+      "end_time": 277500.0,
+      "text": "The hyperbolic tangent is the simplest possible function"
+    },
+    {
+      "index": 90,
+      "start_time": 277500.0,
+      "end_time": 280170.0,
+      "text": "going from minus 1 to 1 continuously."
+    },
+    {
+      "index": 91,
+      "start_time": 280170.0,
+      "end_time": 283200.0,
+      "text": "It&#39;s just a sigmoid shifted."
+    },
+    {
+      "index": 92,
+      "start_time": 283200.0,
+      "end_time": 285510.0,
+      "text": "And then, a second layer, which is a softmax"
+    },
+    {
+      "index": 93,
+      "start_time": 285510.0,
+      "end_time": 287730.0,
+      "text": "layer so that we read something out."
+    },
+    {
+      "index": 94,
+      "start_time": 287730.0,
+      "end_time": 293970.0,
+      "text": "But the specificity is here that the output"
+    },
+    {
+      "index": 95,
+      "start_time": 293970.0,
+      "end_time": 298590.0,
+      "text": "of this intermediate green layer is actually"
+    },
+    {
+      "index": 96,
+      "start_time": 298590.0,
+      "end_time": 304100.0,
+      "text": "fed back in the next time step in the inputs."
+    },
+    {
+      "index": 97,
+      "start_time": 304100.0,
+      "end_time": 309260.0,
+      "text": "So the real input into one cell of a recurrent neural network"
+    },
+    {
+      "index": 98,
+      "start_time": 309260.0,
+      "end_time": 315230.0,
+      "text": "is the input concatenated to the output of the inner layer"
+    },
+    {
+      "index": 99,
+      "start_time": 315230.0,
+      "end_time": 316500.0,
+      "text": "from the previous step."
+    },
+    {
+      "index": 100,
+      "start_time": 316500.0,
+      "end_time": 319350.0,
+      "text": "And we call this the state."
+    },
+    {
+      "index": 101,
+      "start_time": 319350.0,
+      "end_time": 321610.0,
+      "text": "So it&#39;s actually a state machine."
+    },
+    {
+      "index": 102,
+      "start_time": 321610.0,
+      "end_time": 322940.0,
+      "text": "You feed it inputs."
+    },
+    {
+      "index": 103,
+      "start_time": 322940.0,
+      "end_time": 324170.0,
+      "text": "It produces outputs."
+    },
+    {
+      "index": 104,
+      "start_time": 324170.0,
+      "end_time": 327560.0,
+      "text": "But you also feed it a state."
+    },
+    {
+      "index": 105,
+      "start_time": 327560.0,
+      "end_time": 330140.0,
+      "text": "It produces an output state, which you feed back in,"
+    },
+    {
+      "index": 106,
+      "start_time": 330140.0,
+      "end_time": 332270.0,
+      "text": "in the next time step."
+    },
+    {
+      "index": 107,
+      "start_time": 332270.0,
+      "end_time": 334780.0,
+      "text": "And that&#39;s why it&#39;s called a recurrent neural network,"
+    },
+    {
+      "index": 108,
+      "start_time": 334780.0,
+      "end_time": 339230.0,
+      "text": "it&#39;s because it is applied on time sequences."
+    },
+    {
+      "index": 109,
+      "start_time": 339230.0,
+      "end_time": 343350.0,
+      "text": "At each step in time, you feed in one input vector,"
+    },
+    {
+      "index": 110,
+      "start_time": 343350.0,
+      "end_time": 347810.0,
+      "text": "concatenate it to the previous state."
+    },
+    {
+      "index": 111,
+      "start_time": 347810.0,
+      "end_time": 349580.0,
+      "text": "Turn the crank once."
+    },
+    {
+      "index": 112,
+      "start_time": 349580.0,
+      "end_time": 354140.0,
+      "text": "That produces some outputs from this middle layer, as well as"
+    },
+    {
+      "index": 113,
+      "start_time": 354140.0,
+      "end_time": 358490.0,
+      "text": "a result. And you feed that back as the new input"
+    },
+    {
+      "index": 114,
+      "start_time": 358490.0,
+      "end_time": 362810.0,
+      "text": "state for the next x input, which"
+    },
+    {
+      "index": 115,
+      "start_time": 362810.0,
+      "end_time": 365070.0,
+      "text": "you have in your sequence."
+    },
+    {
+      "index": 116,
+      "start_time": 365070.0,
+      "end_time": 367820.0,
+      "text": "So it can be represented."
+    },
+    {
+      "index": 117,
+      "start_time": 367820.0,
+      "end_time": 370130.0,
+      "text": "I&#39;m showing you the neurons inside."
+    },
+    {
+      "index": 118,
+      "start_time": 370130.0,
+      "end_time": 375050.0,
+      "text": "But here, it&#39;s basically the API of one recurrent neural network"
+    },
+    {
+      "index": 119,
+      "start_time": 375050.0,
+      "end_time": 375770.0,
+      "text": "cell."
+    },
+    {
+      "index": 120,
+      "start_time": 375770.0,
+      "end_time": 376640.0,
+      "text": "It has an input."
+    },
+    {
+      "index": 121,
+      "start_time": 376640.0,
+      "end_time": 381530.0,
+      "text": "It has an output, which you then usually feed"
+    },
+    {
+      "index": 122,
+      "start_time": 381530.0,
+      "end_time": 384260.0,
+      "text": "into a softmax layer to make sense of it,"
+    },
+    {
+      "index": 123,
+      "start_time": 384260.0,
+      "end_time": 385640.0,
+      "text": "to produce predictions."
+    },
+    {
+      "index": 124,
+      "start_time": 385640.0,
+      "end_time": 387440.0,
+      "text": "I mean, probabilities."
+    },
+    {
+      "index": 125,
+      "start_time": 387440.0,
+      "end_time": 390440.0,
+      "text": "And it has an input state that produces an output"
+    },
+    {
+      "index": 126,
+      "start_time": 390440.0,
+      "end_time": 392700.0,
+      "text": "state that you loop back in as the input state."
+    },
+    {
+      "index": 127,
+      "start_time": 392700.0,
+      "end_time": 394820.0,
+      "text": "That&#39;s the state machine part."
+    },
+    {
+      "index": 128,
+      "start_time": 394820.0,
+      "end_time": 396770.0,
+      "text": "OK?"
+    },
+    {
+      "index": 129,
+      "start_time": 396770.0,
+      "end_time": 403250.0,
+      "text": "So now, well yes, and the parameter for this"
+    },
+    {
+      "index": 130,
+      "start_time": 403250.0,
+      "end_time": 406640.0,
+      "text": "is the internal size of this middle layer."
+    },
+    {
+      "index": 131,
+      "start_time": 406640.0,
+      "end_time": 408350.0,
+      "text": "That&#39;s what is adjustable."
+    },
+    {
+      "index": 132,
+      "start_time": 408350.0,
+      "end_time": 410450.0,
+      "text": "Usually, your input is whatever your input is."
+    },
+    {
+      "index": 133,
+      "start_time": 410450.0,
+      "end_time": 413480.0,
+      "text": "And your output is whatever you&#39;re trying to predict."
+    },
+    {
+      "index": 134,
+      "start_time": 413480.0,
+      "end_time": 417630.0,
+      "text": "So those are not adjustable parameters."
+    },
+    {
+      "index": 135,
+      "start_time": 417630.0,
+      "end_time": 420060.0,
+      "text": "So here it is written in equations."
+    },
+    {
+      "index": 136,
+      "start_time": 420060.0,
+      "end_time": 424420.0,
+      "text": "Again, the input is the real input"
+    },
+    {
+      "index": 137,
+      "start_time": 424420.0,
+      "end_time": 427760.0,
+      "text": "at time t concatenated to the previous state."
+    },
+    {
+      "index": 138,
+      "start_time": 427760.0,
+      "end_time": 429860.0,
+      "text": "Then, we feed that through."
+    },
+    {
+      "index": 139,
+      "start_time": 429860.0,
+      "end_time": 433370.0,
+      "text": "Here, you should recognize one layer of a neural network."
+    },
+    {
+      "index": 140,
+      "start_time": 433370.0,
+      "end_time": 435770.0,
+      "text": "You should recognize this formula"
+    },
+    {
+      "index": 141,
+      "start_time": 435770.0,
+      "end_time": 438990.0,
+      "text": "using the hyperbolic tangent as an activation function."
+    },
+    {
+      "index": 142,
+      "start_time": 438990.0,
+      "end_time": 442040.0,
+      "text": "So I put it over there."
+    },
+    {
+      "index": 143,
+      "start_time": 442040.0,
+      "end_time": 446120.0,
+      "text": "And this produces an output, Ht, which"
+    },
+    {
+      "index": 144,
+      "start_time": 446120.0,
+      "end_time": 452990.0,
+      "text": "is both used as our new state and as the output that"
+    },
+    {
+      "index": 145,
+      "start_time": 452990.0,
+      "end_time": 455330.0,
+      "text": "will be fed into the softmax layer"
+    },
+    {
+      "index": 146,
+      "start_time": 455330.0,
+      "end_time": 461390.0,
+      "text": "to actually produce a vector of probabilities between 0 and 1."
+    },
+    {
+      "index": 147,
+      "start_time": 461390.0,
+      "end_time": 463430.0,
+      "text": "OK?"
+    },
+    {
+      "index": 148,
+      "start_time": 463430.0,
+      "end_time": 466610.0,
+      "text": "So now, how do we train this thing?"
+    },
+    {
+      "index": 149,
+      "start_time": 466610.0,
+      "end_time": 472610.0,
+      "text": "So typically, this is used for natural language processing,"
+    },
+    {
+      "index": 150,
+      "start_time": 472610.0,
+      "end_time": 473690.0,
+      "text": "for instance."
+    },
+    {
+      "index": 151,
+      "start_time": 473690.0,
+      "end_time": 477290.0,
+      "text": "So a typical input will be a character."
+    },
+    {
+      "index": 152,
+      "start_time": 477290.0,
+      "end_time": 483020.0,
+      "text": "And a character will be, again, one-hot encoded into let&#39;s say"
+    },
+    {
+      "index": 153,
+      "start_time": 483020.0,
+      "end_time": 486800.0,
+      "text": "100 competent vectors if we are using--"
+    },
+    {
+      "index": 154,
+      "start_time": 486800.0,
+      "end_time": 489050.0,
+      "text": "we will be using here an alphabet"
+    },
+    {
+      "index": 155,
+      "start_time": 489050.0,
+      "end_time": 491870.0,
+      "text": "of 100 possible characters."
+    },
+    {
+      "index": 156,
+      "start_time": 491870.0,
+      "end_time": 498980.0,
+      "text": "So one character is encoded into a 100 element vector, so 99 0s"
+    },
+    {
+      "index": 157,
+      "start_time": 498980.0,
+      "end_time": 503710.0,
+      "text": "and a 1 at the ASCII index of that character."
+    },
+    {
+      "index": 158,
+      "start_time": 503710.0,
+      "end_time": 508540.0,
+      "text": "So we put a character in."
+    },
+    {
+      "index": 159,
+      "start_time": 508540.0,
+      "end_time": 513520.0,
+      "text": "We propagate through the neural networks."
+    },
+    {
+      "index": 160,
+      "start_time": 513520.0,
+      "end_time": 516820.0,
+      "text": "We propagate through the softmax layer."
+    },
+    {
+      "index": 161,
+      "start_time": 516820.00000000006,
+      "end_time": 519730.00000000006,
+      "text": "We obtain a character as an output."
+    },
+    {
+      "index": 162,
+      "start_time": 519730.0,
+      "end_time": 523510.0,
+      "text": "If that is not the character we wanted, well,"
+    },
+    {
+      "index": 163,
+      "start_time": 523510.0,
+      "end_time": 525580.0,
+      "text": "we compute the difference between what he said"
+    },
+    {
+      "index": 164,
+      "start_time": 525580.0,
+      "end_time": 529450.0,
+      "text": "and what we know to be true and use retro propagation to fix"
+    },
+    {
+      "index": 165,
+      "start_time": 529450.0,
+      "end_time": 533800.0,
+      "text": "the weights and biases inside of the cell to get better results."
+    },
+    {
+      "index": 166,
+      "start_time": 533800.0,
+      "end_time": 536620.0,
+      "text": "That is very classical training."
+    },
+    {
+      "index": 167,
+      "start_time": 536620.0,
+      "end_time": 541030.0,
+      "text": "But what if the result was wrong not"
+    },
+    {
+      "index": 168,
+      "start_time": 541030.0,
+      "end_time": 544990.0,
+      "text": "because the weights and biases inside of the cell was wrong,"
+    },
+    {
+      "index": 169,
+      "start_time": 544990.0,
+      "end_time": 550920.0,
+      "text": "but because the input, the state input, H minus 1, was wrong?"
+    },
+    {
+      "index": 170,
+      "start_time": 554980.0,
+      "end_time": 558230.0,
+      "text": "That input is a constant in this problem."
+    },
+    {
+      "index": 171,
+      "start_time": 558230.0,
+      "end_time": 561290.0,
+      "text": "There&#39;s not much you can do about it."
+    },
+    {
+      "index": 172,
+      "start_time": 561290.0,
+      "end_time": 563410.0,
+      "text": "So here, we are stuck."
+    },
+    {
+      "index": 173,
+      "start_time": 563410.0,
+      "end_time": 565670.0,
+      "text": "What is the solution?"
+    },
+    {
+      "index": 174,
+      "start_time": 565670.0,
+      "end_time": 569620.0,
+      "text": "Well, the solution is to replicate the cell."
+    },
+    {
+      "index": 175,
+      "start_time": 569620.0,
+      "end_time": 572590.0,
+      "text": "And now, so this is a replica."
+    },
+    {
+      "index": 176,
+      "start_time": 572590.0,
+      "end_time": 576550.0,
+      "text": "It&#39;s reusing the exact same weights, OK?"
+    },
+    {
+      "index": 177,
+      "start_time": 576550.0,
+      "end_time": 581200.0,
+      "text": "Now, let&#39;s see the output, Y1, is bad."
+    },
+    {
+      "index": 178,
+      "start_time": 581200.0,
+      "end_time": 582520.0,
+      "text": "I say, no, that&#39;s not it."
+    },
+    {
+      "index": 179,
+      "start_time": 582520.0,
+      "end_time": 584590.0,
+      "text": "This was the correct output I&#39;m training."
+    },
+    {
+      "index": 180,
+      "start_time": 584590.0,
+      "end_time": 587740.0,
+      "text": "So I know what the correct output is supposed to be."
+    },
+    {
+      "index": 181,
+      "start_time": 587740.0,
+      "end_time": 590250.0,
+      "text": "So from that, I compute the enter, the gradient."
+    },
+    {
+      "index": 182,
+      "start_time": 590250.0,
+      "end_time": 591430.0,
+      "text": "I retro propagate."
+    },
+    {
+      "index": 183,
+      "start_time": 591430.0,
+      "end_time": 594120.0,
+      "text": "I can fix the weights and biases in the cells"
+    },
+    {
+      "index": 184,
+      "start_time": 594120.0,
+      "end_time": 595840.0,
+      "text": "to get a better output."
+    },
+    {
+      "index": 185,
+      "start_time": 595840.0,
+      "end_time": 600580.0,
+      "text": "And if needed, I can fix the weights and biases"
+    },
+    {
+      "index": 186,
+      "start_time": 600580.0,
+      "end_time": 605860.0,
+      "text": "to get a better H0, the state flowing between those two"
+    },
+    {
+      "index": 187,
+      "start_time": 605860.0,
+      "end_time": 607760.0,
+      "text": "stages of the cell."
+    },
+    {
+      "index": 188,
+      "start_time": 607760.0,
+      "end_time": 611740.0,
+      "text": "So now, I have a handle on at least H0."
+    },
+    {
+      "index": 189,
+      "start_time": 611740.0,
+      "end_time": 614410.0,
+      "text": "I still have no handle at all on H minus 1."
+    },
+    {
+      "index": 190,
+      "start_time": 614410.0,
+      "end_time": 617120.0,
+      "text": "If it is H minus 1 that was wrong,"
+    },
+    {
+      "index": 191,
+      "start_time": 617120.0,
+      "end_time": 619330.0,
+      "text": "there is nothing I can do."
+    },
+    {
+      "index": 192,
+      "start_time": 619330.0,
+      "end_time": 623110.0,
+      "text": "So that is how you train recurrent neural networks."
+    },
+    {
+      "index": 193,
+      "start_time": 623110.0,
+      "end_time": 627640.0,
+      "text": "You have to unroll them across a certain length"
+    },
+    {
+      "index": 194,
+      "start_time": 627640.0,
+      "end_time": 632470.0,
+      "text": "and give them a sequence of, let&#39;s say, characters."
+    },
+    {
+      "index": 195,
+      "start_time": 632470.0,
+      "end_time": 634960.0,
+      "text": "It will produce a sequence of output characters."
+    },
+    {
+      "index": 196,
+      "start_time": 634960.0,
+      "end_time": 636550.0,
+      "text": "If you are training, you know what"
+    },
+    {
+      "index": 197,
+      "start_time": 636550.0,
+      "end_time": 638170.0,
+      "text": "the answer was supposed to be."
+    },
+    {
+      "index": 198,
+      "start_time": 638170.0,
+      "end_time": 641560.0,
+      "text": "So you use that to compute your error function,"
+    },
+    {
+      "index": 199,
+      "start_time": 641560.0,
+      "end_time": 645820.0,
+      "text": "do you retro propagation, adjust the weights and biases."
+    },
+    {
+      "index": 200,
+      "start_time": 645820.0,
+      "end_time": 650280.0,
+      "text": "And it will work to a certain extent."
+    },
+    {
+      "index": 201,
+      "start_time": 650280.0,
+      "end_time": 653020.0,
+      "text": "To what extent?"
+    },
+    {
+      "index": 202,
+      "start_time": 653020.0,
+      "end_time": 656110.0,
+      "text": "Oh, yes, small detail, if you want to go deep,"
+    },
+    {
+      "index": 203,
+      "start_time": 656110.0,
+      "end_time": 658540.0,
+      "text": "you can actually stack the cells."
+    },
+    {
+      "index": 204,
+      "start_time": 658540.0,
+      "end_time": 659290.0,
+      "text": "Why?"
+    },
+    {
+      "index": 205,
+      "start_time": 659290.0,
+      "end_time": 666320.0,
+      "text": "Well, two cells stacked like this, the API remains the same."
+    },
+    {
+      "index": 206,
+      "start_time": 666320.0,
+      "end_time": 667690.0,
+      "text": "It&#39;s still an input."
+    },
+    {
+      "index": 207,
+      "start_time": 667690.0,
+      "end_time": 670650.0,
+      "text": "It&#39;s still an output that feeds into a softmax layer."
+    },
+    {
+      "index": 208,
+      "start_time": 670650.0,
+      "end_time": 673080.0,
+      "text": "And there is still an input state and an output state"
+    },
+    {
+      "index": 209,
+      "start_time": 673080.0,
+      "end_time": 674110.0,
+      "text": "that you feedback in."
+    },
+    {
+      "index": 210,
+      "start_time": 674110.0,
+      "end_time": 676750.0,
+      "text": "It&#39;s just that the output state now is slightly bigger."
+    },
+    {
+      "index": 211,
+      "start_time": 676750.0,
+      "end_time": 679480.0,
+      "text": "So that&#39;s how you go deep in the recurrent neural network."
+    },
+    {
+      "index": 212,
+      "start_time": 679480.0,
+      "end_time": 681370.0,
+      "text": "You stack those cells, and that becomes"
+    },
+    {
+      "index": 213,
+      "start_time": 681370.0,
+      "end_time": 684370.0,
+      "text": "a new cell which still has input, output,"
+    },
+    {
+      "index": 214,
+      "start_time": 684370.0,
+      "end_time": 687100.0,
+      "text": "input state, output state."
+    },
+    {
+      "index": 215,
+      "start_time": 687100.0,
+      "end_time": 688600.0,
+      "text": "And of course, you unroll it."
+    },
+    {
+      "index": 216,
+      "start_time": 688600.0,
+      "end_time": 690410.0,
+      "text": "So let&#39;s take this sentence."
+    },
+    {
+      "index": 217,
+      "start_time": 690410.0,
+      "end_time": 693700.0,
+      "text": "Let&#39;s say now, we use not characters but words"
+    },
+    {
+      "index": 218,
+      "start_time": 693700.0,
+      "end_time": 695020.0,
+      "text": "as our inputs."
+    },
+    {
+      "index": 219,
+      "start_time": 695020.0,
+      "end_time": 698830.0,
+      "text": "Of course, there are technical problems doing that."
+    },
+    {
+      "index": 220,
+      "start_time": 698830.0,
+      "end_time": 702140.0,
+      "text": "A typical alphabet is maybe 100 characters."
+    },
+    {
+      "index": 221,
+      "start_time": 702140.0,
+      "end_time": 706430.0,
+      "text": "A typical vocabulary is around 30,000 words."
+    },
+    {
+      "index": 222,
+      "start_time": 706430.0,
+      "end_time": 709180.0,
+      "text": "So here, one-hot encoding gives you"
+    },
+    {
+      "index": 223,
+      "start_time": 709180.0,
+      "end_time": 713770.0,
+      "text": "a vector of 30,000 components for each word."
+    },
+    {
+      "index": 224,
+      "start_time": 713770.0,
+      "end_time": 715450.0,
+      "text": "It&#39;s a bit heavy."
+    },
+    {
+      "index": 225,
+      "start_time": 715450.0,
+      "end_time": 717760.0,
+      "text": "I won&#39;t go into the details of how you handle that."
+    },
+    {
+      "index": 226,
+      "start_time": 720310.0,
+      "end_time": 722300.0,
+      "text": "It&#39;s called embedding."
+    },
+    {
+      "index": 227,
+      "start_time": 722300.0,
+      "end_time": 726130.0,
+      "text": "Whatever, let&#39;s just assume that we solved this problem."
+    },
+    {
+      "index": 228,
+      "start_time": 726130.0,
+      "end_time": 727690.0,
+      "text": "So we have this sentence."
+    },
+    {
+      "index": 229,
+      "start_time": 727690.0,
+      "end_time": 730810.0,
+      "text": "Michael was born in Paris, blah, blah, blah, blah, blah."
+    },
+    {
+      "index": 230,
+      "start_time": 730810.0,
+      "end_time": 733900.0,
+      "text": "And at the end, we have his mother tongue is."
+    },
+    {
+      "index": 231,
+      "start_time": 733900.0,
+      "end_time": 738610.0,
+      "text": "So if we train this model on English,"
+    },
+    {
+      "index": 232,
+      "start_time": 738610.0,
+      "end_time": 740860.0,
+      "text": "probably it will have figured out"
+    },
+    {
+      "index": 233,
+      "start_time": 740860.0,
+      "end_time": 743110.0,
+      "text": "that &quot;his mother tongue is&quot; is followed"
+    },
+    {
+      "index": 234,
+      "start_time": 743110.0,
+      "end_time": 745630.0,
+      "text": "by the name of a language, like English,"
+    },
+    {
+      "index": 235,
+      "start_time": 745630.0,
+      "end_time": 748470.0,
+      "text": "German, or Russian, something."
+    },
+    {
+      "index": 236,
+      "start_time": 748470.0,
+      "end_time": 751210.0,
+      "text": "Here, however, the correct answer"
+    },
+    {
+      "index": 237,
+      "start_time": 751210.0,
+      "end_time": 756250.0,
+      "text": "is French because this guy was born in France."
+    },
+    {
+      "index": 238,
+      "start_time": 756250.0,
+      "end_time": 759070.0,
+      "text": "So let&#39;s imagine that we feed in,"
+    },
+    {
+      "index": 239,
+      "start_time": 759070.0,
+      "end_time": 761860.0,
+      "text": "we have unrolled this neural network over,"
+    },
+    {
+      "index": 240,
+      "start_time": 761860.0,
+      "end_time": 764320.0,
+      "text": "let&#39;s say, 30 words."
+    },
+    {
+      "index": 241,
+      "start_time": 764320.0,
+      "end_time": 767020.0,
+      "text": "Or let&#39;s say 10 words here, 10 words."
+    },
+    {
+      "index": 242,
+      "start_time": 767020.0,
+      "end_time": 769340.0,
+      "text": "And at the end, we have his mother tongue is,"
+    },
+    {
+      "index": 243,
+      "start_time": 769340.0,
+      "end_time": 773470.0,
+      "text": "and we are asking the network to predict what is the next word."
+    },
+    {
+      "index": 244,
+      "start_time": 773470.0,
+      "end_time": 778000.0,
+      "text": "And the network says, English."
+    },
+    {
+      "index": 245,
+      "start_time": 778000.0,
+      "end_time": 781930.0,
+      "text": "So now, what we want to do is put on the outputs"
+    },
+    {
+      "index": 246,
+      "start_time": 781930.0,
+      "end_time": 783760.0,
+      "text": "a sentence that says, blah, blah, blah,"
+    },
+    {
+      "index": 247,
+      "start_time": 783760.0,
+      "end_time": 785890.0,
+      "text": "his mother tongue is French."
+    },
+    {
+      "index": 248,
+      "start_time": 785890.0,
+      "end_time": 789070.0,
+      "text": "And do retro propagation."
+    },
+    {
+      "index": 249,
+      "start_time": 789070.0,
+      "end_time": 793450.0,
+      "text": "But for this to work, the beginning"
+    },
+    {
+      "index": 250,
+      "start_time": 793450.0,
+      "end_time": 795760.0,
+      "text": "of the sentence, the part where the information"
+    },
+    {
+      "index": 251,
+      "start_time": 795760.0,
+      "end_time": 798400.0,
+      "text": "about Paris and where he&#39;s born is,"
+    },
+    {
+      "index": 252,
+      "start_time": 798400.0,
+      "end_time": 801200.0,
+      "text": "has to be part of that example."
+    },
+    {
+      "index": 253,
+      "start_time": 801200.0,
+      "end_time": 804070.0,
+      "text": "And that example is longer than 10 words,"
+    },
+    {
+      "index": 254,
+      "start_time": 804070.0,
+      "end_time": 806770.0,
+      "text": "which is our unroll size."
+    },
+    {
+      "index": 255,
+      "start_time": 806770.0,
+      "end_time": 812460.0,
+      "text": "There is simply no way whatsoever"
+    },
+    {
+      "index": 256,
+      "start_time": 812460.0,
+      "end_time": 817060.0,
+      "text": "of putting that correct example plus correct output"
+    },
+    {
+      "index": 257,
+      "start_time": 817060.0,
+      "end_time": 820510.0,
+      "text": "into a network that we unrolled over only 10 words"
+    },
+    {
+      "index": 258,
+      "start_time": 820510.0,
+      "end_time": 823090.0,
+      "text": "because the distance is more than 10."
+    },
+    {
+      "index": 259,
+      "start_time": 823090.0,
+      "end_time": 825350.0,
+      "text": "And that&#39;s a fundamental limitation."
+    },
+    {
+      "index": 260,
+      "start_time": 825350.0,
+      "end_time": 830440.0,
+      "text": "If you want to capture this information, this behavior"
+    },
+    {
+      "index": 261,
+      "start_time": 830440.0,
+      "end_time": 834130.0,
+      "text": "that, if he was born in France, probably his mother language"
+    },
+    {
+      "index": 262,
+      "start_time": 834130.0,
+      "end_time": 837010.0,
+      "text": "is French, you will have to unroll"
+    },
+    {
+      "index": 263,
+      "start_time": 837010.0,
+      "end_time": 841420.0,
+      "text": "this network over a long enough sequence"
+    },
+    {
+      "index": 264,
+      "start_time": 841420.0,
+      "end_time": 845710.0,
+      "text": "to be able to input this full example into it."
+    },
+    {
+      "index": 265,
+      "start_time": 845710.0,
+      "end_time": 848990.0,
+      "text": "And if you do that, you will probably unroll it here over,"
+    },
+    {
+      "index": 266,
+      "start_time": 848990.0,
+      "end_time": 850630.0,
+      "text": "how many, 50 words?"
+    },
+    {
+      "index": 267,
+      "start_time": 850630.0,
+      "end_time": 852730.0,
+      "text": "Something like that."
+    },
+    {
+      "index": 268,
+      "start_time": 852730.0,
+      "end_time": 856120.0,
+      "text": "If you do that, the problem is that you end up"
+    },
+    {
+      "index": 269,
+      "start_time": 856120.0,
+      "end_time": 859480.0,
+      "text": "with a very deep neural network."
+    },
+    {
+      "index": 270,
+      "start_time": 859480.0,
+      "end_time": 863880.0,
+      "text": "Yesterday, we&#39;ve seen neural networks of five layers."
+    },
+    {
+      "index": 271,
+      "start_time": 863880.0,
+      "end_time": 866290.0,
+      "text": "The big ones, like Inception and so on,"
+    },
+    {
+      "index": 272,
+      "start_time": 866290.0,
+      "end_time": 869260.0,
+      "text": "are 40, 50, 60, 70 layers."
+    },
+    {
+      "index": 273,
+      "start_time": 869260.0,
+      "end_time": 871660.0,
+      "text": "You see here, we have a toy example."
+    },
+    {
+      "index": 274,
+      "start_time": 871660.0,
+      "end_time": 873100.0,
+      "text": "And we already see that we should"
+    },
+    {
+      "index": 275,
+      "start_time": 873100.0,
+      "end_time": 878300.0,
+      "text": "be going to 50 or 100 layers just to solve this."
+    },
+    {
+      "index": 276,
+      "start_time": 878300.0,
+      "end_time": 882580.0,
+      "text": "So in recurrent neural networks, you always"
+    },
+    {
+      "index": 277,
+      "start_time": 882580.0,
+      "end_time": 887260.0,
+      "text": "end up using very deep neural networks."
+    },
+    {
+      "index": 278,
+      "start_time": 887260.0,
+      "end_time": 891430.0,
+      "text": "And when I say deep, it&#39;s because the state signal has"
+    },
+    {
+      "index": 279,
+      "start_time": 891430.0,
+      "end_time": 893090.0,
+      "text": "to go through all those cells."
+    },
+    {
+      "index": 280,
+      "start_time": 893090.0,
+      "end_time": 895860.0,
+      "text": "And remember, in each cell, the state signal"
+    },
+    {
+      "index": 281,
+      "start_time": 895860.0,
+      "end_time": 897580.0,
+      "text": "is concatenated to the input which"
+    },
+    {
+      "index": 282,
+      "start_time": 897580.0,
+      "end_time": 899860.0,
+      "text": "goes through a neural network layer,"
+    },
+    {
+      "index": 283,
+      "start_time": 899860.0,
+      "end_time": 902680.0,
+      "text": "produces a new state, which goes to the next cell, that"
+    },
+    {
+      "index": 284,
+      "start_time": 902680.0,
+      "end_time": 904270.0,
+      "text": "is concatenated to the input."
+    },
+    {
+      "index": 285,
+      "start_time": 904270.0,
+      "end_time": 906710.0,
+      "text": "Goes to another neural network layer."
+    },
+    {
+      "index": 286,
+      "start_time": 906710.0,
+      "end_time": 911080.0,
+      "text": "So from here to the end, we traverse at least one"
+    },
+    {
+      "index": 287,
+      "start_time": 911080.0,
+      "end_time": 913240.0,
+      "text": "neural network layer per cell."
+    },
+    {
+      "index": 288,
+      "start_time": 913240.0,
+      "end_time": 916990.0,
+      "text": "That&#39;s how wide and deep."
+    },
+    {
+      "index": 289,
+      "start_time": 916990.0,
+      "end_time": 920770.0,
+      "text": "Deep neural networks have a technical problem."
+    },
+    {
+      "index": 290,
+      "start_time": 920770.0,
+      "end_time": 925422.0,
+      "text": "They tend not to converge when you train them."
+    },
+    {
+      "index": 291,
+      "start_time": 925422.0,
+      "end_time": 927130.0,
+      "text": "I won&#39;t go into the mathematical details."
+    },
+    {
+      "index": 292,
+      "start_time": 927130.0,
+      "end_time": 929350.0,
+      "text": "It&#39;s called the vanishing gradient problem."
+    },
+    {
+      "index": 293,
+      "start_time": 929350.0,
+      "end_time": 932560.0,
+      "text": "Basically, your gradient becomes 0."
+    },
+    {
+      "index": 294,
+      "start_time": 932560.0,
+      "end_time": 935560.0,
+      "text": "And since you use your gradient to go forward,"
+    },
+    {
+      "index": 295,
+      "start_time": 935560.0,
+      "end_time": 938450.0,
+      "text": "that&#39;s a bit of a problem."
+    },
+    {
+      "index": 296,
+      "start_time": 938450.0,
+      "end_time": 941620.0,
+      "text": "So a solution was invented."
+    },
+    {
+      "index": 297,
+      "start_time": 941620.0,
+      "end_time": 944470.0,
+      "text": "I won&#39;t go into the mathematical explanations"
+    },
+    {
+      "index": 298,
+      "start_time": 944470.0,
+      "end_time": 946330.0,
+      "text": "of why this solution works."
+    },
+    {
+      "index": 299,
+      "start_time": 946330.0,
+      "end_time": 950210.0,
+      "text": "I just want you to understand how it works."
+    },
+    {
+      "index": 300,
+      "start_time": 950210.0,
+      "end_time": 956410.0,
+      "text": "So would you [INAUDIBLE] an explanation using the arrow"
+    },
+    {
+      "index": 301,
+      "start_time": 956410.0,
+      "end_time": 959650.0,
+      "text": "soup of a diagram on the left?"
+    },
+    {
+      "index": 302,
+      "start_time": 959650.0,
+      "end_time": 964750.0,
+      "text": "Or the incomprehensible equations on the right?"
+    },
+    {
+      "index": 303,
+      "start_time": 964750.0,
+      "end_time": 967138.0,
+      "text": "Which one do you prefer?"
+    },
+    {
+      "index": 304,
+      "start_time": 967138.0,
+      "end_time": 968110.0,
+      "text": "AUDIENCE: Arrows."
+    },
+    {
+      "index": 305,
+      "start_time": 968110.0,
+      "end_time": 969026.0,
+      "text": "MARTIN GORNER: Arrows?"
+    },
+    {
+      "index": 306,
+      "start_time": 971080.0,
+      "end_time": 972460.0,
+      "text": "I&#39;m a developer."
+    },
+    {
+      "index": 307,
+      "start_time": 972460.0,
+      "end_time": 975740.0,
+      "text": "And those equations look a little bit like code."
+    },
+    {
+      "index": 308,
+      "start_time": 975740.0,
+      "end_time": 979090.0,
+      "text": "And I do code."
+    },
+    {
+      "index": 309,
+      "start_time": 979090.0,
+      "end_time": 980980.0,
+      "text": "Sorry."
+    },
+    {
+      "index": 310,
+      "start_time": 980980.0,
+      "end_time": 984160.0,
+      "text": "But on the arrows, you see at least one thing."
+    },
+    {
+      "index": 311,
+      "start_time": 984160.0,
+      "end_time": 988970.0,
+      "text": "So I&#39;ll do some hand-waving mathematics again."
+    },
+    {
+      "index": 312,
+      "start_time": 988970.0,
+      "end_time": 991570.0,
+      "text": "You see that the state is actually split into two."
+    },
+    {
+      "index": 313,
+      "start_time": 991570.0,
+      "end_time": 994090.0,
+      "text": "You have the H state and the C state."
+    },
+    {
+      "index": 314,
+      "start_time": 994090.0,
+      "end_time": 999490.0,
+      "text": "And the C line there is actually configured in such a way"
+    },
+    {
+      "index": 315,
+      "start_time": 999490.0,
+      "end_time": 1002460.0,
+      "text": "that the network can decide to persist information"
+    },
+    {
+      "index": 316,
+      "start_time": 1002460.0,
+      "end_time": 1006900.0,
+      "text": "on it, to leave it unchanged from iteration to iteration."
+    },
+    {
+      "index": 317,
+      "start_time": 1006900.0,
+      "end_time": 1010230.0,
+      "text": "And that is somehow what explains"
+    },
+    {
+      "index": 318,
+      "start_time": 1010230.0,
+      "end_time": 1012480.0,
+      "text": "that even if you line up many of those,"
+    },
+    {
+      "index": 319,
+      "start_time": 1012480.0,
+      "end_time": 1015480.0,
+      "text": "since it has the possibility of leaving some part of the state"
+    },
+    {
+      "index": 320,
+      "start_time": 1015480.0,
+      "end_time": 1020700.0,
+      "text": "unchanged, it goes around those vanishing gradient problems."
+    },
+    {
+      "index": 321,
+      "start_time": 1020700.0,
+      "end_time": 1024660.0,
+      "text": "End of hand-waving mathematics."
+    },
+    {
+      "index": 322,
+      "start_time": 1024660.0000000001,
+      "end_time": 1025470.0000000001,
+      "text": "So let&#39;s do it."
+    },
+    {
+      "index": 323,
+      "start_time": 1025470.0,
+      "end_time": 1028349.0,
+      "text": "Let&#39;s see how it works in practice."
+    },
+    {
+      "index": 324,
+      "start_time": 1028349.9999999999,
+      "end_time": 1032609.9999999999,
+      "text": "And actually, it&#39;s based on a concept of gates."
+    },
+    {
+      "index": 325,
+      "start_time": 1032609.9999999999,
+      "end_time": 1037060.9999999999,
+      "text": "So again, we concatenate the real input to the state"
+    },
+    {
+      "index": 326,
+      "start_time": 1037060.0,
+      "end_time": 1038500.0,
+      "text": "from the previous step."
+    },
+    {
+      "index": 327,
+      "start_time": 1038500.0,
+      "end_time": 1045470.0,
+      "text": "And we compute three, you recognize the formulas,"
+    },
+    {
+      "index": 328,
+      "start_time": 1045470.0,
+      "end_time": 1047880.0,
+      "text": "neural network layers."
+    },
+    {
+      "index": 329,
+      "start_time": 1047880.0000000001,
+      "end_time": 1051940.0,
+      "text": "The sigma is for the sigmoid activation function."
+    },
+    {
+      "index": 330,
+      "start_time": 1051940.0,
+      "end_time": 1055080.0,
+      "text": "So the sigma outputs values between 0 and 1."
+    },
+    {
+      "index": 331,
+      "start_time": 1055080.0,
+      "end_time": 1057420.0,
+      "text": "And we call those gates because we will actually"
+    },
+    {
+      "index": 332,
+      "start_time": 1057420.0,
+      "end_time": 1062862.0,
+      "text": "be multiplying these numbers to another vector to gate it."
+    },
+    {
+      "index": 333,
+      "start_time": 1062860.0,
+      "end_time": 1064318.0,
+      "text": "You know, if you multiply something"
+    },
+    {
+      "index": 334,
+      "start_time": 1064320.0,
+      "end_time": 1067830.0,
+      "text": "by a very small value, there&#39;s not much that goes through."
+    },
+    {
+      "index": 335,
+      "start_time": 1067830.0,
+      "end_time": 1070800.0,
+      "text": "If you multiply something by something that is close to 1,"
+    },
+    {
+      "index": 336,
+      "start_time": 1070800.0,
+      "end_time": 1072900.0,
+      "text": "almost all of the information goes through."
+    },
+    {
+      "index": 337,
+      "start_time": 1072900.0,
+      "end_time": 1075490.0,
+      "text": "So that&#39;s how we will be using them."
+    },
+    {
+      "index": 338,
+      "start_time": 1075490.0,
+      "end_time": 1086640.0,
+      "text": "Now, our input becomes, well, we have to size adapt our input."
+    },
+    {
+      "index": 339,
+      "start_time": 1086640.0,
+      "end_time": 1090210.0,
+      "text": "I put on the side the sizes of all the vectors"
+    },
+    {
+      "index": 340,
+      "start_time": 1090210.0,
+      "end_time": 1091410.0,
+      "text": "we are working with."
+    },
+    {
+      "index": 341,
+      "start_time": 1091410.0,
+      "end_time": 1094590.0,
+      "text": "That&#39;s just to tell you that there is nothing to see there."
+    },
+    {
+      "index": 342,
+      "start_time": 1094590.0,
+      "end_time": 1098550.0,
+      "text": "Inside of the cell, everything is of size n."
+    },
+    {
+      "index": 343,
+      "start_time": 1098550.0,
+      "end_time": 1101280.0,
+      "text": "That&#39;s the parameter that you decide"
+    },
+    {
+      "index": 344,
+      "start_time": 1101280.0,
+      "end_time": 1103890.0,
+      "text": "as the size of your cell, OK?"
+    },
+    {
+      "index": 345,
+      "start_time": 1103890.0,
+      "end_time": 1107410.0,
+      "text": "But our inputs, they are what they are."
+    },
+    {
+      "index": 346,
+      "start_time": 1107410.0,
+      "end_time": 1110730.0,
+      "text": "So we first need one neural network layer"
+    },
+    {
+      "index": 347,
+      "start_time": 1110730.0,
+      "end_time": 1114180.0,
+      "text": "to adapt the size of our inputs to size n."
+    },
+    {
+      "index": 348,
+      "start_time": 1114180.0,
+      "end_time": 1116000.0,
+      "text": "So that becomes our new input."
+    },
+    {
+      "index": 349,
+      "start_time": 1116000.0,
+      "end_time": 1122730.0,
+      "text": "And now, the C line, the way you read this,"
+    },
+    {
+      "index": 350,
+      "start_time": 1122730.0,
+      "end_time": 1124230.0,
+      "text": "this is a kind of memory."
+    },
+    {
+      "index": 351,
+      "start_time": 1124230.0,
+      "end_time": 1126930.0,
+      "text": "So the new state of the memory is"
+    },
+    {
+      "index": 352,
+      "start_time": 1126930.0,
+      "end_time": 1130320.0,
+      "text": "the old state of the memory without what"
+    },
+    {
+      "index": 353,
+      "start_time": 1130320.0,
+      "end_time": 1132030.0,
+      "text": "we chose to forget."
+    },
+    {
+      "index": 354,
+      "start_time": 1132030.0,
+      "end_time": 1133650.0,
+      "text": "We multiply by this forget gate."
+    },
+    {
+      "index": 355,
+      "start_time": 1133650.0,
+      "end_time": 1137220.0,
+      "text": "This is a series of numbers between 0 and 1."
+    },
+    {
+      "index": 356,
+      "start_time": 1137220.0,
+      "end_time": 1143940.0,
+      "text": "Plus what we chose to remember from our new input."
+    },
+    {
+      "index": 357,
+      "start_time": 1143940.0,
+      "end_time": 1145860.0,
+      "text": "That&#39;s the way to read it."
+    },
+    {
+      "index": 358,
+      "start_time": 1145860.0,
+      "end_time": 1150340.0,
+      "text": "So we multiply our new input by the update gate."
+    },
+    {
+      "index": 359,
+      "start_time": 1150340.0,
+      "end_time": 1152940.0,
+      "text": "Again, numbers between 0 and 1 that"
+    },
+    {
+      "index": 360,
+      "start_time": 1152940.0,
+      "end_time": 1155220.0,
+      "text": "shows which part of the information"
+    },
+    {
+      "index": 361,
+      "start_time": 1155220.0,
+      "end_time": 1160560.0,
+      "text": "we want to retain from this input into our internal memory."
+    },
+    {
+      "index": 362,
+      "start_time": 1160560.0,
+      "end_time": 1168780.0,
+      "text": "And then, our new state is simply the memory--"
+    },
+    {
+      "index": 363,
+      "start_time": 1168780.0,
+      "end_time": 1170790.0,
+      "text": "the hyperbolic tangent here, that&#39;s"
+    },
+    {
+      "index": 364,
+      "start_time": 1170790.0,
+      "end_time": 1172530.0,
+      "text": "not a neural network layer."
+    },
+    {
+      "index": 365,
+      "start_time": 1172530.0,
+      "end_time": 1177220.0,
+      "text": "That&#39;s just a size adaptation to put it between minus 1 and 1."
+    },
+    {
+      "index": 366,
+      "start_time": 1177220.0,
+      "end_time": 1179250.0,
+      "text": "So it&#39;s basically the memory cell"
+    },
+    {
+      "index": 367,
+      "start_time": 1179250.0,
+      "end_time": 1181740.0,
+      "text": "multiplied by the result gate."
+    },
+    {
+      "index": 368,
+      "start_time": 1181740.0,
+      "end_time": 1186150.0,
+      "text": "So here, we choose what part of our internal memory"
+    },
+    {
+      "index": 369,
+      "start_time": 1186150.0,
+      "end_time": 1189670.0,
+      "text": "we want to expose to the outside as a result."
+    },
+    {
+      "index": 370,
+      "start_time": 1189670.0,
+      "end_time": 1191910.0,
+      "text": "So that&#39;s the physical interpretation"
+    },
+    {
+      "index": 371,
+      "start_time": 1191910.0,
+      "end_time": 1193050.0,
+      "text": "of these equations."
+    },
+    {
+      "index": 372,
+      "start_time": 1193050.0,
+      "end_time": 1195030.0,
+      "text": "We have those three gates."
+    },
+    {
+      "index": 373,
+      "start_time": 1195030.0,
+      "end_time": 1197670.0,
+      "text": "We size adapt our input."
+    },
+    {
+      "index": 374,
+      "start_time": 1197670.0,
+      "end_time": 1200490.0,
+      "text": "And then, the new memory is the old memory minus"
+    },
+    {
+      "index": 375,
+      "start_time": 1200490.0,
+      "end_time": 1202320.0,
+      "text": "what we want to forget plus what we want"
+    },
+    {
+      "index": 376,
+      "start_time": 1202320.0,
+      "end_time": 1204570.0,
+      "text": "to remember from the input."
+    },
+    {
+      "index": 377,
+      "start_time": 1204570.0,
+      "end_time": 1209220.0,
+      "text": "And the result is this memory cell modulo"
+    },
+    {
+      "index": 378,
+      "start_time": 1209220.0,
+      "end_time": 1213120.0,
+      "text": "what we want to actually expose as an output at that step."
+    },
+    {
+      "index": 379,
+      "start_time": 1213120.0,
+      "end_time": 1213840.0,
+      "text": "OK?"
+    },
+    {
+      "index": 380,
+      "start_time": 1213840.0,
+      "end_time": 1218280.0,
+      "text": "And now, this HT will actually become part of the new state,"
+    },
+    {
+      "index": 381,
+      "start_time": 1218280.0,
+      "end_time": 1221790.0,
+      "text": "and also drive the softmax layer if we"
+    },
+    {
+      "index": 382,
+      "start_time": 1221790.0,
+      "end_time": 1224490.0,
+      "text": "add a softmax layer, which is represented here"
+    },
+    {
+      "index": 383,
+      "start_time": 1224490.0,
+      "end_time": 1226410.0,
+      "text": "by this yellow circle."
+    },
+    {
+      "index": 384,
+      "start_time": 1226410.0,
+      "end_time": 1231990.0,
+      "text": "We usually represent the softmax layer as external to a cell."
+    },
+    {
+      "index": 385,
+      "start_time": 1231990.0,
+      "end_time": 1234630.0,
+      "text": "So this is called an LSTM."
+    },
+    {
+      "index": 386,
+      "start_time": 1234630.0,
+      "end_time": 1236910.0,
+      "text": "And this was invented specifically"
+    },
+    {
+      "index": 387,
+      "start_time": 1236910.0,
+      "end_time": 1239490.0,
+      "text": "to make recurrent neural networks work"
+    },
+    {
+      "index": 388,
+      "start_time": 1239490.0,
+      "end_time": 1242520.0,
+      "text": "and to solve this depth problem that, if you"
+    },
+    {
+      "index": 389,
+      "start_time": 1242520.0,
+      "end_time": 1245100.0,
+      "text": "are unrolling over a large sequence,"
+    },
+    {
+      "index": 390,
+      "start_time": 1245100.0,
+      "end_time": 1247330.0,
+      "text": "they tended not to converge."
+    },
+    {
+      "index": 391,
+      "start_time": 1247330.0,
+      "end_time": 1249870.0,
+      "text": "You will have to believe me on the mathematics with this."
+    },
+    {
+      "index": 392,
+      "start_time": 1249870.0,
+      "end_time": 1251970.0,
+      "text": "They converge."
+    },
+    {
+      "index": 393,
+      "start_time": 1251970.0,
+      "end_time": 1253620.0,
+      "text": "But you will have to--"
+    },
+    {
+      "index": 394,
+      "start_time": 1253620.0,
+      "end_time": 1259260.0,
+      "text": "I&#39;m sure someone noticed that this choice of equations"
+    },
+    {
+      "index": 395,
+      "start_time": 1259260.0,
+      "end_time": 1263300.0,
+      "text": "and this choice of arrows was somehow arbitrary."
+    },
+    {
+      "index": 396,
+      "start_time": 1263300.0,
+      "end_time": 1266190.0,
+      "text": "I mean, why point them here and not there?"
+    },
+    {
+      "index": 397,
+      "start_time": 1266190.0,
+      "end_time": 1269340.0,
+      "text": "Many combinations exist."
+    },
+    {
+      "index": 398,
+      "start_time": 1269340.0,
+      "end_time": 1273090.0,
+      "text": "Lots of different variations of those R and N cells"
+    },
+    {
+      "index": 399,
+      "start_time": 1273090.0,
+      "end_time": 1274620.0,
+      "text": "have been devised."
+    },
+    {
+      "index": 400,
+      "start_time": 1274620.0,
+      "end_time": 1277470.0,
+      "text": "And someone published a paper, a recap paper,"
+    },
+    {
+      "index": 401,
+      "start_time": 1277470.0,
+      "end_time": 1279910.0,
+      "text": "where he tested all of them and found them to do"
+    },
+    {
+      "index": 402,
+      "start_time": 1279910.0,
+      "end_time": 1281130.0,
+      "text": "all exactly the same thing."
+    },
+    {
+      "index": 403,
+      "start_time": 1283660.0,
+      "end_time": 1289050.0,
+      "text": "So in the end, the one we use is called the GRU."
+    },
+    {
+      "index": 404,
+      "start_time": 1289050.0,
+      "end_time": 1290550.0,
+      "text": "And I won&#39;t go into the details."
+    },
+    {
+      "index": 405,
+      "start_time": 1290550.0,
+      "end_time": 1293610.0,
+      "text": "It&#39;s basically a cheaper LSTM."
+    },
+    {
+      "index": 406,
+      "start_time": 1293610.0,
+      "end_time": 1294870.0,
+      "text": "Here are the equations."
+    },
+    {
+      "index": 407,
+      "start_time": 1294870.0,
+      "end_time": 1295930.0,
+      "text": "Not very different."
+    },
+    {
+      "index": 408,
+      "start_time": 1295930.0,
+      "end_time": 1297180.0,
+      "text": "Same API."
+    },
+    {
+      "index": 409,
+      "start_time": 1297180.0,
+      "end_time": 1301980.0,
+      "text": "But only two gates instead of three gates."
+    },
+    {
+      "index": 410,
+      "start_time": 1301980.0,
+      "end_time": 1304320.0,
+      "text": "And each gate has weights and biases."
+    },
+    {
+      "index": 411,
+      "start_time": 1304320.0,
+      "end_time": 1307680.0,
+      "text": "So we save a part of our computational cycle"
+    },
+    {
+      "index": 412,
+      "start_time": 1307680.0,
+      "end_time": 1311580.0,
+      "text": "not computing those third weights and biases."
+    },
+    {
+      "index": 413,
+      "start_time": 1311580.0,
+      "end_time": 1313260.0,
+      "text": "OK, so we will use the GRU."
+    },
+    {
+      "index": 414,
+      "start_time": 1313260.0,
+      "end_time": 1316470.0,
+      "text": "And now, let&#39;s implement a neural network"
+    },
+    {
+      "index": 415,
+      "start_time": 1316470.0,
+      "end_time": 1319980.0,
+      "text": "that does a language model."
+    },
+    {
+      "index": 416,
+      "start_time": 1319980.0,
+      "end_time": 1325470.0,
+      "text": "So we will be training on sequences of characters."
+    },
+    {
+      "index": 417,
+      "start_time": 1325470.0,
+      "end_time": 1328830.0,
+      "text": "And when I say language model, it&#39;s actually a network"
+    },
+    {
+      "index": 418,
+      "start_time": 1328830.0,
+      "end_time": 1331650.0,
+      "text": "that we will use to predict--"
+    },
+    {
+      "index": 419,
+      "start_time": 1331650.0,
+      "end_time": 1334530.0,
+      "text": "we will train it to predict what the next character is."
+    },
+    {
+      "index": 420,
+      "start_time": 1334530.0,
+      "end_time": 1339240.0,
+      "text": "Like here, St. Joh, I will teach it"
+    },
+    {
+      "index": 421,
+      "start_time": 1339240.0,
+      "end_time": 1342960.0,
+      "text": "to produce the same sequence shifted by one."
+    },
+    {
+      "index": 422,
+      "start_time": 1342960.0,
+      "end_time": 1345990.0,
+      "text": "So actually, I will teach it to understand"
+    },
+    {
+      "index": 423,
+      "start_time": 1345990.0,
+      "end_time": 1348930.0,
+      "text": "that the next character should be an &quot;n&quot; because this"
+    },
+    {
+      "index": 424,
+      "start_time": 1348930.0,
+      "end_time": 1351240.0,
+      "text": "is St. John."
+    },
+    {
+      "index": 425,
+      "start_time": 1351240.0,
+      "end_time": 1352230.0,
+      "text": "So how do we do that?"
+    },
+    {
+      "index": 426,
+      "start_time": 1354800.0,
+      "end_time": 1360450.0,
+      "text": "In TensorFlow, now I&#39;m using a higher level API of TensorFlow"
+    },
+    {
+      "index": 427,
+      "start_time": 1360450.0,
+      "end_time": 1363600.0,
+      "text": "than what I had been using yesterday."
+    },
+    {
+      "index": 428,
+      "start_time": 1363600.0,
+      "end_time": 1365760.0,
+      "text": "I just call GRUCell."
+    },
+    {
+      "index": 429,
+      "start_time": 1365760.0,
+      "end_time": 1367800.0,
+      "text": "That creates a GRU cell."
+    },
+    {
+      "index": 430,
+      "start_time": 1367800.0,
+      "end_time": 1371010.0,
+      "text": "And I call this higher level, because you&#39;ve"
+    },
+    {
+      "index": 431,
+      "start_time": 1371010.0,
+      "end_time": 1374010.0,
+      "text": "seen this GRU cell has actually a couple of neural network"
+    },
+    {
+      "index": 432,
+      "start_time": 1374010.0,
+      "end_time": 1375420.0,
+      "text": "layers inside."
+    },
+    {
+      "index": 433,
+      "start_time": 1375420.0,
+      "end_time": 1376290.0,
+      "text": "It has two gates."
+    },
+    {
+      "index": 434,
+      "start_time": 1376290.0,
+      "end_time": 1377790.0,
+      "text": "That&#39;s at least two layers."
+    },
+    {
+      "index": 435,
+      "start_time": 1377790.0,
+      "end_time": 1380850.0,
+      "text": "So it has a host of weights and biases"
+    },
+    {
+      "index": 436,
+      "start_time": 1380850.0,
+      "end_time": 1383460.0,
+      "text": "which are actually defined in the background when"
+    },
+    {
+      "index": 437,
+      "start_time": 1383460.0,
+      "end_time": 1384162.0,
+      "text": "I call this."
+    },
+    {
+      "index": 438,
+      "start_time": 1384160.0,
+      "end_time": 1385618.0,
+      "text": "That&#39;s why it&#39;s a higher level API."
+    },
+    {
+      "index": 439,
+      "start_time": 1385620.0,
+      "end_time": 1390990.0,
+      "text": "It does its own weights and bias declarations in the background."
+    },
+    {
+      "index": 440,
+      "start_time": 1390990.0,
+      "end_time": 1392500.0,
+      "text": "Now, I said we want to go deep."
+    },
+    {
+      "index": 441,
+      "start_time": 1392500.0,
+      "end_time": 1394710.0,
+      "text": "So let&#39;s stack this cell three high."
+    },
+    {
+      "index": 442,
+      "start_time": 1394710.0,
+      "end_time": 1398130.0,
+      "text": "That&#39;s how we do deep recurrent neural networks."
+    },
+    {
+      "index": 443,
+      "start_time": 1398130.0,
+      "end_time": 1399780.0,
+      "text": "Three is a TensorFlow call for that."
+    },
+    {
+      "index": 444,
+      "start_time": 1399780.0,
+      "end_time": 1401370.0,
+      "text": "It&#39;s called MultiRNNCell."
+    },
+    {
+      "index": 445,
+      "start_time": 1401370.0,
+      "end_time": 1402990.0,
+      "text": "Give it a cell."
+    },
+    {
+      "index": 446,
+      "start_time": 1402990.0,
+      "end_time": 1405390.0,
+      "text": "You say how many times you want to stack it."
+    },
+    {
+      "index": 447,
+      "start_time": 1405390.0,
+      "end_time": 1408150.0,
+      "text": "And that gives you another cell."
+    },
+    {
+      "index": 448,
+      "start_time": 1408150.0,
+      "end_time": 1410790.0,
+      "text": "Because we have seen already that these three stacked"
+    },
+    {
+      "index": 449,
+      "start_time": 1410790.0,
+      "end_time": 1414170.0,
+      "text": "cells actually have the same API as one cell."
+    },
+    {
+      "index": 450,
+      "start_time": 1414170.0,
+      "end_time": 1417070.0,
+      "text": "So you can use it as a new cell."
+    },
+    {
+      "index": 451,
+      "start_time": 1417070.0,
+      "end_time": 1419570.0,
+      "text": "And now, we need to unroll this."
+    },
+    {
+      "index": 452,
+      "start_time": 1419570.0,
+      "end_time": 1421725.0,
+      "text": "For that, we call in TensorFlow flow"
+    },
+    {
+      "index": 453,
+      "start_time": 1421720.0,
+      "end_time": 1426025.0,
+      "text": "this dynamic RNN function, which is a bit of magic."
+    },
+    {
+      "index": 454,
+      "start_time": 1426030.0,
+      "end_time": 1429460.0,
+      "text": "And that&#39;s what will unroll this sequence."
+    },
+    {
+      "index": 455,
+      "start_time": 1429460.0,
+      "end_time": 1431370.0,
+      "text": "So how many times?"
+    },
+    {
+      "index": 456,
+      "start_time": 1431370.0,
+      "end_time": 1433290.0,
+      "text": "You don&#39;t see it in the parameters"
+    },
+    {
+      "index": 457,
+      "start_time": 1433290.0,
+      "end_time": 1436710.0,
+      "text": "because it&#39;s actually specified in the shape of the input"
+    },
+    {
+      "index": 458,
+      "start_time": 1436710.0,
+      "end_time": 1438790.0,
+      "text": "tensor, x."
+    },
+    {
+      "index": 459,
+      "start_time": 1438790.0,
+      "end_time": 1442140.0,
+      "text": "If this input tensor has eight or let&#39;s"
+    },
+    {
+      "index": 460,
+      "start_time": 1442140.0,
+      "end_time": 1445090.0,
+      "text": "say 30 characters in it, it will be"
+    },
+    {
+      "index": 461,
+      "start_time": 1445090.0,
+      "end_time": 1448680.0,
+      "text": "unrolled over a sequence of 30 characters."
+    },
+    {
+      "index": 462,
+      "start_time": 1448680.0,
+      "end_time": 1451340.0,
+      "text": "And actually, the little part of magic,"
+    },
+    {
+      "index": 463,
+      "start_time": 1451340.0,
+      "end_time": 1454710.0,
+      "text": "really it&#39;s magic, we will not be using it here,"
+    },
+    {
+      "index": 464,
+      "start_time": 1454710.0,
+      "end_time": 1460260.0,
+      "text": "but this dynamic RNN, what it can do also,"
+    },
+    {
+      "index": 465,
+      "start_time": 1460260.0,
+      "end_time": 1463840.0,
+      "text": "remember that we will be training this on batches,"
+    },
+    {
+      "index": 466,
+      "start_time": 1463840.0,
+      "end_time": 1464340.0,
+      "text": "as always."
+    },
+    {
+      "index": 467,
+      "start_time": 1464340.0,
+      "end_time": 1466320.0,
+      "text": "We always train on batches."
+    },
+    {
+      "index": 468,
+      "start_time": 1466320.0,
+      "end_time": 1468840.0,
+      "text": "So in this case, all my batches will"
+    },
+    {
+      "index": 469,
+      "start_time": 1468840.0,
+      "end_time": 1471354.0,
+      "text": "be sequences of the same size."
+    },
+    {
+      "index": 470,
+      "start_time": 1471350.0,
+      "end_time": 1472516.0,
+      "text": "That&#39;s the case in my model."
+    },
+    {
+      "index": 471,
+      "start_time": 1472520.0,
+      "end_time": 1476550.0,
+      "text": "In other models, I might not have"
+    },
+    {
+      "index": 472,
+      "start_time": 1476550.0,
+      "end_time": 1479730.0,
+      "text": "sequences of the same size."
+    },
+    {
+      "index": 473,
+      "start_time": 1479730.0,
+      "end_time": 1481950.0,
+      "text": "Dynamic RNN can handle that."
+    },
+    {
+      "index": 474,
+      "start_time": 1481950.0,
+      "end_time": 1484080.0,
+      "text": "If you pass it a batch of sequences,"
+    },
+    {
+      "index": 475,
+      "start_time": 1484080.0,
+      "end_time": 1486330.0,
+      "text": "even if they are not of the same size,"
+    },
+    {
+      "index": 476,
+      "start_time": 1486330.0,
+      "end_time": 1489750.0,
+      "text": "alongside that you pass the actual sizes,"
+    },
+    {
+      "index": 477,
+      "start_time": 1489750.0,
+      "end_time": 1493620.0,
+      "text": "and it will, for each sentence in the batch,"
+    },
+    {
+      "index": 478,
+      "start_time": 1493620.0,
+      "end_time": 1497000.0,
+      "text": "unroll your network the correct number of times."
+    },
+    {
+      "index": 479,
+      "start_time": 1497000.0,
+      "end_time": 1501540.0,
+      "text": "And then, also pass the output from the correct stage."
+    },
+    {
+      "index": 480,
+      "start_time": 1501540.0,
+      "end_time": 1502830.0,
+      "text": "It&#39;s super helpful."
+    },
+    {
+      "index": 481,
+      "start_time": 1502830.0,
+      "end_time": 1506329.0,
+      "text": "Will not be using it here because all of our sequences"
+    },
+    {
+      "index": 482,
+      "start_time": 1506330.0,
+      "end_time": 1507121.0,
+      "text": "have the same size."
+    },
+    {
+      "index": 483,
+      "start_time": 1507120.0,
+      "end_time": 1509970.0,
+      "text": "But that is super helpful."
+    },
+    {
+      "index": 484,
+      "start_time": 1509970.0,
+      "end_time": 1518580.0,
+      "text": "All right, so now, we need to implement our softmax layer"
+    },
+    {
+      "index": 485,
+      "start_time": 1518580.0,
+      "end_time": 1525470.0,
+      "text": "from those H double second 0 to H second 8."
+    },
+    {
+      "index": 486,
+      "start_time": 1525470.0,
+      "end_time": 1527220.0,
+      "text": "Well, basically the outputs at the bottom."
+    },
+    {
+      "index": 487,
+      "start_time": 1531300.0,
+      "end_time": 1534510.0,
+      "text": "We know how to do a softmax layer, OK?"
+    },
+    {
+      "index": 488,
+      "start_time": 1534510.0,
+      "end_time": 1536350.0,
+      "text": "But here, since we have unrolled,"
+    },
+    {
+      "index": 489,
+      "start_time": 1536350.0,
+      "end_time": 1540300.0,
+      "text": "remember each stack here is a copy of the previous one."
+    },
+    {
+      "index": 490,
+      "start_time": 1540300.0,
+      "end_time": 1541800.0,
+      "text": "We are sharing the weights."
+    },
+    {
+      "index": 491,
+      "start_time": 1541800.0,
+      "end_time": 1546280.0,
+      "text": "So on the softmax side, we have to share the weights, as well."
+    },
+    {
+      "index": 492,
+      "start_time": 1546280.0,
+      "end_time": 1549180.0,
+      "text": "So we could do this using the TensorFlow APIs."
+    },
+    {
+      "index": 493,
+      "start_time": 1549180.0,
+      "end_time": 1552900.0,
+      "text": "You know, define one softmax layer."
+    },
+    {
+      "index": 494,
+      "start_time": 1552900.0,
+      "end_time": 1555030.0,
+      "text": "And then, for the next one, call an API"
+    },
+    {
+      "index": 495,
+      "start_time": 1555030.0,
+      "end_time": 1557160.0,
+      "text": "that retrieves the weights of the previous one"
+    },
+    {
+      "index": 496,
+      "start_time": 1557160.0,
+      "end_time": 1559540.0,
+      "text": "and reuses them."
+    },
+    {
+      "index": 497,
+      "start_time": 1559540.0,
+      "end_time": 1561360.0,
+      "text": "That&#39;s too complicated here."
+    },
+    {
+      "index": 498,
+      "start_time": 1561360.0,
+      "end_time": 1565240.0,
+      "text": "Actually, there is a little hack that you can use."
+    },
+    {
+      "index": 499,
+      "start_time": 1565240.0,
+      "end_time": 1569670.0,
+      "text": "Remember, we are always training on batches, OK?"
+    },
+    {
+      "index": 500,
+      "start_time": 1569670.0,
+      "end_time": 1572870.0,
+      "text": "So this will be taking a batch of sequences,"
+    },
+    {
+      "index": 501,
+      "start_time": 1572870.0,
+      "end_time": 1576000.0,
+      "text": "outputting a batch of sequences."
+    },
+    {
+      "index": 502,
+      "start_time": 1576000.0,
+      "end_time": 1578790.0,
+      "text": "Each sequence is a sequence of characters."
+    },
+    {
+      "index": 503,
+      "start_time": 1578790.0,
+      "end_time": 1581940.0,
+      "text": "So what is the difference between having,"
+    },
+    {
+      "index": 504,
+      "start_time": 1581940.0,
+      "end_time": 1589450.0,
+      "text": "let&#39;s say, 8 softmax cells that each process a batch of 100"
+    },
+    {
+      "index": 505,
+      "start_time": 1589450.0,
+      "end_time": 1594550.0,
+      "text": "characters, or having just one that process 800 of them?"
+    },
+    {
+      "index": 506,
+      "start_time": 1594550.0,
+      "end_time": 1596260.0,
+      "text": "That&#39;s the same thing."
+    },
+    {
+      "index": 507,
+      "start_time": 1596260.0,
+      "end_time": 1597570.0,
+      "text": "Let&#39;s just do one."
+    },
+    {
+      "index": 508,
+      "start_time": 1597570.0,
+      "end_time": 1600900.0,
+      "text": "And we will put all of those outputs in the same bag"
+    },
+    {
+      "index": 509,
+      "start_time": 1600900.0,
+      "end_time": 1602515.0,
+      "text": "and just use that one cell."
+    },
+    {
+      "index": 510,
+      "start_time": 1602520.0,
+      "end_time": 1604645.0,
+      "text": "Anyway, we were supposed to be sharing the weights,"
+    },
+    {
+      "index": 511,
+      "start_time": 1604640.0,
+      "end_time": 1608310.0,
+      "text": "so defining just one cell is a very good way of doing that."
+    },
+    {
+      "index": 512,
+      "start_time": 1608310.0,
+      "end_time": 1612390.0,
+      "text": "So that&#39;s what I do with my reshape operation there."
+    },
+    {
+      "index": 513,
+      "start_time": 1612390.0,
+      "end_time": 1615180.0,
+      "text": "I take all of those outputs."
+    },
+    {
+      "index": 514,
+      "start_time": 1615180.0,
+      "end_time": 1617790.0,
+      "text": "and you have to remember that there is a batch of outputs"
+    },
+    {
+      "index": 515,
+      "start_time": 1617790.0,
+      "end_time": 1619140.0,
+      "text": "on each of those arrows."
+    },
+    {
+      "index": 516,
+      "start_time": 1619140.0,
+      "end_time": 1620970.0,
+      "text": "And I put them in the same bag."
+    },
+    {
+      "index": 517,
+      "start_time": 1620970.0,
+      "end_time": 1624630.0,
+      "text": "Feed them through just one softmax layer."
+    },
+    {
+      "index": 518,
+      "start_time": 1624630.0,
+      "end_time": 1629140.0,
+      "text": "And then, I will reshape them back into the correct shape"
+    },
+    {
+      "index": 519,
+      "start_time": 1629140.0,
+      "end_time": 1631410.0,
+      "text": "to finish."
+    },
+    {
+      "index": 520,
+      "start_time": 1631410.0,
+      "end_time": 1635580.0,
+      "text": "Again, using higher level APIs in TensorFlow,"
+    },
+    {
+      "index": 521,
+      "start_time": 1635580.0,
+      "end_time": 1640260.0,
+      "text": "so when I call linear, that just does the weighted sums."
+    },
+    {
+      "index": 522,
+      "start_time": 1640260.0,
+      "end_time": 1643580.0,
+      "text": "One layer, it computes simply the weighted sums."
+    },
+    {
+      "index": 523,
+      "start_time": 1643580.0,
+      "end_time": 1645660.0,
+      "text": "No activation function."
+    },
+    {
+      "index": 524,
+      "start_time": 1645660.0,
+      "end_time": 1646940.0,
+      "text": "And then, I called softmax."
+    },
+    {
+      "index": 525,
+      "start_time": 1646940.0,
+      "end_time": 1651500.0,
+      "text": "And that applies the softmax activation function."
+    },
+    {
+      "index": 526,
+      "start_time": 1651500.0,
+      "end_time": 1655550.0,
+      "text": "And linear, again, defines the weights and biases"
+    },
+    {
+      "index": 527,
+      "start_time": 1655550.0,
+      "end_time": 1656720.0,
+      "text": "in the background."
+    },
+    {
+      "index": 528,
+      "start_time": 1656720.0,
+      "end_time": 1660780.0,
+      "text": "That&#39;s why I call it a higher level function."
+    },
+    {
+      "index": 529,
+      "start_time": 1660780.0,
+      "end_time": 1663470.0,
+      "text": "And now, I&#39;m ready to compute my loss function"
+    },
+    {
+      "index": 530,
+      "start_time": 1663470.0,
+      "end_time": 1666035.0,
+      "text": "and derive it and actually train the network."
+    },
+    {
+      "index": 531,
+      "start_time": 1669890.0,
+      "end_time": 1674590.0,
+      "text": "It&#39;s just as complicated to understand how"
+    },
+    {
+      "index": 532,
+      "start_time": 1674590.0,
+      "end_time": 1678206.0,
+      "text": "recurrent neural networks work."
+    },
+    {
+      "index": 533,
+      "start_time": 1678210.0,
+      "end_time": 1681594.0,
+      "text": "And it&#39;s just as complicated to actually feed"
+    },
+    {
+      "index": 534,
+      "start_time": 1681590.0,
+      "end_time": 1684240.0,
+      "text": "them data correctly."
+    },
+    {
+      "index": 535,
+      "start_time": 1684240.0,
+      "end_time": 1685760.0,
+      "text": "You see lots of arrows."
+    },
+    {
+      "index": 536,
+      "start_time": 1685760.0,
+      "end_time": 1689450.0,
+      "text": "So we will have to do quite a bit of plumbing"
+    },
+    {
+      "index": 537,
+      "start_time": 1689450.0,
+      "end_time": 1691560.0,
+      "text": "to make this happen."
+    },
+    {
+      "index": 538,
+      "start_time": 1691560.0,
+      "end_time": 1695720.0,
+      "text": "Let&#39;s try to get our inputs and outputs right, OK?"
+    },
+    {
+      "index": 539,
+      "start_time": 1695720.0,
+      "end_time": 1698600.0,
+      "text": "So we will be inputting sequences of characters"
+    },
+    {
+      "index": 540,
+      "start_time": 1698600.0,
+      "end_time": 1699830.0,
+      "text": "by batches."
+    },
+    {
+      "index": 541,
+      "start_time": 1699830.0,
+      "end_time": 1704240.0,
+      "text": "So my inputs are a batch of sequences."
+    },
+    {
+      "index": 542,
+      "start_time": 1704240.0,
+      "end_time": 1708170.0,
+      "text": "The sequence length that I have chosen is 30."
+    },
+    {
+      "index": 543,
+      "start_time": 1708170.0,
+      "end_time": 1711120.0,
+      "text": "I will be unrolling over 30 characters."
+    },
+    {
+      "index": 544,
+      "start_time": 1711120.0,
+      "end_time": 1714200.0,
+      "text": "Usually, on the diagrams, I only represent 8 of them"
+    },
+    {
+      "index": 545,
+      "start_time": 1714200.0,
+      "end_time": 1717070.0,
+      "text": "because 30 would not fit on my slide."
+    },
+    {
+      "index": 546,
+      "start_time": 1717070.0,
+      "end_time": 1719810.0,
+      "text": "But in the code, it was 30."
+    },
+    {
+      "index": 547,
+      "start_time": 1719810.0,
+      "end_time": 1724430.0,
+      "text": "Now, I need to one-hot encode them."
+    },
+    {
+      "index": 548,
+      "start_time": 1724430.0,
+      "end_time": 1726230.0,
+      "text": "So I&#39;m adding a new size."
+    },
+    {
+      "index": 549,
+      "start_time": 1726230.0,
+      "end_time": 1729560.0,
+      "text": "Each character becomes a vector of 100 components"
+    },
+    {
+      "index": 550,
+      "start_time": 1729560.0,
+      "end_time": 1732530.0,
+      "text": "because I am working with an alphabet of 100"
+    },
+    {
+      "index": 551,
+      "start_time": 1732530.0,
+      "end_time": 1734212.0,
+      "text": "possible characters."
+    },
+    {
+      "index": 552,
+      "start_time": 1734210.0,
+      "end_time": 1735918.0,
+      "text": "So now, it&#39;s batch size, sequence length,"
+    },
+    {
+      "index": 553,
+      "start_time": 1735920.0,
+      "end_time": 1736580.0,
+      "text": "and alpha size."
+    },
+    {
+      "index": 554,
+      "start_time": 1736580.0,
+      "end_time": 1737840.0,
+      "text": "Those are my actual inputs."
+    },
+    {
+      "index": 555,
+      "start_time": 1740750.0,
+      "end_time": 1744360.0,
+      "text": "My state, again, I have a batch of states."
+    },
+    {
+      "index": 556,
+      "start_time": 1744360.0,
+      "end_time": 1746380.0,
+      "text": "Since I&#39;m feeding in a batch of inputs,"
+    },
+    {
+      "index": 557,
+      "start_time": 1746380.0,
+      "end_time": 1749060.0,
+      "text": "I will produce a batch of output states."
+    },
+    {
+      "index": 558,
+      "start_time": 1749060.0,
+      "end_time": 1752070.0,
+      "text": "And the states, each of those state vectors"
+    },
+    {
+      "index": 559,
+      "start_time": 1752070.0,
+      "end_time": 1755510.0,
+      "text": "is, of course, of size n, cell size, whatever"
+    },
+    {
+      "index": 560,
+      "start_time": 1755510.0,
+      "end_time": 1757730.0,
+      "text": "cell size I have chosen to use."
+    },
+    {
+      "index": 561,
+      "start_time": 1757730.0,
+      "end_time": 1760970.0,
+      "text": "Remember, each cell has this one configuration parameter,"
+    },
+    {
+      "index": 562,
+      "start_time": 1760970.0,
+      "end_time": 1763520.0,
+      "text": "which is its internal size."
+    },
+    {
+      "index": 563,
+      "start_time": 1763520.0,
+      "end_time": 1767360.0,
+      "text": "But since I have stacked those cells three high,"
+    },
+    {
+      "index": 564,
+      "start_time": 1767360.0,
+      "end_time": 1771290.0,
+      "text": "it will actually-- the actual output state here will"
+    },
+    {
+      "index": 565,
+      "start_time": 1771290.0,
+      "end_time": 1773360.0,
+      "text": "be three times the cell size."
+    },
+    {
+      "index": 566,
+      "start_time": 1776180.0,
+      "end_time": 1780690.0,
+      "text": "OK, we are ready to write this model."
+    },
+    {
+      "index": 567,
+      "start_time": 1780690.0,
+      "end_time": 1784280.0,
+      "text": "So I define a placeholder for my input sequences,"
+    },
+    {
+      "index": 568,
+      "start_time": 1784280.0,
+      "end_time": 1788020.0,
+      "text": "a batch of sequences of size, sequence, length."
+    },
+    {
+      "index": 569,
+      "start_time": 1788020.0,
+      "end_time": 1791210.0,
+      "text": "I one-hot encode them, which is why"
+    },
+    {
+      "index": 570,
+      "start_time": 1791210.0,
+      "end_time": 1794840.0,
+      "text": "I&#39;m adding a new size to this tensor, which"
+    },
+    {
+      "index": 571,
+      "start_time": 1794840.0,
+      "end_time": 1796690.0,
+      "text": "is the size of my alphabet."
+    },
+    {
+      "index": 572,
+      "start_time": 1796690.0,
+      "end_time": 1800000.0,
+      "text": "Again, each character becomes a vector of 100 components."
+    },
+    {
+      "index": 573,
+      "start_time": 1800000.0,
+      "end_time": 1804680.0,
+      "text": "To be really precise, my alpha size is 98, so 98 components."
+    },
+    {
+      "index": 574,
+      "start_time": 1804680.0,
+      "end_time": 1808310.0,
+      "text": "I&#39;m working with an alphabet of 98 characters here."
+    },
+    {
+      "index": 575,
+      "start_time": 1808310.0,
+      "end_time": 1812306.0,
+      "text": "I need to define a placeholder for my correct answers."
+    },
+    {
+      "index": 576,
+      "start_time": 1812310.0,
+      "end_time": 1813684.0,
+      "text": "And actually, the correct answers"
+    },
+    {
+      "index": 577,
+      "start_time": 1813680.0,
+      "end_time": 1815390.0,
+      "text": "are very easy to obtain here."
+    },
+    {
+      "index": 578,
+      "start_time": 1815390.0,
+      "end_time": 1818690.0,
+      "text": "I&#39;m just teaching it to output the same sequence shifted"
+    },
+    {
+      "index": 579,
+      "start_time": 1818690.0,
+      "end_time": 1819440.0,
+      "text": "by one."
+    },
+    {
+      "index": 580,
+      "start_time": 1819440.0,
+      "end_time": 1823970.0,
+      "text": "So basically, to predict what the last character will be."
+    },
+    {
+      "index": 581,
+      "start_time": 1823970.0,
+      "end_time": 1826280.0,
+      "text": "So again, the correct answers will"
+    },
+    {
+      "index": 582,
+      "start_time": 1826280.0,
+      "end_time": 1829280.0,
+      "text": "be a batch of sequences of 30 characters, which"
+    },
+    {
+      "index": 583,
+      "start_time": 1829280.0,
+      "end_time": 1831440.0,
+      "text": "I one-hot encode."
+    },
+    {
+      "index": 584,
+      "start_time": 1831440.0,
+      "end_time": 1835520.0,
+      "text": "I need a placeholder also for my input state."
+    },
+    {
+      "index": 585,
+      "start_time": 1835520.0,
+      "end_time": 1838630.0,
+      "text": "And we have seen that the batch of input states,"
+    },
+    {
+      "index": 586,
+      "start_time": 1838630.0,
+      "end_time": 1841310.0,
+      "text": "we have seen that the input state is made of three"
+    },
+    {
+      "index": 587,
+      "start_time": 1841310.0,
+      "end_time": 1843170.0,
+      "text": "of those internal vectors."
+    },
+    {
+      "index": 588,
+      "start_time": 1843170.0,
+      "end_time": 1847510.0,
+      "text": "So that&#39;s three times cell size."
+    },
+    {
+      "index": 589,
+      "start_time": 1847510.0,
+      "end_time": 1851450.0,
+      "text": "And now, I&#39;m ready to write my model."
+    },
+    {
+      "index": 590,
+      "start_time": 1851450.0,
+      "end_time": 1854390.0,
+      "text": "So the model is what was here, OK?"
+    },
+    {
+      "index": 591,
+      "start_time": 1854390.0,
+      "end_time": 1856920.0,
+      "text": "That&#39;s the model."
+    },
+    {
+      "index": 592,
+      "start_time": 1856920.0,
+      "end_time": 1863900.0,
+      "text": "This model, with this little trick that we have seen before,"
+    },
+    {
+      "index": 593,
+      "start_time": 1863900.0,
+      "end_time": 1869390.0,
+      "text": "this model at the output of its softmax layer"
+    },
+    {
+      "index": 594,
+      "start_time": 1869390.0,
+      "end_time": 1874370.0,
+      "text": "actually produces an output that is batch size multiplied"
+    },
+    {
+      "index": 595,
+      "start_time": 1874370.0,
+      "end_time": 1875270.0,
+      "text": "by sequence length."
+    },
+    {
+      "index": 596,
+      "start_time": 1875270.0,
+      "end_time": 1878060.0,
+      "text": "You remember, we put all the characters from the batches"
+    },
+    {
+      "index": 597,
+      "start_time": 1878060.0,
+      "end_time": 1880420.0,
+      "text": "and from the different stages of the unrolled sequence"
+    },
+    {
+      "index": 598,
+      "start_time": 1880420.0,
+      "end_time": 1882580.0,
+      "text": "in the same bag."
+    },
+    {
+      "index": 599,
+      "start_time": 1882580.0,
+      "end_time": 1888530.0,
+      "text": "And now, to determine characters from those probabilities,"
+    },
+    {
+      "index": 600,
+      "start_time": 1888530.0,
+      "end_time": 1890180.0,
+      "text": "I use argmax."
+    },
+    {
+      "index": 601,
+      "start_time": 1890180.0,
+      "end_time": 1891080.0,
+      "text": "Why?"
+    },
+    {
+      "index": 602,
+      "start_time": 1891080.0,
+      "end_time": 1894110.0,
+      "text": "Because each of those vectors is 100 components"
+    },
+    {
+      "index": 603,
+      "start_time": 1894110.0,
+      "end_time": 1895720.0,
+      "text": "with probabilities."
+    },
+    {
+      "index": 604,
+      "start_time": 1895720.0,
+      "end_time": 1900740.0,
+      "text": "Argmax is a function that gives me the index of the biggest"
+    },
+    {
+      "index": 605,
+      "start_time": 1900740.0,
+      "end_time": 1903180.0,
+      "text": "number in this vector."
+    },
+    {
+      "index": 606,
+      "start_time": 1903180.0,
+      "end_time": 1905240.0,
+      "text": "So the index in this victory is actually"
+    },
+    {
+      "index": 607,
+      "start_time": 1905240.0,
+      "end_time": 1910460.0,
+      "text": "the ASCII code of the character that has been predicted."
+    },
+    {
+      "index": 608,
+      "start_time": 1910460.0,
+      "end_time": 1913520.0,
+      "text": "So these are my predictions now in ASCII"
+    },
+    {
+      "index": 609,
+      "start_time": 1913520.0,
+      "end_time": 1915770.0,
+      "text": "encoding in characters."
+    },
+    {
+      "index": 610,
+      "start_time": 1915770.0,
+      "end_time": 1918760.0,
+      "text": "And I just need to reshape them back to have, again,"
+    },
+    {
+      "index": 611,
+      "start_time": 1918760.0,
+      "end_time": 1923290.0,
+      "text": "a batch of sequences of 30 predicted characters."
+    },
+    {
+      "index": 612,
+      "start_time": 1923290.0,
+      "end_time": 1930140.0,
+      "text": "And now, I&#39;m ready to input-- to give my loss to an optimizer"
+    },
+    {
+      "index": 613,
+      "start_time": 1930140.0,
+      "end_time": 1936440.0,
+      "text": "and ask TensorFlow to optimize to actually train my network."
+    },
+    {
+      "index": 614,
+      "start_time": 1936440.0,
+      "end_time": 1940060.0,
+      "text": "So this is the step, as yesterday, with this loss."
+    },
+    {
+      "index": 615,
+      "start_time": 1940060.0,
+      "end_time": 1941800.0,
+      "text": "TensorFlow computes a gradient."
+    },
+    {
+      "index": 616,
+      "start_time": 1941800.0,
+      "end_time": 1944300.0,
+      "text": "From this gradient, it can--"
+    },
+    {
+      "index": 617,
+      "start_time": 1944300.0,
+      "end_time": 1944800.0,
+      "text": "sorry."
+    },
+    {
+      "index": 618,
+      "start_time": 1944800.0,
+      "end_time": 1946810.0,
+      "text": "And this loss is, of course, the difference"
+    },
+    {
+      "index": 619,
+      "start_time": 1946810.0,
+      "end_time": 1950050.0,
+      "text": "between the sequence of characters that was predicted"
+    },
+    {
+      "index": 620,
+      "start_time": 1950050.0,
+      "end_time": 1954660.0,
+      "text": "and the sequence of characters that I wanted to predict."
+    },
+    {
+      "index": 621,
+      "start_time": 1954660.0,
+      "end_time": 1957430.0,
+      "text": "This difference becomes a loss."
+    },
+    {
+      "index": 622,
+      "start_time": 1957430.0,
+      "end_time": 1960270.0,
+      "text": "That loss is derived, becomes a gradient."
+    },
+    {
+      "index": 623,
+      "start_time": 1960270.0,
+      "end_time": 1962760.0,
+      "text": "We take a small step along this gradient,"
+    },
+    {
+      "index": 624,
+      "start_time": 1962760.0,
+      "end_time": 1965070.0,
+      "text": "which is actually in the space of weights and biases."
+    },
+    {
+      "index": 625,
+      "start_time": 1965070.0,
+      "end_time": 1968700.0,
+      "text": "So taking a small step means we modify slightly our weights"
+    },
+    {
+      "index": 626,
+      "start_time": 1968700.0,
+      "end_time": 1971370.0,
+      "text": "and biases and continue."
+    },
+    {
+      "index": 627,
+      "start_time": 1971370.0,
+      "end_time": 1974040.0,
+      "text": "That&#39;s the training."
+    },
+    {
+      "index": 628,
+      "start_time": 1974040.0,
+      "end_time": 1976980.0,
+      "text": "One last little gotcha."
+    },
+    {
+      "index": 629,
+      "start_time": 1976980.0,
+      "end_time": 1980610.0,
+      "text": "So we have to take our input text"
+    },
+    {
+      "index": 630,
+      "start_time": 1980610.0,
+      "end_time": 1985170.0,
+      "text": "and actually cut it up in those sequences of 30 characters."
+    },
+    {
+      "index": 631,
+      "start_time": 1985170.0,
+      "end_time": 1987789.0,
+      "text": "So initially, I thought, well, that&#39;s easy, you know?"
+    },
+    {
+      "index": 632,
+      "start_time": 1987790.0,
+      "end_time": 1988831.0,
+      "text": "You take a piece of text."
+    },
+    {
+      "index": 633,
+      "start_time": 1988830.0,
+      "end_time": 1990829.0,
+      "text": "How do you cut it up in sequences of characters?"
+    },
+    {
+      "index": 634,
+      "start_time": 1990830.0,
+      "end_time": 1992881.0,
+      "text": "Well, you cut, and cut, and cut, and cut."
+    },
+    {
+      "index": 635,
+      "start_time": 1992880.0,
+      "end_time": 1995280.0,
+      "text": "And then, if you need a batch of them,"
+    },
+    {
+      "index": 636,
+      "start_time": 1995280.0,
+      "end_time": 1998280.0,
+      "text": "you take the first 100 sequences you have."
+    },
+    {
+      "index": 637,
+      "start_time": 1998280.0,
+      "end_time": 2000590.0,
+      "text": "And you put that in a batch."
+    },
+    {
+      "index": 638,
+      "start_time": 2000590.0,
+      "end_time": 2002310.0,
+      "text": "That did not work."
+    },
+    {
+      "index": 639,
+      "start_time": 2002310.0,
+      "end_time": 2003740.0,
+      "text": "Why?"
+    },
+    {
+      "index": 640,
+      "start_time": 2003740.0,
+      "end_time": 2004550.0,
+      "text": "Let&#39;s see here."
+    },
+    {
+      "index": 641,
+      "start_time": 2004550.0,
+      "end_time": 2005750.0,
+      "text": "That&#39;s my first batch."
+    },
+    {
+      "index": 642,
+      "start_time": 2005750.0,
+      "end_time": 2007800.0,
+      "text": "Let&#39;s see the first sequence in the batch?"
+    },
+    {
+      "index": 643,
+      "start_time": 2007800.0,
+      "end_time": 2010010.0,
+      "text": "The quick-- you know what that is going to be."
+    },
+    {
+      "index": 644,
+      "start_time": 2010010.0,
+      "end_time": 2012380.0,
+      "text": "The quick brown fox something."
+    },
+    {
+      "index": 645,
+      "start_time": 2012380.0,
+      "end_time": 2017480.0,
+      "text": "Well, when my neural network processes the quick,"
+    },
+    {
+      "index": 646,
+      "start_time": 2017480.0,
+      "end_time": 2021230.0,
+      "text": "it also outputs an output state."
+    },
+    {
+      "index": 647,
+      "start_time": 2021230.0,
+      "end_time": 2024890.0,
+      "text": "And in the next iteration, that output state"
+    },
+    {
+      "index": 648,
+      "start_time": 2024890.0,
+      "end_time": 2028820.0,
+      "text": "will become the input state for the next sequence."
+    },
+    {
+      "index": 649,
+      "start_time": 2028820.0,
+      "end_time": 2032420.0,
+      "text": "If I want this to be correct, that input state"
+    },
+    {
+      "index": 650,
+      "start_time": 2032420.0,
+      "end_time": 2034880.0,
+      "text": "must correspond to the continuation"
+    },
+    {
+      "index": 651,
+      "start_time": 2034880.0,
+      "end_time": 2037970.0,
+      "text": "of the quick brown fox, and so on,"
+    },
+    {
+      "index": 652,
+      "start_time": 2037970.0,
+      "end_time": 2040550.0,
+      "text": "which means that the sentence has"
+    },
+    {
+      "index": 653,
+      "start_time": 2040550.0,
+      "end_time": 2044330.0,
+      "text": "to continue over all of the first slots of all"
+    },
+    {
+      "index": 654,
+      "start_time": 2044330.0,
+      "end_time": 2046270.0,
+      "text": "of my batches."
+    },
+    {
+      "index": 655,
+      "start_time": 2046270.0,
+      "end_time": 2052070.0,
+      "text": "It&#39;s a not completely trivial way of batching here."
+    },
+    {
+      "index": 656,
+      "start_time": 2052070.0000000002,
+      "end_time": 2054980.0000000002,
+      "text": "You cut up your text in batches, in sequences."
+    },
+    {
+      "index": 657,
+      "start_time": 2054980.0,
+      "end_time": 2056690.0,
+      "text": "But the way to batch them together,"
+    },
+    {
+      "index": 658,
+      "start_time": 2056690.0,
+      "end_time": 2060440.0,
+      "text": "since you have to pass the correct state at each stage,"
+    },
+    {
+      "index": 659,
+      "start_time": 2060440.0,
+      "end_time": 2062750.0,
+      "text": "is that the beginning of the text"
+    },
+    {
+      "index": 660,
+      "start_time": 2062750.0,
+      "end_time": 2066469.0,
+      "text": "has to be split across the first item in batches."
+    },
+    {
+      "index": 661,
+      "start_time": 2066469.9999999998,
+      "end_time": 2070699.9999999998,
+      "text": "And then, from some point far, far, far later in the text,"
+    },
+    {
+      "index": 662,
+      "start_time": 2070699.9999999998,
+      "end_time": 2074060.9999999998,
+      "text": "you can start filling the second line of the batches."
+    },
+    {
+      "index": 663,
+      "start_time": 2076850.0,
+      "end_time": 2079310.0,
+      "text": "It&#39;s just plumbing."
+    },
+    {
+      "index": 664,
+      "start_time": 2079310.0,
+      "end_time": 2086120.0,
+      "text": "I wrote for you the five lines of code that does this."
+    },
+    {
+      "index": 665,
+      "start_time": 2086120.0,
+      "end_time": 2086870.0,
+      "text": "It&#39;s five lines."
+    },
+    {
+      "index": 666,
+      "start_time": 2086870.0,
+      "end_time": 2091130.0,
+      "text": "I spent four hours doing it, including tests."
+    },
+    {
+      "index": 667,
+      "start_time": 2091130.0,
+      "end_time": 2093020.0,
+      "text": "I don&#39;t do arithmetic."
+    },
+    {
+      "index": 668,
+      "start_time": 2093020.0,
+      "end_time": 2095659.0,
+      "text": "It&#39;s full of modulos and divides."
+    },
+    {
+      "index": 669,
+      "start_time": 2095659.9999999998,
+      "end_time": 2098991.0,
+      "text": "And I wrote unit tests and hacked it"
+    },
+    {
+      "index": 670,
+      "start_time": 2098990.0,
+      "end_time": 2102374.0,
+      "text": "until the unit tests passed."
+    },
+    {
+      "index": 671,
+      "start_time": 2102370.0,
+      "end_time": 2103786.0,
+      "text": "It&#39;s called test-driven debugging."
+    },
+    {
+      "index": 672,
+      "start_time": 2103790.0,
+      "end_time": 2107240.0,
+      "text": "Sorry, test-driven development."
+    },
+    {
+      "index": 673,
+      "start_time": 2107240.0,
+      "end_time": 2109130.0,
+      "text": "That&#39;s what developers do."
+    },
+    {
+      "index": 674,
+      "start_time": 2109130.0,
+      "end_time": 2111480.0,
+      "text": "All right, so yeah, small gotcha on the batching."
+    },
+    {
+      "index": 675,
+      "start_time": 2111480.0,
+      "end_time": 2112310.0,
+      "text": "But whatever."
+    },
+    {
+      "index": 676,
+      "start_time": 2112310.0,
+      "end_time": 2113840.0,
+      "text": "Just use the code on--"
+    },
+    {
+      "index": 677,
+      "start_time": 2113840.0,
+      "end_time": 2115310.0,
+      "text": "this is not actually important."
+    },
+    {
+      "index": 678,
+      "start_time": 2115310.0,
+      "end_time": 2121471.0,
+      "text": "Just use the function that will cut up the text correctly"
+    },
+    {
+      "index": 679,
+      "start_time": 2121470.0,
+      "end_time": 2121969.0,
+      "text": "for you."
+    },
+    {
+      "index": 680,
+      "start_time": 2121970.0,
+      "end_time": 2123053.0,
+      "text": "And you&#39;re ready to train."
+    },
+    {
+      "index": 681,
+      "start_time": 2123050.0,
+      "end_time": 2125717.0,
+      "text": "And this is actually the full code of this neural network"
+    },
+    {
+      "index": 682,
+      "start_time": 2125720.0,
+      "end_time": 2128460.0,
+      "text": "on one slide."
+    },
+    {
+      "index": 683,
+      "start_time": 2128460.0,
+      "end_time": 2130160.0,
+      "text": "So let&#39;s go through this again."
+    },
+    {
+      "index": 684,
+      "start_time": 2130160.0,
+      "end_time": 2132940.0,
+      "text": "A placeholder for my input sequences."
+    },
+    {
+      "index": 685,
+      "start_time": 2132940.0,
+      "end_time": 2134150.0,
+      "text": "I one-hot encode them."
+    },
+    {
+      "index": 686,
+      "start_time": 2134150.0,
+      "end_time": 2137810.0,
+      "text": "I&#39;m actually inputting sequences of characters, OK?"
+    },
+    {
+      "index": 687,
+      "start_time": 2137810.0,
+      "end_time": 2141770.0,
+      "text": "And all the people with cameras, this is on GitHub."
+    },
+    {
+      "index": 688,
+      "start_time": 2141770.0,
+      "end_time": 2144390.0,
+      "text": "And the GitHub link is on the last slide."
+    },
+    {
+      "index": 689,
+      "start_time": 2144390.0,
+      "end_time": 2147110.0,
+      "text": "So please take pictures."
+    },
+    {
+      "index": 690,
+      "start_time": 2147110.0,
+      "end_time": 2149780.0,
+      "text": "My Twitter handle is over there."
+    },
+    {
+      "index": 691,
+      "start_time": 2149780.0,
+      "end_time": 2151010.0,
+      "text": "Tweet them."
+    },
+    {
+      "index": 692,
+      "start_time": 2151010.0,
+      "end_time": 2153500.0,
+      "text": "But then, you will be able to go and GitHub and actually"
+    },
+    {
+      "index": 693,
+      "start_time": 2153500.0,
+      "end_time": 2155480.0,
+      "text": "retrieve this."
+    },
+    {
+      "index": 694,
+      "start_time": 2155480.0,
+      "end_time": 2160090.0,
+      "text": "Then, my expected outputs, why underscore?"
+    },
+    {
+      "index": 695,
+      "start_time": 2160090.0,
+      "end_time": 2162320.0,
+      "text": "Again, I define a placeholder for them."
+    },
+    {
+      "index": 696,
+      "start_time": 2162320.0,
+      "end_time": 2164930.0,
+      "text": "I will need to feed them during training."
+    },
+    {
+      "index": 697,
+      "start_time": 2164930.0,
+      "end_time": 2168560.0,
+      "text": "And the first thing I do is that I one-hot encode them."
+    },
+    {
+      "index": 698,
+      "start_time": 2168560.0,
+      "end_time": 2170690.0,
+      "text": "I will also need, and this is different"
+    },
+    {
+      "index": 699,
+      "start_time": 2170690.0,
+      "end_time": 2172670.0,
+      "text": "from normal neural networks, I will also"
+    },
+    {
+      "index": 700,
+      "start_time": 2172670.0,
+      "end_time": 2175490.0,
+      "text": "need a placeholder for my input state."
+    },
+    {
+      "index": 701,
+      "start_time": 2175490.0,
+      "end_time": 2176110.0,
+      "text": "Remember?"
+    },
+    {
+      "index": 702,
+      "start_time": 2176110.0,
+      "end_time": 2180170.0,
+      "text": "RNNs have an input and an input state."
+    },
+    {
+      "index": 703,
+      "start_time": 2180170.0,
+      "end_time": 2181760.0,
+      "text": "Two inputs."
+    },
+    {
+      "index": 704,
+      "start_time": 2181760.0,
+      "end_time": 2183800.0,
+      "text": "Now, I&#39;m ready to write my model."
+    },
+    {
+      "index": 705,
+      "start_time": 2183800.0,
+      "end_time": 2185510.0,
+      "text": "So I chose the GRU cell."
+    },
+    {
+      "index": 706,
+      "start_time": 2185510.0,
+      "end_time": 2187130.0,
+      "text": "I stack it three high."
+    },
+    {
+      "index": 707,
+      "start_time": 2187130.0,
+      "end_time": 2193100.0,
+      "text": "And I unroll it as many times as x has components in it."
+    },
+    {
+      "index": 708,
+      "start_time": 2193100.0,
+      "end_time": 2197300.0,
+      "text": "So here, my unroll size is sequence length."
+    },
+    {
+      "index": 709,
+      "start_time": 2197300.0,
+      "end_time": 2198230.0,
+      "text": "And that&#39;s 30."
+    },
+    {
+      "index": 710,
+      "start_time": 2198230.0,
+      "end_time": 2201980.0,
+      "text": "I chose 30 characters as the unroll size"
+    },
+    {
+      "index": 711,
+      "start_time": 2201980.0,
+      "end_time": 2205400.0,
+      "text": "of my recurring neural network."
+    },
+    {
+      "index": 712,
+      "start_time": 2205400.0,
+      "end_time": 2207500.0,
+      "text": "I do my little trick with the softmax"
+    },
+    {
+      "index": 713,
+      "start_time": 2207500.0,
+      "end_time": 2211610.0,
+      "text": "so that I can implement just one softmax node."
+    },
+    {
+      "index": 714,
+      "start_time": 2211610.0,
+      "end_time": 2215090.0,
+      "text": "I feed the output through my softmax node."
+    },
+    {
+      "index": 715,
+      "start_time": 2215090.0,
+      "end_time": 2219590.0,
+      "text": "Here, I apply argmax to retrieve from the softmax probabilities"
+    },
+    {
+      "index": 716,
+      "start_time": 2219590.0,
+      "end_time": 2220800.0,
+      "text": "the highest probability."
+    },
+    {
+      "index": 717,
+      "start_time": 2220800.0,
+      "end_time": 2223040.0,
+      "text": "And that&#39;s the character I&#39;m predicting."
+    },
+    {
+      "index": 718,
+      "start_time": 2223040.0,
+      "end_time": 2229040.0,
+      "text": "I reshape this back to have a batch of predicted sequences."
+    },
+    {
+      "index": 719,
+      "start_time": 2229040.0,
+      "end_time": 2231030.0,
+      "text": "Also, somewhere in the middle in there,"
+    },
+    {
+      "index": 720,
+      "start_time": 2231030.0,
+      "end_time": 2232880.0,
+      "text": "I had those probabilities."
+    },
+    {
+      "index": 721,
+      "start_time": 2232880.0,
+      "end_time": 2234440.0,
+      "text": "I take those probabilities."
+    },
+    {
+      "index": 722,
+      "start_time": 2234440.0,
+      "end_time": 2238400.0,
+      "text": "And I compute the distance between what it says"
+    },
+    {
+      "index": 723,
+      "start_time": 2238400.0,
+      "end_time": 2239420.0,
+      "text": "and what I wanted."
+    },
+    {
+      "index": 724,
+      "start_time": 2239420.0,
+      "end_time": 2240560.0,
+      "text": "That&#39;s my loss."
+    },
+    {
+      "index": 725,
+      "start_time": 2240560.0,
+      "end_time": 2242540.0,
+      "text": "I give my loss to the optimizer."
+    },
+    {
+      "index": 726,
+      "start_time": 2242540.0,
+      "end_time": 2243890.0,
+      "text": "I obtain a training step."
+    },
+    {
+      "index": 727,
+      "start_time": 2243890.0,
+      "end_time": 2245930.0,
+      "text": "And this training step is actually"
+    },
+    {
+      "index": 728,
+      "start_time": 2245930.0,
+      "end_time": 2250145.0,
+      "text": "that gradient, which is computed on this batch of training"
+    },
+    {
+      "index": 729,
+      "start_time": 2250150.0,
+      "end_time": 2250885.0,
+      "text": "characters."
+    },
+    {
+      "index": 730,
+      "start_time": 2250880.0,
+      "end_time": 2253100.0,
+      "text": "And which, if I follow it by a little step,"
+    },
+    {
+      "index": 731,
+      "start_time": 2253100.0,
+      "end_time": 2255050.0,
+      "text": "will modify my weights and biases"
+    },
+    {
+      "index": 732,
+      "start_time": 2255050.0,
+      "end_time": 2259310.0,
+      "text": "and bring me to somewhere where this network works better,"
+    },
+    {
+      "index": 733,
+      "start_time": 2259310.0,
+      "end_time": 2262250.0,
+      "text": "where it has a smaller error function."
+    },
+    {
+      "index": 734,
+      "start_time": 2262250.0,
+      "end_time": 2264170.0,
+      "text": "And now, my training loop."
+    },
+    {
+      "index": 735,
+      "start_time": 2264170.0,
+      "end_time": 2266390.0,
+      "text": "You will see, this is very familiar to what"
+    },
+    {
+      "index": 736,
+      "start_time": 2266390.0,
+      "end_time": 2268670.0,
+      "text": "we had previously."
+    },
+    {
+      "index": 737,
+      "start_time": 2268670.0,
+      "end_time": 2270920.0,
+      "text": "We use this magic plumbing function"
+    },
+    {
+      "index": 738,
+      "start_time": 2270920.0,
+      "end_time": 2274670.0,
+      "text": "that I gave you to load sequences of characters"
+    },
+    {
+      "index": 739,
+      "start_time": 2274670.0,
+      "end_time": 2276740.0,
+      "text": "in the correct way."
+    },
+    {
+      "index": 740,
+      "start_time": 2276740.0,
+      "end_time": 2279380.0,
+      "text": "And once I have a sequence of characters,"
+    },
+    {
+      "index": 741,
+      "start_time": 2279380.0,
+      "end_time": 2283850.0,
+      "text": "I run session.run of my training step."
+    },
+    {
+      "index": 742,
+      "start_time": 2283850.0,
+      "end_time": 2286000.0,
+      "text": "I have to give it the input characters."
+    },
+    {
+      "index": 743,
+      "start_time": 2286000.0,
+      "end_time": 2288590.0,
+      "text": "I have to give it the expected output."
+    },
+    {
+      "index": 744,
+      "start_time": 2288590.0,
+      "end_time": 2291830.0,
+      "text": "And, since this is a recurrent neural network,"
+    },
+    {
+      "index": 745,
+      "start_time": 2291830.0,
+      "end_time": 2295750.0,
+      "text": "I have to give it the input state."
+    },
+    {
+      "index": 746,
+      "start_time": 2295750.0,
+      "end_time": 2298380.0,
+      "text": "And this will give me an output state."
+    },
+    {
+      "index": 747,
+      "start_time": 2298380.0,
+      "end_time": 2300140.0,
+      "text": "And you see the magic line, why this"
+    },
+    {
+      "index": 748,
+      "start_time": 2300140.0,
+      "end_time": 2301820.0,
+      "text": "is a recurrent neural network."
+    },
+    {
+      "index": 749,
+      "start_time": 2301820.0,
+      "end_time": 2305030.0,
+      "text": "That&#39;s the last line there in the red."
+    },
+    {
+      "index": 750,
+      "start_time": 2305030.0,
+      "end_time": 2308420.0,
+      "text": "Input state becomes-- sorry, the output state"
+    },
+    {
+      "index": 751,
+      "start_time": 2308420.0,
+      "end_time": 2310417.0,
+      "text": "becomes an input state."
+    },
+    {
+      "index": 752,
+      "start_time": 2310420.0,
+      "end_time": 2311503.0,
+      "text": "That&#39;s why it&#39;s recurrent."
+    },
+    {
+      "index": 753,
+      "start_time": 2311500.0,
+      "end_time": 2314090.0,
+      "text": "They&#39;re passing the state around."
+    },
+    {
+      "index": 754,
+      "start_time": 2314090.0,
+      "end_time": 2316100.0,
+      "text": "All right."
+    },
+    {
+      "index": 755,
+      "start_time": 2316100.0,
+      "end_time": 2316910.0,
+      "text": "So we are done."
+    },
+    {
+      "index": 756,
+      "start_time": 2316910.0,
+      "end_time": 2319070.0,
+      "text": "We&#39;ve built a recurrent neural network."
+    },
+    {
+      "index": 757,
+      "start_time": 2319070.0,
+      "end_time": 2321920.0,
+      "text": "Now, we want to actually train it."
+    },
+    {
+      "index": 758,
+      "start_time": 2321920.0,
+      "end_time": 2324920.0,
+      "text": "So let&#39;s go to a demo."
+    },
+    {
+      "index": 759,
+      "start_time": 2324920.0,
+      "end_time": 2333220.0,
+      "text": "I will be training this on the complete works of William"
+    },
+    {
+      "index": 760,
+      "start_time": 2333220.0,
+      "end_time": 2335560.0,
+      "text": "Shakespeare."
+    },
+    {
+      "index": 761,
+      "start_time": 2335560.0,
+      "end_time": 2337420.0,
+      "text": "That&#39;s not quite big data."
+    },
+    {
+      "index": 762,
+      "start_time": 2337420.0,
+      "end_time": 2341440.0,
+      "text": "The complete works of William Shakespeare are five megabytes."
+    },
+    {
+      "index": 763,
+      "start_time": 2341440.0,
+      "end_time": 2344187.0,
+      "text": "Yes, that puts things in perspective."
+    },
+    {
+      "index": 764,
+      "start_time": 2347560.0,
+      "end_time": 2348520.0,
+      "text": "But it&#39;s good stuff."
+    },
+    {
+      "index": 765,
+      "start_time": 2353440.0,
+      "end_time": 2356580.0,
+      "text": "So here, we see it&#39;s training on sequences."
+    },
+    {
+      "index": 766,
+      "start_time": 2356580.0,
+      "end_time": 2359350.0,
+      "text": "So here are those sequences of 30 characters."
+    },
+    {
+      "index": 767,
+      "start_time": 2359350.0,
+      "end_time": 2361210.0,
+      "text": "And here&#39;s a batch of them."
+    },
+    {
+      "index": 768,
+      "start_time": 2361210.0,
+      "end_time": 2363130.0,
+      "text": "It&#39;s actually training on those sequences."
+    },
+    {
+      "index": 769,
+      "start_time": 2363130.0,
+      "end_time": 2365500.0,
+      "text": "Here, predicting not much at all."
+    },
+    {
+      "index": 770,
+      "start_time": 2365500.0,
+      "end_time": 2367330.0,
+      "text": "It&#39;s just the beginning."
+    },
+    {
+      "index": 771,
+      "start_time": 2367330.0,
+      "end_time": 2372100.0,
+      "text": "And from time to time, I stop the training."
+    },
+    {
+      "index": 772,
+      "start_time": 2372100.0,
+      "end_time": 2374110.0,
+      "text": "And I take just my one cell."
+    },
+    {
+      "index": 773,
+      "start_time": 2374110.0,
+      "end_time": 2375850.0,
+      "text": "Remember, I have just one cell."
+    },
+    {
+      "index": 774,
+      "start_time": 2375850.0,
+      "end_time": 2378580.0,
+      "text": "It&#39;s replicated for the purpose of training,"
+    },
+    {
+      "index": 775,
+      "start_time": 2378580.0,
+      "end_time": 2379885.0,
+      "text": "but it&#39;s just one cell."
+    },
+    {
+      "index": 776,
+      "start_time": 2379890.0,
+      "end_time": 2384095.0,
+      "text": "And this one cell, it has become--"
+    },
+    {
+      "index": 777,
+      "start_time": 2384090.0,
+      "end_time": 2386870.0,
+      "text": "well, once it will be trained, it will have become--"
+    },
+    {
+      "index": 778,
+      "start_time": 2386870.0,
+      "end_time": 2388970.0,
+      "text": "a language model."
+    },
+    {
+      "index": 779,
+      "start_time": 2388970.0,
+      "end_time": 2392511.0,
+      "text": "So what I can do with it is generate a new Shakespeare"
+    },
+    {
+      "index": 780,
+      "start_time": 2392510.0,
+      "end_time": 2393009.0,
+      "text": "play."
+    },
+    {
+      "index": 781,
+      "start_time": 2395730.0,
+      "end_time": 2397240.0,
+      "text": "How do I do that?"
+    },
+    {
+      "index": 782,
+      "start_time": 2397240.0,
+      "end_time": 2399090.0,
+      "text": "Well, I take the cell."
+    },
+    {
+      "index": 783,
+      "start_time": 2399090.0,
+      "end_time": 2401580.0,
+      "text": "I put in garbage, a random character."
+    },
+    {
+      "index": 784,
+      "start_time": 2401580.0,
+      "end_time": 2405090.0,
+      "text": "That gives me an output character."
+    },
+    {
+      "index": 785,
+      "start_time": 2405090.0,
+      "end_time": 2407010.0,
+      "text": "Probability of an output character,"
+    },
+    {
+      "index": 786,
+      "start_time": 2407010.0,
+      "end_time": 2409887.0,
+      "text": "which is the next character, and an output state."
+    },
+    {
+      "index": 787,
+      "start_time": 2409890.0,
+      "end_time": 2411723.0,
+      "text": "You feed back the output state in the input,"
+    },
+    {
+      "index": 788,
+      "start_time": 2411720.0,
+      "end_time": 2414300.0,
+      "text": "and I feed back the output character as the new input."
+    },
+    {
+      "index": 789,
+      "start_time": 2414300.0,
+      "end_time": 2415710.0,
+      "text": "And I continue."
+    },
+    {
+      "index": 790,
+      "start_time": 2415710.0,
+      "end_time": 2420270.0,
+      "text": "And this is a state machine that will start generating text."
+    },
+    {
+      "index": 791,
+      "start_time": 2420270.0,
+      "end_time": 2422880.0,
+      "text": "You see here, it&#39;s--"
+    },
+    {
+      "index": 792,
+      "start_time": 2422880.0,
+      "end_time": 2424830.0,
+      "text": "yeah."
+    },
+    {
+      "index": 793,
+      "start_time": 2424830.0,
+      "end_time": 2428730.0,
+      "text": "That&#39;s not quite Shakespeare yet."
+    },
+    {
+      "index": 794,
+      "start_time": 2428730.0,
+      "end_time": 2430150.0,
+      "text": "It&#39;s training."
+    },
+    {
+      "index": 795,
+      "start_time": 2430150.0,
+      "end_time": 2431490.0,
+      "text": "It&#39;s a bit slow on my machine."
+    },
+    {
+      "index": 796,
+      "start_time": 2431490.0,
+      "end_time": 2433600.0,
+      "text": "I usually have a GPU connected here"
+    },
+    {
+      "index": 797,
+      "start_time": 2433600.0,
+      "end_time": 2439140.0,
+      "text": "to-- it brings me a nice 10x speed, or 6x roughly."
+    },
+    {
+      "index": 798,
+      "start_time": 2439140.0,
+      "end_time": 2442590.0,
+      "text": "But still, well, it has done 50 more batches."
+    },
+    {
+      "index": 799,
+      "start_time": 2442590.0,
+      "end_time": 2444090.0,
+      "text": "I will leave it running."
+    },
+    {
+      "index": 800,
+      "start_time": 2444090.0,
+      "end_time": 2448777.0,
+      "text": "Let&#39;s go and see, sorry, here."
+    },
+    {
+      "index": 801,
+      "start_time": 2448780.0,
+      "end_time": 2449863.0,
+      "text": "On this slide, what it is."
+    },
+    {
+      "index": 802,
+      "start_time": 2449860.0,
+      "end_time": 2452520.0,
+      "text": "So at the beginning, it gives you this."
+    },
+    {
+      "index": 803,
+      "start_time": 2452520.0,
+      "end_time": 2454410.0,
+      "text": "As I said, not quite Shakespeare."
+    },
+    {
+      "index": 804,
+      "start_time": 2454410.0,
+      "end_time": 2459300.0,
+      "text": "But after only an epoch, what we call an epoch,"
+    },
+    {
+      "index": 805,
+      "start_time": 2459300.0,
+      "end_time": 2464030.0,
+      "text": "it&#39;s when you have seen the entire training data set once."
+    },
+    {
+      "index": 806,
+      "start_time": 2464030.0,
+      "end_time": 2466230.0,
+      "text": "So after having seen only a tenth"
+    },
+    {
+      "index": 807,
+      "start_time": 2466230.0,
+      "end_time": 2470720.0,
+      "text": "of what Shakespeare produced in his life, this is what we have."
+    },
+    {
+      "index": 808,
+      "start_time": 2470720.0,
+      "end_time": 2472800.0,
+      "text": "Still not quite Shakespeare, but you see"
+    },
+    {
+      "index": 809,
+      "start_time": 2472800.0,
+      "end_time": 2475070.0,
+      "text": "there is some structure to it."
+    },
+    {
+      "index": 810,
+      "start_time": 2475070.0,
+      "end_time": 2479630.0,
+      "text": "After two tenths, hey, this looks better!"
+    },
+    {
+      "index": 811,
+      "start_time": 2479630.0,
+      "end_time": 2484680.0,
+      "text": "It&#39;s starting to actually spell English almost correctly."
+    },
+    {
+      "index": 812,
+      "start_time": 2484680.0,
+      "end_time": 2487680.0,
+      "text": "And there are those things in capital letters"
+    },
+    {
+      "index": 813,
+      "start_time": 2487680.0,
+      "end_time": 2489150.0,
+      "text": "at the beginning that are starting"
+    },
+    {
+      "index": 814,
+      "start_time": 2489150.0,
+      "end_time": 2492090.0,
+      "text": "to look like characters, like character names."
+    },
+    {
+      "index": 815,
+      "start_time": 2492090.0,
+      "end_time": 2497720.0,
+      "text": "Even slightly later, oh, look!"
+    },
+    {
+      "index": 816,
+      "start_time": 2497720.0,
+      "end_time": 2500700.0,
+      "text": "And you have to remember that this"
+    },
+    {
+      "index": 817,
+      "start_time": 2500700.0,
+      "end_time": 2504180.0,
+      "text": "is a neural network that is predicting character"
+    },
+    {
+      "index": 818,
+      "start_time": 2504180.0,
+      "end_time": 2505170.0,
+      "text": "by character."
+    },
+    {
+      "index": 819,
+      "start_time": 2505170.0,
+      "end_time": 2510030.0,
+      "text": "It first has to learn to spell English before going"
+    },
+    {
+      "index": 820,
+      "start_time": 2510030.0,
+      "end_time": 2513490.0,
+      "text": "to higher orders of structure."
+    },
+    {
+      "index": 821,
+      "start_time": 2513490.0,
+      "end_time": 2516240.0,
+      "text": "So it&#39;s still not completely exact English."
+    },
+    {
+      "index": 822,
+      "start_time": 2516240.0,
+      "end_time": 2519240.0,
+      "text": "But it&#39;s starting to look like English."
+    },
+    {
+      "index": 823,
+      "start_time": 2519240.0,
+      "end_time": 2521190.0,
+      "text": "At least, Shakespearean English."
+    },
+    {
+      "index": 824,
+      "start_time": 2521190.0,
+      "end_time": 2523190.0,
+      "text": "And you see it has character names."
+    },
+    {
+      "index": 825,
+      "start_time": 2523190.0,
+      "end_time": 2526080.0,
+      "text": "And it&#39;s actually inventing new character names."
+    },
+    {
+      "index": 826,
+      "start_time": 2526080.0,
+      "end_time": 2528810.0,
+      "text": "Here, Pordia and Henry Blutius--"
+    },
+    {
+      "index": 827,
+      "start_time": 2528810.0,
+      "end_time": 2532080.0,
+      "text": "who can tell me, no, seriously, who"
+    },
+    {
+      "index": 828,
+      "start_time": 2532080.0,
+      "end_time": 2534120.0,
+      "text": "can tell me if Shakespeare actually"
+    },
+    {
+      "index": 829,
+      "start_time": 2534120.0,
+      "end_time": 2537970.0,
+      "text": "used Henry Blutius in his work?"
+    },
+    {
+      "index": 830,
+      "start_time": 2537970.0,
+      "end_time": 2539220.0,
+      "text": "What do you call it?"
+    },
+    {
+      "index": 831,
+      "start_time": 2539220.0,
+      "end_time": 2540470.0,
+      "text": "I&#39;m giving you the answer."
+    },
+    {
+      "index": 832,
+      "start_time": 2540470.0,
+      "end_time": 2541350.0,
+      "text": "He didn&#39;t."
+    },
+    {
+      "index": 833,
+      "start_time": 2541350.0,
+      "end_time": 2544280.0,
+      "text": "But it&#39;s a very credible Shakespearean character name."
+    },
+    {
+      "index": 834,
+      "start_time": 2547290.0,
+      "end_time": 2549610.0,
+      "text": "And this is what you get after 30 epochs."
+    },
+    {
+      "index": 835,
+      "start_time": 2549610.0,
+      "end_time": 2551294.0,
+      "text": "So it actually has a title."
+    },
+    {
+      "index": 836,
+      "start_time": 2551290.0,
+      "end_time": 2551956.0,
+      "text": "There is an act."
+    },
+    {
+      "index": 837,
+      "start_time": 2551960.0,
+      "end_time": 2553070.0,
+      "text": "There&#39;s a scene."
+    },
+    {
+      "index": 838,
+      "start_time": 2553070.0,
+      "end_time": 2556860.0,
+      "text": "After the scene, it tells you where this is happening."
+    },
+    {
+      "index": 839,
+      "start_time": 2556860.0,
+      "end_time": 2560700.0,
+      "text": "And look, it knows how to put scenic indications"
+    },
+    {
+      "index": 840,
+      "start_time": 2560700.0,
+      "end_time": 2565110.0,
+      "text": "in brackets, who enters, with whom, and so on."
+    },
+    {
+      "index": 841,
+      "start_time": 2565110.0,
+      "end_time": 2569040.0,
+      "text": "It has even picked up stuff like, character names are"
+    },
+    {
+      "index": 842,
+      "start_time": 2569040.0,
+      "end_time": 2572640.0,
+      "text": "all caps, and when the character is a function, like Lord"
+    },
+    {
+      "index": 843,
+      "start_time": 2572640.0,
+      "end_time": 2575160.0,
+      "text": "or Chamberlain, it&#39;s only the first character"
+    },
+    {
+      "index": 844,
+      "start_time": 2575160.0,
+      "end_time": 2576330.0,
+      "text": "that is a capital."
+    },
+    {
+      "index": 845,
+      "start_time": 2576330.0,
+      "end_time": 2578610.0,
+      "text": "It has picked up completely correctly as well."
+    },
+    {
+      "index": 846,
+      "start_time": 2581840.0,
+      "end_time": 2583620.0,
+      "text": "And it&#39;s actually English."
+    },
+    {
+      "index": 847,
+      "start_time": 2583620.0,
+      "end_time": 2587730.0,
+      "text": "So now that we have this, let&#39;s try to--"
+    },
+    {
+      "index": 848,
+      "start_time": 2587730.0,
+      "end_time": 2588930.0,
+      "text": "so this was on slides."
+    },
+    {
+      "index": 849,
+      "start_time": 2588930.0,
+      "end_time": 2590520.0,
+      "text": "I will stop this."
+    },
+    {
+      "index": 850,
+      "start_time": 2590520.0,
+      "end_time": 2592890.0,
+      "text": "What I have done previously is that I trained"
+    },
+    {
+      "index": 851,
+      "start_time": 2592890.0,
+      "end_time": 2595500.0,
+      "text": "this for actually 30 epochs."
+    },
+    {
+      "index": 852,
+      "start_time": 2595500.0,
+      "end_time": 2598500.0,
+      "text": "And I saved my weights and biases."
+    },
+    {
+      "index": 853,
+      "start_time": 2598500.0,
+      "end_time": 2603450.0,
+      "text": "So I&#39;m ready to just replay it and generate a new Shakespeare"
+    },
+    {
+      "index": 854,
+      "start_time": 2603450.0,
+      "end_time": 2604650.0,
+      "text": "play."
+    },
+    {
+      "index": 855,
+      "start_time": 2604650.0,
+      "end_time": 2608430.0,
+      "text": "Let&#39;s generate a new one live in front of you."
+    },
+    {
+      "index": 856,
+      "start_time": 2608430.0,
+      "end_time": 2609336.0,
+      "text": "Here it is."
+    },
+    {
+      "index": 857,
+      "start_time": 2613230.0,
+      "end_time": 2614090.0,
+      "text": "Let me stop it."
+    },
+    {
+      "index": 858,
+      "start_time": 2614090.0,
+      "end_time": 2616264.0,
+      "text": "Whoops, sorry about that."
+    },
+    {
+      "index": 859,
+      "start_time": 2616260.0,
+      "end_time": 2618168.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 860,
+      "start_time": 2622650.0,
+      "end_time": 2624233.0,
+      "text": "MARTIN GORNER: Is someone brave enough"
+    },
+    {
+      "index": 861,
+      "start_time": 2624230.0,
+      "end_time": 2627830.0,
+      "text": "to come and play hallucinated Shakespeare on the stage"
+    },
+    {
+      "index": 862,
+      "start_time": 2627830.0,
+      "end_time": 2628459.0,
+      "text": "with me?"
+    },
+    {
+      "index": 863,
+      "start_time": 2633730.0,
+      "end_time": 2634478.0,
+      "text": "Come on."
+    },
+    {
+      "index": 864,
+      "start_time": 2638960.0,
+      "end_time": 2640020.0,
+      "text": "Yes!"
+    },
+    {
+      "index": 865,
+      "start_time": 2640020.0,
+      "end_time": 2641370.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 866,
+      "start_time": 2641370.0,
+      "end_time": 2642636.0,
+      "text": "Big applause."
+    },
+    {
+      "index": 867,
+      "start_time": 2642640.0,
+      "end_time": 2643474.0,
+      "text": "SPEAKER: Come on up?"
+    },
+    {
+      "index": 868,
+      "start_time": 2643470.0,
+      "end_time": 2644511.0,
+      "text": "MARTIN GORNER: Thank you."
+    },
+    {
+      "index": 869,
+      "start_time": 2644510.0,
+      "end_time": 2645490.0,
+      "text": "Please, come up."
+    },
+    {
+      "index": 870,
+      "start_time": 2645490.0,
+      "end_time": 2646739.0,
+      "text": "You will have to speak loudly."
+    },
+    {
+      "index": 871,
+      "start_time": 2646740.0,
+      "end_time": 2648180.0,
+      "text": "But that&#39;s how it is in a theater."
+    },
+    {
+      "index": 872,
+      "start_time": 2648180.0,
+      "end_time": 2649346.0,
+      "text": "You don&#39;t have a microphone."
+    },
+    {
+      "index": 873,
+      "start_time": 2649350.0,
+      "end_time": 2650954.0,
+      "text": "You speak."
+    },
+    {
+      "index": 874,
+      "start_time": 2650950.0,
+      "end_time": 2653280.0,
+      "text": "So you can read off the screen here."
+    },
+    {
+      "index": 875,
+      "start_time": 2653280.0,
+      "end_time": 2654920.0,
+      "text": "We will alternate."
+    },
+    {
+      "index": 876,
+      "start_time": 2654920.0,
+      "end_time": 2658770.0,
+      "text": "So maybe I start, and then you do the next one."
+    },
+    {
+      "index": 877,
+      "start_time": 2658770.0,
+      "end_time": 2661500.0,
+      "text": "So let&#39;s say enter Bardolph and Boult."
+    },
+    {
+      "index": 878,
+      "start_time": 2661500.0,
+      "end_time": 2665160.0,
+      "text": "The manner off with my bestowers that you shall not see him,"
+    },
+    {
+      "index": 879,
+      "start_time": 2665160.0,
+      "end_time": 2668310.0,
+      "text": "and we are now to be the brother&#39;s wife and force,"
+    },
+    {
+      "index": 880,
+      "start_time": 2668310.0,
+      "end_time": 2672100.0,
+      "text": "to be so many and most grave."
+    },
+    {
+      "index": 881,
+      "start_time": 2672100.0,
+      "end_time": 2674590.0,
+      "text": "SPEAKER: What art thou again?"
+    },
+    {
+      "index": 882,
+      "start_time": 2674590.0,
+      "end_time": 2676600.0,
+      "text": "What needs thy life?"
+    },
+    {
+      "index": 883,
+      "start_time": 2676600.0,
+      "end_time": 2680050.0,
+      "text": "Then, what they do not dote on thee."
+    },
+    {
+      "index": 884,
+      "start_time": 2683060.0,
+      "end_time": 2686448.0,
+      "text": "The word will be at thee."
+    },
+    {
+      "index": 885,
+      "start_time": 2686450.0,
+      "end_time": 2688420.0,
+      "text": "And take my heart to thee."
+    },
+    {
+      "index": 886,
+      "start_time": 2688420.0,
+      "end_time": 2690520.0,
+      "text": "And they distemper."
+    },
+    {
+      "index": 887,
+      "start_time": 2690520.0,
+      "end_time": 2695825.0,
+      "text": "Will thou beat me well to say god save my son?"
+    },
+    {
+      "index": 888,
+      "start_time": 2695820.0,
+      "end_time": 2697800.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 889,
+      "start_time": 2699230.0,
+      "end_time": 2700605.0,
+      "text": "MARTIN GORNER: Thank you so much."
+    },
+    {
+      "index": 890,
+      "start_time": 2700600.0,
+      "end_time": 2701180.0,
+      "text": "SPEAKER: Thank you."
+    },
+    {
+      "index": 891,
+      "start_time": 2701180.0,
+      "end_time": 2702221.0,
+      "text": "MARTIN GORNER: Thank you."
+    },
+    {
+      "index": 892,
+      "start_time": 2704230.0,
+      "end_time": 2705290.0,
+      "text": "That was fantastic."
+    },
+    {
+      "index": 893,
+      "start_time": 2705290.0,
+      "end_time": 2707410.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 894,
+      "start_time": 2707410.0,
+      "end_time": 2712030.0,
+      "text": "Actually, I tried to do this also on the Python code"
+    },
+    {
+      "index": 895,
+      "start_time": 2712030.0,
+      "end_time": 2714220.0,
+      "text": "of TensorFlow itself."
+    },
+    {
+      "index": 896,
+      "start_time": 2714220.0,
+      "end_time": 2714850.0,
+      "text": "That was fun."
+    },
+    {
+      "index": 897,
+      "start_time": 2718160.0,
+      "end_time": 2722440.0,
+      "text": "So in the beginning, you had this."
+    },
+    {
+      "index": 898,
+      "start_time": 2722440.0,
+      "end_time": 2724570.0,
+      "text": "Looks like Python?"
+    },
+    {
+      "index": 899,
+      "start_time": 2724570.0,
+      "end_time": 2725940.0,
+      "text": "Maybe."
+    },
+    {
+      "index": 900,
+      "start_time": 2725940.0,
+      "end_time": 2727930.0,
+      "text": "But very, very quickly, it actually"
+    },
+    {
+      "index": 901,
+      "start_time": 2727930.0,
+      "end_time": 2732040.0,
+      "text": "picks up Pythonic structures, like those keywords,"
+    },
+    {
+      "index": 902,
+      "start_time": 2732040.0,
+      "end_time": 2736850.0,
+      "text": "and it&#39;s generating something that looks like function calls."
+    },
+    {
+      "index": 903,
+      "start_time": 2736850.0,
+      "end_time": 2743190.0,
+      "text": "Slightly later, it actually correctly uses the keywords"
+    },
+    {
+      "index": 904,
+      "start_time": 2743190.0,
+      "end_time": 2745920.0,
+      "text": "with function names-- a hallucinated function name."
+    },
+    {
+      "index": 905,
+      "start_time": 2745920.0,
+      "end_time": 2750180.0,
+      "text": "It&#39;s actually quite inventive in the function names."
+    },
+    {
+      "index": 906,
+      "start_time": 2750180.0,
+      "end_time": 2751770.0,
+      "text": "And a colon at the end."
+    },
+    {
+      "index": 907,
+      "start_time": 2751770.0,
+      "end_time": 2756330.0,
+      "text": "It&#39;s still getting the nested parenthesis wrong."
+    },
+    {
+      "index": 908,
+      "start_time": 2756330.0,
+      "end_time": 2760470.0,
+      "text": "And after a longer while, it can recite the Apache license"
+    },
+    {
+      "index": 909,
+      "start_time": 2760470.0,
+      "end_time": 2761010.0,
+      "text": "in full."
+    },
+    {
+      "index": 910,
+      "start_time": 2767150.0,
+      "end_time": 2768350.0,
+      "text": "Yes."
+    },
+    {
+      "index": 911,
+      "start_time": 2768350.0,
+      "end_time": 2772910.0,
+      "text": "It&#39;s open source compliant, open source compliant."
+    },
+    {
+      "index": 912,
+      "start_time": 2772910.0,
+      "end_time": 2775850.0,
+      "text": "And more interestingly for us, designers"
+    },
+    {
+      "index": 913,
+      "start_time": 2775850.0,
+      "end_time": 2778760.0,
+      "text": "of recurrent neural networks, it can actually close and open"
+    },
+    {
+      "index": 914,
+      "start_time": 2778760.0,
+      "end_time": 2782030.0,
+      "text": "the nested parentheses right to a depth of three,"
+    },
+    {
+      "index": 915,
+      "start_time": 2782030.0,
+      "end_time": 2784250.0,
+      "text": "which is quite impressive."
+    },
+    {
+      "index": 916,
+      "start_time": 2784250.0,
+      "end_time": 2788660.0,
+      "text": "And what I find fantastic, it&#39;s that it has figured out"
+    },
+    {
+      "index": 917,
+      "start_time": 2788660.0,
+      "end_time": 2792290.0,
+      "text": "how to do Python comments."
+    },
+    {
+      "index": 918,
+      "start_time": 2792290.0,
+      "end_time": 2794840.0,
+      "text": "And it&#39;s giving me TensorFlow advice in those comments."
+    },
+    {
+      "index": 919,
+      "start_time": 2799340.0,
+      "end_time": 2801140.0,
+      "text": "But look, it makes sense!"
+    },
+    {
+      "index": 920,
+      "start_time": 2801140.0,
+      "end_time": 2802810.0,
+      "text": "Check that we have both scalar tensors"
+    },
+    {
+      "index": 921,
+      "start_time": 2802810.0,
+      "end_time": 2804379.0,
+      "text": "for being invalid to a vector of one"
+    },
+    {
+      "index": 922,
+      "start_time": 2804380.0,
+      "end_time": 2806171.0,
+      "text": "indicating the total loss of the same shape"
+    },
+    {
+      "index": 923,
+      "start_time": 2806170.0,
+      "end_time": 2809440.0,
+      "text": "as the shape of the tensor."
+    },
+    {
+      "index": 924,
+      "start_time": 2809440.0,
+      "end_time": 2811630.0,
+      "text": "I&#39;m sure this makes just as much sense as everything"
+    },
+    {
+      "index": 925,
+      "start_time": 2811630.0,
+      "end_time": 2813588.0,
+      "text": "that I&#39;ve been saying since the beginning here."
+    },
+    {
+      "index": 926,
+      "start_time": 2818080.0,
+      "end_time": 2820800.0,
+      "text": "All right, and small credits to a gentleman"
+    },
+    {
+      "index": 927,
+      "start_time": 2820800.0,
+      "end_time": 2824370.0,
+      "text": "called Andrej Karpathy who actually"
+    },
+    {
+      "index": 928,
+      "start_time": 2824370.0,
+      "end_time": 2826942.0,
+      "text": "wrote this neural network for the first time."
+    },
+    {
+      "index": 929,
+      "start_time": 2826940.0,
+      "end_time": 2828148.0,
+      "text": "He published a blog about it."
+    },
+    {
+      "index": 930,
+      "start_time": 2828150.0,
+      "end_time": 2830550.0,
+      "text": "He tried it on many different things."
+    },
+    {
+      "index": 931,
+      "start_time": 2830550.0,
+      "end_time": 2833145.0,
+      "text": "He generated a business book for startups."
+    },
+    {
+      "index": 932,
+      "start_time": 2837560.0,
+      "end_time": 2843600.0,
+      "text": "And he tried to generate an algebra book in LaTeX."
+    },
+    {
+      "index": 933,
+      "start_time": 2843600.0,
+      "end_time": 2847650.0,
+      "text": "Actually, after training, this produced almost valid LaTeX."
+    },
+    {
+      "index": 934,
+      "start_time": 2847650.0,
+      "end_time": 2850650.0,
+      "text": "So he had to hack it a little bit to make it compile."
+    },
+    {
+      "index": 935,
+      "start_time": 2850650.0,
+      "end_time": 2852450.0,
+      "text": "But then, this looks like an algebra book."
+    },
+    {
+      "index": 936,
+      "start_time": 2852450.0,
+      "end_time": 2856530.0,
+      "text": "That is even an attempt at a diagram."
+    },
+    {
+      "index": 937,
+      "start_time": 2856530.0,
+      "end_time": 2860730.0,
+      "text": "And the line I prefer is how the neural network"
+    },
+    {
+      "index": 938,
+      "start_time": 2860730.0,
+      "end_time": 2864480.0,
+      "text": "solved how to write a proof."
+    },
+    {
+      "index": 939,
+      "start_time": 2864480.0,
+      "end_time": 2866070.0,
+      "text": "Look at the very top."
+    },
+    {
+      "index": 940,
+      "start_time": 2866070.0,
+      "end_time": 2866900.0,
+      "text": "&quot;Proof omitted.&quot;"
+    },
+    {
+      "index": 941,
+      "start_time": 2871270.0,
+      "end_time": 2872180.0,
+      "text": "That&#39;s so clever."
+    },
+    {
+      "index": 942,
+      "start_time": 2876250.0,
+      "end_time": 2878010.0,
+      "text": "All right."
+    },
+    {
+      "index": 943,
+      "start_time": 2878010.0,
+      "end_time": 2880456.0,
+      "text": "So that&#39;s basically all I wanted to show you."
+    },
+    {
+      "index": 944,
+      "start_time": 2880460.0,
+      "end_time": 2881834.0,
+      "text": "Well, this is how we generate it."
+    },
+    {
+      "index": 945,
+      "start_time": 2881830.0,
+      "end_time": 2884430.0,
+      "text": "So we, I take just one cell."
+    },
+    {
+      "index": 946,
+      "start_time": 2884430.0,
+      "end_time": 2886650.0,
+      "text": "And basically, in a loop, I feed in a character."
+    },
+    {
+      "index": 947,
+      "start_time": 2886650.0,
+      "end_time": 2888540.0,
+      "text": "I take the output, feed it back as the input,"
+    },
+    {
+      "index": 948,
+      "start_time": 2888540.0,
+      "end_time": 2892440.0,
+      "text": "and feed the output state as the input state,"
+    },
+    {
+      "index": 949,
+      "start_time": 2892440.0,
+      "end_time": 2894750.0,
+      "text": "and just do this in a loop."
+    },
+    {
+      "index": 950,
+      "start_time": 2894750.0,
+      "end_time": 2896850.0,
+      "text": "A couple of applications of this."
+    },
+    {
+      "index": 951,
+      "start_time": 2896850.0,
+      "end_time": 2898080.0,
+      "text": "Oh, yes."
+    },
+    {
+      "index": 952,
+      "start_time": 2898080.0,
+      "end_time": 2900570.0,
+      "text": "Actually, we still have a little bit of time."
+    },
+    {
+      "index": 953,
+      "start_time": 2900570.0,
+      "end_time": 2906180.0,
+      "text": "This time, I&#39;ve been using TensorBoard to visualize"
+    },
+    {
+      "index": 954,
+      "start_time": 2906180.0,
+      "end_time": 2908430.0,
+      "text": "my inputs and outputs."
+    },
+    {
+      "index": 955,
+      "start_time": 2908430.0,
+      "end_time": 2910730.0,
+      "text": "Where is my TensorBoard?"
+    },
+    {
+      "index": 956,
+      "start_time": 2910730.0,
+      "end_time": 2911290.0,
+      "text": "Somewhere."
+    },
+    {
+      "index": 957,
+      "start_time": 2911290.0,
+      "end_time": 2912170.0,
+      "text": "Sorry, I&#39;ll find it."
+    },
+    {
+      "index": 958,
+      "start_time": 2912170.0,
+      "end_time": 2914050.0,
+      "text": "Here."
+    },
+    {
+      "index": 959,
+      "start_time": 2914050.0,
+      "end_time": 2916480.0,
+      "text": "In the last session, I was just throwing the outputs"
+    },
+    {
+      "index": 960,
+      "start_time": 2916480.0,
+      "end_time": 2924430.0,
+      "text": "into matplotlib, which is the very standard Python plotting"
+    },
+    {
+      "index": 961,
+      "start_time": 2924430.0,
+      "end_time": 2925450.0,
+      "text": "library."
+    },
+    {
+      "index": 962,
+      "start_time": 2925450.0,
+      "end_time": 2929020.0,
+      "text": "But there is a tool dedicated to visualizing training"
+    },
+    {
+      "index": 963,
+      "start_time": 2929020.0,
+      "end_time": 2929780.0,
+      "text": "in TensorFlow."
+    },
+    {
+      "index": 964,
+      "start_time": 2929780.0,
+      "end_time": 2932610.0,
+      "text": "It&#39;s called TensorBoard."
+    },
+    {
+      "index": 965,
+      "start_time": 2932610.0,
+      "end_time": 2934780.0,
+      "text": "And I advise you to use it, especially"
+    },
+    {
+      "index": 966,
+      "start_time": 2934780.0,
+      "end_time": 2936700.0,
+      "text": "if you do a distributed training, or training"
+    },
+    {
+      "index": 967,
+      "start_time": 2936700.0,
+      "end_time": 2937960.0,
+      "text": "on remote servers."
+    },
+    {
+      "index": 968,
+      "start_time": 2937960.0,
+      "end_time": 2940690.0,
+      "text": "It can connect to a bucket and get the information from there"
+    },
+    {
+      "index": 969,
+      "start_time": 2940690.0,
+      "end_time": 2942950.0,
+      "text": "and visualize it."
+    },
+    {
+      "index": 970,
+      "start_time": 2942950.0,
+      "end_time": 2944930.0,
+      "text": "So here again, I have configured,"
+    },
+    {
+      "index": 971,
+      "start_time": 2944930.0,
+      "end_time": 2946580.0,
+      "text": "when I was training this network,"
+    },
+    {
+      "index": 972,
+      "start_time": 2946580.0,
+      "end_time": 2950210.0,
+      "text": "I configured it to actually do training and validation."
+    },
+    {
+      "index": 973,
+      "start_time": 2950210.0,
+      "end_time": 2953790.0,
+      "text": "I put one Shakespeare play aside for validation"
+    },
+    {
+      "index": 974,
+      "start_time": 2953790.0,
+      "end_time": 2955500.0,
+      "text": "to test my network."
+    },
+    {
+      "index": 975,
+      "start_time": 2955500.0,
+      "end_time": 2959240.0,
+      "text": "And if you&#39;ll remember the session from yesterday,"
+    },
+    {
+      "index": 976,
+      "start_time": 2959240.0,
+      "end_time": 2964940.0,
+      "text": "I find it very important to follow my loss curves, both"
+    },
+    {
+      "index": 977,
+      "start_time": 2964940.0,
+      "end_time": 2970000.0,
+      "text": "the training and the test loss curve, on the screen."
+    },
+    {
+      "index": 978,
+      "start_time": 2970000.0,
+      "end_time": 2972240.0,
+      "text": "This is what I got."
+    },
+    {
+      "index": 979,
+      "start_time": 2972240.0,
+      "end_time": 2977910.0,
+      "text": "And actually, first of all, who sees something wrong?"
+    },
+    {
+      "index": 980,
+      "start_time": 2980440.0,
+      "end_time": 2982960.0,
+      "text": "Overfit, yeah."
+    },
+    {
+      "index": 981,
+      "start_time": 2982960.0,
+      "end_time": 2988510.0,
+      "text": "And so now, the question is, why is it overfitting here?"
+    },
+    {
+      "index": 982,
+      "start_time": 2988510.0,
+      "end_time": 2991480.0,
+      "text": "I will give you the answer because you can&#39;t guess it."
+    },
+    {
+      "index": 983,
+      "start_time": 2991480.0,
+      "end_time": 2995560.0,
+      "text": "But here, I was actually training on a small subset"
+    },
+    {
+      "index": 984,
+      "start_time": 2995560.0,
+      "end_time": 2998470.0,
+      "text": "of the Shakespeare corpus."
+    },
+    {
+      "index": 985,
+      "start_time": 2998470.0,
+      "end_time": 3004430.0,
+      "text": "So here, it was overfitting because of lack of data."
+    },
+    {
+      "index": 986,
+      "start_time": 3004430.0,
+      "end_time": 3007250.0,
+      "text": "And since I had this on the curves,"
+    },
+    {
+      "index": 987,
+      "start_time": 3007250.0,
+      "end_time": 3012640.0,
+      "text": "I wanted to show it to you because you certainly remember"
+    },
+    {
+      "index": 988,
+      "start_time": 3012640.0,
+      "end_time": 3017443.0,
+      "text": "that somewhere, where is it?"
+    },
+    {
+      "index": 989,
+      "start_time": 3017440.0,
+      "end_time": 3019327.0,
+      "text": "This one."
+    },
+    {
+      "index": 990,
+      "start_time": 3019330.0,
+      "end_time": 3023930.0,
+      "text": "Somewhere here, I had this helpful engineering chart."
+    },
+    {
+      "index": 991,
+      "start_time": 3027060.0,
+      "end_time": 3030450.0,
+      "text": "Which allows you to interpret what overfitting is."
+    },
+    {
+      "index": 992,
+      "start_time": 3030450.0,
+      "end_time": 3033090.0,
+      "text": "And we went yesterday through the bad network."
+    },
+    {
+      "index": 993,
+      "start_time": 3033090.0,
+      "end_time": 3034920.0,
+      "text": "We went through too many neurons."
+    },
+    {
+      "index": 994,
+      "start_time": 3034920.0,
+      "end_time": 3036330.0,
+      "text": "We never had not enough data."
+    },
+    {
+      "index": 995,
+      "start_time": 3036330.0,
+      "end_time": 3038100.0,
+      "text": "So I tried with not enough data."
+    },
+    {
+      "index": 996,
+      "start_time": 3038100.0,
+      "end_time": 3042630.0,
+      "text": "And yes, it also gives you this very recognizable pattern"
+    },
+    {
+      "index": 997,
+      "start_time": 3042630.0,
+      "end_time": 3043660.0,
+      "text": "in the curves."
+    },
+    {
+      "index": 998,
+      "start_time": 3043660.0,
+      "end_time": 3048040.0,
+      "text": "And as soon as I train with more data, this is what I have."
+    },
+    {
+      "index": 999,
+      "start_time": 3048040.0,
+      "end_time": 3051460.0,
+      "text": "So here, the two curves follow each other closely."
+    },
+    {
+      "index": 1000,
+      "start_time": 3051460.0,
+      "end_time": 3053770.0,
+      "text": "And I know that I have solved the problem."
+    },
+    {
+      "index": 1001,
+      "start_time": 3053770.0,
+      "end_time": 3055570.0,
+      "text": "So actually, I was doing this because I"
+    },
+    {
+      "index": 1002,
+      "start_time": 3055570.0,
+      "end_time": 3059440.0,
+      "text": "was trying to add dropout into my network"
+    },
+    {
+      "index": 1003,
+      "start_time": 3059440.0,
+      "end_time": 3060940.0,
+      "text": "to make it work better."
+    },
+    {
+      "index": 1004,
+      "start_time": 3060940.0,
+      "end_time": 3061600.0,
+      "text": "No."
+    },
+    {
+      "index": 1005,
+      "start_time": 3061600.0,
+      "end_time": 3064140.0,
+      "text": "It was misbehaving just because of lack of data."
+    },
+    {
+      "index": 1006,
+      "start_time": 3064140.0,
+      "end_time": 3067520.0,
+      "text": "Dropout would not have solved that."
+    },
+    {
+      "index": 1007,
+      "start_time": 3067520.0,
+      "end_time": 3072050.0,
+      "text": "All right, and so a couple of applications,"
+    },
+    {
+      "index": 1008,
+      "start_time": 3072050.0,
+      "end_time": 3074890.0,
+      "text": "practical applications to finish."
+    },
+    {
+      "index": 1009,
+      "start_time": 3074890.0,
+      "end_time": 3079570.0,
+      "text": "We&#39;ve seen how to produce a character by character model."
+    },
+    {
+      "index": 1010,
+      "start_time": 3085120.0,
+      "end_time": 3087780.0,
+      "text": "We can also use this not character by character,"
+    },
+    {
+      "index": 1011,
+      "start_time": 3087780.0,
+      "end_time": 3089430.0,
+      "text": "but word by word."
+    },
+    {
+      "index": 1012,
+      "start_time": 3089430.0,
+      "end_time": 3091350.0,
+      "text": "So as I said previously, with a word,"
+    },
+    {
+      "index": 1013,
+      "start_time": 3091350.0,
+      "end_time": 3093900.0,
+      "text": "it&#39;s a bit more complicated because to one-hot encode"
+    },
+    {
+      "index": 1014,
+      "start_time": 3093900.0,
+      "end_time": 3097800.0,
+      "text": "a word, you need to encode it on a vector of, this time,"
+    },
+    {
+      "index": 1015,
+      "start_time": 3097800.0,
+      "end_time": 3099210.0,
+      "text": "30,000 components."
+    },
+    {
+      "index": 1016,
+      "start_time": 3099210.0,
+      "end_time": 3101610.0,
+      "text": "Because that&#39;s the typical size of a vocabulary,"
+    },
+    {
+      "index": 1017,
+      "start_time": 3101610.0,
+      "end_time": 3103240.0,
+      "text": "typical language."
+    },
+    {
+      "index": 1018,
+      "start_time": 3103240.0,
+      "end_time": 3104730.0,
+      "text": "So those are big."
+    },
+    {
+      "index": 1019,
+      "start_time": 3104730.0,
+      "end_time": 3106680.0,
+      "text": "So on the inputs, there is actually"
+    },
+    {
+      "index": 1020,
+      "start_time": 3106680.0,
+      "end_time": 3108000.0,
+      "text": "a very simple solution."
+    },
+    {
+      "index": 1021,
+      "start_time": 3108000.0,
+      "end_time": 3110430.0,
+      "text": "How do you reduce the size of a big vector?"
+    },
+    {
+      "index": 1022,
+      "start_time": 3110430.0,
+      "end_time": 3112560.0,
+      "text": "Well, you use one layer of a neural network"
+    },
+    {
+      "index": 1023,
+      "start_time": 3112560.0,
+      "end_time": 3116100.0,
+      "text": "and produce less outputs."
+    },
+    {
+      "index": 1024,
+      "start_time": 3116100.0,
+      "end_time": 3119070.0,
+      "text": "It&#39;s called embeddings."
+    },
+    {
+      "index": 1025,
+      "start_time": 3119070.0,
+      "end_time": 3123490.0,
+      "text": "And that layer can either be part of your training--"
+    },
+    {
+      "index": 1026,
+      "start_time": 3123490.0,
+      "end_time": 3125710.0,
+      "text": "then, your embeddings are learned"
+    },
+    {
+      "index": 1027,
+      "start_time": 3125710.0,
+      "end_time": 3127450.0,
+      "text": "as part of the training."
+    },
+    {
+      "index": 1028,
+      "start_time": 3127450.0,
+      "end_time": 3129970.0,
+      "text": "Or, you can use some neural network"
+    },
+    {
+      "index": 1029,
+      "start_time": 3129970.0,
+      "end_time": 3133420.0,
+      "text": "that has been already trained, typically trained"
+    },
+    {
+      "index": 1030,
+      "start_time": 3133420.0,
+      "end_time": 3136420.0,
+      "text": "on the English language generically,"
+    },
+    {
+      "index": 1031,
+      "start_time": 3136420.0,
+      "end_time": 3139740.0,
+      "text": "and that just encodes words into smaller vectors."
+    },
+    {
+      "index": 1032,
+      "start_time": 3139740.0,
+      "end_time": 3144790.0,
+      "text": "There is a very famous, what is it,"
+    },
+    {
+      "index": 1033,
+      "start_time": 3144790.0,
+      "end_time": 3146740.0,
+      "text": "neural network that has been built for that."
+    },
+    {
+      "index": 1034,
+      "start_time": 3146740.0,
+      "end_time": 3148330.0,
+      "text": "It&#39;s called Word2Vec."
+    },
+    {
+      "index": 1035,
+      "start_time": 3148330.0,
+      "end_time": 3151300.0,
+      "text": "Already trained, available on GitHub."
+    },
+    {
+      "index": 1036,
+      "start_time": 3151300.0,
+      "end_time": 3154210.0,
+      "text": "You can use that to encode your English words"
+    },
+    {
+      "index": 1037,
+      "start_time": 3154210.0,
+      "end_time": 3156160.0,
+      "text": "if your problem deals with English words"
+    },
+    {
+      "index": 1038,
+      "start_time": 3156160.0,
+      "end_time": 3158200.0,
+      "text": "as smaller vectors."
+    },
+    {
+      "index": 1039,
+      "start_time": 3158200.0,
+      "end_time": 3160690.0,
+      "text": "And so once we have solved this problem of how"
+    },
+    {
+      "index": 1040,
+      "start_time": 3160690.0,
+      "end_time": 3163120.0,
+      "text": "to input words instead of characters,"
+    },
+    {
+      "index": 1041,
+      "start_time": 3163120.0,
+      "end_time": 3165520.0,
+      "text": "you can, for example, use a recurrent neural network"
+    },
+    {
+      "index": 1042,
+      "start_time": 3165520.0,
+      "end_time": 3169120.0,
+      "text": "like this to predict not what the next word is,"
+    },
+    {
+      "index": 1043,
+      "start_time": 3169120.0,
+      "end_time": 3173570.0,
+      "text": "but a categorization of a sequence."
+    },
+    {
+      "index": 1044,
+      "start_time": 3173570.0,
+      "end_time": 3176410.0,
+      "text": "And this is used in newspapers to automatically categorize"
+    },
+    {
+      "index": 1045,
+      "start_time": 3176410.0,
+      "end_time": 3180154.0,
+      "text": "articles as geopolitics, science, sports, and so on."
+    },
+    {
+      "index": 1046,
+      "start_time": 3180150.0,
+      "end_time": 3180816.0,
+      "text": "Works very well."
+    },
+    {
+      "index": 1047,
+      "start_time": 3184520.0,
+      "end_time": 3186880.0,
+      "text": "How do you do translation?"
+    },
+    {
+      "index": 1048,
+      "start_time": 3186880.0,
+      "end_time": 3190230.0,
+      "text": "Well, to do translation, that&#39;s how Google Translate works,"
+    },
+    {
+      "index": 1049,
+      "start_time": 3190230.0,
+      "end_time": 3194130.0,
+      "text": "you tack two of those recurrent networks end to end."
+    },
+    {
+      "index": 1050,
+      "start_time": 3194130.0,
+      "end_time": 3197550.0,
+      "text": "To the first one, you apply an English sentence"
+    },
+    {
+      "index": 1051,
+      "start_time": 3197550.0,
+      "end_time": 3199890.0,
+      "text": "plus a stop symbol."
+    },
+    {
+      "index": 1052,
+      "start_time": 3199890.0,
+      "end_time": 3203320.0,
+      "text": "And then, you continue."
+    },
+    {
+      "index": 1053,
+      "start_time": 3203320.0,
+      "end_time": 3207610.0,
+      "text": "And you ask it to output the French sentence."
+    },
+    {
+      "index": 1054,
+      "start_time": 3207610.0,
+      "end_time": 3210490.0,
+      "text": "And what you have on the input, there is a choice."
+    },
+    {
+      "index": 1055,
+      "start_time": 3210490.0,
+      "end_time": 3212980.0,
+      "text": "Normally, you should be inputting"
+    },
+    {
+      "index": 1056,
+      "start_time": 3212980.0,
+      "end_time": 3215320.0,
+      "text": "what your network outputs."
+    },
+    {
+      "index": 1057,
+      "start_time": 3215320.0,
+      "end_time": 3219400.0,
+      "text": "But people have also tried to input"
+    },
+    {
+      "index": 1058,
+      "start_time": 3219400.0,
+      "end_time": 3221710.0,
+      "text": "what the network should output."
+    },
+    {
+      "index": 1059,
+      "start_time": 3221710.0,
+      "end_time": 3223840.0,
+      "text": "So both options exist."
+    },
+    {
+      "index": 1060,
+      "start_time": 3223840.0,
+      "end_time": 3226400.0,
+      "text": "And they give you different results."
+    },
+    {
+      "index": 1061,
+      "start_time": 3226400.0,
+      "end_time": 3228850.0,
+      "text": "You can read about this in literature."
+    },
+    {
+      "index": 1062,
+      "start_time": 3228850.0,
+      "end_time": 3232330.0,
+      "text": "So this is how translation works."
+    },
+    {
+      "index": 1063,
+      "start_time": 3232330.0,
+      "end_time": 3234550.0,
+      "text": "Of course, you have a big problem at the end."
+    },
+    {
+      "index": 1064,
+      "start_time": 3234550.0,
+      "end_time": 3236410.0,
+      "text": "I won&#39;t go into that."
+    },
+    {
+      "index": 1065,
+      "start_time": 3236410.0,
+      "end_time": 3239260.0,
+      "text": "Because to do the softmax layers there,"
+    },
+    {
+      "index": 1066,
+      "start_time": 3239260.0,
+      "end_time": 3244510.0,
+      "text": "you actually want to produce a vector of 30,000 probabilities."
+    },
+    {
+      "index": 1067,
+      "start_time": 3244510.0,
+      "end_time": 3246110.0,
+      "text": "That&#39;s a bit heavy."
+    },
+    {
+      "index": 1068,
+      "start_time": 3246110.0,
+      "end_time": 3248710.0,
+      "text": "So there are ways of mitigating that."
+    },
+    {
+      "index": 1069,
+      "start_time": 3248710.0,
+      "end_time": 3250900.0,
+      "text": "But that&#39;s an active area of research."
+    },
+    {
+      "index": 1070,
+      "start_time": 3250900.0,
+      "end_time": 3253690.0,
+      "text": "One that is implemented in TensorFlow"
+    },
+    {
+      "index": 1071,
+      "start_time": 3253690.0,
+      "end_time": 3256457.0,
+      "text": "is called sample softmax."
+    },
+    {
+      "index": 1072,
+      "start_time": 3256460.0,
+      "end_time": 3258043.0,
+      "text": "But there are many others because this"
+    },
+    {
+      "index": 1073,
+      "start_time": 3258040.0,
+      "end_time": 3259290.0,
+      "text": "is an active area of research."
+    },
+    {
+      "index": 1074,
+      "start_time": 3259290.0,
+      "end_time": 3263080.0,
+      "text": "How to do this softmax layer to produce 30,000 probabilities"
+    },
+    {
+      "index": 1075,
+      "start_time": 3263080.0,
+      "end_time": 3266040.0,
+      "text": "each time, which is a bit heavy."
+    },
+    {
+      "index": 1076,
+      "start_time": 3266040.0,
+      "end_time": 3269110.0,
+      "text": "And one more is image labeling."
+    },
+    {
+      "index": 1077,
+      "start_time": 3269110.0,
+      "end_time": 3272140.0,
+      "text": "So here, it&#39;s a very simplified version of image labeling."
+    },
+    {
+      "index": 1078,
+      "start_time": 3272140.0,
+      "end_time": 3273772.0,
+      "text": "Image labeling is you take an image,"
+    },
+    {
+      "index": 1079,
+      "start_time": 3273770.0,
+      "end_time": 3275228.0,
+      "text": "and you want to produce a sentence."
+    },
+    {
+      "index": 1080,
+      "start_time": 3275230.0,
+      "end_time": 3278170.0,
+      "text": "Like, this a little girl holding a teddy bear."
+    },
+    {
+      "index": 1081,
+      "start_time": 3278170.0,
+      "end_time": 3280300.0,
+      "text": "This is a truck in the desert."
+    },
+    {
+      "index": 1082,
+      "start_time": 3280300.0,
+      "end_time": 3284170.0,
+      "text": "So this is actually also a translation problem."
+    },
+    {
+      "index": 1083,
+      "start_time": 3284170.0,
+      "end_time": 3287470.0,
+      "text": "You take vectors from an image."
+    },
+    {
+      "index": 1084,
+      "start_time": 3287470.0,
+      "end_time": 3290710.0,
+      "text": "And you apply a recurrent neural network"
+    },
+    {
+      "index": 1085,
+      "start_time": 3290710.0,
+      "end_time": 3293380.0,
+      "text": "to produce a sequence of words which"
+    },
+    {
+      "index": 1086,
+      "start_time": 3293380.0,
+      "end_time": 3298150.0,
+      "text": "you want to be the description of this image."
+    },
+    {
+      "index": 1087,
+      "start_time": 3298150.0,
+      "end_time": 3300150.0,
+      "text": "How do you encode an image as a vector?"
+    },
+    {
+      "index": 1088,
+      "start_time": 3300150.0,
+      "end_time": 3302450.0,
+      "text": "Well, there are plenty of solutions."
+    },
+    {
+      "index": 1089,
+      "start_time": 3302450.0,
+      "end_time": 3304660.0,
+      "text": "One of them is to take an off the shelf"
+    },
+    {
+      "index": 1090,
+      "start_time": 3304660.0,
+      "end_time": 3307540.0,
+      "text": "image recognition neural network, like Inception,"
+    },
+    {
+      "index": 1091,
+      "start_time": 3307540.0,
+      "end_time": 3310930.0,
+      "text": "and just chop off the last couple of layers."
+    },
+    {
+      "index": 1092,
+      "start_time": 3310930.0,
+      "end_time": 3313420.0,
+      "text": "Normally, what Inception gives is categories."
+    },
+    {
+      "index": 1093,
+      "start_time": 3313420.0,
+      "end_time": 3314350.0,
+      "text": "This is a truck."
+    },
+    {
+      "index": 1094,
+      "start_time": 3314350.0,
+      "end_time": 3315160.0,
+      "text": "This is a beach."
+    },
+    {
+      "index": 1095,
+      "start_time": 3315160.0,
+      "end_time": 3316900.0,
+      "text": "This is a lizard."
+    },
+    {
+      "index": 1096,
+      "start_time": 3316900.0,
+      "end_time": 3318570.0,
+      "text": "That&#39;s not what you want."
+    },
+    {
+      "index": 1097,
+      "start_time": 3318570.0,
+      "end_time": 3320860.0,
+      "text": "But all the top layers are actually"
+    },
+    {
+      "index": 1098,
+      "start_time": 3320860.0,
+      "end_time": 3325450.0,
+      "text": "encoding an image in some meaningful way into a vector."
+    },
+    {
+      "index": 1099,
+      "start_time": 3325450.0,
+      "end_time": 3328090.0,
+      "text": "You can use that as a fixed encoding function."
+    },
+    {
+      "index": 1100,
+      "start_time": 3328090.0,
+      "end_time": 3330880.0,
+      "text": "And input the vector corresponding to the image"
+    },
+    {
+      "index": 1101,
+      "start_time": 3330880.0,
+      "end_time": 3331720.0,
+      "text": "here."
+    },
+    {
+      "index": 1102,
+      "start_time": 3331720.0,
+      "end_time": 3334660.0,
+      "text": "Produce this output sequence."
+    },
+    {
+      "index": 1103,
+      "start_time": 3334660.0,
+      "end_time": 3337550.0,
+      "text": "And sometimes, it works really well."
+    },
+    {
+      "index": 1104,
+      "start_time": 3337550.0,
+      "end_time": 3338770.0,
+      "text": "This is what was generated."
+    },
+    {
+      "index": 1105,
+      "start_time": 3338770.0,
+      "end_time": 3341410.0,
+      "text": "A herd of elephants walking across a dry grass field,"
+    },
+    {
+      "index": 1106,
+      "start_time": 3341410.0,
+      "end_time": 3343450.0,
+      "text": "and so on."
+    },
+    {
+      "index": 1107,
+      "start_time": 3343450.0,
+      "end_time": 3348520.0,
+      "text": "And then sometimes, yeah, not quite."
+    },
+    {
+      "index": 1108,
+      "start_time": 3352730.0,
+      "end_time": 3354470.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 1109,
+      "start_time": 3354470.0,
+      "end_time": 3355970.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 1110,
+      "start_time": 3355970.0,
+      "end_time": 3358120.0,
+      "text": "[MUSIC PLAYING]"
+    }
+  ]
+}

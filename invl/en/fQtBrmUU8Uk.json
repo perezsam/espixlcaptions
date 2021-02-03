@@ -1,0 +1,4086 @@
+{
+  "video_id": "fQtBrmUU8Uk",
+  "title": "GTAC 2011: The Latest in Google Test Tools",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 25130.0,
+      "end_time": 25160.0,
+      "text": "GTAC - Day 2 Ibrahim El Far"
+    },
+    {
+      "index": 2,
+      "start_time": 25160.0,
+      "end_time": 25189.0,
+      "text": "and Jason Arbon October 27, 2011"
+    },
+    {
+      "index": 3,
+      "start_time": 25189.0,
+      "end_time": 28980.0,
+      "text": ">>James Whittaker: I actually think we have two speakers for this next one, a pair of"
+    },
+    {
+      "index": 4,
+      "start_time": 28980.0,
+      "end_time": 34390.0,
+      "text": "Googlers. Ibrahim El Far and Jason Arbon actually both"
+    },
+    {
+      "index": 5,
+      "start_time": 34390.0,
+      "end_time": 42239.0,
+      "text": "work for me. There were no special privileges getting them in this event. They were all"
+    },
+    {
+      "index": 6,
+      "start_time": 42239.0,
+      "end_time": 46909.0,
+      "text": "still voted for. But these are the two people that if they do have a bad presentation, I"
+    },
+    {
+      "index": 7,
+      "start_time": 46909.0,
+      "end_time": 53540.0,
+      "text": "can actually do something about it. So just saying. No pressure. We're continuing our"
+    },
+    {
+      "index": 8,
+      "start_time": 53540.0,
+      "end_time": 60710.0,
+      "text": "theme of browser automation. And I think this is going to be completely different from a"
+    },
+    {
+      "index": 9,
+      "start_time": 60710.0,
+      "end_time": 67990.0,
+      "text": "lot of the other discussions. But I heard the sauce guy, Adam, say something about BITE."
+    },
+    {
+      "index": 10,
+      "start_time": 67990.0,
+      "end_time": 72240.0,
+      "text": "That's part of what we're going to demo here. And maybe Sauce will pick it up and do something"
+    },
+    {
+      "index": 11,
+      "start_time": 72240.0,
+      "end_time": 77229.0,
+      "text": "with it, because we have open sourced this. So I think Ibrahim is going to start."
+    },
+    {
+      "index": 12,
+      "start_time": 77229.0,
+      "end_time": 82030.0,
+      "text": "Ibrahim actually kind of followed me. We were in Florida for a little while. And then we"
+    },
+    {
+      "index": 13,
+      "start_time": 82030.0,
+      "end_time": 85500.0,
+      "text": "both went to Microsoft. And then -- >>Ibrahim El Far: You followed me into Microsoft."
+    },
+    {
+      "index": 14,
+      "start_time": 85500.0,
+      "end_time": 88770.0,
+      "text": ">>James Whittaker: I followed you. That's true. You went to Microsoft first and then"
+    },
+    {
+      "index": 15,
+      "start_time": 88770.0,
+      "end_time": 91569.0,
+      "text": "I followed you. And then I went to Google and you followed me."
+    },
+    {
+      "index": 16,
+      "start_time": 91569.0,
+      "end_time": 95600.0,
+      "text": "And eventually we're going to have to stop this stuff. People will talk."
+    },
+    {
+      "index": 17,
+      "start_time": 95600.0,
+      "end_time": 98899.0,
+      "text": "[ Laughter ] >>James Whittaker: And Jason Arbon is also"
+    },
+    {
+      "index": 18,
+      "start_time": 98899.0,
+      "end_time": 106749.0,
+      "text": "another former Microsofty-become-Googler. And, I don't know, maybe I should stop saying"
+    },
+    {
+      "index": 19,
+      "start_time": 106749.0,
+      "end_time": 113879.0,
+      "text": "that. I said former Microsofter. When your badge"
+    },
+    {
+      "index": 20,
+      "start_time": 113879.0,
+      "end_time": 117859.0,
+      "text": "-- the joke around Google is you don't know you're fired until you come to work and your"
+    },
+    {
+      "index": 21,
+      "start_time": 117859.0,
+      "end_time": 126200.0,
+      "text": "badge doesn't work. That's when you know. Okay. Let's welcome our new speakers."
+    },
+    {
+      "index": 22,
+      "start_time": 126200.0,
+      "end_time": 146490.0,
+      "text": "[ Applause ] >>Jason Arbon: He's got -- Welcome to the"
+    },
+    {
+      "index": 23,
+      "start_time": 146490.0,
+      "end_time": 150220.0,
+      "text": "cloud; right? >>Ibrahim El Far: Excellent. Fantastic."
+    },
+    {
+      "index": 24,
+      "start_time": 150220.0,
+      "end_time": 159330.0,
+      "text": "So hi. My name is Ibrahim. I've been at Google for about a year and a half. I'm a manager"
+    },
+    {
+      "index": 25,
+      "start_time": 159330.0,
+      "end_time": 165720.0,
+      "text": "of a team of about -- until recently, of seven or eight people who basically just do test"
+    },
+    {
+      "index": 26,
+      "start_time": 165720.0,
+      "end_time": 169820.0,
+      "text": "tools. We're going to talk about two of these tools today."
+    },
+    {
+      "index": 27,
+      "start_time": 169820.0,
+      "end_time": 173560.0,
+      "text": "And I work closely with Jason. Jason is the visionary and the man behind most of these"
+    },
+    {
+      "index": 28,
+      "start_time": 173560.0,
+      "end_time": 176510.0,
+      "text": "tools. So, basically, if you dislike any of the ideas,"
+    },
+    {
+      "index": 29,
+      "start_time": 176510.0,
+      "end_time": 179580.0,
+      "text": "just blame him -- >>Jason Arbon: In implementation, it's him."
+    },
+    {
+      "index": 30,
+      "start_time": 179580.0,
+      "end_time": 184470.0,
+      "text": ">>Ibrahim El Far: Yes, indeed. So I figured, though, I will want to just"
+    },
+    {
+      "index": 31,
+      "start_time": 184470.0,
+      "end_time": 194990.0,
+      "text": "start with a silent presentation reflecting on some of the things that we saw yesterday."
+    },
+    {
+      "index": 32,
+      "start_time": 194990.0,
+      "end_time": 233750.0,
+      "text": "[ Laughter ] >>Ibrahim El Far: So, anyway, --"
+    },
+    {
+      "index": 33,
+      "start_time": 233750.0,
+      "end_time": 267650.0,
+      "text": "[ Applause ] >>Ibrahim El Far: So, just to give -- I want"
+    },
+    {
+      "index": 34,
+      "start_time": 267650.0,
+      "end_time": 273009.0,
+      "text": "just to gauge a little bit what kind of audience we have here. So how many of you do UI testing?"
+    },
+    {
+      "index": 35,
+      "start_time": 273009.0,
+      "end_time": 276789.0,
+      "text": "By -- oh, cool. How many of you do JavaScript, like write"
+    },
+    {
+      "index": 36,
+      "start_time": 276789.0,
+      "end_time": 282960.0,
+      "text": "JavaScript on a daily basis? Oh, excellent. Interesting."
+    },
+    {
+      "index": 37,
+      "start_time": 282960.0,
+      "end_time": 286690.0,
+      "text": "I always found it interesting, by the way, that a lot of the people who deal with Web"
+    },
+    {
+      "index": 38,
+      "start_time": 286690.0,
+      "end_time": 292240.0,
+      "text": "testing on a daily basis just don't really deal directly with JavaScript."
+    },
+    {
+      "index": 39,
+      "start_time": 292240.0,
+      "end_time": 298000.0,
+      "text": "How many of you have -- deal with manual testers, like, work with manual testers on a daily"
+    },
+    {
+      "index": 40,
+      "start_time": 298000.0,
+      "end_time": 299550.0,
+      "text": "basis? Cool."
+    },
+    {
+      "index": 41,
+      "start_time": 299550.0,
+      "end_time": 302010.0,
+      "text": "How many of you have filed bugs? [ Laughter ]"
+    },
+    {
+      "index": 42,
+      "start_time": 302010.0,
+      "end_time": 307490.0,
+      "text": ">>Ibrahim El Far: How many of you have spent a whole lot of time talking to developers"
+    },
+    {
+      "index": 43,
+      "start_time": 307490.0,
+      "end_time": 311920.0,
+      "text": "about convincing them you that need to fix those bugs?"
+    },
+    {
+      "index": 44,
+      "start_time": 311920.0,
+      "end_time": 317360.0,
+      "text": "How many of you had the opposite experience of just, you know, developers just fixed it"
+    },
+    {
+      "index": 45,
+      "start_time": 317360.0,
+      "end_time": 325490.0,
+      "text": "on a regular basis. Oh, fantastic. Of course, Tony has it right."
+    },
+    {
+      "index": 46,
+      "start_time": 325490.0,
+      "end_time": 329900.0,
+      "text": "So there's always a place for testers. Can you help me with the clicking, please."
+    },
+    {
+      "index": 47,
+      "start_time": 329900.0,
+      "end_time": 332250.0,
+      "text": ">>Jason Arbon: Yes, sir. >>Ibrahim El Far: That's why I brought in"
+    },
+    {
+      "index": 48,
+      "start_time": 332250.0,
+      "end_time": 335880.0,
+      "text": "Jason. He's basically my clicker. >>Jason Arbon: Not funny."
+    },
+    {
+      "index": 49,
+      "start_time": 335880.0,
+      "end_time": 338700.0,
+      "text": ">>Ibrahim El Far: Yeah, pretty much. [ Laughter ]"
+    },
+    {
+      "index": 50,
+      "start_time": 338700.0,
+      "end_time": 347070.0,
+      "text": ">>Ibrahim El Far: So crowd sourcing was mentioned yesterday. And -- as a powerful sort of way"
+    },
+    {
+      "index": 51,
+      "start_time": 347070.0,
+      "end_time": 354180.0,
+      "text": "that actually scales in terms of bringing the crowd to test, sort of like hiring a dedicated"
+    },
+    {
+      "index": 52,
+      "start_time": 354180.0,
+      "end_time": 359470.0,
+      "text": "set of testers. And that is especially true for consumer applications."
+    },
+    {
+      "index": 53,
+      "start_time": 359470.0,
+      "end_time": 363180.0,
+      "text": "So I'm not going to pretend that this works for enterprise applications. I'm not going"
+    },
+    {
+      "index": 54,
+      "start_time": 363180.0,
+      "end_time": 369919.0,
+      "text": "to pretend this works for operating systems, or even back-end stuff. But for consumers"
+    },
+    {
+      "index": 55,
+      "start_time": 369919.0,
+      "end_time": 375460.0,
+      "text": "with a lot of UI stuff, this works pretty well."
+    },
+    {
+      "index": 56,
+      "start_time": 375460.0,
+      "end_time": 381290.0,
+      "text": "So there's always a place for highly skilled bug hunters who are actually working for organizations"
+    },
+    {
+      "index": 57,
+      "start_time": 381290.0,
+      "end_time": 388230.0,
+      "text": "whose core business is testing. Actually, even if companies, large companies, like Microsoft"
+    },
+    {
+      "index": 58,
+      "start_time": 388230.0,
+      "end_time": 395030.0,
+      "text": "or Google or et cetera, decide one day that we're -- James is right and test is dead and"
+    },
+    {
+      "index": 59,
+      "start_time": 395030.0,
+      "end_time": 398510.0,
+      "text": "we're not going to hire any more testers, I think there's always going to be a place"
+    },
+    {
+      "index": 60,
+      "start_time": 398510.0,
+      "end_time": 404410.0,
+      "text": "for testers in organizations whose core business model is about testing. We'll get into that"
+    },
+    {
+      "index": 61,
+      "start_time": 404410.0,
+      "end_time": 408130.0,
+      "text": "a little bit later in the presentation. So you can keep arguing about who needs to"
+    },
+    {
+      "index": 62,
+      "start_time": 408130.0,
+      "end_time": 412310.0,
+      "text": "be doing it or you can argue about where we need to do it, in the United States, or in"
+    },
+    {
+      "index": 63,
+      "start_time": 412310.0,
+      "end_time": 418760.0,
+      "text": "India and China, or in your company versus outside of your company. But that's really"
+    },
+    {
+      "index": 64,
+      "start_time": 418760.0,
+      "end_time": 424080.0,
+      "text": "not the point. >>Jason Arbon: We didn't practice any of this,"
+    },
+    {
+      "index": 65,
+      "start_time": 424080.0,
+      "end_time": 428010.0,
+      "text": "by the way. >>Ibrahim El Far: This is not very rehearsed."
+    },
+    {
+      "index": 66,
+      "start_time": 428010.0,
+      "end_time": 435620.0,
+      "text": "So, really, the work is not going away. If -- you know, basically, what we need is,"
+    },
+    {
+      "index": 67,
+      "start_time": 435620.0,
+      "end_time": 440810.0,
+      "text": "we still need to test your software. We need to do it in an exploratory way or a scripted"
+    },
+    {
+      "index": 68,
+      "start_time": 440810.0,
+      "end_time": 446430.0,
+      "text": "way, doesn't matter, but it still needs to be done. Bugs still need to be filed. And"
+    },
+    {
+      "index": 69,
+      "start_time": 446430.0,
+      "end_time": 448840.0,
+      "text": "-- why are you not clicking? >>Jason Arbon: Because you don't make the"
+    },
+    {
+      "index": 70,
+      "start_time": 448840.0,
+      "end_time": 449710.0,
+      "text": "click noise. We talked about the click noise. (Clicking)."
+    },
+    {
+      "index": 71,
+      "start_time": 449710.0,
+      "end_time": 457090.0,
+      "text": ">>Ibrahim El Far: But, I mean, how are we going to go through this? You're just not"
+    },
+    {
+      "index": 72,
+      "start_time": 457090.0,
+      "end_time": 460500.0,
+      "text": "doing your job. >>Jason Arbon: I'm doing it. I'm just doing"
+    },
+    {
+      "index": 73,
+      "start_time": 460500.0,
+      "end_time": 463710.0,
+      "text": "a review level 3.1. >>Ibrahim El Far: I'm already talking about,"
+    },
+    {
+      "index": 74,
+      "start_time": 463710.0,
+      "end_time": 467620.0,
+      "text": "you know, the work that's not going away. And -- yeah, okay. Thank you."
+    },
+    {
+      "index": 75,
+      "start_time": 467620.0,
+      "end_time": 471590.0,
+      "text": "[ Laughter ] >>Ibrahim El Far: So I'm already done with"
+    },
+    {
+      "index": 76,
+      "start_time": 471590.0,
+      "end_time": 475479.0,
+      "text": "this bullet, so it's done. >>Jason Arbon: I can quit."
+    },
+    {
+      "index": 77,
+      "start_time": 475479.0,
+      "end_time": 479110.0,
+      "text": ">>Ibrahim El Far: So the work is not going away."
+    },
+    {
+      "index": 78,
+      "start_time": 479110.0,
+      "end_time": 484300.0,
+      "text": "And -- I'm just going to do it myself. >>Jason Arbon: Please."
+    },
+    {
+      "index": 79,
+      "start_time": 484300.0,
+      "end_time": 486380.0,
+      "text": "[ Laughter ] >>Jason Arbon: Management."
+    },
+    {
+      "index": 80,
+      "start_time": 486380.0,
+      "end_time": 492520.0,
+      "text": ">>Ibrahim El Far: But we don't really -- here's the thing. I don't know if you ever hung out"
+    },
+    {
+      "index": 81,
+      "start_time": 492520.0,
+      "end_time": 495419.0,
+      "text": "with a manual tester or if you've ever been one. When I first joined Microsoft a long"
+    },
+    {
+      "index": 82,
+      "start_time": 495419.0,
+      "end_time": 504370.0,
+      "text": "time ago, I was hired as a test engineer, which technically meant that I clicked buttons."
+    },
+    {
+      "index": 83,
+      "start_time": 504370.0,
+      "end_time": 509710.0,
+      "text": "And life was kind of miserable, actually. I had to, you know, set up my machine, install"
+    },
+    {
+      "index": 84,
+      "start_time": 509710.0,
+      "end_time": 516490.0,
+      "text": "a whole lot of software. And even in today's world, with, you know, everything being -- going"
+    },
+    {
+      "index": 85,
+      "start_time": 516490.0,
+      "end_time": 520560.0,
+      "text": "into the cloud, you still have to install a lot of tools and spend a lot of time learning"
+    },
+    {
+      "index": 86,
+      "start_time": 520559.99999999994,
+      "end_time": 523498.99999999994,
+      "text": "about these tools. So -- Click."
+    },
+    {
+      "index": 87,
+      "start_time": 523499.0,
+      "end_time": 528759.0,
+      "text": "[ Laughter ] >>Ibrahim El Far: -- you also tend to spend"
+    },
+    {
+      "index": 88,
+      "start_time": 528759.0,
+      "end_time": 534329.0,
+      "text": "a lot of time away from the application. The thing about exploratory testers and manual"
+    },
+    {
+      "index": 89,
+      "start_time": 534329.0,
+      "end_time": 540140.0,
+      "text": "testers is, really, they need to spend as much time as possible just playing with the"
+    },
+    {
+      "index": 90,
+      "start_time": 540140.0,
+      "end_time": 544990.0,
+      "text": "app. And they don't. They keep switching context a lot. They keep switching and saying, \"Oh,"
+    },
+    {
+      "index": 91,
+      "start_time": 544990.0,
+      "end_time": 551630.0,
+      "text": "I need to actually create a test case in the test case manager.\" Really? I mean, seriously?"
+    },
+    {
+      "index": 92,
+      "start_time": 551630.0,
+      "end_time": 556720.0,
+      "text": "I need to enter data, like who's the author of this test and what's the title of this"
+    },
+    {
+      "index": 93,
+      "start_time": 556720.0,
+      "end_time": 560110.0,
+      "text": "test, and here are the steps of this test. And, by the way, here's how you execute this"
+    },
+    {
+      "index": 94,
+      "start_time": 560110.0,
+      "end_time": 565089.0,
+      "text": "test. Really? I mean, come on. We're in 2011 already?"
+    },
+    {
+      "index": 95,
+      "start_time": 565089.0,
+      "end_time": 569470.0,
+      "text": "Something like that? Yeah. So that's the other job that Jason is there"
+    },
+    {
+      "index": 96,
+      "start_time": 569470.0,
+      "end_time": 573820.0,
+      "text": "for. Click on my slides, and shake his head. >>Jason Arbon: I'm ahead of you."
+    },
+    {
+      "index": 97,
+      "start_time": 573820.0,
+      "end_time": 579980.0,
+      "text": ">>Ibrahim El Far: That's right. Thanks. So also, another really terrible thing, another"
+    },
+    {
+      "index": 98,
+      "start_time": 579980.0,
+      "end_time": 583960.0,
+      "text": "terrible experience about this is, you know, we go ahead and we know that some test cases"
+    },
+    {
+      "index": 99,
+      "start_time": 583960.0,
+      "end_time": 588529.0,
+      "text": "are, you know, going to fail or pass. But we give them to test -- because we haven't"
+    },
+    {
+      "index": 100,
+      "start_time": 588529.0,
+      "end_time": 593990.0,
+      "text": "got a chance, especially in the UI testing world, we haven't got a chance to automate"
+    },
+    {
+      "index": 101,
+      "start_time": 593990.0,
+      "end_time": 598060.0,
+      "text": "it, so what we do is we give them a whole bunch of spreadsheets and say, \"Go ahead and"
+    },
+    {
+      "index": 102,
+      "start_time": 598060.0,
+      "end_time": 602000.0,
+      "text": "just run through -- run with them.\" And that's really unfortunate, because what"
+    },
+    {
+      "index": 103,
+      "start_time": 602000.0,
+      "end_time": 604210.0,
+      "text": "that means, instead of them exploring new functionality, they're stuck, essentially,"
+    },
+    {
+      "index": 104,
+      "start_time": 604210.0,
+      "end_time": 612760.0,
+      "text": "repeating the same thing over and over again. And then often we hire an army of them just"
+    },
+    {
+      "index": 105,
+      "start_time": 612760.0,
+      "end_time": 620770.0,
+      "text": "so we can cover things like all sorts of machine and browser combinations."
+    },
+    {
+      "index": 106,
+      "start_time": 620770.0,
+      "end_time": 626630.0,
+      "text": "You know, they -- manual testers these days also still spend a whole lot of time testing"
+    },
+    {
+      "index": 107,
+      "start_time": 626630.0,
+      "end_time": 633959.0,
+      "text": "a whole lot of stuff that can be found by a machine. And so, really, test case managers,"
+    },
+    {
+      "index": 108,
+      "start_time": 633959.0,
+      "end_time": 640180.0,
+      "text": "bug filing systems, and record playback software, which is really central to the life of a manual"
+    },
+    {
+      "index": 109,
+      "start_time": 640180.0,
+      "end_time": 644920.0,
+      "text": "tester, I was going to say it just needs to die. But what I really mean is it just needs"
+    },
+    {
+      "index": 110,
+      "start_time": 644920.0,
+      "end_time": 652750.0,
+      "text": "to be invisible. It needs to be invisible so that the user of the software, who can"
+    },
+    {
+      "index": 111,
+      "start_time": 652750.0,
+      "end_time": 658740.0,
+      "text": "be a tester, or the developer of the software, or the manual tester, who is a dedicated manual"
+    },
+    {
+      "index": 112,
+      "start_time": 658740.0,
+      "end_time": 661350.0,
+      "text": "tester, anyone can actually -- [ Laughter ]"
+    },
+    {
+      "index": 113,
+      "start_time": 661350.0,
+      "end_time": 667880.0,
+      "text": ">>Ibrahim El Far: You know, we only have 30 minutes. So...."
+    },
+    {
+      "index": 114,
+      "start_time": 667880.0,
+      "end_time": 673350.0,
+      "text": "So, for us, when we talk about -- you know, at least on our team, when we talk about the"
+    },
+    {
+      "index": 115,
+      "start_time": 673350.0,
+      "end_time": 677490.0,
+      "text": "crowd, we actually don't really mean just people. We mean a crowd of people and a crowd"
+    },
+    {
+      "index": 116,
+      "start_time": 677490.0,
+      "end_time": 682480.0,
+      "text": "of machines. And it's really just the best of both worlds."
+    },
+    {
+      "index": 117,
+      "start_time": 682480.0,
+      "end_time": 688399.0,
+      "text": "So this is the standard, oh, testing is labor-intensive. Ooh."
+    },
+    {
+      "index": 118,
+      "start_time": 688399.0,
+      "end_time": 696420.0,
+      "text": "So let's go on to the next slide, actually. So I'm going to go through -- so I'm going"
+    },
+    {
+      "index": 119,
+      "start_time": 696420.0,
+      "end_time": 700380.0,
+      "text": "to go through just a bunch of the tools -- tool work that we've been doing. BITE stands for"
+    },
+    {
+      "index": 120,
+      "start_time": 700380.0,
+      "end_time": 706290.0,
+      "text": "browser integrated test environment. It's -- the client portions are already open source."
+    },
+    {
+      "index": 121,
+      "start_time": 706290.0,
+      "end_time": 711300.0,
+      "text": "You can go and take a look at them. And I'm -- we're going to first take a look"
+    },
+    {
+      "index": 122,
+      "start_time": 711300.0,
+      "end_time": 715200.0,
+      "text": "at the record and playback feature. >>Jason Arbon: Your internal Google email"
+    },
+    {
+      "index": 123,
+      "start_time": 715200.0,
+      "end_time": 720959.0,
+      "text": "is popping up. >>Ibrahim El Far: Oh, yeah. Hopefully, -- oh,"
+    },
+    {
+      "index": 124,
+      "start_time": 720959.0,
+      "end_time": 726070.0,
+      "text": "well, just try to ignore that. Will that show up on video?"
+    },
+    {
+      "index": 125,
+      "start_time": 726070.0,
+      "end_time": 732740.0,
+      "text": ">>Jason Arbon: Yeah. >>Ibrahim El Far: Oh, crap. All right."
+    },
+    {
+      "index": 126,
+      "start_time": 732740.0,
+      "end_time": 739839.0,
+      "text": "But I quit all notifiers, then. It's only the job that pays the bills."
+    },
+    {
+      "index": 127,
+      "start_time": 739839.0,
+      "end_time": 746029.0,
+      "text": "So keep in mind the first thing that we wanted to do is to make sure that testers just don't"
+    },
+    {
+      "index": 128,
+      "start_time": 746029.0,
+      "end_time": 751130.0,
+      "text": "really -- especially exploratory testers don't have to do a lot of work to sort of enter"
+    },
+    {
+      "index": 129,
+      "start_time": 751130.0,
+      "end_time": 757570.0,
+      "text": "metadata about their test cases, and enough information for these test cases to be repeated."
+    },
+    {
+      "index": 130,
+      "start_time": 757570.0,
+      "end_time": 762410.0,
+      "text": "So one of those core components is really a traditional kind of traditionally boring"
+    },
+    {
+      "index": 131,
+      "start_time": 762410.0,
+      "end_time": 768730.0,
+      "text": "piece of testing called record playback, except we do it in a pretty cool way."
+    },
+    {
+      "index": 132,
+      "start_time": 768730.0,
+      "end_time": 775060.0,
+      "text": "So what you do is, all you need is to install an extension. BITE is really just a Chrome"
+    },
+    {
+      "index": 133,
+      "start_time": 775060.0,
+      "end_time": 782630.0,
+      "text": "extension, at least today. And what you do is just you start -- go ahead"
+    },
+    {
+      "index": 134,
+      "start_time": 782630.0,
+      "end_time": 786600.0,
+      "text": "and play with your -- with your application, in this case, you know, just open up the Google"
+    },
+    {
+      "index": 135,
+      "start_time": 786600.0,
+      "end_time": 797760.0,
+      "text": "page. And then as you go through this application, essentially, what BITE is doing is recording"
+    },
+    {
+      "index": 136,
+      "start_time": 797760.0,
+      "end_time": 804070.0,
+      "text": "everything that you're doing. And without you necessarily writing any of the code, what's"
+    },
+    {
+      "index": 137,
+      "start_time": 804070.0,
+      "end_time": 812130.0,
+      "text": "being recorded is both -- I don't know if you can see this very well from where you're"
+    },
+    {
+      "index": 138,
+      "start_time": 812130.0,
+      "end_time": 819600.0,
+      "text": "sitting -- but you can see both, essentially, JavaScriptish kind of code that's being generated,"
+    },
+    {
+      "index": 139,
+      "start_time": 819600.0,
+      "end_time": 827200.0,
+      "text": "but also kind of an -- a plain English sort of presentation of the test case. Depending"
+    },
+    {
+      "index": 140,
+      "start_time": 827200.0,
+      "end_time": 831390.0,
+      "text": "on who's using this tool, they might want to take a look at something a little bit more"
+    },
+    {
+      "index": 141,
+      "start_time": 831390.0,
+      "end_time": 838570.0,
+      "text": "friendly than JavaScript as a representation of your test case."
+    },
+    {
+      "index": 142,
+      "start_time": 838570.0,
+      "end_time": 844160.0,
+      "text": "You can do things like also add validation. So as, for example, you're going ahead and"
+    },
+    {
+      "index": 143,
+      "start_time": 844160.0,
+      "end_time": 849640.0,
+      "text": "playing with your app, you can say, for example, that these are your expectations about what"
+    },
+    {
+      "index": 144,
+      "start_time": 849640.0,
+      "end_time": 855310.0,
+      "text": "to find on a certain page, like some things are a must, some things are to be ignored,"
+    },
+    {
+      "index": 145,
+      "start_time": 855310.0,
+      "end_time": 862370.0,
+      "text": "some things are optional. And then also, as you are exploring your software,"
+    },
+    {
+      "index": 146,
+      "start_time": 862370.0,
+      "end_time": 869519.0,
+      "text": "we are taking, essentially, a snapshot or a screen shot of the application step by step."
+    },
+    {
+      "index": 147,
+      "start_time": 869519.0,
+      "end_time": 874089.0,
+      "text": "So this way, basically, now, you have three ways of looking at your test case later. You"
+    },
+    {
+      "index": 148,
+      "start_time": 874089.0,
+      "end_time": 879360.0,
+      "text": "can either look at the JavaScript code and run that. You can look at the English, plain"
+    },
+    {
+      "index": 149,
+      "start_time": 879360.0,
+      "end_time": 887779.0,
+      "text": "English representation of the test. Or you can look at a sequence of screen shots."
+    },
+    {
+      "index": 150,
+      "start_time": 887779.0,
+      "end_time": 895959.0,
+      "text": "So -- But here's the thing: So, again, how many of you on a daily basis do UI testing"
+    },
+    {
+      "index": 151,
+      "start_time": 895959.0,
+      "end_time": 903180.0,
+      "text": "and think that UI testing is kind of easy to break? Or brittle?"
+    },
+    {
+      "index": 152,
+      "start_time": 903180.0,
+      "end_time": 907940.0,
+      "text": "Yeah. It's like -- so I've never really worked too"
+    },
+    {
+      "index": 153,
+      "start_time": 907940.0,
+      "end_time": 913370.0,
+      "text": "much on UI testing until recently. But I've -- you know, I work very closely with people"
+    },
+    {
+      "index": 154,
+      "start_time": 913370.0,
+      "end_time": 920740.0,
+      "text": "who did. And it's amazing. I mean, a lot of the time that people spend in UI testing is"
+    },
+    {
+      "index": 155,
+      "start_time": 920740.0,
+      "end_time": 925040.0,
+      "text": "about, essentially -- well, reimplementing a whole lot of these test cases."
+    },
+    {
+      "index": 156,
+      "start_time": 925040.0,
+      "end_time": 932120.0,
+      "text": "And what we are finding is, that if you have the right set of tools, it's actually far"
+    },
+    {
+      "index": 157,
+      "start_time": 932120.0,
+      "end_time": 937089.0,
+      "text": "less expensive, far cheaper, if you have the right set of tools to simply rerecord all"
+    },
+    {
+      "index": 158,
+      "start_time": 937089.0,
+      "end_time": 944079.0,
+      "text": "the test cases than to actually develop -- you know, fix test cases or even develop them"
+    },
+    {
+      "index": 159,
+      "start_time": 944079.0,
+      "end_time": 948970.0,
+      "text": "from scratch. Just our experience. We'll talk about that some more."
+    },
+    {
+      "index": 160,
+      "start_time": 948970.0,
+      "end_time": 956750.0,
+      "text": "So, for example, in this particular tool, what we do is, if your test case fails, what"
+    },
+    {
+      "index": 161,
+      "start_time": 956750.0,
+      "end_time": 962170.0,
+      "text": "we allow you to do is, by a simple click -- this dialogue says this step failed finding element"
+    },
+    {
+      "index": 162,
+      "start_time": 962170.0,
+      "end_time": 967480.0,
+      "text": "blah, and it actually -- it actually highlights that element."
+    },
+    {
+      "index": 163,
+      "start_time": 967480.0,
+      "end_time": 973360.0,
+      "text": "And what you do is, once you click on that element, then you -- the new element in the"
+    },
+    {
+      "index": 164,
+      "start_time": 973360.0,
+      "end_time": 979670.0,
+      "text": "page that's equivalent, it kind of fixes it automatically and finds all the other instances"
+    },
+    {
+      "index": 165,
+      "start_time": 979670.0,
+      "end_time": 984740.0,
+      "text": "of that element in the same test case and sort of fixes that as well."
+    },
+    {
+      "index": 166,
+      "start_time": 984740.0,
+      "end_time": 990160.0,
+      "text": "So what that means is, if someone messes with your devs or with elements on the page, it's"
+    },
+    {
+      "index": 167,
+      "start_time": 990160.0,
+      "end_time": 993660.0,
+      "text": "not the end of the world. You can simply just say, oh, here's the search -- here's the new"
+    },
+    {
+      "index": 168,
+      "start_time": 993660.0,
+      "end_time": 998560.0,
+      "text": "search button, as opposed to -- and then it'll find all the instances of the old search button"
+    },
+    {
+      "index": 169,
+      "start_time": 998560.0,
+      "end_time": 1005200.0,
+      "text": "and basically replace them with the new search button, as an example."
+    },
+    {
+      "index": 170,
+      "start_time": 1005200.0,
+      "end_time": 1011910.0,
+      "text": "So that's basically the record playback portion, it's basically record playback plus the ability"
+    },
+    {
+      "index": 171,
+      "start_time": 1011910.0,
+      "end_time": 1019490.0,
+      "text": "to fix broken tests reasonably easy. >>Jason Arbon: Can I add one thing real quick?"
+    },
+    {
+      "index": 172,
+      "start_time": 1019490.0,
+      "end_time": 1023870.0,
+      "text": "Thank you. The cool thing that we'll get to a little bit later is we're generating JavaScript;"
+    },
+    {
+      "index": 173,
+      "start_time": 1023870.0,
+      "end_time": 1028610.0,
+      "text": "right. We're not generating Java that need to be compiled local and deployed to machines."
+    },
+    {
+      "index": 174,
+      "start_time": 1028609.9999999999,
+      "end_time": 1033798.9999999999,
+      "text": "You join these test cases, we save them automatically in the cloud. It's just saved to a server,"
+    },
+    {
+      "index": 175,
+      "start_time": 1033800.0,
+      "end_time": 1038231.0,
+      "text": "so you never have to worry about file management or local store or anything. And the core thing"
+    },
+    {
+      "index": 176,
+      "start_time": 1038230.0,
+      "end_time": 1041760.0,
+      "text": "is this stuff actually runs on Chrome OS. So it runs entirely in the browser, which"
+    },
+    {
+      "index": 177,
+      "start_time": 1041760.0,
+      "end_time": 1045139.0,
+      "text": "is one of the main motivating factors for this whole project. That's kind of a cool"
+    },
+    {
+      "index": 178,
+      "start_time": 1045140.0000000001,
+      "end_time": 1047751.0000000001,
+      "text": "part. >>Ibrahim El Far: How many of you when I was"
+    },
+    {
+      "index": 179,
+      "start_time": 1047750.0,
+      "end_time": 1051929.0,
+      "text": "going through the screen shots saw a test case?"
+    },
+    {
+      "index": 180,
+      "start_time": 1051930.0,
+      "end_time": 1055541.0,
+      "text": "Or the name of a test case? Or anything like that?"
+    },
+    {
+      "index": 181,
+      "start_time": 1055540.0,
+      "end_time": 1061270.0,
+      "text": "Actually, in the cloud, basically, as you have been -- as you're using this tool, test"
+    },
+    {
+      "index": 182,
+      "start_time": 1061270.0,
+      "end_time": 1066110.0,
+      "text": "cases are basically being created. So, in other words, you can basically come back later"
+    },
+    {
+      "index": 183,
+      "start_time": 1066110.0,
+      "end_time": 1071049.0,
+      "text": "and say, go to your test case manager that you plug into this tool and review the test"
+    },
+    {
+      "index": 184,
+      "start_time": 1071050.0,
+      "end_time": 1073781.0,
+      "text": "cases that you've gone through. >>Jason Arbon: And that was kind of a requirement"
+    },
+    {
+      "index": 185,
+      "start_time": 1073780.0,
+      "end_time": 1079280.0,
+      "text": "because James wrote these other Octomom books about testing and exploratory testing. And"
+    },
+    {
+      "index": 186,
+      "start_time": 1079280.0,
+      "end_time": 1083740.0,
+      "text": "people go do this and there's no record of what they did, no way to reproduce this stuff."
+    },
+    {
+      "index": 187,
+      "start_time": 1083740.0,
+      "end_time": 1087200.0,
+      "text": "That's not funny, James. There's no way to reproduce this stuff; right?"
+    },
+    {
+      "index": 188,
+      "start_time": 1087200.0,
+      "end_time": 1090070.0,
+      "text": "There's no artifacts of what you did. There's no way to share that information."
+    },
+    {
+      "index": 189,
+      "start_time": 1090070.0,
+      "end_time": 1095090.0,
+      "text": ">>Ibrahim El Far: And then another cool thing is, now that they have done the exploratory"
+    },
+    {
+      "index": 190,
+      "start_time": 1095090.0,
+      "end_time": 1098470.0,
+      "text": "work, these are turned essentially into regression tests."
+    },
+    {
+      "index": 191,
+      "start_time": 1098470.0,
+      "end_time": 1102760.0,
+      "text": "And you can just keep running them over and again. And we'll talk about it some more later."
+    },
+    {
+      "index": 192,
+      "start_time": 1102760.0,
+      "end_time": 1107320.0,
+      "text": "But, basically, we can also run them anywhere and potentially on other browsers as well,"
+    },
+    {
+      "index": 193,
+      "start_time": 1107320.0,
+      "end_time": 1111120.0,
+      "text": "not just on Chrome. Or on the particular operating system that"
+    },
+    {
+      "index": 194,
+      "start_time": 1111120.0,
+      "end_time": 1113669.0,
+      "text": "the exploratory tester happens to be running on."
+    },
+    {
+      "index": 195,
+      "start_time": 1113670.0,
+      "end_time": 1115951.0,
+      "text": ">>Jason Arbon: Is it okay? Is our relationship going to survive this?"
+    },
+    {
+      "index": 196,
+      "start_time": 1115950.0,
+      "end_time": 1118960.0,
+      "text": ">>Ibrahim El Far: You keep on interrupting me."
+    },
+    {
+      "index": 197,
+      "start_time": 1118960.0,
+      "end_time": 1124169.0,
+      "text": ">>Jason Arbon: You told me to. The inspiration was when James came to Google"
+    },
+    {
+      "index": 198,
+      "start_time": 1124170.0,
+      "end_time": 1129560.0,
+      "text": "originally, he had this original BS mock slide that people thought was real of, like, all"
+    },
+    {
+      "index": 199,
+      "start_time": 1129560.0,
+      "end_time": 1132791.0,
+      "text": "these, like, bug overlay information on top of Visual Studio and all this kind of stuff."
+    },
+    {
+      "index": 200,
+      "start_time": 1132790.0,
+      "end_time": 1136799.0,
+      "text": "And I saw it and didn't realize it was a fake mock, and I wanted to build the same thing"
+    },
+    {
+      "index": 201,
+      "start_time": 1136800.0,
+      "end_time": 1142361.0,
+      "text": "for the browser; right? So -- Dude, the one time you have control of the"
+    },
+    {
+      "index": 202,
+      "start_time": 1142360.0,
+      "end_time": 1144320.0,
+      "text": "machine. [ Laughter ]"
+    },
+    {
+      "index": 203,
+      "start_time": 1144320.0,
+      "end_time": 1149080.0,
+      "text": ">>Jason Arbon: But just like, you know, when testers are going through this, they don't"
+    },
+    {
+      "index": 204,
+      "start_time": 1149080.0,
+      "end_time": 1151960.0,
+      "text": "have any context, don't know what test cases have been running, don't know what bugs have"
+    },
+    {
+      "index": 205,
+      "start_time": 1151960.0,
+      "end_time": 1157600.0,
+      "text": "been filed before. Just like modern pilots who deal with a lot of information, information"
+    },
+    {
+      "index": 206,
+      "start_time": 1157600.0,
+      "end_time": 1161720.0,
+      "text": "overload, we wanted to do a heads-up display similarly on the browser; right? So we're"
+    },
+    {
+      "index": 207,
+      "start_time": 1161720.0,
+      "end_time": 1166260.0,
+      "text": "kind of trying to take the bugs, the test case data, the debug data, the code coverage"
+    },
+    {
+      "index": 208,
+      "start_time": 1166260.0,
+      "end_time": 1168950.0,
+      "text": "data, and put that and overlay it right on the application while you're testing it to"
+    },
+    {
+      "index": 209,
+      "start_time": 1168950.0,
+      "end_time": 1173040.0,
+      "text": "avoid kind of just flipping between applications and different Web pages and stuff like that."
+    },
+    {
+      "index": 210,
+      "start_time": 1173040.0,
+      "end_time": 1178780.0,
+      "text": ">>Ibrahim El Far: One of the ways, actually, that we -- one of the ways that testers spend"
+    },
+    {
+      "index": 211,
+      "start_time": 1178780.0,
+      "end_time": 1186020.0,
+      "text": "a lot of time switching context is going back and forth between their bug-tracking system,"
+    },
+    {
+      "index": 212,
+      "start_time": 1186020.0,
+      "end_time": 1192760.0,
+      "text": "as well as -- and their application. So the other feature of BITE is BITE bug filing,"
+    },
+    {
+      "index": 213,
+      "start_time": 1192760.0,
+      "end_time": 1197740.0,
+      "text": "where, again, without leaving your application and having installed only an extension with,"
+    },
+    {
+      "index": 214,
+      "start_time": 1197740.0,
+      "end_time": 1202270.0,
+      "text": "basically, no other thing else on your client, you're able to also file bugs."
+    },
+    {
+      "index": 215,
+      "start_time": 1202270.0,
+      "end_time": 1207770.0,
+      "text": "So, for example, this is an example from Maps. So you just go to Google Maps, for example,"
+    },
+    {
+      "index": 216,
+      "start_time": 1207770.0,
+      "end_time": 1214790.0,
+      "text": "and look for Seattle pizza. You get a bunch of results. And then you go"
+    },
+    {
+      "index": 217,
+      "start_time": 1214790.0,
+      "end_time": 1219650.0,
+      "text": "ahead and click on one of those results. And let's say that you found a problem with"
+    },
+    {
+      "index": 218,
+      "start_time": 1219650.0,
+      "end_time": 1227090.0,
+      "text": "this particular result. So all you've got to do is click on \"report a bug.\" And then"
+    },
+    {
+      "index": 219,
+      "start_time": 1227090.0,
+      "end_time": 1232250.0,
+      "text": "this is very application-specific. So what -- often, what we do is take BITE and with"
+    },
+    {
+      "index": 220,
+      "start_time": 1232250.0,
+      "end_time": 1237470.0,
+      "text": "a little bit of customization for a particular domain, in this instance, it's Maps. If you"
+    },
+    {
+      "index": 221,
+      "start_time": 1237470.0,
+      "end_time": 1242580.0,
+      "text": "look -- it's kind of hard to read -- but a popup comes out and says, \"Is this a problem"
+    },
+    {
+      "index": 222,
+      "start_time": 1242580.0,
+      "end_time": 1247820.0,
+      "text": "with a map tile? Is this inaccurate or incorrect results? Is this wrong or incorrect directions?\""
+    },
+    {
+      "index": 223,
+      "start_time": 1247820.0,
+      "end_time": 1255270.0,
+      "text": "It just starts asking directions. It asks you please point where -- if it's"
+    },
+    {
+      "index": 224,
+      "start_time": 1255270.0,
+      "end_time": 1260480.0,
+      "text": "a visual problem or a problem with the UI, please point me where in the UI is the problem."
+    },
+    {
+      "index": 225,
+      "start_time": 1260480.0,
+      "end_time": 1264620.0,
+      "text": "And then, of course, you can choose -- it's kind of hard to see, but it says the problem"
+    },
+    {
+      "index": 226,
+      "start_time": 1264620.0,
+      "end_time": 1269559.0,
+      "text": "I'm reporting is not related to the UI if it's not necessarily a UI problem."
+    },
+    {
+      "index": 227,
+      "start_time": 1269560.0,
+      "end_time": 1277701.0,
+      "text": "So let's say you click on the -- this element that's highlighted. And now, in essence, pretty"
+    },
+    {
+      "index": 228,
+      "start_time": 1277700.0,
+      "end_time": 1283100.0,
+      "text": "much everything that you've -- that you need has already been kind of generated for you."
+    },
+    {
+      "index": 229,
+      "start_time": 1283100.0,
+      "end_time": 1289470.0,
+      "text": "These include things like the screen shots that -- of everything that you've done, everything"
+    },
+    {
+      "index": 230,
+      "start_time": 1289470.0,
+      "end_time": 1294809.0,
+      "text": "that you've done so far, until -- until you are about to file the bug. You can -- you"
+    },
+    {
+      "index": 231,
+      "start_time": 1294810.0,
+      "end_time": 1300271.0,
+      "text": "know, including screen shots, including sort of all sorts of useful representations of"
+    },
+    {
+      "index": 232,
+      "start_time": 1300270.0,
+      "end_time": 1307809.0,
+      "text": "the test case, the code that is required to actually run the test case in a browser in"
+    },
+    {
+      "index": 233,
+      "start_time": 1307810.0,
+      "end_time": 1313321.0,
+      "text": "JavaScript. And then, of course, the capability of -- there's a button there for capability"
+    },
+    {
+      "index": 234,
+      "start_time": 1313320.0,
+      "end_time": 1317620.0,
+      "text": "of actually playing this -- replaying what you just did."
+    },
+    {
+      "index": 235,
+      "start_time": 1317620.0,
+      "end_time": 1321120.0,
+      "text": "And then once you review this information, if you're satisfied, you say, \"Bug it,\" and"
+    },
+    {
+      "index": 236,
+      "start_time": 1321120.0,
+      "end_time": 1325570.0,
+      "text": "you're done. You haven't left your application. You're still in your application. But you're"
+    },
+    {
+      "index": 237,
+      "start_time": 1325570.0,
+      "end_time": 1331340.0,
+      "text": "still able to also file bugs. >>Jason Arbon: Can I add something to that?"
+    },
+    {
+      "index": 238,
+      "start_time": 1331340.0,
+      "end_time": 1335750.0,
+      "text": ">>Ibrahim El Far: I was going to pause, anyway. >>Jason Arbon: Can I add some sugar?"
+    },
+    {
+      "index": 239,
+      "start_time": 1335750.0,
+      "end_time": 1338840.0,
+      "text": "Start getting worked up. The cool thing is this is the internal bug"
+    },
+    {
+      "index": 240,
+      "start_time": 1338840.0,
+      "end_time": 1344120.0,
+      "text": "filing tool now on Maps for internal, like, if you're on Google corp net."
+    },
+    {
+      "index": 241,
+      "start_time": 1344120.0,
+      "end_time": 1347169.0,
+      "text": "And you used to get the dogfood bugs from everybody and everybody is using Maps and"
+    },
+    {
+      "index": 242,
+      "start_time": 1347170.0,
+      "end_time": 1351261.0,
+      "text": "these bugs were horrible. They're, like, repro steps from, like, program managers and marketing"
+    },
+    {
+      "index": 243,
+      "start_time": 1351260.0,
+      "end_time": 1354250.0,
+      "text": "people, and even from testers that aren't on the application."
+    },
+    {
+      "index": 244,
+      "start_time": 1354250.0,
+      "end_time": 1358260.0,
+      "text": "The funny thing, if you use Maps, so people say, \"Here's the repro you (indiscernible).\""
+    },
+    {
+      "index": 245,
+      "start_time": 1358260.0,
+      "end_time": 1361200.0,
+      "text": "\"It's Maps.google.com. Right?\" And they go, \"Thank you.\""
+    },
+    {
+      "index": 246,
+      "start_time": 1361200.0,
+      "end_time": 1363169.0,
+      "text": "Right? So what we're also doing in the background"
+    },
+    {
+      "index": 247,
+      "start_time": 1363170.0,
+      "end_time": 1366941.0,
+      "text": "is collecting a bunch of information from the DOM that's application-specific again,"
+    },
+    {
+      "index": 248,
+      "start_time": 1366940.0,
+      "end_time": 1371900.0,
+      "text": "lights up on Maps. That includes all the debug URLs and all that kind of context that the"
+    },
+    {
+      "index": 249,
+      "start_time": 1371900.0,
+      "end_time": 1374940.0,
+      "text": "developers need. So we talk about what information you need and we add it and scrape it on the"
+    },
+    {
+      "index": 250,
+      "start_time": 1374940.0,
+      "end_time": 1377950.0,
+      "text": "DOM. It's just a little bit of JavaScript. But the interesting thing that's going on"
+    },
+    {
+      "index": 251,
+      "start_time": 1377950.0,
+      "end_time": 1382610.0,
+      "text": "here is this: When people have this extension installed inside of Google, it doesn't record"
+    },
+    {
+      "index": 252,
+      "start_time": 1382610.0,
+      "end_time": 1386720.0,
+      "text": "anything. It's just sitting there silently; right? But when you're on Maps.google.com,"
+    },
+    {
+      "index": 253,
+      "start_time": 1386720.0,
+      "end_time": 1390510.0,
+      "text": "this little thing starts recording, right, as you're doing stuff. So when you go to,"
+    },
+    {
+      "index": 254,
+      "start_time": 1390510.0,
+      "end_time": 1394419.0,
+      "text": "like, file the bug, it actually has the script of everything you've done on Maps.google.com,"
+    },
+    {
+      "index": 255,
+      "start_time": 1394420.0,
+      "end_time": 1398691.0,
+      "text": "right, in that domain. So, like, you know, so, actually, the developers, when they get"
+    },
+    {
+      "index": 256,
+      "start_time": 1398690.0,
+      "end_time": 1402090.0,
+      "text": "the repro, it's not like I'm on this page and there's this bug. They can actually click"
+    },
+    {
+      "index": 257,
+      "start_time": 1402090.0,
+      "end_time": 1405690.0,
+      "text": "a link, and then we pull that JavaScript down into their version of the extension; right?"
+    },
+    {
+      "index": 258,
+      "start_time": 1405690.0,
+      "end_time": 1409280.0,
+      "text": "And it actually, like, goes to Maps.google.com. And then if they were browsing for 15 minutes,"
+    },
+    {
+      "index": 259,
+      "start_time": 1409280.0,
+      "end_time": 1413410.0,
+      "text": "it will just play the entire 15-minutes sequence of what that user did. They may not even know"
+    },
+    {
+      "index": 260,
+      "start_time": 1413410.0,
+      "end_time": 1415270.0,
+      "text": "what the interesting thing they did to induce that error state."
+    },
+    {
+      "index": 261,
+      "start_time": 1415270.0,
+      "end_time": 1423120.0,
+      "text": ">>Ibrahim El Far: One of the holy grails you've been looking for as a developer is go to my"
+    },
+    {
+      "index": 262,
+      "start_time": 1423120.0,
+      "end_time": 1431080.0,
+      "text": "issue tracking or bug tracking system is just go to the bug and replay the system for the"
+    },
+    {
+      "index": 263,
+      "start_time": 1431080.0,
+      "end_time": 1435289.0,
+      "text": "bug to be replayed. This is a reality for a lot of scenarios right now."
+    },
+    {
+      "index": 264,
+      "start_time": 1435290.0,
+      "end_time": 1439371.0,
+      "text": ">>Jason Arbon: Except it's a URL not a button. It's a feature request."
+    },
+    {
+      "index": 265,
+      "start_time": 1439370.0,
+      "end_time": 1443220.0,
+      "text": ">>Ibrahim El Far: Let's not deviate off script. >>Jason Arbon: Dude."
+    },
+    {
+      "index": 266,
+      "start_time": 1443220.0,
+      "end_time": 1446370.0,
+      "text": ">>Ibrahim El Far: Again. >>Jason Arbon: Saw your password."
+    },
+    {
+      "index": 267,
+      "start_time": 1446370.0,
+      "end_time": 1448110.0,
+      "text": ">>Ibrahim El Far: Really? [ Laughter ]"
+    },
+    {
+      "index": 268,
+      "start_time": 1448110.0,
+      "end_time": 1453360.0,
+      "text": ">>Jason Arbon: I know how many characters it is -- they know how many characters it"
+    },
+    {
+      "index": 269,
+      "start_time": 1453360.0,
+      "end_time": 1459039.0,
+      "text": "is, too, now. The search space. >>Ibrahim El Far: The other thing that manual"
+    },
+    {
+      "index": 270,
+      "start_time": 1459040.0,
+      "end_time": 1463310.0,
+      "text": "testers also -- And, by the way, I say the word -- I use the word \"manual testers,\" like,"
+    },
+    {
+      "index": 271,
+      "start_time": 1463310.0,
+      "end_time": 1467861.0,
+      "text": "loosely. It could be a dedicated tester again or it could be, like, just a user. It could"
+    },
+    {
+      "index": 272,
+      "start_time": 1467860.0,
+      "end_time": 1471700.0,
+      "text": "be, really, anyone who has essentially volunteered to test software."
+    },
+    {
+      "index": 273,
+      "start_time": 1471700.0,
+      "end_time": 1479049.0,
+      "text": "So one of the issues that they also deal with is having to, essentially, file a whole lot"
+    },
+    {
+      "index": 274,
+      "start_time": 1479050.0,
+      "end_time": 1487401.0,
+      "text": "of duplicate bugs or not knowing where most of the bugs are, 'cause, as you know, when"
+    },
+    {
+      "index": 275,
+      "start_time": 1487400.0,
+      "end_time": 1490720.0,
+      "text": "there's an area where there's plenty of bugs, there's probably a whole lot more bugs in"
+    },
+    {
+      "index": 276,
+      "start_time": 1490720.0,
+      "end_time": 1495070.0,
+      "text": "that area. So you want to go ahead and attack that. Or vice versa, if no one has filed any"
+    },
+    {
+      "index": 277,
+      "start_time": 1495070.0,
+      "end_time": 1498770.0,
+      "text": "bugs in an area, you want to go and figure that out"
+    },
+    {
+      "index": 278,
+      "start_time": 1498770.0,
+      "end_time": 1502919.0,
+      "text": "So let's go back to the Maps scenario. >>Jason Arbon: Sometimes it's even lonely"
+    },
+    {
+      "index": 279,
+      "start_time": 1502920.0,
+      "end_time": 1506211.0,
+      "text": "when you're a tester and you're in your application and you don't know what's been going on. That's"
+    },
+    {
+      "index": 280,
+      "start_time": 1506210.0,
+      "end_time": 1508309.0,
+      "text": "what I feel like all the time. I'm lonely. >>Ibrahim El Far: I'm with you."
+    },
+    {
+      "index": 281,
+      "start_time": 1508310.0,
+      "end_time": 1517670.0,
+      "text": "So, again, if you want to -- if you want to report a bug, before you report a bug, you"
+    },
+    {
+      "index": 282,
+      "start_time": 1517670.0,
+      "end_time": 1522441.0,
+      "text": "can also see all the bugs that are related to the application that you're seeing right"
+    },
+    {
+      "index": 283,
+      "start_time": 1522440.0,
+      "end_time": 1530940.0,
+      "text": "now. And then if you activate overlay, what will happen is you actually will see a highlight"
+    },
+    {
+      "index": 284,
+      "start_time": 1530940.0,
+      "end_time": 1536559.0,
+      "text": "of this is where other people have filed bugs in this application. And you can click on"
+    },
+    {
+      "index": 285,
+      "start_time": 1536560.0,
+      "end_time": 1540721.0,
+      "text": "that and find out, oh, someone actually already filed a bug in this particular -- on this"
+    },
+    {
+      "index": 286,
+      "start_time": 1540720.0,
+      "end_time": 1546130.0,
+      "text": "particular element, and it's probably the same issue. So it can on the spot say, okay,"
+    },
+    {
+      "index": 287,
+      "start_time": 1546130.0,
+      "end_time": 1550559.0,
+      "text": "this is not a bug, if process you're a developer, for example. Or you can say this is resolved"
+    },
+    {
+      "index": 288,
+      "start_time": 1550560.0,
+      "end_time": 1556141.0,
+      "text": "now, it's no longer an issue. You can add is comment if you're, for example, a colleague"
+    },
+    {
+      "index": 289,
+      "start_time": 1556140.0,
+      "end_time": 1559710.0,
+      "text": "and say, oh, yeah, I've seen this, too, but you've missed a couple of points. Maybe I"
+    },
+    {
+      "index": 290,
+      "start_time": 1559710.0,
+      "end_time": 1565870.0,
+      "text": "just want to add a comment. So it's -- actually, it turns, really, testing from the solitary"
+    },
+    {
+      "index": 291,
+      "start_time": 1565870.0,
+      "end_time": 1570760.0,
+      "text": "activity into a very sort of social. >>Jason Arbon: Now that I'm thinking about"
+    },
+    {
+      "index": 292,
+      "start_time": 1570760.0,
+      "end_time": 1574299.0,
+      "text": "it, maybe people just don't like me. This list of bugs here, right, isn't just"
+    },
+    {
+      "index": 293,
+      "start_time": 1574300.0,
+      "end_time": 1577991.0,
+      "text": "all the bugs from Maps.google.com. This is actually, like, we do relevant stuff here;"
+    },
+    {
+      "index": 294,
+      "start_time": 1577990.0,
+      "end_time": 1581590.0,
+      "text": "right? So as you're browsing, like, if a URL does change, we, like, filtering, we do some"
+    },
+    {
+      "index": 295,
+      "start_time": 1581590.0,
+      "end_time": 1586030.0,
+      "text": "smart filtering and stuff for relevance. We also look at the content of the DOM to"
+    },
+    {
+      "index": 296,
+      "start_time": 1586030.0,
+      "end_time": 1590309.0,
+      "text": "do the filtering, to do the smart query. So it's like there's thousands of these things."
+    },
+    {
+      "index": 297,
+      "start_time": 1590310.0,
+      "end_time": 1594491.0,
+      "text": "Although we pretend there aren't any bugs in Maps. But we picked the right set that"
+    },
+    {
+      "index": 298,
+      "start_time": 1594490.0,
+      "end_time": 1601090.0,
+      "text": "are probably going to be relevant for the map tiles that you're viewing right now."
+    },
+    {
+      "index": 299,
+      "start_time": 1601090.0,
+      "end_time": 1604340.0,
+      "text": "Click. Now it's yellow. >>Ibrahim El Far: That's exciting."
+    },
+    {
+      "index": 300,
+      "start_time": 1604340.0,
+      "end_time": 1607090.0,
+      "text": "So. >>Jason Arbon: Like James' shirt."
+    },
+    {
+      "index": 301,
+      "start_time": 1607090.0,
+      "end_time": 1613710.0,
+      "text": ">>Ibrahim El Far: So that's basically sort of the major features of BITE. And, again,"
+    },
+    {
+      "index": 302,
+      "start_time": 1613710.0,
+      "end_time": 1619240.0,
+      "text": "the exciting -- to me, it's really exciting stuff, because, really, it eliminates -- it"
+    },
+    {
+      "index": 303,
+      "start_time": 1619240.0,
+      "end_time": 1624220.0,
+      "text": "sort of like hides most of the tools away from you, especially test case management"
+    },
+    {
+      "index": 304,
+      "start_time": 1624220.0,
+      "end_time": 1629630.0,
+      "text": "and bug filing systems, and lets you focus a lot more on testing. And because of that"
+    },
+    {
+      "index": 305,
+      "start_time": 1629630.0,
+      "end_time": 1634520.0,
+      "text": "last feature, it also helps sort of you be a little bit more aware of what's going on"
+    },
+    {
+      "index": 306,
+      "start_time": 1634520.0,
+      "end_time": 1639630.0,
+      "text": "elsewhere, without your having to go back to the issue tracking software and figuring"
+    },
+    {
+      "index": 307,
+      "start_time": 1639630.0,
+      "end_time": 1648720.0,
+      "text": "out, oh, has someone else filed a bug or has someone else tested that area of the application?"
+    },
+    {
+      "index": 308,
+      "start_time": 1648720.0,
+      "end_time": 1652549.0,
+      "text": "So that's -- But that takes care -- and those tools are really necessary if you want to"
+    },
+    {
+      "index": 309,
+      "start_time": 1652550.0,
+      "end_time": 1657420.0,
+      "text": "go for crowd sourcing where you really have testers who are not necessarily dedicated"
+    },
+    {
+      "index": 310,
+      "start_time": 1657420.0,
+      "end_time": 1665121.0,
+      "text": "100% of the time or don't have time to be trained into -- you know, on specialized tools,"
+    },
+    {
+      "index": 311,
+      "start_time": 1665120.0,
+      "end_time": 1669580.0,
+      "text": "et cetera. But that's only half of the puzzle."
+    },
+    {
+      "index": 312,
+      "start_time": 1669580.0,
+      "end_time": 1676360.0,
+      "text": "The other piece of this puzzle is really on stuff that testers do that, really, machines"
+    },
+    {
+      "index": 313,
+      "start_time": 1676360.0,
+      "end_time": 1681820.0,
+      "text": "ought to be doing. The particular example that we've started"
+    },
+    {
+      "index": 314,
+      "start_time": 1681820.0,
+      "end_time": 1688549.0,
+      "text": "working with is really just about layout. You know, we had an army of testers dedicated"
+    },
+    {
+      "index": 315,
+      "start_time": 1688550.0,
+      "end_time": 1693601.0,
+      "text": "to figuring out whether layout problems change over -- you know, layout -- there are layout"
+    },
+    {
+      "index": 316,
+      "start_time": 1693600.0,
+      "end_time": 1700100.0,
+      "text": "problems introduced over time for given applications. And, really, the problem with that is, most"
+    },
+    {
+      "index": 317,
+      "start_time": 1700100.0,
+      "end_time": 1704529.0,
+      "text": "of the time, you really don't have layout problems. Most of the time, you know, for"
+    },
+    {
+      "index": 318,
+      "start_time": 1704530.0,
+      "end_time": 1709231.0,
+      "text": "90% of the cases, 95% of the cases, you're just verifying that there's absolutely no"
+    },
+    {
+      "index": 319,
+      "start_time": 1709230.0,
+      "end_time": 1714320.0,
+      "text": "problem. But it's a little bit more about just doing"
+    },
+    {
+      "index": 320,
+      "start_time": 1714320.0,
+      "end_time": 1722789.0,
+      "text": "stuff that a machine can do or should be doing. Are the bidi testing people here? No? Yes?"
+    },
+    {
+      "index": 321,
+      "start_time": 1722790.0,
+      "end_time": 1727451.0,
+      "text": "Hello. So -- that was \"hello\" Arabic. You may have"
+    },
+    {
+      "index": 322,
+      "start_time": 1727450.0,
+      "end_time": 1730390.0,
+      "text": "heard, I spoke from right to left. [ Laughter ]"
+    },
+    {
+      "index": 323,
+      "start_time": 1730390.0,
+      "end_time": 1737510.0,
+      "text": ">>Ibrahim El Far: But the bidi stuff, actually, is a prime example of the kind of thing we're"
+    },
+    {
+      "index": 324,
+      "start_time": 1737510.0,
+      "end_time": 1741860.0,
+      "text": "talking about. It's like, most of the time, either you can resolve these things automatically."
+    },
+    {
+      "index": 325,
+      "start_time": 1741860.0,
+      "end_time": 1746130.0,
+      "text": "And for a small percent of the time, you need sort of a human decision to figure out what's"
+    },
+    {
+      "index": 326,
+      "start_time": 1746130.0,
+      "end_time": 1749700.0,
+      "text": "going on. So Bots is about that."
+    },
+    {
+      "index": 327,
+      "start_time": 1749700.0,
+      "end_time": 1757679.0,
+      "text": "Let's just jump into demo. So in Bots, what you do is you say, okay,"
+    },
+    {
+      "index": 328,
+      "start_time": 1757680.0,
+      "end_time": 1761991.0,
+      "text": "here's my application, the application I care about. Say I care about, for example, www.google.com,"
+    },
+    {
+      "index": 329,
+      "start_time": 1761990.0,
+      "end_time": 1768400.0,
+      "text": "because I test that stuff. You also care about a whole bunch of other"
+    },
+    {
+      "index": 330,
+      "start_time": 1768400.0,
+      "end_time": 1772270.0,
+      "text": "applications. And then you give it to -- you give it to"
+    },
+    {
+      "index": 331,
+      "start_time": 1772270.0,
+      "end_time": 1778080.0,
+      "text": "Bots. And then Bots takes care of things magically. As far as you're concerned, you don't really"
+    },
+    {
+      "index": 332,
+      "start_time": 1778080.0,
+      "end_time": 1783830.0,
+      "text": "necessarily know what exactly Bots does. All you know is it's trying to figure out whether,"
+    },
+    {
+      "index": 333,
+      "start_time": 1783830.0,
+      "end_time": 1789580.0,
+      "text": "in this case, it's testing for layout problems. But it could be testing for bidi problems,"
+    },
+    {
+      "index": 334,
+      "start_time": 1789580.0,
+      "end_time": 1795880.0,
+      "text": "it could be testing for very basic accessibility problems that can be detected only -- without"
+    },
+    {
+      "index": 335,
+      "start_time": 1795880.0,
+      "end_time": 1803370.0,
+      "text": "using the semantics of the application. And then over time, you know, what happens"
+    },
+    {
+      "index": 336,
+      "start_time": 1803370.0,
+      "end_time": 1810799.0,
+      "text": "is bots comes up with the results. You probably can't really see it here, but what it's doing"
+    },
+    {
+      "index": 337,
+      "start_time": 1810800.0,
+      "end_time": 1816391.0,
+      "text": "here is it's comparing this table, dev and canary versions of Chrome, but can you imagine"
+    },
+    {
+      "index": 338,
+      "start_time": 1816390.0,
+      "end_time": 1822049.0,
+      "text": "it also comparing Internet Explorer versus Chrome versus Firefox."
+    },
+    {
+      "index": 339,
+      "start_time": 1822050.0,
+      "end_time": 1830101.0,
+      "text": "And what it's doing is it's telling us whether there are layout problems that were introduced"
+    },
+    {
+      "index": 340,
+      "start_time": 1830100.0,
+      "end_time": 1839600.0,
+      "text": "in this table version versus the dev version, versus the canary version."
+    },
+    {
+      "index": 341,
+      "start_time": 1839600.0,
+      "end_time": 1848789.0,
+      "text": "And so when you drill down what you get is sort of like a before and after sort of picture,"
+    },
+    {
+      "index": 342,
+      "start_time": 1848790.0,
+      "end_time": 1855691.0,
+      "text": "and the tool allows you to diff between the pages where the layout change. And that's"
+    },
+    {
+      "index": 343,
+      "start_time": 1855690.0,
+      "end_time": 1860900.0,
+      "text": "the highlight of the diff. And what you can do then is you can click on the area that"
+    },
+    {
+      "index": 344,
+      "start_time": 1860900.0,
+      "end_time": 1867440.0,
+      "text": "changed and actually see the element that changed."
+    },
+    {
+      "index": 345,
+      "start_time": 1867440.0,
+      "end_time": 1873659.0,
+      "text": "That saves -- it may sound a bit counterintuitive. We say most of the stuff is already taken"
+    },
+    {
+      "index": 346,
+      "start_time": 1873660.0,
+      "end_time": 1881910.0,
+      "text": "care of by automation, but actually it's not really. And so a lot of folks -- this is stuff"
+    },
+    {
+      "index": 347,
+      "start_time": 1881910.0,
+      "end_time": 1887930.0,
+      "text": "that does not come for free. And that's sort of the hope of our underlying"
+    },
+    {
+      "index": 348,
+      "start_time": 1887930.0,
+      "end_time": 1893680.0,
+      "text": "sort of theme of Bots. What we want is if -- if the stuff does not"
+    },
+    {
+      "index": 349,
+      "start_time": 1893680.0,
+      "end_time": 1900001.0,
+      "text": "require humans for the most part, if the stuff can be done by machines, then it ought to"
+    },
+    {
+      "index": 350,
+      "start_time": 1900000.0,
+      "end_time": 1904190.0,
+      "text": "be really free. You ought to get this for free."
+    },
+    {
+      "index": 351,
+      "start_time": 1904190.0,
+      "end_time": 1912039.0,
+      "text": "And so layout problems are an example of that. And that's sort of what Bots does so far."
+    },
+    {
+      "index": 352,
+      "start_time": 1912040.0,
+      "end_time": 1918261.0,
+      "text": "So this was just a very quick overview of how some of the tools work, but how does everything"
+    },
+    {
+      "index": 353,
+      "start_time": 1918260.0,
+      "end_time": 1921770.0,
+      "text": "sort of fit together in the grander scheme of things."
+    },
+    {
+      "index": 354,
+      "start_time": 1921770.0,
+      "end_time": 1924679.0,
+      "text": "Jason? >>Jason Arbon: It does? Are you going to call"
+    },
+    {
+      "index": 355,
+      "start_time": 1924680.0,
+      "end_time": 1930800.0,
+      "text": "me the Octomom of test tools? That was the one thing we practiced actually and he didn't"
+    },
+    {
+      "index": 356,
+      "start_time": 1930800.0,
+      "end_time": 1931420.0,
+      "text": "do it. [ Laughter ]"
+    },
+    {
+      "index": 357,
+      "start_time": 1931420.0,
+      "end_time": 1934650.0,
+      "text": ">>Ibrahim El-Far: Can I still say it? >>Jason Arbon: No, it's not cool now."
+    },
+    {
+      "index": 358,
+      "start_time": 1934650.0,
+      "end_time": 1940040.0,
+      "text": ">>Ibrahim El-Far: He is the Octomom of testing tools, by the way. Most of these tools are"
+    },
+    {
+      "index": 359,
+      "start_time": 1940040.0,
+      "end_time": 1944761.0,
+      "text": "his brainchild. >>Jason Arbon: I do tend to faint when I present,"
+    },
+    {
+      "index": 360,
+      "start_time": 1944760.0,
+      "end_time": 1948309.0,
+      "text": "so just watch out, front row. [ Laughter ]"
+    },
+    {
+      "index": 361,
+      "start_time": 1948310.0,
+      "end_time": 1954871.0,
+      "text": ">>Jason Arbon: It's not pretty. So let's go to -- all right. So one more comment"
+    },
+    {
+      "index": 362,
+      "start_time": 1954870.0,
+      "end_time": 1960110.0,
+      "text": "on the Bots again. One of the premises that Google rates is that we push new builds, and"
+    },
+    {
+      "index": 363,
+      "start_time": 1960110.0,
+      "end_time": 1966390.0,
+      "text": "new products hourly, sometimes minutely, that's like the new term, the hot term, but we ship"
+    },
+    {
+      "index": 364,
+      "start_time": 1966390.0,
+      "end_time": 1970539.0,
+      "text": "so often, right, the reality is that there's very few CL's, that's part of the whole quality"
+    },
+    {
+      "index": 365,
+      "start_time": 1970540.0,
+      "end_time": 1974680.0,
+      "text": "kind of attack is small number of changes, iterate very quickly, deploy, test and flight"
+    },
+    {
+      "index": 366,
+      "start_time": 1974680.0,
+      "end_time": 1977691.0,
+      "text": "all these things. So the problem is tests can't keep up, but"
+    },
+    {
+      "index": 367,
+      "start_time": 1977690.0,
+      "end_time": 1982549.0,
+      "text": "the reality is these apps don't change that much. Google.com is about -- don't quote me,"
+    },
+    {
+      "index": 368,
+      "start_time": 1982550.0,
+      "end_time": 1988601.0,
+      "text": "but the apps don't change that much day to day. What they're doing all the time is scanning"
+    },
+    {
+      "index": 369,
+      "start_time": 1988600.0,
+      "end_time": 1992720.0,
+      "text": "web pages, doing suites of regressions tasks to see if looks the same as it did yesterday"
+    },
+    {
+      "index": 370,
+      "start_time": 1992720.0,
+      "end_time": 1997899.0,
+      "text": "or an hour ago or a minute ago, and it's a complete waste of time, and we have really"
+    },
+    {
+      "index": 371,
+      "start_time": 1997900.0,
+      "end_time": 2000400.0,
+      "text": "talented, bright people doing this ridiculous work all the time."
+    },
+    {
+      "index": 372,
+      "start_time": 2000400.0,
+      "end_time": 2006101.0,
+      "text": "The idea of Bots, the main value out of Bots is it just scans it. It's very similar to"
+    },
+    {
+      "index": 373,
+      "start_time": 2006100.0,
+      "end_time": 2010820.0,
+      "text": "what Kevin was talking about. It was cool. So we're not totally like both crazy. We're"
+    },
+    {
+      "index": 374,
+      "start_time": 2010820.0,
+      "end_time": 2015169.0,
+      "text": "independently crazy, right? And but the cool thing is if the stuff doesn't"
+    },
+    {
+      "index": 375,
+      "start_time": 2015170.0,
+      "end_time": 2018741.0,
+      "text": "change you don't have to look at it. That's the key premise of the whole thing. So let"
+    },
+    {
+      "index": 376,
+      "start_time": 2018740.0,
+      "end_time": 2023539.0,
+      "text": "the Bots do this crazy work and diff'ing all the time, and the only thing that requires"
+    },
+    {
+      "index": 377,
+      "start_time": 2023540.0,
+      "end_time": 2026091.0,
+      "text": "a human brain to evaluate because the stuff doesn't change."
+    },
+    {
+      "index": 378,
+      "start_time": 2026090.0,
+      "end_time": 2031580.0,
+      "text": "Let's get into the interesting stuff. So this slide I created like an hour ago."
+    },
+    {
+      "index": 379,
+      "start_time": 2031580.0,
+      "end_time": 2036909.0,
+      "text": "I don't know how it will go. So I want to say back to what James and Alberto"
+    },
+    {
+      "index": 380,
+      "start_time": 2036910.0,
+      "end_time": 2042601.0,
+      "text": "were saying at doomsday, whatever, yesterday, test hasn't evolved, right? And I was at Microsoft"
+    },
+    {
+      "index": 381,
+      "start_time": 2042600.0,
+      "end_time": 2046159.0,
+      "text": "and I started working on IE 4, which dates me now. I guess I'm an old man now. I was"
+    },
+    {
+      "index": 382,
+      "start_time": 2046160.0,
+      "end_time": 2053471.0,
+      "text": "working on IE 4 and guess what? I found myself working on Chrome doing the same damn thing."
+    },
+    {
+      "index": 383,
+      "start_time": 2053469.9999999998,
+      "end_time": 2057398.9999999998,
+      "text": "And actually people were doing more manual work at Google than they were at Microsoft."
+    },
+    {
+      "index": 384,
+      "start_time": 2057400.0,
+      "end_time": 2064910.0,
+      "text": "I said I thought this was the cloud and the future and I've landed in the middle of I"
+    },
+    {
+      "index": 385,
+      "start_time": 2064909.9999999998,
+      "end_time": 2067230.9999999998,
+      "text": "don't know where. Oh, man, Google is based on peer feedback,"
+    },
+    {
+      "index": 386,
+      "start_time": 2067230.0,
+      "end_time": 2067609.0,
+      "text": "so -- [ Laughter ]"
+    },
+    {
+      "index": 387,
+      "start_time": 2067610.0000000002,
+      "end_time": 2072001.0000000002,
+      "text": ">>Jason Arbon: That's why I've been quiet about some of these tools."
+    },
+    {
+      "index": 388,
+      "start_time": 2072000.0,
+      "end_time": 2076440.0,
+      "text": "But really what happened is this is the way I visualize this stuff is that back in the"
+    },
+    {
+      "index": 389,
+      "start_time": 2076440.0,
+      "end_time": 2080509.0,
+      "text": "day Yahoo! was pretty cool when the web was pretty small and evolving pretty slowly, they"
+    },
+    {
+      "index": 390,
+      "start_time": 2080510.0000000002,
+      "end_time": 2086320.0000000002,
+      "text": "had humans index interesting sites and put them into this giant hierarchy of sites. It"
+    },
+    {
+      "index": 391,
+      "start_time": 2086320.0000000002,
+      "end_time": 2090570.0000000002,
+      "text": "worked pretty well for the time, right, like when I was in school."
+    },
+    {
+      "index": 392,
+      "start_time": 2090570.0000000002,
+      "end_time": 2095640.0000000002,
+      "text": "And then Google came around, this company that pays my bills, and I love them and they"
+    },
+    {
+      "index": 393,
+      "start_time": 2095639.9999999998,
+      "end_time": 2100960.0,
+      "text": "give me coffee, but they figured like this won't scale. It's changing faster, it's growing,"
+    },
+    {
+      "index": 394,
+      "start_time": 2100960.0,
+      "end_time": 2105070.0,
+      "text": "it's getting bigger. What do they do? They end up doing the modern search stack, which"
+    },
+    {
+      "index": 395,
+      "start_time": 2105070.0,
+      "end_time": 2109641.0,
+      "text": "is this crawl and index and using page rank to find surface to relevant stuff and it's"
+    },
+    {
+      "index": 396,
+      "start_time": 2109640.0,
+      "end_time": 2113890.0,
+      "text": "not a perfect system either. It doesn't know every single URL and they're not always in"
+    },
+    {
+      "index": 397,
+      "start_time": 2113890.0,
+      "end_time": 2119279.0,
+      "text": "perfect order, but really what happens is when I looked around test was still doing"
+    },
+    {
+      "index": 398,
+      "start_time": 2119280.0,
+      "end_time": 2124830.0,
+      "text": "the manual curation of test cases. They're very directed and in these hierarchies in"
+    },
+    {
+      "index": 399,
+      "start_time": 2124830.0,
+      "end_time": 2128681.0,
+      "text": "case managers and stuff. But the world had changed and the web had changed, but testing"
+    },
+    {
+      "index": 400,
+      "start_time": 2128680.0,
+      "end_time": 2132289.0,
+      "text": "hadn't changed yet. So I want to say that the web and searches"
+    },
+    {
+      "index": 401,
+      "start_time": 2132290.0,
+      "end_time": 2139941.0,
+      "text": "made this transition and actually even Yahoo! has now because of Bing. But what would this"
+    },
+    {
+      "index": 402,
+      "start_time": 2139940.0,
+      "end_time": 2143390.0,
+      "text": "mean if you thought about this in the context of testing? How could you actually test to"
+    },
+    {
+      "index": 403,
+      "start_time": 2143390.0,
+      "end_time": 2148479.0,
+      "text": "catch up and do the same transition that we missed probably a decade ago?"
+    },
+    {
+      "index": 404,
+      "start_time": 2148480.0,
+      "end_time": 2156000.0,
+      "text": "So this is actually Ibrahim's girlfriend in the picture. I was like, who is this person?"
+    },
+    {
+      "index": 405,
+      "start_time": 2156000.0,
+      "end_time": 2159870.0,
+      "text": "I don't know. I just told him that. So some early results. The thing is Google"
+    },
+    {
+      "index": 406,
+      "start_time": 2159870.0,
+      "end_time": 2164651.0,
+      "text": "is based on peer review for feedback and review scores and your bonus, so I've been quiet"
+    },
+    {
+      "index": 407,
+      "start_time": 2164650.0,
+      "end_time": 2170209.0,
+      "text": "about the data, but what I've been doing under James' semi-watch and I've scammed him into"
+    },
+    {
+      "index": 408,
+      "start_time": 2170210.0,
+      "end_time": 2174951.0,
+      "text": "all these experiments and funding all these large teams is measuring humans and comparing"
+    },
+    {
+      "index": 409,
+      "start_time": 2174950.0,
+      "end_time": 2181640.0,
+      "text": "the human activity of manual testing and automation versus Bots and versus the crowd. That's what"
+    },
+    {
+      "index": 410,
+      "start_time": 2181640.0,
+      "end_time": 2184109.0,
+      "text": "we've been doing. We've had a lot of infrastructure to do that."
+    },
+    {
+      "index": 411,
+      "start_time": 2184110.0,
+      "end_time": 2186800.0,
+      "text": "And BITE has been played with like how do we make the testers even faster? I'm trying"
+    },
+    {
+      "index": 412,
+      "start_time": 2186800.0,
+      "end_time": 2191350.0,
+      "text": "to help the manual testers, too, but I want to find out what's the answer to this stuff"
+    },
+    {
+      "index": 413,
+      "start_time": 2191350.0,
+      "end_time": 2195730.0,
+      "text": "because no one is experimenting. They're merely checking the features that came to the build"
+    },
+    {
+      "index": 414,
+      "start_time": 2195730.0,
+      "end_time": 2199740.0,
+      "text": "yesterday and the day before. So I figured I would experiment a little bit while I've"
+    },
+    {
+      "index": 415,
+      "start_time": 2199740.0,
+      "end_time": 2203911.0,
+      "text": "got a crazy manager that would fund it. So the fundamental -- first point is -- and"
+    },
+    {
+      "index": 416,
+      "start_time": 2203910.0,
+      "end_time": 2207910.0,
+      "text": "I could go on for hours and I've only got a few minutes here. Bots are faster and less"
+    },
+    {
+      "index": 417,
+      "start_time": 2207910.0,
+      "end_time": 2210499.0,
+      "text": "expensive for basic regression testing than humans."
+    },
+    {
+      "index": 418,
+      "start_time": 2210500.0,
+      "end_time": 2215510.0,
+      "text": "Who would have thunk? We all know that, but we don't use machines for that. It's been"
+    },
+    {
+      "index": 419,
+      "start_time": 2215510.0,
+      "end_time": 2220921.0,
+      "text": "a theme of the conference, I think. I think the Bots are the first stage of that, the"
+    },
+    {
+      "index": 420,
+      "start_time": 2220920.0,
+      "end_time": 2223869.0,
+      "text": "simple layout Bots. I've got some samples, but I don't have time"
+    },
+    {
+      "index": 421,
+      "start_time": 2223870.0,
+      "end_time": 2230661.0,
+      "text": "for those things. Also, I've compared some -- I won't protect the innocent, some of the"
+    },
+    {
+      "index": 422,
+      "start_time": 2230660.0,
+      "end_time": 2234789.0,
+      "text": "Chrome testing, we had these dedicated teams of manul on-site venders and full timers doing"
+    },
+    {
+      "index": 423,
+      "start_time": 2234790.0,
+      "end_time": 2238500.0,
+      "text": "those manual tests and they used to be doing it weekly and they'd recycle the test pass"
+    },
+    {
+      "index": 424,
+      "start_time": 2238500.0,
+      "end_time": 2242110.0,
+      "text": "again and again and again indefinitely, right, and doing the same thing."
+    },
+    {
+      "index": 425,
+      "start_time": 2242110.0,
+      "end_time": 2246760.0,
+      "text": "And then we passed one of these builds -- I did an experiment and passed one through UTest"
+    },
+    {
+      "index": 426,
+      "start_time": 2246760.0,
+      "end_time": 2251181.0,
+      "text": "for crowdsourcing and guess what? We caught a lot of bugs. The same build they came out"
+    },
+    {
+      "index": 427,
+      "start_time": 2251180.0,
+      "end_time": 2255410.0,
+      "text": "with one or two bugs, but the crowd testers came back with like 18 bugs. Literally it"
+    },
+    {
+      "index": 428,
+      "start_time": 2255410.0,
+      "end_time": 2260239.0,
+      "text": "was just that. I won't talk about the money, but like it was a lot cheaper than our dedicated"
+    },
+    {
+      "index": 429,
+      "start_time": 2260240.0,
+      "end_time": 2263600.0,
+      "text": "testing team. And they're also faster because you can paralyze"
+    },
+    {
+      "index": 430,
+      "start_time": 2263600.0,
+      "end_time": 2267360.0,
+      "text": "these people where you can't paralyze a team of five people."
+    },
+    {
+      "index": 431,
+      "start_time": 2267360.0,
+      "end_time": 2271860.0,
+      "text": "So that's actually very exciting. And the quality of the bug is not just more bugs."
+    },
+    {
+      "index": 432,
+      "start_time": 2271860.0,
+      "end_time": 2275340.0,
+      "text": "They're actually interesting bugs. And somebody actually -- I'll probably blog"
+    },
+    {
+      "index": 433,
+      "start_time": 2275340.0,
+      "end_time": 2278451.0,
+      "text": "or something, I'll share a lot of that data over the next month or so."
+    },
+    {
+      "index": 434,
+      "start_time": 2278450.0,
+      "end_time": 2283299.0,
+      "text": "The other is faster. We record bugs. This is where Simon Stewart -- he left, but I warned"
+    },
+    {
+      "index": 435,
+      "start_time": 2283300.0,
+      "end_time": 2287181.0,
+      "text": "him that I was going to bad-mouth him before he left."
+    },
+    {
+      "index": 436,
+      "start_time": 2287180.0,
+      "end_time": 2291180.0,
+      "text": "The reality is we worked with the BITE record playback in the JavaScript generation, we"
+    },
+    {
+      "index": 437,
+      "start_time": 2291180.0,
+      "end_time": 2295150.0,
+      "text": "worked with the Chrome web store team and we thought you could try this out. Maybe it"
+    },
+    {
+      "index": 438,
+      "start_time": 2295150.0,
+      "end_time": 2299749.0,
+      "text": "will be working. Give us feedback and maybe we're stupid, it's a bad idea, the JavaScript"
+    },
+    {
+      "index": 439,
+      "start_time": 2299750.0,
+      "end_time": 2303440.0,
+      "text": "stuff instead of the WebDriver. And what happened is we came back a few days"
+    },
+    {
+      "index": 440,
+      "start_time": 2303440.0,
+      "end_time": 2309171.0,
+      "text": "-- we left them alone for a while and came back and we said how are you using the tool?"
+    },
+    {
+      "index": 441,
+      "start_time": 2309170.0,
+      "end_time": 2312789.0,
+      "text": "What's your feedback? We thought he would spend the time on -- when"
+    },
+    {
+      "index": 442,
+      "start_time": 2312790.0,
+      "end_time": 2316280.0,
+      "text": "the element is not there because the web page changed, we have the UX up to fix the code"
+    },
+    {
+      "index": 443,
+      "start_time": 2316280.0,
+      "end_time": 2318830.0,
+      "text": "on the fly kind of thing, and that's where we thought we were really clever."
+    },
+    {
+      "index": 444,
+      "start_time": 2318830.0,
+      "end_time": 2323100.0,
+      "text": "But the reality is he said, I don't use that crap. He said, I just regenerate the test"
+    },
+    {
+      "index": 445,
+      "start_time": 2323100.0,
+      "end_time": 2329250.0,
+      "text": "case. It was like duh. It takes him like five seconds to try the feature out and we've generated"
+    },
+    {
+      "index": 446,
+      "start_time": 2329250.0,
+      "end_time": 2334980.0,
+      "text": "the test case, stored it for him and he can replay it at will and it's done. Once he records"
+    },
+    {
+      "index": 447,
+      "start_time": 2334980.0,
+      "end_time": 2338830.0,
+      "text": "it, it's persistent in the cloud and with one button you don't have to worry about all"
+    },
+    {
+      "index": 448,
+      "start_time": 2338830.0,
+      "end_time": 2342850.0,
+      "text": "these server farms and we have server farms that take care of this stuff. You can execute"
+    },
+    {
+      "index": 449,
+      "start_time": 2342850.0,
+      "end_time": 2346911.0,
+      "text": "this all in the browser itself. Anyway, we'll get on to the anti-WebDriver"
+    },
+    {
+      "index": 450,
+      "start_time": 2346910.0,
+      "end_time": 2351200.0,
+      "text": "stuff. How are we doing on time?"
+    },
+    {
+      "index": 451,
+      "start_time": 2351200.0,
+      "end_time": 2358450.0,
+      "text": ">>Ibrahim El-Far: Another five minutes. >>Jason Arbon: Okay. I will -- done. So here's"
+    },
+    {
+      "index": 452,
+      "start_time": 2358450.0,
+      "end_time": 2365039.0,
+      "text": "the new cycle. So I proposed this. Test isn't dead, it's just changing. There are dinosaurs"
+    },
+    {
+      "index": 453,
+      "start_time": 2365040.0,
+      "end_time": 2369870.0,
+      "text": "in the room. And some of them will actually become birds, right? Some of the brontosaurus"
+    },
+    {
+      "index": 454,
+      "start_time": 2369870.0,
+      "end_time": 2374610.0,
+      "text": "just fossilize. So this is the new workflow that I think will"
+    },
+    {
+      "index": 455,
+      "start_time": 2374610.0,
+      "end_time": 2380090.0,
+      "text": "be happening. These are converging. You've seen what Kevin has got and crowdsource and"
+    },
+    {
+      "index": 456,
+      "start_time": 2380090.0,
+      "end_time": 2382820.0,
+      "text": "people are talking about all these component. This is kind of the flow."
+    },
+    {
+      "index": 457,
+      "start_time": 2382820.0,
+      "end_time": 2387060.0,
+      "text": "So a developer comes up in the number one slot and they just deploy the application."
+    },
+    {
+      "index": 458,
+      "start_time": 2387060.0,
+      "end_time": 2391460.0,
+      "text": "You notice they don't have any listing of specifications or test plans or any of that"
+    },
+    {
+      "index": 459,
+      "start_time": 2391460.0,
+      "end_time": 2395970.0,
+      "text": "kind of junk. They just deploy the application. These Bots over here, we've done a lot of"
+    },
+    {
+      "index": 460,
+      "start_time": 2395970.0,
+      "end_time": 2400510.0,
+      "text": "work on running these things on Skytap actually, which rocks and they don't pay me for saying"
+    },
+    {
+      "index": 461,
+      "start_time": 2400510.0,
+      "end_time": 2405120.0,
+      "text": "that. But we're running the stuff on Skytap VM's. But the cool thing about it is that"
+    },
+    {
+      "index": 462,
+      "start_time": 2405120.0,
+      "end_time": 2410201.0,
+      "text": "the Bots run and 90, 95 percent of all pages don't change. We don't even look at them,"
+    },
+    {
+      "index": 463,
+      "start_time": 2410200.0,
+      "end_time": 2414029.0,
+      "text": "so we don't have any human involvement still. So the ones where we find diffs on the pages"
+    },
+    {
+      "index": 464,
+      "start_time": 2414030.0,
+      "end_time": 2418600.0,
+      "text": "where they're interesting and we haven't said ignore this stuff because it's dumb -- the"
+    },
+    {
+      "index": 465,
+      "start_time": 2418600.0,
+      "end_time": 2423210.0,
+      "text": "Bots are stupid sometimes. We say ignore it and it never does it again. But we come up"
+    },
+    {
+      "index": 466,
+      "start_time": 2423210.0,
+      "end_time": 2429720.0,
+      "text": "with a list of diffs. And rather than pass it to on-site dedicated testers, we pass it"
+    },
+    {
+      "index": 467,
+      "start_time": 2429720.0,
+      "end_time": 2435540.0,
+      "text": "off to the crowd with this BITE-enhanced overlay fancy head's up display thing. We route it"
+    },
+    {
+      "index": 468,
+      "start_time": 2435540.0,
+      "end_time": 2441151.0,
+      "text": "to a crowd tester. The crowd tester look at these diffs and says that looks like a feature,"
+    },
+    {
+      "index": 469,
+      "start_time": 2441150.0,
+      "end_time": 2445219.0,
+      "text": "that looks like a bug. They don't really know all the time. We've talked about context with"
+    },
+    {
+      "index": 470,
+      "start_time": 2445220.0,
+      "end_time": 2448350.0,
+      "text": "crowdsource people. They don't always have the full context of the project or why, but"
+    },
+    {
+      "index": 471,
+      "start_time": 2448350.0,
+      "end_time": 2453030.0,
+      "text": "they don't always need to. What happens is so -- we've done the study."
+    },
+    {
+      "index": 472,
+      "start_time": 2453030.0,
+      "end_time": 2458590.0,
+      "text": "So really it's actually higher than 95%, but we'll call it 95% of all diff is identical."
+    },
+    {
+      "index": 473,
+      "start_time": 2458590.0,
+      "end_time": 2462570.0,
+      "text": "The stuff that's different we filter out about 75% of that with the crowd and we've compared"
+    },
+    {
+      "index": 474,
+      "start_time": 2462570.0,
+      "end_time": 2466870.0,
+      "text": "that with on-site dedicated testers that know the product, know the developers, have lunch"
+    },
+    {
+      "index": 475,
+      "start_time": 2466870.0,
+      "end_time": 2471030.0,
+      "text": "with them, right? They're as good or better and actually faster than the dedicated testers"
+    },
+    {
+      "index": 476,
+      "start_time": 2471030.0,
+      "end_time": 2475141.0,
+      "text": "to filter out these diffs. So now of all the possible work that we could"
+    },
+    {
+      "index": 477,
+      "start_time": 2475140.0,
+      "end_time": 2481109.0,
+      "text": "have done we're down to three percent or less. And when there is an issue, like they're loaded"
+    },
+    {
+      "index": 478,
+      "start_time": 2481110.0,
+      "end_time": 2487131.0,
+      "text": "up, already got the browser open, they click the repro URL, it loads it up from the diff"
+    },
+    {
+      "index": 479,
+      "start_time": 2487130.0,
+      "end_time": 2490349.0,
+      "text": "and then they basically click on whatever is the problem. And they go next, next, next"
+    },
+    {
+      "index": 480,
+      "start_time": 2490350.0,
+      "end_time": 2493790.0,
+      "text": "and then the bug is filed. And that bug, we've got a feedback on from"
+    },
+    {
+      "index": 481,
+      "start_time": 2493790.0,
+      "end_time": 2497580.0,
+      "text": "the early deployments to the Google Maps team is better than their best tester found in"
+    },
+    {
+      "index": 482,
+      "start_time": 2497580.0,
+      "end_time": 2501131.0,
+      "text": "the bugs because the best tester doesn't do all the debug information and the best tester"
+    },
+    {
+      "index": 483,
+      "start_time": 2501130.0,
+      "end_time": 2506249.0,
+      "text": "still writes a lot of times \"step one \"-- it's embarrassing."
+    },
+    {
+      "index": 484,
+      "start_time": 2506250.0,
+      "end_time": 2511520.0,
+      "text": "You space or do a tab. One, go to this URL, two, click this button, try to describe it."
+    },
+    {
+      "index": 485,
+      "start_time": 2511520.0,
+      "end_time": 2515280.0,
+      "text": "There's none of that crap. It's faster and better data for the developers."
+    },
+    {
+      "index": 486,
+      "start_time": 2515280.0,
+      "end_time": 2521590.0,
+      "text": "Then we just route this back. We route this back in the bugs dashboard back to the developer"
+    },
+    {
+      "index": 487,
+      "start_time": 2521590.0,
+      "end_time": 2526641.0,
+      "text": "and they just have an URL and they load the URL and they can see like, hey, nothing changed"
+    },
+    {
+      "index": 488,
+      "start_time": 2526640.0,
+      "end_time": 2530239.0,
+      "text": "or there's a couple of flagged bugs and they click on that and it takes them back to the"
+    },
+    {
+      "index": 489,
+      "start_time": 2530240.0,
+      "end_time": 2534131.0,
+      "text": "repro and to the possible bug. You realize what's going on in this whole"
+    },
+    {
+      "index": 490,
+      "start_time": 2534130.0,
+      "end_time": 2539380.0,
+      "text": "flow is that there's none of us in this flow. That's the cool, crazy thing. That's why I"
+    },
+    {
+      "index": 491,
+      "start_time": 2539380.0,
+      "end_time": 2544549.0,
+      "text": "think some dinosaurs think test is dead, but it's been automated and outsourced to the"
+    },
+    {
+      "index": 492,
+      "start_time": 2544550.0,
+      "end_time": 2548921.0,
+      "text": "crowd and to the machines. And this is this flow, we've actually tried"
+    },
+    {
+      "index": 493,
+      "start_time": 2548920.0,
+      "end_time": 2553499.0,
+      "text": "this flow once. It's early, but it actually works."
+    },
+    {
+      "index": 494,
+      "start_time": 2553500.0,
+      "end_time": 2556891.0,
+      "text": "So we don't exist in this thing. That's where we've got to think about what we're going"
+    },
+    {
+      "index": 495,
+      "start_time": 2556890.0,
+      "end_time": 2558489.0,
+      "text": "to do. I argue we should actually participate in"
+    },
+    {
+      "index": 496,
+      "start_time": 2558490.0,
+      "end_time": 2563310.0,
+      "text": "making this flow better and also like work on instrument stuff, do more quality work"
+    },
+    {
+      "index": 497,
+      "start_time": 2563310.0,
+      "end_time": 2568550.0,
+      "text": "on the product. But also what's going on here, we found that we needed to do -- because they"
+    },
+    {
+      "index": 498,
+      "start_time": 2568550.0,
+      "end_time": 2572340.0,
+      "text": "were like the Bots are kind of stupid. They just find these diffs."
+    },
+    {
+      "index": 499,
+      "start_time": 2572340.0,
+      "end_time": 2577181.0,
+      "text": "They are stupid. We have some interns working on like making them smarter and doing runtime"
+    },
+    {
+      "index": 500,
+      "start_time": 2577180.0,
+      "end_time": 2582009.0,
+      "text": "and some intelligence stuff, some pseudo AI stuff. I'm more practical than that, right?"
+    },
+    {
+      "index": 501,
+      "start_time": 2582010.0,
+      "end_time": 2585691.0,
+      "text": "Let them do the 90% job. But what happens is we have a continual set"
+    },
+    {
+      "index": 502,
+      "start_time": 2585690.0,
+      "end_time": 2591680.0,
+      "text": "of exploratory testers that are just assigned to the project. And we have a pool -- we've"
+    },
+    {
+      "index": 503,
+      "start_time": 2591680.0,
+      "end_time": 2596809.0,
+      "text": "tried pools of five and pools of 10. What we think best is a dedicated set up of -- for"
+    },
+    {
+      "index": 504,
+      "start_time": 2596810.0,
+      "end_time": 2600500.0,
+      "text": "instance, half of them are dedicated, always on the same product. They have the context,"
+    },
+    {
+      "index": 505,
+      "start_time": 2600500.0,
+      "end_time": 2606360.0,
+      "text": "right? And the other was able to rotate through for us. We got people with different browsers,"
+    },
+    {
+      "index": 506,
+      "start_time": 2606360.0,
+      "end_time": 2611100.0,
+      "text": "different opinions on stuff. They're looking for different bugs. They have different contexts."
+    },
+    {
+      "index": 507,
+      "start_time": 2611100.0,
+      "end_time": 2615610.0,
+      "text": "So if you have a continual exploratory testing going on with Bots and then simple like looks"
+    },
+    {
+      "index": 508,
+      "start_time": 2615610.0,
+      "end_time": 2620391.0,
+      "text": "like a bug or doesn't look like a bug, you've basically solved about, you know, like almost"
+    },
+    {
+      "index": 509,
+      "start_time": 2620390.0,
+      "end_time": 2625180.0,
+      "text": "100% of this kind of a testing problem. Because the developer is a smart guy. A lot"
+    },
+    {
+      "index": 510,
+      "start_time": 2625180.0,
+      "end_time": 2628499.0,
+      "text": "of us are also developers. You can just look at the bug. The problem is we spend all this"
+    },
+    {
+      "index": 511,
+      "start_time": 2628500.0,
+      "end_time": 2633060.0,
+      "text": "money and time in latency, having people sit at machines doing these repetitive tasks over"
+    },
+    {
+      "index": 512,
+      "start_time": 2633060.0,
+      "end_time": 2636360.0,
+      "text": "and over again. I think we can eliminate a vast majority of"
+    },
+    {
+      "index": 513,
+      "start_time": 2636360.0,
+      "end_time": 2643340.0,
+      "text": "that with this kind of workflow. We have the tools come together and we make the crowd"
+    },
+    {
+      "index": 514,
+      "start_time": 2643340.0,
+      "end_time": 2650510.0,
+      "text": "testers better with the BITE, more efficient. Wow. Okay. Thank you."
+    },
+    {
+      "index": 515,
+      "start_time": 2650510.0,
+      "end_time": 2653120.0,
+      "text": "This is me from five years ago actually. [ Laughter ]"
+    },
+    {
+      "index": 516,
+      "start_time": 2653120.0,
+      "end_time": 2658230.0,
+      "text": ">>Jason Arbon: So I'll skip most of that stuff. Can you go back, though? Yeah. To the bell"
+    },
+    {
+      "index": 517,
+      "start_time": 2658230.0,
+      "end_time": 2660911.0,
+      "text": "bottoms. >>Ibrahim El-Far: Wrap it up."
+    },
+    {
+      "index": 518,
+      "start_time": 2660910.0,
+      "end_time": 2665789.0,
+      "text": ">>Jason Arbon: Done. There's overhead and slide switching. Those are bell bottoms."
+    },
+    {
+      "index": 519,
+      "start_time": 2665790.0,
+      "end_time": 2668941.0,
+      "text": ">>Ibrahim El-Far: There's like 10 minutes left."
+    },
+    {
+      "index": 520,
+      "start_time": 2668940.0,
+      "end_time": 2673680.0,
+      "text": ">>Jason Arbon: There's a lot of stuff that isn't in that slide. You can look at that"
+    },
+    {
+      "index": 521,
+      "start_time": 2673680.0,
+      "end_time": 2677009.0,
+      "text": "better. It ain't there. It's actually streamline processed."
+    },
+    {
+      "index": 522,
+      "start_time": 2677010.0,
+      "end_time": 2681570.0,
+      "text": "The reason I say bell bottoms is that back to what James is saying, like testing hasn't"
+    },
+    {
+      "index": 523,
+      "start_time": 2681570.0,
+      "end_time": 2685570.0,
+      "text": "freaking changed. We get a little bit better, we're still loading up consoles, no offense"
+    },
+    {
+      "index": 524,
+      "start_time": 2685570.0,
+      "end_time": 2690260.0,
+      "text": "to the cool JavaScript stuff, but we still test the browser from a console. That's crazy"
+    },
+    {
+      "index": 525,
+      "start_time": 2690260.0,
+      "end_time": 2696300.0,
+      "text": "to me. We have a platform in the cloud. What I do is I call bell bottoms on stuff"
+    },
+    {
+      "index": 526,
+      "start_time": 2696300.0,
+      "end_time": 2699040.0,
+      "text": "and that gets me unhappy looks at work all the time."
+    },
+    {
+      "index": 527,
+      "start_time": 2699040.0,
+      "end_time": 2703530.0,
+      "text": "I say, \"why are you doing it that way,\" and they say, \"well, that's the way I'm doing"
+    },
+    {
+      "index": 528,
+      "start_time": 2703530.0,
+      "end_time": 2707921.0,
+      "text": "it,\" I declare bell bottoms. You can use that or I don't know."
+    },
+    {
+      "index": 529,
+      "start_time": 2707920.0,
+      "end_time": 2712779.0,
+      "text": "So the last thing here is if you want the context of all this crap -- sorry, I said"
+    },
+    {
+      "index": 530,
+      "start_time": 2712780.0,
+      "end_time": 2713941.0,
+      "text": "crap. [ Laughter ]"
+    },
+    {
+      "index": 531,
+      "start_time": 2713940.0,
+      "end_time": 2717440.0,
+      "text": ">>Jason Arbon: I'm too honest. [ Laughter ]"
+    },
+    {
+      "index": 532,
+      "start_time": 2717440.0,
+      "end_time": 2722690.0,
+      "text": ">>Jason Arbon: Yeah. My family raised me right unfortunately."
+    },
+    {
+      "index": 533,
+      "start_time": 2722690.0,
+      "end_time": 2728160.0,
+      "text": "So there's a book coming out, this is the cover, the working draft of the cover, I think,"
+    },
+    {
+      "index": 534,
+      "start_time": 2728160.0,
+      "end_time": 2732259.0,
+      "text": "but there's all sorts of -- there's -- we talk about how we do testing, all the unit"
+    },
+    {
+      "index": 535,
+      "start_time": 2732260.0,
+      "end_time": 2735510.0,
+      "text": "testing, all this stuff, and it talks about a lot of these experiments. It talks about"
+    },
+    {
+      "index": 536,
+      "start_time": 2735510.0,
+      "end_time": 2739040.0,
+      "text": "the origin and who was doing BITE and why they did it and how we scammed James into"
+    },
+    {
+      "index": 537,
+      "start_time": 2739040.0,
+      "end_time": 2742870.0,
+      "text": "believing we could actually do some of these things. How when he told us not to do Bots"
+    },
+    {
+      "index": 538,
+      "start_time": 2742870.0,
+      "end_time": 2747240.0,
+      "text": "we had two interns do it anyway, and right in the same office and he didn't know."
+    },
+    {
+      "index": 539,
+      "start_time": 2747240.0,
+      "end_time": 2750350.0,
+      "text": "[ Laughter ] >>Jason Arbon: It's actually totally true,"
+    },
+    {
+      "index": 540,
+      "start_time": 2750350.0,
+      "end_time": 2754391.0,
+      "text": "James. You know that, right? So that's all in the book. It's actually kind"
+    },
+    {
+      "index": 541,
+      "start_time": 2754390.0,
+      "end_time": 2757199.0,
+      "text": "of cool. The reason this picture is here is I thought"
+    },
+    {
+      "index": 542,
+      "start_time": 2757200.0,
+      "end_time": 2762290.0,
+      "text": "about all the trees James has killed with his books in his octopublishing career, and"
+    },
+    {
+      "index": 543,
+      "start_time": 2762290.0,
+      "end_time": 2771780.0,
+      "text": "I accidentally obscured his name on the book. We're not doing questions. I'm talking -- I'm"
+    },
+    {
+      "index": 544,
+      "start_time": 2771780.0,
+      "end_time": 2775530.0,
+      "text": "talking now. They like to hear me talk. [ Laughter ]"
+    },
+    {
+      "index": 545,
+      "start_time": 2775530.0,
+      "end_time": 2780360.0,
+      "text": ">>Jason Arbon: I want to say this is all about the cloud. This is really about cloud testing."
+    },
+    {
+      "index": 546,
+      "start_time": 2780360.0,
+      "end_time": 2785191.0,
+      "text": "We talk about cloud testing. Cloud testing doesn't involve a console. It doesn't. Call"
+    },
+    {
+      "index": 547,
+      "start_time": 2785190.0,
+      "end_time": 2788209.0,
+      "text": "me a nut bag -- and I am a little bit. But it doesn't involve a console and it doesn't"
+    },
+    {
+      "index": 548,
+      "start_time": 2788210.0,
+      "end_time": 2793891.0,
+      "text": "involve Java binaries and distribute them like a pool of machines that we have to manage"
+    },
+    {
+      "index": 549,
+      "start_time": 2793890.0,
+      "end_time": 2799569.0,
+      "text": "and stuff like that. There's the cloud. The browser is a powerful platform. We can do"
+    },
+    {
+      "index": 550,
+      "start_time": 2799570.0,
+      "end_time": 2804431.0,
+      "text": "it all on the browser end. And this is -- we're more or less kind of"
+    },
+    {
+      "index": 551,
+      "start_time": 2804430.0,
+      "end_time": 2808119.0,
+      "text": "defunded now. We've broken the team up. People are going off to other teams and projects"
+    },
+    {
+      "index": 552,
+      "start_time": 2808120.0,
+      "end_time": 2811530.0,
+      "text": "and stuff like that because things in Google change fast."
+    },
+    {
+      "index": 553,
+      "start_time": 2811530.0,
+      "end_time": 2816860.0,
+      "text": "But these things live on. We've open sourced them. Please participate and collaborate."
+    },
+    {
+      "index": 554,
+      "start_time": 2816860.0,
+      "end_time": 2823450.0,
+      "text": "And yeah. Maybe we can do some cool web testing in the cloud, actually finally, maybe some"
+    },
+    {
+      "index": 555,
+      "start_time": 2823450.0,
+      "end_time": 2831740.0,
+      "text": "day do cloud testing. Done. Questions?"
+    },
+    {
+      "index": 556,
+      "start_time": 2831740.0,
+      "end_time": 2840520.0,
+      "text": "[ Applause ] Any questions? I'm going to get doubters."
+    },
+    {
+      "index": 557,
+      "start_time": 2840520.0,
+      "end_time": 2844510.0,
+      "text": "\"You're crazy. Doesn't work for my application.\" I'll do the -- I'll question, answer them"
+    },
+    {
+      "index": 558,
+      "start_time": 2844510.0,
+      "end_time": 2847040.0,
+      "text": "real quick. \"It doesn't work for my application. My application"
+    },
+    {
+      "index": 559,
+      "start_time": 2847040.0,
+      "end_time": 2851411.0,
+      "text": "is special. I do a database or I do medical equipment.\" This stuff is applicable."
+    },
+    {
+      "index": 560,
+      "start_time": 2851410.0,
+      "end_time": 2853930.0,
+      "text": ">>Ibrahim El-Far: How about let people ask the questions?"
+    },
+    {
+      "index": 561,
+      "start_time": 2853930.0,
+      "end_time": 2857609.0,
+      "text": ">>Jason Arbon: But I already answered them. [ Laughter ]"
+    },
+    {
+      "index": 562,
+      "start_time": 2857610.0,
+      "end_time": 2864550.0,
+      "text": ">>> Hi. Thank you for your talk. My name is Karen, from (saying name)."
+    },
+    {
+      "index": 563,
+      "start_time": 2864550.0,
+      "end_time": 2869600.0,
+      "text": "And, basically, you say that this tool is for the cloud. What happened with some -- with"
+    },
+    {
+      "index": 564,
+      "start_time": 2869600.0,
+      "end_time": 2880911.0,
+      "text": "the systems that has to interact with desktop information and then will be uploaded to the"
+    },
+    {
+      "index": 565,
+      "start_time": 2880910.0,
+      "end_time": 2887359.0,
+      "text": "cloud? So these tools can work together? I mean,"
+    },
+    {
+      "index": 566,
+      "start_time": 2887360.0,
+      "end_time": 2895730.0,
+      "text": "because sometimes you need to have Java code to simulate that you upload the information,"
+    },
+    {
+      "index": 567,
+      "start_time": 2895730.0,
+      "end_time": 2900550.0,
+      "text": "and then you need to verify it in the cloud. >>Jason Arbon: I would say that generally"
+    },
+    {
+      "index": 568,
+      "start_time": 2900550.0,
+      "end_time": 2904740.0,
+      "text": "it's a little myopic. We're focused on the browser and kind of on the Web; right because"
+    },
+    {
+      "index": 569,
+      "start_time": 2904740.0,
+      "end_time": 2908671.0,
+      "text": "it's Google, number one; right. But like we saw earlier, just a couple hours"
+    },
+    {
+      "index": 570,
+      "start_time": 2908670.0,
+      "end_time": 2913880.0,
+      "text": "ago, right, there's NativeDriver, these same APIs, right, so if you have to do desktop"
+    },
+    {
+      "index": 571,
+      "start_time": 2913880.0,
+      "end_time": 2917029.0,
+      "text": "stuff, you can treat it the same way. We've actually done some experiments like this where"
+    },
+    {
+      "index": 572,
+      "start_time": 2917030.0,
+      "end_time": 2921960.0,
+      "text": "we actually have JavaScript code and we're kicking off local -- we have a demo extension"
+    },
+    {
+      "index": 573,
+      "start_time": 2921960.0,
+      "end_time": 2927840.0,
+      "text": "in Chrome where we can actually run the console window inside the browser. But the script"
+    },
+    {
+      "index": 574,
+      "start_time": 2927840.0,
+      "end_time": 2931710.0,
+      "text": "that drove that thing was JavaScript. And it lives in the cloud and everything like"
+    },
+    {
+      "index": 575,
+      "start_time": 2931710.0,
+      "end_time": 2935671.0,
+      "text": "that. So rather than have everything, like, based in this client world and then, like,"
+    },
+    {
+      "index": 576,
+      "start_time": 2935670.0,
+      "end_time": 2940749.0,
+      "text": "tickling the browser at the last mile, right, or the last inch, it's -- you go the other"
+    },
+    {
+      "index": 577,
+      "start_time": 2940750.0,
+      "end_time": 2944790.0,
+      "text": "way, 'cause there's so many benefits of the cloud and we're not benefiting them."
+    },
+    {
+      "index": 578,
+      "start_time": 2944790.0,
+      "end_time": 2950110.0,
+      "text": "Call me a little bit whack, but this is starting to happen, we saw it on Android and iOS, you"
+    },
+    {
+      "index": 579,
+      "start_time": 2950110.0,
+      "end_time": 2953740.0,
+      "text": "write as stuff as if it was a Web application using these kind of technologies. And then"
+    },
+    {
+      "index": 580,
+      "start_time": 2953740.0,
+      "end_time": 2956970.0,
+      "text": "if you have to do that, you have a little tiny shim you use, like a local proxy; right?"
+    },
+    {
+      "index": 581,
+      "start_time": 2956970.0,
+      "end_time": 2960450.0,
+      "text": "Or you can write an npm API or kind of an ACL client."
+    },
+    {
+      "index": 582,
+      "start_time": 2960450.0,
+      "end_time": 2965290.0,
+      "text": ">>Ibrahim El Far: In practice, most of this stuff is taken care of by writing a bunch"
+    },
+    {
+      "index": 583,
+      "start_time": 2965290.0,
+      "end_time": 2973540.0,
+      "text": "of wrappers on top of -- kind of services that you can talk to from your extension."
+    },
+    {
+      "index": 584,
+      "start_time": 2973540.0,
+      "end_time": 2977240.0,
+      "text": "So this way, even if you have an existing sort of legacy system, you just try to wrap"
+    },
+    {
+      "index": 585,
+      "start_time": 2977240.0,
+      "end_time": 2982860.0,
+      "text": "our service on top of it and interact with it as if it was just in the cloud."
+    },
+    {
+      "index": 586,
+      "start_time": 2982860.0,
+      "end_time": 2988131.0,
+      "text": "In general, it's not clean. And Jason will argue that, you know, you shouldn't necessarily"
+    },
+    {
+      "index": 587,
+      "start_time": 2988130.0,
+      "end_time": 2991390.0,
+      "text": "care about -- you need to break away from the past altogether."
+    },
+    {
+      "index": 588,
+      "start_time": 2991390.0,
+      "end_time": 2997519.0,
+      "text": "But, for example, for the teams, as a simple example, for some teams that really are insisting"
+    },
+    {
+      "index": 589,
+      "start_time": 2997520.0,
+      "end_time": 3003490.0,
+      "text": "on using WebDriver, for whatever reason, then what we do is we generate the WebDriver code"
+    },
+    {
+      "index": 590,
+      "start_time": 3003490.0,
+      "end_time": 3006970.0,
+      "text": "for those test cases as well and then allow people to run test cases."
+    },
+    {
+      "index": 591,
+      "start_time": 3006970.0,
+      "end_time": 3010870.0,
+      "text": ">>Jason Arbon: That's a difference we have. I think you should never do it. I think those"
+    },
+    {
+      "index": 592,
+      "start_time": 3010870.0,
+      "end_time": 3014901.0,
+      "text": "rules should never cross. I think that you should do it from the cloud to start with"
+    },
+    {
+      "index": 593,
+      "start_time": 3014900.0,
+      "end_time": 3019059.0,
+      "text": "because of all the benefits of test execution, test distribution, reporting, portability,"
+    },
+    {
+      "index": 594,
+      "start_time": 3019060.0,
+      "end_time": 3022750.0,
+      "text": "all those benefits. But the reality is if you have a legacy system"
+    },
+    {
+      "index": 595,
+      "start_time": 3022750.0,
+      "end_time": 3028171.0,
+      "text": "and on the clients or your embedded systems and legacy code, don't do this. It wouldn't"
+    },
+    {
+      "index": 596,
+      "start_time": 3028170.0,
+      "end_time": 3030910.0,
+      "text": "be cost effective. But if you have a new project --"
+    },
+    {
+      "index": 597,
+      "start_time": 3030910.0,
+      "end_time": 3034219.0,
+      "text": ">>Ibrahim El Far: It's not an either/or proposition. >>Jason Arbon: There's this contention that"
+    },
+    {
+      "index": 598,
+      "start_time": 3034220.0,
+      "end_time": 3040931.0,
+      "text": "apps are moving toward the head. So we're trying to get out a little bit ahead of the"
+    },
+    {
+      "index": 599,
+      "start_time": 3040930.0,
+      "end_time": 3045180.0,
+      "text": "curve for answering. Anyone else?"
+    },
+    {
+      "index": 600,
+      "start_time": 3045180.0,
+      "end_time": 3048589.0,
+      "text": "Yeah. >>> You guys said you had about five or ten"
+    },
+    {
+      "index": 601,
+      "start_time": 3048590.0,
+      "end_time": 3052840.0,
+      "text": "people dedicated for unit test. How is that any different from just having five or ten"
+    },
+    {
+      "index": 602,
+      "start_time": 3052840.0,
+      "end_time": 3055440.0,
+      "text": "people that you have yourself if they're dedicated --"
+    },
+    {
+      "index": 603,
+      "start_time": 3055440.0,
+      "end_time": 3064550.0,
+      "text": ">>Jason Arbon: Cool, you have paid by U Test. They're 24/7. I think they have it on their"
+    },
+    {
+      "index": 604,
+      "start_time": 3064550.0,
+      "end_time": 3070230.0,
+      "text": "propaganda material. They're available 24/7. Everyone loves to build on a Friday night."
+    },
+    {
+      "index": 605,
+      "start_time": 3070230.0,
+      "end_time": 3076810.0,
+      "text": "Got the last final build, Friday at 6:00. The test team, stay the weekend or not? You"
+    },
+    {
+      "index": 606,
+      "start_time": 3076810.0,
+      "end_time": 3080830.0,
+      "text": "don't have to worry about that. Push it to the crowd. They have this 24/7, the sun never"
+    },
+    {
+      "index": 607,
+      "start_time": 3080830.0,
+      "end_time": 3086881.0,
+      "text": "sets on U Test. That's one thing that's interesting. It affects real-world test cycles even at"
+    },
+    {
+      "index": 608,
+      "start_time": 3086880.0,
+      "end_time": 3092519.0,
+      "text": "Google. You can say you have a remote office at Hyderabad. But they have to orchestrate"
+    },
+    {
+      "index": 609,
+      "start_time": 3092520.0,
+      "end_time": 3096161.0,
+      "text": "handoffs. The big one that we found out with Chrome"
+    },
+    {
+      "index": 610,
+      "start_time": 3096160.0,
+      "end_time": 3101459.0,
+      "text": "was that you -- you know, you can only pay and dedicated, like, five or six full-time"
+    },
+    {
+      "index": 611,
+      "start_time": 3101460.0,
+      "end_time": 3107780.0,
+      "text": "head count -- but you can only have so many fixed people and they're fixed resources whether"
+    },
+    {
+      "index": 612,
+      "start_time": 3107780.0,
+      "end_time": 3112340.0,
+      "text": "you're spending them or not and then they're sitting there. The reality is if you want"
+    },
+    {
+      "index": 613,
+      "start_time": 3112340.0,
+      "end_time": 3116950.0,
+      "text": "-- say you have a security patch, a security issue and you want to do a full test patch"
+    },
+    {
+      "index": 614,
+      "start_time": 3116950.0,
+      "end_time": 3124681.0,
+      "text": "and everyone wants to push it. What do you do? Turn the dial on the crowd and say give"
+    },
+    {
+      "index": 615,
+      "start_time": 3124680.0,
+      "end_time": 3129499.0,
+      "text": "me 100 testers in the next hour. And you can, like, parallelize -- just talking about parallelizing"
+    },
+    {
+      "index": 616,
+      "start_time": 3129500.0,
+      "end_time": 3137320.0,
+      "text": "Selenium execution, you can parallelize human execution through the crowd."
+    },
+    {
+      "index": 617,
+      "start_time": 3137320.0,
+      "end_time": 3141151.0,
+      "text": "You get a lot of variety; right? Like the Google test engineers are kind of myopic bunch,"
+    },
+    {
+      "index": 618,
+      "start_time": 3141150.0,
+      "end_time": 3147509.0,
+      "text": "they all went through the same interview process, live in the same place, always use Gmail."
+    },
+    {
+      "index": 619,
+      "start_time": 3147510.0,
+      "end_time": 3151411.0,
+      "text": "And people with different context and different insight, right, from their various experiences"
+    },
+    {
+      "index": 620,
+      "start_time": 3151410.0,
+      "end_time": 3154609.0,
+      "text": "and other places they've tested over their lives really comes into play. That's where"
+    },
+    {
+      "index": 621,
+      "start_time": 3154610.0,
+      "end_time": 3157710.0,
+      "text": "we saw a lot of the value coming in from the crowd source testing, was that they would"
+    },
+    {
+      "index": 622,
+      "start_time": 3157710.0,
+      "end_time": 3161730.0,
+      "text": "have different perspective. They would see bugs that if they sat with our local engineers"
+    },
+    {
+      "index": 623,
+      "start_time": 3161730.0,
+      "end_time": 3166310.0,
+      "text": "straight on, they wouldn't see it. Is that good? Because I can go on for a little"
+    },
+    {
+      "index": 624,
+      "start_time": 3166310.0,
+      "end_time": 3167210.0,
+      "text": "while, but they don't pay me. Yeah."
+    },
+    {
+      "index": 625,
+      "start_time": 3167210.0,
+      "end_time": 3168570.0,
+      "text": ">>> (Speaker is off microphone.) >>James Whittaker: How about now? There you"
+    },
+    {
+      "index": 626,
+      "start_time": 3168570.0,
+      "end_time": 3182020.0,
+      "text": "go. >>> My name is (saying name). I'm from Netflix."
+    },
+    {
+      "index": 627,
+      "start_time": 3182020.0,
+      "end_time": 3187981.0,
+      "text": "Great talk. A few questions. >>Jason Arbon: Can you repeat that?"
+    },
+    {
+      "index": 628,
+      "start_time": 3187980.0,
+      "end_time": 3195420.0,
+      "text": ">>> Great talk. >>Jason Arbon: Thank you. Sorry."
+    },
+    {
+      "index": 629,
+      "start_time": 3195420.0,
+      "end_time": 3197549.0,
+      "text": "[ Laughter ] [ Applause ]"
+    },
+    {
+      "index": 630,
+      "start_time": 3197550.0,
+      "end_time": 3201460.0,
+      "text": ">>> I totally believe in the vision. The first question is, how do you test your"
+    },
+    {
+      "index": 631,
+      "start_time": 3201460.0,
+      "end_time": 3203730.0,
+      "text": "test tools to make sure they're finding the real bugs?"
+    },
+    {
+      "index": 632,
+      "start_time": 3203730.0,
+      "end_time": 3209040.0,
+      "text": ">>Jason Arbon: So we -- ironically, like everyone else does, we didn't at first to be frank."
+    },
+    {
+      "index": 633,
+      "start_time": 3209040.0,
+      "end_time": 3213651.0,
+      "text": "We didn't test these things. Partly because it was we called it an experiment, because"
+    },
+    {
+      "index": 634,
+      "start_time": 3213650.0,
+      "end_time": 3217449.0,
+      "text": "we're lazy in testing. We got away for it in for a little while. What happened is one"
+    },
+    {
+      "index": 635,
+      "start_time": 3217450.0,
+      "end_time": 3223391.0,
+      "text": "of our developers, an SET, software engineer in test who is doing feature work said, oh,"
+    },
+    {
+      "index": 636,
+      "start_time": 3223390.0,
+      "end_time": 3227660.0,
+      "text": "crap, we pushed a bad build. Now we started the test thing. We just instituted better"
+    },
+    {
+      "index": 637,
+      "start_time": 3227660.0,
+      "end_time": 3233319.0,
+      "text": "coding practices and making sure we did exploratory testing every time we did a release. We essentially"
+    },
+    {
+      "index": 638,
+      "start_time": 3233320.0,
+      "end_time": 3237830.0,
+      "text": "dogfooded that process; right? And we used BITE to file some bugs, actually, on our own"
+    },
+    {
+      "index": 639,
+      "start_time": 3237830.0,
+      "end_time": 3242901.0,
+      "text": "system, and it was working. So it was real organic, bottoms-up. And we only really started"
+    },
+    {
+      "index": 640,
+      "start_time": 3242900.0,
+      "end_time": 3250670.0,
+      "text": "testing it -- as the grim reaper was saying earlier, is that we only test it when we need"
+    },
+    {
+      "index": 641,
+      "start_time": 3250670.0,
+      "end_time": 3254599.0,
+      "text": "to know if it's working, right when it goes -- right at the last second before it goes"
+    },
+    {
+      "index": 642,
+      "start_time": 3254600.0,
+      "end_time": 3257641.0,
+      "text": "to a customer, or a little bit after when you're embarrassed. That's when we actually"
+    },
+    {
+      "index": 643,
+      "start_time": 3257640.0,
+      "end_time": 3262119.0,
+      "text": "added testing to the tools. >>> Second question. How do you ensure that"
+    },
+    {
+      "index": 644,
+      "start_time": 3262120.0,
+      "end_time": 3268161.0,
+      "text": "your crowd source testers are not filing dupe bugs?"
+    },
+    {
+      "index": 645,
+      "start_time": 3268160.0,
+      "end_time": 3275189.0,
+      "text": ">>Ibrahim El Far: We actually -- there's a mitigation part and sort of a back-end piece"
+    },
+    {
+      "index": 646,
+      "start_time": 3275190.0,
+      "end_time": 3280401.0,
+      "text": "to this. The -- we mitigate some of this by the bug"
+    },
+    {
+      "index": 647,
+      "start_time": 3280400.0,
+      "end_time": 3285609.0,
+      "text": "overlay that you have seen earlier. Essentially, what we do is we -- just like when you're"
+    },
+    {
+      "index": 648,
+      "start_time": 3285610.0,
+      "end_time": 3290230.0,
+      "text": "driving in a street and you see this thing that says, \"Your speed is 35 miles an hour\""
+    },
+    {
+      "index": 649,
+      "start_time": 3290230.0,
+      "end_time": 3294990.0,
+      "text": "in a 30 zone, you basically get to see, okay, there are bugs in this area, there are already"
+    },
+    {
+      "index": 650,
+      "start_time": 3294990.0,
+      "end_time": 3300050.0,
+      "text": "preexisting bugs. That's part of it. The other piece is we cannot own the cloud that also"
+    },
+    {
+      "index": 651,
+      "start_time": 3300050.0,
+      "end_time": 3307210.0,
+      "text": "has the issues that we track. So that's -- we haven't done this yet, but we do plan -- since"
+    },
+    {
+      "index": 652,
+      "start_time": 3307210.0,
+      "end_time": 3311610.0,
+      "text": "the format of these bugs is kind of uniform, we can pretty much do a DIFF and figure out"
+    },
+    {
+      "index": 653,
+      "start_time": 3311610.0,
+      "end_time": 3315960.0,
+      "text": "if a bug is -- already exists. >>Jason Arbon: When we did our experiments"
+    },
+    {
+      "index": 654,
+      "start_time": 3315960.0,
+      "end_time": 3319560.0,
+      "text": "with U Test, we actually gave them BITE; right? So they were filing bugs with BITE. So they"
+    },
+    {
+      "index": 655,
+      "start_time": 3319560.0,
+      "end_time": 3321680.0,
+      "text": "could actually see the existing bugs that were already filed. That's the whole purpose"
+    },
+    {
+      "index": 656,
+      "start_time": 3321680.0,
+      "end_time": 3327661.0,
+      "text": "of the overlay. And then also, U Test specifically has some PMs associated with stuff. So if"
+    },
+    {
+      "index": 657,
+      "start_time": 3327660.0,
+      "end_time": 3330630.0,
+      "text": "your team is, like, really anti-dupes and you don't have a tester on the other thing"
+    },
+    {
+      "index": 658,
+      "start_time": 3330630.0,
+      "end_time": 3334369.0,
+      "text": "that doesn't want to dedupe things. They have program manager that will filter the stuff"
+    },
+    {
+      "index": 659,
+      "start_time": 3334370.0,
+      "end_time": 3340911.0,
+      "text": "for you. You just pay them a little bit more. >>James Whittaker: Okay. I will repeat. Great"
+    },
+    {
+      "index": 660,
+      "start_time": 3340910.0,
+      "end_time": 3344279.0,
+      "text": "talk. But now, unfortunately, the time is over."
+    },
+    {
+      "index": 661,
+      "start_time": 3344280.0,
+      "end_time": 3348350.0,
+      "text": "But so we are going into a break. These two guys are going to be here for the rest of"
+    },
+    {
+      "index": 662,
+      "start_time": 3348350.0,
+      "end_time": 3351320.0,
+      "text": "the day. They're also going to be here for the beer and brats tonight."
+    },
+    {
+      "index": 663,
+      "start_time": 3351320.0,
+      "end_time": 3356370.0,
+      "text": "So you guys, I know you guys got a lot of questions. Go ahead and continue to ask them"
+    },
+    {
+      "index": 664,
+      "start_time": 3356370.0,
+      "end_time": 3360891.0,
+      "text": "during the break. And tonight during the beer and brats session."
+    },
+    {
+      "index": 665,
+      "start_time": 3360890.0,
+      "end_time": 3366739.0,
+      "text": "So I do want to say that these tools -- it's kind of a Google thing to build a tool and"
+    },
+    {
+      "index": 666,
+      "start_time": 3366740.0,
+      "end_time": 3372141.0,
+      "text": "get it, you know, almost done and then just let it go. Because that's the way you find"
+    },
+    {
+      "index": 667,
+      "start_time": 3372140.0,
+      "end_time": 3379170.0,
+      "text": "out whether your tools are really interesting and useful to people, is that they'll participate"
+    },
+    {
+      "index": 668,
+      "start_time": 3379170.0,
+      "end_time": 3382160.0,
+      "text": "to continue the tool even after you stop working on it."
+    },
+    {
+      "index": 669,
+      "start_time": 3382160.0,
+      "end_time": 3387949.0,
+      "text": "So when we changed from a test team to a dev team, we gave these tools up. We open sourced"
+    },
+    {
+      "index": 670,
+      "start_time": 3387950.0,
+      "end_time": 3393350.0,
+      "text": "them and just threw them out to Google. And the Chrome team has picked up two of them."
+    },
+    {
+      "index": 671,
+      "start_time": 3393350.0,
+      "end_time": 3399040.0,
+      "text": "And the open source folks are picking up more, we hope, you know, Mogotest, maybe they'll"
+    },
+    {
+      "index": 672,
+      "start_time": 3399040.0,
+      "end_time": 3403080.0,
+      "text": "take the Bots stuff. >>Jason Arbon: Mogotest, no, I have to say,"
+    },
+    {
+      "index": 673,
+      "start_time": 3403080.0,
+      "end_time": 3405881.0,
+      "text": "they do a better job. >>James Whittaker: They do a better job, Jason"
+    },
+    {
+      "index": 674,
+      "start_time": 3405880.0,
+      "end_time": 3409130.0,
+      "text": "said. Anyhow, please pick these tools up from open"
+    },
+    {
+      "index": 675,
+      "start_time": 3409130.0,
+      "end_time": 3413849.0,
+      "text": "source. Go to the Google testing blog, that's where the links -- or the open source blog,"
+    },
+    {
+      "index": 676,
+      "start_time": 3413850.0,
+      "end_time": 3419370.0,
+      "text": "all the links are there and you can find them on code.google.com. Do some cool and interesting"
+    },
+    {
+      "index": 677,
+      "start_time": 3419370.0,
+      "end_time": 3423901.0,
+      "text": "stuff with them. We'll keep the Chrome team honest, whatever updates they make, we will"
+    },
+    {
+      "index": 678,
+      "start_time": 3423900.0,
+      "end_time": 3430189.0,
+      "text": "continue to nag them to open source those as well so that we can continue these test"
+    },
+    {
+      "index": 679,
+      "start_time": 3430190.0,
+      "end_time": 3435860.0,
+      "text": "tools. Okay. Thanks a lot, guys. We're going into"
+    },
+    {
+      "index": 680,
+      "start_time": 3435860.0,
+      "end_time": 3445860.0,
+      "text": "a break. [ Applause ]"
+    }
+  ]
+}

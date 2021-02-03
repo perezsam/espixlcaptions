@@ -1,0 +1,936 @@
+{
+  "video_id": "gI-qXk7XojA",
+  "title": "Boolean Logic & Logic Gates: Crash Course Computer Science #3",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3080.0,
+      "end_time": 6250.0,
+      "text": "Hi, I’m Carrie Anne and welcome to Crash Course Computer Science!"
+    },
+    {
+      "index": 2,
+      "start_time": 6250.0,
+      "end_time": 10920.0,
+      "text": "Today we start our journey up the ladder of abstraction, where we leave behind the simplicity"
+    },
+    {
+      "index": 3,
+      "start_time": 10920.0,
+      "end_time": 15340.0,
+      "text": "of being able to see every switch and gear, but gain the ability to assemble increasingly"
+    },
+    {
+      "index": 4,
+      "start_time": 15340.0,
+      "end_time": 16580.0,
+      "text": "complex systems."
+    },
+    {
+      "index": 5,
+      "start_time": 16580.0,
+      "end_time": 25640.0,
+      "text": "INTRO"
+    },
+    {
+      "index": 6,
+      "start_time": 25640.0,
+      "end_time": 30060.0,
+      "text": "Last episode, we talked about how computers evolved from electromechanical devices, that"
+    },
+    {
+      "index": 7,
+      "start_time": 30060.0,
+      "end_time": 35070.0,
+      "text": "often had decimal representations of numbers – like those represented by teeth on a gear"
+    },
+    {
+      "index": 8,
+      "start_time": 35070.0,
+      "end_time": 39440.0,
+      "text": "– to electronic computers with transistors that can turn the flow of electricity on or off."
+    },
+    {
+      "index": 9,
+      "start_time": 39440.0,
+      "end_time": 44180.0,
+      "text": "And fortunately, even with just two states of electricity, we can represent important information."
+    },
+    {
+      "index": 10,
+      "start_time": 44180.0,
+      "end_time": 48220.0,
+      "text": "We call this representation Binary -- which literally means “of two states”, in the"
+    },
+    {
+      "index": 11,
+      "start_time": 48220.0,
+      "end_time": 52250.0,
+      "text": "same way a bicycle has two wheels or a biped has two legs."
+    },
+    {
+      "index": 12,
+      "start_time": 52250.0,
+      "end_time": 55670.0,
+      "text": "You might think two states isn’t a lot to work with, and you’d be right!"
+    },
+    {
+      "index": 13,
+      "start_time": 55670.0,
+      "end_time": 59340.0,
+      "text": "But, it’s exactly what you need for representing the values “true” and “false”."
+    },
+    {
+      "index": 14,
+      "start_time": 59340.0,
+      "end_time": 63740.0,
+      "text": "In computers, an “on” state, when electricity is flowing, represents true."
+    },
+    {
+      "index": 15,
+      "start_time": 63740.0,
+      "end_time": 66720.0,
+      "text": "The off state, no electricity flowing, represents false."
+    },
+    {
+      "index": 16,
+      "start_time": 66720.0,
+      "end_time": 70549.0,
+      "text": "We can also write binary as 1’s and 0’s instead of true’s and false’s – they"
+    },
+    {
+      "index": 17,
+      "start_time": 70549.0,
+      "end_time": 75340.0,
+      "text": "are just different expressions of the same signal – but we’ll talk more about that in the next episode."
+    },
+    {
+      "index": 18,
+      "start_time": 75340.0,
+      "end_time": 79300.0,
+      "text": "Now it is actually possible to use transistors for more than just turning electrical current"
+    },
+    {
+      "index": 19,
+      "start_time": 79300.0,
+      "end_time": 82340.0,
+      "text": "on and off, and to allow for different levels of current."
+    },
+    {
+      "index": 20,
+      "start_time": 82340.0,
+      "end_time": 87340.0,
+      "text": "Some early electronic computers were ternary, that's three states, and even quinary, using 5 states."
+    },
+    {
+      "index": 21,
+      "start_time": 87340.0,
+      "end_time": 91320.0,
+      "text": "The problem is, the more intermediate states there are, the harder it is to keep them all"
+    },
+    {
+      "index": 22,
+      "start_time": 91320.0,
+      "end_time": 95359.0,
+      "text": "seperate -- if your smartphone battery starts running low or there’s electrical noise"
+    },
+    {
+      "index": 23,
+      "start_time": 95359.0,
+      "end_time": 99880.0,
+      "text": "because someone's running a microwave nearby, the signals can get mixed up... and this problem"
+    },
+    {
+      "index": 24,
+      "start_time": 99880.0,
+      "end_time": 103889.0,
+      "text": "only gets worse with transistors changing states millions of times per second!"
+    },
+    {
+      "index": 25,
+      "start_time": 103889.0,
+      "end_time": 108500.0,
+      "text": "So, placing two signals as far apart as possible - using just ‘on and off’ - gives us the"
+    },
+    {
+      "index": 26,
+      "start_time": 108500.0,
+      "end_time": 111000.0,
+      "text": "most distinct signal to minimize these issues."
+    },
+    {
+      "index": 27,
+      "start_time": 111000.0,
+      "end_time": 115780.0,
+      "text": "Another reason computers use binary is that an entire branch of mathematics already existed"
+    },
+    {
+      "index": 28,
+      "start_time": 115780.0,
+      "end_time": 118229.0,
+      "text": "that dealt exclusively with true and false values."
+    },
+    {
+      "index": 29,
+      "start_time": 118229.0,
+      "end_time": 121960.0,
+      "text": "And it had figured out all of the necessary rules and operations for manipulating them."
+    },
+    {
+      "index": 30,
+      "start_time": 121960.0,
+      "end_time": 123600.0,
+      "text": "It's called Boolean Algebra!"
+    },
+    {
+      "index": 31,
+      "start_time": 123600.0,
+      "end_time": 129660.0,
+      "text": "George Boole, from which Boolean Algebra later got its name, was a self-taught English mathematician in the 1800s."
+    },
+    {
+      "index": 32,
+      "start_time": 129660.0,
+      "end_time": 134040.0,
+      "text": "He was interested in representing logical statements that went “under, over, and beyond”"
+    },
+    {
+      "index": 33,
+      "start_time": 134040.0,
+      "end_time": 138040.0,
+      "text": "Aristotle’s approach to logic, which was, unsurprisingly, grounded in philosophy."
+    },
+    {
+      "index": 34,
+      "start_time": 138040.0,
+      "end_time": 142700.0,
+      "text": "Boole’s approach allowed truth to be systematically and formally proven, through logic equations"
+    },
+    {
+      "index": 35,
+      "start_time": 142700.0,
+      "end_time": 147560.0,
+      "text": "which he introduced in his first book, “The Mathematical Analysis of Logic” in 1847."
+    },
+    {
+      "index": 36,
+      "start_time": 147560.0,
+      "end_time": 151769.0,
+      "text": "In “regular” algebra -- the type you probably learned in high school -- the values of variables"
+    },
+    {
+      "index": 37,
+      "start_time": 151769.0,
+      "end_time": 156530.0,
+      "text": "are numbers, and operations on those numbers are things like addition and multiplication."
+    },
+    {
+      "index": 38,
+      "start_time": 156530.0,
+      "end_time": 161820.0,
+      "text": "But in Boolean Algebra, the values of variables are true and false, and the operations are logical."
+    },
+    {
+      "index": 39,
+      "start_time": 161820.0,
+      "end_time": 167780.0,
+      "text": "There are three fundamental operations in Boolean Algebra: a NOT, an AND, and an OR operation."
+    },
+    {
+      "index": 40,
+      "start_time": 167780.0,
+      "end_time": 171400.0,
+      "text": "And these operations turn out to be really useful so we’re going to look at them individually."
+    },
+    {
+      "index": 41,
+      "start_time": 171400.0,
+      "end_time": 175860.0,
+      "text": "A NOT takes a single boolean value, either true or false, and negates it."
+    },
+    {
+      "index": 42,
+      "start_time": 175860.0,
+      "end_time": 178060.0,
+      "text": "It flips true to false, and false to true."
+    },
+    {
+      "index": 43,
+      "start_time": 178060.0,
+      "end_time": 181890.0,
+      "text": "We can write out a little logic table that shows the original value under Input, and"
+    },
+    {
+      "index": 44,
+      "start_time": 181890.0,
+      "end_time": 184790.0,
+      "text": "the outcome after applying the operation under Output."
+    },
+    {
+      "index": 45,
+      "start_time": 184790.0,
+      "end_time": 188969.0,
+      "text": "Now here’s the cool part -- we can easily build boolean logic out of transistors."
+    },
+    {
+      "index": 46,
+      "start_time": 188969.0,
+      "end_time": 193640.0,
+      "text": "As we discussed last episode, transistors are really just little electrically controlled switches."
+    },
+    {
+      "index": 47,
+      "start_time": 193640.0,
+      "end_time": 196820.0,
+      "text": "They have three wires: two electrodes and one control wire."
+    },
+    {
+      "index": 48,
+      "start_time": 196820.0,
+      "end_time": 201300.0,
+      "text": "When you apply electricity to the control wire, it lets current flow through from one"
+    },
+    {
+      "index": 49,
+      "start_time": 201300.0,
+      "end_time": 204469.0,
+      "text": "electrode, through the transistor, to the other electrode."
+    },
+    {
+      "index": 50,
+      "start_time": 204469.0,
+      "end_time": 209640.0,
+      "text": "This is a lot like a spigot on a pipe -- open the tap, water flows, close the tap, water shuts off."
+    },
+    {
+      "index": 51,
+      "start_time": 209640.0,
+      "end_time": 214860.0,
+      "text": "You can think of the control wire as an input, and the wire coming from the bottom electrode as the output."
+    },
+    {
+      "index": 52,
+      "start_time": 214860.0,
+      "end_time": 218359.0,
+      "text": "So with a single transistor, we have one input and one output."
+    },
+    {
+      "index": 53,
+      "start_time": 218359.0,
+      "end_time": 222650.0,
+      "text": "If we turn the input on, the output is also on because the current can flow through it."
+    },
+    {
+      "index": 54,
+      "start_time": 222650.0,
+      "end_time": 226999.0,
+      "text": "If we turn the input off, the output is also off and the current can no longer pass through."
+    },
+    {
+      "index": 55,
+      "start_time": 226999.0,
+      "end_time": 230410.0,
+      "text": "Or in boolean terms, when the input is true, the output is true."
+    },
+    {
+      "index": 56,
+      "start_time": 230410.0,
+      "end_time": 233230.0,
+      "text": "And when the input is false, the output is also false."
+    },
+    {
+      "index": 57,
+      "start_time": 233230.0,
+      "end_time": 235329.0,
+      "text": "Which again we can show on a logic table."
+    },
+    {
+      "index": 58,
+      "start_time": 235329.0,
+      "end_time": 238909.0,
+      "text": "This isn’t a very exciting circuit though because its not doing anything -- the input"
+    },
+    {
+      "index": 59,
+      "start_time": 238909.0,
+      "end_time": 240180.0,
+      "text": "and output are the same."
+    },
+    {
+      "index": 60,
+      "start_time": 240180.0,
+      "end_time": 243680.0,
+      "text": "But, we can modify this circuit just a little bit to create a NOT."
+    },
+    {
+      "index": 61,
+      "start_time": 243680.0,
+      "end_time": 247560.0,
+      "text": "Instead of having the output wire at the end of the transistor, we can move it before."
+    },
+    {
+      "index": 62,
+      "start_time": 247560.0,
+      "end_time": 251180.0,
+      "text": "If we turn the input on, the transistor allows current to pass through it to the “ground”,"
+    },
+    {
+      "index": 63,
+      "start_time": 251180.0,
+      "end_time": 254030.0,
+      "text": "and the output wire won’t receive that current - so it will be off."
+    },
+    {
+      "index": 64,
+      "start_time": 254030.0,
+      "end_time": 257930.0,
+      "text": "In our water metaphor grounding would be like if all the water in your house was flowing"
+    },
+    {
+      "index": 65,
+      "start_time": 257930.0,
+      "end_time": 261280.0,
+      "text": "out of a huge hose so there wasn’t any water pressure left for your shower."
+    },
+    {
+      "index": 66,
+      "start_time": 261279.99999999997,
+      "end_time": 264320.0,
+      "text": "So in this case if the input is on, output is off."
+    },
+    {
+      "index": 67,
+      "start_time": 264320.0,
+      "end_time": 268300.0,
+      "text": "When we turn off the transistor, though, current is prevented from flowing down it to the"
+    },
+    {
+      "index": 68,
+      "start_time": 268300.0,
+      "end_time": 271500.0,
+      "text": "ground, so instead, current flows through the output wire."
+    },
+    {
+      "index": 69,
+      "start_time": 271500.0,
+      "end_time": 274200.0,
+      "text": "So the input will be off and the output will be on."
+    },
+    {
+      "index": 70,
+      "start_time": 274200.0,
+      "end_time": 278860.0,
+      "text": "And this matches our logic table for NOT, so congrats, we just built a circuit that computes NOT!"
+    },
+    {
+      "index": 71,
+      "start_time": 278860.0,
+      "end_time": 283640.0,
+      "text": "We call them NOT gates - we call them gates because they’re controlling the path of our current."
+    },
+    {
+      "index": 72,
+      "start_time": 283640.0,
+      "end_time": 288220.0,
+      "text": "The AND Boolean operation takes two inputs, but still has a single output."
+    },
+    {
+      "index": 73,
+      "start_time": 288220.0,
+      "end_time": 291449.0,
+      "text": "In this case the output is only true if both inputs are true."
+    },
+    {
+      "index": 74,
+      "start_time": 291449.0,
+      "end_time": 293000.0,
+      "text": "Think about it like telling the truth."
+    },
+    {
+      "index": 75,
+      "start_time": 293000.0,
+      "end_time": 296009.0,
+      "text": "You’re only being completely honest if you don’t lie even a little."
+    },
+    {
+      "index": 76,
+      "start_time": 296009.0,
+      "end_time": 301280.0,
+      "text": "For example, let’s take the statement, “My name is Carrie Anne AND I’m wearing a blue dress\"."
+    },
+    {
+      "index": 77,
+      "start_time": 301280.0,
+      "end_time": 303640.0,
+      "text": "Both of those facts are true, so the whole statement is true."
+    },
+    {
+      "index": 78,
+      "start_time": 303640.0,
+      "end_time": 308069.0,
+      "text": "But if I said, “My name is Carrie Anne AND I’m wearing pants” that would be false,"
+    },
+    {
+      "index": 79,
+      "start_time": 308069.0,
+      "end_time": 309699.0,
+      "text": "because I’m not wearing pants."
+    },
+    {
+      "index": 80,
+      "start_time": 309699.0,
+      "end_time": 310930.0,
+      "text": "Or trousers."
+    },
+    {
+      "index": 81,
+      "start_time": 310930.0,
+      "end_time": 311949.0,
+      "text": "If you’re in England."
+    },
+    {
+      "index": 82,
+      "start_time": 311949.0,
+      "end_time": 315919.0,
+      "text": "The Carrie Anne part is true, but a true AND a false, is still false."
+    },
+    {
+      "index": 83,
+      "start_time": 315919.0,
+      "end_time": 319789.0,
+      "text": "If I were to reverse that statement it would still obviously be false, and if I were to"
+    },
+    {
+      "index": 84,
+      "start_time": 319789.0,
+      "end_time": 324530.0,
+      "text": "tell you two complete lies that is also false, and again we can write all of these combinations"
+    },
+    {
+      "index": 85,
+      "start_time": 324530.0,
+      "end_time": 325550.0,
+      "text": "out in a table."
+    },
+    {
+      "index": 86,
+      "start_time": 325550.0,
+      "end_time": 330580.0,
+      "text": "To build an AND gate, we need two transistors connected together so we have our two inputs"
+    },
+    {
+      "index": 87,
+      "start_time": 330580.0,
+      "end_time": 331780.0,
+      "text": "and one output."
+    },
+    {
+      "index": 88,
+      "start_time": 331780.0,
+      "end_time": 336700.0,
+      "text": "If we turn on just transistor A, current won’t flow because the current is stopped by transistor B."
+    },
+    {
+      "index": 89,
+      "start_time": 336700.0,
+      "end_time": 340160.0,
+      "text": "Alternatively, if transistor B is on, but the transistor A is off,"
+    },
+    {
+      "index": 90,
+      "start_time": 340160.0,
+      "end_time": 341840.0,
+      "text": "the same thing, the current can’t get through."
+    },
+    {
+      "index": 91,
+      "start_time": 341840.0,
+      "end_time": 346740.0,
+      "text": "Only if transistor A AND transistor B are on does the output wire have current."
+    },
+    {
+      "index": 92,
+      "start_time": 346740.0,
+      "end_time": 351960.0,
+      "text": "The last boolean operation is OR -- where only one input has to be true for the output to be true."
+    },
+    {
+      "index": 93,
+      "start_time": 351960.0,
+      "end_time": 355800.0,
+      "text": "For example, my name is Margaret Hamilton OR I’m wearing a blue dress."
+    },
+    {
+      "index": 94,
+      "start_time": 355800.0,
+      "end_time": 359560.0,
+      "text": "This is a true statement because although I’m not Margaret Hamilton unfortunately,"
+    },
+    {
+      "index": 95,
+      "start_time": 359560.0,
+      "end_time": 362940.0,
+      "text": "I am wearing a blue dress, so the overall statement is true."
+    },
+    {
+      "index": 96,
+      "start_time": 362940.0,
+      "end_time": 366320.0,
+      "text": "An OR statement is also true if both facts are true."
+    },
+    {
+      "index": 97,
+      "start_time": 366320.0,
+      "end_time": 369650.0,
+      "text": "The only time an OR statement is false is if both inputs are false."
+    },
+    {
+      "index": 98,
+      "start_time": 369650.0,
+      "end_time": 372860.0,
+      "text": "Building an OR gate from transistors needs a few extra wires."
+    },
+    {
+      "index": 99,
+      "start_time": 372860.0,
+      "end_time": 377560.0,
+      "text": "Instead of having two transistors in series -- one after the other -- we have them in parallel."
+    },
+    {
+      "index": 100,
+      "start_time": 377560.0,
+      "end_time": 380479.0,
+      "text": "We run wires from the current source to both transistors."
+    },
+    {
+      "index": 101,
+      "start_time": 380479.0,
+      "end_time": 384940.0,
+      "text": "We use this little arc to note that the wires jump over one another and aren’t connected,"
+    },
+    {
+      "index": 102,
+      "start_time": 384940.0,
+      "end_time": 386280.0,
+      "text": "even though they look like they cross."
+    },
+    {
+      "index": 103,
+      "start_time": 386280.0,
+      "end_time": 390909.0,
+      "text": "If both transistors are turned off, the current is prevented from flowing to the output,"
+    },
+    {
+      "index": 104,
+      "start_time": 390909.0,
+      "end_time": 392280.0,
+      "text": "so the output is also off."
+    },
+    {
+      "index": 105,
+      "start_time": 392280.0,
+      "end_time": 396409.0,
+      "text": "Now, if we turn on just Transistor A, current can flow to the output."
+    },
+    {
+      "index": 106,
+      "start_time": 396409.0,
+      "end_time": 399880.0,
+      "text": "Same thing if transistor A is off, but Transistor B in on."
+    },
+    {
+      "index": 107,
+      "start_time": 399880.0,
+      "end_time": 403900.0,
+      "text": "Basically if A OR B is on, the output is also on."
+    },
+    {
+      "index": 108,
+      "start_time": 403900.0,
+      "end_time": 407660.0,
+      "text": "Also, if both transistors are on, the output is still on."
+    },
+    {
+      "index": 109,
+      "start_time": 407660.0,
+      "end_time": 412129.0,
+      "text": "Ok, now that we’ve got NOT, AND, and OR gates, and we can leave behind the constituent"
+    },
+    {
+      "index": 110,
+      "start_time": 412129.0,
+      "end_time": 414280.0,
+      "text": "transistors and move up a layer of abstraction."
+    },
+    {
+      "index": 111,
+      "start_time": 414280.0,
+      "end_time": 418400.0,
+      "text": "The standard engineers use for these gates are a triangle with a dot for a NOT,"
+    },
+    {
+      "index": 112,
+      "start_time": 418400.0,
+      "end_time": 421200.0,
+      "text": "a D for the AND, and a spaceship for the OR."
+    },
+    {
+      "index": 113,
+      "start_time": 421200.0,
+      "end_time": 423640.0,
+      "text": "Those aren’t the official names, but that's howI like to think of them."
+    },
+    {
+      "index": 114,
+      "start_time": 423640.0,
+      "end_time": 427530.0,
+      "text": "Representing them and thinking about them this way allows us to build even bigger components"
+    },
+    {
+      "index": 115,
+      "start_time": 427530.0,
+      "end_time": 431949.0,
+      "text": "while keeping the overall complexity relatively the same - just remember that that mess of"
+    },
+    {
+      "index": 116,
+      "start_time": 431949.0,
+      "end_time": 433910.0,
+      "text": "transistors and wires is still there."
+    },
+    {
+      "index": 117,
+      "start_time": 433910.0,
+      "end_time": 440500.0,
+      "text": "For example, another useful boolean operation in computation is called an Exclusive OR - or XOR for short."
+    },
+    {
+      "index": 118,
+      "start_time": 440500.0,
+      "end_time": 446750.0,
+      "text": "XOR is like a regular OR, but with one difference: if both inputs are true, the XOR is false."
+    },
+    {
+      "index": 119,
+      "start_time": 446750.0,
+      "end_time": 451100.0,
+      "text": "The only time an XOR is true is when one input is true and the other input is false."
+    },
+    {
+      "index": 120,
+      "start_time": 451100.0,
+      "end_time": 455009.0,
+      "text": "It’s like when you go out to dinner and your meal comes with a side salad OR a soup"
+    },
+    {
+      "index": 121,
+      "start_time": 455009.0,
+      "end_time": 456710.0,
+      "text": "– sadly, you can’t have both!"
+    },
+    {
+      "index": 122,
+      "start_time": 456710.0,
+      "end_time": 461020.0,
+      "text": "And building this from transistors is pretty confusing, but we can show how an XOR is created"
+    },
+    {
+      "index": 123,
+      "start_time": 461020.0,
+      "end_time": 463040.0,
+      "text": "from our three basic boolean gates."
+    },
+    {
+      "index": 124,
+      "start_time": 463040.0,
+      "end_time": 466240.0,
+      "text": "We know we have two inputs again -- A and B -- and one output."
+    },
+    {
+      "index": 125,
+      "start_time": 466240.0,
+      "end_time": 470700.0,
+      "text": "Let’s start with an OR gate, since the logic table looks almost identical to an OR."
+    },
+    {
+      "index": 126,
+      "start_time": 470700.0,
+      "end_time": 475210.0,
+      "text": "There’s only one problem - when A and B are true, the logic is different from OR,"
+    },
+    {
+      "index": 127,
+      "start_time": 475210.0,
+      "end_time": 476819.0,
+      "text": "and we need to output “false”."
+    },
+    {
+      "index": 128,
+      "start_time": 476819.0,
+      "end_time": 479000.0,
+      "text": "To do this we need to add some additional gates."
+    },
+    {
+      "index": 129,
+      "start_time": 479000.0,
+      "end_time": 483430.0,
+      "text": "If we add an AND gate, and the input is true and true, the output will be true."
+    },
+    {
+      "index": 130,
+      "start_time": 483430.0,
+      "end_time": 484430.0,
+      "text": "This isn’t what we want."
+    },
+    {
+      "index": 131,
+      "start_time": 484430.0,
+      "end_time": 488060.0,
+      "text": "But if we add a NOT immediately after this will flip it to false."
+    },
+    {
+      "index": 132,
+      "start_time": 488060.0,
+      "end_time": 493479.0,
+      "text": "Okay, now if we add a final AND gate and send it that value along with the output of our"
+    },
+    {
+      "index": 133,
+      "start_time": 493479.0,
+      "end_time": 499050.0,
+      "text": "original OR gate, the AND will take in “false” and “true”, and since AND needs both values"
+    },
+    {
+      "index": 134,
+      "start_time": 499050.0,
+      "end_time": 501060.0,
+      "text": "to be true, its output is false."
+    },
+    {
+      "index": 135,
+      "start_time": 501060.0,
+      "end_time": 502819.0,
+      "text": "That’s the first row of our logic table."
+    },
+    {
+      "index": 136,
+      "start_time": 502819.0,
+      "end_time": 506490.0,
+      "text": "If we work through the remaining input combinations, we can see this boolean logic"
+    },
+    {
+      "index": 137,
+      "start_time": 506490.0,
+      "end_time": 508870.0,
+      "text": "circuit does implement an Exclusive OR."
+    },
+    {
+      "index": 138,
+      "start_time": 508870.0,
+      "end_time": 513090.0,
+      "text": "And XOR turns out to be a very useful component, and we’ll get to it in another episode,"
+    },
+    {
+      "index": 139,
+      "start_time": 513090.00000000006,
+      "end_time": 518240.00000000006,
+      "text": "so useful in fact engineers gave it its own symbol too -- an OR gate with a smile :)"
+    },
+    {
+      "index": 140,
+      "start_time": 518240.0,
+      "end_time": 522330.0,
+      "text": "But most importantly, we can now put XOR into our metaphorical toolbox and not have to worry"
+    },
+    {
+      "index": 141,
+      "start_time": 522330.00000000006,
+      "end_time": 526500.0,
+      "text": "about the individual logic gates that make it up, or the transistors that make up those gates,"
+    },
+    {
+      "index": 142,
+      "start_time": 526500.0,
+      "end_time": 529200.0,
+      "text": "or how electrons are flowing through a semiconductor."
+    },
+    {
+      "index": 143,
+      "start_time": 529200.0,
+      "end_time": 531310.0,
+      "text": "Moving up another layer of abstraction."
+    },
+    {
+      "index": 144,
+      "start_time": 531310.0,
+      "end_time": 535040.0,
+      "text": "When computer engineers are designing processors, they rarely work at the transistor level,"
+    },
+    {
+      "index": 145,
+      "start_time": 535040.0,
+      "end_time": 539100.0,
+      "text": "and instead work with much larger blocks, like logic gates, and even larger components"
+    },
+    {
+      "index": 146,
+      "start_time": 539100.0,
+      "end_time": 542340.0,
+      "text": "made up of logic gates, which we’ll discuss in future episodes."
+    },
+    {
+      "index": 147,
+      "start_time": 542340.0,
+      "end_time": 545811.0,
+      "text": "And even if you are a professional computer programmer, it’s not often that you think"
+    },
+    {
+      "index": 148,
+      "start_time": 545811.0,
+      "end_time": 549710.0,
+      "text": "about how the logic that you are programming is actually implemented in the physical world"
+    },
+    {
+      "index": 149,
+      "start_time": 549710.0,
+      "end_time": 551720.0,
+      "text": "by these teeny tiny components."
+    },
+    {
+      "index": 150,
+      "start_time": 551720.0,
+      "end_time": 555780.0,
+      "text": "We’ve also moved from thinking about raw electrical signals to our first representation"
+    },
+    {
+      "index": 151,
+      "start_time": 555780.0,
+      "end_time": 560270.0,
+      "text": "of data - true and false - and we’ve even gotten a little taste of computation."
+    },
+    {
+      "index": 152,
+      "start_time": 560270.0,
+      "end_time": 565320.0,
+      "text": "With just the logic gates in this episode, we could build a machine that evaluates complex logic statements,"
+    },
+    {
+      "index": 153,
+      "start_time": 565320.0,
+      "end_time": 569480.0,
+      "text": "like if “Name is John Green AND after 5pm OR is Weekend"
+    },
+    {
+      "index": 154,
+      "start_time": 569480.0,
+      "end_time": 573120.0,
+      "text": "AND near Pizza Hut”, then “John will want pizza” equals true."
+    },
+    {
+      "index": 155,
+      "start_time": 573120.0,
+      "end_time": 583120.0,
+      "text": "And with that, I'm starving, I'll see you next week."
+    }
+  ]
+}

@@ -1,0 +1,1284 @@
+{
+  "video_id": "AoeEHqVSNOw",
+  "title": "Writing Our First Classifier - Machine Learning Recipes #5",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 6030.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 2,
+      "start_time": 6030.0,
+      "end_time": 6710.0,
+      "text": "Hey, everyone."
+    },
+    {
+      "index": 3,
+      "start_time": 6710.0,
+      "end_time": 7910.0,
+      "text": "Welcome back."
+    },
+    {
+      "index": 4,
+      "start_time": 7910.0,
+      "end_time": 10220.0,
+      "text": "In this episode, we&#39;re going to do something special,"
+    },
+    {
+      "index": 5,
+      "start_time": 10220.0,
+      "end_time": 13164.0,
+      "text": "and that&#39;s write our own classifier from scratch."
+    },
+    {
+      "index": 6,
+      "start_time": 13164.0,
+      "end_time": 14580.0,
+      "text": "If you&#39;re new to machine learning,"
+    },
+    {
+      "index": 7,
+      "start_time": 14580.0,
+      "end_time": 16170.0,
+      "text": "this is a big milestone."
+    },
+    {
+      "index": 8,
+      "start_time": 16170.000000000002,
+      "end_time": 18560.0,
+      "text": "Because if you can follow along and do this on your own,"
+    },
+    {
+      "index": 9,
+      "start_time": 18560.0,
+      "end_time": 21890.0,
+      "text": "it means you understand an important piece of the puzzle."
+    },
+    {
+      "index": 10,
+      "start_time": 21890.0,
+      "end_time": 23670.0,
+      "text": "The classifier we&#39;re going to write today"
+    },
+    {
+      "index": 11,
+      "start_time": 23670.0,
+      "end_time": 26390.0,
+      "text": "is a scrappy version of k-Nearest Neighbors."
+    },
+    {
+      "index": 12,
+      "start_time": 26390.0,
+      "end_time": 29660.0,
+      "text": "That&#39;s one of the simplest classifiers around."
+    },
+    {
+      "index": 13,
+      "start_time": 29660.0,
+      "end_time": 32860.0,
+      "text": "First, here&#39;s a quick outline of what we&#39;ll do in this episode."
+    },
+    {
+      "index": 14,
+      "start_time": 32860.0,
+      "end_time": 35170.0,
+      "text": "We&#39;ll start with our code from Episode 4, Let&#39;s"
+    },
+    {
+      "index": 15,
+      "start_time": 35170.0,
+      "end_time": 36570.0,
+      "text": "Write a Pipeline."
+    },
+    {
+      "index": 16,
+      "start_time": 36570.0,
+      "end_time": 39290.0,
+      "text": "Recall in that episode we did a simple experiment."
+    },
+    {
+      "index": 17,
+      "start_time": 39290.0,
+      "end_time": 42720.0,
+      "text": "We imported a data set and split it into train and test."
+    },
+    {
+      "index": 18,
+      "start_time": 42720.0,
+      "end_time": 44580.0,
+      "text": "We used train to train a classifier,"
+    },
+    {
+      "index": 19,
+      "start_time": 44580.0,
+      "end_time": 47150.0,
+      "text": "and test to see how accurate it was."
+    },
+    {
+      "index": 20,
+      "start_time": 47150.0,
+      "end_time": 48760.0,
+      "text": "Writing the classifier is the part"
+    },
+    {
+      "index": 21,
+      "start_time": 48760.0,
+      "end_time": 50940.0,
+      "text": "we&#39;re going to focus on today."
+    },
+    {
+      "index": 22,
+      "start_time": 50940.0,
+      "end_time": 52740.0,
+      "text": "Previously we imported the classifier"
+    },
+    {
+      "index": 23,
+      "start_time": 52740.0,
+      "end_time": 55280.0,
+      "text": "from a library using these two lines."
+    },
+    {
+      "index": 24,
+      "start_time": 55280.0,
+      "end_time": 58190.0,
+      "text": "Here we&#39;ll comment them out and write our own."
+    },
+    {
+      "index": 25,
+      "start_time": 58190.0,
+      "end_time": 61539.0,
+      "text": "The rest of the pipeline will stay exactly the same."
+    },
+    {
+      "index": 26,
+      "start_time": 61539.0,
+      "end_time": 63830.0,
+      "text": "I&#39;ll pop in and out of the screencast to explain things"
+    },
+    {
+      "index": 27,
+      "start_time": 63830.0,
+      "end_time": 65940.0,
+      "text": "as we go along."
+    },
+    {
+      "index": 28,
+      "start_time": 65940.0,
+      "end_time": 68530.0,
+      "text": "To start, let&#39;s run our pipeline to remind ourselves"
+    },
+    {
+      "index": 29,
+      "start_time": 68530.0,
+      "end_time": 70120.0,
+      "text": "what the accuracy was."
+    },
+    {
+      "index": 30,
+      "start_time": 70120.0,
+      "end_time": 72370.0,
+      "text": "As you can see, it&#39;s over 90%."
+    },
+    {
+      "index": 31,
+      "start_time": 72370.0,
+      "end_time": 74260.0,
+      "text": "And that&#39;s the goal for the classifier"
+    },
+    {
+      "index": 32,
+      "start_time": 74260.0,
+      "end_time": 75660.0,
+      "text": "we&#39;ll write ourselves."
+    },
+    {
+      "index": 33,
+      "start_time": 75660.0,
+      "end_time": 77680.0,
+      "text": "Now let&#39;s comment out that import."
+    },
+    {
+      "index": 34,
+      "start_time": 77680.0,
+      "end_time": 79540.0,
+      "text": "Right off the bat, this breaks our code."
+    },
+    {
+      "index": 35,
+      "start_time": 79540.0,
+      "end_time": 82250.0,
+      "text": "So the first thing we need to do is fix our pipeline."
+    },
+    {
+      "index": 36,
+      "start_time": 82250.0,
+      "end_time": 84850.0,
+      "text": "And to do that, we&#39;ll implement a class for our classifier."
+    },
+    {
+      "index": 37,
+      "start_time": 87690.0,
+      "end_time": 89580.0,
+      "text": "I&#39;ll call it ScrappyKNN."
+    },
+    {
+      "index": 38,
+      "start_time": 89580.0,
+      "end_time": 91690.0,
+      "text": "And by scrappy, I mean bare bones."
+    },
+    {
+      "index": 39,
+      "start_time": 91690.0,
+      "end_time": 93710.0,
+      "text": "Just enough to get it working."
+    },
+    {
+      "index": 40,
+      "start_time": 93710.0,
+      "end_time": 98110.0,
+      "text": "Next, I&#39;ll change our pipeline to use it."
+    },
+    {
+      "index": 41,
+      "start_time": 98110.0,
+      "end_time": 100880.0,
+      "text": "Now let&#39;s see what methods we need to implement."
+    },
+    {
+      "index": 42,
+      "start_time": 100880.0,
+      "end_time": 102950.0,
+      "text": "Looking at the interface for a classifier,"
+    },
+    {
+      "index": 43,
+      "start_time": 102950.0,
+      "end_time": 105500.0,
+      "text": "we see there are two we care about-- fit,"
+    },
+    {
+      "index": 44,
+      "start_time": 105500.0,
+      "end_time": 107470.0,
+      "text": "which does the training, and predict,"
+    },
+    {
+      "index": 45,
+      "start_time": 107470.0,
+      "end_time": 109270.0,
+      "text": "which does the prediction."
+    },
+    {
+      "index": 46,
+      "start_time": 109270.0,
+      "end_time": 111600.0,
+      "text": "First we&#39;ll declare our fit method."
+    },
+    {
+      "index": 47,
+      "start_time": 111600.0,
+      "end_time": 114440.0,
+      "text": "Remember this takes the features and labels for the training set"
+    },
+    {
+      "index": 48,
+      "start_time": 114440.0,
+      "end_time": 117680.0,
+      "text": "as input, so we&#39;ll add parameters for those."
+    },
+    {
+      "index": 49,
+      "start_time": 117680.0,
+      "end_time": 120090.0,
+      "text": "Now let&#39;s move on to our predict method."
+    },
+    {
+      "index": 50,
+      "start_time": 120090.0,
+      "end_time": 123470.0,
+      "text": "As input, this receives the features for our testing data."
+    },
+    {
+      "index": 51,
+      "start_time": 123470.0,
+      "end_time": 126920.0,
+      "text": "And as output, it returns predictions for the labels."
+    },
+    {
+      "index": 52,
+      "start_time": 126920.0,
+      "end_time": 129389.0,
+      "text": "Our first goal is to get the pipeline working,"
+    },
+    {
+      "index": 53,
+      "start_time": 129389.00000000001,
+      "end_time": 132230.0,
+      "text": "and to understand what these methods do."
+    },
+    {
+      "index": 54,
+      "start_time": 132230.0,
+      "end_time": 134180.0,
+      "text": "So before we write our real classifier,"
+    },
+    {
+      "index": 55,
+      "start_time": 134180.0,
+      "end_time": 135810.0,
+      "text": "we&#39;ll start with something simpler."
+    },
+    {
+      "index": 56,
+      "start_time": 135810.0,
+      "end_time": 138240.0,
+      "text": "We&#39;ll write a random classifier."
+    },
+    {
+      "index": 57,
+      "start_time": 138240.0,
+      "end_time": 141690.0,
+      "text": "And by random, I mean we&#39;ll just guess the label."
+    },
+    {
+      "index": 58,
+      "start_time": 141690.0,
+      "end_time": 145310.0,
+      "text": "To start, we&#39;ll add some code to the fit and predict methods."
+    },
+    {
+      "index": 59,
+      "start_time": 145310.0,
+      "end_time": 148460.0,
+      "text": "In fit, I&#39;ll store the training data in this class."
+    },
+    {
+      "index": 60,
+      "start_time": 148460.0,
+      "end_time": 150480.0,
+      "text": "You can think of this as just memorizing it."
+    },
+    {
+      "index": 61,
+      "start_time": 150480.0,
+      "end_time": 152840.0,
+      "text": "And you&#39;ll see why we do that later on."
+    },
+    {
+      "index": 62,
+      "start_time": 152840.0,
+      "end_time": 154670.0,
+      "text": "Inside the predict method, remember"
+    },
+    {
+      "index": 63,
+      "start_time": 154670.0,
+      "end_time": 157410.0,
+      "text": "that we&#39;ll need to return a list of predictions."
+    },
+    {
+      "index": 64,
+      "start_time": 157410.0,
+      "end_time": 160090.0,
+      "text": "That&#39;s because the parameter, X_test, is actually"
+    },
+    {
+      "index": 65,
+      "start_time": 160090.0,
+      "end_time": 162730.0,
+      "text": "a 2D array, or list of lists."
+    },
+    {
+      "index": 66,
+      "start_time": 162730.0,
+      "end_time": 166410.0,
+      "text": "Each row contains the features for one testing example."
+    },
+    {
+      "index": 67,
+      "start_time": 166410.0,
+      "end_time": 168170.0,
+      "text": "To make a prediction for each row,"
+    },
+    {
+      "index": 68,
+      "start_time": 168170.0,
+      "end_time": 170830.0,
+      "text": "I&#39;ll just randomly pick a label from the training data"
+    },
+    {
+      "index": 69,
+      "start_time": 170830.0,
+      "end_time": 173340.0,
+      "text": "and append that to our predictions."
+    },
+    {
+      "index": 70,
+      "start_time": 173340.0,
+      "end_time": 175660.0,
+      "text": "At this point, our pipeline is working again."
+    },
+    {
+      "index": 71,
+      "start_time": 175660.0,
+      "end_time": 178029.0,
+      "text": "So let&#39;s run it and see how well it does."
+    },
+    {
+      "index": 72,
+      "start_time": 178029.0,
+      "end_time": 180070.0,
+      "text": "Recall there are three different types of flowers"
+    },
+    {
+      "index": 73,
+      "start_time": 180070.0,
+      "end_time": 185070.0,
+      "text": "in the iris dataset, so accuracy should be about 33%."
+    },
+    {
+      "index": 74,
+      "start_time": 185070.0,
+      "end_time": 187110.0,
+      "text": "Now we know the interface for a classifier."
+    },
+    {
+      "index": 75,
+      "start_time": 187110.0,
+      "end_time": 189060.0,
+      "text": "But when we started this exercise,"
+    },
+    {
+      "index": 76,
+      "start_time": 189060.0,
+      "end_time": 191770.0,
+      "text": "our accuracy was above 90%."
+    },
+    {
+      "index": 77,
+      "start_time": 191770.0,
+      "end_time": 194500.0,
+      "text": "So let&#39;s see if we can do better."
+    },
+    {
+      "index": 78,
+      "start_time": 194500.0,
+      "end_time": 196850.0,
+      "text": "To do that, we&#39;ll implement our classifier,"
+    },
+    {
+      "index": 79,
+      "start_time": 196850.0,
+      "end_time": 199380.0,
+      "text": "which is based on k-Nearest Neighbors."
+    },
+    {
+      "index": 80,
+      "start_time": 199380.0,
+      "end_time": 202469.0,
+      "text": "Here&#39;s the intuition for how that algorithm works."
+    },
+    {
+      "index": 81,
+      "start_time": 202469.0,
+      "end_time": 204760.0,
+      "text": "Let&#39;s return to our drawings of green dots and red dots"
+    },
+    {
+      "index": 82,
+      "start_time": 204760.0,
+      "end_time": 206400.0,
+      "text": "from the last episode."
+    },
+    {
+      "index": 83,
+      "start_time": 206400.0,
+      "end_time": 207990.0,
+      "text": "Imagine the dots we see on the screen"
+    },
+    {
+      "index": 84,
+      "start_time": 207990.0,
+      "end_time": 210880.0,
+      "text": "are the training data we memorized in the fit method,"
+    },
+    {
+      "index": 85,
+      "start_time": 210880.0,
+      "end_time": 213420.0,
+      "text": "say for a toy dataset."
+    },
+    {
+      "index": 86,
+      "start_time": 213420.0,
+      "end_time": 216220.0,
+      "text": "Now imagine we&#39;re asked to make a prediction for this testing"
+    },
+    {
+      "index": 87,
+      "start_time": 216220.0,
+      "end_time": 218260.0,
+      "text": "point that I&#39;ll draw here in gray."
+    },
+    {
+      "index": 88,
+      "start_time": 218260.0,
+      "end_time": 219960.0,
+      "text": "How can we do that?"
+    },
+    {
+      "index": 89,
+      "start_time": 219960.0,
+      "end_time": 221890.0,
+      "text": "Well in a nearest neighbor classifier,"
+    },
+    {
+      "index": 90,
+      "start_time": 221890.0,
+      "end_time": 224220.0,
+      "text": "it works exactly like it sounds."
+    },
+    {
+      "index": 91,
+      "start_time": 224220.0,
+      "end_time": 225940.0,
+      "text": "We&#39;ll find the training point that&#39;s"
+    },
+    {
+      "index": 92,
+      "start_time": 225940.0,
+      "end_time": 228070.0,
+      "text": "closest to the testing point."
+    },
+    {
+      "index": 93,
+      "start_time": 228070.0,
+      "end_time": 230392.0,
+      "text": "This point is the nearest neighbor."
+    },
+    {
+      "index": 94,
+      "start_time": 230392.0,
+      "end_time": 231850.0,
+      "text": "Then we&#39;ll predict that the testing"
+    },
+    {
+      "index": 95,
+      "start_time": 231850.0,
+      "end_time": 234170.0,
+      "text": "point has the same label."
+    },
+    {
+      "index": 96,
+      "start_time": 234170.0,
+      "end_time": 236880.0,
+      "text": "For example, we&#39;ll guess that this testing dot is green,"
+    },
+    {
+      "index": 97,
+      "start_time": 236880.0,
+      "end_time": 239880.0,
+      "text": "because that&#39;s the color of its nearest neighbor."
+    },
+    {
+      "index": 98,
+      "start_time": 239880.0,
+      "end_time": 242430.0,
+      "text": "As another example, if we had a testing dot over here,"
+    },
+    {
+      "index": 99,
+      "start_time": 242430.0,
+      "end_time": 244170.0,
+      "text": "we&#39;d guess that it&#39;s red."
+    },
+    {
+      "index": 100,
+      "start_time": 244170.0,
+      "end_time": 246400.0,
+      "text": "Now what about this one right in the middle?"
+    },
+    {
+      "index": 101,
+      "start_time": 246400.0,
+      "end_time": 248730.0,
+      "text": "Imagine that this dot is equidistant to the nearest"
+    },
+    {
+      "index": 102,
+      "start_time": 248730.0,
+      "end_time": 250750.0,
+      "text": "green dot and the nearest red one."
+    },
+    {
+      "index": 103,
+      "start_time": 250750.0,
+      "end_time": 253570.0,
+      "text": "There&#39;s a tie, so how could we classify it?"
+    },
+    {
+      "index": 104,
+      "start_time": 253570.0,
+      "end_time": 255960.0,
+      "text": "Well one way is we could randomly break the tie."
+    },
+    {
+      "index": 105,
+      "start_time": 255960.0,
+      "end_time": 258970.0,
+      "text": "But there&#39;s another way, and that&#39;s where k comes in."
+    },
+    {
+      "index": 106,
+      "start_time": 258970.00000000003,
+      "end_time": 260680.00000000003,
+      "text": "K is the number of neighbors we consider"
+    },
+    {
+      "index": 107,
+      "start_time": 260680.0,
+      "end_time": 262340.0,
+      "text": "when making our prediction."
+    },
+    {
+      "index": 108,
+      "start_time": 262340.0,
+      "end_time": 265530.0,
+      "text": "If k was 1, we&#39;d just look at the closest training point."
+    },
+    {
+      "index": 109,
+      "start_time": 265530.0,
+      "end_time": 268170.0,
+      "text": "But if k was 3, we&#39;d look at the three closest."
+    },
+    {
+      "index": 110,
+      "start_time": 268170.0,
+      "end_time": 270860.0,
+      "text": "In this case, two of those are green and one is red."
+    },
+    {
+      "index": 111,
+      "start_time": 270860.0,
+      "end_time": 274410.0,
+      "text": "To predict, we could vote and predict the majority class."
+    },
+    {
+      "index": 112,
+      "start_time": 274410.0,
+      "end_time": 276230.0,
+      "text": "Now there&#39;s more detail to this algorithm,"
+    },
+    {
+      "index": 113,
+      "start_time": 276230.0,
+      "end_time": 278540.0,
+      "text": "but that&#39;s enough to get us started."
+    },
+    {
+      "index": 114,
+      "start_time": 278540.0,
+      "end_time": 280200.0,
+      "text": "To code this up, first we&#39;ll need a way"
+    },
+    {
+      "index": 115,
+      "start_time": 280200.0,
+      "end_time": 282700.0,
+      "text": "to find the nearest neighbor."
+    },
+    {
+      "index": 116,
+      "start_time": 282700.0,
+      "end_time": 284840.0,
+      "text": "And to do that, we&#39;ll measure the straight line"
+    },
+    {
+      "index": 117,
+      "start_time": 284840.0,
+      "end_time": 288950.0,
+      "text": "distance between two points, just like you do with a ruler."
+    },
+    {
+      "index": 118,
+      "start_time": 288950.0,
+      "end_time": 292100.0,
+      "text": "There&#39;s a formula for that called the Euclidean Distance,"
+    },
+    {
+      "index": 119,
+      "start_time": 292100.0,
+      "end_time": 294310.0,
+      "text": "and here&#39;s what the formula looks like."
+    },
+    {
+      "index": 120,
+      "start_time": 294310.0,
+      "end_time": 296590.0,
+      "text": "It measures the distance between two points,"
+    },
+    {
+      "index": 121,
+      "start_time": 296590.0,
+      "end_time": 299250.0,
+      "text": "and it works a bit like the Pythagorean Theorem."
+    },
+    {
+      "index": 122,
+      "start_time": 299250.0,
+      "end_time": 302350.0,
+      "text": "A squared plus B squared equals C squared."
+    },
+    {
+      "index": 123,
+      "start_time": 302350.0,
+      "end_time": 304790.0,
+      "text": "You can think of this term as A, or the difference"
+    },
+    {
+      "index": 124,
+      "start_time": 304790.0,
+      "end_time": 306840.0,
+      "text": "between the first two features."
+    },
+    {
+      "index": 125,
+      "start_time": 306840.0,
+      "end_time": 308670.0,
+      "text": "Likewise, you can think of this term as B,"
+    },
+    {
+      "index": 126,
+      "start_time": 308670.0,
+      "end_time": 311170.0,
+      "text": "or the difference between the second pair of features."
+    },
+    {
+      "index": 127,
+      "start_time": 311170.0,
+      "end_time": 314740.0,
+      "text": "And the distance we compute is the length of the hypotenuse."
+    },
+    {
+      "index": 128,
+      "start_time": 314740.0,
+      "end_time": 316460.0,
+      "text": "Now here&#39;s something cool."
+    },
+    {
+      "index": 129,
+      "start_time": 316460.0,
+      "end_time": 317940.0,
+      "text": "Right now we&#39;re computing distance"
+    },
+    {
+      "index": 130,
+      "start_time": 317940.0,
+      "end_time": 320670.0,
+      "text": "in two-dimensional space, because we have just two"
+    },
+    {
+      "index": 131,
+      "start_time": 320670.0,
+      "end_time": 322780.0,
+      "text": "features in our toy dataset."
+    },
+    {
+      "index": 132,
+      "start_time": 322780.0,
+      "end_time": 325970.0,
+      "text": "But what if we had three features or three dimensions?"
+    },
+    {
+      "index": 133,
+      "start_time": 325970.0,
+      "end_time": 328200.0,
+      "text": "Well then we&#39;d be in a cube."
+    },
+    {
+      "index": 134,
+      "start_time": 328200.0,
+      "end_time": 330450.0,
+      "text": "We can still visualize how to measure distance"
+    },
+    {
+      "index": 135,
+      "start_time": 330450.0,
+      "end_time": 332500.0,
+      "text": "in the space with a ruler."
+    },
+    {
+      "index": 136,
+      "start_time": 332500.0,
+      "end_time": 335270.0,
+      "text": "But what if we had four features or four dimensions,"
+    },
+    {
+      "index": 137,
+      "start_time": 335270.0,
+      "end_time": 336710.0,
+      "text": "like we do in iris?"
+    },
+    {
+      "index": 138,
+      "start_time": 336710.0,
+      "end_time": 338500.0,
+      "text": "Well, now we&#39;re in a hypercube, and we"
+    },
+    {
+      "index": 139,
+      "start_time": 338500.0,
+      "end_time": 340740.0,
+      "text": "can&#39;t visualize this very easy."
+    },
+    {
+      "index": 140,
+      "start_time": 340740.0,
+      "end_time": 342450.0,
+      "text": "The good news is the Euclidean Distance"
+    },
+    {
+      "index": 141,
+      "start_time": 342450.0,
+      "end_time": 346010.0,
+      "text": "works the same way regardless of the number of dimensions."
+    },
+    {
+      "index": 142,
+      "start_time": 346010.0,
+      "end_time": 350050.0,
+      "text": "With more features, we can just add more terms to the equation."
+    },
+    {
+      "index": 143,
+      "start_time": 350050.0,
+      "end_time": 352060.0,
+      "text": "You can find more details about this online."
+    },
+    {
+      "index": 144,
+      "start_time": 354670.0,
+      "end_time": 356770.0,
+      "text": "Now let&#39;s code up Euclidean distance."
+    },
+    {
+      "index": 145,
+      "start_time": 356770.0,
+      "end_time": 358270.0,
+      "text": "There are plenty of ways to do that,"
+    },
+    {
+      "index": 146,
+      "start_time": 358270.0,
+      "end_time": 360370.0,
+      "text": "but we&#39;ll use a library called scipy that&#39;s"
+    },
+    {
+      "index": 147,
+      "start_time": 360370.0,
+      "end_time": 362460.0,
+      "text": "already installed by Anaconda."
+    },
+    {
+      "index": 148,
+      "start_time": 362460.0,
+      "end_time": 365380.0,
+      "text": "Here, A and B are lists of numeric features."
+    },
+    {
+      "index": 149,
+      "start_time": 365380.0,
+      "end_time": 367330.0,
+      "text": "Say A is a point from our training data,"
+    },
+    {
+      "index": 150,
+      "start_time": 367330.0,
+      "end_time": 369800.0,
+      "text": "and B is a point from our testing data."
+    },
+    {
+      "index": 151,
+      "start_time": 369800.0,
+      "end_time": 372860.0,
+      "text": "This function returns the distance between them."
+    },
+    {
+      "index": 152,
+      "start_time": 372860.0,
+      "end_time": 374440.0,
+      "text": "That&#39;s all the math we need, so now"
+    },
+    {
+      "index": 153,
+      "start_time": 374440.0,
+      "end_time": 377390.0,
+      "text": "let&#39;s take a look at the algorithm for a classifier."
+    },
+    {
+      "index": 154,
+      "start_time": 377390.0,
+      "end_time": 379480.0,
+      "text": "To make a prediction for a test point,"
+    },
+    {
+      "index": 155,
+      "start_time": 379480.0,
+      "end_time": 382250.0,
+      "text": "we&#39;ll calculate the distance to all the training points."
+    },
+    {
+      "index": 156,
+      "start_time": 382250.0,
+      "end_time": 385030.0,
+      "text": "Then we&#39;ll predict the testing point has the same label"
+    },
+    {
+      "index": 157,
+      "start_time": 385030.0,
+      "end_time": 387140.0,
+      "text": "as the closest one."
+    },
+    {
+      "index": 158,
+      "start_time": 387140.0,
+      "end_time": 388910.0,
+      "text": "I&#39;ll delete the random prediction we made,"
+    },
+    {
+      "index": 159,
+      "start_time": 388910.0,
+      "end_time": 391610.0,
+      "text": "and replace it with a method that finds the closest training"
+    },
+    {
+      "index": 160,
+      "start_time": 391610.0,
+      "end_time": 393470.0,
+      "text": "point to the test point."
+    },
+    {
+      "index": 161,
+      "start_time": 393470.0,
+      "end_time": 395580.0,
+      "text": "For this video hard, I&#39;ll hard-code k to 1,"
+    },
+    {
+      "index": 162,
+      "start_time": 395580.0,
+      "end_time": 398090.0,
+      "text": "so we&#39;re writing a nearest neighbor classifier."
+    },
+    {
+      "index": 163,
+      "start_time": 398090.0,
+      "end_time": 400100.0,
+      "text": "The k variable won&#39;t appear in our code,"
+    },
+    {
+      "index": 164,
+      "start_time": 400100.0,
+      "end_time": 402950.0,
+      "text": "since we&#39;ll always just find the closest point."
+    },
+    {
+      "index": 165,
+      "start_time": 402950.0,
+      "end_time": 405700.0,
+      "text": "Inside this method, we&#39;ll loop over all the training points"
+    },
+    {
+      "index": 166,
+      "start_time": 405700.0,
+      "end_time": 408250.0,
+      "text": "and keep track of the closest one so far."
+    },
+    {
+      "index": 167,
+      "start_time": 408250.0,
+      "end_time": 410650.0,
+      "text": "Remember that we memorized the training data in our fit"
+    },
+    {
+      "index": 168,
+      "start_time": 410650.0,
+      "end_time": 414190.0,
+      "text": "function, and X_train contains the features."
+    },
+    {
+      "index": 169,
+      "start_time": 414190.0,
+      "end_time": 416910.0,
+      "text": "To start, I&#39;ll calculate the distance from the test point"
+    },
+    {
+      "index": 170,
+      "start_time": 416910.0,
+      "end_time": 418740.0,
+      "text": "to the first training point."
+    },
+    {
+      "index": 171,
+      "start_time": 418740.0,
+      "end_time": 420990.0,
+      "text": "I&#39;ll use this variable to keep track of the shortest"
+    },
+    {
+      "index": 172,
+      "start_time": 420990.0,
+      "end_time": 422584.0,
+      "text": "distance we&#39;ve found so far."
+    },
+    {
+      "index": 173,
+      "start_time": 422584.0,
+      "end_time": 424000.0,
+      "text": "And I&#39;ll use this variable to keep"
+    },
+    {
+      "index": 174,
+      "start_time": 424000.0,
+      "end_time": 427400.0,
+      "text": "track of the index of the training point that&#39;s closest."
+    },
+    {
+      "index": 175,
+      "start_time": 427400.0,
+      "end_time": 429910.0,
+      "text": "We&#39;ll need this later to retrieve its label."
+    },
+    {
+      "index": 176,
+      "start_time": 429910.0,
+      "end_time": 432370.0,
+      "text": "Now we&#39;ll iterate over all the other training points."
+    },
+    {
+      "index": 177,
+      "start_time": 432370.0,
+      "end_time": 434410.0,
+      "text": "And every time we find a closer one,"
+    },
+    {
+      "index": 178,
+      "start_time": 434410.0,
+      "end_time": 436150.0,
+      "text": "we&#39;ll update our variables."
+    },
+    {
+      "index": 179,
+      "start_time": 436150.0,
+      "end_time": 438100.0,
+      "text": "Finally, we&#39;ll use the index to return"
+    },
+    {
+      "index": 180,
+      "start_time": 438100.0,
+      "end_time": 442110.0,
+      "text": "the label for the closest training example."
+    },
+    {
+      "index": 181,
+      "start_time": 442110.0,
+      "end_time": 444780.0,
+      "text": "At this point, we have a working nearest neighbor classifier,"
+    },
+    {
+      "index": 182,
+      "start_time": 444780.0,
+      "end_time": 449510.0,
+      "text": "so let&#39;s run it and see what the accuracy is."
+    },
+    {
+      "index": 183,
+      "start_time": 449510.0,
+      "end_time": 451330.0,
+      "text": "As you can see, it&#39;s over 90%."
+    },
+    {
+      "index": 184,
+      "start_time": 451330.0,
+      "end_time": 452250.0,
+      "text": "And we did it."
+    },
+    {
+      "index": 185,
+      "start_time": 452250.0,
+      "end_time": 454240.0,
+      "text": "When you run this on your own, the accuracy"
+    },
+    {
+      "index": 186,
+      "start_time": 454240.0,
+      "end_time": 456906.0,
+      "text": "might be a bit different because of randomness in the train test"
+    },
+    {
+      "index": 187,
+      "start_time": 456906.0,
+      "end_time": 458530.0,
+      "text": "split."
+    },
+    {
+      "index": 188,
+      "start_time": 458530.0,
+      "end_time": 460740.0,
+      "text": "Now if you can code this up and understand it,"
+    },
+    {
+      "index": 189,
+      "start_time": 460740.0,
+      "end_time": 462670.0,
+      "text": "that&#39;s a big accomplishment because it"
+    },
+    {
+      "index": 190,
+      "start_time": 462670.0,
+      "end_time": 466254.0,
+      "text": "means you can write a simple classifier from scratch."
+    },
+    {
+      "index": 191,
+      "start_time": 466254.0,
+      "end_time": 467920.0,
+      "text": "Now, there are a number of pros and cons"
+    },
+    {
+      "index": 192,
+      "start_time": 467920.0,
+      "end_time": 470850.0,
+      "text": "to this algorithm, many of which you can find online."
+    },
+    {
+      "index": 193,
+      "start_time": 470850.0,
+      "end_time": 473580.0,
+      "text": "The basic pro is that it&#39;s relatively easy to understand,"
+    },
+    {
+      "index": 194,
+      "start_time": 473580.0,
+      "end_time": 476000.0,
+      "text": "and works reasonably well for some problems."
+    },
+    {
+      "index": 195,
+      "start_time": 476000.0,
+      "end_time": 477670.0,
+      "text": "And the basic cons are that it&#39;s slow,"
+    },
+    {
+      "index": 196,
+      "start_time": 477670.0,
+      "end_time": 479990.0,
+      "text": "because it has to iterate over every training point"
+    },
+    {
+      "index": 197,
+      "start_time": 479990.0,
+      "end_time": 481550.0,
+      "text": "to make a prediction."
+    },
+    {
+      "index": 198,
+      "start_time": 481550.0,
+      "end_time": 484070.0,
+      "text": "And importantly, as we saw in Episode 3,"
+    },
+    {
+      "index": 199,
+      "start_time": 484070.0,
+      "end_time": 486384.0,
+      "text": "some features are more informative than others."
+    },
+    {
+      "index": 200,
+      "start_time": 486384.0,
+      "end_time": 488050.0,
+      "text": "But there&#39;s not an easy way to represent"
+    },
+    {
+      "index": 201,
+      "start_time": 488050.0,
+      "end_time": 490120.0,
+      "text": "that in k-Nearest Neighbors."
+    },
+    {
+      "index": 202,
+      "start_time": 490120.0,
+      "end_time": 492150.0,
+      "text": "In the long run, we want a classifier"
+    },
+    {
+      "index": 203,
+      "start_time": 492150.0,
+      "end_time": 495260.0,
+      "text": "that learns more complex relationships between features"
+    },
+    {
+      "index": 204,
+      "start_time": 495260.0,
+      "end_time": 497290.0,
+      "text": "and the label we&#39;re trying to predict."
+    },
+    {
+      "index": 205,
+      "start_time": 497290.0,
+      "end_time": 499490.0,
+      "text": "A decision tree is a good example of that."
+    },
+    {
+      "index": 206,
+      "start_time": 499490.0,
+      "end_time": 502120.0,
+      "text": "And a neural network like we saw in TensorFlow Playground"
+    },
+    {
+      "index": 207,
+      "start_time": 502120.0,
+      "end_time": 503730.0,
+      "text": "is even better."
+    },
+    {
+      "index": 208,
+      "start_time": 503730.0,
+      "end_time": 504940.0,
+      "text": "OK, hope that was helpful."
+    },
+    {
+      "index": 209,
+      "start_time": 504940.0,
+      "end_time": 506227.0,
+      "text": "Thanks as always for watching."
+    },
+    {
+      "index": 210,
+      "start_time": 506227.0,
+      "end_time": 508560.0,
+      "text": "You can follow me on Twitter for updates and, of course,"
+    },
+    {
+      "index": 211,
+      "start_time": 508560.0,
+      "end_time": 509310.0,
+      "text": "Google Developers."
+    },
+    {
+      "index": 212,
+      "start_time": 509310.0,
+      "end_time": 512190.0,
+      "text": "And I&#39;ll see you guys next time."
+    },
+    {
+      "index": 213,
+      "start_time": 512190.00000000006,
+      "end_time": 515540.00000000006,
+      "text": "[MUSIC PLAYING]"
+    }
+  ]
+}

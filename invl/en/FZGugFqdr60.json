@@ -1,0 +1,1038 @@
+{
+  "video_id": "FZGugFqdr60",
+  "title": "The Central Processing Unit (CPU): Crash Course Computer Science #7",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3160.0,
+      "end_time": 7540.0,
+      "text": "Hi, I’m Carrie Anne, this is Crash Course Computer Science, and today, we’re talking about processors."
+    },
+    {
+      "index": 2,
+      "start_time": 7540.0,
+      "end_time": 11540.0,
+      "text": "Just a warning though - this is probably the most complicated episode in the series."
+    },
+    {
+      "index": 3,
+      "start_time": 11540.0,
+      "end_time": 12940.0,
+      "text": "So once you get this, you’re golden."
+    },
+    {
+      "index": 4,
+      "start_time": 12940.0,
+      "end_time": 16949.0,
+      "text": "We’ve already made a Arithmetic and Logic Unit, which takes in binary numbers and performs"
+    },
+    {
+      "index": 5,
+      "start_time": 16949.0,
+      "end_time": 21350.0,
+      "text": "calculations, and we’ve made two types of computer memory: Registers -- small, linear"
+    },
+    {
+      "index": 6,
+      "start_time": 21350.0,
+      "end_time": 25999.0,
+      "text": "chunks of memory, useful for storing a single value -- and then we scaled up, and made some"
+    },
+    {
+      "index": 7,
+      "start_time": 25999.0,
+      "end_time": 30260.0,
+      "text": "RAM, a larger bank of memory that can store a lot of numbers located at different addresses."
+    },
+    {
+      "index": 8,
+      "start_time": 30260.0,
+      "end_time": 34180.0,
+      "text": "Now it’s time to put it all together and build ourselves the heart of any computer,"
+    },
+    {
+      "index": 9,
+      "start_time": 34180.0,
+      "end_time": 37010.0,
+      "text": "but without any of the emotional baggage that comes with human hearts."
+    },
+    {
+      "index": 10,
+      "start_time": 37010.0,
+      "end_time": 42060.0,
+      "text": "For computers, this is the Central Processing Unit, most commonly called the CPU."
+    },
+    {
+      "index": 11,
+      "start_time": 42060.0,
+      "end_time": 51160.0,
+      "text": "INTRO"
+    },
+    {
+      "index": 12,
+      "start_time": 51160.0,
+      "end_time": 53660.0,
+      "text": "A CPU’s job is to execute programs."
+    },
+    {
+      "index": 13,
+      "start_time": 53660.0,
+      "end_time": 57800.0,
+      "text": "Programs, like Microsoft Office, Safari, or your beloved copy of Half Life: 2, are made"
+    },
+    {
+      "index": 14,
+      "start_time": 57800.0,
+      "end_time": 62570.0,
+      "text": "up of a series of individual operations, called instructions, because they “instruct”"
+    },
+    {
+      "index": 15,
+      "start_time": 62570.0,
+      "end_time": 63570.0,
+      "text": "the computer what to do."
+    },
+    {
+      "index": 16,
+      "start_time": 63570.0,
+      "end_time": 67619.0,
+      "text": "If these are mathematical instructions, like add or subtract, the CPU will configure its"
+    },
+    {
+      "index": 17,
+      "start_time": 67619.0,
+      "end_time": 70040.0,
+      "text": "ALU to do the mathematical operation."
+    },
+    {
+      "index": 18,
+      "start_time": 70040.0,
+      "end_time": 74120.0,
+      "text": "Or it might be a memory instruction, in which case the CPU will talk with memory"
+    },
+    {
+      "index": 19,
+      "start_time": 74120.0,
+      "end_time": 75500.0,
+      "text": "to read and write values."
+    },
+    {
+      "index": 20,
+      "start_time": 75500.0,
+      "end_time": 79280.0,
+      "text": "There are a lot of parts in a CPU, so we’re going to lay it out piece by piece, building"
+    },
+    {
+      "index": 21,
+      "start_time": 79280.0,
+      "end_time": 80280.0,
+      "text": "up as we go."
+    },
+    {
+      "index": 22,
+      "start_time": 80280.0,
+      "end_time": 83950.0,
+      "text": "We’ll focus on functional blocks, rather than showing every single wire."
+    },
+    {
+      "index": 23,
+      "start_time": 83950.0,
+      "end_time": 88140.0,
+      "text": "When we do connect two components with a line, this is an abstraction for all of the necessary wires."
+    },
+    {
+      "index": 24,
+      "start_time": 88140.0,
+      "end_time": 90780.0,
+      "text": "This high level view is called the microarchitecture."
+    },
+    {
+      "index": 25,
+      "start_time": 90780.0,
+      "end_time": 92700.0,
+      "text": "OK, first, we’re going to need some memory."
+    },
+    {
+      "index": 26,
+      "start_time": 92700.0,
+      "end_time": 95780.0,
+      "text": "Lets drop in the RAM module we created last episode."
+    },
+    {
+      "index": 27,
+      "start_time": 95780.0,
+      "end_time": 100740.0,
+      "text": "To keep things simple, we’ll assume it only has 16 memory locations, each containing 8 bits."
+    },
+    {
+      "index": 28,
+      "start_time": 100740.0,
+      "end_time": 105320.0,
+      "text": "Let’s also give our processor four, 8-bit memory registers, labeled A, B, C and D which"
+    },
+    {
+      "index": 29,
+      "start_time": 105320.0,
+      "end_time": 108060.0,
+      "text": "will be used to temporarily store and manipulate values."
+    },
+    {
+      "index": 30,
+      "start_time": 108060.0,
+      "end_time": 111160.0,
+      "text": "We already know that data can be stored in memory as binary values"
+    },
+    {
+      "index": 31,
+      "start_time": 111160.0,
+      "end_time": 112920.0,
+      "text": "and programs can be stored in memory too."
+    },
+    {
+      "index": 32,
+      "start_time": 112920.0,
+      "end_time": 116569.0,
+      "text": "We can assign an ID to each instruction supported by our CPU."
+    },
+    {
+      "index": 33,
+      "start_time": 116569.0,
+      "end_time": 120799.0,
+      "text": "In our hypothetical example, we use the first four bits to store the “operation code”,"
+    },
+    {
+      "index": 34,
+      "start_time": 120799.0,
+      "end_time": 122740.0,
+      "text": "or opcode for short."
+    },
+    {
+      "index": 35,
+      "start_time": 122740.0,
+      "end_time": 126220.0,
+      "text": "The final four bits specify where the data for that operation should come from -"
+    },
+    {
+      "index": 36,
+      "start_time": 126220.0,
+      "end_time": 128300.0,
+      "text": "this could be registers or an address in memory."
+    },
+    {
+      "index": 37,
+      "start_time": 128300.00000000001,
+      "end_time": 131470.0,
+      "text": "We also need two more registers to complete our CPU."
+    },
+    {
+      "index": 38,
+      "start_time": 131470.0,
+      "end_time": 134670.0,
+      "text": "First, we need a register to keep track of where we are in a program."
+    },
+    {
+      "index": 39,
+      "start_time": 134670.0,
+      "end_time": 139440.0,
+      "text": "For this, we use an instruction address register, which as the name suggests, stores the memory"
+    },
+    {
+      "index": 40,
+      "start_time": 139440.0,
+      "end_time": 140900.0,
+      "text": "address of the current instruction."
+    },
+    {
+      "index": 41,
+      "start_time": 140900.0,
+      "end_time": 146380.0,
+      "text": "And then we need the other register to store the current instruction, which we’ll call the instruction register."
+    },
+    {
+      "index": 42,
+      "start_time": 146380.0,
+      "end_time": 150140.0,
+      "text": "When we first boot up our computer, all of our registers start at 0."
+    },
+    {
+      "index": 43,
+      "start_time": 150140.0,
+      "end_time": 155200.0,
+      "text": "As an example, we’ve initialized our RAM with a simple computer program that we’ll to through today."
+    },
+    {
+      "index": 44,
+      "start_time": 155200.0,
+      "end_time": 158800.0,
+      "text": "The first phase of a CPU’s operation is called the fetch phase."
+    },
+    {
+      "index": 45,
+      "start_time": 158800.0,
+      "end_time": 161130.0,
+      "text": "This is where we retrieve our first instruction."
+    },
+    {
+      "index": 46,
+      "start_time": 161130.0,
+      "end_time": 164640.0,
+      "text": "First, we wire our Instruction Address Register to our RAM module."
+    },
+    {
+      "index": 47,
+      "start_time": 164640.0,
+      "end_time": 169210.0,
+      "text": "The register’s value is 0, so the RAM returns whatever value is stored in address 0."
+    },
+    {
+      "index": 48,
+      "start_time": 169210.0,
+      "end_time": 172960.0,
+      "text": "In this case, 0010 1110."
+    },
+    {
+      "index": 49,
+      "start_time": 172960.0,
+      "end_time": 175250.0,
+      "text": "Then this value is copied into our instruction register."
+    },
+    {
+      "index": 50,
+      "start_time": 175250.0,
+      "end_time": 179140.0,
+      "text": "Now that we’ve fetched an instruction from memory, we need to figure out what that instruction is"
+    },
+    {
+      "index": 51,
+      "start_time": 179140.0,
+      "end_time": 180780.0,
+      "text": "so we can execute it."
+    },
+    {
+      "index": 52,
+      "start_time": 180780.0,
+      "end_time": 181800.0,
+      "text": "That is run it."
+    },
+    {
+      "index": 53,
+      "start_time": 181800.0,
+      "end_time": 182640.0,
+      "text": "Not kill it."
+    },
+    {
+      "index": 54,
+      "start_time": 182640.0,
+      "end_time": 184620.0,
+      "text": "This is called the decode phase."
+    },
+    {
+      "index": 55,
+      "start_time": 184620.0,
+      "end_time": 188870.0,
+      "text": "In this case the opcode, which is the first four bits, is: 0010."
+    },
+    {
+      "index": 56,
+      "start_time": 188870.0,
+      "end_time": 193190.0,
+      "text": "This opcode corresponds to the “LOAD A” instruction, which loads a value from RAM"
+    },
+    {
+      "index": 57,
+      "start_time": 193190.0,
+      "end_time": 194230.0,
+      "text": "into Register A."
+    },
+    {
+      "index": 58,
+      "start_time": 194230.0,
+      "end_time": 199860.0,
+      "text": "The RAM address is the last four bits of our instruction which are 1110, or 14 in decimal."
+    },
+    {
+      "index": 59,
+      "start_time": 199860.0,
+      "end_time": 203370.0,
+      "text": "Next, instructions are decoded and interpreted by a Control Unit."
+    },
+    {
+      "index": 60,
+      "start_time": 203370.0,
+      "end_time": 206310.0,
+      "text": "Like everything else we’ve built, it too is made out of logic gates."
+    },
+    {
+      "index": 61,
+      "start_time": 206310.0,
+      "end_time": 211100.0,
+      "text": "For example, to recognize a LOAD A instruction, we need a circuit that checks if the opcode"
+    },
+    {
+      "index": 62,
+      "start_time": 211100.0,
+      "end_time": 215420.0,
+      "text": "matches 0010 which we can do with a handful of logic gates."
+    },
+    {
+      "index": 63,
+      "start_time": 215420.0,
+      "end_time": 218290.0,
+      "text": "Now that we know what instruction we’re dealing with, we can go ahead and perform"
+    },
+    {
+      "index": 64,
+      "start_time": 218290.0,
+      "end_time": 221320.0,
+      "text": "that instruction which is the beginning of the execute phase!"
+    },
+    {
+      "index": 65,
+      "start_time": 221320.0,
+      "end_time": 225730.0,
+      "text": "Using the output of our LOAD_A checking circuit, we can turn on the RAM’s read enable line"
+    },
+    {
+      "index": 66,
+      "start_time": 225730.0,
+      "end_time": 227300.0,
+      "text": "and send in address 14."
+    },
+    {
+      "index": 67,
+      "start_time": 227300.0,
+      "end_time": 233480.0,
+      "text": "The RAM retrieves the value at that address, which is 00000011, or 3 in decimal."
+    },
+    {
+      "index": 68,
+      "start_time": 233480.0,
+      "end_time": 238120.0,
+      "text": "Now, because this is a LOAD_A instruction, we want that value to only be saved into Register A"
+    },
+    {
+      "index": 69,
+      "start_time": 238120.0,
+      "end_time": 239780.0,
+      "text": "and not any of the other registers."
+    },
+    {
+      "index": 70,
+      "start_time": 239780.0,
+      "end_time": 244280.0,
+      "text": "So if we connect the RAM’s data wires to our four data registers, we can use our LOAD_A"
+    },
+    {
+      "index": 71,
+      "start_time": 244280.0,
+      "end_time": 247600.0,
+      "text": "check circuit to enable the write enable only for Register A."
+    },
+    {
+      "index": 72,
+      "start_time": 247600.0,
+      "end_time": 252000.0,
+      "text": "And there you have it -- we’ve successfully loaded the value at RAM address 14 into Register A."
+    },
+    {
+      "index": 73,
+      "start_time": 252000.0,
+      "end_time": 256560.0,
+      "text": "We’ve completed the instruction, so we can turn all of our wires off, and we’’re"
+    },
+    {
+      "index": 74,
+      "start_time": 256560.0,
+      "end_time": 258780.0,
+      "text": "ready to fetch the next instruction in memory."
+    },
+    {
+      "index": 75,
+      "start_time": 258779.99999999997,
+      "end_time": 263920.0,
+      "text": "To do this, we increment the Instruction Address Register by 1 which completes the execute phase."
+    },
+    {
+      "index": 76,
+      "start_time": 263920.0,
+      "end_time": 268620.0,
+      "text": "LOAD_A is just one of several possible instructions that our CPU can execute."
+    },
+    {
+      "index": 77,
+      "start_time": 268620.0,
+      "end_time": 272560.0,
+      "text": "Different instructions are decoded by different logic circuits, which configure the CPU’s"
+    },
+    {
+      "index": 78,
+      "start_time": 272560.0,
+      "end_time": 274240.0,
+      "text": "components to perform that action."
+    },
+    {
+      "index": 79,
+      "start_time": 274240.0,
+      "end_time": 278940.0,
+      "text": "Looking at all those individual decode circuits is too much detail, so since we looked at one example,"
+    },
+    {
+      "index": 80,
+      "start_time": 278940.0,
+      "end_time": 283380.0,
+      "text": "we’re going to go head and package them all up as a single Control Unit to keep things simple."
+    },
+    {
+      "index": 81,
+      "start_time": 283380.0,
+      "end_time": 291470.0,
+      "text": "That’s right a new level of abstraction."
+    },
+    {
+      "index": 82,
+      "start_time": 291470.0,
+      "end_time": 295690.0,
+      "text": "The Control Unit is comparable to the conductor of an orchestra, directing all of the different"
+    },
+    {
+      "index": 83,
+      "start_time": 295690.0,
+      "end_time": 297060.0,
+      "text": "parts of the CPU."
+    },
+    {
+      "index": 84,
+      "start_time": 297060.0,
+      "end_time": 302030.0,
+      "text": "Having completed one full fetch/decode/execute cycle, we’re ready to start all over again,"
+    },
+    {
+      "index": 85,
+      "start_time": 302030.0,
+      "end_time": 303780.0,
+      "text": "beginning with the fetch phase."
+    },
+    {
+      "index": 86,
+      "start_time": 303780.0,
+      "end_time": 307910.0,
+      "text": "The Instruction Address Register now has the value 1 in it, so the RAM gives us the value"
+    },
+    {
+      "index": 87,
+      "start_time": 307910.0,
+      "end_time": 312280.0,
+      "text": "stored at address 1, which is 0001 1111."
+    },
+    {
+      "index": 88,
+      "start_time": 312280.0,
+      "end_time": 313960.0,
+      "text": "On to the decode phase!"
+    },
+    {
+      "index": 89,
+      "start_time": 313960.0,
+      "end_time": 320081.0,
+      "text": "0001 is the “LOAD B” instruction, which moves a value from RAM into Register B."
+    },
+    {
+      "index": 90,
+      "start_time": 320081.0,
+      "end_time": 324520.0,
+      "text": "The memory location this time is 1111, which is 15 in decimal."
+    },
+    {
+      "index": 91,
+      "start_time": 324520.0,
+      "end_time": 326100.0,
+      "text": "Now to the execute phase!"
+    },
+    {
+      "index": 92,
+      "start_time": 326100.0,
+      "end_time": 331880.0,
+      "text": "The Control Unit configures the RAM to read address 15 and configures Register B to receive the data."
+    },
+    {
+      "index": 93,
+      "start_time": 331880.0,
+      "end_time": 338790.0,
+      "text": "Bingo, we just saved the value 00001110, or the number 14 in decimal, into Register B."
+    },
+    {
+      "index": 94,
+      "start_time": 338790.0,
+      "end_time": 343800.0,
+      "text": "Last thing to do is increment our instruction address register by 1, and we’re done with another cycle."
+    },
+    {
+      "index": 95,
+      "start_time": 343800.0,
+      "end_time": 345690.0,
+      "text": "Our next instruction is a bit different."
+    },
+    {
+      "index": 96,
+      "start_time": 345690.0,
+      "end_time": 346700.0,
+      "text": "Let’s fetch it."
+    },
+    {
+      "index": 97,
+      "start_time": 346700.0,
+      "end_time": 349380.0,
+      "text": "1000 01 00."
+    },
+    {
+      "index": 98,
+      "start_time": 349380.0,
+      "end_time": 353100.0,
+      "text": "That opcode 1000 is an ADD instruction."
+    },
+    {
+      "index": 99,
+      "start_time": 353100.0,
+      "end_time": 357340.0,
+      "text": "Instead of an 4-bit RAM address, this instruction uses two sets of 2 bits."
+    },
+    {
+      "index": 100,
+      "start_time": 357340.0,
+      "end_time": 362760.0,
+      "text": "Remember that 2 bits can encode 4 values, so 2 bits is enough to select any one of our 4 registers."
+    },
+    {
+      "index": 101,
+      "start_time": 362760.0,
+      "end_time": 369120.0,
+      "text": "The first set of 2 bits is 01, which in this case corresponds to Register B, and 00, which is Register A."
+    },
+    {
+      "index": 102,
+      "start_time": 369120.0,
+      "end_time": 377600.0,
+      "text": "So “1000 01 00” is the instruction for adding the value in Register B into the value in register A."
+    },
+    {
+      "index": 103,
+      "start_time": 377600.0,
+      "end_time": 383220.0,
+      "text": "So to execute this instruction, we need to integrate the ALU we made in Episode 5 into our CPU."
+    },
+    {
+      "index": 104,
+      "start_time": 383220.0,
+      "end_time": 387400.0,
+      "text": "The Control Unit is responsible for selecting the right registers to pass in as inputs,"
+    },
+    {
+      "index": 105,
+      "start_time": 387400.0,
+      "end_time": 390160.0,
+      "text": "and configuring the ALU to perform the right operation."
+    },
+    {
+      "index": 106,
+      "start_time": 390160.0,
+      "end_time": 394780.0,
+      "text": "For this ADD instruction, the Control Unit enables Register B and feeds its value into"
+    },
+    {
+      "index": 107,
+      "start_time": 394780.0,
+      "end_time": 396590.0,
+      "text": "the first input of the ALU."
+    },
+    {
+      "index": 108,
+      "start_time": 396590.0,
+      "end_time": 400760.0,
+      "text": "It also enables Register A and feeds it into the second ALU input."
+    },
+    {
+      "index": 109,
+      "start_time": 400760.0,
+      "end_time": 405180.0,
+      "text": "As we already discussed, the ALU itself can perform several different operations, so the"
+    },
+    {
+      "index": 110,
+      "start_time": 405180.0,
+      "end_time": 410420.0,
+      "text": "Control Unit must configure it to perform an ADD operation by passing in the ADD opcode."
+    },
+    {
+      "index": 111,
+      "start_time": 410420.0,
+      "end_time": 414520.0,
+      "text": "Finally, the output should be saved into Register A. But it can’t be written directly"
+    },
+    {
+      "index": 112,
+      "start_time": 414520.0,
+      "end_time": 418800.0,
+      "text": "because the new value would ripple back into the ALU and then keep adding to itself."
+    },
+    {
+      "index": 113,
+      "start_time": 418800.0,
+      "end_time": 423880.0,
+      "text": "So the Control Unit uses an internal register to temporarily save the output, turn off the"
+    },
+    {
+      "index": 114,
+      "start_time": 423880.0,
+      "end_time": 427750.0,
+      "text": "ALU, and then write the value into the proper destination register."
+    },
+    {
+      "index": 115,
+      "start_time": 427750.0,
+      "end_time": 436090.0,
+      "text": "In this case, our inputs were 3 and 14, and so the sum is 17, or 00010001 in binary,"
+    },
+    {
+      "index": 116,
+      "start_time": 436090.0,
+      "end_time": 440580.0,
+      "text": "which is now sitting in Register A. As before, the last thing to do is increment our instruction"
+    },
+    {
+      "index": 117,
+      "start_time": 440580.0,
+      "end_time": 443380.0,
+      "text": "address by 1, and another cycle is complete."
+    },
+    {
+      "index": 118,
+      "start_time": 443380.0,
+      "end_time": 449160.0,
+      "text": "Okay, so let’s fetch one last instruction: 01001101."
+    },
+    {
+      "index": 119,
+      "start_time": 449160.0,
+      "end_time": 455040.0,
+      "text": "When we decode it we see that 0100 is a STORE_A instruction, with a RAM address of 13."
+    },
+    {
+      "index": 120,
+      "start_time": 455040.0,
+      "end_time": 460740.0,
+      "text": "As usual, we pass the address to the RAM module, but instead of read-enabling the memory, we write-enable it."
+    },
+    {
+      "index": 121,
+      "start_time": 460740.0,
+      "end_time": 465540.0,
+      "text": "At the same time, we read-enable Register A. This allows us to use the data line to"
+    },
+    {
+      "index": 122,
+      "start_time": 465540.0,
+      "end_time": 467710.0,
+      "text": "pass in the value stored in register A."
+    },
+    {
+      "index": 123,
+      "start_time": 467710.0,
+      "end_time": 470900.0,
+      "text": "Congrats, we just ran our first computer program!"
+    },
+    {
+      "index": 124,
+      "start_time": 470900.0,
+      "end_time": 475640.0,
+      "text": "It loaded two values from memory, added them together, and then saved that sum back into memory."
+    },
+    {
+      "index": 125,
+      "start_time": 475640.0,
+      "end_time": 480380.0,
+      "text": "Of course, by me talking you through the individual steps, I was manually transitioning the CPU"
+    },
+    {
+      "index": 126,
+      "start_time": 480380.0,
+      "end_time": 483540.0,
+      "text": "through its fetch, decode and execute phases."
+    },
+    {
+      "index": 127,
+      "start_time": 483540.0,
+      "end_time": 486360.0,
+      "text": "But there isn’t a mini Carrie Anne inside of every computer."
+    },
+    {
+      "index": 128,
+      "start_time": 486360.0,
+      "end_time": 490610.0,
+      "text": "So the responsibility of keeping the CPU ticking along falls to a component called the clock."
+    },
+    {
+      "index": 129,
+      "start_time": 490610.0,
+      "end_time": 495420.0,
+      "text": "As it’s name suggests, the clock triggers an electrical signal at a precise and regular interval."
+    },
+    {
+      "index": 130,
+      "start_time": 495420.0,
+      "end_time": 499670.0,
+      "text": "Its signal is used by the Control Unit to advance the internal operation of the CPU,"
+    },
+    {
+      "index": 131,
+      "start_time": 499670.0,
+      "end_time": 503419.0,
+      "text": "keeping everything in lock-step - like the dude on a Roman galley drumming rhythmically"
+    },
+    {
+      "index": 132,
+      "start_time": 503419.0,
+      "end_time": 507449.0,
+      "text": "at the front, keeping all the rowers synchronized... or a metronome."
+    },
+    {
+      "index": 133,
+      "start_time": 507449.0,
+      "end_time": 511100.0,
+      "text": "Of course you can’t go too fast, because even electricity takes some time to travel"
+    },
+    {
+      "index": 134,
+      "start_time": 511100.0,
+      "end_time": 513320.0,
+      "text": "down wires and for the signal to settle."
+    },
+    {
+      "index": 135,
+      "start_time": 513320.00000000006,
+      "end_time": 519740.00000000006,
+      "text": "The speed at which a CPU can carry out each step of the fetch-decode-execute cycle is called its Clock Speed."
+    },
+    {
+      "index": 136,
+      "start_time": 519740.0,
+      "end_time": 522800.0,
+      "text": "This speed is measured in Hertz - a unit of frequency."
+    },
+    {
+      "index": 137,
+      "start_time": 522799.99999999994,
+      "end_time": 525160.0,
+      "text": "One Hertz means one cycle per second."
+    },
+    {
+      "index": 138,
+      "start_time": 525160.0,
+      "end_time": 529180.0,
+      "text": "Given that it took me about 6 minutes to talk you through 4 instructions -- LOAD, LOAD,"
+    },
+    {
+      "index": 139,
+      "start_time": 529180.0,
+      "end_time": 533900.0,
+      "text": "ADD and STORE -- that means I have an effective clock speed of roughly .03 Hertz."
+    },
+    {
+      "index": 140,
+      "start_time": 533900.0,
+      "end_time": 537700.0,
+      "text": "Admittedly, I’m not a great computer but even someone handy with math"
+    },
+    {
+      "index": 141,
+      "start_time": 537700.0,
+      "end_time": 541760.0,
+      "text": "might only be able to do one calculation in their head every second or 1 Hertz."
+    },
+    {
+      "index": 142,
+      "start_time": 541760.0,
+      "end_time": 548640.0,
+      "text": "The very first, single-chip CPU was the Intel 4004, a 4-bit CPU released in 1971."
+    },
+    {
+      "index": 143,
+      "start_time": 548640.0,
+      "end_time": 552800.0,
+      "text": "It’s microarchitecture is actually pretty similar to our example CPU."
+    },
+    {
+      "index": 144,
+      "start_time": 552800.0,
+      "end_time": 558600.0,
+      "text": "Despite being the first processor of its kind, it had a mind-blowing clock speed of 740 Kilohertz"
+    },
+    {
+      "index": 145,
+      "start_time": 558600.0,
+      "end_time": 562430.0,
+      "text": "-- that’s 740 thousand cycles per second."
+    },
+    {
+      "index": 146,
+      "start_time": 562430.0,
+      "end_time": 566480.0,
+      "text": "You might think that’s fast, but it’s nothing compared to the processors that we use today."
+    },
+    {
+      "index": 147,
+      "start_time": 566480.0,
+      "end_time": 570870.0,
+      "text": "One megahertz is one million clock cycles per second, and the computer or even phone"
+    },
+    {
+      "index": 148,
+      "start_time": 570870.0,
+      "end_time": 574680.0,
+      "text": "that you are watching this video on right now is no doubt a few gigahertz -- that&#39;s"
+    },
+    {
+      "index": 149,
+      "start_time": 574680.0,
+      "end_time": 578520.0,
+      "text": "BILLIONs of CPU cycles every… single... second."
+    },
+    {
+      "index": 150,
+      "start_time": 578520.0,
+      "end_time": 581700.0,
+      "text": "Also, you may have heard of people overclocking their computers."
+    },
+    {
+      "index": 151,
+      "start_time": 581700.0,
+      "end_time": 585800.0,
+      "text": "This is when you modify the clock to speed up the tempo of the CPU -- like when the drummer"
+    },
+    {
+      "index": 152,
+      "start_time": 585800.0,
+      "end_time": 588640.0,
+      "text": "speeds up when the Roman Galley needs to ram another ship."
+    },
+    {
+      "index": 153,
+      "start_time": 588640.0,
+      "end_time": 592940.0,
+      "text": "Chip makers often design CPUs with enough tolerance to handle a little bit of overclocking,"
+    },
+    {
+      "index": 154,
+      "start_time": 592940.0,
+      "end_time": 598100.0,
+      "text": "but too much can either overheat the CPU, or produce gobbledygook as the signals fall behind the clock."
+    },
+    {
+      "index": 155,
+      "start_time": 598100.0,
+      "end_time": 602000.0,
+      "text": "And although you don’t hear very much about underclocking, it’s actually super useful."
+    },
+    {
+      "index": 156,
+      "start_time": 602000.0,
+      "end_time": 604980.0,
+      "text": "Sometimes it’s not necessary to run the processor at full speed..."
+    },
+    {
+      "index": 157,
+      "start_time": 604980.0,
+      "end_time": 608940.0,
+      "text": "maybe the user has stepped away, or just not running a particularly demanding program."
+    },
+    {
+      "index": 158,
+      "start_time": 608940.0,
+      "end_time": 613190.0,
+      "text": "By slowing the CPU down, you can save a lot of power, which is important for computers"
+    },
+    {
+      "index": 159,
+      "start_time": 613190.0,
+      "end_time": 615740.0,
+      "text": "that run on batteries, like laptops and smartphones."
+    },
+    {
+      "index": 160,
+      "start_time": 615740.0,
+      "end_time": 619950.0,
+      "text": "To meet these needs, many modern processors can increase or decrease their clock speed"
+    },
+    {
+      "index": 161,
+      "start_time": 619950.0,
+      "end_time": 623029.0,
+      "text": "based on demand, which is called dynamic frequency scaling."
+    },
+    {
+      "index": 162,
+      "start_time": 623029.0,
+      "end_time": 626210.0,
+      "text": "So, with the addition of a clock, our CPU is complete."
+    },
+    {
+      "index": 163,
+      "start_time": 626210.0,
+      "end_time": 628900.0,
+      "text": "We can now put a box around it, and make it its own component."
+    },
+    {
+      "index": 164,
+      "start_time": 628900.0,
+      "end_time": 629600.0,
+      "text": "Yup."
+    },
+    {
+      "index": 165,
+      "start_time": 629600.0,
+      "end_time": 637040.0,
+      "text": "A new level of abstraction!"
+    },
+    {
+      "index": 166,
+      "start_time": 637040.0,
+      "end_time": 642480.0,
+      "text": "RAM, as I showed you last episode, lies outside the CPU as its own component, and they communicate"
+    },
+    {
+      "index": 167,
+      "start_time": 642480.0,
+      "end_time": 645380.0,
+      "text": "with each other using address, data and enable wires."
+    },
+    {
+      "index": 168,
+      "start_time": 645380.0,
+      "end_time": 650100.0,
+      "text": "Although the CPU we designed today is a simplified example, many of the basic mechanics we discussed"
+    },
+    {
+      "index": 169,
+      "start_time": 650100.0,
+      "end_time": 652480.0,
+      "text": "are still found in modern processors."
+    },
+    {
+      "index": 170,
+      "start_time": 652480.0,
+      "end_time": 656920.0,
+      "text": "Next episode, we’re going to beef up our CPU, extending it with more instructions as"
+    },
+    {
+      "index": 171,
+      "start_time": 656920.0,
+      "end_time": 659200.0,
+      "text": "we take our first baby steps into software."
+    },
+    {
+      "index": 172,
+      "start_time": 659200.0,
+      "end_time": 669200.0,
+      "text": "I’ll see you next week."
+    }
+  ]
+}

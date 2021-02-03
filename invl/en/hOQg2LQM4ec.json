@@ -1,0 +1,1770 @@
+{
+  "video_id": "hOQg2LQM4ec",
+  "title": "5   1   Overview of Recommender Systems 16 51",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 650.0,
+      "end_time": 2929.0,
+      "text": "Welcome back to Mining of Massive Datasets."
+    },
+    {
+      "index": 2,
+      "start_time": 2930.0,
+      "end_time": 4472.0,
+      "text": "Today&#39;s topic is Recommender Systems."
+    },
+    {
+      "index": 3,
+      "start_time": 4472.0,
+      "end_time": 7500.0,
+      "text": "We&#39;re going to start with an overview of recommendation systems, and"
+    },
+    {
+      "index": 4,
+      "start_time": 7500.0,
+      "end_time": 8166.0,
+      "text": "why they are necessary."
+    },
+    {
+      "index": 5,
+      "start_time": 8166.0,
+      "end_time": 11722.0,
+      "text": "Today, we are going to look at the two most common types of Recommender Systems."
+    },
+    {
+      "index": 6,
+      "start_time": 11722.0,
+      "end_time": 14719.0,
+      "text": "Content-Based Systems and Collaborative Filtering."
+    },
+    {
+      "index": 7,
+      "start_time": 14720.0,
+      "end_time": 17330.0,
+      "text": "And finally we&#39;re going to look at how to evaluate Recommender Systems,"
+    },
+    {
+      "index": 8,
+      "start_time": 17330.0,
+      "end_time": 19419.0,
+      "text": "to make sure they&#39;re doing a good job."
+    },
+    {
+      "index": 9,
+      "start_time": 19420.0,
+      "end_time": 20240.0,
+      "text": "Let&#39;s start with an overview."
+    },
+    {
+      "index": 10,
+      "start_time": 22790.0,
+      "end_time": 26490.0,
+      "text": "Imagine any situation where a user interacts with"
+    },
+    {
+      "index": 11,
+      "start_time": 26490.0,
+      "end_time": 28580.0,
+      "text": "a really large catalog of items."
+    },
+    {
+      "index": 12,
+      "start_time": 28580.0,
+      "end_time": 30909.0,
+      "text": "Now these items could be products at Amazon."
+    },
+    {
+      "index": 13,
+      "start_time": 30910.0,
+      "end_time": 32530.0,
+      "text": "They could be movies at Netflix."
+    },
+    {
+      "index": 14,
+      "start_time": 32530.0,
+      "end_time": 34610.0,
+      "text": "They could be music from Pandora&#39;s catalog."
+    },
+    {
+      "index": 15,
+      "start_time": 34610.0,
+      "end_time": 37480.0,
+      "text": "Or they could be the news items on Google News."
+    },
+    {
+      "index": 16,
+      "start_time": 37480.0,
+      "end_time": 40180.0,
+      "text": "What really matters, is that there are tens of thousands, or"
+    },
+    {
+      "index": 17,
+      "start_time": 40180.0,
+      "end_time": 41950.0,
+      "text": "hundreds of thousands, or millions of items."
+    },
+    {
+      "index": 18,
+      "start_time": 41950.0,
+      "end_time": 43330.0,
+      "text": "A really large catalog."
+    },
+    {
+      "index": 19,
+      "start_time": 43330.0,
+      "end_time": 45920.0,
+      "text": "And the user is interacting with this catalog."
+    },
+    {
+      "index": 20,
+      "start_time": 45920.0,
+      "end_time": 49960.0,
+      "text": "There&#39;s two ways in which a user can interact with a large catalog of items."
+    },
+    {
+      "index": 21,
+      "start_time": 49960.0,
+      "end_time": 53670.0,
+      "text": "The first is such, user knows what they&#39;re looking for, and they go and"
+    },
+    {
+      "index": 22,
+      "start_time": 53670.0,
+      "end_time": 56800.0,
+      "text": "they search the catalog for the precise item that they&#39;re looking for."
+    },
+    {
+      "index": 23,
+      "start_time": 56800.0,
+      "end_time": 59279.0,
+      "text": "Now when you have a very large catalog of items,"
+    },
+    {
+      "index": 24,
+      "start_time": 59280.0,
+      "end_time": 62200.0,
+      "text": "very often the user doesn&#39;t know exactly what they&#39;re looking for."
+    },
+    {
+      "index": 25,
+      "start_time": 62200.0,
+      "end_time": 63320.0,
+      "text": "And this is where recommendations come in."
+    },
+    {
+      "index": 26,
+      "start_time": 64390.0,
+      "end_time": 68490.0,
+      "text": "The system recommends to the user certain items that they think the user will be"
+    },
+    {
+      "index": 27,
+      "start_time": 68490.0,
+      "end_time": 70690.0,
+      "text": "interested in, based on what they know about the user."
+    },
+    {
+      "index": 28,
+      "start_time": 71820.0,
+      "end_time": 73729.0,
+      "text": "Now why do we really need such recommendations?"
+    },
+    {
+      "index": 29,
+      "start_time": 75650.0,
+      "end_time": 79280.0,
+      "text": "The key that made recommendations so important and"
+    },
+    {
+      "index": 30,
+      "start_time": 79280.0,
+      "end_time": 82900.0,
+      "text": "why a recommendation system developed so much in the last ten or 20 years."
+    },
+    {
+      "index": 31,
+      "start_time": 82900.0,
+      "end_time": 86280.0,
+      "text": "If that he moved from an area scarcity to an area of abundance."
+    },
+    {
+      "index": 32,
+      "start_time": 86280.0,
+      "end_time": 87780.0,
+      "text": "What do I mean by this?"
+    },
+    {
+      "index": 33,
+      "start_time": 87780.0,
+      "end_time": 90680.0,
+      "text": "Imagine that you were out shopping 20 years ago,"
+    },
+    {
+      "index": 34,
+      "start_time": 90680.0,
+      "end_time": 92460.0,
+      "text": "and you&#39;d go to a local retailer, and"
+    },
+    {
+      "index": 35,
+      "start_time": 92460.0,
+      "end_time": 96270.0,
+      "text": "you&#39;ll find a certain number of products on the shelves of the local retailer."
+    },
+    {
+      "index": 36,
+      "start_time": 96270.0,
+      "end_time": 100179.0,
+      "text": "Now, even in the really large retailer like, like a Wal Mart, for instance."
+    },
+    {
+      "index": 37,
+      "start_time": 100180.0,
+      "end_time": 103620.0,
+      "text": "Shelf space is a key, is a scarce commodity."
+    },
+    {
+      "index": 38,
+      "start_time": 103620.0,
+      "end_time": 107300.0,
+      "text": "It limits the number of items that a retailer can carry."
+    },
+    {
+      "index": 39,
+      "start_time": 107300.0,
+      "end_time": 111500.0,
+      "text": "Shelf space is expensive, because it involves real estate costs."
+    },
+    {
+      "index": 40,
+      "start_time": 111500.0,
+      "end_time": 114610.0,
+      "text": "And, therefore, a retailer can carry only a certain number of products."
+    },
+    {
+      "index": 41,
+      "start_time": 114610.0,
+      "end_time": 118390.0,
+      "text": "Now, a similar situation applies in the case of, for example, TV networks."
+    },
+    {
+      "index": 42,
+      "start_time": 118390.0,
+      "end_time": 121190.0,
+      "text": "A TV network can carry only so many shows, because there&#39;s only so"
+    },
+    {
+      "index": 43,
+      "start_time": 121190.0,
+      "end_time": 122830.0,
+      "text": "many hours in a day."
+    },
+    {
+      "index": 44,
+      "start_time": 122830.0,
+      "end_time": 123440.0,
+      "text": "And there are only so"
+    },
+    {
+      "index": 45,
+      "start_time": 123440.0,
+      "end_time": 126740.0,
+      "text": "many movie theaters, so they can only ser, screen a certain number of movies."
+    },
+    {
+      "index": 46,
+      "start_time": 128180.0,
+      "end_time": 131290.0,
+      "text": "Now once the internet was developed, things changed."
+    },
+    {
+      "index": 47,
+      "start_time": 131290.0,
+      "end_time": 136340.0,
+      "text": "The web enables zero-cost dissemination of information about products."
+    },
+    {
+      "index": 48,
+      "start_time": 136340.0,
+      "end_time": 140380.0,
+      "text": "And what this means, is that we can have many more products than ever before."
+    },
+    {
+      "index": 49,
+      "start_time": 140380.0,
+      "end_time": 144900.0,
+      "text": "There is no shelf space limitation on the number of products."
+    },
+    {
+      "index": 50,
+      "start_time": 144900.0,
+      "end_time": 146980.0,
+      "text": "That&#39;s why the number of products on Amazon is much,"
+    },
+    {
+      "index": 51,
+      "start_time": 146980.0,
+      "end_time": 150390.0,
+      "text": "much more than the number of products available at any physical retailer."
+    },
+    {
+      "index": 52,
+      "start_time": 152520.0,
+      "end_time": 156300.0,
+      "text": "The number of you know, movies available on Netflix is more than the number of"
+    },
+    {
+      "index": 53,
+      "start_time": 156300.0,
+      "end_time": 159100.0,
+      "text": "movies that have been available, available at Blockbuster and so on."
+    },
+    {
+      "index": 54,
+      "start_time": 161800.0,
+      "end_time": 164580.0,
+      "text": "This near-zero-cost dissemination of information gives rise to"
+    },
+    {
+      "index": 55,
+      "start_time": 164580.0,
+      "end_time": 167400.0,
+      "text": "a phenomenon that&#39;s called the long tail phenomenon."
+    },
+    {
+      "index": 56,
+      "start_time": 167400.0,
+      "end_time": 168570.0,
+      "text": "Let&#39;s examine what this is."
+    },
+    {
+      "index": 57,
+      "start_time": 170100.0,
+      "end_time": 174570.0,
+      "text": "Now imagine a graph, where on X-axis we&#39;ve taken the items in the catalog."
+    },
+    {
+      "index": 58,
+      "start_time": 174570.0,
+      "end_time": 179790.0,
+      "text": "Remember, items might be books, or music, or video, or news articles."
+    },
+    {
+      "index": 59,
+      "start_time": 179800.0,
+      "end_time": 181530.0,
+      "text": "And we&#39;ve ranked these items by popularity."
+    },
+    {
+      "index": 60,
+      "start_time": 181530.0,
+      "end_time": 183920.0,
+      "text": "So the most popular items are on the left, and"
+    },
+    {
+      "index": 61,
+      "start_time": 183920.0,
+      "end_time": 187549.0,
+      "text": "as they move towards the right, the items become less and less popular."
+    },
+    {
+      "index": 62,
+      "start_time": 187550.0,
+      "end_time": 188850.0,
+      "text": "What do I mean by popular?"
+    },
+    {
+      "index": 63,
+      "start_time": 188850.0,
+      "end_time": 192239.0,
+      "text": "Well, I mean the number of times the item is purchased in a week."
+    },
+    {
+      "index": 64,
+      "start_time": 192240.0,
+      "end_time": 195620.0,
+      "text": "Or the number of times a movie is viewed in a week, or a month, or"
+    },
+    {
+      "index": 65,
+      "start_time": 195620.0,
+      "end_time": 197890.0,
+      "text": "some, some fixed time period."
+    },
+    {
+      "index": 66,
+      "start_time": 197890.0,
+      "end_time": 201570.0,
+      "text": "Now, on the Y axis, you have the actual popularity, which in this case I&#39;ve"
+    },
+    {
+      "index": 67,
+      "start_time": 201570.0,
+      "end_time": 204850.0,
+      "text": "shown as the number of purchases per week, it could be number of views per week, or"
+    },
+    {
+      "index": 68,
+      "start_time": 204850.0,
+      "end_time": 209100.0,
+      "text": "it could be number of, you know, plays per month, for some music, and so on."
+    },
+    {
+      "index": 69,
+      "start_time": 209100.0,
+      "end_time": 212950.0,
+      "text": "So in general you have items ranked by popularity along the X axis,"
+    },
+    {
+      "index": 70,
+      "start_time": 212950.0,
+      "end_time": 215358.0,
+      "text": "and the popularity itself along the Y axis."
+    },
+    {
+      "index": 71,
+      "start_time": 217110.0,
+      "end_time": 220870.0,
+      "text": "Now when you take items you know, in a large catalog."
+    },
+    {
+      "index": 72,
+      "start_time": 220870.0,
+      "end_time": 222250.0,
+      "text": "And you rank them,"
+    },
+    {
+      "index": 73,
+      "start_time": 222250.0,
+      "end_time": 226390.0,
+      "text": "and you plot them on this curve you get a curve that looks like this."
+    },
+    {
+      "index": 74,
+      "start_time": 228860.0,
+      "end_time": 232687.0,
+      "text": "You can see that the score, you know, has a very steep fall initially."
+    },
+    {
+      "index": 75,
+      "start_time": 232687.0,
+      "end_time": 235480.0,
+      "text": "the, the, you know, you have a really, really, a few really,"
+    },
+    {
+      "index": 76,
+      "start_time": 235480.0,
+      "end_time": 237900.0,
+      "text": "really popular items."
+    },
+    {
+      "index": 77,
+      "start_time": 237900.0,
+      "end_time": 239430.0,
+      "text": "And then as you move towards the right as the,"
+    },
+    {
+      "index": 78,
+      "start_time": 239430.0,
+      "end_time": 244270.0,
+      "text": "you know, as the item rank becomes greater the popularity falls off very steeply."
+    },
+    {
+      "index": 79,
+      "start_time": 244270.0,
+      "end_time": 247790.0,
+      "text": "But at a certain point, you can see that this popularity stops, you know,"
+    },
+    {
+      "index": 80,
+      "start_time": 247790.0,
+      "end_time": 249739.0,
+      "text": "falls off less and less deeply."
+    },
+    {
+      "index": 81,
+      "start_time": 249740.0,
+      "end_time": 252480.0,
+      "text": "And, you know, it quite reaches the X axis."
+    },
+    {
+      "index": 82,
+      "start_time": 253830.0,
+      "end_time": 256860.0,
+      "text": "The interesting thing here, is that there is a cut off point."
+    },
+    {
+      "index": 83,
+      "start_time": 256860.0,
+      "end_time": 260590.0,
+      "text": "The you know, items that are less popular than this cut off point."
+    },
+    {
+      "index": 84,
+      "start_time": 260589.0,
+      "end_time": 263270.0,
+      "text": "You know, might be purchased perhaps just once a week."
+    },
+    {
+      "index": 85,
+      "start_time": 263270.0,
+      "end_time": 264760.0,
+      "text": "Or maybe once a month."
+    },
+    {
+      "index": 86,
+      "start_time": 264760.0,
+      "end_time": 268620.0,
+      "text": "If you&#39;re a physical retailer like a Wal-Mart, it&#39;s not economic to"
+    },
+    {
+      "index": 87,
+      "start_time": 268620.0,
+      "end_time": 273470.0,
+      "text": "stock this item, because the rent cost of stocking the item is more than you make,"
+    },
+    {
+      "index": 88,
+      "start_time": 273470.0,
+      "end_time": 275280.0,
+      "text": "when you sell the item."
+    },
+    {
+      "index": 89,
+      "start_time": 275280.0,
+      "end_time": 276849.0,
+      "text": "And therefore a retailer,"
+    },
+    {
+      "index": 90,
+      "start_time": 276850.0,
+      "end_time": 281250.0,
+      "text": "any right thinking retailer doesn&#39;t stock items that are unpopular."
+    },
+    {
+      "index": 91,
+      "start_time": 281250.0,
+      "end_time": 284400.0,
+      "text": "The, you know, they only stock the, the head of the distribution."
+    },
+    {
+      "index": 92,
+      "start_time": 284400.0,
+      "end_time": 290700.0,
+      "text": "So there&#39;s this cutoff point that I show on this graph here and items that are more"
+    },
+    {
+      "index": 93,
+      "start_time": 290700.0,
+      "end_time": 295390.0,
+      "text": "popular then this, the, the more popular items are available at a retail store."
+    },
+    {
+      "index": 94,
+      "start_time": 295400.0,
+      "end_time": 299100.0,
+      "text": "But the less popular items, the items that are to the right of the cut off point,"
+    },
+    {
+      "index": 95,
+      "start_time": 299100.0,
+      "end_time": 300810.0,
+      "text": "are not available at any retail store."
+    },
+    {
+      "index": 96,
+      "start_time": 300810.0,
+      "end_time": 301960.0,
+      "text": "They&#39;re only available online."
+    },
+    {
+      "index": 97,
+      "start_time": 304000.0,
+      "end_time": 306880.0,
+      "text": "Now this phenomenon applies to books, to music, to movie,"
+    },
+    {
+      "index": 98,
+      "start_time": 306880.0,
+      "end_time": 309750.0,
+      "text": "to videos to news articles for example, there are only so"
+    },
+    {
+      "index": 99,
+      "start_time": 309750.0,
+      "end_time": 313740.0,
+      "text": "many news articles in newspaper, but when you go online you can see the rest of"
+    },
+    {
+      "index": 100,
+      "start_time": 313740.0,
+      "end_time": 316579.0,
+      "text": "the news articles are less popular, news articles that are off to the right."
+    },
+    {
+      "index": 101,
+      "start_time": 319140.0,
+      "end_time": 324990.0,
+      "text": "The piece of the curve, that is to the the piece of the curve here that is to"
+    },
+    {
+      "index": 102,
+      "start_time": 324100.0,
+      "end_time": 328520.0,
+      "text": "the right of this dividing line, is called the long tail."
+    },
+    {
+      "index": 103,
+      "start_time": 328520.0,
+      "end_time": 331289.0,
+      "text": "These are the items that are available only online."
+    },
+    {
+      "index": 104,
+      "start_time": 331290.0,
+      "end_time": 334910.0,
+      "text": "The interesting thing is, the, is this area under the curve here."
+    },
+    {
+      "index": 105,
+      "start_time": 334910.0,
+      "end_time": 337689.0,
+      "text": "And you can see the area under the curve here is quite significant."
+    },
+    {
+      "index": 106,
+      "start_time": 338980.0,
+      "end_time": 343350.0,
+      "text": "In fact, in some cases the area under the curve on the right is about as large, or"
+    },
+    {
+      "index": 107,
+      "start_time": 343350.0,
+      "end_time": 345550.0,
+      "text": "could be even larger than the area of the curve,"
+    },
+    {
+      "index": 108,
+      "start_time": 345550.0,
+      "end_time": 347500.0,
+      "text": "under the curve on the, on the left."
+    },
+    {
+      "index": 109,
+      "start_time": 349230.0,
+      "end_time": 352930.0,
+      "text": "So you have all these items that could never be found in a physical store, but"
+    },
+    {
+      "index": 110,
+      "start_time": 352930.0,
+      "end_time": 354690.0,
+      "text": "that can be only found online."
+    },
+    {
+      "index": 111,
+      "start_time": 354690.0,
+      "end_time": 357480.0,
+      "text": "But there are so many of them."
+    },
+    {
+      "index": 112,
+      "start_time": 357480.0,
+      "end_time": 362600.0,
+      "text": "That it&#39;s very hard for any user to find all these items."
+    },
+    {
+      "index": 113,
+      "start_time": 362600.0,
+      "end_time": 364330.0,
+      "text": "Right, so when you have the seed of abundance and"
+    },
+    {
+      "index": 114,
+      "start_time": 364330.0,
+      "end_time": 368969.0,
+      "text": "you have so many items and many of them are really found online."
+    },
+    {
+      "index": 115,
+      "start_time": 368970.0,
+      "end_time": 371990.0,
+      "text": "How, you know, how do you introduce a user to all these new"
+    },
+    {
+      "index": 116,
+      "start_time": 371990.0,
+      "end_time": 374340.0,
+      "text": "items they may have not otherwise find?"
+    },
+    {
+      "index": 117,
+      "start_time": 374340.0,
+      "end_time": 376960.0,
+      "text": "When you have more choice like this, when you have these millions and"
+    },
+    {
+      "index": 118,
+      "start_time": 376960.0,
+      "end_time": 380120.0,
+      "text": "millions of items that are only available online, you need a better way for"
+    },
+    {
+      "index": 119,
+      "start_time": 380120.0,
+      "end_time": 382360.0,
+      "text": "the user to find all these items."
+    },
+    {
+      "index": 120,
+      "start_time": 382360.0,
+      "end_time": 384440.0,
+      "text": "The user doesn&#39;t even know where to start looking, and"
+    },
+    {
+      "index": 121,
+      "start_time": 384440.0,
+      "end_time": 386310.0,
+      "text": "that&#39;s where recommendation engines come in."
+    },
+    {
+      "index": 122,
+      "start_time": 388430.0,
+      "end_time": 390670.0,
+      "text": "So recommendation engines work in the case of many,"
+    },
+    {
+      "index": 123,
+      "start_time": 390670.0,
+      "end_time": 394210.0,
+      "text": "many kinds of items books, music, movies, news articles."
+    },
+    {
+      "index": 124,
+      "start_time": 394210.0,
+      "end_time": 396599.0,
+      "text": "Interestingly, they even work in the case of people."
+    },
+    {
+      "index": 125,
+      "start_time": 396600.0,
+      "end_time": 398640.0,
+      "text": "For example, when you go to Facebook, or LinkedIn, or"
+    },
+    {
+      "index": 126,
+      "start_time": 398640.0,
+      "end_time": 402800.0,
+      "text": "Twitter, there are so many people that you don&#39;t know who to follow or who to friend."
+    },
+    {
+      "index": 127,
+      "start_time": 402800.0,
+      "end_time": 404700.0,
+      "text": "And so Facebook, or LinkedIn, or"
+    },
+    {
+      "index": 128,
+      "start_time": 404700.0,
+      "end_time": 408630.0,
+      "text": "Twitter make recommendations to you, on the people you could follow or friend."
+    },
+    {
+      "index": 129,
+      "start_time": 410220.0,
+      "end_time": 413640.0,
+      "text": "I like this point with interesting anecdote that shows you"
+    },
+    {
+      "index": 130,
+      "start_time": 413640.0,
+      "end_time": 415909.0,
+      "text": "the power of a recommendation engine."
+    },
+    {
+      "index": 131,
+      "start_time": 415910.0,
+      "end_time": 421850.0,
+      "text": "Several years ago a book was published called Touching the Void."
+    },
+    {
+      "index": 132,
+      "start_time": 421850.0,
+      "end_time": 422980.0,
+      "text": "It&#39;s a book about mountaineering."
+    },
+    {
+      "index": 133,
+      "start_time": 422980.0,
+      "end_time": 424678.0,
+      "text": "It&#39;s very, very good book."
+    },
+    {
+      "index": 134,
+      "start_time": 424678.0,
+      "end_time": 427190.0,
+      "text": "The book came out, it didn&#39;t make much of a ripple."
+    },
+    {
+      "index": 135,
+      "start_time": 427190.0,
+      "end_time": 428840.0,
+      "text": "You know, few people bought the book."
+    },
+    {
+      "index": 136,
+      "start_time": 428840.0,
+      "end_time": 431900.0,
+      "text": "It got some decent reviews, but it never became a bestseller."
+    },
+    {
+      "index": 137,
+      "start_time": 432940.0,
+      "end_time": 435140.0,
+      "text": "And then a few years after Touching the Void,"
+    },
+    {
+      "index": 138,
+      "start_time": 435140.0,
+      "end_time": 438710.0,
+      "text": "a new book was published on mountaineering called Into Thin Air."
+    },
+    {
+      "index": 139,
+      "start_time": 438710.0,
+      "end_time": 440710.0,
+      "text": "Now Into Thin Air picked up traction,"
+    },
+    {
+      "index": 140,
+      "start_time": 440710.0,
+      "end_time": 443169.0,
+      "text": "and lots of people started buying Into Thin Air."
+    },
+    {
+      "index": 141,
+      "start_time": 445180.0,
+      "end_time": 448150.0,
+      "text": "Amazon noticed that a few of people who bought Into Thin Air,"
+    },
+    {
+      "index": 142,
+      "start_time": 448150.0,
+      "end_time": 450349.0,
+      "text": "had also bought Touching the Void."
+    },
+    {
+      "index": 143,
+      "start_time": 450350.0,
+      "end_time": 454660.0,
+      "text": "So they started recommending Touching the Void, to people who bought Into Thin Air."
+    },
+    {
+      "index": 144,
+      "start_time": 454660.0,
+      "end_time": 458270.0,
+      "text": "And low and behold, those people started buying Touching the Void as well."
+    },
+    {
+      "index": 145,
+      "start_time": 458270.0,
+      "end_time": 461820.0,
+      "text": "The interesting point is, this made Touching the Void a bestseller."
+    },
+    {
+      "index": 146,
+      "start_time": 461820.0,
+      "end_time": 465280.0,
+      "text": "In fact, it became a bigger bestseller even than Into Thin Air,"
+    },
+    {
+      "index": 147,
+      "start_time": 465280.0,
+      "end_time": 468450.0,
+      "text": "even though a few years ago, it had sank without a trace."
+    },
+    {
+      "index": 148,
+      "start_time": 468450.0,
+      "end_time": 472620.0,
+      "text": "So this example should show you the power of recommendation systems."
+    },
+    {
+      "index": 149,
+      "start_time": 472620.0,
+      "end_time": 476650.0,
+      "text": "There are these items, these sort of gems like Touching the Void you know,"
+    },
+    {
+      "index": 150,
+      "start_time": 476650.0,
+      "end_time": 479979.0,
+      "text": "that people don&#39;t know because they don&#39;t know to look for them."
+    },
+    {
+      "index": 151,
+      "start_time": 479980.0,
+      "end_time": 484230.0,
+      "text": "But a good recommendation system can expose people to these hidden gems,"
+    },
+    {
+      "index": 152,
+      "start_time": 484230.0,
+      "end_time": 485720.0,
+      "text": "that they wouldn&#39;t have known about otherwise."
+    },
+    {
+      "index": 153,
+      "start_time": 486970.0,
+      "end_time": 489390.0,
+      "text": "So let&#39;s look at types of recommendation systems."
+    },
+    {
+      "index": 154,
+      "start_time": 490600.0,
+      "end_time": 494660.0,
+      "text": "The simplest and the oldest kind of recommendation is editorial or"
+    },
+    {
+      "index": 155,
+      "start_time": 494660.0,
+      "end_time": 496220.0,
+      "text": "hand curated."
+    },
+    {
+      "index": 156,
+      "start_time": 496220.0,
+      "end_time": 499700.0,
+      "text": "You might find a list of favorites for example when you go into your"
+    },
+    {
+      "index": 157,
+      "start_time": 499700.0,
+      "end_time": 502360.0,
+      "text": "favorite neighborhood book store, you might find staff picks."
+    },
+    {
+      "index": 158,
+      "start_time": 502360.0,
+      "end_time": 505300.0,
+      "text": "Certain marked off as staff picks, right?"
+    },
+    {
+      "index": 159,
+      "start_time": 505300.0,
+      "end_time": 509359.0,
+      "text": "And these are editorial triangulated, and on certain websites you&#39;ll"
+    },
+    {
+      "index": 160,
+      "start_time": 509360.0,
+      "end_time": 513510.0,
+      "text": "see a list of staff favorites or a list of essential items."
+    },
+    {
+      "index": 161,
+      "start_time": 513510.0,
+      "end_time": 516200.0,
+      "text": "These are essentially built by hand."
+    },
+    {
+      "index": 162,
+      "start_time": 516200.00000000006,
+      "end_time": 520310.00000000006,
+      "text": "And another place where you&#39;ll see these editorial recommendations is often on"
+    },
+    {
+      "index": 163,
+      "start_time": 520308.99999999994,
+      "end_time": 521818.99999999994,
+      "text": "the homepages of websites."
+    },
+    {
+      "index": 164,
+      "start_time": 521820.00000000006,
+      "end_time": 526940.0,
+      "text": "For example if you go to the the homepage of most popular"
+    },
+    {
+      "index": 165,
+      "start_time": 526940.0,
+      "end_time": 531940.0,
+      "text": "websites including product websites you&#39;ll see editorial picks."
+    },
+    {
+      "index": 166,
+      "start_time": 531940.0,
+      "end_time": 535600.0,
+      "text": "These are products that have been picked by the editorial staff to feature"
+    },
+    {
+      "index": 167,
+      "start_time": 535600.0,
+      "end_time": 535589.0,
+      "text": "on the home page."
+    },
+    {
+      "index": 168,
+      "start_time": 535590.0,
+      "end_time": 540910.0,
+      "text": "The drawback with editorial on hand curated recommendation,"
+    },
+    {
+      "index": 169,
+      "start_time": 540910.0,
+      "end_time": 545740.0,
+      "text": "is that the, it&#39;s done entirely by you know, by the staff of the website, and"
+    },
+    {
+      "index": 170,
+      "start_time": 545740.0,
+      "end_time": 548270.0,
+      "text": "there&#39;s no input from the users of the site."
+    },
+    {
+      "index": 171,
+      "start_time": 548270.0,
+      "end_time": 550360.0,
+      "text": "So, when you go beyond editorial recommendations,"
+    },
+    {
+      "index": 172,
+      "start_time": 550360.0,
+      "end_time": 553640.0,
+      "text": "the next simple thing that you can do is simple aggregates."
+    },
+    {
+      "index": 173,
+      "start_time": 553640.0,
+      "end_time": 557560.0,
+      "text": "On many websites, you&#39;ll see lists of top ten, or"
+    },
+    {
+      "index": 174,
+      "start_time": 557560.0,
+      "end_time": 561200.0,
+      "text": "most popular, or most recent for example,"
+    },
+    {
+      "index": 175,
+      "start_time": 561200.0,
+      "end_time": 565689.0,
+      "text": "if you go to YouTube you can see the most popular videos, for instance, right."
+    },
+    {
+      "index": 176,
+      "start_time": 565690.0,
+      "end_time": 568590.0,
+      "text": "So these are simple aggregates which sort of"
+    },
+    {
+      "index": 177,
+      "start_time": 568590.0,
+      "end_time": 572650.0,
+      "text": "take into account user activity to make recommendations to other users."
+    },
+    {
+      "index": 178,
+      "start_time": 572650.0,
+      "end_time": 577810.0,
+      "text": "But these recommendations don&#39;t depend on the user they only depend on,"
+    },
+    {
+      "index": 179,
+      "start_time": 577810.0,
+      "end_time": 580430.0,
+      "text": "you know, the, the aggregate activity of a lot of other users."
+    },
+    {
+      "index": 180,
+      "start_time": 582600.0,
+      "end_time": 584989.0,
+      "text": "The third and most interesting kind of recommendation to us"
+    },
+    {
+      "index": 181,
+      "start_time": 584990.0,
+      "end_time": 588960.0,
+      "text": "is recommendations that are tailored to individual users."
+    },
+    {
+      "index": 182,
+      "start_time": 588960.0,
+      "end_time": 593300.0,
+      "text": "Right for example, book recommendations tailored to your taste, or"
+    },
+    {
+      "index": 183,
+      "start_time": 593300.0,
+      "end_time": 596699.0,
+      "text": "movie recommendations based on the movies that you watched previously."
+    },
+    {
+      "index": 184,
+      "start_time": 596700.0,
+      "end_time": 599970.0,
+      "text": "Or music recommendation based on your music interests."
+    },
+    {
+      "index": 185,
+      "start_time": 599970.0,
+      "end_time": 605100.0,
+      "text": "And this is our focus here recommendations that are tailored to individual users."
+    },
+    {
+      "index": 186,
+      "start_time": 609790.0,
+      "end_time": 611448.0,
+      "text": "So lets look at a formal model."
+    },
+    {
+      "index": 187,
+      "start_time": 611448.0,
+      "end_time": 614860.0,
+      "text": "Let C be a set of customers and S a set of items."
+    },
+    {
+      "index": 188,
+      "start_time": 616620.0,
+      "end_time": 621410.0,
+      "text": "We will create a function called the utility function or a utility matrix."
+    },
+    {
+      "index": 189,
+      "start_time": 621410.0,
+      "end_time": 626560.0,
+      "text": "The utility function is a function that looks at every pair of"
+    },
+    {
+      "index": 190,
+      "start_time": 626560.0,
+      "end_time": 630319.0,
+      "text": "customer and item, and maps it to a rating."
+    },
+    {
+      "index": 191,
+      "start_time": 631760.0,
+      "end_time": 632569.0,
+      "text": "Okay."
+    },
+    {
+      "index": 192,
+      "start_time": 632570.0,
+      "end_time": 634980.0,
+      "text": "R in this case is a set of ratings."
+    },
+    {
+      "index": 193,
+      "start_time": 634980.0,
+      "end_time": 640270.0,
+      "text": "And for example R could be a star rating from one star to five star."
+    },
+    {
+      "index": 194,
+      "start_time": 640270.0,
+      "end_time": 643595.0,
+      "text": "R could be a number between zero and ten."
+    },
+    {
+      "index": 195,
+      "start_time": 644840.0,
+      "end_time": 648400.0,
+      "text": "In general, R is a totally ordered set so that,"
+    },
+    {
+      "index": 196,
+      "start_time": 648400.0,
+      "end_time": 652470.0,
+      "text": "you know, a lower value indicates that a user liked the product less, and"
+    },
+    {
+      "index": 197,
+      "start_time": 652470.0,
+      "end_time": 655300.0,
+      "text": "a higher value indicates that a user liked the product more."
+    },
+    {
+      "index": 198,
+      "start_time": 656940.0,
+      "end_time": 658870.0,
+      "text": "Let&#39;s look at an example of a utility matrix."
+    },
+    {
+      "index": 199,
+      "start_time": 660760.0,
+      "end_time": 663220.0,
+      "text": "On the top we have four movies here."
+    },
+    {
+      "index": 200,
+      "start_time": 663220.0,
+      "end_time": 666250.0,
+      "text": "Avatar, Lord of the Rings, Matrix, and Pirates of the Caribbean."
+    },
+    {
+      "index": 201,
+      "start_time": 666250.0,
+      "end_time": 668740.0,
+      "text": "And down here we have four users Alice, Bob, Carol, and David."
+    },
+    {
+      "index": 202,
+      "start_time": 669800.0,
+      "end_time": 675150.0,
+      "text": "And the utility matrix gives you rating for certain movies and certain users."
+    },
+    {
+      "index": 203,
+      "start_time": 675150.0,
+      "end_time": 678370.0,
+      "text": "For example Alice has rated Avatar and"
+    },
+    {
+      "index": 204,
+      "start_time": 678370.0,
+      "end_time": 682210.0,
+      "text": "Matrix, but not Lord of the Rings or Pirates of the Caribbean."
+    },
+    {
+      "index": 205,
+      "start_time": 682210.0,
+      "end_time": 686510.0,
+      "text": "Whereas Carol has rated you know, has rated the same two movies."
+    },
+    {
+      "index": 206,
+      "start_time": 686510.0,
+      "end_time": 687970.0,
+      "text": "Bob has rated Lord of the Rings and"
+    },
+    {
+      "index": 207,
+      "start_time": 687970.0,
+      "end_time": 692550.0,
+      "text": "Pirates but hasn&#39;t rated Avatar or, or Matrix."
+    },
+    {
+      "index": 208,
+      "start_time": 692550.0,
+      "end_time": 695839.0,
+      "text": "Now it could be that these users have not scene these movies or"
+    },
+    {
+      "index": 209,
+      "start_time": 695840.0,
+      "end_time": 699199.0,
+      "text": "it could be that they&#39;ve seen the movies, but not bother to rate them."
+    },
+    {
+      "index": 210,
+      "start_time": 700560.0,
+      "end_time": 704569.0,
+      "text": "So in general, usually a matrix like this is going to be sparse."
+    },
+    {
+      "index": 211,
+      "start_time": 704570.0,
+      "end_time": 707160.0,
+      "text": "You know, most of the users haven&#39;t seen most of the movies."
+    },
+    {
+      "index": 212,
+      "start_time": 708200.0,
+      "end_time": 713100.0,
+      "text": "And there are going to be values in some of the you know, some of the locations."
+    },
+    {
+      "index": 213,
+      "start_time": 713100.0,
+      "end_time": 717500.0,
+      "text": "The problem in recommendation systems is to figure out these unknown values."
+    },
+    {
+      "index": 214,
+      "start_time": 717500.0,
+      "end_time": 721870.0,
+      "text": "For example you&#39;ve seen that Alice is rated Avatar and"
+    },
+    {
+      "index": 215,
+      "start_time": 721870.0,
+      "end_time": 724820.0,
+      "text": "Matrix, but hasn&#39;t rated Lord Of The Rings."
+    },
+    {
+      "index": 216,
+      "start_time": 724820.0,
+      "end_time": 730390.0,
+      "text": "So the question is can we figure out what Alice&#39;s rating for"
+    },
+    {
+      "index": 217,
+      "start_time": 730390.0,
+      "end_time": 734680.0,
+      "text": "Lord Of The Rings will be, based on her other ratings?"
+    },
+    {
+      "index": 218,
+      "start_time": 734680.0,
+      "end_time": 737270.0,
+      "text": "Can you figure out whether she likes Pirates or not?"
+    },
+    {
+      "index": 219,
+      "start_time": 738600.0,
+      "end_time": 740290.0,
+      "text": "Right. So this is the key problem for"
+    },
+    {
+      "index": 220,
+      "start_time": 740290.0,
+      "end_time": 741490.0,
+      "text": "recommended systems."
+    },
+    {
+      "index": 221,
+      "start_time": 741490.0,
+      "end_time": 746510.0,
+      "text": "Once we find out for each user certain movies that they would have rated highly,"
+    },
+    {
+      "index": 222,
+      "start_time": 746510.0,
+      "end_time": 749490.0,
+      "text": "or the system thinks they might have rated highly,"
+    },
+    {
+      "index": 223,
+      "start_time": 749490.0,
+      "end_time": 751750.0,
+      "text": "then we can recommend those movies to those users."
+    },
+    {
+      "index": 224,
+      "start_time": 751750.0,
+      "end_time": 756930.0,
+      "text": "So there are three key problems in the space of recommended systems."
+    },
+    {
+      "index": 225,
+      "start_time": 756930.0,
+      "end_time": 761500.0,
+      "text": "The first is gathering the known ratings in the ratings in the matrix."
+    },
+    {
+      "index": 226,
+      "start_time": 761500.0,
+      "end_time": 764391.0,
+      "text": "Now in the previous slide when you look at the utility matrix it was"
+    },
+    {
+      "index": 227,
+      "start_time": 764391.0,
+      "end_time": 766207.0,
+      "text": "already filled in with certain values."
+    },
+    {
+      "index": 228,
+      "start_time": 766207.0,
+      "end_time": 768834.0,
+      "text": "But how do you get, gather those values in the first place?"
+    },
+    {
+      "index": 229,
+      "start_time": 768834.0,
+      "end_time": 772100.0,
+      "text": "So that&#39;s the key that&#39;s the first problem that you need to tackle."
+    },
+    {
+      "index": 230,
+      "start_time": 774800.0,
+      "end_time": 777819.0,
+      "text": "The second problem is to extrapolate unknown ratings from known ratings."
+    },
+    {
+      "index": 231,
+      "start_time": 779770.0,
+      "end_time": 783430.0,
+      "text": "But we&#39;re mainly interested in the high unknown ratings."
+    },
+    {
+      "index": 232,
+      "start_time": 783430.0,
+      "end_time": 786750.0,
+      "text": "We are interested in those ratings where a user would&#39;ve given"
+    },
+    {
+      "index": 233,
+      "start_time": 786750.0,
+      "end_time": 787730.0,
+      "text": "a high rating to a movie."
+    },
+    {
+      "index": 234,
+      "start_time": 787730.0,
+      "end_time": 791430.0,
+      "text": "We are not interested in the average, or the low ratings because they&#39;re never"
+    },
+    {
+      "index": 235,
+      "start_time": 791430.0,
+      "end_time": 793200.0,
+      "text": "going to recommend those movies to the user."
+    },
+    {
+      "index": 236,
+      "start_time": 795660.0,
+      "end_time": 800180.0,
+      "text": "And finally, the third key problem is evaluating extrapolation methods."
+    },
+    {
+      "index": 237,
+      "start_time": 800180.0,
+      "end_time": 803239.0,
+      "text": "Once you have a recommendation system that can extrapolate unknown ratings from"
+    },
+    {
+      "index": 238,
+      "start_time": 803240.0,
+      "end_time": 807700.0,
+      "text": "known ratings, how do you know the recommended system is doing well?"
+    },
+    {
+      "index": 239,
+      "start_time": 807700.0,
+      "end_time": 810162.0,
+      "text": "This is where evaluation methodologies come in."
+    },
+    {
+      "index": 240,
+      "start_time": 810162.0,
+      "end_time": 814730.0,
+      "text": "Let&#39;s start with the first problem, that of gathering ratings."
+    },
+    {
+      "index": 241,
+      "start_time": 816100.0,
+      "end_time": 816580.0,
+      "text": "The first and"
+    },
+    {
+      "index": 242,
+      "start_time": 816580.0,
+      "end_time": 821510.0,
+      "text": "simplest way of gathering ratings is, is what I call explicit patterns."
+    },
+    {
+      "index": 243,
+      "start_time": 821510.0,
+      "end_time": 823200.0,
+      "text": "Simply ask people to rate items."
+    },
+    {
+      "index": 244,
+      "start_time": 825520.0,
+      "end_time": 827100.0,
+      "text": "Now this method is good because the,"
+    },
+    {
+      "index": 245,
+      "start_time": 827100.0,
+      "end_time": 829768.0,
+      "text": "you know you&#39;re asking people to directly rate items."
+    },
+    {
+      "index": 246,
+      "start_time": 829768.0,
+      "end_time": 831640.0,
+      "text": "And you&#39;re going to get, you know, for ex,"
+    },
+    {
+      "index": 247,
+      "start_time": 831640.0,
+      "end_time": 834630.0,
+      "text": "and you can decide on what scale people are going to rate items."
+    },
+    {
+      "index": 248,
+      "start_time": 834630.0,
+      "end_time": 838720.0,
+      "text": "For example, you can say and ask for ratings on a one to five star scale."
+    },
+    {
+      "index": 249,
+      "start_time": 838720.0,
+      "end_time": 841750.0,
+      "text": "Or you can ask people to rate on a scale from zero to ten."
+    },
+    {
+      "index": 250,
+      "start_time": 842920.0,
+      "end_time": 845510.0,
+      "text": "or, or we can just ask people to say whether they like an item or"
+    },
+    {
+      "index": 251,
+      "start_time": 845510.0,
+      "end_time": 847100.0,
+      "text": "did not like it."
+    },
+    {
+      "index": 252,
+      "start_time": 847100.0,
+      "end_time": 851400.0,
+      "text": "So the exclusive method had the advantage of simplicity and"
+    },
+    {
+      "index": 253,
+      "start_time": 851400.0,
+      "end_time": 853470.0,
+      "text": "of getting direct responses from users."
+    },
+    {
+      "index": 254,
+      "start_time": 854700.0,
+      "end_time": 856260.0,
+      "text": "The problem, though, is that it doesn&#39;t scale."
+    },
+    {
+      "index": 255,
+      "start_time": 858100.0,
+      "end_time": 862180.0,
+      "text": "Only a small fraction of users who viewed a movie or listened to a, you know, piece"
+    },
+    {
+      "index": 256,
+      "start_time": 862180.0,
+      "end_time": 865729.0,
+      "text": "of music or bought a product are actually bother to leave a rating or review."
+    },
+    {
+      "index": 257,
+      "start_time": 866880.0,
+      "end_time": 870500.0,
+      "text": "Most users don&#39;t actually leave ratings or reviews."
+    },
+    {
+      "index": 258,
+      "start_time": 870500.0,
+      "end_time": 873520.0,
+      "text": "So while the data that&#39;s explicitly gathered&#39;s excellent data."
+    },
+    {
+      "index": 259,
+      "start_time": 874670.0,
+      "end_time": 878849.0,
+      "text": "It it&#39;s not sufficient in most cases for recommendations,"
+    },
+    {
+      "index": 260,
+      "start_time": 878850.0,
+      "end_time": 882900.0,
+      "text": "because only a small fraction of users actually leave ratings and reviews."
+    },
+    {
+      "index": 261,
+      "start_time": 883280.0,
+      "end_time": 888400.0,
+      "text": "Since explicit rating don&#39;t scale, a lot of sites use implicit ratings."
+    },
+    {
+      "index": 262,
+      "start_time": 888400.0,
+      "end_time": 892660.0,
+      "text": "Now the idea behind implicit ratings is to learn ratings from other user action."
+    },
+    {
+      "index": 263,
+      "start_time": 892660.0,
+      "end_time": 897180.0,
+      "text": "For example an online shopping website might"
+    },
+    {
+      "index": 264,
+      "start_time": 898510.0,
+      "end_time": 901290.0,
+      "text": "have a rule that a purchase implies a high rating."
+    },
+    {
+      "index": 265,
+      "start_time": 903180.0,
+      "end_time": 905130.0,
+      "text": "Now the nice thing about implicit ratings,"
+    },
+    {
+      "index": 266,
+      "start_time": 905130.0,
+      "end_time": 909800.0,
+      "text": "is that they&#39;re much more scalable than explicit ratings."
+    },
+    {
+      "index": 267,
+      "start_time": 909800.0,
+      "end_time": 911990.0,
+      "text": "Because the user doesn&#39;t have to explicitly rate an item, and"
+    },
+    {
+      "index": 268,
+      "start_time": 911990.0,
+      "end_time": 915160.0,
+      "text": "there are way more other actions than there are ratings."
+    },
+    {
+      "index": 269,
+      "start_time": 916360.0,
+      "end_time": 920310.0,
+      "text": "The problem though is that it&#39;s very hard using implicit ratings to"
+    },
+    {
+      "index": 270,
+      "start_time": 920310.0,
+      "end_time": 922229.0,
+      "text": "learn low ratings."
+    },
+    {
+      "index": 271,
+      "start_time": 922230.0,
+      "end_time": 924410.0,
+      "text": "It&#39;s quite easy to learn high ratings because you,"
+    },
+    {
+      "index": 272,
+      "start_time": 924410.0,
+      "end_time": 927200.0,
+      "text": "you might have it all that points imply the high rating."
+    },
+    {
+      "index": 273,
+      "start_time": 927200.0,
+      "end_time": 934360.0,
+      "text": "But you, you can never learn a rating that a user disliked a product implicitly."
+    },
+    {
+      "index": 274,
+      "start_time": 934360.0,
+      "end_time": 936439.0,
+      "text": "Impactors."
+    },
+    {
+      "index": 275,
+      "start_time": 936440.0,
+      "end_time": 937660.0,
+      "text": "Most recommender systems and"
+    },
+    {
+      "index": 276,
+      "start_time": 937660.0,
+      "end_time": 941949.0,
+      "text": "most web sites, use a combination of explicit and implicit ratings."
+    },
+    {
+      "index": 277,
+      "start_time": 941950.0,
+      "end_time": 945300.0,
+      "text": "Where explicitly ratings are available, they use them."
+    },
+    {
+      "index": 278,
+      "start_time": 945300.0,
+      "end_time": 947790.0,
+      "text": "But they supplement them with implicit ratings when needed."
+    },
+    {
+      "index": 279,
+      "start_time": 951730.0,
+      "end_time": 955860.0,
+      "text": "Let&#39;s move on now to the central problem of Extrapolating Utilities."
+    },
+    {
+      "index": 280,
+      "start_time": 955860.0,
+      "end_time": 959990.0,
+      "text": "Or extrapolating unknown utilities from known utility values."
+    },
+    {
+      "index": 281,
+      "start_time": 962240.0,
+      "end_time": 967580.0,
+      "text": "The key of central problem, that we have this amount to extrapolate utilities,"
+    },
+    {
+      "index": 282,
+      "start_time": 967580.0,
+      "end_time": 971270.0,
+      "text": "is that the matrix U, the utility matrix is very, very sparse."
+    },
+    {
+      "index": 283,
+      "start_time": 971270.0,
+      "end_time": 973500.0,
+      "text": "Most people have not rated most items."
+    },
+    {
+      "index": 284,
+      "start_time": 973500.0,
+      "end_time": 976800.0,
+      "text": "And this introduces a slew of problems that we&#39;ll come across shortly."
+    },
+    {
+      "index": 285,
+      "start_time": 978900.0,
+      "end_time": 980810.0,
+      "text": "The second problem we have is a cold start problem."
+    },
+    {
+      "index": 286,
+      "start_time": 980810.0,
+      "end_time": 981739.0,
+      "text": "When you have a new item or"
+    },
+    {
+      "index": 287,
+      "start_time": 981740.0,
+      "end_time": 986870.0,
+      "text": "a new user, the new item doesn&#39;t have any ratings, and new users have no history."
+    },
+    {
+      "index": 288,
+      "start_time": 986870.0,
+      "end_time": 990929.0,
+      "text": "So, this is known as the cold start problem, and"
+    },
+    {
+      "index": 289,
+      "start_time": 990929.0,
+      "end_time": 994906.0,
+      "text": "how to tackle this problem as for in due course."
+    },
+    {
+      "index": 290,
+      "start_time": 994906.0,
+      "end_time": 998319.0,
+      "text": "There are three approaches to building recommender systems."
+    },
+    {
+      "index": 291,
+      "start_time": 999420.0,
+      "end_time": 1001900.0,
+      "text": "The first is Content-based recommendations."
+    },
+    {
+      "index": 292,
+      "start_time": 1001900.0,
+      "end_time": 1004350.0,
+      "text": "The second is Collaborative filtering."
+    },
+    {
+      "index": 293,
+      "start_time": 1004350.0,
+      "end_time": 1007110.0,
+      "text": "And the third is Latent factor based modeling."
+    },
+    {
+      "index": 294,
+      "start_time": 1007110.0,
+      "end_time": 1009410.0,
+      "text": "Let&#39;s start with Content-based approaches."
+    }
+  ]
+}

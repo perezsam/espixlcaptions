@@ -1,0 +1,408 @@
+{
+  "video_id": "He4t7Zekob0",
+  "title": "How Does Deep Learning Work? | Two Minute Papers #24",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 560.0,
+      "end_time": 3759.0,
+      "text": "Dear Fellow Scholars, this is Two Minute Papers with Károly Zsolnai-Fehér."
+    },
+    {
+      "index": 2,
+      "start_time": 3759.0,
+      "end_time": 8790.0,
+      "text": "A neural network is a very loose model of the human brain that we can program in a computer,"
+    },
+    {
+      "index": 3,
+      "start_time": 8790.0,
+      "end_time": 13910.0,
+      "text": "or it's perhaps more appropriate to say that it is inspired by our knowledge of the"
+    },
+    {
+      "index": 4,
+      "start_time": 13910.0,
+      "end_time": 15810.0,
+      "text": "inner workings of a human brain."
+    },
+    {
+      "index": 5,
+      "start_time": 15810.0,
+      "end_time": 20890.0,
+      "text": "Now, let's note that artificial neural networks have been studied for decades by experts,"
+    },
+    {
+      "index": 6,
+      "start_time": 20890.0,
+      "end_time": 25779.0,
+      "text": "and the goal here is not to show all aspects, but one intuitive, graphical aspect that is"
+    },
+    {
+      "index": 7,
+      "start_time": 25779.0,
+      "end_time": 28619.0,
+      "text": "really cool and easy to understand."
+    },
+    {
+      "index": 8,
+      "start_time": 28619.0,
+      "end_time": 32980.0,
+      "text": "Take a look at these curves on a plane. These curves are a collection of points, and these"
+    },
+    {
+      "index": 9,
+      "start_time": 32980.0,
+      "end_time": 39170.0,
+      "text": "points you can imagine as images, sounds, or any kind of input data that we try to learn."
+    },
+    {
+      "index": 10,
+      "start_time": 39170.0,
+      "end_time": 43230.0,
+      "text": "The red and the blue curves represent two different classes - the red can mean images"
+    },
+    {
+      "index": 11,
+      "start_time": 43230.0,
+      "end_time": 47260.0,
+      "text": "of trains, and the blue, for instance, images of bunnies."
+    },
+    {
+      "index": 12,
+      "start_time": 47260.0,
+      "end_time": 52110.0,
+      "text": "Now, after we have trained the network from this limited data, which is basically a bunch"
+    },
+    {
+      "index": 13,
+      "start_time": 52110.0,
+      "end_time": 57170.0,
+      "text": "of images of of trains and bunnies, we will get new points on this plane, new images,"
+    },
+    {
+      "index": 14,
+      "start_time": 57170.0,
+      "end_time": 60830.0,
+      "text": "and we would like to know whether this new image looks like a train or a bunny. This"
+    },
+    {
+      "index": 15,
+      "start_time": 60830.0,
+      "end_time": 63210.0,
+      "text": "is what the algorithm has to find out."
+    },
+    {
+      "index": 16,
+      "start_time": 63210.0,
+      "end_time": 67460.0,
+      "text": "And this we call a classification problem, to which a simple and bad solution would be"
+    },
+    {
+      "index": 17,
+      "start_time": 67460.0,
+      "end_time": 72679.0,
+      "text": "simply cutting the plane in half with a line. Images belonging to the red regions will be"
+    },
+    {
+      "index": 18,
+      "start_time": 72679.0,
+      "end_time": 77780.0,
+      "text": "classified as the red class, and the blue regions as the blue class. Now, as you see,"
+    },
+    {
+      "index": 19,
+      "start_time": 77780.0,
+      "end_time": 82960.0,
+      "text": "the red region cuts into the blue curve, which means that some trains would be misclassified"
+    },
+    {
+      "index": 20,
+      "start_time": 82960.0,
+      "end_time": 84069.0,
+      "text": "as bunnies."
+    },
+    {
+      "index": 21,
+      "start_time": 84069.0,
+      "end_time": 89049.0,
+      "text": "It seems that if we look at the problem from this angle, we cannot separate the two classes"
+    },
+    {
+      "index": 22,
+      "start_time": 89049.0,
+      "end_time": 90899.0,
+      "text": "perfectly with a straight line."
+    },
+    {
+      "index": 23,
+      "start_time": 90899.0,
+      "end_time": 96409.0,
+      "text": "However, if we use a simple neural network, it will give us this result. Hey! But that's"
+    },
+    {
+      "index": 24,
+      "start_time": 96409.0,
+      "end_time": 101020.0,
+      "text": "cheating, we were talking about straight lines. This is anything but a straight line."
+    },
+    {
+      "index": 25,
+      "start_time": 101020.0,
+      "end_time": 105579.0,
+      "text": "A key concept of neural networks is that they create an inner representation of the data"
+    },
+    {
+      "index": 26,
+      "start_time": 105579.0,
+      "end_time": 110709.0,
+      "text": "model and try to solve the problem in that space. What this intuitively means, is that"
+    },
+    {
+      "index": 27,
+      "start_time": 110709.0,
+      "end_time": 115920.0,
+      "text": "the algorithm will start transforming and warping these curves, where their shapes start"
+    },
+    {
+      "index": 28,
+      "start_time": 115920.0,
+      "end_time": 120109.0,
+      "text": "changing, and it finds, that if we do well with this warping step, we can actually draw"
+    },
+    {
+      "index": 29,
+      "start_time": 120109.0,
+      "end_time": 126600.0,
+      "text": "a line to separate these two classes. After we undo this warping and transform the line"
+    },
+    {
+      "index": 30,
+      "start_time": 126600.0,
+      "end_time": 131590.0,
+      "text": "here back to the original problem, it will look like a curve. Really cool, isn't it?"
+    },
+    {
+      "index": 31,
+      "start_time": 131590.0,
+      "end_time": 136870.0,
+      "text": "So these are lines, only in a different representation of the problem. Who said that the original"
+    },
+    {
+      "index": 32,
+      "start_time": 136870.0,
+      "end_time": 140110.0,
+      "text": "representation is the best way to solve a problem?"
+    },
+    {
+      "index": 33,
+      "start_time": 140110.0,
+      "end_time": 145049.0,
+      "text": "Take a look at this example with these entangled spirals. Can we separate these with a line?"
+    },
+    {
+      "index": 34,
+      "start_time": 145049.0,
+      "end_time": 150620.0,
+      "text": "Not a chance. But the answer is - not a chance with this representation. But if one starts"
+    },
+    {
+      "index": 35,
+      "start_time": 150620.0,
+      "end_time": 154890.0,
+      "text": "warping them correctly, there will be states where they can easily be separated."
+    },
+    {
+      "index": 36,
+      "start_time": 154890.0,
+      "end_time": 159890.0,
+      "text": "However, there are rules in this game - for instance, one cannot just rip out one of the"
+    },
+    {
+      "index": 37,
+      "start_time": 159890.0,
+      "end_time": 165549.0,
+      "text": "spirals here and put it somewhere else. These transformations have to be homeomorphisms,"
+    },
+    {
+      "index": 38,
+      "start_time": 165549.0,
+      "end_time": 170400.0,
+      "text": "which is a term that mathematicians like to use - it intuitively means that that the warpings"
+    },
+    {
+      "index": 39,
+      "start_time": 170400.0,
+      "end_time": 175140.0,
+      "text": "are not too crazy - meaning that we don't tear apart important structures, and as they"
+    },
+    {
+      "index": 40,
+      "start_time": 175140.0,
+      "end_time": 180640.0,
+      "text": "remain intact, the warped solution is still meaningful with respect to the original problem."
+    },
+    {
+      "index": 41,
+      "start_time": 180640.0,
+      "end_time": 185569.0,
+      "text": "Now comes the deep learning part. Deep learning means that the neural network has multiple"
+    },
+    {
+      "index": 42,
+      "start_time": 185569.0,
+      "end_time": 190310.0,
+      "text": "of these hidden layers and can therefore create much more effective inner representations"
+    },
+    {
+      "index": 43,
+      "start_time": 190310.0,
+      "end_time": 194930.0,
+      "text": "of the data. From an earlier episode, we've seen in an image recognition task that as"
+    },
+    {
+      "index": 44,
+      "start_time": 194930.0,
+      "end_time": 199860.0,
+      "text": "we go further and further into the layers, first we'll see an edge detector, and as a"
+    },
+    {
+      "index": 45,
+      "start_time": 199860.0,
+      "end_time": 205370.0,
+      "text": "combination of edges, object parts emerge, and in the later layers, a combination of"
+    },
+    {
+      "index": 46,
+      "start_time": 205370.0,
+      "end_time": 209689.0,
+      "text": "object parts create object models."
+    },
+    {
+      "index": 47,
+      "start_time": 209689.0,
+      "end_time": 213750.0,
+      "text": "Let's take a look at this example. We have a bullseye here if you will, and you can see"
+    },
+    {
+      "index": 48,
+      "start_time": 213750.0,
+      "end_time": 219430.0,
+      "text": "that the network is trying to warp this to separate it with a line, but in vain."
+    },
+    {
+      "index": 49,
+      "start_time": 219430.0,
+      "end_time": 224670.0,
+      "text": "However, if we have a deep neural network, we have more degrees of freedom, more directions"
+    },
+    {
+      "index": 50,
+      "start_time": 224670.0,
+      "end_time": 229609.0,
+      "text": "and possibilities to warp this data. And if you think intuitively, if this were a piece"
+    },
+    {
+      "index": 51,
+      "start_time": 229609.0,
+      "end_time": 234599.0,
+      "text": "of paper, you could put your finger behind the red zone and push it in, making it possible"
+    },
+    {
+      "index": 52,
+      "start_time": 234599.0,
+      "end_time": 241400.0,
+      "text": "to separate the two regions with a line. Let's take a look at a 1 dimensional example to"
+    },
+    {
+      "index": 53,
+      "start_time": 241400.0,
+      "end_time": 246049.0,
+      "text": "see better what's going on. This line is the 1D equivalent of the original problem, and"
+    },
+    {
+      "index": 54,
+      "start_time": 246049.0,
+      "end_time": 255040.0,
+      "text": "you see that the problem becomes quite trivial if we have the freedom to do this transformation."
+    },
+    {
+      "index": 55,
+      "start_time": 255040.0,
+      "end_time": 259709.0,
+      "text": "We can easily encounter cases where the data is very severely tangled and we don't now"
+    },
+    {
+      "index": 56,
+      "start_time": 259709.0,
+      "end_time": 265000.0,
+      "text": "how good our best solution can be. There is a very heavily academic subfield of mathematics,"
+    },
+    {
+      "index": 57,
+      "start_time": 265000.0,
+      "end_time": 270330.0,
+      "text": "called knot theory, which is the study of tangling and untangling objects. It is subject"
+    },
+    {
+      "index": 58,
+      "start_time": 270330.0,
+      "end_time": 276229.0,
+      "text": "to a lot of snarky comments for not being well, too exciting or useful. What is really"
+    },
+    {
+      "index": 59,
+      "start_time": 276229.0,
+      "end_time": 281990.0,
+      "text": "mind blowing is that knot theory can actually help us study these kinds of problems and"
+    },
+    {
+      "index": 60,
+      "start_time": 281990.0,
+      "end_time": 287600.0,
+      "text": "it may ultimately end up being useful for recognizing traffic signs and designing self-driving"
+    },
+    {
+      "index": 61,
+      "start_time": 287600.0,
+      "end_time": 290990.0,
+      "text": "cars."
+    },
+    {
+      "index": 62,
+      "start_time": 290990.0,
+      "end_time": 296520.0,
+      "text": "Now, it's time to get our hands dirty! Let's run a neural network on this dataset."
+    },
+    {
+      "index": 63,
+      "start_time": 296520.0,
+      "end_time": 301349.0,
+      "text": "If we use a low number of neurons and one layer, you can see that it is trying ferociously,"
+    },
+    {
+      "index": 64,
+      "start_time": 301349.0,
+      "end_time": 308900.0,
+      "text": "but we know that it is going to be a fruitless endeavor. Upon increasing the number of neurons,"
+    },
+    {
+      "index": 65,
+      "start_time": 308900.0,
+      "end_time": 314430.0,
+      "text": "magic happens. And we now know exactly why! Yeah!"
+    },
+    {
+      "index": 66,
+      "start_time": 314430.0,
+      "end_time": 319610.0,
+      "text": "Thanks so much for watching and for your generous support. I feel really privileged to have"
+    },
+    {
+      "index": 67,
+      "start_time": 319610.0,
+      "end_time": 329610.0,
+      "text": "supporters like you Fellow Scholars. Thank you, and I'll see you next time!"
+    }
+  ]
+}

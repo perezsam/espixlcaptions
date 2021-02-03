@@ -1,0 +1,1080 @@
+{
+  "video_id": "Gj0iyo265bc",
+  "title": "Classifying Handwritten Digits with TF.Learn - Machine Learning Recipes #7",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 6011.0,
+      "end_time": 7510.0,
+      "text": "JOSH GORDON: Last episode we trained"
+    },
+    {
+      "index": 2,
+      "start_time": 7510.0,
+      "end_time": 10500.0,
+      "text": "in Image Classifier using TensorFlow for Poets,"
+    },
+    {
+      "index": 3,
+      "start_time": 10500.0,
+      "end_time": 13552.0,
+      "text": "and this time, we&#39;ll write one using TF.Learn."
+    },
+    {
+      "index": 4,
+      "start_time": 13552.0,
+      "end_time": 15010.0,
+      "text": "The problem we&#39;ll start on today is"
+    },
+    {
+      "index": 5,
+      "start_time": 15010.0,
+      "end_time": 18400.0,
+      "text": "classifying handwritten digits from the MNIST dataset,"
+    },
+    {
+      "index": 6,
+      "start_time": 18400.0,
+      "end_time": 21000.0,
+      "text": "and writing a simple classifier for these is often"
+    },
+    {
+      "index": 7,
+      "start_time": 21000.0,
+      "end_time": 23780.0,
+      "text": "considered the Hello World of computer vision."
+    },
+    {
+      "index": 8,
+      "start_time": 23780.0,
+      "end_time": 26940.0,
+      "text": "Now MNIST is a multi-class classification problem."
+    },
+    {
+      "index": 9,
+      "start_time": 26940.0,
+      "end_time": 28620.0,
+      "text": "Given an image of a digit, our job"
+    },
+    {
+      "index": 10,
+      "start_time": 28620.0,
+      "end_time": 30880.0,
+      "text": "will be to predict which one it is."
+    },
+    {
+      "index": 11,
+      "start_time": 30880.0,
+      "end_time": 32900.0,
+      "text": "I wrote an IPython notebook for this episode,"
+    },
+    {
+      "index": 12,
+      "start_time": 32900.0,
+      "end_time": 35110.0,
+      "text": "and you can find a link to it in the description."
+    },
+    {
+      "index": 13,
+      "start_time": 35110.0,
+      "end_time": 37630.0,
+      "text": "And to make it easier for you to configure your environment,"
+    },
+    {
+      "index": 14,
+      "start_time": 37630.0,
+      "end_time": 39630.0,
+      "text": "I&#39;ll start with a quick screencast of installing"
+    },
+    {
+      "index": 15,
+      "start_time": 39630.0,
+      "end_time": 41576.0,
+      "text": "TensorFlow using Docker."
+    },
+    {
+      "index": 16,
+      "start_time": 41576.0,
+      "end_time": 43450.0,
+      "text": "First, here&#39;s an outline of what we&#39;ll cover."
+    },
+    {
+      "index": 17,
+      "start_time": 43450.0,
+      "end_time": 45158.0,
+      "text": "I&#39;ll show you how to download the dataset"
+    },
+    {
+      "index": 18,
+      "start_time": 45158.0,
+      "end_time": 46530.0,
+      "text": "and visualize images."
+    },
+    {
+      "index": 19,
+      "start_time": 46530.0,
+      "end_time": 49050.0,
+      "text": "Next, we&#39;ll train a classifier, evaluate it,"
+    },
+    {
+      "index": 20,
+      "start_time": 49050.0,
+      "end_time": 51911.0,
+      "text": "and use it to make predictions on new images."
+    },
+    {
+      "index": 21,
+      "start_time": 51911.0,
+      "end_time": 54160.0,
+      "text": "Then we&#39;ll visualize the weights the classifier learns"
+    },
+    {
+      "index": 22,
+      "start_time": 54160.0,
+      "end_time": 56940.0,
+      "text": "to gain intuition for how it works under the hood."
+    },
+    {
+      "index": 23,
+      "start_time": 56940.0,
+      "end_time": 59397.0,
+      "text": "Let&#39;s start by installing TensorFlow."
+    },
+    {
+      "index": 24,
+      "start_time": 59397.0,
+      "end_time": 60980.0,
+      "text": "You can find installation instructions"
+    },
+    {
+      "index": 25,
+      "start_time": 60980.0,
+      "end_time": 63090.0,
+      "text": "for Docker linked from the Getting Started page"
+    },
+    {
+      "index": 26,
+      "start_time": 63090.0,
+      "end_time": 66020.0,
+      "text": "on TensorFlow.org, and I&#39;ll start this screencast"
+    },
+    {
+      "index": 27,
+      "start_time": 66020.0,
+      "end_time": 68480.0,
+      "text": "assuming you&#39;ve just finished downloading and installing"
+    },
+    {
+      "index": 28,
+      "start_time": 68480.0,
+      "end_time": 72450.0,
+      "text": "Docker itself but haven&#39;t started installing TensorFlow."
+    },
+    {
+      "index": 29,
+      "start_time": 72450.0,
+      "end_time": 75300.0,
+      "text": "Starting from a fresh install of Docker, the first thing to do"
+    },
+    {
+      "index": 30,
+      "start_time": 75300.0,
+      "end_time": 77540.0,
+      "text": "is open the Docker Quickstart terminal."
+    },
+    {
+      "index": 31,
+      "start_time": 77540.0,
+      "end_time": 80040.0,
+      "text": "And when this appears, you&#39;ll see an IP address just"
+    },
+    {
+      "index": 32,
+      "start_time": 80040.0,
+      "end_time": 81280.0,
+      "text": "below the whale."
+    },
+    {
+      "index": 33,
+      "start_time": 81280.0,
+      "end_time": 82060.0,
+      "text": "Copy it down."
+    },
+    {
+      "index": 34,
+      "start_time": 82060.0,
+      "end_time": 83509.0,
+      "text": "We&#39;ll need it later."
+    },
+    {
+      "index": 35,
+      "start_time": 83509.0,
+      "end_time": 85050.0,
+      "text": "Next, we&#39;ll launch a Docker container"
+    },
+    {
+      "index": 36,
+      "start_time": 85050.0,
+      "end_time": 86810.0,
+      "text": "with a TensorFlow image."
+    },
+    {
+      "index": 37,
+      "start_time": 86810.0,
+      "end_time": 88670.0,
+      "text": "The image is hosted on Docker hub,"
+    },
+    {
+      "index": 38,
+      "start_time": 88670.0,
+      "end_time": 90810.0,
+      "text": "and there&#39;s a link to that in the description."
+    },
+    {
+      "index": 39,
+      "start_time": 90810.0,
+      "end_time": 93580.0,
+      "text": "The image contains TensorFlow with all its dependencies"
+    },
+    {
+      "index": 40,
+      "start_time": 93580.0,
+      "end_time": 95880.0,
+      "text": "properly configured, and here&#39;s the command"
+    },
+    {
+      "index": 41,
+      "start_time": 95880.0,
+      "end_time": 98360.0,
+      "text": "we&#39;ll use to download and launch the image."
+    },
+    {
+      "index": 42,
+      "start_time": 98360.0,
+      "end_time": 101574.0,
+      "text": "But first, let&#39;s choose the version we want."
+    },
+    {
+      "index": 43,
+      "start_time": 101574.0,
+      "end_time": 103240.0,
+      "text": "The versions are on this page, and we&#39;ll"
+    },
+    {
+      "index": 44,
+      "start_time": 103240.0,
+      "end_time": 104850.0,
+      "text": "use the latest release."
+    },
+    {
+      "index": 45,
+      "start_time": 104850.0,
+      "end_time": 107420.0,
+      "text": "Now we can copy-paste the command into a terminal"
+    },
+    {
+      "index": 46,
+      "start_time": 107420.0,
+      "end_time": 109670.0,
+      "text": "and add a colon with the version number."
+    },
+    {
+      "index": 47,
+      "start_time": 109670.0,
+      "end_time": 111700.0,
+      "text": "If this is the first time you&#39;ve run the image,"
+    },
+    {
+      "index": 48,
+      "start_time": 111700.0,
+      "end_time": 113260.0,
+      "text": "it&#39;ll be downloaded automatically."
+    },
+    {
+      "index": 49,
+      "start_time": 113260.0,
+      "end_time": 116257.0,
+      "text": "And on subsequent runs, it&#39;ll be cached locally."
+    },
+    {
+      "index": 50,
+      "start_time": 116257.0,
+      "end_time": 118340.0,
+      "text": "The image starts automatically, and by default, it"
+    },
+    {
+      "index": 51,
+      "start_time": 118340.0,
+      "end_time": 119500.0,
+      "text": "runs a notebook server."
+    },
+    {
+      "index": 52,
+      "start_time": 119500.0,
+      "end_time": 121880.0,
+      "text": "All that&#39;s left for us to do is to open up a browser"
+    },
+    {
+      "index": 53,
+      "start_time": 121880.0,
+      "end_time": 126310.0,
+      "text": "and point it to the IP we jotted down earlier on port 8888."
+    },
+    {
+      "index": 54,
+      "start_time": 126310.0,
+      "end_time": 128060.0,
+      "text": "And now we have an IPython notebook"
+    },
+    {
+      "index": 55,
+      "start_time": 128060.0,
+      "end_time": 130430.0,
+      "text": "that we can experiment with in our browser served"
+    },
+    {
+      "index": 56,
+      "start_time": 130430.0,
+      "end_time": 131549.0,
+      "text": "by the container."
+    },
+    {
+      "index": 57,
+      "start_time": 131549.0,
+      "end_time": 134090.0,
+      "text": "You can find the notebook for this episode in the description"
+    },
+    {
+      "index": 58,
+      "start_time": 134090.0,
+      "end_time": 136590.0,
+      "text": "and upload it through the UI."
+    },
+    {
+      "index": 59,
+      "start_time": 136590.0,
+      "end_time": 137090.0,
+      "text": "OK."
+    },
+    {
+      "index": 60,
+      "start_time": 137090.0,
+      "end_time": 138600.0,
+      "text": "Now onto code."
+    },
+    {
+      "index": 61,
+      "start_time": 138600.0,
+      "end_time": 140180.0,
+      "text": "Here are the imports we&#39;ll use."
+    },
+    {
+      "index": 62,
+      "start_time": 140180.0,
+      "end_time": 142670.0,
+      "text": "I&#39;ll use matplotlib to display images, and, of course,"
+    },
+    {
+      "index": 63,
+      "start_time": 142670.0,
+      "end_time": 145430.0,
+      "text": "we&#39;ll use TF.Learn to train the classifier."
+    },
+    {
+      "index": 64,
+      "start_time": 145430.0,
+      "end_time": 147810.0,
+      "text": "All of these are installed with the image."
+    },
+    {
+      "index": 65,
+      "start_time": 147810.0,
+      "end_time": 150200.0,
+      "text": "Next, we&#39;ll download the MNIST dataset,"
+    },
+    {
+      "index": 66,
+      "start_time": 150200.0,
+      "end_time": 152710.0,
+      "text": "and we have a nice one liner for that."
+    },
+    {
+      "index": 67,
+      "start_time": 152710.0,
+      "end_time": 155080.0,
+      "text": "The dataset contains thousands of labeled images"
+    },
+    {
+      "index": 68,
+      "start_time": 155080.0,
+      "end_time": 156450.0,
+      "text": "of handwritten digits."
+    },
+    {
+      "index": 69,
+      "start_time": 156450.0,
+      "end_time": 159460.0,
+      "text": "It&#39;s pre-divided into train, which is 55,000,"
+    },
+    {
+      "index": 70,
+      "start_time": 159460.0,
+      "end_time": 161620.0,
+      "text": "and test, which is 10,000."
+    },
+    {
+      "index": 71,
+      "start_time": 161620.0,
+      "end_time": 164520.0,
+      "text": "Let&#39;s visualize a few of these to get a feel."
+    },
+    {
+      "index": 72,
+      "start_time": 164520.0,
+      "end_time": 167380.0,
+      "text": "This code displays an image along with its label,"
+    },
+    {
+      "index": 73,
+      "start_time": 167380.0,
+      "end_time": 169280.0,
+      "text": "and you might notice I&#39;m reshaping the image,"
+    },
+    {
+      "index": 74,
+      "start_time": 169280.0,
+      "end_time": 172050.0,
+      "text": "and I&#39;ll explain why in a bit."
+    },
+    {
+      "index": 75,
+      "start_time": 172050.0,
+      "end_time": 174480.0,
+      "text": "The first image from the testing set is a seven,"
+    },
+    {
+      "index": 76,
+      "start_time": 174480.0,
+      "end_time": 177760.0,
+      "text": "and you can see the example index as well as the label."
+    },
+    {
+      "index": 77,
+      "start_time": 177760.0,
+      "end_time": 179660.0,
+      "text": "Here&#39;s the second image."
+    },
+    {
+      "index": 78,
+      "start_time": 179660.0,
+      "end_time": 181180.0,
+      "text": "Now both of these are clearly drawn,"
+    },
+    {
+      "index": 79,
+      "start_time": 181180.0,
+      "end_time": 183096.0,
+      "text": "but there&#39;s a variety of different handwriting"
+    },
+    {
+      "index": 80,
+      "start_time": 183096.0,
+      "end_time": 184300.0,
+      "text": "samples in this dataset."
+    },
+    {
+      "index": 81,
+      "start_time": 184300.0,
+      "end_time": 186990.0,
+      "text": "Here&#39;s an image that&#39;s harder to recognize."
+    },
+    {
+      "index": 82,
+      "start_time": 186990.0,
+      "end_time": 189340.0,
+      "text": "These images are low resolution, just 28"
+    },
+    {
+      "index": 83,
+      "start_time": 189340.0,
+      "end_time": 191750.0,
+      "text": "by 28 pixels in grayscale."
+    },
+    {
+      "index": 84,
+      "start_time": 191750.0,
+      "end_time": 194250.0,
+      "text": "Also note they&#39;re properly segmented."
+    },
+    {
+      "index": 85,
+      "start_time": 194250.0,
+      "end_time": 197760.0,
+      "text": "That means each image contains exactly one digit."
+    },
+    {
+      "index": 86,
+      "start_time": 197760.0,
+      "end_time": 200050.0,
+      "text": "Now let&#39;s talk about the features we&#39;ll use."
+    },
+    {
+      "index": 87,
+      "start_time": 200050.0,
+      "end_time": 201660.0,
+      "text": "When we&#39;re working with images, we"
+    },
+    {
+      "index": 88,
+      "start_time": 201660.0,
+      "end_time": 203770.0,
+      "text": "use the raw pixels as features."
+    },
+    {
+      "index": 89,
+      "start_time": 203770.0,
+      "end_time": 205560.0,
+      "text": "That&#39;s because extracting useful features"
+    },
+    {
+      "index": 90,
+      "start_time": 205560.0,
+      "end_time": 208360.0,
+      "text": "from images, like textures and shapes, is hard."
+    },
+    {
+      "index": 91,
+      "start_time": 208360.0,
+      "end_time": 211770.0,
+      "text": "Now a 28 by 28 image has 784 pixels,"
+    },
+    {
+      "index": 92,
+      "start_time": 211770.0,
+      "end_time": 214117.0,
+      "text": "so we have 784 features."
+    },
+    {
+      "index": 93,
+      "start_time": 214117.0,
+      "end_time": 216200.0,
+      "text": "And here, we&#39;re using the flattened representation"
+    },
+    {
+      "index": 94,
+      "start_time": 216200.0,
+      "end_time": 217560.0,
+      "text": "of the image."
+    },
+    {
+      "index": 95,
+      "start_time": 217560.0,
+      "end_time": 220250.0,
+      "text": "To flatten an image means to convert it from a 2D array"
+    },
+    {
+      "index": 96,
+      "start_time": 220250.0,
+      "end_time": 223566.0,
+      "text": "to a 1D array by unstacking the rows and lining them up."
+    },
+    {
+      "index": 97,
+      "start_time": 223566.0,
+      "end_time": 225190.0,
+      "text": "That&#39;s why we had to reshape this array"
+    },
+    {
+      "index": 98,
+      "start_time": 225190.0,
+      "end_time": 227260.0,
+      "text": "to display it earlier."
+    },
+    {
+      "index": 99,
+      "start_time": 227260.0,
+      "end_time": 229200.0,
+      "text": "Now we can initialize the classifier,"
+    },
+    {
+      "index": 100,
+      "start_time": 229200.0,
+      "end_time": 231590.0,
+      "text": "and here, we&#39;ll use a linear classifier."
+    },
+    {
+      "index": 101,
+      "start_time": 231590.0,
+      "end_time": 233360.0,
+      "text": "We&#39;ll provide two parameters."
+    },
+    {
+      "index": 102,
+      "start_time": 233360.0,
+      "end_time": 235730.0,
+      "text": "The first indicates how many classes we have,"
+    },
+    {
+      "index": 103,
+      "start_time": 235730.0,
+      "end_time": 238660.0,
+      "text": "and there are 10, one for each type of digit."
+    },
+    {
+      "index": 104,
+      "start_time": 238660.0,
+      "end_time": 240230.0,
+      "text": "The second informs the classifier"
+    },
+    {
+      "index": 105,
+      "start_time": 240230.0,
+      "end_time": 242270.0,
+      "text": "about the features we&#39;ll use."
+    },
+    {
+      "index": 106,
+      "start_time": 242270.0,
+      "end_time": 244730.0,
+      "text": "Now I&#39;ll draw a quick diagram of a linear classifier"
+    },
+    {
+      "index": 107,
+      "start_time": 244730.0,
+      "end_time": 247595.0,
+      "text": "to give you a high level preview of how it works under the hood."
+    },
+    {
+      "index": 108,
+      "start_time": 247595.0,
+      "end_time": 248970.0,
+      "text": "You could think of the classifier"
+    },
+    {
+      "index": 109,
+      "start_time": 248970.0,
+      "end_time": 251280.0,
+      "text": "as adding up the evidence that the image is"
+    },
+    {
+      "index": 110,
+      "start_time": 251280.0,
+      "end_time": 253020.0,
+      "text": "each type of digit."
+    },
+    {
+      "index": 111,
+      "start_time": 253020.0,
+      "end_time": 255910.0,
+      "text": "The input nodes are on the top, represented by Xes,"
+    },
+    {
+      "index": 112,
+      "start_time": 255910.0,
+      "end_time": 259220.0,
+      "text": "and the output nodes are on the bottom represented by Ys."
+    },
+    {
+      "index": 113,
+      "start_time": 259220.00000000003,
+      "end_time": 262750.0,
+      "text": "We have one input node for each feature or pixel in the image"
+    },
+    {
+      "index": 114,
+      "start_time": 262750.0,
+      "end_time": 264340.0,
+      "text": "and one output node for each digit"
+    },
+    {
+      "index": 115,
+      "start_time": 264340.0,
+      "end_time": 266100.0,
+      "text": "the image could represent."
+    },
+    {
+      "index": 116,
+      "start_time": 266100.0,
+      "end_time": 269777.0,
+      "text": "Here, we have 784 inputs and 10 outputs."
+    },
+    {
+      "index": 117,
+      "start_time": 269777.0,
+      "end_time": 271610.0,
+      "text": "I&#39;ve just drawn a few of them, so everything"
+    },
+    {
+      "index": 118,
+      "start_time": 271610.0,
+      "end_time": 272740.0,
+      "text": "fits on the screen."
+    },
+    {
+      "index": 119,
+      "start_time": 272740.0,
+      "end_time": 275240.0,
+      "text": "Now the inputs and outputs are fully connected,"
+    },
+    {
+      "index": 120,
+      "start_time": 275240.0,
+      "end_time": 277560.0,
+      "text": "and each of these edges has a weight."
+    },
+    {
+      "index": 121,
+      "start_time": 277560.0,
+      "end_time": 280350.0,
+      "text": "When we classify an image, you can think of each pixel"
+    },
+    {
+      "index": 122,
+      "start_time": 280350.0,
+      "end_time": 281830.0,
+      "text": "as going on a journey."
+    },
+    {
+      "index": 123,
+      "start_time": 281830.0,
+      "end_time": 284130.0,
+      "text": "First, it flows into its input node,"
+    },
+    {
+      "index": 124,
+      "start_time": 284130.0,
+      "end_time": 286650.0,
+      "text": "and next, it travels along the edges."
+    },
+    {
+      "index": 125,
+      "start_time": 286650.0,
+      "end_time": 289590.0,
+      "text": "Along the way, it&#39;s multiplied by the weight on the edge,"
+    },
+    {
+      "index": 126,
+      "start_time": 289590.0,
+      "end_time": 291650.0,
+      "text": "and the output nodes gather evidence"
+    },
+    {
+      "index": 127,
+      "start_time": 291650.0,
+      "end_time": 295750.0,
+      "text": "that the image we&#39;re classifying represents each type of digit."
+    },
+    {
+      "index": 128,
+      "start_time": 295750.0,
+      "end_time": 298430.0,
+      "text": "The more evidence we gather, say on the eight output,"
+    },
+    {
+      "index": 129,
+      "start_time": 298430.0,
+      "end_time": 301060.0,
+      "text": "the more likely it is the image is an eight."
+    },
+    {
+      "index": 130,
+      "start_time": 301060.0,
+      "end_time": 303160.0,
+      "text": "And to calculate how much evidence we have,"
+    },
+    {
+      "index": 131,
+      "start_time": 303160.0,
+      "end_time": 306250.0,
+      "text": "we sum the value of the pixel intensities multiplied"
+    },
+    {
+      "index": 132,
+      "start_time": 306250.0,
+      "end_time": 307430.0,
+      "text": "by the weights."
+    },
+    {
+      "index": 133,
+      "start_time": 307430.0,
+      "end_time": 309970.0,
+      "text": "Then we can predict that the image belongs to the output"
+    },
+    {
+      "index": 134,
+      "start_time": 309970.0,
+      "end_time": 312170.0,
+      "text": "node with the most evidence."
+    },
+    {
+      "index": 135,
+      "start_time": 312170.0,
+      "end_time": 313870.0,
+      "text": "The important part is the weights,"
+    },
+    {
+      "index": 136,
+      "start_time": 313870.0,
+      "end_time": 315420.0,
+      "text": "and by setting them properly, we can"
+    },
+    {
+      "index": 137,
+      "start_time": 315420.0,
+      "end_time": 317160.0,
+      "text": "get accurate classifications."
+    },
+    {
+      "index": 138,
+      "start_time": 317160.0,
+      "end_time": 320130.0,
+      "text": "We begin with random weights, then gradually adjust them"
+    },
+    {
+      "index": 139,
+      "start_time": 320130.0,
+      "end_time": 321510.0,
+      "text": "towards better values."
+    },
+    {
+      "index": 140,
+      "start_time": 321510.0,
+      "end_time": 324030.0,
+      "text": "And this happens inside the fit method."
+    },
+    {
+      "index": 141,
+      "start_time": 324030.0,
+      "end_time": 326820.0,
+      "text": "Once we have a trained model, we can evaluate it."
+    },
+    {
+      "index": 142,
+      "start_time": 326820.0,
+      "end_time": 328290.0,
+      "text": "Using the evaluate method, we see"
+    },
+    {
+      "index": 143,
+      "start_time": 328290.0,
+      "end_time": 331730.0,
+      "text": "that it correctly classifies about 90% of the test set."
+    },
+    {
+      "index": 144,
+      "start_time": 331730.0,
+      "end_time": 334860.0,
+      "text": "We can also make predictions on individual images."
+    },
+    {
+      "index": 145,
+      "start_time": 334860.0,
+      "end_time": 337400.0,
+      "text": "Here&#39;s one that it correctly classifies, and here&#39;s"
+    },
+    {
+      "index": 146,
+      "start_time": 337400.0,
+      "end_time": 339676.0,
+      "text": "one that it gets wrong."
+    },
+    {
+      "index": 147,
+      "start_time": 339676.0,
+      "end_time": 341800.0,
+      "text": "Now I want to show you how to visualize the weights"
+    },
+    {
+      "index": 148,
+      "start_time": 341800.0,
+      "end_time": 343520.0,
+      "text": "the classifier learns."
+    },
+    {
+      "index": 149,
+      "start_time": 343520.0,
+      "end_time": 345600.0,
+      "text": "Here, positive weights are drawn in red,"
+    },
+    {
+      "index": 150,
+      "start_time": 345600.0,
+      "end_time": 348650.0,
+      "text": "and negative weights are drawn in blue."
+    },
+    {
+      "index": 151,
+      "start_time": 348650.0,
+      "end_time": 350440.0,
+      "text": "So what do these weights tell us?"
+    },
+    {
+      "index": 152,
+      "start_time": 350440.0,
+      "end_time": 353800.0,
+      "text": "Well, to understand that, I&#39;ll show four images of ones."
+    },
+    {
+      "index": 153,
+      "start_time": 353800.0,
+      "end_time": 355480.0,
+      "text": "They&#39;re all drawn slightly differently,"
+    },
+    {
+      "index": 154,
+      "start_time": 355480.0,
+      "end_time": 357600.0,
+      "text": "but take a look at the middle pixel."
+    },
+    {
+      "index": 155,
+      "start_time": 357600.0,
+      "end_time": 360390.0,
+      "text": "Notice that it&#39;s filled in on every image."
+    },
+    {
+      "index": 156,
+      "start_time": 360390.0,
+      "end_time": 362290.0,
+      "text": "When that pixel is filled in, it&#39;s"
+    },
+    {
+      "index": 157,
+      "start_time": 362290.0,
+      "end_time": 364640.0,
+      "text": "evidence that the image we&#39;re looking at is a one,"
+    },
+    {
+      "index": 158,
+      "start_time": 364640.0,
+      "end_time": 367410.0,
+      "text": "so we&#39;d expect a highway on that edge."
+    },
+    {
+      "index": 159,
+      "start_time": 367410.0,
+      "end_time": 369270.0,
+      "text": "Now let&#39;s take a look at four zeros."
+    },
+    {
+      "index": 160,
+      "start_time": 369270.0,
+      "end_time": 371450.0,
+      "text": "Notice that the middle pixel is empty."
+    },
+    {
+      "index": 161,
+      "start_time": 371450.0,
+      "end_time": 373680.0,
+      "text": "Although there&#39;s lots of ways to draw zeros,"
+    },
+    {
+      "index": 162,
+      "start_time": 373680.0,
+      "end_time": 375330.0,
+      "text": "if that middle pixel is filled in,"
+    },
+    {
+      "index": 163,
+      "start_time": 375330.0,
+      "end_time": 377660.0,
+      "text": "it&#39;s evidence against the image being a zero,"
+    },
+    {
+      "index": 164,
+      "start_time": 377660.0,
+      "end_time": 379972.0,
+      "text": "so we&#39;d expect a negative weight on the edge."
+    },
+    {
+      "index": 165,
+      "start_time": 379972.0,
+      "end_time": 381680.0,
+      "text": "And looking at the images of the weights,"
+    },
+    {
+      "index": 166,
+      "start_time": 381680.0,
+      "end_time": 383940.0,
+      "text": "we can almost see outlines of the digits drawn"
+    },
+    {
+      "index": 167,
+      "start_time": 383940.0,
+      "end_time": 385935.0,
+      "text": "in red for each class."
+    },
+    {
+      "index": 168,
+      "start_time": 385935.0,
+      "end_time": 388060.0,
+      "text": "We were able to visualize these, because we started"
+    },
+    {
+      "index": 169,
+      "start_time": 388060.0,
+      "end_time": 391870.0,
+      "text": "with 784 pixels, and we learned 10 weights for each, one"
+    },
+    {
+      "index": 170,
+      "start_time": 391870.0,
+      "end_time": 393350.0,
+      "text": "for each type of digit."
+    },
+    {
+      "index": 171,
+      "start_time": 393350.0,
+      "end_time": 396200.0,
+      "text": "We then reshape the weights into a 2D array."
+    },
+    {
+      "index": 172,
+      "start_time": 396200.0,
+      "end_time": 396700.0,
+      "text": "OK."
+    },
+    {
+      "index": 173,
+      "start_time": 396700.0,
+      "end_time": 397489.0,
+      "text": "That&#39;s it for now."
+    },
+    {
+      "index": 174,
+      "start_time": 397489.0,
+      "end_time": 399530.0,
+      "text": "Of course, there&#39;s lots more to learn about this,"
+    },
+    {
+      "index": 175,
+      "start_time": 399530.0,
+      "end_time": 401615.0,
+      "text": "and I put my favorite links in the description."
+    },
+    {
+      "index": 176,
+      "start_time": 401615.0,
+      "end_time": 403990.0,
+      "text": "Coming up next time, we&#39;ll experiment with deep learning,"
+    },
+    {
+      "index": 177,
+      "start_time": 403990.0,
+      "end_time": 406860.0,
+      "text": "and I&#39;ll cover in more detail what we introduced here today."
+    },
+    {
+      "index": 178,
+      "start_time": 406860.0,
+      "end_time": 409760.0,
+      "text": "Thanks very much for watching, and I&#39;ll see you then."
+    },
+    {
+      "index": 179,
+      "start_time": 409760.0,
+      "end_time": 413110.0,
+      "text": "[MUSIC PLAYING]"
+    }
+  ]
+}

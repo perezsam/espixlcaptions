@@ -1,0 +1,1338 @@
+{
+  "video_id": "26QPDBe-NB8",
+  "title": "Operating Systems: Crash Course Computer Science #18",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3420.0,
+      "end_time": 5820.0,
+      "text": "This episode is supported by Hover."
+    },
+    {
+      "index": 2,
+      "start_time": 6000.0,
+      "end_time": 9440.0,
+      "text": "Hi, I'm Carrie Anne, and welcome to Crash\nCourse Computer Science!"
+    },
+    {
+      "index": 3,
+      "start_time": 9440.0,
+      "end_time": 12740.0,
+      "text": "Computers in the 1940s and early 50s ran one\nprogram at a time."
+    },
+    {
+      "index": 4,
+      "start_time": 12740.0,
+      "end_time": 15559.0,
+      "text": "A programmer would write one at their desk,\nfor example, on punch cards."
+    },
+    {
+      "index": 5,
+      "start_time": 15559.0,
+      "end_time": 19630.0,
+      "text": "Then, they’d carry it to a room containing\na room-sized computer, and hand it to a dedicated"
+    },
+    {
+      "index": 6,
+      "start_time": 19630.0,
+      "end_time": 20630.0,
+      "text": "computer operator."
+    },
+    {
+      "index": 7,
+      "start_time": 20630.0,
+      "end_time": 24400.0,
+      "text": "That person would then feed the program into\nthe computer when it was next available."
+    },
+    {
+      "index": 8,
+      "start_time": 24400.0,
+      "end_time": 27140.0,
+      "text": "The computer would run it, spit out some output,\nand halt."
+    },
+    {
+      "index": 9,
+      "start_time": 27140.0,
+      "end_time": 31730.0,
+      "text": "This very manual process worked OK back when\ncomputers were slow, and running a program"
+    },
+    {
+      "index": 10,
+      "start_time": 31730.0,
+      "end_time": 33621.0,
+      "text": "often took hours, days or even weeks."
+    },
+    {
+      "index": 11,
+      "start_time": 33621.0,
+      "end_time": 38760.0,
+      "text": "But, as we discussed last episode, computers\nbecame faster... and faster... and faster"
+    },
+    {
+      "index": 12,
+      "start_time": 38760.0,
+      "end_time": 39980.0,
+      "text": "– exponentially so!"
+    },
+    {
+      "index": 13,
+      "start_time": 39980.0,
+      "end_time": 43620.0,
+      "text": "Pretty soon, having humans run around and\ninserting programs into readers was taking"
+    },
+    {
+      "index": 14,
+      "start_time": 43620.0,
+      "end_time": 46149.0,
+      "text": "longer than running the actual programs themselves."
+    },
+    {
+      "index": 15,
+      "start_time": 46149.0,
+      "end_time": 50700.0,
+      "text": "We needed a way for computers to operate themselves,\nand so, operating systems were born."
+    },
+    {
+      "index": 16,
+      "start_time": 50700.0,
+      "end_time": 59840.0,
+      "text": "INTRO"
+    },
+    {
+      "index": 17,
+      "start_time": 59840.0,
+      "end_time": 63140.0,
+      "text": "Operating systems, or OS’es for short, are\njust programs."
+    },
+    {
+      "index": 18,
+      "start_time": 63140.0,
+      "end_time": 67080.0,
+      "text": "But, special privileges on the hardware let\nthem run and manage other programs."
+    },
+    {
+      "index": 19,
+      "start_time": 67080.0,
+      "end_time": 70860.0,
+      "text": "They’re typically the first one to start\nwhen a computer is turned on, and all subsequent"
+    },
+    {
+      "index": 20,
+      "start_time": 70860.0,
+      "end_time": 72570.0,
+      "text": "programs are launched by the OS."
+    },
+    {
+      "index": 21,
+      "start_time": 72570.0,
+      "end_time": 76980.0,
+      "text": "They got their start in the 1950s, as computers\nbecame more widespread and more powerful."
+    },
+    {
+      "index": 22,
+      "start_time": 76980.0,
+      "end_time": 81760.0,
+      "text": "The very first OSes augmented the mundane,\nmanual task of loading programs by hand."
+    },
+    {
+      "index": 23,
+      "start_time": 81760.0,
+      "end_time": 85690.0,
+      "text": "Instead of being given one program at a time,\ncomputers could be given batches."
+    },
+    {
+      "index": 24,
+      "start_time": 85690.0,
+      "end_time": 90000.0,
+      "text": "When the computer was done with one, it would automatically and near-instantly start the next."
+    },
+    {
+      "index": 25,
+      "start_time": 90000.0,
+      "end_time": 93520.0,
+      "text": "There was no downtime while someone scurried\naround an office to find the next program"
+    },
+    {
+      "index": 26,
+      "start_time": 93520.0,
+      "end_time": 94520.0,
+      "text": "to run."
+    },
+    {
+      "index": 27,
+      "start_time": 94530.0,
+      "end_time": 96190.0,
+      "text": "This was called batch processing."
+    },
+    {
+      "index": 28,
+      "start_time": 96190.0,
+      "end_time": 98430.0,
+      "text": "While computers got faster, they also got\ncheaper."
+    },
+    {
+      "index": 29,
+      "start_time": 98430.0,
+      "end_time": 102330.0,
+      "text": "So, they were popping up all over the world,\nespecially in universities and government"
+    },
+    {
+      "index": 30,
+      "start_time": 102330.0,
+      "end_time": 103330.0,
+      "text": "offices."
+    },
+    {
+      "index": 31,
+      "start_time": 103330.0,
+      "end_time": 105340.0,
+      "text": "Soon, people started sharing software."
+    },
+    {
+      "index": 32,
+      "start_time": 105340.0,
+      "end_time": 106830.0,
+      "text": "But there was a problem…"
+    },
+    {
+      "index": 33,
+      "start_time": 106830.0,
+      "end_time": 111140.0,
+      "text": "In the era of one-off computers, like the\nHarvard Mark 1 or ENIAC, programmers only"
+    },
+    {
+      "index": 34,
+      "start_time": 111140.0,
+      "end_time": 113860.0,
+      "text": "had to write code for that one single machine."
+    },
+    {
+      "index": 35,
+      "start_time": 113860.0,
+      "end_time": 118150.0,
+      "text": "The processor, punch card readers, and printers\nwere known and unchanging."
+    },
+    {
+      "index": 36,
+      "start_time": 118150.0,
+      "end_time": 122260.0,
+      "text": "But as computers became more widespread, their\nconfigurations were not always identical,"
+    },
+    {
+      "index": 37,
+      "start_time": 122260.0,
+      "end_time": 125660.0,
+      "text": "like computers might have the same CPU, but\nnot the same printer."
+    },
+    {
+      "index": 38,
+      "start_time": 125660.0,
+      "end_time": 127560.0,
+      "text": "This was a huge pain for programmers."
+    },
+    {
+      "index": 39,
+      "start_time": 127560.0,
+      "end_time": 131249.0,
+      "text": "Not only did they have to worry about writing\ntheir program, but also how to interface with"
+    },
+    {
+      "index": 40,
+      "start_time": 131249.0,
+      "end_time": 136440.0,
+      "text": "each and every model of printer, and all devices\nconnected to a computer, what are called peripherals."
+    },
+    {
+      "index": 41,
+      "start_time": 136440.0,
+      "end_time": 140880.0,
+      "text": "Interfacing with early peripherals was very\nlow level, requiring programmers to know intimate"
+    },
+    {
+      "index": 42,
+      "start_time": 140880.0,
+      "end_time": 143100.0,
+      "text": "hardware details about each device."
+    },
+    {
+      "index": 43,
+      "start_time": 143100.0,
+      "end_time": 147880.0,
+      "text": "On top of that, programmers rarely had access to every model of a peripheral to test their code on."
+    },
+    {
+      "index": 44,
+      "start_time": 147880.0,
+      "end_time": 152060.0,
+      "text": "So, they had to write code as best they could,\noften just by reading manuals, and hope it"
+    },
+    {
+      "index": 45,
+      "start_time": 152060.0,
+      "end_time": 153060.0,
+      "text": "worked when shared."
+    },
+    {
+      "index": 46,
+      "start_time": 153069.0,
+      "end_time": 156590.0,
+      "text": "Things weren’t exactly plug-and-play back\nthen… more plug-and-pray."
+    },
+    {
+      "index": 47,
+      "start_time": 156590.0,
+      "end_time": 160840.0,
+      "text": "This was clearly terrible, so to make it easier\nfor programmers, Operating Systems stepped"
+    },
+    {
+      "index": 48,
+      "start_time": 160840.0,
+      "end_time": 165480.0,
+      "text": "in as intermediaries between software programs\nand hardware peripherals."
+    },
+    {
+      "index": 49,
+      "start_time": 165480.0,
+      "end_time": 170320.0,
+      "text": "More specifically, they provided a software\nabstraction, through APIs, called device drivers."
+    },
+    {
+      "index": 50,
+      "start_time": 170320.0,
+      "end_time": 174620.0,
+      "text": "These allow programmers to talk to common\ninput and output hardware, or I/O for short,"
+    },
+    {
+      "index": 51,
+      "start_time": 174629.0,
+      "end_time": 176430.0,
+      "text": "using standardized mechanisms."
+    },
+    {
+      "index": 52,
+      "start_time": 176430.0,
+      "end_time": 180129.0,
+      "text": "For example, programmers could call a function\nlike “print highscore”, and the OS would"
+    },
+    {
+      "index": 53,
+      "start_time": 180129.0,
+      "end_time": 182349.0,
+      "text": "do the heavy lifting to get it onto paper."
+    },
+    {
+      "index": 54,
+      "start_time": 182349.0,
+      "end_time": 186290.0,
+      "text": "By the end of the 1950s, computers had gotten\nso fast, they were often idle waiting for"
+    },
+    {
+      "index": 55,
+      "start_time": 186290.0,
+      "end_time": 189829.0,
+      "text": "slow mechanical things, like printers and\npunch card readers."
+    },
+    {
+      "index": 56,
+      "start_time": 189829.0,
+      "end_time": 193939.0,
+      "text": "While programs were blocked on I/O, the expensive\nprocessor was just chillin’... not like"
+    },
+    {
+      "index": 57,
+      "start_time": 193939.0,
+      "end_time": 195479.0,
+      "text": "a villain… you know, just relaxing."
+    },
+    {
+      "index": 58,
+      "start_time": 195479.0,
+      "end_time": 199500.0,
+      "text": "In the late 50’s, the University of Manchester,\nin the UK, started work on a supercomputer"
+    },
+    {
+      "index": 59,
+      "start_time": 199500.0,
+      "end_time": 201959.0,
+      "text": "called Atlas, one of the first in the world."
+    },
+    {
+      "index": 60,
+      "start_time": 201959.0,
+      "end_time": 205780.0,
+      "text": "They knew it was going to be wicked fast,\nso they needed a way to make maximal use of"
+    },
+    {
+      "index": 61,
+      "start_time": 205780.0,
+      "end_time": 206870.0,
+      "text": "the expensive machine."
+    },
+    {
+      "index": 62,
+      "start_time": 206870.0,
+      "end_time": 211200.0,
+      "text": "Their solution was a program called the Atlas\nSupervisor, finished in 1962."
+    },
+    {
+      "index": 63,
+      "start_time": 211200.0,
+      "end_time": 215370.0,
+      "text": "This operating system not only loaded programs\nautomatically, like earlier batch systems,"
+    },
+    {
+      "index": 64,
+      "start_time": 215370.0,
+      "end_time": 219170.0,
+      "text": "but could also run several at the same time\non its single CPU."
+    },
+    {
+      "index": 65,
+      "start_time": 219170.0,
+      "end_time": 220569.0,
+      "text": "It did this through clever scheduling."
+    },
+    {
+      "index": 66,
+      "start_time": 220569.0,
+      "end_time": 224760.0,
+      "text": "Let’s say we have a game program running\non Atlas, and we call the function “print"
+    },
+    {
+      "index": 67,
+      "start_time": 224760.0,
+      "end_time": 228540.0,
+      "text": "highscore” which instructs Atlas to print\nthe value of a variable named “highscore”"
+    },
+    {
+      "index": 68,
+      "start_time": 228540.0,
+      "end_time": 232609.0,
+      "text": "onto paper to show our friends that we’re\nthe ultimate champion of virtual tiddlywinks."
+    },
+    {
+      "index": 69,
+      "start_time": 232609.0,
+      "end_time": 237309.0,
+      "text": "That function call is going to take a while,\nthe equivalent of thousands of clock cycles,"
+    },
+    {
+      "index": 70,
+      "start_time": 237309.0,
+      "end_time": 241400.0,
+      "text": "because mechanical printers are slow in comparison\nto electronic CPUs."
+    },
+    {
+      "index": 71,
+      "start_time": 241400.0,
+      "end_time": 245980.0,
+      "text": "So instead of waiting for the I/O to finish,\nAtlas instead puts our program to sleep, then"
+    },
+    {
+      "index": 72,
+      "start_time": 245980.0,
+      "end_time": 248980.0,
+      "text": "selects and runs another program that’s\nwaiting and ready to run."
+    },
+    {
+      "index": 73,
+      "start_time": 248980.0,
+      "end_time": 252049.0,
+      "text": "Eventually, the printer will report back to\nAtlas that it finished printing the value"
+    },
+    {
+      "index": 74,
+      "start_time": 252049.0,
+      "end_time": 253290.0,
+      "text": "of “highscore”."
+    },
+    {
+      "index": 75,
+      "start_time": 253290.0,
+      "end_time": 256930.0,
+      "text": "Atlas then marks our program as ready to go,\nand at some point, it will be scheduled to"
+    },
+    {
+      "index": 76,
+      "start_time": 256930.0,
+      "end_time": 261690.0,
+      "text": "run again on the CPU, and continue onto the\nnext line of code following the print statement."
+    },
+    {
+      "index": 77,
+      "start_time": 261690.0,
+      "end_time": 265979.0,
+      "text": "In this way, Atlas could have one program\nrunning calculations on the CPU, while another"
+    },
+    {
+      "index": 78,
+      "start_time": 265980.0,
+      "end_time": 269760.0,
+      "text": "was printing out data, and yet another reading\nin data from a punch tape."
+    },
+    {
+      "index": 79,
+      "start_time": 269760.0,
+      "end_time": 274080.0,
+      "text": "Atlas’ engineers doubled down on this idea,\nand outfitted their computer with 4 paper"
+    },
+    {
+      "index": 80,
+      "start_time": 274100.0,
+      "end_time": 278240.0,
+      "text": "tape readers, 4 paper tape punches, and up\nto 8 magnetic tape drives."
+    },
+    {
+      "index": 81,
+      "start_time": 278240.0,
+      "end_time": 283210.0,
+      "text": "This allowed many programs to be in progress\nall at once, sharing time on a single CPU."
+    },
+    {
+      "index": 82,
+      "start_time": 283210.0,
+      "end_time": 286900.0,
+      "text": "This ability, enabled by the Operating System,\nis called multitasking."
+    },
+    {
+      "index": 83,
+      "start_time": 286920.0,
+      "end_time": 291740.0,
+      "text": "There’s one big catch to having many programs running simultaneously on a single computer, though."
+    },
+    {
+      "index": 84,
+      "start_time": 291740.0,
+      "end_time": 295160.0,
+      "text": "Each one is going to need some memory, and\nwe can’t lose that program’s data when"
+    },
+    {
+      "index": 85,
+      "start_time": 295160.0,
+      "end_time": 296759.0,
+      "text": "we switch to another program."
+    },
+    {
+      "index": 86,
+      "start_time": 296759.0,
+      "end_time": 299479.0,
+      "text": "The solution is to allocate each program its\nown block of memory."
+    },
+    {
+      "index": 87,
+      "start_time": 299480.0,
+      "end_time": 304000.0,
+      "text": "So, for example, let’s say a computer has\n10,000 memory locations in total."
+    },
+    {
+      "index": 88,
+      "start_time": 304000.0,
+      "end_time": 310700.0,
+      "text": "Program A might get allocated memory addresses\n0 through 999, and Program B might get 1000"
+    },
+    {
+      "index": 89,
+      "start_time": 310710.0,
+      "end_time": 313400.0,
+      "text": "through 1999, and so on."
+    },
+    {
+      "index": 90,
+      "start_time": 313400.0,
+      "end_time": 317960.0,
+      "text": "If a program asks for more memory, the operating\nsystem decides if it can grant that request,"
+    },
+    {
+      "index": 91,
+      "start_time": 317960.0,
+      "end_time": 320590.0,
+      "text": "and if so, what memory block to allocate next."
+    },
+    {
+      "index": 92,
+      "start_time": 320590.0,
+      "end_time": 323470.0,
+      "text": "This flexibility is great, but introduces\na quirk."
+    },
+    {
+      "index": 93,
+      "start_time": 323470.0,
+      "end_time": 327729.0,
+      "text": "It means that Program A could end up being\nallocated non-sequential blocks of memory,"
+    },
+    {
+      "index": 94,
+      "start_time": 327729.0,
+      "end_time": 333300.0,
+      "text": "in say addresses 0 through 999, and 2000 through 2999."
+    },
+    {
+      "index": 95,
+      "start_time": 333300.0,
+      "end_time": 337349.0,
+      "text": "And this is just a simple example - a real\nprogram might be allocated dozens of blocks"
+    },
+    {
+      "index": 96,
+      "start_time": 337349.0,
+      "end_time": 338650.0,
+      "text": "scattered all over memory."
+    },
+    {
+      "index": 97,
+      "start_time": 338650.0,
+      "end_time": 342560.0,
+      "text": "As you might imagine, this would get really\nconfusing for programmers to keep track of."
+    },
+    {
+      "index": 98,
+      "start_time": 342560.0,
+      "end_time": 346240.0,
+      "text": "Maybe there’s a long list of sales data\nin memory that a program has to total up at"
+    },
+    {
+      "index": 99,
+      "start_time": 346250.0,
+      "end_time": 350040.0,
+      "text": "the end of the day, but this list is stored\nacross a bunch of different blocks of memory."
+    },
+    {
+      "index": 100,
+      "start_time": 350050.0,
+      "end_time": 354880.0,
+      "text": "To hide this complexity, Operating Systems\nvirtualize memory locations."
+    },
+    {
+      "index": 101,
+      "start_time": 354880.0,
+      "end_time": 358860.0,
+      "text": "With Virtual Memory, programs can assume their\nmemory always starts at address 0, keeping"
+    },
+    {
+      "index": 102,
+      "start_time": 358860.0,
+      "end_time": 360520.0,
+      "text": "things simple and consistent."
+    },
+    {
+      "index": 103,
+      "start_time": 360520.0,
+      "end_time": 364720.0,
+      "text": "However, the actual, physical location in\ncomputer memory is hidden and abstracted by"
+    },
+    {
+      "index": 104,
+      "start_time": 364720.0,
+      "end_time": 366240.0,
+      "text": "the operating system."
+    },
+    {
+      "index": 105,
+      "start_time": 366240.0,
+      "end_time": 373960.0,
+      "text": "Just a new level of abstraction."
+    },
+    {
+      "index": 106,
+      "start_time": 373960.0,
+      "end_time": 377620.0,
+      "text": "Let’s take our example Program B, which\nhas been allocated a block of memory from"
+    },
+    {
+      "index": 107,
+      "start_time": 377620.0,
+      "end_time": 381080.0,
+      "text": "address 1000 to 1999."
+    },
+    {
+      "index": 108,
+      "start_time": 381080.0,
+      "end_time": 385880.0,
+      "text": "As far as Program B can tell, this appears\nto be a block from 0 to 999."
+    },
+    {
+      "index": 109,
+      "start_time": 385880.0,
+      "end_time": 389930.0,
+      "text": "The OS and CPU handle the virtual-to-physical\nmemory remapping automatically."
+    },
+    {
+      "index": 110,
+      "start_time": 389930.0,
+      "end_time": 396250.0,
+      "text": "So, if Program B requests memory location\n42, it really ends up reading address 1042."
+    },
+    {
+      "index": 111,
+      "start_time": 396250.0,
+      "end_time": 400319.0,
+      "text": "This virtualization of memory addresses is\neven more useful for Program A, which in our"
+    },
+    {
+      "index": 112,
+      "start_time": 400319.0,
+      "end_time": 404580.0,
+      "text": "example, has been allocated two blocks of\nmemory that are separated from one another."
+    },
+    {
+      "index": 113,
+      "start_time": 404580.0,
+      "end_time": 406750.0,
+      "text": "This too is invisible to Program A."
+    },
+    {
+      "index": 114,
+      "start_time": 406750.0,
+      "end_time": 411490.0,
+      "text": "As far as it can tell, it’s been allocated\na continuous block of 2000 addresses."
+    },
+    {
+      "index": 115,
+      "start_time": 411490.0,
+      "end_time": 417039.0,
+      "text": "When Program A reads memory address 999, that\ndoes coincidentally map to physical memory"
+    },
+    {
+      "index": 116,
+      "start_time": 417039.0,
+      "end_time": 419009.0,
+      "text": "address 999."
+    },
+    {
+      "index": 117,
+      "start_time": 419009.0,
+      "end_time": 423469.0,
+      "text": "But if Program A reads the very next value\nin memory, at address 1000, that gets mapped"
+    },
+    {
+      "index": 118,
+      "start_time": 423469.0,
+      "end_time": 426319.0,
+      "text": "behind the scenes to physical memory address\n2000."
+    },
+    {
+      "index": 119,
+      "start_time": 426319.0,
+      "end_time": 431580.0,
+      "text": "This mechanism allows programs to have flexible\nmemory sizes, called dynamic memory allocation,"
+    },
+    {
+      "index": 120,
+      "start_time": 431580.0,
+      "end_time": 433900.0,
+      "text": "that appear to be continuous to them."
+    },
+    {
+      "index": 121,
+      "start_time": 433900.0,
+      "end_time": 438260.0,
+      "text": "It simplifies everything and offers tremendous\nflexibility to the Operating System in running"
+    },
+    {
+      "index": 122,
+      "start_time": 438260.0,
+      "end_time": 440100.0,
+      "text": "multiple programs simultaneously."
+    },
+    {
+      "index": 123,
+      "start_time": 440100.0,
+      "end_time": 443860.0,
+      "text": "Another upside of allocating each program\nits own memory, is that they’re better isolated"
+    },
+    {
+      "index": 124,
+      "start_time": 443870.0,
+      "end_time": 444860.0,
+      "text": "from one another."
+    },
+    {
+      "index": 125,
+      "start_time": 444870.0,
+      "end_time": 448900.0,
+      "text": "So, if a buggy program goes awry, and starts\nwriting gobbledygook, it can only trash its"
+    },
+    {
+      "index": 126,
+      "start_time": 448900.0,
+      "end_time": 451660.0,
+      "text": "own memory, not that of other programs."
+    },
+    {
+      "index": 127,
+      "start_time": 451660.0,
+      "end_time": 453840.0,
+      "text": "This feature is called Memory Protection."
+    },
+    {
+      "index": 128,
+      "start_time": 453840.0,
+      "end_time": 457930.0,
+      "text": "This is also really useful in protecting against\nmalicious software, like viruses."
+    },
+    {
+      "index": 129,
+      "start_time": 457930.0,
+      "end_time": 461710.0,
+      "text": "For example, we generally don’t want other\nprograms to have the ability to read or modify"
+    },
+    {
+      "index": 130,
+      "start_time": 461710.0,
+      "end_time": 465719.0,
+      "text": "the memory of, let say, our email, with that\nkind of access, malware could send emails"
+    },
+    {
+      "index": 131,
+      "start_time": 465720.0,
+      "end_time": 468520.0,
+      "text": "on your behalf and maybe steal personal information."
+    },
+    {
+      "index": 132,
+      "start_time": 468520.0,
+      "end_time": 469300.0,
+      "text": "Not good!"
+    },
+    {
+      "index": 133,
+      "start_time": 469300.0,
+      "end_time": 471660.0,
+      "text": "Atlas had both virtual and protected memory."
+    },
+    {
+      "index": 134,
+      "start_time": 471660.0,
+      "end_time": 474560.0,
+      "text": "It was the first computer and OS to support\nthese features!"
+    },
+    {
+      "index": 135,
+      "start_time": 474560.0,
+      "end_time": 478080.0,
+      "text": "By the 1970s, computers were sufficiently\nfast and cheap."
+    },
+    {
+      "index": 136,
+      "start_time": 478080.0,
+      "end_time": 482400.0,
+      "text": "Institutions like a university could buy a\ncomputer and let students use it."
+    },
+    {
+      "index": 137,
+      "start_time": 482409.0,
+      "end_time": 486979.0,
+      "text": "It was not only fast enough to run several\nprograms at once, but also give several users"
+    },
+    {
+      "index": 138,
+      "start_time": 486979.0,
+      "end_time": 489479.0,
+      "text": "simultaneous, interactive access."
+    },
+    {
+      "index": 139,
+      "start_time": 489479.0,
+      "end_time": 493550.0,
+      "text": "This was done through a terminal, which is\na keyboard and screen that connects to a big"
+    },
+    {
+      "index": 140,
+      "start_time": 493550.0,
+      "end_time": 496410.0,
+      "text": "computer, but doesn’t contain any processing\npower itself."
+    },
+    {
+      "index": 141,
+      "start_time": 496410.0,
+      "end_time": 501110.0,
+      "text": "A refrigerator-sized computer might have 50\nterminals connected to it, allowing up to"
+    },
+    {
+      "index": 142,
+      "start_time": 501110.0,
+      "end_time": 502110.0,
+      "text": "50 users."
+    },
+    {
+      "index": 143,
+      "start_time": 502110.0,
+      "end_time": 507039.0,
+      "text": "Now operating systems had to handle not just\nmultiple programs, but also multiple users."
+    },
+    {
+      "index": 144,
+      "start_time": 507039.0,
+      "end_time": 510889.0,
+      "text": "So that no one person could gobble up all\nof a computer's resources, operating systems"
+    },
+    {
+      "index": 145,
+      "start_time": 510889.0,
+      "end_time": 512659.0,
+      "text": "were developed that offered time-sharing."
+    },
+    {
+      "index": 146,
+      "start_time": 512659.0,
+      "end_time": 517270.0,
+      "text": "With time-sharing each individual user was\nonly allowed to utilize a small fraction of"
+    },
+    {
+      "index": 147,
+      "start_time": 517270.0,
+      "end_time": 519860.0,
+      "text": "the computer’s processor, memory, and so\non."
+    },
+    {
+      "index": 148,
+      "start_time": 519860.0,
+      "end_time": 524630.0,
+      "text": "Because computers are so fast, even getting\njust 1/50th of its resources was enough for"
+    },
+    {
+      "index": 149,
+      "start_time": 524630.0,
+      "end_time": 525750.0,
+      "text": "individuals to complete many tasks."
+    },
+    {
+      "index": 150,
+      "start_time": 525750.0,
+      "end_time": 530339.0,
+      "text": "The most influential of early time-sharing\nOperating Systems was Multics, or Multiplexed"
+    },
+    {
+      "index": 151,
+      "start_time": 530340.0,
+      "end_time": 534080.0,
+      "text": "Information and Computing Service, released\nin 1969."
+    },
+    {
+      "index": 152,
+      "start_time": 534080.0,
+      "end_time": 538520.0,
+      "text": "Multics was the first major operating\nsystem designed to be secure from the outset."
+    },
+    {
+      "index": 153,
+      "start_time": 538520.0,
+      "end_time": 542640.0,
+      "text": "Developers didn’t want mischievous users\naccessing data they shouldn't, like students"
+    },
+    {
+      "index": 154,
+      "start_time": 542640.0,
+      "end_time": 545740.0,
+      "text": "attempting to access the final exam on their\nprofessor’s account."
+    },
+    {
+      "index": 155,
+      "start_time": 545740.0,
+      "end_time": 550270.0,
+      "text": "Features like this meant Multics was really\ncomplicated for its time, using around 1 Megabit"
+    },
+    {
+      "index": 156,
+      "start_time": 550270.0,
+      "end_time": 552269.0,
+      "text": "of memory, which was a lot back then!"
+    },
+    {
+      "index": 157,
+      "start_time": 552269.0,
+      "end_time": 555840.0,
+      "text": "That might be half of a computer's memory,\njust to run the OS!"
+    },
+    {
+      "index": 158,
+      "start_time": 555840.0,
+      "end_time": 558930.0,
+      "text": "Dennis Ritchie, one of the researchers working\non Multics, once said:"
+    },
+    {
+      "index": 159,
+      "start_time": 558930.0,
+      "end_time": 563200.0,
+      "text": "“One of the obvious things that went wrong\nwith Multics as a commercial success was just"
+    },
+    {
+      "index": 160,
+      "start_time": 563200.0,
+      "end_time": 565209.0,
+      "text": "that it was sort of over-engineered in a sense."
+    },
+    {
+      "index": 161,
+      "start_time": 565209.0,
+      "end_time": 566790.0,
+      "text": "There was just too much in it.”"
+    },
+    {
+      "index": 162,
+      "start_time": 566790.0,
+      "end_time": 568920.0,
+      "text": "T\nhis lead Dennis, and another Multics researcher,"
+    },
+    {
+      "index": 163,
+      "start_time": 568920.0,
+      "end_time": 573640.0,
+      "text": "Ken Thompson, to strike out on their own and build a new, lean operating system… called Unix."
+    },
+    {
+      "index": 164,
+      "start_time": 573640.0,
+      "end_time": 576240.0,
+      "text": "They wanted to separate the OS into two parts:"
+    },
+    {
+      "index": 165,
+      "start_time": 576240.0,
+      "end_time": 580520.0,
+      "text": "First was the core functionality of the OS,\nthings like memory management, multitasking,"
+    },
+    {
+      "index": 166,
+      "start_time": 580520.0,
+      "end_time": 583330.0,
+      "text": "and dealing with I/O, which is called the\nkernel."
+    },
+    {
+      "index": 167,
+      "start_time": 583330.0,
+      "end_time": 587260.0,
+      "text": "The second part was a wide array of useful\ntools that came bundled with, but not part"
+    },
+    {
+      "index": 168,
+      "start_time": 587260.0,
+      "end_time": 589780.0,
+      "text": "of the kernel, things like programs and libraries."
+    },
+    {
+      "index": 169,
+      "start_time": 589780.0,
+      "end_time": 593460.0,
+      "text": "Building a compact, lean kernel meant intentionally\nleaving some functionality out."
+    },
+    {
+      "index": 170,
+      "start_time": 593470.0,
+      "end_time": 595840.0,
+      "text": "Tom Van Vleck, another Multics developer,\nrecalled:"
+    },
+    {
+      "index": 171,
+      "start_time": 595840.0,
+      "end_time": 600540.0,
+      "text": "“I remarked to Dennis that easily half the\ncode I was writing in Multics was error recovery"
+    },
+    {
+      "index": 172,
+      "start_time": 600540.0,
+      "end_time": 601280.0,
+      "text": "code.\""
+    },
+    {
+      "index": 173,
+      "start_time": 601280.0,
+      "end_time": 603740.0,
+      "text": "He said, \"We left all that stuff out of Unix."
+    },
+    {
+      "index": 174,
+      "start_time": 603740.0,
+      "end_time": 607870.0,
+      "text": "If there's an error, we have this routine\ncalled panic, and when it is called, the machine"
+    },
+    {
+      "index": 175,
+      "start_time": 607870.0,
+      "end_time": 611019.0,
+      "text": "crashes, and you holler down the hall, 'Hey,\nreboot it.'\"”"
+    },
+    {
+      "index": 176,
+      "start_time": 611019.0,
+      "end_time": 614140.0,
+      "text": "You might have heard of kernel panics, This\nis where the term came from."
+    },
+    {
+      "index": 177,
+      "start_time": 614140.0,
+      "end_time": 618459.0,
+      "text": "It’s literally when the kernel crashes,\nhas no recourse to recover, and so calls a"
+    },
+    {
+      "index": 178,
+      "start_time": 618459.0,
+      "end_time": 619940.0,
+      "text": "function called “panic”."
+    },
+    {
+      "index": 179,
+      "start_time": 619940.0,
+      "end_time": 622950.0,
+      "text": "Originally, all it did was print the word\n“panic” and then enter"
+    },
+    {
+      "index": 180,
+      "start_time": 622950.0,
+      "end_time": 624030.0,
+      "text": "an infinite loop."
+    },
+    {
+      "index": 181,
+      "start_time": 624030.0,
+      "end_time": 628120.0,
+      "text": "This simplicity meant that Unix could be run\non cheaper and more diverse hardware, making"
+    },
+    {
+      "index": 182,
+      "start_time": 628120.0,
+      "end_time": 631120.0,
+      "text": "it popular inside Bell Labs, where Dennis\nand Ken worked."
+    },
+    {
+      "index": 183,
+      "start_time": 631120.0,
+      "end_time": 634820.0,
+      "text": "As more developers started using Unix to build\nand run their own programs, the number of"
+    },
+    {
+      "index": 184,
+      "start_time": 634820.0,
+      "end_time": 636320.0,
+      "text": "contributed tools grew."
+    },
+    {
+      "index": 185,
+      "start_time": 636320.0,
+      "end_time": 641000.0,
+      "text": "Soon after its release in 1971, it gained\ncompilers for different programming languages"
+    },
+    {
+      "index": 186,
+      "start_time": 641000.0,
+      "end_time": 645510.0,
+      "text": "and even a word processor, quickly making\nit one of the most popular OSes of the 1970s"
+    },
+    {
+      "index": 187,
+      "start_time": 645510.0,
+      "end_time": 646529.0,
+      "text": "and 80s."
+    },
+    {
+      "index": 188,
+      "start_time": 646529.0,
+      "end_time": 650680.0,
+      "text": "At the same time, by the early 1980s, the\ncost of a basic computer had fallen to the"
+    },
+    {
+      "index": 189,
+      "start_time": 650680.0,
+      "end_time": 655019.0,
+      "text": "point where individual people could afford\none, called a personal or home computer."
+    },
+    {
+      "index": 190,
+      "start_time": 655019.0,
+      "end_time": 659480.0,
+      "text": "These were much simpler than the big mainframes\nfound at universities, corporations, and governments."
+    },
+    {
+      "index": 191,
+      "start_time": 659480.0,
+      "end_time": 662240.0,
+      "text": "So, their operating systems had to be equally\nsimple."
+    },
+    {
+      "index": 192,
+      "start_time": 662240.0,
+      "end_time": 667769.0,
+      "text": "For example, Microsoft’s Disk Operating\nSystem, or MS-DOS, was just 160 kilobytes,"
+    },
+    {
+      "index": 193,
+      "start_time": 667769.0,
+      "end_time": 670589.0,
+      "text": "allowing it to fit, as the name suggests,\nonto a single disk."
+    },
+    {
+      "index": 194,
+      "start_time": 670589.0,
+      "end_time": 675171.0,
+      "text": "First released in 1981, it became the most\npopular OS for early home computers, even"
+    },
+    {
+      "index": 195,
+      "start_time": 675171.0,
+      "end_time": 678650.0,
+      "text": "though it lacked multitasking and protected\nmemory."
+    },
+    {
+      "index": 196,
+      "start_time": 678650.0,
+      "end_time": 682240.0,
+      "text": "This meant that programs could, and would,\nregularly crash the system."
+    },
+    {
+      "index": 197,
+      "start_time": 682240.0,
+      "end_time": 686399.0,
+      "text": "While annoying, it was an acceptable tradeoff,\nas users could just turn their own computers"
+    },
+    {
+      "index": 198,
+      "start_time": 686400.0,
+      "end_time": 687120.0,
+      "text": "off and on again!"
+    },
+    {
+      "index": 199,
+      "start_time": 687120.0,
+      "end_time": 692060.0,
+      "text": "Even early versions of Windows, first released\nby Microsoft in 1985 and which dominated the"
+    },
+    {
+      "index": 200,
+      "start_time": 692060.0,
+      "end_time": 695640.0,
+      "text": "OS scene throughout the 1990s, lacked strong\nmemory protection."
+    },
+    {
+      "index": 201,
+      "start_time": 695640.0,
+      "end_time": 700079.0,
+      "text": "When programs misbehaved, you could get the\nblue screen of death, a sign that a program"
+    },
+    {
+      "index": 202,
+      "start_time": 700080.0,
+      "end_time": 703589.0,
+      "text": "had crashed so badly that it took down the\nwhole operating system."
+    },
+    {
+      "index": 203,
+      "start_time": 703589.0,
+      "end_time": 708320.0,
+      "text": "Luckily, newer versions of Windows have better protections and usually don't crash that often."
+    },
+    {
+      "index": 204,
+      "start_time": 708320.0,
+      "end_time": 713100.0,
+      "text": "Today, computers run modern operating systems,\nlike Mac OS X, Windows 10, Linux, iOS and"
+    },
+    {
+      "index": 205,
+      "start_time": 713100.0,
+      "end_time": 714300.0,
+      "text": "Android."
+    },
+    {
+      "index": 206,
+      "start_time": 714300.0,
+      "end_time": 718740.0,
+      "text": "Even though the computers we own are most\noften used by just a single person, you! their"
+    },
+    {
+      "index": 207,
+      "start_time": 718740.0,
+      "end_time": 722220.0,
+      "text": "OSes all have multitasking and virtual and\nprotected memory."
+    },
+    {
+      "index": 208,
+      "start_time": 722220.0,
+      "end_time": 726269.0,
+      "text": "So, they can run many programs at once: you\ncan watch YouTube in your web browser, edit"
+    },
+    {
+      "index": 209,
+      "start_time": 726269.0,
+      "end_time": 732259.0,
+      "text": "a photo in Photoshop, play music in Spotify\nand sync Dropbox all at the same time."
+    },
+    {
+      "index": 210,
+      "start_time": 732259.0,
+      "end_time": 736089.0,
+      "text": "This wouldn’t be possible without those\ndecades of research and development on Operating"
+    },
+    {
+      "index": 211,
+      "start_time": 736089.0,
+      "end_time": 739590.0,
+      "text": "Systems, and of course the proper memory to\nstore those programs."
+    },
+    {
+      "index": 212,
+      "start_time": 739590.0,
+      "end_time": 741200.0,
+      "text": "Which we’ll get to next week."
+    },
+    {
+      "index": 213,
+      "start_time": 741200.0,
+      "end_time": 744080.0,
+      "text": "I’d like to thank Hover for sponsoring this\nepisode."
+    },
+    {
+      "index": 214,
+      "start_time": 744080.0,
+      "end_time": 747160.0,
+      "text": "Hover is a service that helps you buy and\nmanage domain names."
+    },
+    {
+      "index": 215,
+      "start_time": 747160.0,
+      "end_time": 752140.0,
+      "text": "Hover has over 400 domain extensions to end\nyour domain with - including .com and .net."
+    },
+    {
+      "index": 216,
+      "start_time": 752149.0,
+      "end_time": 755800.0,
+      "text": "You can also get unique domains that are more\nprofessional than a generic address."
+    },
+    {
+      "index": 217,
+      "start_time": 755800.0,
+      "end_time": 760190.0,
+      "text": "Here at Crash Course, we'd get the domain\nname “mongols.fans” but I think you know"
+    },
+    {
+      "index": 218,
+      "start_time": 760190.0,
+      "end_time": 761000.0,
+      "text": "that already."
+    },
+    {
+      "index": 219,
+      "start_time": 761000.0,
+      "end_time": 764760.0,
+      "text": "Once you have your domain, you can set up\nyour custom email to forward to your existing"
+    },
+    {
+      "index": 220,
+      "start_time": 764780.0,
+      "end_time": 768680.0,
+      "text": "email address -- including Outlook or Gmail\nor whatever you already use."
+    },
+    {
+      "index": 221,
+      "start_time": 768680.0,
+      "end_time": 772769.0,
+      "text": "With Hover, you can get a custom domain and\nemail address for 10% off."
+    },
+    {
+      "index": 222,
+      "start_time": 772800.0,
+      "end_time": 777980.0,
+      "text": "Go to Hover.com/crashcourse today to create\nyour custom domain and help support our show!"
+    }
+  ]
+}

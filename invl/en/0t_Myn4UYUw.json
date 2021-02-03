@@ -1,0 +1,330 @@
+{
+  "video_id": "0t_Myn4UYUw",
+  "title": "Tutorial 1: Create a C project in MDK-Keil",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 23730.0,
+      "text": "In this tutorial, I will show you how to create a project in MDK-Keil.  The textbook focuses on two different STM32 Discovery Kits:"
+    },
+    {
+      "index": 2,
+      "start_time": 23730.0,
+      "end_time": 40660.0,
+      "text": "STM32L1 and STM32L4.  STM32L1 has a Cortex-M3 microprocessor while STM32L4 has a"
+    },
+    {
+      "index": 3,
+      "start_time": 40660.0,
+      "end_time": 54160.0,
+      "text": "Cortex-M4 with FPU and DSP. In this tutorial, I will create a project for the STM32L4"
+    },
+    {
+      "index": 4,
+      "start_time": 54160.0,
+      "end_time": 66979.0,
+      "text": "discovery kit. Let’s open MDK-Keil. The first step is to make sure that"
+    },
+    {
+      "index": 5,
+      "start_time": 66979.0,
+      "end_time": 88960.0,
+      "text": "required packages have already been installed."
+    },
+    {
+      "index": 6,
+      "start_time": 88960.0,
+      "end_time": 104740.0,
+      "text": "We need at least three packages: STM32L4_xxDFP, ARM::CMSIS, and"
+    },
+    {
+      "index": 7,
+      "start_time": 104740.0,
+      "end_time": 113200.0,
+      "text": "ARM-Middleware. aIf a package has not been installed, you can click the install button."
+    },
+    {
+      "index": 8,
+      "start_time": 113200.0,
+      "end_time": 122759.0,
+      "text": "It will automatically download and install the package."
+    },
+    {
+      "index": 9,
+      "start_time": 122759.0,
+      "end_time": 126100.0,
+      "text": "Now let’s create a new project."
+    },
+    {
+      "index": 10,
+      "start_time": 126100.0,
+      "end_time": 138489.0,
+      "text": "Click “project”, “New Project”, select a project folder. Let me create a new folder."
+    },
+    {
+      "index": 11,
+      "start_time": 138489.0,
+      "end_time": 154930.0,
+      "text": "called \"example project\", select the folder, give a project name, just called \"project\"."
+    },
+    {
+      "index": 12,
+      "start_time": 154930.0,
+      "end_time": 176930.0,
+      "text": "click \"save\". Now we need to select the device. We have to select STM32, L4,  476, 476VG."
+    },
+    {
+      "index": 13,
+      "start_time": 176930.0,
+      "end_time": 186850.0,
+      "text": "And select this device, this microprocessor. Click \"OK\".  In the runtime environment dialogue,"
+    },
+    {
+      "index": 14,
+      "start_time": 186850.0,
+      "end_time": 198720.0,
+      "text": "we need to select one software component called \"CMSIS::Core\". Make sure do not"
+    },
+    {
+      "index": 15,
+      "start_time": 198720.0,
+      "end_time": 199640.0,
+      "text": "select"
+    },
+    {
+      "index": 16,
+      "start_time": 199640.0,
+      "end_time": 206320.0,
+      "text": "the start-up package. Startup assembly file here. Because we are going to use a modified"
+    },
+    {
+      "index": 17,
+      "start_time": 206320.0,
+      "end_time": 215329.0,
+      "text": "version that can be downloaded from the book website. Do not select this one. Click \"ok\"."
+    },
+    {
+      "index": 18,
+      "start_time": 215329.0,
+      "end_time": 224780.0,
+      "text": "Let's go to the textbook website. The textbook website. Click \"Example Labs\"."
+    },
+    {
+      "index": 19,
+      "start_time": 224780.0,
+      "end_time": 232190.0,
+      "text": "The textbook website provides the project templates for different"
+    },
+    {
+      "index": 20,
+      "start_time": 232190.0,
+      "end_time": 242489.0,
+      "text": "development boards. So our focus is STM32L4 in this tutorial, and we create a C"
+    },
+    {
+      "index": 21,
+      "start_time": 242489.0,
+      "end_time": 250970.0,
+      "text": "project template. Let's download the startup. Right click, save link as, save in"
+    },
+    {
+      "index": 22,
+      "start_time": 250970.0,
+      "end_time": 254220.0,
+      "text": "the project folder, and"
+    },
+    {
+      "index": 23,
+      "start_time": 254220.0,
+      "end_time": 263430.0,
+      "text": "save the head file."
+    },
+    {
+      "index": 24,
+      "start_time": 263430.0,
+      "end_time": 271600.0,
+      "text": "Let's go back to the project. Let's highlight the projects \"source group\""
+    },
+    {
+      "index": 25,
+      "start_time": 271600.0,
+      "end_time": 280220.0,
+      "text": "right click, add existing file in the project, select assembly,  select startup."
+    },
+    {
+      "index": 26,
+      "start_time": 280220.0,
+      "end_time": 293240.0,
+      "text": "Now we have the startup here. Let's create a new file, a new file, select C"
+    },
+    {
+      "index": 27,
+      "start_time": 293240.0,
+      "end_time": 306229.0,
+      "text": "Let's call main. Let's write the C code. In the C code,  we're not doing anything but just"
+    },
+    {
+      "index": 28,
+      "start_time": 306229.0,
+      "end_time": 318780.0,
+      "text": "have a dead loop here. Include the header file we have downloaded. It's called"
+    },
+    {
+      "index": 29,
+      "start_time": 318780.0,
+      "end_time": 347760.0,
+      "text": "\"stm32l476xx.h\". Let's write the main function."
+    },
+    {
+      "index": 30,
+      "start_time": 347760.0,
+      "end_time": 363090.0,
+      "text": "Now we need to change the project properties. Let's go to the \"options\"  for the target, and"
+    },
+    {
+      "index": 31,
+      "start_time": 363090.0,
+      "end_time": 365940.0,
+      "text": "we can verify that we select the right device."
+    },
+    {
+      "index": 32,
+      "start_time": 365940.0,
+      "end_time": 373760.0,
+      "text": "This is STM32L4 processor used on the discover kit. Let's go to the output."
+    },
+    {
+      "index": 33,
+      "start_time": 373760.0,
+      "end_time": 383080.0,
+      "text": "You can highlight and create HEX. This is useful if you want to download the HEX file by"
+    },
+    {
+      "index": 34,
+      "start_time": 383080.0,
+      "end_time": 391450.0,
+      "text": "using ST utility. But this is optional. In the linker page, make sure"
+    },
+    {
+      "index": 35,
+      "start_time": 391450.0,
+      "end_time": 397550.0,
+      "text": "this is selected, and this is selected by default. And in the debugger"
+    },
+    {
+      "index": 36,
+      "start_time": 397550.0,
+      "end_time": 401580.0,
+      "text": "environments, there two different debug options."
+    },
+    {
+      "index": 37,
+      "start_time": 401580.0,
+      "end_time": 409110.0,
+      "text": "One is to use simulator. The other one uses hardware debug."
+    },
+    {
+      "index": 38,
+      "start_time": 409110.0,
+      "end_time": 417540.0,
+      "text": "The simulator has some limitations. For example, two major limitations are, you cannot access all the"
+    },
+    {
+      "index": 39,
+      "start_time": 417540.0,
+      "end_time": 425820.0,
+      "text": "peripherals, and the second one is, all simulations can only assume ideal"
+    },
+    {
+      "index": 40,
+      "start_time": 425820.0,
+      "end_time": 433080.0,
+      "text": "conditions for memory access, so it does not a similar memory delay. And the other one"
+    },
+    {
+      "index": 41,
+      "start_time": 433080.0,
+      "end_time": 440120.0,
+      "text": "is hardware debug. The default is ULINK. And we are going to use ST-Link debugger."
+    },
+    {
+      "index": 42,
+      "start_time": 440120.0,
+      "end_time": 449060.0,
+      "text": "Click setting, so this has already been selected, make sure"
+    },
+    {
+      "index": 43,
+      "start_time": 449060.0,
+      "end_time": 455950.0,
+      "text": "the port, there are two options here: JTAG and Serial Wire. Make sure we"
+    },
+    {
+      "index": 44,
+      "start_time": 455950.0,
+      "end_time": 465390.0,
+      "text": "select Serial Wire. Another important thing if you go to flash, make"
+    },
+    {
+      "index": 45,
+      "start_time": 465390.0,
+      "end_time": 471950.0,
+      "text": "sure the flash memory has been selected. If the flash memory is not there,  you"
+    },
+    {
+      "index": 46,
+      "start_time": 471950.0,
+      "end_time": 476370.0,
+      "text": "can click \"add\", you can select the flash memory."
+    },
+    {
+      "index": 47,
+      "start_time": 476370.0,
+      "end_time": 490340.0,
+      "text": "Since it is already there, we are going to do cancel. I am going to click OK. Now I can click \"Build project\"."
+    },
+    {
+      "index": 48,
+      "start_time": 490340.0,
+      "end_time": 498880.0,
+      "text": "You can build a project here, we can \"build target\" or simply click this one,  the"
+    },
+    {
+      "index": 49,
+      "start_time": 498880.0,
+      "end_time": 513180.0,
+      "text": "icon here. Build. Now I have no errors.  I can set a breakpoint and debug the code. This one inserts a break"
+    },
+    {
+      "index": 50,
+      "start_time": 513179.99999999994,
+      "end_time": 524430.0,
+      "text": "point, and this is the debug icon. Debug"
+    },
+    {
+      "index": 51,
+      "start_time": 524430.0,
+      "end_time": 532910.0,
+      "text": "Now you can see the program runs and stops at the break point. And this is the register value."
+    },
+    {
+      "index": 52,
+      "start_time": 532910.0,
+      "end_time": 539560.0,
+      "text": "Register r0 to register 15, and program status register, including"
+    },
+    {
+      "index": 53,
+      "start_time": 539560.0,
+      "end_time": 550550.0,
+      "text": "NZCV flags, and FPU registers here. In the next tutorial, I will show you how to debug"
+    },
+    {
+      "index": 54,
+      "start_time": 550550.0,
+      "end_time": 560550.0,
+      "text": "a project"
+    }
+  ]
+}

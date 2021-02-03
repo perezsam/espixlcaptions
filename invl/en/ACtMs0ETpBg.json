@@ -1,0 +1,282 @@
+{
+  "video_id": "ACtMs0ETpBg",
+  "title": "Smart Classroom Demo | OpenVINO™ toolkit | Ep. 39 | Intel Software",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 849.0,
+      "end_time": 3580.0,
+      "text": "Welcome back to the OpenVINO Channel"
+    },
+    {
+      "index": 2,
+      "start_time": 3580.0,
+      "end_time": 7600.0,
+      "text": "This is another interesting demo you can use to see how"
+    },
+    {
+      "index": 3,
+      "start_time": 7600.0,
+      "end_time": 11809.0,
+      "text": "-We use multiple models running in parallel in the system"
+    },
+    {
+      "index": 4,
+      "start_time": 11810.0,
+      "end_time": 16240.0,
+      "text": "-And of course you can run them on different devices.."
+    },
+    {
+      "index": 5,
+      "start_time": 16239.0,
+      "end_time": 18200.0,
+      "text": "One on CPU, one on GPU and so on.."
+    },
+    {
+      "index": 6,
+      "start_time": 18200.0,
+      "end_time": 23939.0,
+      "text": "-We have here face detection, action detection as you have seen in previous demos"
+    },
+    {
+      "index": 7,
+      "start_time": 23940.0,
+      "end_time": 29310.0,
+      "text": "-But in this demo you could also see how we do face recognition.."
+    },
+    {
+      "index": 8,
+      "start_time": 29310.0,
+      "end_time": 34449.0,
+      "text": "We give the system a face image and look for this specific face.."
+    },
+    {
+      "index": 9,
+      "start_time": 34450.0,
+      "end_time": 41000.0,
+      "text": "Let&#39;s Initialize OpenVINO I&#39;m building a sample directory,"
+    },
+    {
+      "index": 10,
+      "start_time": 41000.0,
+      "end_time": 45129.0,
+      "text": "And building here the smart-classroom sample.."
+    },
+    {
+      "index": 11,
+      "start_time": 45129.0,
+      "end_time": 49760.0,
+      "text": "define $models as a pointer to the Intel provided pre-trained models."
+    },
+    {
+      "index": 12,
+      "start_time": 49760.0,
+      "end_time": 55190.0,
+      "text": ".. Running the sample is easy.. -m_act is a model for the action detection"
+    },
+    {
+      "index": 13,
+      "start_time": 55190.0,
+      "end_time": 62968.0,
+      "text": "-m_fd is the face detection model -m_lm is the face landmarks model"
+    },
+    {
+      "index": 14,
+      "start_time": 62969.0,
+      "end_time": 68170.0,
+      "text": "-m_reid is the re-identification model.."
+    },
+    {
+      "index": 15,
+      "start_time": 68170.0,
+      "end_time": 73000.0,
+      "text": "And you can see that we detect the faces and the full person"
+    },
+    {
+      "index": 16,
+      "start_time": 73000.0,
+      "end_time": 78310.0,
+      "text": "We also detect if they are standing, sitting or raising their hands.."
+    },
+    {
+      "index": 17,
+      "start_time": 78310.0,
+      "end_time": 83390.0,
+      "text": "A quick look at the code, you can open the main.cpp in the sample directory.."
+    },
+    {
+      "index": 18,
+      "start_time": 83390.0,
+      "end_time": 87910.0,
+      "text": "Scroll down to line 280 And see how each of the CNN models is being"
+    },
+    {
+      "index": 19,
+      "start_time": 87910.0,
+      "end_time": 89408.0,
+      "text": "initialized."
+    },
+    {
+      "index": 20,
+      "start_time": 89409.0,
+      "end_time": 91670.0,
+      "text": "And configured.."
+    },
+    {
+      "index": 21,
+      "start_time": 91670.0,
+      "end_time": 97390.0,
+      "text": "The action detector, the dace detector and so on.."
+    },
+    {
+      "index": 22,
+      "start_time": 97390.0,
+      "end_time": 103340.0,
+      "text": "You can see here how the faces are extracted from each frame.."
+    },
+    {
+      "index": 23,
+      "start_time": 103340.0,
+      "end_time": 107229.0,
+      "text": "And the list of actions.."
+    },
+    {
+      "index": 24,
+      "start_time": 107229.0,
+      "end_time": 113408.0,
+      "text": "And you see how the face region-of-interest is handed to the landmark detection model"
+    },
+    {
+      "index": 25,
+      "start_time": 113409.0,
+      "end_time": 118679.0,
+      "text": "who extract the specific features for this face.."
+    },
+    {
+      "index": 26,
+      "start_time": 118679.0,
+      "end_time": 126729.0,
+      "text": "And how the features, are used to align the face and for re-identifying people in the"
+    },
+    {
+      "index": 27,
+      "start_time": 126729.0,
+      "end_time": 127729.0,
+      "text": "frame.."
+    },
+    {
+      "index": 28,
+      "start_time": 127729.0,
+      "end_time": 134640.0,
+      "text": "In order to perform face recognition, we need to create a face gallery.."
+    },
+    {
+      "index": 29,
+      "start_time": 134640.0,
+      "end_time": 140859.0,
+      "text": "I&#39;ll put a bunch of cropped small face images in a face-gallery directory.."
+    },
+    {
+      "index": 30,
+      "start_time": 140860.0,
+      "end_time": 145820.0,
+      "text": "Each image should be called name.number.png"
+    },
+    {
+      "index": 31,
+      "start_time": 145820.0,
+      "end_time": 156640.0,
+      "text": "For example guy.0.png is my first image I could add guy.1.png guy.2.png etc to improve"
+    },
+    {
+      "index": 32,
+      "start_time": 156640.0,
+      "end_time": 159670.0,
+      "text": "the recognition accuracy.."
+    },
+    {
+      "index": 33,
+      "start_time": 159670.0,
+      "end_time": 163420.0,
+      "text": "I will call this guy ALEX.."
+    },
+    {
+      "index": 34,
+      "start_time": 163420.0,
+      "end_time": 170679.0,
+      "text": "Now we need to run a python script to create a JSON list.."
+    },
+    {
+      "index": 35,
+      "start_time": 170680.0,
+      "end_time": 173950.0,
+      "text": "You can see that the .json file was created.."
+    },
+    {
+      "index": 36,
+      "start_time": 173950.0,
+      "end_time": 176619.0,
+      "text": "And now we run the sample again.."
+    },
+    {
+      "index": 37,
+      "start_time": 176620.0,
+      "end_time": 184530.0,
+      "text": "With -fg directing to our face gallery JSON file.."
+    },
+    {
+      "index": 38,
+      "start_time": 184530.0,
+      "end_time": 188510.0,
+      "text": "And you can see that ALEX is detected.."
+    },
+    {
+      "index": 39,
+      "start_time": 188510.0,
+      "end_time": 194560.0,
+      "text": "It&#39;s pretty slow, 12 frames per seconds As all of these models are running on my CPU"
+    },
+    {
+      "index": 40,
+      "start_time": 194560.0,
+      "end_time": 201330.0,
+      "text": "As always you can change the target device, Here I will try to run the landmark detection"
+    },
+    {
+      "index": 41,
+      "start_time": 201330.0,
+      "end_time": 212160.0,
+      "text": "and the re-identification models on the GPU And we improved from 12 to 19 frames-per-seconds.."
+    },
+    {
+      "index": 42,
+      "start_time": 212160.0,
+      "end_time": 213910.0,
+      "text": "And the CPU is free"
+    },
+    {
+      "index": 43,
+      "start_time": 213910.0,
+      "end_time": 220341.0,
+      "text": "This sample could be a good start if you need a simple face detection and recognition, action"
+    },
+    {
+      "index": 44,
+      "start_time": 220341.0,
+      "end_time": 224180.0,
+      "text": "detection and tracking.."
+    },
+    {
+      "index": 45,
+      "start_time": 224180.0,
+      "end_time": 225790.0,
+      "text": "Use it.."
+    },
+    {
+      "index": 46,
+      "start_time": 225790.0,
+      "end_time": 226209.0,
+      "text": "Thank you"
+    }
+  ]
+}

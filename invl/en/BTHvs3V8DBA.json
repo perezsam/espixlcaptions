@@ -1,0 +1,3816 @@
+{
+  "video_id": "BTHvs3V8DBA",
+  "title": "High Performance Web Sites and YSlow",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 22279.0,
+      "end_time": 30189.0,
+      "text": "&gt;&gt; So my name is [INDISTINCT] with the development programming [INDISTINCT] here in Google. And"
+    },
+    {
+      "index": 2,
+      "start_time": 30189.0,
+      "end_time": 35219.0,
+      "text": "I run [INDISTINCT] and that&#39;s where I first kind of met Steve, I had him come out for"
+    },
+    {
+      "index": 3,
+      "start_time": 35219.0,
+      "end_time": 38640.0,
+      "text": "this conference called The Ajax Experience to talk about all of these great stuff he"
+    },
+    {
+      "index": 4,
+      "start_time": 38640.0,
+      "end_time": 43100.0,
+      "text": "was doing at Yahoo! with respect to performance, that then went on become--to become his book"
+    },
+    {
+      "index": 5,
+      "start_time": 43100.0,
+      "end_time": 49170.0,
+      "text": "and the YSlow application Firebug extension that he&#39;s going to talk about. And he&#39;s got"
+    },
+    {
+      "index": 6,
+      "start_time": 49170.0,
+      "end_time": 53680.0,
+      "text": "some fun anecdotes about how he came up with the name and some other fun stories to share"
+    },
+    {
+      "index": 7,
+      "start_time": 53680.0,
+      "end_time": 59489.0,
+      "text": "with us. So, let&#39;s all welcome Steve from Yahoo!."
+    },
+    {
+      "index": 8,
+      "start_time": 59489.0,
+      "end_time": 66110.0,
+      "text": "&gt;&gt; SOUDERS: I just want to say, every once in a while in your career, you get to meet"
+    },
+    {
+      "index": 9,
+      "start_time": 66110.0,
+      "end_time": 71020.0,
+      "text": "people who are incredibly smart and incredibly nice people too, and [INDISTINCT] is one of"
+    },
+    {
+      "index": 10,
+      "start_time": 71020.0,
+      "end_time": 74610.0,
+      "text": "those guys and, so I wanted to present you with a copy of my book, [INDISTINCT]"
+    },
+    {
+      "index": 11,
+      "start_time": 74610.0,
+      "end_time": 79679.0,
+      "text": "&gt;&gt; Oh, very nice. Thank you very much. Thank you."
+    },
+    {
+      "index": 12,
+      "start_time": 79679.0,
+      "end_time": 84189.0,
+      "text": "&gt;&gt; SOUDERS: All right. Thanks for having me here."
+    },
+    {
+      "index": 13,
+      "start_time": 84189.0,
+      "end_time": 86450.0,
+      "text": "&gt;&gt; [INDISTINCT] &gt;&gt; SOUDERS: I&#39;m sorry?"
+    },
+    {
+      "index": 14,
+      "start_time": 86450.0,
+      "end_time": 89829.0,
+      "text": "&gt;&gt; [INDISTINCT] &gt;&gt; SOUDERS: I&#39;m sentimental. I&#39;m emotional."
+    },
+    {
+      "index": 15,
+      "start_time": 89829.0,
+      "end_time": 97070.0,
+      "text": "That&#39;s okay. So, my name is Steve Souders. I&#39;m the Chief Performance Yahoo!! and I understand"
+    },
+    {
+      "index": 16,
+      "start_time": 97070.0,
+      "end_time": 104560.0,
+      "text": "Doug Crockford from Yahoo! was here a month or so ago. So, it&#39;s--maybe not the first time"
+    },
+    {
+      "index": 17,
+      "start_time": 104560.0,
+      "end_time": 110920.0,
+      "text": "that someone from Yahoo! has come and done a presentation at Google. But I do have to"
+    },
+    {
+      "index": 18,
+      "start_time": 110920.0,
+      "end_time": 116759.0,
+      "text": "say, I will, you know, was wondering how this was going to go and, you know, was trying"
+    },
+    {
+      "index": 19,
+      "start_time": 116759.0,
+      "end_time": 125359.0,
+      "text": "to get myself prepared for this. And so, I just want to start off with this note, and"
+    },
+    {
+      "index": 20,
+      "start_time": 125359.0,
+      "end_time": 134280.0,
+      "text": "I don&#39;t know if anyone remembers Concentration, Ed McMahon was one of the hosts for it, yeah."
+    },
+    {
+      "index": 21,
+      "start_time": 134280.0,
+      "end_time": 145030.0,
+      "text": "And so, anyone from the audience, want to take a guess? Sissy Spacek and someone who"
+    },
+    {
+      "index": 22,
+      "start_time": 145030.0,
+      "end_time": 156739.0,
+      "text": "looks like Peter Frampton in the movie Carrie. How many people here actually know what this"
+    },
+    {
+      "index": 23,
+      "start_time": 156739.0,
+      "end_time": 162260.0,
+      "text": "expression means or has ever used it? So, preaching to the choir might have been another"
+    },
+    {
+      "index": 24,
+      "start_time": 162260.0,
+      "end_time": 164730.0,
+      "text": "good one to use but in rebus that--I didn&#39;t think that was as interesting. So, my wife"
+    },
+    {
+      "index": 25,
+      "start_time": 164730.0,
+      "end_time": 171629.0,
+      "text": "said no one is going to know what that means. So, I thought I would look it up in Wikipedia"
+    },
+    {
+      "index": 26,
+      "start_time": 171629.0,
+      "end_time": 178420.0,
+      "text": "and bring that as well. So, it kind of mean something that&#39;s--so it&#39;s selling coal or"
+    },
+    {
+      "index": 27,
+      "start_time": 178420.0,
+      "end_time": 184530.0,
+      "text": "carrying coal to Newcastle, it&#39;s something that is may be foolhardy or pointless. And"
+    },
+    {
+      "index": 28,
+      "start_time": 184530.0,
+      "end_time": 190930.0,
+      "text": "so, given how fast Google sites are and the work that you&#39;re doing on performance maybe"
+    },
+    {
+      "index": 29,
+      "start_time": 190930.0,
+      "end_time": 197629.0,
+      "text": "there&#39;s not a lot of motivation or point for me to come and talk more about performance."
+    },
+    {
+      "index": 30,
+      "start_time": 197629.0,
+      "end_time": 208159.0,
+      "text": "But as was shown with this expression, there can even be cases where someone comes and"
+    },
+    {
+      "index": 31,
+      "start_time": 208159.0,
+      "end_time": 213319.0,
+      "text": "surprises people by carrying coal to Newcastle and actually being able to sell it. So I&#39;m"
+    },
+    {
+      "index": 32,
+      "start_time": 213319.0,
+      "end_time": 218569.0,
+      "text": "hoping that there are some takeaways that you can get from this performance best practices"
+    },
+    {
+      "index": 33,
+      "start_time": 218569.0,
+      "end_time": 225790.0,
+      "text": "that we found at Yahoo! and so let&#39;s dig into that. So I&#39;ve been at Yahoo! for about eight"
+    },
+    {
+      "index": 34,
+      "start_time": 225790.0,
+      "end_time": 233849.0,
+      "text": "years working on various things and about three years ago some of the folks there asked"
+    },
+    {
+      "index": 35,
+      "start_time": 233849.0,
+      "end_time": 239099.0,
+      "text": "me to start a group to focus on performance. And so I called the group the Exceptional"
+    },
+    {
+      "index": 36,
+      "start_time": 239099.0,
+      "end_time": 243640.0,
+      "text": "Performance Group. And the charter is very simple. We&#39;re supposed to quantify and improve"
+    },
+    {
+      "index": 37,
+      "start_time": 243640.0,
+      "end_time": 248230.0,
+      "text": "the performance of all Yahoo! products worldwide. Such a really big charter, we scoped it down"
+    },
+    {
+      "index": 38,
+      "start_time": 248230.0,
+      "end_time": 252670.0,
+      "text": "a little bit. I kind of break performance into two areas, response time, so it&#39;s kind"
+    },
+    {
+      "index": 39,
+      "start_time": 252670.0,
+      "end_time": 261030.0,
+      "text": "of a black box perspective of it, and efficiency. So, efficiency actually is easier to correlate"
+    },
+    {
+      "index": 40,
+      "start_time": 261029.99999999997,
+      "end_time": 266719.0,
+      "text": "to dollars. If you can do what you&#39;re doing with half the hardware, that&#39;s a lot of hardware"
+    },
+    {
+      "index": 41,
+      "start_time": 266719.0,
+      "end_time": 273140.0,
+      "text": "cost that you&#39;ve saved, power consumption, rack space, but actually the area that I focused"
+    },
+    {
+      "index": 42,
+      "start_time": 273140.0,
+      "end_time": 278090.0,
+      "text": "on for the last three years is the response time. And the main reason for that is at Yahoo!,"
+    },
+    {
+      "index": 43,
+      "start_time": 278090.0,
+      "end_time": 282460.0,
+      "text": "of course, we want to reduce our hardware cost and our power cost, but really, it&#39;s"
+    },
+    {
+      "index": 44,
+      "start_time": 282460.0,
+      "end_time": 288889.0,
+      "text": "really important for us to have a very good user experience, very engaging products that"
+    },
+    {
+      "index": 45,
+      "start_time": 288889.0,
+      "end_time": 293280.0,
+      "text": "increase stickiness and user adoption. So that&#39;s where we&#39;ve been focusing. And we&#39;ve"
+    },
+    {
+      "index": 46,
+      "start_time": 293280.0,
+      "end_time": 300030.0,
+      "text": "also narrowed it down a little bit by focusing almost exclusively on web apps. So we&#39;re not"
+    },
+    {
+      "index": 47,
+      "start_time": 300030.0,
+      "end_time": 306180.0,
+      "text": "like trying to optimize Yahoo! Messenger. And were kind of like a consulting group within"
+    },
+    {
+      "index": 48,
+      "start_time": 306180.0,
+      "end_time": 314880.0,
+      "text": "Yahoo!. We&#39;ve--we&#39;ve done this at Yahoo! in other areas like security and, you know, redundancy."
+    },
+    {
+      "index": 49,
+      "start_time": 314880.0,
+      "end_time": 320009.0,
+      "text": "We can have a small group of people; in my case, our group&#39;s about five to seven people."
+    },
+    {
+      "index": 50,
+      "start_time": 320009.0,
+      "end_time": 325759.0,
+      "text": "We have a small group of people that focus full time on this area and can really do a"
+    },
+    {
+      "index": 51,
+      "start_time": 325759.0,
+      "end_time": 334110.0,
+      "text": "deep dive. And then we disseminate, we evangelize those best practices across the company. So,"
+    },
+    {
+      "index": 52,
+      "start_time": 334110.0,
+      "end_time": 338880.0,
+      "text": "we build tools like YSlow, I&#39;ll be showing later. We have lots of other tools. Some we&#39;ve"
+    },
+    {
+      "index": 53,
+      "start_time": 338880.0,
+      "end_time": 346270.0,
+      "text": "released, some are internal. We look at a lot of data. We do research, so we&#39;ll--we&#39;ll"
+    },
+    {
+      "index": 54,
+      "start_time": 346270.0,
+      "end_time": 350990.0,
+      "text": "do--we kind of have on the job experience. We&#39;ll go out and we&#39;ll do consulting with"
+    },
+    {
+      "index": 55,
+      "start_time": 350990.0,
+      "end_time": 356840.0,
+      "text": "groups and we&#39;ll go, &quot;Oh, wow! This is what really made this site go a lot faster. Let&#39;s"
+    },
+    {
+      "index": 56,
+      "start_time": 356840.0,
+      "end_time": 361110.0,
+      "text": "store that away as a best practice. Let&#39;s see if we can generalize it and make it applicable."
+    },
+    {
+      "index": 57,
+      "start_time": 361110.0,
+      "end_time": 366060.0,
+      "text": "See if it&#39;s applicable to 80% of the properties,&quot; that&#39;s what we call them at Yahoo!, &quot;80% of"
+    },
+    {
+      "index": 58,
+      "start_time": 366060.0,
+      "end_time": 372690.0,
+      "text": "the properties at Yahoo!.&quot; So we try to identify these best practices. Sometimes we have to"
+    },
+    {
+      "index": 59,
+      "start_time": 372690.0,
+      "end_time": 378240.0,
+      "text": "research the best practices. So no one&#39;s actually doing it yet but we think there&#39;s a way to"
+    },
+    {
+      "index": 60,
+      "start_time": 378240.0,
+      "end_time": 383340.0,
+      "text": "navigate through this--these set of constraints to find something that&#39;s going to accelerate"
+    },
+    {
+      "index": 61,
+      "start_time": 383340.0,
+      "end_time": 389259.0,
+      "text": "the user experience. So we do research and when we find these best practices we evangelize"
+    },
+    {
+      "index": 62,
+      "start_time": 389259.0,
+      "end_time": 397889.0,
+      "text": "them out to the--to the company. So when I started this, my background is more on backend"
+    },
+    {
+      "index": 63,
+      "start_time": 397889.0,
+      "end_time": 402699.0,
+      "text": "engineering. So, some of the first projects I did at Yahoo!, I ran the My Yahoo! team"
+    },
+    {
+      "index": 64,
+      "start_time": 402699.0,
+      "end_time": 408599.0,
+      "text": "for three years, I built an architecture that pushed all of our content, all our sports"
+    },
+    {
+      "index": 65,
+      "start_time": 408599.0,
+      "end_time": 415430.0,
+      "text": "scores and movie listings and TV listings worldwide. I wrote a caching layer between"
+    },
+    {
+      "index": 66,
+      "start_time": 415430.0,
+      "end_time": 420669.0,
+      "text": "all of our properties. So if you had a property that needed personal information, like someone&#39;s"
+    },
+    {
+      "index": 67,
+      "start_time": 420669.0,
+      "end_time": 425669.0,
+      "text": "calendar for that day, they wouldn&#39;t have to constantly bombard the calendar service"
+    },
+    {
+      "index": 68,
+      "start_time": 425669.0,
+      "end_time": 431550.0,
+      "text": "with web service calls. We could cache that in a way of updating the cache and expiring"
+    },
+    {
+      "index": 69,
+      "start_time": 431550.0,
+      "end_time": 436740.0,
+      "text": "the cache and flushing the cache. So when I was approached to start this performance"
+    },
+    {
+      "index": 70,
+      "start_time": 436740.0,
+      "end_time": 441199.0,
+      "text": "team, I thought, &quot;Okay. Well, this is going to work well.&quot; You know, I&#39;ve worked on large"
+    },
+    {
+      "index": 71,
+      "start_time": 441199.0,
+      "end_time": 447229.0,
+      "text": "scale systems trying to make them as efficient as possible, but I said, &quot;Before I start digging"
+    },
+    {
+      "index": 72,
+      "start_time": 447229.0,
+      "end_time": 452720.0,
+      "text": "into this, if the--&quot; we identified early on that the goal was really to make the user"
+    },
+    {
+      "index": 73,
+      "start_time": 452720.0,
+      "end_time": 457139.0,
+      "text": "experience faster. I said, &quot;let me look at that. Let me analyze that, profile that, and"
+    },
+    {
+      "index": 74,
+      "start_time": 457139.0,
+      "end_time": 462860.0,
+      "text": "see what the long tent in the pole is.&quot; And so I found something that was kind of surprising"
+    },
+    {
+      "index": 75,
+      "start_time": 462860.0,
+      "end_time": 469069.0,
+      "text": "and I&#39;m glad I found it right away because it completely flipped the approach to looking"
+    },
+    {
+      "index": 76,
+      "start_time": 469069.0,
+      "end_time": 475099.0,
+      "text": "at performance at Yahoo!. So this is--this is from a package [INDISTINCT] called IBM"
+    },
+    {
+      "index": 77,
+      "start_time": 475099.0,
+      "end_time": 483050.0,
+      "text": "page detailer, each of the bars is a http request. The first--you can see they&#39;re labeled,"
+    },
+    {
+      "index": 78,
+      "start_time": 483050.0,
+      "end_time": 487840.0,
+      "text": "and the first one is the html document and in this case, this www.yahoo.com with an empty"
+    },
+    {
+      "index": 79,
+      "start_time": 487840.0,
+      "end_time": 494590.0,
+      "text": "cache. And the thing that&#39;s--was very surprising to me was only 5% of the overall user wait"
+    },
+    {
+      "index": 80,
+      "start_time": 494590.0,
+      "end_time": 500039.0,
+      "text": "time was getting that html document and that includes not just the web servers stitching"
+    },
+    {
+      "index": 81,
+      "start_time": 500039.0,
+      "end_time": 504500.0,
+      "text": "the content together but the time for the request to go up and all of the packets to"
+    },
+    {
+      "index": 82,
+      "start_time": 504500.0,
+      "end_time": 511720.0,
+      "text": "come back. All of that was only 5%. And in my previous life, working on these large websites,"
+    },
+    {
+      "index": 83,
+      "start_time": 511720.0,
+      "end_time": 517039.0,
+      "text": "that&#39;s the part I was always focusing on, how can I build a better data base or cache"
+    },
+    {
+      "index": 84,
+      "start_time": 517039.0,
+      "end_time": 525230.0,
+      "text": "data in memory or change my compiler options, anything to squeeze out a couple more milliseconds."
+    },
+    {
+      "index": 85,
+      "start_time": 525230.0,
+      "end_time": 530660.0,
+      "text": "And it turns out that I was working on the short tents in the pole. So really the long"
+    },
+    {
+      "index": 86,
+      "start_time": 530660.0,
+      "end_time": 536140.0,
+      "text": "tent is this, I call it the frontend. I think--most of the time when someone says, &quot;The frontend"
+    },
+    {
+      "index": 87,
+      "start_time": 536140.0,
+      "end_time": 540140.0,
+      "text": "part,&quot; they might be thinking about like JavaScript executions, so this is bigger than that. It&#39;s"
+    },
+    {
+      "index": 88,
+      "start_time": 540140.0,
+      "end_time": 545400.0,
+      "text": "really--I call it frontend, everything after the html document has arrived to the browser."
+    },
+    {
+      "index": 89,
+      "start_time": 545400.0,
+      "end_time": 550610.0,
+      "text": "Once the browser has that delivery of the--of the page, what does the browser have to do"
+    },
+    {
+      "index": 90,
+      "start_time": 550610.0,
+      "end_time": 556059.0,
+      "text": "from that point forward? I call that the frontend part. So there&#39;s certainly JavaScript html,"
+    },
+    {
+      "index": 91,
+      "start_time": 556059.0,
+      "end_time": 562890.0,
+      "text": "JavaScript CSS, parsing, JavaScript execution, but there also is a lot of other network time"
+    },
+    {
+      "index": 92,
+      "start_time": 562890.0,
+      "end_time": 567390.0,
+      "text": "involved there for all of these other http request. Most of the time there isn&#39;t, for"
+    },
+    {
+      "index": 93,
+      "start_time": 567390.0,
+      "end_time": 573540.0,
+      "text": "this other part, this frontend part, there usually isn&#39;t a lot of backend time, web server"
+    },
+    {
+      "index": 94,
+      "start_time": 573540.0,
+      "end_time": 578020.0,
+      "text": "time, because most of these are static assets that are just read off the disk. But some"
+    },
+    {
+      "index": 95,
+      "start_time": 578020.0,
+      "end_time": 581799.0,
+      "text": "of them could be hx:request or something that take a little longer. But in this case we"
+    },
+    {
+      "index": 96,
+      "start_time": 581799.0,
+      "end_time": 589339.0,
+      "text": "found that 95% of the time for a empty cache is spent on everything after the html document."
+    },
+    {
+      "index": 97,
+      "start_time": 589339.0,
+      "end_time": 595030.0,
+      "text": "So I thought, &quot;Okay. Well, what is it with a prime cache?&quot; So even in that case its only"
+    },
+    {
+      "index": 98,
+      "start_time": 595030.0,
+      "end_time": 601429.0,
+      "text": "12%. There&#39;s a little white gap here in the middle where the browsers reading those cached"
+    },
+    {
+      "index": 99,
+      "start_time": 601429.0,
+      "end_time": 607160.0,
+      "text": "assets off the disk and having to reparse the CSS and JavaScript and execute the JavaScript,"
+    },
+    {
+      "index": 100,
+      "start_time": 607160.0,
+      "end_time": 611720.0,
+      "text": "and at the end there are still a handful of request for images that have changed or ads"
+    },
+    {
+      "index": 101,
+      "start_time": 611720.0,
+      "end_time": 618589.0,
+      "text": "or beacons or something. But still only 12% was that backend part, getting the html document."
+    },
+    {
+      "index": 102,
+      "start_time": 618589.0,
+      "end_time": 622510.0,
+      "text": "So this, you know, really surprised me and I said, &quot;Well, maybe this is something peculiar"
+    },
+    {
+      "index": 103,
+      "start_time": 622510.0,
+      "end_time": 629319.0,
+      "text": "to www.&quot; But as I looked at more and more sites, I found that this pattern held true."
+    },
+    {
+      "index": 104,
+      "start_time": 629319.0,
+      "end_time": 636480.0,
+      "text": "That only ten to twenty percent of the total end-user experience was spent getting the"
+    },
+    {
+      "index": 105,
+      "start_time": 636480.0,
+      "end_time": 641309.0,
+      "text": "html document down. So these are the top, as of about 6 months ago, these are the top"
+    },
+    {
+      "index": 106,
+      "start_time": 641309.0,
+      "end_time": 647059.0,
+      "text": "ten sites in the U.S. And there&#39;s only one that breaks that kind of guideline and that&#39;s"
+    },
+    {
+      "index": 107,
+      "start_time": 647059.0,
+      "end_time": 653640.0,
+      "text": "Google in a prime cache. So there&#39;s only 2 http request for Google with a prime cache,"
+    },
+    {
+      "index": 108,
+      "start_time": 653640.0,
+      "end_time": 659860.0,
+      "text": "just www.google.com. And--but even here, the html—-you&#39;d think like--I think the other"
+    },
+    {
+      "index": 109,
+      "start_time": 659860.0,
+      "end_time": 663309.0,
+      "text": "one is a beacon, maybe I was in like a test bucket or something like that, I don&#39;t know"
+    },
+    {
+      "index": 110,
+      "start_time": 663309.0,
+      "end_time": 669209.0,
+      "text": "if it happens all the time, but here the html document was still only 36%. But this is the"
+    },
+    {
+      "index": 111,
+      "start_time": 669209.0,
+      "end_time": 673970.0,
+      "text": "exception; almost every site you got to you&#39;ll find what we call the performance golden rule,"
+    },
+    {
+      "index": 112,
+      "start_time": 673970.0,
+      "end_time": 679040.0,
+      "text": "that 80% to 90% of the end-user response time, the time the user is waiting, is spent on"
+    },
+    {
+      "index": 113,
+      "start_time": 679040.0,
+      "end_time": 683819.0,
+      "text": "this part after the html document arrives. And so that&#39;s--if you really want to improve"
+    },
+    {
+      "index": 114,
+      "start_time": 683819.0,
+      "end_time": 689449.0,
+      "text": "response times that&#39;s where you have to focus. I&#39;ve got three good reasons why you should"
+    },
+    {
+      "index": 115,
+      "start_time": 689449.0,
+      "end_time": 695390.0,
+      "text": "believe that. One, just the a priori probability of making an improvement is greater if you"
+    },
+    {
+      "index": 116,
+      "start_time": 695390.0,
+      "end_time": 700520.0,
+      "text": "focus on that frontend part. In your wildest dreams, maybe you could cut the backend performance"
+    },
+    {
+      "index": 117,
+      "start_time": 700520.0,
+      "end_time": 706160.0,
+      "text": "in half while you put a 5% to 10% dent in the response time in the user experience."
+    },
+    {
+      "index": 118,
+      "start_time": 706160.0,
+      "end_time": 711230.0,
+      "text": "But if you could cut that frontend part in half, you&#39;re going to make a 40% to 45% dent,"
+    },
+    {
+      "index": 119,
+      "start_time": 711230.0,
+      "end_time": 715490.0,
+      "text": "and that&#39;s going to be huge. Users are actually going to notice that. So just a priori, you"
+    },
+    {
+      "index": 120,
+      "start_time": 715490.0,
+      "end_time": 721540.0,
+      "text": "have a better chance of making a big difference. The changes are simpler. So, you know, if"
+    },
+    {
+      "index": 121,
+      "start_time": 721540.0,
+      "end_time": 726230.0,
+      "text": "you want to change--cut half of the backend response time, you have to come up with a"
+    },
+    {
+      "index": 122,
+      "start_time": 726230.0,
+      "end_time": 733049.0,
+      "text": "new database schema, optimize your code, replicate your architecture across multiple data centers"
+    },
+    {
+      "index": 123,
+      "start_time": 733049.0,
+      "end_time": 738890.0,
+      "text": "worldwide. Huge, huge complex task. Whereas, you&#39;ll see in a minute, I&#39;ll talk about some"
+    },
+    {
+      "index": 124,
+      "start_time": 738890.0,
+      "end_time": 744510.0,
+      "text": "of these guidelines in more detail, most of them are hours or days of work. Change your"
+    },
+    {
+      "index": 125,
+      "start_time": 744510.0,
+      "end_time": 750459.0,
+      "text": "web server configuration, rearrange the page a little bit, nothing that&#39;s really that complex."
+    },
+    {
+      "index": 126,
+      "start_time": 750459.0,
+      "end_time": 756549.0,
+      "text": "So the changes are simpler and they&#39;re proven to work. So my group has worked with, probably,"
+    },
+    {
+      "index": 127,
+      "start_time": 756549.0,
+      "end_time": 762069.0,
+      "text": "a hundred properties at Yahoo!. It&#39;s pretty easy for us, in fact there&#39;s only one exception"
+    },
+    {
+      "index": 128,
+      "start_time": 762069.0,
+      "end_time": 767799.0,
+      "text": "I can think of where we&#39;ve haven&#39;t been able to go in and with just a few days work cut"
+    },
+    {
+      "index": 129,
+      "start_time": 767799.0,
+      "end_time": 773699.0,
+      "text": "25% off the response time of any website. And what&#39;s also cool is now that the book"
+    },
+    {
+      "index": 130,
+      "start_time": 773699.0,
+      "end_time": 780040.0,
+      "text": "is out and YSlow is out, I&#39;m getting e-mails from people at small and large companies everywhere"
+    },
+    {
+      "index": 131,
+      "start_time": 780040.0,
+      "end_time": 787010.0,
+      "text": "that they&#39;ve tried rules, you know, 2, 3 and 7 and they&#39;ve cut 20% or 40% of the response"
+    },
+    {
+      "index": 132,
+      "start_time": 787010.0,
+      "end_time": 792669.0,
+      "text": "times. So this doesn&#39;t just happen at Yahoo! and it doesn&#39;t just happen at gigantic websites,"
+    },
+    {
+      "index": 133,
+      "start_time": 792669.0,
+      "end_time": 798010.0,
+      "text": "these rules really apply to almost any web page that you&#39;re building. So, I wanted to"
+    },
+    {
+      "index": 134,
+      "start_time": 798010.0,
+      "end_time": 802630.0,
+      "text": "talk a little bit--I&#39;m going to have just a few slides about some research and then"
+    },
+    {
+      "index": 135,
+      "start_time": 802630.0,
+      "end_time": 806949.0,
+      "text": "we&#39;ll go through the bulk of the talk, is the rules that the guidelines we have. And"
+    },
+    {
+      "index": 136,
+      "start_time": 806949.0,
+      "end_time": 811280.0,
+      "text": "at the end I&#39;ll run YSlow and we could like look at some Google sites or any other sites"
+    },
+    {
+      "index": 137,
+      "start_time": 811280.0,
+      "end_time": 821760.0,
+      "text": "and analyze, to do kinds--kind of some live analysis. So, my coworker Tenni Theurer blogs"
+    },
+    {
+      "index": 138,
+      "start_time": 821760.0,
+      "end_time": 827780.0,
+      "text": "about most of our research on yuiblog.com, and I&#39;m going to talk about one of these experiments"
+    },
+    {
+      "index": 139,
+      "start_time": 827780.0,
+      "end_time": 833870.0,
+      "text": "that we wrote up, the browser cache experiment, because a lot of our best practices hinge"
+    },
+    {
+      "index": 140,
+      "start_time": 833870.0,
+      "end_time": 840120.0,
+      "text": "on increase in the use of the browser&#39;s cache. But before we really could know how valuable"
+    },
+    {
+      "index": 141,
+      "start_time": 840120.0,
+      "end_time": 845049.0,
+      "text": "that was, we had to answer the question, &quot;How many users come in with prime cache?&quot; We didn&#39;t"
+    },
+    {
+      "index": 142,
+      "start_time": 845049.0,
+      "end_time": 848669.0,
+      "text": "know, no one knew and I couldn&#39;t find any research about that out there in the world."
+    },
+    {
+      "index": 143,
+      "start_time": 848669.0,
+      "end_time": 855370.0,
+      "text": "So we made up this experiment where we put a little 1X1 pixel in a page, but we had to"
+    },
+    {
+      "index": 144,
+      "start_time": 855370.0,
+      "end_time": 861079.0,
+      "text": "be kind of careful about these two response headers. We put the expires in the past and"
+    },
+    {
+      "index": 145,
+      "start_time": 861079.0,
+      "end_time": 866730.0,
+      "text": "we made sure that on all the servers the file stamps was identical. So the last modified"
+    },
+    {
+      "index": 146,
+      "start_time": 866730.0,
+      "end_time": 870660.0,
+      "text": "timestamp for--no matter which server you went to, for this image, would always be the"
+    },
+    {
+      "index": 147,
+      "start_time": 870660.0,
+      "end_time": 877740.0,
+      "text": "same. And so, we know that there&#39;s going to be two possible http status codes returned"
+    },
+    {
+      "index": 148,
+      "start_time": 877740.0,
+      "end_time": 884839.0,
+      "text": "for this, either a 200 which tells us the user had an empty cache or 304 which tells"
+    },
+    {
+      "index": 149,
+      "start_time": 884839.0,
+      "end_time": 889669.0,
+      "text": "us that the user had downloaded this image previously, they have it in their cache with"
+    },
+    {
+      "index": 150,
+      "start_time": 889669.0,
+      "end_time": 895120.0,
+      "text": "this last modified header, so when they requested--when they went to the page again and requested"
+    },
+    {
+      "index": 151,
+      "start_time": 895120.0,
+      "end_time": 901169.0,
+      "text": "that image again they made a IMS, If Modified Since request or conditional git request,"
+    },
+    {
+      "index": 152,
+      "start_time": 901169.0,
+      "end_time": 907299.0,
+      "text": "they said, &quot;I have a copy of this image on my disk that was last modified at this time,&quot;"
+    },
+    {
+      "index": 153,
+      "start_time": 907299.0,
+      "end_time": 911500.0,
+      "text": "and the web server says, &quot;Oh, we&#39;ll just use that one. 304 not modified, just use that"
+    },
+    {
+      "index": 154,
+      "start_time": 911500.0,
+      "end_time": 916189.0,
+      "text": "one.&quot; But those two different status codes, 200 and 304 are written into the web server"
+    },
+    {
+      "index": 155,
+      "start_time": 916189.0,
+      "end_time": 922189.0,
+      "text": "logs. So we can just go through the web server logs and find the ratios of these 200s to"
+    },
+    {
+      "index": 156,
+      "start_time": 922189.0,
+      "end_time": 926650.0,
+      "text": "304s and answer these two questions. What percentage of users come in everyday with"
+    },
+    {
+      "index": 157,
+      "start_time": 926650.0,
+      "end_time": 931760.0,
+      "text": "an empty cache and what percentage of page views happen everyday with users with an empty"
+    },
+    {
+      "index": 158,
+      "start_time": 931760.0,
+      "end_time": 937350.0,
+      "text": "cache, and we&#39;ll see that those are two different numbers. So on the first day no one has seen"
+    },
+    {
+      "index": 159,
+      "start_time": 937350.0,
+      "end_time": 941970.0,
+      "text": "this image before, so 100% of the users come in at least once a day without having this"
+    },
+    {
+      "index": 160,
+      "start_time": 941970.0,
+      "end_time": 948049.0,
+      "text": "image, they come in at least once a day considered having an empty cache, and 100% of page view"
+    },
+    {
+      "index": 161,
+      "start_time": 948049.0,
+      "end_time": 953100.0,
+      "text": "have an empty cache. But then over time, more and more users are going to get this pixel,"
+    },
+    {
+      "index": 162,
+      "start_time": 953100.0,
+      "end_time": 957669.0,
+      "text": "this image, written into their cache and as they go to the pages that image is going to"
+    },
+    {
+      "index": 163,
+      "start_time": 957669.0,
+      "end_time": 963199.0,
+      "text": "get a 304 status code response. So after--and we&#39;ve run these on various sites at Yahoo!,"
+    },
+    {
+      "index": 164,
+      "start_time": 963199.0,
+      "end_time": 967380.0,
+      "text": "it always happen after about fifteen days, we hit a steady state and it always comes"
+    },
+    {
+      "index": 165,
+      "start_time": 967380.0,
+      "end_time": 973699.0,
+      "text": "out to these numbers. Pretty much no matter what website we&#39;re looking at, about 80% of"
+    },
+    {
+      "index": 166,
+      "start_time": 973699.0,
+      "end_time": 977949.0,
+      "text": "the page views are done with a prime cache or full cache and twenty percent with an empty"
+    },
+    {
+      "index": 167,
+      "start_time": 977949.0,
+      "end_time": 983829.0,
+      "text": "cache. And for users, it varies between 40% to 60% and I don&#39;t mean that we run it on"
+    },
+    {
+      "index": 168,
+      "start_time": 983829.0,
+      "end_time": 989110.0,
+      "text": "property X and it will be 40% then 60%, 40% then 60%. What I mean is, if property X is"
+    },
+    {
+      "index": 169,
+      "start_time": 989110.0,
+      "end_time": 994660.0,
+      "text": "really sticky, then maybe only 40% of the users are coming in with an empty cache everyday,"
+    },
+    {
+      "index": 170,
+      "start_time": 994660.0,
+      "end_time": 1002660.0,
+      "text": "whereas if property X is not very sticky, 60%. But it ranges in those values, in that"
+    },
+    {
+      "index": 171,
+      "start_time": 1002660.0,
+      "end_time": 1008919.0,
+      "text": "range. So, what does this tell us? Unfortunately, it tells us our job is really hard because"
+    },
+    {
+      "index": 172,
+      "start_time": 1008920.0,
+      "end_time": 1014320.0,
+      "text": "both of those numbers are really high. You can&#39;t ignore these users who are coming in"
+    },
+    {
+      "index": 173,
+      "start_time": 1014320.0,
+      "end_time": 1019570.0,
+      "text": "with an empty cache everyday. You know, 50% of your users about are coming in with an"
+    },
+    {
+      "index": 174,
+      "start_time": 1019570.0,
+      "end_time": 1023840.0,
+      "text": "empty cache and that&#39;s going to be their first page view, that&#39;s really going to set their"
+    },
+    {
+      "index": 175,
+      "start_time": 1023840.0,
+      "end_time": 1028050.0,
+      "text": "expectations, their impression of what the site&#39;s performance is going to be like. So"
+    },
+    {
+      "index": 176,
+      "start_time": 1028050.0,
+      "end_time": 1031450.0,
+      "text": "you have to optimize for that, you have to make sure that when people come in with an"
+    },
+    {
+      "index": 177,
+      "start_time": 1031450.0,
+      "end_time": 1036131.0,
+      "text": "empty cache for that first page view, the page still really fires fast. But then you"
+    },
+    {
+      "index": 178,
+      "start_time": 1036130.0000000001,
+      "end_time": 1041630.0000000001,
+      "text": "also have to think about 80% of the time people are coming in with a prime cache. So you don&#39;t"
+    },
+    {
+      "index": 179,
+      "start_time": 1041630.0000000001,
+      "end_time": 1046500.0000000001,
+      "text": "want to do things that really optimize the empty cash but then kind of penalize that"
+    },
+    {
+      "index": 180,
+      "start_time": 1046500.0,
+      "end_time": 1052470.0,
+      "text": "80% of page views that happen over time. So, that was one experiment we wrote up, and you"
+    },
+    {
+      "index": 181,
+      "start_time": 1052470.0,
+      "end_time": 1058800.0,
+      "text": "can go there and you can read the other ones. So now we&#39;ll dive in to the 14 rules, and"
+    },
+    {
+      "index": 182,
+      "start_time": 1058800.0,
+      "end_time": 1061820.0,
+      "text": "I&#39;m actually going to–-for the sake of time, because I want to try to wrap up in under"
+    },
+    {
+      "index": 183,
+      "start_time": 1061820.0,
+      "end_time": 1067990.0,
+      "text": "an hour. I&#39;m going to skip four of them and a lot of these, you guys are already-–you"
+    },
+    {
+      "index": 184,
+      "start_time": 1067990.0,
+      "end_time": 1072980.0,
+      "text": "already know, you&#39;re already practicing. But certainly these four [INDISTINCT] CSS expressions,"
+    },
+    {
+      "index": 185,
+      "start_time": 1072980.0,
+      "end_time": 1079160.0,
+      "text": "reduced DNS look-ups, remove duplicate scripts, and configure e-tags, are things that I haven&#39;t"
+    },
+    {
+      "index": 186,
+      "start_time": 1079160.0,
+      "end_time": 1084320.0,
+      "text": "seen Google ever be a concern for Google sites. So we&#39;re going to skip those, and we&#39;ll go"
+    },
+    {
+      "index": 187,
+      "start_time": 1084320.0,
+      "end_time": 1089870.0,
+      "text": "through the others as fast as I can. So the most important one--and these are in approximate"
+    },
+    {
+      "index": 188,
+      "start_time": 1089870.0,
+      "end_time": 1097050.0,
+      "text": "priority order. So, we saw from that package [INDISTINCT] plot that there&#39;s a lot of http"
+    },
+    {
+      "index": 189,
+      "start_time": 1097050.0,
+      "end_time": 1100870.0,
+      "text": "request that happen after the html document comes down and that&#39;s [INDISTINCT] even more,"
+    },
+    {
+      "index": 190,
+      "start_time": 1100870.0,
+      "end_time": 1109110.0,
+      "text": "so our sites are becoming richer, there&#39;s more JavaScript on our pages, so an obvious"
+    },
+    {
+      "index": 191,
+      "start_time": 1109110.0,
+      "end_time": 1113760.0,
+      "text": "way to improve performance is to reduce the number of http request. But the constraint"
+    },
+    {
+      "index": 192,
+      "start_time": 1113760.0,
+      "end_time": 1118900.0,
+      "text": "I set myself in--I set for myself was, &quot;How do you do that without changing the content"
+    },
+    {
+      "index": 193,
+      "start_time": 1118900.0,
+      "end_time": 1122560.0,
+      "text": "on the page?&quot; Because I&#39;m not a designer, I don&#39;t want to go back and tell the designers"
+    },
+    {
+      "index": 194,
+      "start_time": 1122560.0,
+      "end_time": 1127630.0,
+      "text": "that they should, maybe not have so many rounded corners or not so many images. Given the content"
+    },
+    {
+      "index": 195,
+      "start_time": 1127630.0,
+      "end_time": 1131700.0,
+      "text": "on the page, what the designers have come up with, how can you reduce the number of"
+    },
+    {
+      "index": 196,
+      "start_time": 1131700.0,
+      "end_time": 1139270.0,
+      "text": "http request in that design? So one is--and we&#39;re going to CSS sprites in the next slide,"
+    },
+    {
+      "index": 197,
+      "start_time": 1139270.0,
+      "end_time": 1143740.0,
+      "text": "but let me just do these other three. If you have six JavaScript files, just combine them"
+    },
+    {
+      "index": 198,
+      "start_time": 1143740.0,
+      "end_time": 1148840.0,
+      "text": "into one. So you--instead of six http requests, you&#39;re just going to have one, the overhead"
+    },
+    {
+      "index": 199,
+      "start_time": 1148840.0,
+      "end_time": 1153040.0,
+      "text": "is going to make that page faster, even if you have [INDISTINCT] on. Same thing if you"
+    },
+    {
+      "index": 200,
+      "start_time": 1153040.0,
+      "end_time": 1158190.0,
+      "text": "have four CSS files, combine them into one. Image maps are kind of old school but if it"
+    },
+    {
+      "index": 201,
+      "start_time": 1158190.0,
+      "end_time": 1161640.0,
+      "text": "works for you, if you have four icons that are next to each other and they could just"
+    },
+    {
+      "index": 202,
+      "start_time": 1161640.0,
+      "end_time": 1166300.0,
+      "text": "be one image map, do an image map. Inline images are very, very cool. Unfortunately"
+    },
+    {
+      "index": 203,
+      "start_time": 1166300.0,
+      "end_time": 1172100.0,
+      "text": "they&#39;re not supported in IE, but if you have-–this is where you can actually take, like the contents"
+    },
+    {
+      "index": 204,
+      "start_time": 1172100.0,
+      "end_time": 1178740.0,
+      "text": "of an image or JavaScript file or anything else, and actually inline it in the page."
+    },
+    {
+      "index": 205,
+      "start_time": 1178740.0,
+      "end_time": 1184480.0,
+      "text": "And so, for us there are some cases where if this has been so important we&#39;ve actually"
+    },
+    {
+      "index": 206,
+      "start_time": 1184480.0,
+      "end_time": 1192610.0,
+      "text": "forked our backend code to just deliver data URLs for browsers that support it. But the"
+    },
+    {
+      "index": 207,
+      "start_time": 1192610.0,
+      "end_time": 1199390.0,
+      "text": "most important one to have a big gain in performance is CSS sprites. How many people here have"
+    },
+    {
+      "index": 208,
+      "start_time": 1199390.0,
+      "end_time": 1208010.0,
+      "text": "ever built a sprite? Cool. The Google front page uses a CSS spite. So the idea is--how"
+    },
+    {
+      "index": 209,
+      "start_time": 1208010.0,
+      "end_time": 1215240.0,
+      "text": "many people here have ever played with a Ouija board? Wow! More people have built sprites"
+    },
+    {
+      "index": 210,
+      "start_time": 1215240.0,
+      "end_time": 1223020.0,
+      "text": "than use the Ouija board. I&#39;ve never had that happen before. That&#39;s very cool. So the idea"
+    },
+    {
+      "index": 211,
+      "start_time": 1223020.0,
+      "end_time": 1226490.0,
+      "text": "is, you know, with the Ouija board, there&#39;s that glass thing that everyone puts their"
+    },
+    {
+      "index": 212,
+      "start_time": 1226490.0,
+      "end_time": 1231270.0,
+      "text": "fingers on, the planchette. And so think of--think of any box that you have in your page, [INDISTINCT]"
+    },
+    {
+      "index": 213,
+      "start_time": 1231270.0,
+      "end_time": 1236120.0,
+      "text": "expand or whatever, as that planchette, and the Ouija board is really all these images"
+    },
+    {
+      "index": 214,
+      "start_time": 1236120.0,
+      "end_time": 1240570.0,
+      "text": "that you&#39;ve combined into a single image. So in this case, these are 60 icons. I don&#39;t"
+    },
+    {
+      "index": 215,
+      "start_time": 1240570.0,
+      "end_time": 1244120.0,
+      "text": "think the Yahoo! front page ever had all 60 of these on the page, but they have a lot"
+    },
+    {
+      "index": 216,
+      "start_time": 1244120.0,
+      "end_time": 1248550.0,
+      "text": "of them. And we said, &quot;Wow, that&#39;s a lot of http request. Let&#39;s combine those into a Sprite.&quot;"
+    },
+    {
+      "index": 217,
+      "start_time": 1248550.0,
+      "end_time": 1251520.0,
+      "text": "And when we did that, they said, &quot;Oh, well, if it&#39;s just one image, let&#39;s add these other"
+    },
+    {
+      "index": 218,
+      "start_time": 1251520.0,
+      "end_time": 1256630.0,
+      "text": "icons that we might want to use in the future.&quot; So we have 60 icons here, we just combined"
+    },
+    {
+      "index": 219,
+      "start_time": 1256630.0,
+      "end_time": 1260360.0,
+      "text": "them into one image with a little bit of white space separating them. And now we can take"
+    },
+    {
+      "index": 220,
+      "start_time": 1260360.0,
+      "end_time": 1267970.0,
+      "text": "our div like the planchette and we can slide it over the background image using the background"
+    },
+    {
+      "index": 221,
+      "start_time": 1267970.0,
+      "end_time": 1274740.0,
+      "text": "position CSS styling, and the size of the div will dictate how much of the background"
+    },
+    {
+      "index": 222,
+      "start_time": 1274740.0,
+      "end_time": 1281000.0,
+      "text": "shows through. So now we can get 60 icons available on that page without--with only"
+    },
+    {
+      "index": 223,
+      "start_time": 1281000.0,
+      "end_time": 1287150.0,
+      "text": "one http request. So this is really powerful if you have a lot of background images, combining"
+    },
+    {
+      "index": 224,
+      "start_time": 1287150.0,
+      "end_time": 1292680.0,
+      "text": "them into one image is a way to really cut down on http requests. There are some cases"
+    },
+    {
+      "index": 225,
+      "start_time": 1292680.0,
+      "end_time": 1297040.0,
+      "text": "where, depending on--if they&#39;re being used for corners, you might not be able to fit"
+    },
+    {
+      "index": 226,
+      "start_time": 1297040.0,
+      "end_time": 1303890.0,
+      "text": "all of your CSS background images into one sprite, but if you can go from 20 background"
+    },
+    {
+      "index": 227,
+      "start_time": 1303890.0,
+      "end_time": 1308850.0,
+      "text": "images to just four images that&#39;s still a huge savings. Something that&#39;s kind of interesting"
+    },
+    {
+      "index": 228,
+      "start_time": 1308850.0,
+      "end_time": 1312970.0,
+      "text": "is you would think that the overall combined size would actually be bigger that the sum"
+    },
+    {
+      "index": 229,
+      "start_time": 1312970.0,
+      "end_time": 1317720.0,
+      "text": "of the individual files because of the extra white space, but each individual file has"
+    },
+    {
+      "index": 230,
+      "start_time": 1317720.0,
+      "end_time": 1323220.0,
+      "text": "some color table and formatting overhead in it, so when you add them up, the combined"
+    },
+    {
+      "index": 231,
+      "start_time": 1323220.0,
+      "end_time": 1327350.0,
+      "text": "file, the sprite file is actually smaller, than the sum of all the individual files so"
+    },
+    {
+      "index": 232,
+      "start_time": 1327350.0,
+      "end_time": 1331919.0,
+      "text": "you save download size, too. Yes? Oh, and please ask questions in the middle."
+    },
+    {
+      "index": 233,
+      "start_time": 1331920.0,
+      "end_time": 1337741.0,
+      "text": "&gt;&gt; [INDISTINCT] the white space? &gt;&gt; SOUDERS: Just so that your box might be"
+    },
+    {
+      "index": 234,
+      "start_time": 1337740.0,
+      "end_time": 1345860.0,
+      "text": "a little bigger than the actual image, like my icon might be a 16x16 size but maybe I"
+    },
+    {
+      "index": 235,
+      "start_time": 1345860.0,
+      "end_time": 1349760.0,
+      "text": "have one that&#39;s just a candle and it&#39;s very narrow. And I might have, if I said, &quot;Well,"
+    },
+    {
+      "index": 236,
+      "start_time": 1349760.0,
+      "end_time": 1355110.0,
+      "text": "let me just try to squeeze them together as close as possible,&quot; I might have gone too"
+    },
+    {
+      "index": 237,
+      "start_time": 1355110.0,
+      "end_time": 1360470.0,
+      "text": "far inside that 16x16 space, so you--and then you just add that extra white space, just"
+    },
+    {
+      "index": 238,
+      "start_time": 1360470.0,
+      "end_time": 1365690.0,
+      "text": "kind of for a little bit of safety, right? It makes it a little more flexible. Okay."
+    },
+    {
+      "index": 239,
+      "start_time": 1365690.0,
+      "end_time": 1372970.0,
+      "text": "So use the CDN. So I don&#39;t know what-–I just did some NS lookups on these popular"
+    },
+    {
+      "index": 240,
+      "start_time": 1372970.0,
+      "end_time": 1379550.0,
+      "text": "sites with CDNs that used and--yes, actually you guys host everything on the same domain."
+    },
+    {
+      "index": 241,
+      "start_time": 1379550.0,
+      "end_time": 1386500.0,
+      "text": "So, maybe we could talk later and you could describe your [INDISTINCT] topology to me."
+    },
+    {
+      "index": 242,
+      "start_time": 1386500.0,
+      "end_time": 1393950.0,
+      "text": "But you can see that, you know, Akamai is kind of the industry leader, and we made this"
+    },
+    {
+      "index": 243,
+      "start_time": 1393950.0,
+      "end_time": 1397870.0,
+      "text": "change on Yahoo! Shopping about two and a half years ago, they were still serving their"
+    },
+    {
+      "index": 244,
+      "start_time": 1397870.0,
+      "end_time": 1402970.0,
+      "text": "content off shopping@yahoo.com. We made this one change, moving all the static stuff to"
+    },
+    {
+      "index": 245,
+      "start_time": 1402970.0,
+      "end_time": 1409910.0,
+      "text": "our CDN, and it cut 25% off the response time, just this one change alone. And the point"
+    },
+    {
+      "index": 246,
+      "start_time": 1409910.0,
+      "end_time": 1415470.0,
+      "text": "I try to emphasize, especially to kind of start up companies is, make this step before"
+    },
+    {
+      "index": 247,
+      "start_time": 1415470.0,
+      "end_time": 1421320.0,
+      "text": "you try replicating your architecture because, like I was saying before, splitting your backend"
+    },
+    {
+      "index": 248,
+      "start_time": 1421320.0,
+      "end_time": 1427120.0,
+      "text": "application across multiple data centers can be very complex and time consuming and this"
+    },
+    {
+      "index": 249,
+      "start_time": 1427120.0,
+      "end_time": 1431750.0,
+      "text": "is pretty easy. There are some cost involved, paying for a service, Akamai or whatever."
+    },
+    {
+      "index": 250,
+      "start_time": 1431750.0,
+      "end_time": 1436420.0,
+      "text": "There&#39;s a new one, Panther Express, I think, which is very, very reasonable. I just heard"
+    },
+    {
+      "index": 251,
+      "start_time": 1436420.0,
+      "end_time": 1441840.0,
+      "text": "about them this weekend. But make this step first before you ever decide to split your"
+    },
+    {
+      "index": 252,
+      "start_time": 1441840.0,
+      "end_time": 1448190.0,
+      "text": "[INDISTINCT] add a far future expires header. So I want to mention here, I wasn&#39;t--I received"
+    },
+    {
+      "index": 253,
+      "start_time": 1448190.0,
+      "end_time": 1456130.0,
+      "text": "a very nice compliment on my book, that they thought, being that I was from Yahoo!, that"
+    },
+    {
+      "index": 254,
+      "start_time": 1456130.0,
+      "end_time": 1462200.0,
+      "text": "I was very even handed in my analysis of different sites including Google and the book. I really"
+    },
+    {
+      "index": 255,
+      "start_time": 1462200.0,
+      "end_time": 1469180.0,
+      "text": "appreciated that. I tried, you know, very sincerely to be objective. So I just want"
+    },
+    {
+      "index": 256,
+      "start_time": 1469180.0,
+      "end_time": 1473500.0,
+      "text": "to point out here, I didn&#39;t pick Froogle because I was trying to find a Google site that was"
+    },
+    {
+      "index": 257,
+      "start_time": 1473500.0,
+      "end_time": 1478440.0,
+      "text": "bad. It&#39;s just that, www.google.com doesn&#39;t have really any content on it, it&#39;s not very"
+    },
+    {
+      "index": 258,
+      "start_time": 1478440.0,
+      "end_time": 1482070.0,
+      "text": "rich, and so it wasn&#39;t a very interesting one to analyze. So I looked around and I picked"
+    },
+    {
+      "index": 259,
+      "start_time": 1482070.0,
+      "end_time": 1487530.0,
+      "text": "Froogle as the kind of Google example to analyze for things like expires headers. And I should"
+    },
+    {
+      "index": 260,
+      "start_time": 1487530.0,
+      "end_time": 1491780.0,
+      "text": "also mention, that&#39;s why Craigslist isn&#39;t on here. Craigslist is still in the top 10,"
+    },
+    {
+      "index": 261,
+      "start_time": 1491780.0,
+      "end_time": 1498140.0,
+      "text": "but there&#39;s nothing on it. So I switched it out for AOL. But anyway, what we see here"
+    },
+    {
+      "index": 262,
+      "start_time": 1498140.0,
+      "end_time": 1504380.0,
+      "text": "is that, depending on the site that you&#39;re looking at, they more or less believe in making"
+    },
+    {
+      "index": 263,
+      "start_time": 1504380.0,
+      "end_time": 1509840.0,
+      "text": "assets cacheable on the browser. And so, the idea here, just really quick is, if you put"
+    },
+    {
+      "index": 264,
+      "start_time": 1509840.0,
+      "end_time": 1514290.0,
+      "text": "a far future expires header, now the browser has that on the disk, the next time the user"
+    },
+    {
+      "index": 265,
+      "start_time": 1514290.0,
+      "end_time": 1519340.0,
+      "text": "goes to the page, if it hasn&#39;t been flushed from the disk cache, the browser says, &quot;Oh,"
+    },
+    {
+      "index": 266,
+      "start_time": 1519340.0,
+      "end_time": 1523600.0,
+      "text": "there&#39;s the thing I need. Oh, and look it&#39;s still valid. It&#39;s still fresh. It doesn&#39;t"
+    },
+    {
+      "index": 267,
+      "start_time": 1523600.0,
+      "end_time": 1529530.0,
+      "text": "expire until 2010 or 2038.&quot; So, it can just use it off the disk. Whereas, if you don&#39;t"
+    },
+    {
+      "index": 268,
+      "start_time": 1529530.0,
+      "end_time": 1534010.0,
+      "text": "have an expires header, the browser will see it on disk, if it hasn&#39;t been flushed, but"
+    },
+    {
+      "index": 269,
+      "start_time": 1534010.0,
+      "end_time": 1538910.0,
+      "text": "it&#39;ll say, &quot;Oh, it&#39;s not fresh anymore. Let me make that If Modified Since conditional"
+    },
+    {
+      "index": 270,
+      "start_time": 1538910.0,
+      "end_time": 1543980.0,
+      "text": "git request,&quot; and the web server can still luckily return the 304 if the asset hasn&#39;t"
+    },
+    {
+      "index": 271,
+      "start_time": 1543980.0,
+      "end_time": 1548660.0,
+      "text": "changed at all. But that&#39;s still a round trip. If you&#39;re in Idaho on a slow Internet connection,"
+    },
+    {
+      "index": 272,
+      "start_time": 1548660.0,
+      "end_time": 1553170.0,
+      "text": "that&#39;s going to slow down the page. So it&#39;s really good if you have static assets, to"
+    },
+    {
+      "index": 273,
+      "start_time": 1553170.0,
+      "end_time": 1557150.0,
+      "text": "put a far future expires header on it, in that way the browser, the next time the user"
+    },
+    {
+      "index": 274,
+      "start_time": 1557150.0,
+      "end_time": 1561550.0,
+      "text": "goes to that page, it can just read it off the disk without any network traffic at all."
+    },
+    {
+      "index": 275,
+      "start_time": 1561550.0,
+      "end_time": 1566580.0,
+      "text": "So, the challenge about this is suppose you have an asset, a JavaScript file or an image"
+    },
+    {
+      "index": 276,
+      "start_time": 1566580.0,
+      "end_time": 1573460.0,
+      "text": "and it changes, well, for years, we&#39;ve had the policy at Yahoo! that once you push something"
+    },
+    {
+      "index": 277,
+      "start_time": 1573460.0,
+      "end_time": 1577940.0,
+      "text": "out to a large user base on the Internet, you can&#39;t change it, because there are so"
+    },
+    {
+      "index": 278,
+      "start_time": 1577940.0,
+      "end_time": 1583720.0,
+      "text": "many misconfigured proxies or overly aggressive caching technologies that they might not pick"
+    },
+    {
+      "index": 279,
+      "start_time": 1583720.0,
+      "end_time": 1588309.0,
+      "text": "up that change. And when we make a change, especially if it&#39;s like a bug fixed to a JavaScript"
+    },
+    {
+      "index": 280,
+      "start_time": 1588310.0,
+      "end_time": 1593651.0,
+      "text": "file, we want to make sure that every user gets that new file. So for years, we&#39;ve had"
+    },
+    {
+      "index": 281,
+      "start_time": 1593650.0,
+      "end_time": 1601440.0,
+      "text": "the policy of putting a timestamp or a version number in our URLs of our static assets. So"
+    },
+    {
+      "index": 282,
+      "start_time": 1601440.0,
+      "end_time": 1606800.0,
+      "text": "if you&#39;re doing that, if you&#39;ve already swallowed the pill that you can never change an asset"
+    },
+    {
+      "index": 283,
+      "start_time": 1606800.0,
+      "end_time": 1610630.0,
+      "text": "once it&#39;s pushed, the only way to do that is to change the file name, you might as well"
+    },
+    {
+      "index": 284,
+      "start_time": 1610630.0,
+      "end_time": 1621440.0,
+      "text": "make that asset cacheable forever. So, sometimes people say, like CNN, only two out of 151"
+    },
+    {
+      "index": 285,
+      "start_time": 1621440.0,
+      "end_time": 1624890.0,
+      "text": "assets have a far future expires header. Well, that&#39;s a news site. May be a lot of these"
+    },
+    {
+      "index": 286,
+      "start_time": 1624890.0,
+      "end_time": 1629920.0,
+      "text": "things were changing a lot, their photos, and they&#39;re constantly changing, it was just"
+    },
+    {
+      "index": 287,
+      "start_time": 1629920.0,
+      "end_time": 1636170.0,
+      "text": "easier for them. So, then what I do is I look at the median age. This is the number of days"
+    },
+    {
+      "index": 288,
+      "start_time": 1636170.0,
+      "end_time": 1644130.0,
+      "text": "between--when I ran this test and how far back the last--the asset was modified based"
+    },
+    {
+      "index": 289,
+      "start_time": 1644130.0,
+      "end_time": 1648650.0,
+      "text": "on the last modified header, so I can count the number of days that has been since this"
+    },
+    {
+      "index": 290,
+      "start_time": 1648650.0,
+      "end_time": 1654600.0,
+      "text": "asset was modified. And if I look at the median of those on CNN, it&#39;s been seven months. Fifty"
+    },
+    {
+      "index": 291,
+      "start_time": 1654600.0,
+      "end_time": 1659710.0,
+      "text": "percent of the assets on this page that are not cacheable have not been touched in seven"
+    },
+    {
+      "index": 292,
+      "start_time": 1659710.0,
+      "end_time": 1665750.0,
+      "text": "months. And so we can see that value for other sites. So we kind of had the same attitude,"
+    },
+    {
+      "index": 293,
+      "start_time": 1665750.0,
+      "end_time": 1669179.0,
+      "text": "especially with JavaScript and CSS at Yahoo!. &quot;Oh, well, you know, those are changing a"
+    },
+    {
+      "index": 294,
+      "start_time": 1669180.0,
+      "end_time": 1673151.0,
+      "text": "lot.&quot; And when we looked at the last modified header, we saw that they really weren&#39;t changing"
+    },
+    {
+      "index": 295,
+      "start_time": 1673150.0,
+      "end_time": 1677960.0,
+      "text": "as much as we thought. So it&#39;s a good practice to look at that and figure out if it would"
+    },
+    {
+      "index": 296,
+      "start_time": 1677960.0,
+      "end_time": 1686760.0,
+      "text": "make sense to give everything a far future expires header. So, it&#39;s kind of interesting"
+    },
+    {
+      "index": 297,
+      "start_time": 1686760.0,
+      "end_time": 1694370.0,
+      "text": "to look at these rules from the perspective of, do they help empty cache, so first page"
+    },
+    {
+      "index": 298,
+      "start_time": 1694370.0,
+      "end_time": 1701880.0,
+      "text": "viewers, only prime cache or subsequent page viewers or both. So this is one that—-and"
+    },
+    {
+      "index": 299,
+      "start_time": 1701880.0,
+      "end_time": 1707150.0,
+      "text": "the ones that help both are really, really key. So this is one that helps both, especially"
+    },
+    {
+      "index": 300,
+      "start_time": 1707150.0,
+      "end_time": 1711830.0,
+      "text": "first--people who visit the site for the very first time. So you can just compress anything"
+    },
+    {
+      "index": 301,
+      "start_time": 1711830.0,
+      "end_time": 1718050.0,
+      "text": "that&#39;s not already binary. You don&#39;t want to compress images or flash or PDFs but--not"
+    },
+    {
+      "index": 302,
+      "start_time": 1718050.0,
+      "end_time": 1725170.0,
+      "text": "just HTML documents but JavaScript files, CSS files, JSONRequest, Ajax request, all"
+    },
+    {
+      "index": 303,
+      "start_time": 1725170.0,
+      "end_time": 1732590.0,
+      "text": "of those can be--can be compressed. And typically you&#39;ll cut about 70% off the size of what&#39;s"
+    },
+    {
+      "index": 304,
+      "start_time": 1732590.0,
+      "end_time": 1737140.0,
+      "text": "sent over the wire. And so everything sort of get there a lot faster. And there&#39;s always"
+    },
+    {
+      "index": 305,
+      "start_time": 1737140.0,
+      "end_time": 1742210.0,
+      "text": "some [INDISTINCT] browsers that might have problems but that number is getting smaller"
+    },
+    {
+      "index": 306,
+      "start_time": 1742210.0,
+      "end_time": 1748110.0,
+      "text": "and smaller. And you can do different approaches like a white list approach to turn in on gzip"
+    },
+    {
+      "index": 307,
+      "start_time": 1748110.0,
+      "end_time": 1754960.0,
+      "text": "in or not. Yeah and here&#39;s the point I was making. It&#39;s pretty popular to gzip the HTML"
+    },
+    {
+      "index": 308,
+      "start_time": 1754960.0,
+      "end_time": 1761410.0,
+      "text": "document but it&#39;s less well known or less practiced to gzip the CSS and JavaScript."
+    },
+    {
+      "index": 309,
+      "start_time": 1761410.0,
+      "end_time": 1766390.0,
+      "text": "So, that would be good to do. So this is an interesting one. This actually doesn&#39;t make"
+    },
+    {
+      "index": 310,
+      "start_time": 1766390.0,
+      "end_time": 1771660.0,
+      "text": "the response time, the mechanical instrumented response time any faster, but it makes the"
+    },
+    {
+      "index": 311,
+      "start_time": 1771660.0,
+      "end_time": 1775600.0,
+      "text": "proceed response time faster. And that&#39;s really what we&#39;re after, trying to make that user"
+    },
+    {
+      "index": 312,
+      "start_time": 1775600.0,
+      "end_time": 1780630.0,
+      "text": "experience feel as fast as it can. So the thing that happens here is it&#39;s a little different"
+    },
+    {
+      "index": 313,
+      "start_time": 1780630.0,
+      "end_time": 1789390.0,
+      "text": "in IE and Firefox. In IE it gets the HTML page, parses it, finds all the assets that"
+    },
+    {
+      "index": 314,
+      "start_time": 1789390.0,
+      "end_time": 1793460.0,
+      "text": "have to be downloaded, all the components or resources and maybe at the bottom, there&#39;s"
+    },
+    {
+      "index": 315,
+      "start_time": 1793460.0,
+      "end_time": 1800640.0,
+      "text": "a CSS file, right? Well IE says, &quot;Well, that CSS file might change the way that I draw"
+    },
+    {
+      "index": 316,
+      "start_time": 1800640.0,
+      "end_time": 1804600.0,
+      "text": "elements in the page, tables, or anchors. So what I&#39;m going to do is, I&#39;m not going"
+    },
+    {
+      "index": 317,
+      "start_time": 1804600.0,
+      "end_time": 1810050.0,
+      "text": "to draw anything in the page until I download that CSS file.&quot; Well, since it&#39;s the last"
+    },
+    {
+      "index": 318,
+      "start_time": 1810050.0,
+      "end_time": 1814800.0,
+      "text": "thing in the page, it&#39;s one of the last things most likely to get downloaded. So the IE will"
+    },
+    {
+      "index": 319,
+      "start_time": 1814800.0,
+      "end_time": 1820300.0,
+      "text": "have all the static html text in the page, it might also download images and other things"
+    },
+    {
+      "index": 320,
+      "start_time": 1820300.0,
+      "end_time": 1824150.0,
+      "text": "in the page, it&#39;s going to hold all of those, its just going to leave the page white until"
+    },
+    {
+      "index": 321,
+      "start_time": 1824150.0,
+      "end_time": 1829480.0,
+      "text": "it downloads that final CSS file and then also [INDISTINCT] draw the page. So this isn&#39;t"
+    },
+    {
+      "index": 322,
+      "start_time": 1829480.0,
+      "end_time": 1835230.0,
+      "text": "what you want. You want to get the CSS files, the style sheet declarations, inclusions up"
+    },
+    {
+      "index": 323,
+      "start_time": 1835230.0,
+      "end_time": 1840210.0,
+      "text": "in the head and that&#39;s also what the specs has to do. So it&#39;s a good thing to do. Firefox"
+    },
+    {
+      "index": 324,
+      "start_time": 1840210.0,
+      "end_time": 1848130.0,
+      "text": "is different, Firefox will render things when it has them and so if you had the same scenario"
+    },
+    {
+      "index": 325,
+      "start_time": 1848130.0,
+      "end_time": 1852350.0,
+      "text": "where you had a style sheet at the bottom, it would render the html, render the images,"
+    },
+    {
+      "index": 326,
+      "start_time": 1852350.0,
+      "end_time": 1856020.0,
+      "text": "finally it would download the style sheet which would say, &quot;Draw everything differently,"
+    },
+    {
+      "index": 327,
+      "start_time": 1856020.0,
+      "end_time": 1859809.0,
+      "text": "change the font, change the way anchors look.&quot; And now you have what&#39;s called the flash of"
+    },
+    {
+      "index": 328,
+      "start_time": 1859810.0,
+      "end_time": 1864001.0,
+      "text": "unstyled content. The page gets redrawn and it&#39;s a flash experience to the user which"
+    },
+    {
+      "index": 329,
+      "start_time": 1864000.0,
+      "end_time": 1869309.0,
+      "text": "isn&#39;t pleasant either. So the key is to put the style sheets in the head. Another small"
+    },
+    {
+      "index": 330,
+      "start_time": 1869310.0,
+      "end_time": 1879541.0,
+      "text": "change to try to follow is don&#39;t use the @import rule because in IE that will cause the style"
+    },
+    {
+      "index": 331,
+      "start_time": 1879540.0,
+      "end_time": 1884130.0,
+      "text": "sheet to actually be deferred later in the page, and since it&#39;s deferred you&#39;ll have"
+    },
+    {
+      "index": 332,
+      "start_time": 1884130.0,
+      "end_time": 1890360.0,
+      "text": "this non-rendering, no progressive rendering behavior in IE, so use the link tag for pulling"
+    },
+    {
+      "index": 333,
+      "start_time": 1890360.0,
+      "end_time": 1897049.0,
+      "text": "in style sheets. And kind of--the other side of the coin is scripts. Scripts have two bad"
+    },
+    {
+      "index": 334,
+      "start_time": 1897050.0,
+      "end_time": 1905471.0,
+      "text": "behaviors. One is they block all parallel download. So with http 1.1 you can download"
+    },
+    {
+      "index": 335,
+      "start_time": 1905470.0,
+      "end_time": 1909970.0,
+      "text": "two components per host name in parallel. So if everything was on one host name you&#39;d"
+    },
+    {
+      "index": 336,
+      "start_time": 1909970.0,
+      "end_time": 1914970.0,
+      "text": "see a stair step pattern like this. But maybe you&#39;re using two or three host names, so you"
+    },
+    {
+      "index": 337,
+      "start_time": 1914970.0,
+      "end_time": 1919410.0,
+      "text": "can actually get some things in parallel but still on any given host name no more than"
+    },
+    {
+      "index": 338,
+      "start_time": 1919410.0,
+      "end_time": 1926480.0,
+      "text": "two. I&#39;ve actually gotten IE to download 114 things in parallel. But as soon as the browser"
+    },
+    {
+      "index": 339,
+      "start_time": 1926480.0,
+      "end_time": 1931299.0,
+      "text": "hits a script, and this is in both IE and Firefox, it won&#39;t download--start any other"
+    },
+    {
+      "index": 340,
+      "start_time": 1931300.0,
+      "end_time": 1937911.0,
+      "text": "downloads no matter what the host name is until that script is returned. So, one thing"
+    },
+    {
+      "index": 341,
+      "start_time": 1937910.0,
+      "end_time": 1944470.0,
+      "text": "you want to be careful of is putting the scripts higher than they need to be. If we could move"
+    },
+    {
+      "index": 342,
+      "start_time": 1944470.0,
+      "end_time": 1947950.0,
+      "text": "the script, maybe we could move it all the way down. Maybe it actually is doing a document"
+    },
+    {
+      "index": 343,
+      "start_time": 1947950.0,
+      "end_time": 1952620.0,
+      "text": "write or something like that. But if we can move it just a little ways down, some of those"
+    },
+    {
+      "index": 344,
+      "start_time": 1952620.0,
+      "end_time": 1956610.0,
+      "text": "images would actually be drawn. Once they got downloaded the browser would go ahead"
+    },
+    {
+      "index": 345,
+      "start_time": 1956610.0,
+      "end_time": 1961660.0,
+      "text": "and render them and all of the text above the script would be rendered. But not only"
+    },
+    {
+      "index": 346,
+      "start_time": 1961660.0,
+      "end_time": 1966770.0,
+      "text": "do scripts block parallel download, they also block rendering. Anything that&#39;s below the"
+    },
+    {
+      "index": 347,
+      "start_time": 1966770.0,
+      "end_time": 1971620.0,
+      "text": "script will not be rendered until the script is downloaded. So its not always possible,"
+    },
+    {
+      "index": 348,
+      "start_time": 1971620.0,
+      "end_time": 1976240.0,
+      "text": "you know, you might have scoping issues that require it to be higher in the page but if"
+    },
+    {
+      "index": 349,
+      "start_time": 1976240.0,
+      "end_time": 1980950.0,
+      "text": "not, move the scripts as low in the page as possible or better yet load them with an unload"
+    },
+    {
+      "index": 350,
+      "start_time": 1980950.0,
+      "end_time": 1988130.0,
+      "text": "event handler. And defer doesn&#39;t help, it only works in IE and it&#39;s not supported by"
+    },
+    {
+      "index": 351,
+      "start_time": 1988130.0,
+      "end_time": 1992540.0,
+      "text": "Firefox. And even in IE--it doesn&#39;t defer to the end, it just defers at a couple resources,"
+    },
+    {
+      "index": 352,
+      "start_time": 1992540.0,
+      "end_time": 1999940.0,
+      "text": "so it will still have this blocking behavior. We&#39;ll skip rule seven. Rule eight. So far"
+    },
+    {
+      "index": 353,
+      "start_time": 1999940.0,
+      "end_time": 2004940.0,
+      "text": "I&#39;ve kind of talked a lot about scripts and style sheets being external but should you"
+    },
+    {
+      "index": 354,
+      "start_time": 2004940.0,
+      "end_time": 2011580.0,
+      "text": "really make them external or not? And so, that really kind of depends on the way users"
+    },
+    {
+      "index": 355,
+      "start_time": 2011580.0,
+      "end_time": 2016510.0,
+      "text": "interact with the site. So if this is a site for example, that users only come to three"
+    },
+    {
+      "index": 356,
+      "start_time": 2016510.0,
+      "end_time": 2021030.0,
+      "text": "times a month and they only have one page view, you should make your JavaScript and"
+    },
+    {
+      "index": 357,
+      "start_time": 2021030.0,
+      "end_time": 2026360.0,
+      "text": "CSS external, inline it. Because the advantage of making it external is, it will be cached"
+    },
+    {
+      "index": 358,
+      "start_time": 2026360.0,
+      "end_time": 2032049.0,
+      "text": "and the next time the user comes, they&#39;ll--they won&#39;t have to download that 10k or 40k of"
+    },
+    {
+      "index": 359,
+      "start_time": 2032050.0,
+      "end_time": 2036111.0,
+      "text": "JavaScript. But the user is only doing one page view. Their next page view might not"
+    },
+    {
+      "index": 360,
+      "start_time": 2036110.0,
+      "end_time": 2039880.0,
+      "text": "be for eight or ten days and by that time, especially when we look at how many users"
+    },
+    {
+      "index": 361,
+      "start_time": 2039880.0,
+      "end_time": 2045490.0,
+      "text": "come in with an empty cache, that asset might have been purge from their cache. So, it might"
+    },
+    {
+      "index": 362,
+      "start_time": 2045490.0,
+      "end_time": 2050690.0,
+      "text": "be the fastest experience for that type of site to inline everything. But then if you&#39;re"
+    },
+    {
+      "index": 363,
+      "start_time": 2050690.0,
+      "end_time": 2056119.0,
+      "text": "a site that has multiple page views per session or a high re-visitation rate, you might want"
+    },
+    {
+      "index": 364,
+      "start_time": 2056120.0,
+      "end_time": 2061370.0,
+      "text": "to make those--that JavaScript and CSS external components with a far future expires header,"
+    },
+    {
+      "index": 365,
+      "start_time": 2061370.0,
+      "end_time": 2066961.0,
+      "text": "make them cacheable, and now when the user comes in they might have to do an extra http"
+    },
+    {
+      "index": 366,
+      "start_time": 2066960.0,
+      "end_time": 2072179.0,
+      "text": "request on their first page view but now for the next four page views that will be a faster"
+    },
+    {
+      "index": 367,
+      "start_time": 2072179.9999999998,
+      "end_time": 2075940.9999999998,
+      "text": "experience, it will be less bandwidth cost. And there&#39;s a couple extra credit things you"
+    },
+    {
+      "index": 368,
+      "start_time": 2075940.0,
+      "end_time": 2082100.0,
+      "text": "could do here, post-onload download is, okay maybe like, mail might be a good example."
+    },
+    {
+      "index": 369,
+      "start_time": 2082100.0,
+      "end_time": 2087300.0,
+      "text": "On the first page of mail, the mail launch page, I want that to be really fast. So I&#39;m"
+    },
+    {
+      "index": 370,
+      "start_time": 2087300.0000000002,
+      "end_time": 2092540.0000000002,
+      "text": "going to put all my JavaScript and CSS in the page itself, then in the onload event,"
+    },
+    {
+      "index": 371,
+      "start_time": 2092540.0,
+      "end_time": 2096330.0,
+      "text": "I&#39;m going to download that JavaScript and CSS again but I&#39;m going to download them in"
+    },
+    {
+      "index": 372,
+      "start_time": 2096330.0,
+      "end_time": 2100460.0,
+      "text": "their external file format and they&#39;ll get written to cache. So now when the user actually"
+    },
+    {
+      "index": 373,
+      "start_time": 2100460.0,
+      "end_time": 2105780.0,
+      "text": "goes to the next page, you can include those external assets and they&#39;ll already be in"
+    },
+    {
+      "index": 374,
+      "start_time": 2105780.0,
+      "end_time": 2110540.0,
+      "text": "the cache and that page will be very fast because it&#39;ll read the JavaScript and CSS"
+    },
+    {
+      "index": 375,
+      "start_time": 2110540.0,
+      "end_time": 2115770.0,
+      "text": "from cache rather than having to download it over the wire again. The problem with that"
+    },
+    {
+      "index": 376,
+      "start_time": 2115770.0,
+      "end_time": 2121140.0,
+      "text": "is, that first page, that launch page, is always going to have that JavaScript and CSS"
+    },
+    {
+      "index": 377,
+      "start_time": 2121140.0,
+      "end_time": 2125810.0,
+      "text": "in it even if they have the external assets. So then you can do something like, when you"
+    },
+    {
+      "index": 378,
+      "start_time": 2125810.0,
+      "end_time": 2131119.0,
+      "text": "download those external assets, set a cookie, a pretty short lived cookie, maybe session"
+    },
+    {
+      "index": 379,
+      "start_time": 2131120.0,
+      "end_time": 2135221.0,
+      "text": "based, maybe just a day or a week. And now on the backend server, when you&#39;re serving"
+    },
+    {
+      "index": 380,
+      "start_time": 2135220.0,
+      "end_time": 2138850.0,
+      "text": "the launch page, look for the presence of that cookie. If you see the cookie, it&#39;s a"
+    },
+    {
+      "index": 381,
+      "start_time": 2138850.0,
+      "end_time": 2143220.0,
+      "text": "good indicator that you have the external assets, so you script source. But if you don&#39;t"
+    },
+    {
+      "index": 382,
+      "start_time": 2143220.0,
+      "end_time": 2151880.0,
+      "text": "see the cookie, inline it and do the post-onload download. Rule 10. Minify JavaScript. Google"
+    },
+    {
+      "index": 383,
+      "start_time": 2151880.0,
+      "end_time": 2158510.0,
+      "text": "certainly does this. You&#39;ll see not-—most of the top 10 sites don&#39;t do it. Minification,"
+    },
+    {
+      "index": 384,
+      "start_time": 2158510.0,
+      "end_time": 2163950.0,
+      "text": "just removing white space, comments. But you could also minify inline scripts, too, and"
+    },
+    {
+      "index": 385,
+      "start_time": 2163950.0,
+      "end_time": 2168340.0,
+      "text": "there&#39;s even fewer sites that do this. And I would even argue it might be easier to do"
+    },
+    {
+      "index": 386,
+      "start_time": 2168340.0,
+      "end_time": 2173570.0,
+      "text": "that because you just have to hook in--hook all your JavaScript--script insertions into"
+    },
+    {
+      "index": 387,
+      "start_time": 2173570.0,
+      "end_time": 2180000.0,
+      "text": "a function. And JSMin is kind of the most popular one and it is written in almost in"
+    },
+    {
+      "index": 388,
+      "start_time": 2180000.0,
+      "end_time": 2184490.0,
+      "text": "every language, written by Doug Crockford at Yahoo! and it&#39;s available in a lot of different"
+    },
+    {
+      "index": 389,
+      "start_time": 2184490.0,
+      "end_time": 2189010.0,
+      "text": "languages so it would be easy to hook into your backend system. But I wanted to point"
+    },
+    {
+      "index": 390,
+      "start_time": 2189010.0,
+      "end_time": 2194980.0,
+      "text": "out, just recently, Julien LeComte has come out with the YUI compressor that&#39;s available"
+    },
+    {
+      "index": 391,
+      "start_time": 2194980.0,
+      "end_time": 2200859.0,
+      "text": "as of about a month or two ago. And it works on JavaScript and CSS, so that&#39;s nice. But"
+    },
+    {
+      "index": 392,
+      "start_time": 2200860.0,
+      "end_time": 2206961.0,
+      "text": "it&#39;s more of an obfuscator. Typically obfuscators have--so they have greater savings, you see"
+    },
+    {
+      "index": 393,
+      "start_time": 2206960.0,
+      "end_time": 2212560.0,
+      "text": "here, minification cut 20%. Obfuscation where we take long function, variable names, symbol"
+    },
+    {
+      "index": 394,
+      "start_time": 2212560.0,
+      "end_time": 2217980.0,
+      "text": "names and make them shorter has even greater savings as you would expect, but they can"
+    },
+    {
+      "index": 395,
+      "start_time": 2217980.0,
+      "end_time": 2222550.0,
+      "text": "also introduce bugs. I&#39;ve seen that happen. But the nice thing about the YUI compressor,"
+    },
+    {
+      "index": 396,
+      "start_time": 2222550.0,
+      "end_time": 2227030.0,
+      "text": "Julien has taken a little different approach there, it&#39;s very safe. It&#39;s almost as safe"
+    },
+    {
+      "index": 397,
+      "start_time": 2227030.0,
+      "end_time": 2234280.0,
+      "text": "as JSMin. Now it&#39;s not as fast as JSMin, so if you&#39;re doing real time clean up of your"
+    },
+    {
+      "index": 398,
+      "start_time": 2234280.0,
+      "end_time": 2238580.0,
+      "text": "JavaScript, I recommend using JSMin, but if you&#39;re doing that as part of a build process,"
+    },
+    {
+      "index": 399,
+      "start_time": 2238580.0,
+      "end_time": 2245980.0,
+      "text": "the YIU compressor will actually have greater savings and it works on CSS as well. Avoiding"
+    },
+    {
+      "index": 400,
+      "start_time": 2245980.0,
+      "end_time": 2252760.0,
+      "text": "redirects, so I kind of call this the worst form of blocking. I talked about how scripts"
+    },
+    {
+      "index": 401,
+      "start_time": 2252760.0,
+      "end_time": 2258500.0,
+      "text": "can block downloads, but if you put a redirect in front of the html response, everything"
+    },
+    {
+      "index": 402,
+      "start_time": 2258500.0,
+      "end_time": 2263550.0,
+      "text": "is delayed. So we can do things at our html page that I&#39;ve been talking about to increase"
+    },
+    {
+      "index": 403,
+      "start_time": 2263550.0,
+      "end_time": 2269510.0,
+      "text": "parallelization, to increase progressive rendering, but if you put a redirect in front of the"
+    },
+    {
+      "index": 404,
+      "start_time": 2269510.0,
+      "end_time": 2274770.0,
+      "text": "html document, none of that hard work can be taken advantage of. So try not to put redirects"
+    },
+    {
+      "index": 405,
+      "start_time": 2274770.0,
+      "end_time": 2282830.0,
+      "text": "in front of your html documents. Last rule I&#39;m going to talk about is making the Ajax"
+    },
+    {
+      "index": 406,
+      "start_time": 2282830.0,
+      "end_time": 2289420.0,
+      "text": "cacheable. So Ajax requests are dynamic, and a lot of times we think--like our html documents,"
+    },
+    {
+      "index": 407,
+      "start_time": 2289420.0,
+      "end_time": 2294300.0,
+      "text": "we almost never want to make cacheable because they&#39;re very dynamic. Okay, so Ajax responses"
+    },
+    {
+      "index": 408,
+      "start_time": 2294300.0,
+      "end_time": 2298590.0,
+      "text": "are dynamic. Well, yes, so maybe we shouldn&#39;t make them cacheable. And a lot of times Ajax"
+    },
+    {
+      "index": 409,
+      "start_time": 2298590.0,
+      "end_time": 2303590.0,
+      "text": "responses are personalized. They have parts of them that are only appropriate for that"
+    },
+    {
+      "index": 410,
+      "start_time": 2303590.0,
+      "end_time": 2307960.0,
+      "text": "single individual user. So you would kind of think, &quot;Well, maybe I shouldn&#39;t make that"
+    },
+    {
+      "index": 411,
+      "start_time": 2307960.0,
+      "end_time": 2313330.0,
+      "text": "cacheable.&quot; I mean that&#39;s not a static image for example. But the scenario I always bring"
+    },
+    {
+      "index": 412,
+      "start_time": 2313330.0,
+      "end_time": 2322270.0,
+      "text": "up is something like a mail web app. Maybe the mail application on launch is doing an"
+    },
+    {
+      "index": 413,
+      "start_time": 2322270.0,
+      "end_time": 2328140.0,
+      "text": "Ajax request to get your addresses, right? And so those addresses, maybe you change your"
+    },
+    {
+      "index": 414,
+      "start_time": 2328140.0,
+      "end_time": 2332960.0,
+      "text": "addresses a lot. For me, maybe I add an address once a week. So if I go to mail three times"
+    },
+    {
+      "index": 415,
+      "start_time": 2332960.0,
+      "end_time": 2338770.0,
+      "text": "a day, seven days a week, 21 times I&#39;m going to that page and it&#39;s making 21 downloads"
+    },
+    {
+      "index": 416,
+      "start_time": 2338770.0,
+      "end_time": 2345350.0,
+      "text": "of my Ajax address book. Whereas, if instead we just put something in the URL that indicated"
+    },
+    {
+      "index": 417,
+      "start_time": 2345350.0,
+      "end_time": 2351050.0,
+      "text": "the timestamp of that address book, when was the last time I edited my address book? And"
+    },
+    {
+      "index": 418,
+      "start_time": 2351050.0,
+      "end_time": 2355500.0,
+      "text": "just--on the backend server when you&#39;re stitching together the URL for that Ajax request, make"
+    },
+    {
+      "index": 419,
+      "start_time": 2355500.0,
+      "end_time": 2360270.0,
+      "text": "sure that you embed that in the URL. If I haven&#39;t edited my address book, the URLs the"
+    },
+    {
+      "index": 420,
+      "start_time": 2360270.0,
+      "end_time": 2365740.0,
+      "text": "same, the Ajax request will just read from disk. But if I have changed it, the Ajax URL"
+    },
+    {
+      "index": 421,
+      "start_time": 2365740.0,
+      "end_time": 2369950.0,
+      "text": "will change and now I&#39;ll make another request but I&#39;ll make it cacheable. So look at your"
+    },
+    {
+      "index": 422,
+      "start_time": 2369950.0,
+      "end_time": 2374550.0,
+      "text": "Ajax request, you might be able to make those cacheable as well. So then really quick, I&#39;m"
+    },
+    {
+      "index": 423,
+      "start_time": 2374550.0,
+      "end_time": 2378800.0,
+      "text": "going to talk about the second edition of the book, I&#39;m going to give the little prelude"
+    },
+    {
+      "index": 424,
+      "start_time": 2378800.0,
+      "end_time": 2385570.0,
+      "text": "to that. I&#39;ve got five new rules. One is split dominant content domains. So this is Google"
+    },
+    {
+      "index": 425,
+      "start_time": 2385570.0,
+      "end_time": 2390930.0,
+      "text": "News, and you see that stair step pattern, two, two, two, two, two, right? And that&#39;s"
+    },
+    {
+      "index": 426,
+      "start_time": 2390930.0,
+      "end_time": 2396980.0,
+      "text": "because all of those images are using the same host name. So, and we could see that"
+    },
+    {
+      "index": 427,
+      "start_time": 2396980.0,
+      "end_time": 2401210.0,
+      "text": "kind of two, two, two, right? You can see that whenever, you know, a dark blue one ends,"
+    },
+    {
+      "index": 428,
+      "start_time": 2401210.0,
+      "end_time": 2404950.0,
+      "text": "the next one starts. The next one starts, the next one starts. The light blue one, so"
+    },
+    {
+      "index": 429,
+      "start_time": 2404950.0,
+      "end_time": 2410440.0,
+      "text": "on and so on. So if we actually use two host names there instead of one, we could get four"
+    },
+    {
+      "index": 430,
+      "start_time": 2410440.0,
+      "end_time": 2415080.0,
+      "text": "downloads in parallel and look what it does to the overall response time of the page."
+    },
+    {
+      "index": 431,
+      "start_time": 2415080.0,
+      "end_time": 2420820.0,
+      "text": "It cuts about a third off the response time, right? So we&#39;ve done studies and we wrote"
+    },
+    {
+      "index": 432,
+      "start_time": 2420820.0,
+      "end_time": 2425369.0,
+      "text": "them up there about, well, you know, how far should I take this? Should I use three hostnames,"
+    },
+    {
+      "index": 433,
+      "start_time": 2425370.0,
+      "end_time": 2430731.0,
+      "text": "four hostnames, five hostnames? We found that once you go to four and above, the benefits"
+    },
+    {
+      "index": 434,
+      "start_time": 2430730.0,
+      "end_time": 2436410.0,
+      "text": "start degrading because of DNS look-ups and I think thrashing on the browser side, on"
+    },
+    {
+      "index": 435,
+      "start_time": 2436410.0,
+      "end_time": 2443080.0,
+      "text": "the CPU side, but definitely splitting things across more than one domain is something to"
+    },
+    {
+      "index": 436,
+      "start_time": 2443080.0,
+      "end_time": 2449040.0,
+      "text": "investigate. Just be careful of cookie weight, the expiration model is different than http."
+    },
+    {
+      "index": 437,
+      "start_time": 2449040.0,
+      "end_time": 2452119.0,
+      "text": "So a lot of times I think when people are creating cookies they&#39;ll--they don&#39;t think"
+    },
+    {
+      "index": 438,
+      "start_time": 2452120.0,
+      "end_time": 2457501.0,
+      "text": "about aggressively cleaning up that cookie weight. So, try not to set your cookie expiration"
+    },
+    {
+      "index": 439,
+      "start_time": 2457500.0,
+      "end_time": 2463369.0,
+      "text": "dates too far out or you might see those cookies lingering for a while. At Yahoo!, we host"
+    },
+    {
+      "index": 440,
+      "start_time": 2463370.0,
+      "end_time": 2468081.0,
+      "text": "our static content on a different domain. It&#39;s not on Yahoo!.com, and that is to avoid"
+    },
+    {
+      "index": 441,
+      "start_time": 2468080.0,
+      "end_time": 2472880.0,
+      "text": "that cookie weight. For our static content, it doesn&#39;t change based on the user&#39;s cookie"
+    },
+    {
+      "index": 442,
+      "start_time": 2472880.0,
+      "end_time": 2480290.0,
+      "text": "state, so we serve it on a different domain and those http headers are much smaller. Minify"
+    },
+    {
+      "index": 443,
+      "start_time": 2480290.0,
+      "end_time": 2485410.0,
+      "text": "CSS now with YUI compressor; I&#39;ll start doing more research on that. And then, we also want"
+    },
+    {
+      "index": 444,
+      "start_time": 2485410.0,
+      "end_time": 2492490.0,
+      "text": "to do, maybe not obfuscation but simplification, like change fffff to just fff, 0PX to just"
+    },
+    {
+      "index": 445,
+      "start_time": 2492490.0,
+      "end_time": 2502390.0,
+      "text": "0. Use iframes as wisely. Especially for ads, putting third party content inside an iframe"
+    },
+    {
+      "index": 446,
+      "start_time": 2502390.0,
+      "end_time": 2507930.0,
+      "text": "has some benefits especially sandbox in JaveScript, but just be careful about how much you do"
+    },
+    {
+      "index": 447,
+      "start_time": 2507930.0,
+      "end_time": 2512740.0,
+      "text": "that. Don&#39;t go creating iframe willy-nilly. They&#39;re very expensive [INDISTINCT] just a"
+    },
+    {
+      "index": 448,
+      "start_time": 2512740.0,
+      "end_time": 2520910.0,
+      "text": "blank iframe can add twenty to fifty milliseconds to the load time of the page. And so just"
+    },
+    {
+      "index": 449,
+      "start_time": 2520910.0,
+      "end_time": 2524540.0,
+      "text": "be careful about that. I got some more details about that. That&#39;ll be coming. And look at"
+    },
+    {
+      "index": 450,
+      "start_time": 2524540.0,
+      "end_time": 2528359.0,
+      "text": "optimizing images. I haven&#39;t talked about this too much in my previous work but we&#39;ve"
+    },
+    {
+      "index": 451,
+      "start_time": 2528360.0,
+      "end_time": 2533671.0,
+      "text": "seen sites where we could save 80% on the size of images by changing the format, we&#39;re"
+    },
+    {
+      "index": 452,
+      "start_time": 2533670.0,
+      "end_time": 2540080.0,
+      "text": "just optimizing the format that we are using without any loss in image quality. So I&#39;ll"
+    },
+    {
+      "index": 453,
+      "start_time": 2540080.0,
+      "end_time": 2546359.0,
+      "text": "be writing about that, too. So I&#39;m almost done. Yahoo! Search is our poster child. We"
+    },
+    {
+      "index": 454,
+      "start_time": 2546360.0,
+      "end_time": 2551381.0,
+      "text": "started working with them about a year and a half ago. We recommended these kind of frontend"
+    },
+    {
+      "index": 455,
+      "start_time": 2551380.0,
+      "end_time": 2556680.0,
+      "text": "deep performance changes, and over the year and a half we&#39;ve cut the response time by"
+    },
+    {
+      "index": 456,
+      "start_time": 2556680.0,
+      "end_time": 2562369.0,
+      "text": "40%for broadband users. You can see--I always make the analogy, it&#39;s like closets space"
+    },
+    {
+      "index": 457,
+      "start_time": 2562370.0,
+      "end_time": 2566171.0,
+      "text": "at home, right? You clean out the closet and the next week it&#39;s full again. So you can"
+    },
+    {
+      "index": 458,
+      "start_time": 2566170.0,
+      "end_time": 2570340.0,
+      "text": "see they&#39;re like, you know, we drive things down and then the people go, &quot;Oh, it&#39;s a lot"
+    },
+    {
+      "index": 459,
+      "start_time": 2570340.0,
+      "end_time": 2575440.0,
+      "text": "faster now, now we can add features.&quot; So you&#39;re always towing the line, right? You got to"
+    },
+    {
+      "index": 460,
+      "start_time": 2575440.0,
+      "end_time": 2580300.0,
+      "text": "fight the battle to keep everyone focused on performance. But sometimes it does allow"
+    },
+    {
+      "index": 461,
+      "start_time": 2580300.0,
+      "end_time": 2585599.0,
+      "text": "you a little room to add features that users really want, that improve the experience."
+    },
+    {
+      "index": 462,
+      "start_time": 2585600.0,
+      "end_time": 2591870.0,
+      "text": "So, my book is out, it&#39;s been out for about two months. High Performance websites. Tenni"
+    },
+    {
+      "index": 463,
+      "start_time": 2591870.0,
+      "end_time": 2598081.0,
+      "text": "and I do a lot of talking at conferences. I mostly blog on YDN, she&#39;s on yuiblog and"
+    },
+    {
+      "index": 464,
+      "start_time": 2598080.0,
+      "end_time": 2604660.0,
+      "text": "we&#39;ve also released YSlow. How many people here have used YSlow? Very cool. How man people"
+    },
+    {
+      "index": 465,
+      "start_time": 2604660.0,
+      "end_time": 2612430.0,
+      "text": "here use Firebug? Great. So there&#39;s the URL, you can download it. It&#39;s a performance lint"
+    },
+    {
+      "index": 466,
+      "start_time": 2612430.0,
+      "end_time": 2618340.0,
+      "text": "tool. It gives you a grade against these 13--actually the first 13 rules. It doesn&#39;t recognize Ajax"
+    },
+    {
+      "index": 467,
+      "start_time": 2618340.0,
+      "end_time": 2622619.0,
+      "text": "right now, we&#39;re working on that. It&#39;s an extension to Firebug so it&#39;s an extension"
+    },
+    {
+      "index": 468,
+      "start_time": 2622620.0,
+      "end_time": 2633071.0,
+      "text": "to an extension, and it&#39;s open source. So what I wanted to do now was just really quick,"
+    },
+    {
+      "index": 469,
+      "start_time": 2633070.0,
+      "end_time": 2635160.0,
+      "text": "look at a couple sites. So, here&#39;s www.google.com--oh, yes?"
+    },
+    {
+      "index": 470,
+      "start_time": 2635160.0,
+      "end_time": 2638200.0,
+      "text": "&gt;&gt; [INDISTINCT] performance getting worse again? Yeah, do you have any, sort of, ongoing"
+    },
+    {
+      "index": 471,
+      "start_time": 2638200.0,
+      "end_time": 2648020.0,
+      "text": "testing or, you know, submit rules that ensure people don&#39;t make performance worse?"
+    },
+    {
+      "index": 472,
+      "start_time": 2648020.0,
+      "end_time": 2659290.0,
+      "text": "&gt;&gt; SOUDERS: Yes, so the question was, do we at Yahoo! have any kind of ongoing analysis"
+    },
+    {
+      "index": 473,
+      "start_time": 2659290.0,
+      "end_time": 2664770.0,
+      "text": "or monitoring that helps us make sure that people aren&#39;t making the performance worse."
+    },
+    {
+      "index": 474,
+      "start_time": 2664770.0,
+      "end_time": 2672340.0,
+      "text": "Yes we do. We have ways of running YSlow, there&#39;s this little option to run YSlow in"
+    },
+    {
+      "index": 475,
+      "start_time": 2672340.0,
+      "end_time": 2676520.0,
+      "text": "autorun mode which means it will kick off automatically and if you--I&#39;ll give you my"
+    },
+    {
+      "index": 476,
+      "start_time": 2676520.0,
+      "end_time": 2681660.0,
+      "text": "card, if you send me an email there&#39;s a couple open source technologies where you can actually,"
+    },
+    {
+      "index": 477,
+      "start_time": 2681660.0,
+      "end_time": 2686830.0,
+      "text": "from, like a PerlScript, reach inside and touch the DAM of the browser. And so you could"
+    },
+    {
+      "index": 478,
+      "start_time": 2686830.0,
+      "end_time": 2691210.0,
+      "text": "pull out--you could build some kind of harness that could run things in an automated fashion"
+    },
+    {
+      "index": 479,
+      "start_time": 2691210.0,
+      "end_time": 2696869.0,
+      "text": "with a set of scripted URLs. But really the biggest thing that we&#39;ve done and the reason"
+    },
+    {
+      "index": 480,
+      "start_time": 2696870.0,
+      "end_time": 2702741.0,
+      "text": "why we did--why we did YSlow and FireBug, I had--I first wrote YSlow about two, two"
+    },
+    {
+      "index": 481,
+      "start_time": 2702740.0,
+      "end_time": 2707500.0,
+      "text": "and a half years ago, as a bookmark lit, then a Greasemonkey script, and then Firebug came"
+    },
+    {
+      "index": 482,
+      "start_time": 2707500.0,
+      "end_time": 2711349.0,
+      "text": "out and it really took off at Yahoo!. Most of these rule, some of them have to do with"
+    },
+    {
+      "index": 483,
+      "start_time": 2711350.0,
+      "end_time": 2716661.0,
+      "text": "CDNs and web server configuration but really, a lot of these rules are targeted towards"
+    },
+    {
+      "index": 484,
+      "start_time": 2716660.0,
+      "end_time": 2721730.0,
+      "text": "frontend developers. And Firebug is the tool of choice, at least at Yahoo! for frontend"
+    },
+    {
+      "index": 485,
+      "start_time": 2721730.0,
+      "end_time": 2726840.0,
+      "text": "developers. And so we wanted to try to keep this focus on performance during the product"
+    },
+    {
+      "index": 486,
+      "start_time": 2726840.0,
+      "end_time": 2731940.0,
+      "text": "development cycle. And the way to do that, that has really worked out, is put it in the"
+    },
+    {
+      "index": 487,
+      "start_time": 2731940.0,
+      "end_time": 2736760.0,
+      "text": "tool that the--that the developers, the frontend developers are already using. So that everyday,"
+    },
+    {
+      "index": 488,
+      "start_time": 2736760.0,
+      "end_time": 2740450.0,
+      "text": "as they&#39;re doing stuff, they&#39;ll just run YSlow every once in a while. And they&#39;ll know what"
+    },
+    {
+      "index": 489,
+      "start_time": 2740450.0,
+      "end_time": 2745830.0,
+      "text": "their grade is for the thing that&#39;s out right out now live and they can see if they&#39;re getting"
+    },
+    {
+      "index": 490,
+      "start_time": 2745830.0,
+      "end_time": 2749750.0,
+      "text": "better or worse. And it kind of keeps people on their toes or at least, it makes them aware"
+    },
+    {
+      "index": 491,
+      "start_time": 2749750.0,
+      "end_time": 2754030.0,
+      "text": "that there&#39;s a--if they&#39;re adding a new feature, they&#39;re might be a response time penalty for"
+    },
+    {
+      "index": 492,
+      "start_time": 2754030.0,
+      "end_time": 2761200.0,
+      "text": "that, a tradeoff to consider. So, we see here, Google got a 99, it&#39;s not possible to get"
+    },
+    {
+      "index": 493,
+      "start_time": 2761200.0,
+      "end_time": 2767510.0,
+      "text": "a 100. So this is the highest grade you can get. But I just wanted to point out, so we"
+    },
+    {
+      "index": 494,
+      "start_time": 2767510.0,
+      "end_time": 2773480.0,
+      "text": "can see here that it took about 170, I&#39;m on about four megabits per second right now,"
+    },
+    {
+      "index": 495,
+      "start_time": 2773480.0,
+      "end_time": 2781260.0,
+      "text": "it took about 170 milliseconds and it&#39;s about 11K. So now I wanted to do this. How am I"
+    },
+    {
+      "index": 496,
+      "start_time": 2781260.0,
+      "end_time": 2790450.0,
+      "text": "doing on time? Pretty good? All right. So very different styles, two front pages, right?"
+    },
+    {
+      "index": 497,
+      "start_time": 2790450.0,
+      "end_time": 2796390.0,
+      "text": "Yahoo! has a lot more content and again, I&#39;m not a designer, I don&#39;t want to talk about"
+    },
+    {
+      "index": 498,
+      "start_time": 2796390.0,
+      "end_time": 2802400.0,
+      "text": "the--the tradeoffs there. But I just want to point something about the way YSlow works."
+    },
+    {
+      "index": 499,
+      "start_time": 2802400.0,
+      "end_time": 2811180.0,
+      "text": "So we see here, this page took one second and was a 153K and yet it still got an A,"
+    },
+    {
+      "index": 500,
+      "start_time": 2811180.0,
+      "end_time": 2822880.0,
+      "text": "how is that? YSlow, as I mentioned, I try not to make recommendations about changing"
+    },
+    {
+      "index": 501,
+      "start_time": 2822880.0,
+      "end_time": 2830000.0,
+      "text": "design. YSlow looks at the quality with which a site was built. So, different sites are"
+    },
+    {
+      "index": 502,
+      "start_time": 2830000.0,
+      "end_time": 2834250.0,
+      "text": "going to have different design requirements, some might need more images, some might need"
+    },
+    {
+      "index": 503,
+      "start_time": 2834250.0,
+      "end_time": 2841340.0,
+      "text": "less, some might need more JavaScripts, some might need less. So, what YSlow does, is it"
+    },
+    {
+      "index": 504,
+      "start_time": 2841340.0,
+      "end_time": 2846680.0,
+      "text": "says, &quot;Given what you&#39;ve done in this page, have you done it the best way possible?&quot; So"
+    },
+    {
+      "index": 505,
+      "start_time": 2846680.0,
+      "end_time": 2851990.0,
+      "text": "you might have a lot of JavaScripts but did you minify it? You might have a lot of CSS"
+    },
+    {
+      "index": 506,
+      "start_time": 2851990.0,
+      "end_time": 2858200.0,
+      "text": "background images but did you do them with sprites or not? So, even with-–so YSlow"
+    },
+    {
+      "index": 507,
+      "start_time": 2858200.0,
+      "end_time": 2862820.0,
+      "text": "doesn&#39;t take any consideration at all the size or response time of any of the assets"
+    },
+    {
+      "index": 508,
+      "start_time": 2862820.0,
+      "end_time": 2868410.0,
+      "text": "in the page, it&#39;s just looking at the way the page was built. So, I&#39;ll come back to"
+    },
+    {
+      "index": 509,
+      "start_time": 2868410.0,
+      "end_time": 2873330.0,
+      "text": "that in a minute but I just wanted to--you know what, actually is--we&#39;re running out"
+    },
+    {
+      "index": 510,
+      "start_time": 2873330.0,
+      "end_time": 2879109.0,
+      "text": "of time a little bit. So, I&#39;m going to wrap up, and then I&#39;ll do some questions. So, on"
+    },
+    {
+      "index": 511,
+      "start_time": 2879110.0,
+      "end_time": 2883391.0,
+      "text": "that point, here I have the top 10 sites, their total page weight response time, YSlow"
+    },
+    {
+      "index": 512,
+      "start_time": 2883390.0,
+      "end_time": 2889440.0,
+      "text": "grade. I did a little correlation coefficient calculations, so just a reminder, correlation"
+    },
+    {
+      "index": 513,
+      "start_time": 2889440.0,
+      "end_time": 2895349.0,
+      "text": "coefficients run from -1 to 1. -1 means no correlation, 0 means inverse correlation,"
+    },
+    {
+      "index": 514,
+      "start_time": 2895350.0,
+      "end_time": 2900971.0,
+      "text": "0 means no correlation, 1 means highly correlated. Anything above 0.5 is considered strong or"
+    },
+    {
+      "index": 515,
+      "start_time": 2900970.0,
+      "end_time": 2906349.0,
+      "text": "high correlation, typically. So we&#39;re not too surprised to see that there&#39;s a very high"
+    },
+    {
+      "index": 516,
+      "start_time": 2906350.0,
+      "end_time": 2911671.0,
+      "text": "0.94 correlation between response time and page weight. So, if you have a bloated page,"
+    },
+    {
+      "index": 517,
+      "start_time": 2911670.0,
+      "end_time": 2915869.0,
+      "text": "it&#39;s typically going to be slower. But what I was very satisfied to see was this high"
+    },
+    {
+      "index": 518,
+      "start_time": 2915870.0,
+      "end_time": 2922901.0,
+      "text": "correlation between response time and YSlow grade. So, YSlow was built to measure these"
+    },
+    {
+      "index": 519,
+      "start_time": 2922900.0,
+      "end_time": 2928260.0,
+      "text": "best practices that if you follow them will make your page faster. And what we found and"
+    },
+    {
+      "index": 520,
+      "start_time": 2928260.0,
+      "end_time": 2934730.0,
+      "text": "we&#39;ve looked at much larger number of sites than just these, what we found is, during"
+    },
+    {
+      "index": 521,
+      "start_time": 2934730.0,
+      "end_time": 2938780.0,
+      "text": "development, where sometimes it&#39;s difficult to gather a lot of response time measurements"
+    },
+    {
+      "index": 522,
+      "start_time": 2938780.0,
+      "end_time": 2944010.0,
+      "text": "on your page as you&#39;re building it, you can have a pretty good idea of how the page is"
+    },
+    {
+      "index": 523,
+      "start_time": 2944010.0,
+      "end_time": 2948690.0,
+      "text": "going to respond based on your YSlow grade. If it&#39;s getting better than what&#39;s out there,"
+    },
+    {
+      "index": 524,
+      "start_time": 2948690.0,
+      "end_time": 2951890.0,
+      "text": "you&#39;re probably going to have a faster page. If it&#39;s getting worse, your YSlow grade, you&#39;re"
+    },
+    {
+      "index": 525,
+      "start_time": 2951890.0,
+      "end_time": 2956550.0,
+      "text": "probably going to have a slower page. So, I think that&#39;s very powerful. So, I wanted"
+    },
+    {
+      "index": 526,
+      "start_time": 2956550.0,
+      "end_time": 2963020.0,
+      "text": "to wrap up the takeaways. The main thing that I emphasize is looking at performance from"
+    },
+    {
+      "index": 527,
+      "start_time": 2963020.0,
+      "end_time": 2967750.0,
+      "text": "a different perspective. I don&#39;t want to say, &quot;Don&#39;t optimize backend performances, especially"
+    },
+    {
+      "index": 528,
+      "start_time": 2967750.0,
+      "end_time": 2972160.0,
+      "text": "for hardware cost power consumption,&quot; but if you really want to put a dent in response"
+    },
+    {
+      "index": 529,
+      "start_time": 2972160.0,
+      "end_time": 2976980.0,
+      "text": "time, you got to look at this frontend part of it. A lot of these things are not that"
+    },
+    {
+      "index": 530,
+      "start_time": 2976980.0,
+      "end_time": 2982150.0,
+      "text": "hard to implement and it&#39;s not that development from this point forward is going to be 10%"
+    },
+    {
+      "index": 531,
+      "start_time": 2982150.0,
+      "end_time": 2987150.0,
+      "text": "slower because of these practices, a lot of them are, &quot;Get this mechanism in place, and"
+    },
+    {
+      "index": 532,
+      "start_time": 2987150.0,
+      "end_time": 2991450.0,
+      "text": "then it&#39;s behind you.&quot; It&#39;s a gift that keeps on giving. So, harvest this low-hanging fruit"
+    },
+    {
+      "index": 533,
+      "start_time": 2991450.0,
+      "end_time": 2998420.0,
+      "text": "early on and then you&#39;ll just reap the benefits of it on an on-going basis. So, that&#39;s that"
+    },
+    {
+      "index": 534,
+      "start_time": 2998420.0,
+      "end_time": 3004820.0,
+      "text": "one, make the investments. And you should feel empowered that you control response times."
+    },
+    {
+      "index": 535,
+      "start_time": 3004820.0,
+      "end_time": 3010790.0,
+      "text": "So it used to be, I think that we felt the [INDISTINCT] speed was actually the most critical"
+    },
+    {
+      "index": 536,
+      "start_time": 3010790.0,
+      "end_time": 3016310.0,
+      "text": "controller or variable for the end-user response time, but we&#39;ve been able to cut some response"
+    },
+    {
+      "index": 537,
+      "start_time": 3016310.0,
+      "end_time": 3020869.0,
+      "text": "time for like 50% by making these engineering changes. So there&#39;s really a lot that you"
+    },
+    {
+      "index": 538,
+      "start_time": 3020870.0,
+      "end_time": 3026961.0,
+      "text": "do control in how fast your pages will appear to users. And finally, look out for number"
+    },
+    {
+      "index": 539,
+      "start_time": 3026960.0,
+      "end_time": 3031780.0,
+      "text": "one. At Yahoo!, the users are number one; we&#39;re always focused on doing harder work,"
+    },
+    {
+      "index": 540,
+      "start_time": 3031780.0,
+      "end_time": 3036230.0,
+      "text": "us taking on harder work, to make their experience better. We kind of feel that we&#39;re the last"
+    },
+    {
+      "index": 541,
+      "start_time": 3036230.0,
+      "end_time": 3041359.0,
+      "text": "line of defense before the pages get out to users and we want to do everything we can"
+    },
+    {
+      "index": 542,
+      "start_time": 3041360.0,
+      "end_time": 3046211.0,
+      "text": "to make that experience as fast as it can be. We think that&#39;s critical at Yahoo!. And"
+    },
+    {
+      "index": 543,
+      "start_time": 3046210.0,
+      "end_time": 3050260.0,
+      "text": "I hope all of us doing frontend work feel that same way and we&#39;re all looking out for"
+    },
+    {
+      "index": 544,
+      "start_time": 3050260.0,
+      "end_time": 3063680.0,
+      "text": "users on the Internet. And that&#39;s it, thank you. So, I&#39;ll take questions."
+    },
+    {
+      "index": 545,
+      "start_time": 3063680.0,
+      "end_time": 3071740.0,
+      "text": "&gt;&gt; [INDISTINCT] &gt;&gt; SOUDERS: That&#39;s the Verrazano Bridge in"
+    },
+    {
+      "index": 546,
+      "start_time": 3071740.0,
+      "end_time": 3077180.0,
+      "text": "New York City. The question was, what bridge is that? Yes?"
+    },
+    {
+      "index": 547,
+      "start_time": 3077180.0,
+      "end_time": 3088750.0,
+      "text": "&gt;&gt; So how exactly do you measure [INDISTINCT] &gt;&gt; SOUDERS: Well, you can use-–we have various"
+    },
+    {
+      "index": 548,
+      "start_time": 3088750.0,
+      "end_time": 3094180.0,
+      "text": "ways of measuring response times. You can use services like Keynote or Gomez. You can"
+    },
+    {
+      "index": 549,
+      "start_time": 3094180.0,
+      "end_time": 3102670.0,
+      "text": "use tools like Fasterfox. The definition I have for response time is the unload event"
+    },
+    {
+      "index": 550,
+      "start_time": 3102670.0,
+      "end_time": 3111450.0,
+      "text": "to the onload event. And, excuse me, the main reason that I&#39;ve defined it that way is because"
+    },
+    {
+      "index": 551,
+      "start_time": 3111450.0,
+      "end_time": 3118280.0,
+      "text": "it&#39;s a measurement that we can apply across all pages. And it&#39;s absolutely true that the"
+    },
+    {
+      "index": 552,
+      "start_time": 3118280.0,
+      "end_time": 3126830.0,
+      "text": "more important thing is not to optimize this instrumentation that&#39;s been put in place,"
+    },
+    {
+      "index": 553,
+      "start_time": 3126830.0,
+      "end_time": 3134050.0,
+      "text": "it&#39;s to optimize the user experience. So, if users engage with your page after the first,"
+    },
+    {
+      "index": 554,
+      "start_time": 3134050.0,
+      "end_time": 3140339.0,
+      "text": "you know, everything above the fold is rendered or like in My Yahoo!, the first modules across"
+    },
+    {
+      "index": 555,
+      "start_time": 3140340.0,
+      "end_time": 3145620.0,
+      "text": "the top are rendered, then that&#39;s great. And if you can, try to figure out a way to measure"
+    },
+    {
+      "index": 556,
+      "start_time": 3145620.0,
+      "end_time": 3151271.0,
+      "text": "to that point in the page where users feel the page is engageable and they feel it&#39;s"
+    },
+    {
+      "index": 557,
+      "start_time": 3151270.0,
+      "end_time": 3157900.0,
+      "text": "downloading. But if you&#39;re not sure, we fall back to that definition, unload to onload."
+    },
+    {
+      "index": 558,
+      "start_time": 3157900.0,
+      "end_time": 3162210.0,
+      "text": "And it also, you can play games, you can move a lot of stuff that&#39;s critical to the user"
+    },
+    {
+      "index": 559,
+      "start_time": 3162210.0,
+      "end_time": 3167040.0,
+      "text": "experience to the unload event and make that mechanical time shorter. And so we try to"
+    },
+    {
+      "index": 560,
+      "start_time": 3167040.0,
+      "end_time": 3172589.0,
+      "text": "emphasize, you know, whatever time you&#39;re measuring, try to understand how that instrumentation"
+    },
+    {
+      "index": 561,
+      "start_time": 3172590.0,
+      "end_time": 3177981.0,
+      "text": "works and really understand how it reflects what the user perceives the response time"
+    },
+    {
+      "index": 562,
+      "start_time": 3177980.0,
+      "end_time": 3178030.0,
+      "text": "to be. Yes? &gt;&gt; More and more websites are [INDISTINCT]"
+    },
+    {
+      "index": 563,
+      "start_time": 3178030.0,
+      "end_time": 3178119.0,
+      "text": "and there&#39;s a lot of [INDISTINCT] do you see YSlow [INDISTINCT] performance [INDISTINCT]"
+    },
+    {
+      "index": 564,
+      "start_time": 3178120.0,
+      "end_time": 3200321.0,
+      "text": "in the future? &gt;&gt; SOUDERS: The question was, we observed"
+    },
+    {
+      "index": 565,
+      "start_time": 3200320.0,
+      "end_time": 3206750.0,
+      "text": "that there&#39;s a lot more web 2.0 HD [INDISTINCT] web apps that have a lot of JavaScripts that"
+    },
+    {
+      "index": 566,
+      "start_time": 3206750.0,
+      "end_time": 3214790.0,
+      "text": "runs on the client side, do I see YSlow helping to measure that or make performance suggestion"
+    },
+    {
+      "index": 567,
+      "start_time": 3214790.0,
+      "end_time": 3221710.0,
+      "text": "there. I&#39;m not envisioning that right now. We&#39;re starting to, at Yahoo!, especially with"
+    },
+    {
+      "index": 568,
+      "start_time": 3221710.0,
+      "end_time": 3228359.0,
+      "text": "people like Julien and Doug there, we&#39;re starting to try to more formally gather our JavaScript"
+    },
+    {
+      "index": 569,
+      "start_time": 3228360.0,
+      "end_time": 3232381.0,
+      "text": "performances best practices similar to what we&#39;ve done with kind of overall frontend browser"
+    },
+    {
+      "index": 570,
+      "start_time": 3232380.0,
+      "end_time": 3239250.0,
+      "text": "web server interaction. And I also feel that Firebug does a pretty good job of profiling,"
+    },
+    {
+      "index": 571,
+      "start_time": 3239250.0,
+      "end_time": 3244720.0,
+      "text": "in fact, does an incredibly good job profiling JavaScript code on the client. And so, I don&#39;t"
+    },
+    {
+      "index": 572,
+      "start_time": 3244720.0,
+      "end_time": 3251060.0,
+      "text": "feel that there&#39;s such a lack of tools to help with that right now."
+    },
+    {
+      "index": 573,
+      "start_time": 3251060.0,
+      "end_time": 3267320.0,
+      "text": "&gt;&gt; [INDISTINCT] &gt;&gt; SOUDERS: Yes, this gentleman pointed out"
+    },
+    {
+      "index": 574,
+      "start_time": 3267320.0,
+      "end_time": 3271930.0,
+      "text": "that performance will also vary browser to browser. So you have to pay attention to that."
+    },
+    {
+      "index": 575,
+      "start_time": 3271930.0,
+      "end_time": 3281710.0,
+      "text": "You know, I will say that the 14th rule came out from looking at more Ajax-y apps where"
+    },
+    {
+      "index": 576,
+      "start_time": 3281710.0,
+      "end_time": 3285950.0,
+      "text": "there&#39;s so much JavaScript, you know, hundreds of [INDISTINCT] of JavaScript in some cases,"
+    },
+    {
+      "index": 577,
+      "start_time": 3285950.0,
+      "end_time": 3291310.0,
+      "text": "that all of the sudden the amount of http traffic was not really the issue. It was that"
+    },
+    {
+      "index": 578,
+      "start_time": 3291310.0,
+      "end_time": 3297089.0,
+      "text": "JavaScript code executing. Now, we did kind of--we did come up with rule 14 which is,"
+    },
+    {
+      "index": 579,
+      "start_time": 3297090.0,
+      "end_time": 3301251.0,
+      "text": "&quot;Okay, how much of that hundreds of [INDISTINCT] of JavaScript that&#39;s in, maybe in an Ajax"
+    },
+    {
+      "index": 580,
+      "start_time": 3301250.0,
+      "end_time": 3306190.0,
+      "text": "response or Json response, could that be cache?&quot; And that will help. But there&#39;s still this"
+    },
+    {
+      "index": 581,
+      "start_time": 3306190.0,
+      "end_time": 3313329.0,
+      "text": "whole other world where even if--even if everything was in cache, just reading that JavaScript"
+    },
+    {
+      "index": 582,
+      "start_time": 3313330.0,
+      "end_time": 3322251.0,
+      "text": "off disk and having to execute it could take seconds. And there&#39;s some exciting things"
+    },
+    {
+      "index": 583,
+      "start_time": 3322250.0,
+      "end_time": 3329150.0,
+      "text": "coming up in a JavaScript performance out of Microsoft and, I forget who the other folks"
+    },
+    {
+      "index": 584,
+      "start_time": 3329150.0,
+      "end_time": 3335030.0,
+      "text": "are. So stay tuned to that, they&#39;ll--you know, some ways of improving JavaScript performance"
+    },
+    {
+      "index": 585,
+      "start_time": 3335030.0,
+      "end_time": 3340390.0,
+      "text": "by--in order of magnitude or more. Any other questions? Yes, in the back."
+    },
+    {
+      "index": 586,
+      "start_time": 3340390.0,
+      "end_time": 3350849.0,
+      "text": "&gt;&gt; What&#39;s the intuition behind the browsers stalling [INDISTINCT] when it&#39;s downloading"
+    },
+    {
+      "index": 587,
+      "start_time": 3350850.0,
+      "end_time": 3354370.0,
+      "text": "some scripts. [INDISTINCT] &gt;&gt; SOUDERS: The question was, why do the browser"
+    },
+    {
+      "index": 588,
+      "start_time": 3354370.0,
+      "end_time": 3358661.0,
+      "text": "developers stall things when they download scripts. So the idea is that, suppose you"
+    },
+    {
+      "index": 589,
+      "start_time": 3358660.0,
+      "end_time": 3366300.0,
+      "text": "downloaded scripts in--so, I want to preface this by saying I&#39;ve talked with the IE team"
+    },
+    {
+      "index": 590,
+      "start_time": 3366300.0,
+      "end_time": 3371950.0,
+      "text": "and I&#39;m hoping to--I&#39;ve passed on this suggestion to the Mozilla Team, there&#39;s no reason you"
+    },
+    {
+      "index": 591,
+      "start_time": 3371950.0,
+      "end_time": 3376540.0,
+      "text": "couldn&#39;t download scripts in parallel and get everything to work correctly but it would"
+    },
+    {
+      "index": 592,
+      "start_time": 3376540.0,
+      "end_time": 3381070.0,
+      "text": "be a fair amount work. And here&#39;s the reason they don&#39;t do it now, they didn&#39;t do it initially."
+    },
+    {
+      "index": 593,
+      "start_time": 3381070.0,
+      "end_time": 3385970.0,
+      "text": "Suppose you have two scripts, A and B, A is a hundred K and B is one K, but B requires"
+    },
+    {
+      "index": 594,
+      "start_time": 3385970.0,
+      "end_time": 3390099.0,
+      "text": "A and you them in that order and you decide to download them in parallel. Well, guess"
+    },
+    {
+      "index": 595,
+      "start_time": 3390100.0,
+      "end_time": 3394110.0,
+      "text": "what? B is going to come back first, it&#39;s going to be executed and it&#39;s going to generate"
+    },
+    {
+      "index": 596,
+      "start_time": 3394110.0,
+      "end_time": 3399481.0,
+      "text": "errors because the codes it relies on has not been downloaded yet. So, that&#39;s one reason,"
+    },
+    {
+      "index": 597,
+      "start_time": 3399480.0,
+      "end_time": 3406750.0,
+      "text": "there&#39;s also the document write reason. So, that&#39;s one reason why they only download one"
+    },
+    {
+      "index": 598,
+      "start_time": 3406750.0,
+      "end_time": 3415170.0,
+      "text": "thing at a time to make sure that scripts will be downloaded and executed in order."
+    },
+    {
+      "index": 599,
+      "start_time": 3415170.0,
+      "end_time": 3419200.0,
+      "text": "But clearly we can all think of ways that you could achieve that without having to have"
+    },
+    {
+      "index": 600,
+      "start_time": 3419200.0,
+      "end_time": 3427970.0,
+      "text": "this blocking behavior. I will say that Opera 6 does do download of images in parallel with"
+    },
+    {
+      "index": 601,
+      "start_time": 3427970.0,
+      "end_time": 3432570.0,
+      "text": "scripts and that&#39;s kind of nice but still it will not download more than one script"
+    },
+    {
+      "index": 602,
+      "start_time": 3432570.0,
+      "end_time": 3440450.0,
+      "text": "at a time. Okay. Two more question--okay, three more questions."
+    },
+    {
+      "index": 603,
+      "start_time": 3440450.0,
+      "end_time": 3446660.0,
+      "text": "&gt;&gt; Do you think [INDISTINCT] how much of [INDISTINCT] you can get by turning on pipelining?"
+    },
+    {
+      "index": 604,
+      "start_time": 3446660.0,
+      "end_time": 3452150.0,
+      "text": "&gt;&gt; SOUDERS: Yes, the question was, have we looked at how much pipelining helps with performance."
+    },
+    {
+      "index": 605,
+      "start_time": 3452150.0,
+      "end_time": 3456510.0,
+      "text": "It helps a lot, I don&#39;t have numbers that are firmer than that because we feel it&#39;s"
+    },
+    {
+      "index": 606,
+      "start_time": 3456510.0,
+      "end_time": 3462839.0,
+      "text": "moot. I forget what it is, like, Firefox has pipelining support but it&#39;s turned off by"
+    },
+    {
+      "index": 607,
+      "start_time": 3462840.0,
+      "end_time": 3469281.0,
+      "text": "default. And IE, even IE 7 doesn&#39;t support pipelining. So it going to be so long before"
+    },
+    {
+      "index": 608,
+      "start_time": 3469280.0,
+      "end_time": 3473400.0,
+      "text": "we could really take advantage of that, we&#39;ve looked that a little but we haven&#39;t spent"
+    },
+    {
+      "index": 609,
+      "start_time": 3473400.0,
+      "end_time": 3481000.0,
+      "text": "too much time quantifying it. &gt;&gt; Have you looked at JavaScript parse times"
+    },
+    {
+      "index": 610,
+      "start_time": 3481000.0,
+      "end_time": 3485480.0,
+      "text": "at all? Are there certain constructs more expensive to parse?"
+    },
+    {
+      "index": 611,
+      "start_time": 3485480.0,
+      "end_time": 3493369.0,
+      "text": "&gt;&gt; SOUDERS: Do you mean parse time separated from execution time? No, I don&#39;t have any"
+    },
+    {
+      "index": 612,
+      "start_time": 3493370.0,
+      "end_time": 3497521.0,
+      "text": "best practice--the question was, have we looked at best practices for making JavaScript parse"
+    },
+    {
+      "index": 613,
+      "start_time": 3497520.0,
+      "end_time": 3510079.0,
+      "text": "time faster, nothing comes to mind. &gt;&gt; When you&#39;re actually in the process of"
+    },
+    {
+      "index": 614,
+      "start_time": 3510080.0,
+      "end_time": 3510921.0,
+      "text": "doing [INAUDIBLE] how are you measuring [INDISTINCT] YSlow? Like before and after you do everything?"
+    },
+    {
+      "index": 615,
+      "start_time": 3510920.0,
+      "end_time": 3513530.0,
+      "text": "&gt;&gt; SOUDERS: Well, the grades we measure with YSlow, do you mean the response times?"
+    },
+    {
+      "index": 616,
+      "start_time": 3513530.0,
+      "end_time": 3518920.0,
+      "text": "&gt;&gt; MALE: Right. Right. Like if you have some specific [INDISTINCT] how do you measure [INDISTINCT]"
+    },
+    {
+      "index": 617,
+      "start_time": 3518920.0,
+      "end_time": 3523869.0,
+      "text": "as you go, as you [INDISTINCT] &gt;&gt; SOUDERS: Oh, well, a lot of times--so you"
+    },
+    {
+      "index": 618,
+      "start_time": 3523870.0,
+      "end_time": 3527671.0,
+      "text": "don&#39;t mean, mechanically, how do we measure the time? Just what&#39;s out process for..."
+    },
+    {
+      "index": 619,
+      "start_time": 3527670.0,
+      "end_time": 3530460.0,
+      "text": "&gt;&gt; Yes. [INAUDIBLE] &gt;&gt; SOUDERS: Yes. So, you know sometimes there&#39;s"
+    },
+    {
+      "index": 620,
+      "start_time": 3530460.0,
+      "end_time": 3534250.0,
+      "text": "nothing you can do, you make a change and it just goes out and you just have to measure"
+    },
+    {
+      "index": 621,
+      "start_time": 3534250.0,
+      "end_time": 3540950.0,
+      "text": "the site that&#39;s out there. And, there&#39;s lot of variable that could make that a--that comparison"
+    },
+    {
+      "index": 622,
+      "start_time": 3540950.0,
+      "end_time": 3548630.0,
+      "text": "invalid. So, what we try do is, we try to run things in parallel. So we&#39;ll have a sub-set"
+    },
+    {
+      "index": 623,
+      "start_time": 3548630.0,
+      "end_time": 3553380.0,
+      "text": "of users, some that are exposed to the benefit and some that are the control and then among"
+    },
+    {
+      "index": 624,
+      "start_time": 3553380.0,
+      "end_time": 3559540.0,
+      "text": "those users we can see how fast or slow the page is. So, that&#39;s the best way do side by"
+    },
+    {
+      "index": 625,
+      "start_time": 3559540.0,
+      "end_time": 3562280.0,
+      "text": "side comparisons. &gt;&gt; [INAUDIBLE]"
+    },
+    {
+      "index": 626,
+      "start_time": 3562280.0,
+      "end_time": 3569980.0,
+      "text": "&gt;&gt; SOUDERS: Yes. Or we can use scripted means, as well, Keynote, Gomez things. And maybe"
+    },
+    {
+      "index": 627,
+      "start_time": 3569980.0,
+      "end_time": 3572400.0,
+      "text": "last question, and then I&#39;ll wrap up. Was there one more? Yes?"
+    },
+    {
+      "index": 628,
+      "start_time": 3572400.0,
+      "end_time": 3576440.0,
+      "text": "&gt;&gt; Have you received contributions to YSlow from outside of Yahoo!? And if so, what kind?"
+    },
+    {
+      "index": 629,
+      "start_time": 3576440.0,
+      "end_time": 3584339.0,
+      "text": "&gt;&gt; SOUDERS: The question was, have I received contributions to YSlow from outside and if"
+    },
+    {
+      "index": 630,
+      "start_time": 3584340.0,
+      "end_time": 3590281.0,
+      "text": "so, what kind. Now the-–it&#39;s an open source license but it&#39;s not open code, we don&#39;t have"
+    },
+    {
+      "index": 631,
+      "start_time": 3590280.0,
+      "end_time": 3596329.0,
+      "text": "the code published. We get-–I won&#39;t say lots, maybe one or two emails a day of bugs"
+    },
+    {
+      "index": 632,
+      "start_time": 3596330.0,
+      "end_time": 3604501.0,
+      "text": "or suggestions. And we&#39;re, you know, working on a new release which I do monthly releases."
+    },
+    {
+      "index": 633,
+      "start_time": 3604500.0,
+      "end_time": 3612230.0,
+      "text": "But certainly, going to an open code, like Firebug has, is something that we&#39;ve talked"
+    },
+    {
+      "index": 634,
+      "start_time": 3612230.0,
+      "end_time": 3619150.0,
+      "text": "about and I imagine will come in sometime, but it&#39;s not on the road map right now. Okay."
+    },
+    {
+      "index": 635,
+      "start_time": 3619150.0,
+      "end_time": 3629150.0,
+      "text": "So I want to wrap up and let everyone get back to work. Thank you for having me."
+    }
+  ]
+}

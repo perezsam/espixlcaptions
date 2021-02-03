@@ -1,0 +1,888 @@
+{
+  "video_id": "bal0Fv6QE9w",
+  "title": "PY4E - Python Objects (Chapter 14 Part 3)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 208.0,
+      "end_time": 1336.0,
+      "text": "- Now I'm gonna talk a little bit about"
+    },
+    {
+      "index": 2,
+      "start_time": 1336.0,
+      "end_time": 3781.0,
+      "text": "object lifecycle and what\nwe mean by object lifecycle"
+    },
+    {
+      "index": 3,
+      "start_time": 3781.0,
+      "end_time": 6712.0,
+      "text": "is the act of creating and\ndestroying these objects."
+    },
+    {
+      "index": 4,
+      "start_time": 6712.0,
+      "end_time": 10009.0,
+      "text": "Now I've been using this\nterm constructor already."
+    },
+    {
+      "index": 5,
+      "start_time": 10009.0,
+      "end_time": 13184.0,
+      "text": "And so, when we declare a variable,"
+    },
+    {
+      "index": 6,
+      "start_time": 13184.0,
+      "end_time": 14745.0,
+      "text": "whether it's a string or a dictionary"
+    },
+    {
+      "index": 7,
+      "start_time": 14745.0,
+      "end_time": 16881.0,
+      "text": "or a party animal we create them"
+    },
+    {
+      "index": 8,
+      "start_time": 16881.0,
+      "end_time": 18889.0,
+      "text": "and then they're discarded,\nand there's all this"
+    },
+    {
+      "index": 9,
+      "start_time": 18889.0,
+      "end_time": 21163.0,
+      "text": "dynamic memory that comes and goes."
+    },
+    {
+      "index": 10,
+      "start_time": 21163.0,
+      "end_time": 24791.0,
+      "text": "And we as the writers of\nobjects have the ability"
+    },
+    {
+      "index": 11,
+      "start_time": 24791.0,
+      "end_time": 28316.0,
+      "text": "to insert ourselves at the\nmoment of object creation"
+    },
+    {
+      "index": 12,
+      "start_time": 28316.0,
+      "end_time": 30096.0,
+      "text": "and at the moment of object destruction"
+    },
+    {
+      "index": 13,
+      "start_time": 30096.0,
+      "end_time": 33952.0,
+      "text": "and we make special functions\nthat we call the constructor,"
+    },
+    {
+      "index": 14,
+      "start_time": 33952.0,
+      "end_time": 36426.0,
+      "text": "the object constructor\nor the class constructor,"
+    },
+    {
+      "index": 15,
+      "start_time": 36426.0,
+      "end_time": 37745.0,
+      "text": "and the destructor."
+    },
+    {
+      "index": 16,
+      "start_time": 37745.0,
+      "end_time": 40165.0,
+      "text": "And we don't actually\nexplicitly call them,"
+    },
+    {
+      "index": 17,
+      "start_time": 40165.0,
+      "end_time": 42776.0,
+      "text": "they're called automatically by the,"
+    },
+    {
+      "index": 18,
+      "start_time": 42776.0,
+      "end_time": 44744.0,
+      "text": "by Python on our behalf."
+    },
+    {
+      "index": 19,
+      "start_time": 44744.0,
+      "end_time": 47980.0,
+      "text": "And so the constructor is\nmuch more commonly used."
+    },
+    {
+      "index": 20,
+      "start_time": 47980.0,
+      "end_time": 49407.0,
+      "text": "It's used to set up any initial"
+    },
+    {
+      "index": 21,
+      "start_time": 49407.0,
+      "end_time": 51793.0,
+      "text": "values of variables if necessary."
+    },
+    {
+      "index": 22,
+      "start_time": 51793.0,
+      "end_time": 52933.0,
+      "text": "Et cetera, et cetera."
+    },
+    {
+      "index": 23,
+      "start_time": 52933.0,
+      "end_time": 55077.0,
+      "text": "Destructors, we'll cover them but"
+    },
+    {
+      "index": 24,
+      "start_time": 55077.0,
+      "end_time": 57160.0,
+      "text": "they're used very rarely."
+    },
+    {
+      "index": 25,
+      "start_time": 59054.0,
+      "end_time": 60876.0,
+      "text": "So here's a bit of code that we've got."
+    },
+    {
+      "index": 26,
+      "start_time": 60876.0,
+      "end_time": 63074.0,
+      "text": "It's our PartyAnimal and\na lot of it is the same"
+    },
+    {
+      "index": 27,
+      "start_time": 63074.0,
+      "end_time": 65941.0,
+      "text": "as what we've been doing so far."
+    },
+    {
+      "index": 28,
+      "start_time": 65941.0,
+      "end_time": 67626.0,
+      "text": "So we have this variable x."
+    },
+    {
+      "index": 29,
+      "start_time": 67626.0,
+      "end_time": 71626.0,
+      "text": "And the constructor has\na special name, __init_."
+    },
+    {
+      "index": 30,
+      "start_time": 72845.0,
+      "end_time": 76779.0,
+      "text": "Again we pass in the\ninstance of the object self,"
+    },
+    {
+      "index": 31,
+      "start_time": 76779.0,
+      "end_time": 77906.0,
+      "text": "and in this one all we're gonna do"
+    },
+    {
+      "index": 32,
+      "start_time": 77906.0,
+      "end_time": 80117.0,
+      "text": "is print out your constructed."
+    },
+    {
+      "index": 33,
+      "start_time": 80117.0,
+      "end_time": 82069.0,
+      "text": "And here's this code that we've had before"
+    },
+    {
+      "index": 34,
+      "start_time": 82069.0,
+      "end_time": 85647.0,
+      "text": "and now we have __del\nand then we pass in self"
+    },
+    {
+      "index": 35,
+      "start_time": 85647.0,
+      "end_time": 88306.0,
+      "text": "and we'll just print out\nthat we're being destructed"
+    },
+    {
+      "index": 36,
+      "start_time": 88306.0,
+      "end_time": 91166.0,
+      "text": "and what the current value of x is"
+    },
+    {
+      "index": 37,
+      "start_time": 91166.0,
+      "end_time": 93583.0,
+      "text": "for that particular instance."
+    },
+    {
+      "index": 38,
+      "start_time": 95752.0,
+      "end_time": 98256.0,
+      "text": "So let's go ahead and run this."
+    },
+    {
+      "index": 39,
+      "start_time": 98256.0,
+      "end_time": 101134.0,
+      "text": "Um, and so again this\ndoesn't really do any code"
+    },
+    {
+      "index": 40,
+      "start_time": 101134.0,
+      "end_time": 103275.0,
+      "text": "up to here, that just defines PartyAnimal"
+    },
+    {
+      "index": 41,
+      "start_time": 103275.0,
+      "end_time": 105482.0,
+      "text": "but this is the constructing of it."
+    },
+    {
+      "index": 42,
+      "start_time": 105482.0,
+      "end_time": 107263.0,
+      "text": "And basically that says, oh!"
+    },
+    {
+      "index": 43,
+      "start_time": 107263.0,
+      "end_time": 109143.0,
+      "text": "And it really kind of\ncreates these variables"
+    },
+    {
+      "index": 44,
+      "start_time": 109143.0,
+      "end_time": 111605.0,
+      "text": "and then it also runs the constructor."
+    },
+    {
+      "index": 45,
+      "start_time": 111605.0,
+      "end_time": 114661.0,
+      "text": "And so in this case, this line right here"
+    },
+    {
+      "index": 46,
+      "start_time": 114661.0,
+      "end_time": 117836.0,
+      "text": "is causing the I am constructed\nmessage to come out."
+    },
+    {
+      "index": 47,
+      "start_time": 117836.0,
+      "end_time": 122313.0,
+      "text": "Then we do, an.party\nan.party and that says,"
+    },
+    {
+      "index": 48,
+      "start_time": 122313.0,
+      "end_time": 123788.0,
+      "text": "you know, one and two."
+    },
+    {
+      "index": 49,
+      "start_time": 123788.0,
+      "end_time": 125167.0,
+      "text": "And here's an interesting thing,"
+    },
+    {
+      "index": 50,
+      "start_time": 125167.0,
+      "end_time": 127346.0,
+      "text": "we're actually gonna destroy this variable"
+    },
+    {
+      "index": 51,
+      "start_time": 127346.0,
+      "end_time": 132071.0,
+      "text": "by throwing away, an no\nlonger points at that object."
+    },
+    {
+      "index": 52,
+      "start_time": 132071.0,
+      "end_time": 134211.0,
+      "text": "an's gonna point to 42\nso we're gonna sort of"
+    },
+    {
+      "index": 53,
+      "start_time": 134211.0,
+      "end_time": 138306.0,
+      "text": "overwrite an and put 42\nin it, and at that point,"
+    },
+    {
+      "index": 54,
+      "start_time": 138306.0,
+      "end_time": 140487.0,
+      "text": "Python's like, oh, this whole\nlittle object that I just"
+    },
+    {
+      "index": 55,
+      "start_time": 140487.0,
+      "end_time": 144720.0,
+      "text": "created somewhere it's out\nhere, it's vaporizing it"
+    },
+    {
+      "index": 56,
+      "start_time": 144720.0,
+      "end_time": 149420.0,
+      "text": "and throwing it away, and so,\nbefore this line completes,"
+    },
+    {
+      "index": 57,
+      "start_time": 149420.0,
+      "end_time": 152180.0,
+      "text": "it actually calls our\ndestructor on our behalf,"
+    },
+    {
+      "index": 58,
+      "start_time": 152180.0,
+      "end_time": 154059.0,
+      "text": "and so that message comes out."
+    },
+    {
+      "index": 59,
+      "start_time": 154059.0,
+      "end_time": 157478.0,
+      "text": "So we are allowed as the\nbuilder of these objects"
+    },
+    {
+      "index": 60,
+      "start_time": 157478.0,
+      "end_time": 159547.0,
+      "text": "to add these little\nchunks of code that says"
+    },
+    {
+      "index": 61,
+      "start_time": 159547.0,
+      "end_time": 162592.0,
+      "text": "I wanna be involved at the\nmoment this object is created"
+    },
+    {
+      "index": 62,
+      "start_time": 162592.0,
+      "end_time": 164014.0,
+      "text": "and I wanna be involved at the moment"
+    },
+    {
+      "index": 63,
+      "start_time": 164014.0,
+      "end_time": 166553.0,
+      "text": "that this object is destroyed."
+    },
+    {
+      "index": 64,
+      "start_time": 166553.0,
+      "end_time": 170643.0,
+      "text": "Now, in this last line, an\nis no longer a party animal,"
+    },
+    {
+      "index": 65,
+      "start_time": 170643.0,
+      "end_time": 172995.0,
+      "text": "an is now an integer."
+    },
+    {
+      "index": 66,
+      "start_time": 172995.0,
+      "end_time": 174432.0,
+      "text": "It's got a 42 in it."
+    },
+    {
+      "index": 67,
+      "start_time": 174432.0,
+      "end_time": 176536.0,
+      "text": "It's gone, it's been created, it was used"
+    },
+    {
+      "index": 68,
+      "start_time": 176536.0,
+      "end_time": 178481.0,
+      "text": "and then it was destroyed, okay?"
+    },
+    {
+      "index": 69,
+      "start_time": 178481.0,
+      "end_time": 180210.0,
+      "text": "So you gotta be careful if\nyou overwrite something,"
+    },
+    {
+      "index": 70,
+      "start_time": 180210.0,
+      "end_time": 183886.0,
+      "text": "you could sorta throw the object away."
+    },
+    {
+      "index": 71,
+      "start_time": 183886.0,
+      "end_time": 186785.0,
+      "text": "So the constructor is\nthe special block of code"
+    },
+    {
+      "index": 72,
+      "start_time": 186785.0,
+      "end_time": 188799.0,
+      "text": "that's called when the object is created"
+    },
+    {
+      "index": 73,
+      "start_time": 188799.0,
+      "end_time": 190549.0,
+      "text": "to set the object up."
+    },
+    {
+      "index": 74,
+      "start_time": 192839.0,
+      "end_time": 194864.0,
+      "text": "So we can create lots of instances,"
+    },
+    {
+      "index": 75,
+      "start_time": 194864.0,
+      "end_time": 197594.0,
+      "text": "everything we've done so\nfar is we make a class"
+    },
+    {
+      "index": 76,
+      "start_time": 197594.0,
+      "end_time": 200389.0,
+      "text": "and then we create one\ninstance, one object."
+    },
+    {
+      "index": 77,
+      "start_time": 200389.0,
+      "end_time": 203436.0,
+      "text": "And each of these objects ends\nup being stored in its own"
+    },
+    {
+      "index": 78,
+      "start_time": 203436.0,
+      "end_time": 206056.0,
+      "text": "variable, we have a variable\nan and we've been using it."
+    },
+    {
+      "index": 79,
+      "start_time": 206056.0,
+      "end_time": 207973.0,
+      "text": "But the more interesting\nthing begins to happen"
+    },
+    {
+      "index": 80,
+      "start_time": 207973.0,
+      "end_time": 211494.0,
+      "text": "when we have multiple\ninstances of the same class"
+    },
+    {
+      "index": 81,
+      "start_time": 211494.0,
+      "end_time": 213636.0,
+      "text": "sitting in different variables."
+    },
+    {
+      "index": 82,
+      "start_time": 213636.0,
+      "end_time": 216327.0,
+      "text": "And it has its own copy\nof the instance variables."
+    },
+    {
+      "index": 83,
+      "start_time": 216327.0,
+      "end_time": 218536.0,
+      "text": "So let's take a look at this."
+    },
+    {
+      "index": 84,
+      "start_time": 218536.0,
+      "end_time": 222703.0,
+      "text": "So, this code here, I've\ntaken out the destructor."
+    },
+    {
+      "index": 85,
+      "start_time": 224073.0,
+      "end_time": 226407.0,
+      "text": "And it shows a little\nbit more information."
+    },
+    {
+      "index": 86,
+      "start_time": 226407.0,
+      "end_time": 228151.0,
+      "text": "So now we're gonna put\ntwo variables in here,"
+    },
+    {
+      "index": 87,
+      "start_time": 228151.0,
+      "end_time": 230747.0,
+      "text": "we're gonna have a\ncurrent score or whatever."
+    },
+    {
+      "index": 88,
+      "start_time": 230747.0,
+      "end_time": 231686.0,
+      "text": "And a name."
+    },
+    {
+      "index": 89,
+      "start_time": 231686.0,
+      "end_time": 233426.0,
+      "text": "And we're gonna start it out as blank."
+    },
+    {
+      "index": 90,
+      "start_time": 233426.0,
+      "end_time": 236702.0,
+      "text": "And this time we're\ngoing to add a parameter"
+    },
+    {
+      "index": 91,
+      "start_time": 236702.0,
+      "end_time": 238227.0,
+      "text": "onto the constructor."
+    },
+    {
+      "index": 92,
+      "start_time": 238227.0,
+      "end_time": 240844.0,
+      "text": "And so the self comes in\nsort of automatically,"
+    },
+    {
+      "index": 93,
+      "start_time": 240844.0,
+      "end_time": 243134.0,
+      "text": "as the object is being constructed,"
+    },
+    {
+      "index": 94,
+      "start_time": 243134.0,
+      "end_time": 246087.0,
+      "text": "but if we put a parameter\non the constructor call"
+    },
+    {
+      "index": 95,
+      "start_time": 246087.0,
+      "end_time": 249354.0,
+      "text": "which is this PartyAnimal\ncall, then this comes in"
+    },
+    {
+      "index": 96,
+      "start_time": 249354.0,
+      "end_time": 251236.0,
+      "text": "as the z variable."
+    },
+    {
+      "index": 97,
+      "start_time": 251236.0,
+      "end_time": 254967.0,
+      "text": "And so self is the object itself, and z,"
+    },
+    {
+      "index": 98,
+      "start_time": 254967.0,
+      "end_time": 257479.0,
+      "text": "this first parameter is\nwhatever parameter we put here."
+    },
+    {
+      "index": 99,
+      "start_time": 257478.99999999997,
+      "end_time": 259333.99999999997,
+      "text": "Everything we've done so\nfar has no parameter here,"
+    },
+    {
+      "index": 100,
+      "start_time": 259334.0,
+      "end_time": 261310.0,
+      "text": "but now we have a parameter here."
+    },
+    {
+      "index": 101,
+      "start_time": 261310.0,
+      "end_time": 264889.0,
+      "text": "And then, that means that\nwhen we call this constructor,"
+    },
+    {
+      "index": 102,
+      "start_time": 264889.0,
+      "end_time": 268831.0,
+      "text": "this line of code comes and\nthen name is no longer blank,"
+    },
+    {
+      "index": 103,
+      "start_time": 268831.0,
+      "end_time": 271655.0,
+      "text": "name is gonna be Sally\nin this particular thing."
+    },
+    {
+      "index": 104,
+      "start_time": 271655.0,
+      "end_time": 274280.0,
+      "text": "And then it'll say, oh,\nself.name, which'll be Sally,"
+    },
+    {
+      "index": 105,
+      "start_time": 274280.0,
+      "end_time": 275838.0,
+      "text": "has been constructed."
+    },
+    {
+      "index": 106,
+      "start_time": 275838.0,
+      "end_time": 279402.0,
+      "text": "And so then, then we have\nthis, and that object"
+    },
+    {
+      "index": 107,
+      "start_time": 279402.0,
+      "end_time": 282545.0,
+      "text": "is now constructed in and\nwe put it in the variable s."
+    },
+    {
+      "index": 108,
+      "start_time": 282545.0,
+      "end_time": 284418.0,
+      "text": "And then we call the party method on that,"
+    },
+    {
+      "index": 109,
+      "start_time": 284418.0,
+      "end_time": 286037.0,
+      "text": "and we construct a different one and so"
+    },
+    {
+      "index": 110,
+      "start_time": 286037.0,
+      "end_time": 288704.0,
+      "text": "this time it calls and z is Jim."
+    },
+    {
+      "index": 111,
+      "start_time": 289831.0,
+      "end_time": 291998.0,
+      "text": "And we basically have a..."
+    },
+    {
+      "index": 112,
+      "start_time": 293969.0,
+      "end_time": 294988.0,
+      "text": "Oops."
+    },
+    {
+      "index": 113,
+      "start_time": 294988.0,
+      "end_time": 296674.0,
+      "text": "Another copy of this."
+    },
+    {
+      "index": 114,
+      "start_time": 296674.0,
+      "end_time": 299050.0,
+      "text": "And so, this is how it's going to look."
+    },
+    {
+      "index": 115,
+      "start_time": 299050.0,
+      "end_time": 301383.0,
+      "text": "Right, as it runs down here."
+    },
+    {
+      "index": 116,
+      "start_time": 302829.0,
+      "end_time": 304475.0,
+      "text": "As it runs down here,"
+    },
+    {
+      "index": 117,
+      "start_time": 304475.0,
+      "end_time": 308447.0,
+      "text": "when this is called, it makes one instance"
+    },
+    {
+      "index": 118,
+      "start_time": 308447.0,
+      "end_time": 310534.0,
+      "text": "and stores that in the variable s."
+    },
+    {
+      "index": 119,
+      "start_time": 310534.0,
+      "end_time": 312139.0,
+      "text": "And there's a variable x in there,"
+    },
+    {
+      "index": 120,
+      "start_time": 312139.0,
+      "end_time": 314707.0,
+      "text": "there's a name in there,\nthere's an init method in party"
+    },
+    {
+      "index": 121,
+      "start_time": 314707.0,
+      "end_time": 317154.0,
+      "text": "and that's all in here, right,\nall that stuff is in here."
+    },
+    {
+      "index": 122,
+      "start_time": 317154.0,
+      "end_time": 319200.0,
+      "text": "And now we say, let's make, and that's"
+    },
+    {
+      "index": 123,
+      "start_time": 319200.0,
+      "end_time": 321533.0,
+      "text": "gonna have a Sally in there."
+    },
+    {
+      "index": 124,
+      "start_time": 323194.0,
+      "end_time": 325194.0,
+      "text": "Alright, Sally in there."
+    },
+    {
+      "index": 125,
+      "start_time": 326555.0,
+      "end_time": 328785.0,
+      "text": "And then we're gonna\ndo another constructor"
+    },
+    {
+      "index": 126,
+      "start_time": 328785.0,
+      "end_time": 330395.0,
+      "text": "and so it's gonna make a whole new thing"
+    },
+    {
+      "index": 127,
+      "start_time": 330395.0,
+      "end_time": 332338.0,
+      "text": "and it's gonna store that in j,"
+    },
+    {
+      "index": 128,
+      "start_time": 332338.0,
+      "end_time": 335457.0,
+      "text": "and this one's gonna have Jim in it."
+    },
+    {
+      "index": 129,
+      "start_time": 335457.0,
+      "end_time": 337379.0,
+      "text": "s.party then this turns into\na one and then we're gonna"
+    },
+    {
+      "index": 130,
+      "start_time": 337379.0,
+      "end_time": 340712.0,
+      "text": "call j.party, that turns that into a one"
+    },
+    {
+      "index": 131,
+      "start_time": 341599.0,
+      "end_time": 344651.0,
+      "text": "and then s.party will\ncause this to be a two."
+    },
+    {
+      "index": 132,
+      "start_time": 344651.0,
+      "end_time": 345900.0,
+      "text": "Okay, and so what happens is,"
+    },
+    {
+      "index": 133,
+      "start_time": 345900.0,
+      "end_time": 347900.0,
+      "text": "we have now two objects,"
+    },
+    {
+      "index": 134,
+      "start_time": 349154.0,
+      "end_time": 352027.0,
+      "text": "one in the variable s and\none in the variable j,"
+    },
+    {
+      "index": 135,
+      "start_time": 352027.0,
+      "end_time": 354911.0,
+      "text": "and they have separate copies\nof their instance variables."
+    },
+    {
+      "index": 136,
+      "start_time": 354911.0,
+      "end_time": 357730.0,
+      "text": "These are the instance\nvariables or the object fields"
+    },
+    {
+      "index": 137,
+      "start_time": 357730.0,
+      "end_time": 360002.0,
+      "text": "or whatever but they're the variables."
+    },
+    {
+      "index": 138,
+      "start_time": 360002.0,
+      "end_time": 361728.0,
+      "text": "But the key is, is that every time we"
+    },
+    {
+      "index": 139,
+      "start_time": 361728.0,
+      "end_time": 365039.0,
+      "text": "do a new construction, it duplicates this"
+    },
+    {
+      "index": 140,
+      "start_time": 365039.0,
+      "end_time": 366587.0,
+      "text": "and there's another copy of it."
+    },
+    {
+      "index": 141,
+      "start_time": 366587.0,
+      "end_time": 368592.0,
+      "text": "So there's an x within s."
+    },
+    {
+      "index": 142,
+      "start_time": 368592.0,
+      "end_time": 371175.0,
+      "text": "So s.x is this variable and j.x"
+    },
+    {
+      "index": 143,
+      "start_time": 373846.0,
+      "end_time": 375551.0,
+      "text": "is that variable."
+    },
+    {
+      "index": 144,
+      "start_time": 375551.0,
+      "end_time": 376384.0,
+      "text": "Okay?"
+    },
+    {
+      "index": 145,
+      "start_time": 377470.0,
+      "end_time": 379786.0,
+      "text": "So the next thing we'll\ntalk about is inheritance"
+    },
+    {
+      "index": 146,
+      "start_time": 379786.0,
+      "end_time": 382751.0,
+      "text": "and that's the idea of taking one class"
+    },
+    {
+      "index": 147,
+      "start_time": 382751.0,
+      "end_time": 385285.0,
+      "text": "and extending it to make something new."
+    }
+  ]
+}

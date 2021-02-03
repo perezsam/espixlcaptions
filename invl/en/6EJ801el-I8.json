@@ -1,0 +1,4032 @@
+{
+  "video_id": "6EJ801el-I8",
+  "title": "Google I/O 2012 - High Performance HTML5",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3399.0,
+      "end_time": 5220.0,
+      "text": "&gt;&gt;Steve Souders: Okay. Is that my cue to go? Okay. We&#39;re having a current discussion about"
+    },
+    {
+      "index": 2,
+      "start_time": 5220.0,
+      "end_time": 13200.0,
+      "text": "letting people come in and sit up front, so I hope we can do that."
+    },
+    {
+      "index": 3,
+      "start_time": 13200.0,
+      "end_time": 19160.0,
+      "text": "I&#39;m really excited to see everyone that showed up, but I have a cold shower announcement"
+    },
+    {
+      "index": 4,
+      "start_time": 19160.0,
+      "end_time": 26009.0,
+      "text": "to make. I&#39;m not giving anything away. So although that&#39;s not entirely true. I&#39;m"
+    },
+    {
+      "index": 5,
+      "start_time": 26009.0,
+      "end_time": 31849.0,
+      "text": "giving away information and knowledge, but nothing that physically you can take home"
+    },
+    {
+      "index": 6,
+      "start_time": 31849.0,
+      "end_time": 35770.0,
+      "text": "and give to your kids if that&#39;s what they&#39;re expecting."
+    },
+    {
+      "index": 7,
+      "start_time": 35770.0,
+      "end_time": 44070.0,
+      "text": "So I&#39;m going to talk about HTML5 from a performance perspective, but first I&#39;m going to start"
+    },
+    {
+      "index": 8,
+      "start_time": 44070.0,
+      "end_time": 50520.0,
+      "text": "off and give a little background on my work in working on Web performance and kind of"
+    },
+    {
+      "index": 9,
+      "start_time": 50520.0,
+      "end_time": 55960.0,
+      "text": "the motivation. I think probably a lot of people -- how many people here build Web sites?"
+    },
+    {
+      "index": 10,
+      "start_time": 55960.0,
+      "end_time": 65180.0,
+      "text": "Yeah, okay, great. So I think there&#39;s something in the DNA of"
+    },
+    {
+      "index": 11,
+      "start_time": 65180.00000000001,
+      "end_time": 70370.0,
+      "text": "engineers in general, and especially programmers, to be efficient and optimize."
+    },
+    {
+      "index": 12,
+      "start_time": 70370.0,
+      "end_time": 76650.0,
+      "text": "I think as developers we all like our code -- we feel proud if people -- if we can say"
+    },
+    {
+      "index": 13,
+      "start_time": 76650.0,
+      "end_time": 82920.0,
+      "text": "about our code that it&#39;s really fast and efficient. And so at the beginning I&#39;m going to talk"
+    },
+    {
+      "index": 14,
+      "start_time": 82920.0,
+      "end_time": 90060.0,
+      "text": "about how we can try to work to instill that interest and buy-in for performance across"
+    },
+    {
+      "index": 15,
+      "start_time": 90060.0,
+      "end_time": 93110.0,
+      "text": "other parts of the organization outside of engineering."
+    },
+    {
+      "index": 16,
+      "start_time": 93110.0,
+      "end_time": 96800.0,
+      "text": "So there will be a little preamble on that and then we&#39;ll dive into the HTML5 stuff."
+    },
+    {
+      "index": 17,
+      "start_time": 96800.0,
+      "end_time": 102340.0,
+      "text": "I just want to mention the slides are up on my Web site, stevesouders.com. If you go there"
+    },
+    {
+      "index": 18,
+      "start_time": 102340.0,
+      "end_time": 111060.0,
+      "text": "there&#39;s a link to it. You can check that out. Okay. So let&#39;s get started -- oh, the other"
+    },
+    {
+      "index": 19,
+      "start_time": 111060.0,
+      "end_time": 118479.0,
+      "text": "thing I want to mention is really more than what I say and more than the words on the"
+    },
+    {
+      "index": 20,
+      "start_time": 118479.0,
+      "end_time": 124070.0,
+      "text": "slides, I really want people to pay attention to the photos in the background of the slides."
+    },
+    {
+      "index": 21,
+      "start_time": 124070.0,
+      "end_time": 128000.0,
+      "text": "[ Laughter ] &gt;&gt;Steve Souders: Come on, we&#39;re going to -- loosen"
+    },
+    {
+      "index": 22,
+      "start_time": 128000.0,
+      "end_time": 131459.0,
+      "text": "up a little bit. Let&#39;s go. I mean, like the story of my life, like I"
+    },
+    {
+      "index": 23,
+      "start_time": 131459.0,
+      "end_time": 135549.0,
+      "text": "take slow things and make them fast, like is that very appropriate or what?"
+    },
+    {
+      "index": 24,
+      "start_time": 135549.0,
+      "end_time": 138319.0,
+      "text": "I need more feedback. [ Applause ]"
+    },
+    {
+      "index": 25,
+      "start_time": 138319.0,
+      "end_time": 145769.0,
+      "text": "&gt;&gt;Steve Souders: Yeah, okay, there we go. I worked at Yahoo for a long time, eight years."
+    },
+    {
+      "index": 26,
+      "start_time": 145769.0,
+      "end_time": 149659.0,
+      "text": "I was going to be there one year and I was there eight years. And about four and a half"
+    },
+    {
+      "index": 27,
+      "start_time": 149659.0,
+      "end_time": 155510.0,
+      "text": "years ago I joined Google, which was really my goal when I first started on Web performance"
+    },
+    {
+      "index": 28,
+      "start_time": 155510.0,
+      "end_time": 160099.0,
+      "text": "because I knew the people at Google really cared about making things fast, and it&#39;s true."
+    },
+    {
+      "index": 29,
+      "start_time": 160099.0,
+      "end_time": 166969.0,
+      "text": "So I&#39;ve been there four and a half years. I do mostly open source stuff, so I did -- I"
+    },
+    {
+      "index": 30,
+      "start_time": 166969.0,
+      "end_time": 173019.0,
+      "text": "created YSlow, Cuzillion, Sprite Me, Hammerhead, Browserscope. Lindsey Simon now runs that"
+    },
+    {
+      "index": 31,
+      "start_time": 173019.0,
+      "end_time": 178939.0,
+      "text": "project, very successful project. Jdrop, which is a great concept, but not such a successful"
+    },
+    {
+      "index": 32,
+      "start_time": 178939.0,
+      "end_time": 184109.0,
+      "text": "project, but you should check it out. HTTP Archive, another one I don&#39;t have time to"
+    },
+    {
+      "index": 33,
+      "start_time": 184109.0,
+      "end_time": 190639.0,
+      "text": "talk about today, but check it out, HTTParchive.org. I wrote &quot;High Performance Web sites,&quot; &quot;Even"
+    },
+    {
+      "index": 34,
+      "start_time": 190639.0,
+      "end_time": 194290.0,
+      "text": "Faster Web sites.&quot; I taught at Stanford based on the books and"
+    },
+    {
+      "index": 35,
+      "start_time": 194290.0,
+      "end_time": 199579.0,
+      "text": "I run the velocity conference. Oh, I have to update. We just had it this week in fact."
+    },
+    {
+      "index": 36,
+      "start_time": 199579.0,
+      "end_time": 204010.0,
+      "text": "I just finished that on Wednesday. So I&#39;ve been doing this performance stuff"
+    },
+    {
+      "index": 37,
+      "start_time": 204010.0,
+      "end_time": 209689.0,
+      "text": "for quite a listening time now, seven years, I think, but when I started back in 2004 I"
+    },
+    {
+      "index": 38,
+      "start_time": 209689.0,
+      "end_time": 214290.0,
+      "text": "kind of felt like the lone voice in the woods. So really I&#39;m sure there were people that"
+    },
+    {
+      "index": 39,
+      "start_time": 214290.0,
+      "end_time": 220340.0,
+      "text": "were working on it back then, but when I searched for information about making Web sites faster,"
+    },
+    {
+      "index": 40,
+      "start_time": 220340.0,
+      "end_time": 224760.0,
+      "text": "I really didn&#39;t find very much. There was a great blog post from David Hyatt that actually"
+    },
+    {
+      "index": 41,
+      "start_time": 224760.0,
+      "end_time": 231209.0,
+      "text": "really opened my eyes to where I should look for making Web sites faster."
+    },
+    {
+      "index": 42,
+      "start_time": 231209.0,
+      "end_time": 236439.0,
+      "text": "I should mention that when I talk about performance, I mean that from the end user&#39;s perspective."
+    },
+    {
+      "index": 43,
+      "start_time": 236439.0,
+      "end_time": 241199.0,
+      "text": "My goal when I started this in 2004 was to make the user experience fast."
+    },
+    {
+      "index": 44,
+      "start_time": 241199.0,
+      "end_time": 247329.0,
+      "text": "Now, there&#39;s another aspect of performance which I think of more as efficiency or scalability"
+    },
+    {
+      "index": 45,
+      "start_time": 247329.0,
+      "end_time": 253089.0,
+      "text": "on back end servers. How can we handle 10X the current number of users with the same"
+    },
+    {
+      "index": 46,
+      "start_time": 253089.0,
+      "end_time": 259370.0,
+      "text": "hardware? Those kinds of efficiency optimizations are also performance, but when I say performance,"
+    },
+    {
+      "index": 47,
+      "start_time": 259370.0,
+      "end_time": 265629.0,
+      "text": "I really mean speed, speed of the user experience. So when I first started working on this there"
+    },
+    {
+      "index": 48,
+      "start_time": 265629.0,
+      "end_time": 270090.0,
+      "text": "really wasn&#39;t that much information out there and I would try to go -- I started documenting"
+    },
+    {
+      "index": 49,
+      "start_time": 270090.0,
+      "end_time": 275129.0,
+      "text": "things, writing books, blogging, trying to go to other teams and convince them to focus"
+    },
+    {
+      "index": 50,
+      "start_time": 275129.0,
+      "end_time": 280250.0,
+      "text": "on performance. And it&#39;s kind of like QA or writing unit tests."
+    },
+    {
+      "index": 51,
+      "start_time": 280250.0,
+      "end_time": 287539.0,
+      "text": "Like try to sell unit tests -- time to build unit tests to someone from marketing or sales."
+    },
+    {
+      "index": 52,
+      "start_time": 287539.0,
+      "end_time": 292250.0,
+      "text": "That&#39;s kind of hard to do, because it&#39;s hard to visually see the benefit of that."
+    },
+    {
+      "index": 53,
+      "start_time": 292250.0,
+      "end_time": 296940.0,
+      "text": "So at the beginning it was kind of the same thing with talking about make the Web site"
+    },
+    {
+      "index": 54,
+      "start_time": 296940.0,
+      "end_time": 302050.0,
+      "text": "faster. Yeah, we need like a couple of people to work for at least six months. And you won&#39;t"
+    },
+    {
+      "index": 55,
+      "start_time": 302050.0,
+      "end_time": 306879.0,
+      "text": "see anything different on the site, it will just feel faster. And believe me, that&#39;s really"
+    },
+    {
+      "index": 56,
+      "start_time": 306879.0,
+      "end_time": 309560.0,
+      "text": "critical. And they&#39;re like no, really we want you to"
+    },
+    {
+      "index": 57,
+      "start_time": 309560.0,
+      "end_time": 312569.0,
+      "text": "add more flash. [Laughter]."
+    },
+    {
+      "index": 58,
+      "start_time": 312569.0,
+      "end_time": 321550.0,
+      "text": "&gt;&gt;Steve Souders: And so fast forward to 2010, future of Web apps. We have Fred Wilson. How"
+    },
+    {
+      "index": 59,
+      "start_time": 321550.0,
+      "end_time": 326139.0,
+      "text": "many people know Fred Wilson? Like one of the most prolific bloggers. He&#39;s"
+    },
+    {
+      "index": 60,
+      "start_time": 326139.0,
+      "end_time": 332550.0,
+      "text": "the number one VC out of New York City, out of Union Square, very techy guy. But really"
+    },
+    {
+      "index": 61,
+      "start_time": 332550.0,
+      "end_time": 337150.0,
+      "text": "his business is investment, funding startup companies."
+    },
+    {
+      "index": 62,
+      "start_time": 337150.0,
+      "end_time": 342860.0,
+      "text": "Here he is speaking at a tech conference about his 10 golden principles of successful Web"
+    },
+    {
+      "index": 63,
+      "start_time": 342860.0,
+      "end_time": 347509.0,
+      "text": "apps. What&#39;s number one? Speed. He says, First and foremost we believe that speed is more"
+    },
+    {
+      "index": 64,
+      "start_time": 347509.0,
+      "end_time": 350819.0,
+      "text": "than a feature, speed is the most important feature."
+    },
+    {
+      "index": 65,
+      "start_time": 350819.0,
+      "end_time": 357189.0,
+      "text": "And he goes on to talk about with their portfolio companies they track all of the company&#39;s"
+    },
+    {
+      "index": 66,
+      "start_time": 357189.0,
+      "end_time": 364370.0,
+      "text": "performance, speed, page load time for real users. And that in their experience the data"
+    },
+    {
+      "index": 67,
+      "start_time": 364370.0,
+      "end_time": 370949.0,
+      "text": "shows that when the speed drops off, the success of the business drops off."
+    },
+    {
+      "index": 68,
+      "start_time": 370949.0,
+      "end_time": 376150.0,
+      "text": "And that&#39;s why they do this for all the portfolio companies that they work with."
+    },
+    {
+      "index": 69,
+      "start_time": 376150.0,
+      "end_time": 383099.0,
+      "text": "And so I think that&#39;s to me like Web performance has arrived. We have a VC talking at a tech"
+    },
+    {
+      "index": 70,
+      "start_time": 383099.0,
+      "end_time": 388000.0,
+      "text": "conference about speed, like this was beautiful to me. I start almost every slide deck with"
+    },
+    {
+      "index": 71,
+      "start_time": 388000.0,
+      "end_time": 392310.0,
+      "text": "this slide. And actually, a partner of Fred&#39;s spoke at"
+    },
+    {
+      "index": 72,
+      "start_time": 392310.0,
+      "end_time": 398689.0,
+      "text": "the Velocity conference this week. And in addition -- if that&#39;s not enough to"
+    },
+    {
+      "index": 73,
+      "start_time": 398689.0,
+      "end_time": 402560.0,
+      "text": "have the number one VC out of New York City talking about performance, I&#39;m going to run"
+    },
+    {
+      "index": 74,
+      "start_time": 402560.0,
+      "end_time": 408039.0,
+      "text": "through a bunch of case studies here that correlate performance speed to the success"
+    },
+    {
+      "index": 75,
+      "start_time": 408039.0,
+      "end_time": 413539.0,
+      "text": "of the business. So here&#39;s -- about two years ago Bing and"
+    },
+    {
+      "index": 76,
+      "start_time": 413539.0,
+      "end_time": 417259.0,
+      "text": "Google Search got up on stage at the same time and talked about experiments they had"
+    },
+    {
+      "index": 77,
+      "start_time": 417259.0,
+      "end_time": 423460.0,
+      "text": "run. Bing introduced intentionally a delay in serving search results. They took it up"
+    },
+    {
+      "index": 78,
+      "start_time": 423460.0,
+      "end_time": 428249.0,
+      "text": "to two seconds. At a two-second delay they saw all their goodness metrics drop off. Most"
+    },
+    {
+      "index": 79,
+      "start_time": 428249.0,
+      "end_time": 433550.0,
+      "text": "significantly revenue per user dropped off four percent."
+    },
+    {
+      "index": 80,
+      "start_time": 433550.0,
+      "end_time": 438449.0,
+      "text": "And of course, these companies are doing this on a very small sample size."
+    },
+    {
+      "index": 81,
+      "start_time": 438449.0,
+      "end_time": 444599.0,
+      "text": "So Google took this up to 400 milliseconds at the max. Didn&#39;t see that much dropoff in"
+    },
+    {
+      "index": 82,
+      "start_time": 444599.0,
+      "end_time": 449620.0,
+      "text": "searches per user, although at Google scale that&#39;s a fairly significant dropoff."
+    },
+    {
+      "index": 83,
+      "start_time": 449620.0,
+      "end_time": 455719.0,
+      "text": "The thing that was really interesting about this study was after they removed the delay,"
+    },
+    {
+      "index": 84,
+      "start_time": 455719.0,
+      "end_time": 462870.0,
+      "text": "they kept that user group segmented and tracked their usage. And it took I think six weeks"
+    },
+    {
+      "index": 85,
+      "start_time": 462870.0,
+      "end_time": 468909.0,
+      "text": "for the usage, the searches per day, and other goodness metrics, to resume where they were"
+    },
+    {
+      "index": 86,
+      "start_time": 468909.0,
+      "end_time": 475520.0,
+      "text": "before the experiment started. So the user&#39;s awareness of what the experience"
+    },
+    {
+      "index": 87,
+      "start_time": 475520.0,
+      "end_time": 480219.0,
+      "text": "is like is something that gets ingrained and lives with them and it takes a long time to"
+    },
+    {
+      "index": 88,
+      "start_time": 480219.0,
+      "end_time": 486860.0,
+      "text": "build that and to recover from delays. So it&#39;s important to stay on top of keeping your"
+    },
+    {
+      "index": 89,
+      "start_time": 486860.0,
+      "end_time": 492219.0,
+      "text": "Web site fast. And Yahoo ran a similar study. And for full"
+    },
+    {
+      "index": 90,
+      "start_time": 492219.0,
+      "end_time": 498029.0,
+      "text": "page traffic, that means traffic where the onload event actually fires, a 400-millisecond"
+    },
+    {
+      "index": 91,
+      "start_time": 498029.0,
+      "end_time": 503400.0,
+      "text": "delay saw a five to nine percent dropoff in traffic."
+    },
+    {
+      "index": 92,
+      "start_time": 503400.0,
+      "end_time": 509050.0,
+      "text": "Here Mozilla -- this is about a year old. Mozilla, when you want to upgrade to Firefox"
+    },
+    {
+      "index": 93,
+      "start_time": 509050.0,
+      "end_time": 516220.0,
+      "text": "and you&#39;re in Internet Explorer, you get the IE landing page, and they made that IE Firefox"
+    },
+    {
+      "index": 94,
+      "start_time": 516220.0,
+      "end_time": 523520.0,
+      "text": "landing page 2.2 seconds faster, and they saw a 15% lift in Firefox downloads. So for"
+    },
+    {
+      "index": 95,
+      "start_time": 523520.0,
+      "end_time": 527420.0,
+      "text": "them that&#39;s their business metric, being a nonprofit."
+    },
+    {
+      "index": 96,
+      "start_time": 527420.0,
+      "end_time": 532530.0,
+      "text": "And this was a seminal study from Velocity a few years ago. Shopzilla did a tremendous"
+    },
+    {
+      "index": 97,
+      "start_time": 532530.0,
+      "end_time": 538390.0,
+      "text": "performance effort, taking their site from seven seconds to about three seconds, and"
+    },
+    {
+      "index": 98,
+      "start_time": 538390.0,
+      "end_time": 543640.0,
+      "text": "they saw conversion rate go up seven to 12 percent depending on the country."
+    },
+    {
+      "index": 99,
+      "start_time": 543640.0,
+      "end_time": 548590.0,
+      "text": "This is very significant. They saw the unique users from search engine marketing more than"
+    },
+    {
+      "index": 100,
+      "start_time": 548590.0,
+      "end_time": 554770.0,
+      "text": "double. And this was the first study that showed another benefit in addition to the"
+    },
+    {
+      "index": 101,
+      "start_time": 554770.0,
+      "end_time": 557920.0,
+      "text": "business metrics is operating costs going down."
+    },
+    {
+      "index": 102,
+      "start_time": 557920.0,
+      "end_time": 564680.0,
+      "text": "So here we have the number of servers needed to run the Web site after this optimization"
+    },
+    {
+      "index": 103,
+      "start_time": 564680.0,
+      "end_time": 570780.0,
+      "text": "dropped. And that kind of makes sense because like one of the optimizations is connecting"
+    },
+    {
+      "index": 104,
+      "start_time": 570780.0,
+      "end_time": 575390.0,
+      "text": "scripts together, so instead of making seven requests to my server, I&#39;m only making one."
+    },
+    {
+      "index": 105,
+      "start_time": 575390.0,
+      "end_time": 581040.0,
+      "text": "Turn on Gzip so the amount of time it takes for the response to get off the server box"
+    },
+    {
+      "index": 106,
+      "start_time": 581040.0,
+      "end_time": 585480.0,
+      "text": "is lowered and so the server can handle a higher QPS."
+    },
+    {
+      "index": 107,
+      "start_time": 585480.0,
+      "end_time": 590880.0,
+      "text": "And then following that a good friend of mine, Bill Scott, when he was at Netflix, they had"
+    },
+    {
+      "index": 108,
+      "start_time": 590880.0,
+      "end_time": 596840.0,
+      "text": "-- they didn&#39;t have Gzip turned on for some reason. I can go into it after if people want"
+    },
+    {
+      "index": 109,
+      "start_time": 596840.0,
+      "end_time": 601060.0,
+      "text": "to ask. And he turned it on one day and the [Indiscernible]"
+    },
+    {
+      "index": 110,
+      "start_time": 601060.0,
+      "end_time": 603800.0,
+      "text": "said the Web site is down, all we&#39;re serving is the error page."
+    },
+    {
+      "index": 111,
+      "start_time": 603800.0,
+      "end_time": 607470.0,
+      "text": "And he said why do you think that? And they said the traffic in our data server"
+    },
+    {
+      "index": 112,
+      "start_time": 607470.0,
+      "end_time": 610810.0,
+      "text": "has dropped in half. He said, Nope, we&#39;re serving everything, it&#39;s"
+    },
+    {
+      "index": 113,
+      "start_time": 610810.0,
+      "end_time": 617140.0,
+      "text": "just that we turned on Gzip. So this is probably six figures a month in a data center that"
+    },
+    {
+      "index": 114,
+      "start_time": 617140.0,
+      "end_time": 623570.0,
+      "text": "they saved. Pretty significant. Here&#39;s another example, Edmunds.com turned"
+    },
+    {
+      "index": 115,
+      "start_time": 623570.0,
+      "end_time": 628940.0,
+      "text": "on -- added an expires header so that their resources through their CDN could be cached"
+    },
+    {
+      "index": 116,
+      "start_time": 628940.0,
+      "end_time": 635060.0,
+      "text": "and they saw their CDN traffic drop by a third. So again, this is a six-figure maybe high"
+    },
+    {
+      "index": 117,
+      "start_time": 635060.0,
+      "end_time": 643090.0,
+      "text": "five-figure savings per month from CDN costs. And then not that recently anymore, this was"
+    },
+    {
+      "index": 118,
+      "start_time": 643090.0,
+      "end_time": 648190.0,
+      "text": "about a year and a half ago, Google announced that speed or latency was going to be taken"
+    },
+    {
+      "index": 119,
+      "start_time": 648190.0,
+      "end_time": 654150.0,
+      "text": "into consideration for page rank. And that was caveated, it&#39;s one of two hundred signals,"
+    },
+    {
+      "index": 120,
+      "start_time": 654150.0,
+      "end_time": 658340.0,
+      "text": "it only effects about one percent of search results, but still it&#39;s a consideration and"
+    },
+    {
+      "index": 121,
+      "start_time": 658340.0,
+      "end_time": 663430.0,
+      "text": "page rank is really important. All of these things about a year, year and"
+    },
+    {
+      "index": 122,
+      "start_time": 663430.0,
+      "end_time": 669690.0,
+      "text": "a half ago I saw coming together and so I coined a new catch phrase for this emerging"
+    },
+    {
+      "index": 123,
+      "start_time": 669690.0,
+      "end_time": 676290.0,
+      "text": "industry called WPO. It stands for Web Performance Optimization. And actually as I mentioned,"
+    },
+    {
+      "index": 124,
+      "start_time": 676290.0,
+      "end_time": 681180.0,
+      "text": "I keep mentioning, we just had Velocity this week, there were a number. Sequoia, Battery"
+    },
+    {
+      "index": 125,
+      "start_time": 681180.0,
+      "end_time": 687200.0,
+      "text": "Ventures, Excel, Union Square were all there. This industry is really growing up. There&#39;s"
+    },
+    {
+      "index": 126,
+      "start_time": 687200.0,
+      "end_time": 691160.0,
+      "text": "a number of startups in this Web performance space now."
+    },
+    {
+      "index": 127,
+      "start_time": 691160.0,
+      "end_time": 695800.0,
+      "text": "And the elevator pitch is it drives traffic to your site. We see that with search engine"
+    },
+    {
+      "index": 128,
+      "start_time": 695800.0,
+      "end_time": 702450.0,
+      "text": "marketing, with page rank. It improves the user experience. You would think that making"
+    },
+    {
+      "index": 129,
+      "start_time": 702450.0,
+      "end_time": 707000.0,
+      "text": "Web sites faster the user would get in and out more quickly, and it&#39;s just the opposite."
+    },
+    {
+      "index": 130,
+      "start_time": 707000.0,
+      "end_time": 713160.0,
+      "text": "All of these studies show that page views per session, session length all increase because"
+    },
+    {
+      "index": 131,
+      "start_time": 713160.0,
+      "end_time": 718490.0,
+      "text": "the users are having a better experience. It increases revenue. We saw stats on that"
+    },
+    {
+      "index": 132,
+      "start_time": 718490.0,
+      "end_time": 723180.0,
+      "text": "with conversions, downloads, and it reduces operating costs."
+    },
+    {
+      "index": 133,
+      "start_time": 723180.0,
+      "end_time": 729000.0,
+      "text": "So this all sounds pretty good, right? Web PO is really taking off."
+    },
+    {
+      "index": 134,
+      "start_time": 729000.0,
+      "end_time": 735670.0,
+      "text": "All right, that&#39;s the preamble. How many people here think fast Web sites are good?"
+    },
+    {
+      "index": 135,
+      "start_time": 735670.0,
+      "end_time": 740630.0,
+      "text": "All right. So hopefully if you&#39;re having trouble selling that -- if this is stuff that you"
+    },
+    {
+      "index": 136,
+      "start_time": 740630.0,
+      "end_time": 744510.0,
+      "text": "want to work on and you&#39;re having trouble selling that back home, you can take some"
+    },
+    {
+      "index": 137,
+      "start_time": 744510.0,
+      "end_time": 749760.0,
+      "text": "of these case studies and show people back home that this is a good investment. You&#39;ll"
+    },
+    {
+      "index": 138,
+      "start_time": 749760.0,
+      "end_time": 753980.0,
+      "text": "actually get a positive ROI. And maybe these will give a little guidance on what you can"
+    },
+    {
+      "index": 139,
+      "start_time": 753980.0,
+      "end_time": 758870.0,
+      "text": "track on the business side to actually correlate performance improvements with the goals of"
+    },
+    {
+      "index": 140,
+      "start_time": 758870.0,
+      "end_time": 762100.0,
+      "text": "the business. All right. So let&#39;s transition into the meat"
+    },
+    {
+      "index": 141,
+      "start_time": 762100.0,
+      "end_time": 767730.0,
+      "text": "of the topic. I don&#39;t want to debate about what HTML5 is. There&#39;s the spec. I also mean"
+    },
+    {
+      "index": 142,
+      "start_time": 767730.0,
+      "end_time": 773890.0,
+      "text": "CSS3. It&#39;s the new stuff. So I&#39;m going to highlight a few things around"
+    },
+    {
+      "index": 143,
+      "start_time": 773890.0,
+      "end_time": 781900.0,
+      "text": "HTML5 and CSS3 that I think are really important to pay attention to from a performance perspective."
+    },
+    {
+      "index": 144,
+      "start_time": 781900.0,
+      "end_time": 789450.0,
+      "text": "So the first is if you want to optimize something you need to be able to measure it. And right"
+    },
+    {
+      "index": 145,
+      "start_time": 789450.0,
+      "end_time": 798360.0,
+      "text": "now what we&#39;d really like to measure is the user&#39;s perception of speed. Currently there&#39;s"
+    },
+    {
+      "index": 146,
+      "start_time": 798360.0,
+      "end_time": 805300.0,
+      "text": "no JavaScript handler for brain activity. So what we&#39;ve been using as an industry -- as"
+    },
+    {
+      "index": 147,
+      "start_time": 805300.0,
+      "end_time": 811390.0,
+      "text": "a proxy for that is the window onload event. Now, the problem with that is, for example,"
+    },
+    {
+      "index": 148,
+      "start_time": 811390.0,
+      "end_time": 816780.0,
+      "text": "if I do a Google search and I click on a search result that takes me to Whole Foods, and I"
+    },
+    {
+      "index": 149,
+      "start_time": 816780.0,
+      "end_time": 821780.0,
+      "text": "want to measure -- from Whole Foods&#39; perspective, they want to know how long it took for the"
+    },
+    {
+      "index": 150,
+      "start_time": 821780.0,
+      "end_time": 826180.0,
+      "text": "user to click that link to when Whole Foods was ready. And the problem is tracking the"
+    },
+    {
+      "index": 151,
+      "start_time": 826180.0,
+      "end_time": 832170.0,
+      "text": "start time. How do you track the time that the user started by clicking on that link?"
+    },
+    {
+      "index": 152,
+      "start_time": 832170.0,
+      "end_time": 837800.0,
+      "text": "Because that&#39;s the user&#39;s perception time. And what you can do is at the top of the Whole"
+    },
+    {
+      "index": 153,
+      "start_time": 837800.0,
+      "end_time": 841950.0,
+      "text": "Foods page you can put a script lock that takes a time measurement, but that totally"
+    },
+    {
+      "index": 154,
+      "start_time": 841950.0,
+      "end_time": 846440.0,
+      "text": "ignores the time it takes for the request to go up to the Whole Foods server, for it"
+    },
+    {
+      "index": 155,
+      "start_time": 846440.0,
+      "end_time": 851360.0,
+      "text": "to stitch together all of the content and send that back down to the browser."
+    },
+    {
+      "index": 156,
+      "start_time": 851360.0,
+      "end_time": 857600.0,
+      "text": "So about two years ago Google and Microsoft formed this Web performance working group"
+    },
+    {
+      "index": 157,
+      "start_time": 857600.0,
+      "end_time": 864890.0,
+      "text": "as part of the W3C, and the first task was to create the Web timing spec, which is actually"
+    },
+    {
+      "index": 158,
+      "start_time": 864890.0,
+      "end_time": 869440.0,
+      "text": "three specs, navigation timing, user timing, resource timing."
+    },
+    {
+      "index": 159,
+      "start_time": 869440.0,
+      "end_time": 873850.0,
+      "text": "How many people here use navigation timing to measure Web sites?"
+    },
+    {
+      "index": 160,
+      "start_time": 873850.0,
+      "end_time": 878680.0,
+      "text": "Good. It&#39;s not good that there were so few hands up. It&#39;s good because I&#39;m going to talk"
+    },
+    {
+      "index": 161,
+      "start_time": 878680.0,
+      "end_time": 883590.0,
+      "text": "about it a little bit. So those of three and I&#39;m going to talk about"
+    },
+    {
+      "index": 162,
+      "start_time": 883590.0,
+      "end_time": 889120.0,
+      "text": "each one in a little bit more detail. They&#39;re also working on a few other specs, page visibility"
+    },
+    {
+      "index": 163,
+      "start_time": 889120.0,
+      "end_time": 893670.0,
+      "text": "I&#39;ll touch on quickly. Script-base animations I&#39;m not going to spend too much time on, but"
+    },
+    {
+      "index": 164,
+      "start_time": 893670.0,
+      "end_time": 898120.0,
+      "text": "people are doing a lot of animation with JavaScript and they&#39;re working on making that better."
+    },
+    {
+      "index": 165,
+      "start_time": 898120.0,
+      "end_time": 902410.0,
+      "text": "And efficient script yielding, since the browsers are single threaded, if you have long running"
+    },
+    {
+      "index": 166,
+      "start_time": 902410.0,
+      "end_time": 909140.0,
+      "text": "JavaScript it can really degrade the user experience. So what can scripts do to mitigate"
+    },
+    {
+      "index": 167,
+      "start_time": 909140.0,
+      "end_time": 911970.0,
+      "text": "that. But let me talk about the timing specs. So"
+    },
+    {
+      "index": 168,
+      "start_time": 911970.0,
+      "end_time": 918900.0,
+      "text": "navigation timing actually is out. The spec is done and it&#39;s available today. If you look"
+    },
+    {
+      "index": 169,
+      "start_time": 918900.0,
+      "end_time": 925530.0,
+      "text": "at window.performance, there&#39;s this timing object. And you can do things like from the"
+    },
+    {
+      "index": 170,
+      "start_time": 925530.0,
+      "end_time": 932890.0,
+      "text": "timing object you can get the navigation start and the load event end, take the difference."
+    },
+    {
+      "index": 171,
+      "start_time": 932890.0,
+      "end_time": 937430.0,
+      "text": "And the nice thing is that the Web timing spec gives us two main things. This is the"
+    },
+    {
+      "index": 172,
+      "start_time": 937430.0,
+      "end_time": 943430.0,
+      "text": "first one. This is the time at which the -- the epic time at which the user clicked on that"
+    },
+    {
+      "index": 173,
+      "start_time": 943430.0,
+      "end_time": 950870.0,
+      "text": "link on Google. So now the user can -- the Web site owner can get the full time from"
+    },
+    {
+      "index": 174,
+      "start_time": 950870.0,
+      "end_time": 957570.0,
+      "text": "when the click happened to when the onload event or whatever event you wanted to. And"
+    },
+    {
+      "index": 175,
+      "start_time": 957570.0,
+      "end_time": 961520.0,
+      "text": "in fact if you put a little time stamp at the top of the page you can break that into"
+    },
+    {
+      "index": 176,
+      "start_time": 961520.0,
+      "end_time": 966150.0,
+      "text": "what I call the back end time, the time from the click to when the first byte arrived and"
+    },
+    {
+      "index": 177,
+      "start_time": 966150.0,
+      "end_time": 970130.0,
+      "text": "the time from the first byte to when the full page loaded."
+    },
+    {
+      "index": 178,
+      "start_time": 970130.0,
+      "end_time": 974600.0,
+      "text": "And there&#39;s a bunch of other timings in there. You can get DNS time and connection time."
+    },
+    {
+      "index": 179,
+      "start_time": 974600.0,
+      "end_time": 979170.0,
+      "text": "There are a bunch of time values that you can get in there."
+    },
+    {
+      "index": 180,
+      "start_time": 979170.0,
+      "end_time": 983530.0,
+      "text": "So this has been out -- the spec was finished probably about six months ago, maybe a little"
+    },
+    {
+      "index": 181,
+      "start_time": 983530.0,
+      "end_time": 987350.0,
+      "text": "longer. And I think IE 9 -- no, I think Chrome was"
+    },
+    {
+      "index": 182,
+      "start_time": 987350.0,
+      "end_time": 992930.0,
+      "text": "the first to implement it. But it&#39;s in IE 9 and up, Firefox 7 and up. They had some"
+    },
+    {
+      "index": 183,
+      "start_time": 992930.0,
+      "end_time": 999820.0,
+      "text": "bugs in the Firefox 7 in the early days, but those are all fixed now. It&#39;s on Android."
+    },
+    {
+      "index": 184,
+      "start_time": 999820.0,
+      "end_time": 1004190.0,
+      "text": "And I heard a month ago it&#39;s on Blackberry, but I haven&#39;t tested that."
+    },
+    {
+      "index": 185,
+      "start_time": 1004190.0,
+      "end_time": 1008700.0,
+      "text": "And here&#39;s a good URL from Tony Gentilcore that kind of explains how you could use it"
+    },
+    {
+      "index": 186,
+      "start_time": 1008700.0,
+      "end_time": 1012990.0,
+      "text": "and some examples of getting different time values."
+    },
+    {
+      "index": 187,
+      "start_time": 1012990.0,
+      "end_time": 1019610.0,
+      "text": "So one thing that&#39;s really cool is Google is taking -- for page rank is taking time"
+    },
+    {
+      "index": 188,
+      "start_time": 1019610.0,
+      "end_time": 1024039.0,
+      "text": "into consideration, but when they announce that -- I&#39;m really proud of the work from"
+    },
+    {
+      "index": 189,
+      "start_time": 1024040.0,
+      "end_time": 1029121.0,
+      "text": "the make the Web faster team at Google, where it wasn&#39;t like okay, we&#39;re going to hold you"
+    },
+    {
+      "index": 190,
+      "start_time": 1029119.9999999999,
+      "end_time": 1033068.9999999999,
+      "text": "responsible for it, good luck. We also rolled out several tools."
+    },
+    {
+      "index": 191,
+      "start_time": 1033069.9999999999,
+      "end_time": 1040510.9999999999,
+      "text": "In Webmaster tools you can go in there and you can see how your site compares its speed,"
+    },
+    {
+      "index": 192,
+      "start_time": 1040510.0,
+      "end_time": 1045430.0,
+      "text": "compares to the rest of the industry. And really the folks who were going to get"
+    },
+    {
+      "index": 193,
+      "start_time": 1045430.0000000001,
+      "end_time": 1050650.0,
+      "text": "penalized from a page rank perspective are going to be in the lower 10%, maybe even lower"
+    },
+    {
+      "index": 194,
+      "start_time": 1050650.0,
+      "end_time": 1056810.0,
+      "text": "than that. So maybe you&#39;re not awesome, but if you&#39;re in the top 50% you probably don&#39;t"
+    },
+    {
+      "index": 195,
+      "start_time": 1056810.0,
+      "end_time": 1060770.0,
+      "text": "have too much to worry about there. So that&#39;s a little help, but the other thing that&#39;s"
+    },
+    {
+      "index": 196,
+      "start_time": 1060770.0,
+      "end_time": 1067000.0,
+      "text": "nice to get more granularity, if you use Google analytics, we added this time measurement"
+    },
+    {
+      "index": 197,
+      "start_time": 1067000.0,
+      "end_time": 1075770.0,
+      "text": "capability in Google Analytics. I think we call it site speed -- yeah, site speed."
+    },
+    {
+      "index": 198,
+      "start_time": 1075770.0,
+      "end_time": 1081760.0,
+      "text": "Yeah, this screen dump is a little old. I think the UI is a little difference now. But"
+    },
+    {
+      "index": 199,
+      "start_time": 1081760.0,
+      "end_time": 1086720.0,
+      "text": "the nice thing is when we first launched it you had to add a little bit more to your Google"
+    },
+    {
+      "index": 200,
+      "start_time": 1086720.0,
+      "end_time": 1092150.0,
+      "text": "Analytics snippet, and then about three or four months ago we turned it on for everyone."
+    },
+    {
+      "index": 201,
+      "start_time": 1092150.0,
+      "end_time": 1097810.0,
+      "text": "So even if you had no awareness of the site speed, time measurement capability, you&#39;ve"
+    },
+    {
+      "index": 202,
+      "start_time": 1097810.0,
+      "end_time": 1101810.0,
+      "text": "been gathering data for about five months now, four or five months. So you could go"
+    },
+    {
+      "index": 203,
+      "start_time": 1101810.0,
+      "end_time": 1107560.0,
+      "text": "to Google Analytics and go and find this site speed tab and you could get charts, and it&#39;s"
+    },
+    {
+      "index": 204,
+      "start_time": 1107560.0,
+      "end_time": 1113840.0,
+      "text": "the usual Google Analytics slice and dice capabilities by browser, by geographic region,"
+    },
+    {
+      "index": 205,
+      "start_time": 1113840.0,
+      "end_time": 1117480.0,
+      "text": "by page, and you can see what your performance is."
+    },
+    {
+      "index": 206,
+      "start_time": 1117480.0,
+      "end_time": 1122640.0,
+      "text": "This is my Web site, so I don&#39;t know what was going on there, but that was awhile ago."
+    },
+    {
+      "index": 207,
+      "start_time": 1122640.0,
+      "end_time": 1128070.0,
+      "text": "See, now it&#39;s fast. Well, in November it was fast."
+    },
+    {
+      "index": 208,
+      "start_time": 1128070.0,
+      "end_time": 1130840.0,
+      "text": "Thank you for that. I appreciate that. [ Laughter ]"
+    },
+    {
+      "index": 209,
+      "start_time": 1130840.0,
+      "end_time": 1136250.0,
+      "text": "&gt;&gt;Steve Souders: Oh, I think I probably -- now it&#39;s on by default. Oh, it&#39;s only in browsers"
+    },
+    {
+      "index": 210,
+      "start_time": 1136250.0,
+      "end_time": 1142300.0,
+      "text": "that support nav timing, so we really need mobile browsers to start supporting this more."
+    },
+    {
+      "index": 211,
+      "start_time": 1142300.0,
+      "end_time": 1148530.0,
+      "text": "Oh, it&#39;s sampled. So by default it&#39;s a one percent sampling rate."
+    },
+    {
+      "index": 212,
+      "start_time": 1148530.0,
+      "end_time": 1152310.0,
+      "text": "If you have a huge Web site, like one percent is probably fine. And the guys have done a"
+    },
+    {
+      "index": 213,
+      "start_time": 1152310.0,
+      "end_time": 1156660.0,
+      "text": "really smart thing. Like they don&#39;t start it at midnight and if you&#39;re a huge Web site"
+    },
+    {
+      "index": 214,
+      "start_time": 1156660.0,
+      "end_time": 1163070.0,
+      "text": "you&#39;ve used your one percent by 12:15. They, like, dole it out throughout the day. But"
+    },
+    {
+      "index": 215,
+      "start_time": 1163070.0,
+      "end_time": 1170780.0,
+      "text": "if you&#39;re a smaller Web site, you can change it with some Google Analytics commands to"
+    },
+    {
+      "index": 216,
+      "start_time": 1170780.0,
+      "end_time": 1176540.0,
+      "text": "cover 100% of your Web site, but it&#39;s limited, I think, to 10,000 measurements a day. But"
+    },
+    {
+      "index": 217,
+      "start_time": 1176540.0,
+      "end_time": 1180570.0,
+      "text": "again, those will be sampled throughout the day, so you won&#39;t get biases based on peak"
+    },
+    {
+      "index": 218,
+      "start_time": 1180570.0,
+      "end_time": 1184360.0,
+      "text": "time and stuff like that. And then I&#39;m just going to talk really quick"
+    },
+    {
+      "index": 219,
+      "start_time": 1184360.0,
+      "end_time": 1191170.0,
+      "text": "about the other two parts of the timing spec. There&#39;s resource timing. And this is -- there&#39;s"
+    },
+    {
+      "index": 220,
+      "start_time": 1191170.0,
+      "end_time": 1194750.0,
+      "text": "drafts of this available, but this hasn&#39;t been nailed down. I don&#39;t think there&#39;s any"
+    },
+    {
+      "index": 221,
+      "start_time": 1194750.0,
+      "end_time": 1199540.0,
+      "text": "browser that supports it yet because the draft is -- the spec is still being defined."
+    },
+    {
+      "index": 222,
+      "start_time": 1199540.0,
+      "end_time": 1204340.0,
+      "text": "But this -- if you think about it, navigation timing is basically this same information,"
+    },
+    {
+      "index": 223,
+      "start_time": 1204340.0,
+      "end_time": 1208890.0,
+      "text": "but it&#39;s at the page level. It&#39;s really high. And what we&#39;re doing with resource timing"
+    },
+    {
+      "index": 224,
+      "start_time": 1208890.0,
+      "end_time": 1214250.0,
+      "text": "is we&#39;re bringing that down to every HTTP request in the page. So for every HTTP request"
+    },
+    {
+      "index": 225,
+      "start_time": 1214250.0,
+      "end_time": 1220040.0,
+      "text": "in the page you can get DNS lookup time, connection time, total time for that to come back. This"
+    },
+    {
+      "index": 226,
+      "start_time": 1220040.0,
+      "end_time": 1225790.0,
+      "text": "is going to be a great mechanism for if you&#39;re using a CDN to track how your CDN -- or maybe"
+    },
+    {
+      "index": 227,
+      "start_time": 1225790.0,
+      "end_time": 1230620.0,
+      "text": "you&#39;re testing out multiple CDN&#39;s, to see how their performance is going."
+    },
+    {
+      "index": 228,
+      "start_time": 1230620.0,
+      "end_time": 1235570.0,
+      "text": "It does have to worry about security safeguards. So you could have some kind of hack where,"
+    },
+    {
+      "index": 229,
+      "start_time": 1235570.0,
+      "end_time": 1243010.0,
+      "text": "you know, on my Web site I have the logo from some nefarious Web site. And when you land"
+    },
+    {
+      "index": 230,
+      "start_time": 1243010.0,
+      "end_time": 1247920.0,
+      "text": "on my Web site I can actually see what the DNS time is. And if the DNS time is zero,"
+    },
+    {
+      "index": 231,
+      "start_time": 1247920.0,
+      "end_time": 1253240.0,
+      "text": "I know that you&#39;ve been to this other Web site. So there are some security safeguards"
+    },
+    {
+      "index": 232,
+      "start_time": 1253240.0,
+      "end_time": 1259260.0,
+      "text": "with HTTP headers. Web sites can allow or not allow cross-domain tracking of resource"
+    },
+    {
+      "index": 233,
+      "start_time": 1259260.0,
+      "end_time": 1262820.0,
+      "text": "timing. And then there&#39;s also user timing, which is"
+    },
+    {
+      "index": 234,
+      "start_time": 1262820.0,
+      "end_time": 1268740.0,
+      "text": "really important for people building Web2O apps, AJAXy stuff. Something like Gmail that"
+    },
+    {
+      "index": 235,
+      "start_time": 1268740.0,
+      "end_time": 1274150.0,
+      "text": "is open for several hours, there&#39;s no concept of a page load time. There&#39;s only one of those"
+    },
+    {
+      "index": 236,
+      "start_time": 1274150.0,
+      "end_time": 1278040.0,
+      "text": "when you start it up. So this is, if you&#39;re doing HXE stuff like"
+    },
+    {
+      "index": 237,
+      "start_time": 1278040.0,
+      "end_time": 1284140.0,
+      "text": "compose, this will give you commands that you can use to say the user is about to do"
+    },
+    {
+      "index": 238,
+      "start_time": 1284140.0,
+      "end_time": 1289410.0,
+      "text": "a compose operation, let me -- let me mark a start time and then when the compose is"
+    },
+    {
+      "index": 239,
+      "start_time": 1289410.0,
+      "end_time": 1294330.0,
+      "text": "all done, you can mark an end time, you can give it a label, and so it lets you define"
+    },
+    {
+      "index": 240,
+      "start_time": 1294330.0,
+      "end_time": 1300200.0,
+      "text": "and track any timing episodes that you care about in the Web apps that you are building."
+    },
+    {
+      "index": 241,
+      "start_time": 1300200.0,
+      "end_time": 1305490.0,
+      "text": "So it basically is like nav timing but it&#39;s much more flexible and lets you define the"
+    },
+    {
+      "index": 242,
+      "start_time": 1305490.0,
+      "end_time": 1310790.0,
+      "text": "start and stop times whenever you want in your code."
+    },
+    {
+      "index": 243,
+      "start_time": 1310790.0,
+      "end_time": 1315480.0,
+      "text": "The other one that I mentioned that they are working on is page visibility. This one is"
+    },
+    {
+      "index": 244,
+      "start_time": 1315480.0,
+      "end_time": 1322100.0,
+      "text": "important from a performance perspective. Mostly from a -- from an altruistic perspective,"
+    },
+    {
+      "index": 245,
+      "start_time": 1322100.0,
+      "end_time": 1326930.0,
+      "text": "but it could also affect, you know, what you are doing on your Web site. And so basically"
+    },
+    {
+      "index": 246,
+      "start_time": 1326930.0,
+      "end_time": 1331370.0,
+      "text": "what the spec let&#39;s you do is detect when your page is visible. So like one thing I"
+    },
+    {
+      "index": 247,
+      "start_time": 1331370.0,
+      "end_time": 1336180.0,
+      "text": "do in the morning when I come in, since I can&#39;t stand to wait for Web sites to load,"
+    },
+    {
+      "index": 248,
+      "start_time": 1336180.0,
+      "end_time": 1341480.0,
+      "text": "is I have this script and I -- you know, I boot up my machine, I load the script, it"
+    },
+    {
+      "index": 249,
+      "start_time": 1341480.0,
+      "end_time": 1346309.0,
+      "text": "loads my 30 Web sites that I read every morning and then I go get breakfast and when I come"
+    },
+    {
+      "index": 250,
+      "start_time": 1346310.0,
+      "end_time": 1350891.0,
+      "text": "back, all of the pages are loaded and I can just go through all of the tabs. But only"
+    },
+    {
+      "index": 251,
+      "start_time": 1350890.0,
+      "end_time": 1356800.0,
+      "text": "the top tab is visible. And inevitably when I come back, if I left my sound on, my office"
+    },
+    {
+      "index": 252,
+      "start_time": 1356800.0,
+      "end_time": 1361790.0,
+      "text": "manager, you know, giving me a dirty look, because there&#39;s some hidden tab that&#39;s playing"
+    },
+    {
+      "index": 253,
+      "start_time": 1361790.0,
+      "end_time": 1366700.0,
+      "text": "video. And the sound -- or maybe multiple tabs that are playing video and the sound"
+    },
+    {
+      "index": 254,
+      "start_time": 1366700.0,
+      "end_time": 1372130.0,
+      "text": "is just annoying and it&#39;s like really? Like you started the video, even though like the"
+    },
+    {
+      "index": 255,
+      "start_time": 1372130.0,
+      "end_time": 1374670.0,
+      "text": "tab is not even visible? Like why did you do that?"
+    },
+    {
+      "index": 256,
+      "start_time": 1374670.0,
+      "end_time": 1382220.0,
+      "text": "And the page visibility API introduces a way to detect whether or not the tab of the window"
+    },
+    {
+      "index": 257,
+      "start_time": 1382220.0,
+      "end_time": 1386340.0,
+      "text": "is visible. And so this is also really important, like,"
+    },
+    {
+      "index": 258,
+      "start_time": 1386340.0,
+      "end_time": 1393080.0,
+      "text": "if you are tracking metrics, like page impressions. If the user opened the tab but they&#39;re never"
+    },
+    {
+      "index": 259,
+      "start_time": 1393080.0,
+      "end_time": 1397330.0,
+      "text": "going to go to it, but you counted it as an impression, that&#39;s a miscount. Same thing"
+    },
+    {
+      "index": 260,
+      "start_time": 1397330.0,
+      "end_time": 1404660.0,
+      "text": "with ads. Again, the example of video. You might be doing something like showing them,"
+    },
+    {
+      "index": 261,
+      "start_time": 1404660.0,
+      "end_time": 1409700.0,
+      "text": "you know, stock updates or the latest messages from friends or you might be rotating through"
+    },
+    {
+      "index": 262,
+      "start_time": 1409700.0,
+      "end_time": 1414320.0,
+      "text": "a carousel of photos and they&#39;re not looking at it. So not only are you kind of -- like"
+    },
+    {
+      "index": 263,
+      "start_time": 1414320.0,
+      "end_time": 1418280.0,
+      "text": "you might rotate through a carousel of photos that started with their favorite photo, but"
+    },
+    {
+      "index": 264,
+      "start_time": 1418280.0,
+      "end_time": 1423450.0,
+      "text": "by the time they opened the tab they are down to their 5757th favorite photo and you have"
+    },
+    {
+      "index": 265,
+      "start_time": 1423450.0,
+      "end_time": 1428690.0,
+      "text": "kind of ruined the experience for yourself. So you could use it there."
+    },
+    {
+      "index": 266,
+      "start_time": 1428690.0,
+      "end_time": 1438390.0,
+      "text": "Um, the other thing that you can do is -- this API can be used for pre-fetching resources."
+    },
+    {
+      "index": 267,
+      "start_time": 1438390.0,
+      "end_time": 1446790.0,
+      "text": "So the Web site owner can decide and -- the Web site owner can decide if they want to"
+    },
+    {
+      "index": 268,
+      "start_time": 1446790.0,
+      "end_time": 1453370.0,
+      "text": "pre-fetch resources maybe for the next page and also if the page should be prerendered."
+    },
+    {
+      "index": 269,
+      "start_time": 1453370.0,
+      "end_time": 1459260.0,
+      "text": "This is something that Chrome does. So Chrome can actually prerender a page in the background."
+    },
+    {
+      "index": 270,
+      "start_time": 1459260.0,
+      "end_time": 1465620.0,
+      "text": "But one of the problems with doing that is, again, if there are ad impression counts or"
+    },
+    {
+      "index": 271,
+      "start_time": 1465620.0,
+      "end_time": 1471040.0,
+      "text": "page impression counts that are firing, and the page is being rendered in the background,"
+    },
+    {
+      "index": 272,
+      "start_time": 1471040.0,
+      "end_time": 1477620.0,
+      "text": "and the user actually never sees it, that&#39;s a miscount. So the page visibility API gives"
+    },
+    {
+      "index": 273,
+      "start_time": 1477620.0,
+      "end_time": 1483740.0,
+      "text": "people controlling those metrics the ability to only fire the metrics when it makes sense."
+    },
+    {
+      "index": 274,
+      "start_time": 1483740.0,
+      "end_time": 1489440.0,
+      "text": "And I think this is only in Chrome right now. But what it looks like is you can say WebKit"
+    },
+    {
+      "index": 275,
+      "start_time": 1489440.0,
+      "end_time": 1494559.0,
+      "text": "hidden is the property, you can look at to see whether or not the tab is hidden and this"
+    },
+    {
+      "index": 276,
+      "start_time": 1494560.0,
+      "end_time": 1503491.0,
+      "text": "is an event handler you can attach to to detect when the page does become visible."
+    },
+    {
+      "index": 277,
+      "start_time": 1503490.0,
+      "end_time": 1512179.0,
+      "text": "So we had script defer in IE for years, but now with HTML5 the async and defer attributes"
+    },
+    {
+      "index": 278,
+      "start_time": 1512180.0,
+      "end_time": 1519921.0,
+      "text": "are officially supported across almost every browser out there. I&#39;m not going to go into"
+    },
+    {
+      "index": 279,
+      "start_time": 1519920.0,
+      "end_time": 1526140.0,
+      "text": "it here but in fact I&#39;ve talked for years and written extensively about the impact that"
+    },
+    {
+      "index": 280,
+      "start_time": 1526140.0,
+      "end_time": 1531530.0,
+      "text": "scripts have on the user experience. So I mentioned earlier how the UI thread,"
+    },
+    {
+      "index": 281,
+      "start_time": 1531530.0,
+      "end_time": 1537809.0,
+      "text": "you know, the UI is single threaded, the browser is single threaded, so if you have JavaScript,"
+    },
+    {
+      "index": 282,
+      "start_time": 1537810.0,
+      "end_time": 1543801.0,
+      "text": "for example, that takes three seconds to execute, the user is clicking in the browser and they"
+    },
+    {
+      "index": 283,
+      "start_time": 1543800.0,
+      "end_time": 1547929.0,
+      "text": "are trying to scroll the window and nothing is happening because the JavaScript is blocking"
+    },
+    {
+      "index": 284,
+      "start_time": 1547930.0,
+      "end_time": 1553951.0,
+      "text": "any of that interaction. And so -- so that also happens when the script is being downloaded."
+    },
+    {
+      "index": 285,
+      "start_time": 1553950.0,
+      "end_time": 1558630.0,
+      "text": "So if you have a 500 k JavaScript payload and the user has a slow connection, again,"
+    },
+    {
+      "index": 286,
+      "start_time": 1558630.0,
+      "end_time": 1564210.0,
+      "text": "it can take seconds for that to download. While that&#39;s downloading, the UI could be"
+    },
+    {
+      "index": 287,
+      "start_time": 1564210.0,
+      "end_time": 1570740.0,
+      "text": "blocked. Unless you can do your script loading asynchronously. So if you just do scriptsource"
+    },
+    {
+      "index": 288,
+      "start_time": 1570740.0,
+      "end_time": 1579340.0,
+      "text": "equals main.js it&#39;s going to stop the HTML parser from parsing past that script tag and"
+    },
+    {
+      "index": 289,
+      "start_time": 1579340.0,
+      "end_time": 1584660.0,
+      "text": "it&#39;s also going to block rendering. No browser in the world will render anything below a"
+    },
+    {
+      "index": 290,
+      "start_time": 1584660.0,
+      "end_time": 1591240.0,
+      "text": "script tag until that script is downloaded and parsed and executed. But you can use the"
+    },
+    {
+      "index": 291,
+      "start_time": 1591240.0,
+      "end_time": 1598200.0,
+      "text": "async attribute which tells the browser to start the download but to go ahead and continue"
+    },
+    {
+      "index": 292,
+      "start_time": 1598200.0,
+      "end_time": 1605800.0,
+      "text": "parsing the HTML and rendering the DOM elements in the page. So it gives the user feedback."
+    },
+    {
+      "index": 293,
+      "start_time": 1605800.0,
+      "end_time": 1609970.0,
+      "text": "It&#39;s a better user experience. The user can see the page rendering, especially because"
+    },
+    {
+      "index": 294,
+      "start_time": 1609970.0,
+      "end_time": 1614610.0,
+      "text": "a lot of times we put scripts in the heads of our pages, which means the entire body"
+    },
+    {
+      "index": 295,
+      "start_time": 1614610.0,
+      "end_time": 1619750.0,
+      "text": "is blocked from rendering until all of those scripts are downloaded, parsed and executed."
+    },
+    {
+      "index": 296,
+      "start_time": 1619750.0,
+      "end_time": 1625040.0,
+      "text": "And so this tells the browser, download it in the background, continue parsing; and as"
+    },
+    {
+      "index": 297,
+      "start_time": 1625040.0,
+      "end_time": 1628880.0,
+      "text": "soon as the script arrives, parse and execute it."
+    },
+    {
+      "index": 298,
+      "start_time": 1628880.0,
+      "end_time": 1634920.0,
+      "text": "So one -- two tricky things about this is you can&#39;t have any document.write in this"
+    },
+    {
+      "index": 299,
+      "start_time": 1634920.0,
+      "end_time": 1640030.0,
+      "text": "JavaScript code because parser is already past that point. You are going to get very"
+    },
+    {
+      "index": 300,
+      "start_time": 1640030.0,
+      "end_time": 1646350.0,
+      "text": "bad and varied results across browsers if you do document.write in an async script."
+    },
+    {
+      "index": 301,
+      "start_time": 1646350.0,
+      "end_time": 1651630.0,
+      "text": "The other challenge with async is suppose that I have three scripts, A, B, C, C depends"
+    },
+    {
+      "index": 302,
+      "start_time": 1651630.0,
+      "end_time": 1658690.0,
+      "text": "on B, B depends on A. But A is probably like jQuery, so might be my biggest script. C might"
+    },
+    {
+      "index": 303,
+      "start_time": 1658690.0,
+      "end_time": 1662650.0,
+      "text": "be really tiny, so if I load all of these async, which is the one that&#39;s going to come"
+    },
+    {
+      "index": 304,
+      "start_time": 1662650.0,
+      "end_time": 1668740.0,
+      "text": "back first? C. If I loaded async, it&#39;s going to be parsed and executed as soon as it comes"
+    },
+    {
+      "index": 305,
+      "start_time": 1668740.0,
+      "end_time": 1673670.0,
+      "text": "back and it&#39;s going to get undefined symbol errors because B might not be back and A might"
+    },
+    {
+      "index": 306,
+      "start_time": 1673670.0,
+      "end_time": 1679679.0,
+      "text": "not be back. You can&#39;t just willy-nilly add an async attribute to all of your script tags."
+    },
+    {
+      "index": 307,
+      "start_time": 1679680.0,
+      "end_time": 1683831.0,
+      "text": "But what you can do is you can use defer. If it&#39;s JavaScript that isn&#39;t critical for"
+    },
+    {
+      "index": 308,
+      "start_time": 1683830.0,
+      "end_time": 1689230.0,
+      "text": "rendering content to the page, and doesn&#39;t have document.write can add the defer attribute."
+    },
+    {
+      "index": 309,
+      "start_time": 1689230.0,
+      "end_time": 1696040.0,
+      "text": "It&#39;s pretty similar. It says download it in the background, let the parser continue parsing"
+    },
+    {
+      "index": 310,
+      "start_time": 1696040.0,
+      "end_time": 1701460.0,
+      "text": "and rendering DOM elements. After the entire page is done, parse and execute these deferred"
+    },
+    {
+      "index": 311,
+      "start_time": 1701460.0,
+      "end_time": 1705860.0,
+      "text": "scripts and do it in the order that they were listed in the page. And so if you have those"
+    },
+    {
+      "index": 312,
+      "start_time": 1705860.0,
+      "end_time": 1710990.0,
+      "text": "interdependencies across scripts, defer is a good fallback."
+    },
+    {
+      "index": 313,
+      "start_time": 1710990.0,
+      "end_time": 1718260.0,
+      "text": "But -- but this still doesn&#39;t give all of the control that I think is really needed"
+    },
+    {
+      "index": 314,
+      "start_time": 1718260.0,
+      "end_time": 1723750.0,
+      "text": "to build a good user experience for -- for Web apps, especially on mobile."
+    },
+    {
+      "index": 315,
+      "start_time": 1723750.0,
+      "end_time": 1728960.0,
+      "text": "For example, one thing that I would like to do is I would like to download maybe a big"
+    },
+    {
+      "index": 316,
+      "start_time": 1728960.0,
+      "end_time": 1735150.0,
+      "text": "script, 100 k, 300 k, 500 k, but not parse and execute it. It might be a script for something"
+    },
+    {
+      "index": 317,
+      "start_time": 1735150.0,
+      "end_time": 1740679.0,
+      "text": "like popping up a div to compose a message or address book stuff that is only needed"
+    },
+    {
+      "index": 318,
+      "start_time": 1740680.0,
+      "end_time": 1746621.0,
+      "text": "if the user starts typing an email message. But if I download that, as soon as it hits"
+    },
+    {
+      "index": 319,
+      "start_time": 1746620.0,
+      "end_time": 1751850.0,
+      "text": "the browser, the parse and execute is going to happen and it&#39;s going to lock up the UI."
+    },
+    {
+      "index": 320,
+      "start_time": 1751850.0,
+      "end_time": 1757440.0,
+      "text": "So I really want to get this JavaScript down to the device, get it in cache, but parse"
+    },
+    {
+      "index": 321,
+      "start_time": 1757440.0,
+      "end_time": 1760690.0,
+      "text": "and execute it, depending on what the user does."
+    },
+    {
+      "index": 322,
+      "start_time": 1760690.0,
+      "end_time": 1765400.0,
+      "text": "The other thing that I would like to have is a control over when the download happens."
+    },
+    {
+      "index": 323,
+      "start_time": 1765400.0,
+      "end_time": 1770480.0,
+      "text": "Right now the spec doesn&#39;t say when browser should download the script. But if I&#39;ve said"
+    },
+    {
+      "index": 324,
+      "start_time": 1770480.0,
+      "end_time": 1776470.0,
+      "text": "defer, if I&#39;ve said async, certainly if I&#39;ve said defer, I would like you to do this download,"
+    },
+    {
+      "index": 325,
+      "start_time": 1776470.0,
+      "end_time": 1780520.0,
+      "text": "after everything more important is already done, because there&#39;s a limited number of"
+    },
+    {
+      "index": 326,
+      "start_time": 1780520.0,
+      "end_time": 1786780.0,
+      "text": "TCP connections that the browser will make, and if you download scripts or multiple scripts,"
+    },
+    {
+      "index": 327,
+      "start_time": 1786780.0,
+      "end_time": 1791179.0,
+      "text": "then things like the background image of the page, the logo at the top of the page, might"
+    },
+    {
+      "index": 328,
+      "start_time": 1791180.0,
+      "end_time": 1797241.0,
+      "text": "actually be pushed out because you are already using the six TCP connections that most browsers"
+    },
+    {
+      "index": 329,
+      "start_time": 1797240.0,
+      "end_time": 1803520.0,
+      "text": "allocate to a domain. So we don&#39;t have control over those in markup,"
+    },
+    {
+      "index": 330,
+      "start_time": 1803520.0,
+      "end_time": 1809450.0,
+      "text": "but there are techniques that you can use to get that behavior. So this is one that"
+    },
+    {
+      "index": 331,
+      "start_time": 1809450.0,
+      "end_time": 1816620.0,
+      "text": "Gmail wrote about quite a while ago. Gmail mobile team. And it&#39;s a hack. I think it&#39;s"
+    },
+    {
+      "index": 332,
+      "start_time": 1816620.0,
+      "end_time": 1821070.0,
+      "text": "a beautiful hack. So what they did was in the page, they have"
+    },
+    {
+      "index": 333,
+      "start_time": 1821070.0,
+      "end_time": 1826260.0,
+      "text": "-- you know, maybe 300 k of JavaScript. I&#39;m just making these numbers up. I don&#39;t know"
+    },
+    {
+      "index": 334,
+      "start_time": 1826260.0,
+      "end_time": 1830049.0,
+      "text": "how much JavaScript Gmail has. It&#39;s probably more than that. But they have a lot of JavaScript"
+    },
+    {
+      "index": 335,
+      "start_time": 1830050.0,
+      "end_time": 1837291.0,
+      "text": "in here and they just wrap it in -- in comment delimiters. So what happens is this will get"
+    },
+    {
+      "index": 336,
+      "start_time": 1837290.0,
+      "end_time": 1843240.0,
+      "text": "downloaded to the browser, it will be cached, it&#39;s already resident. But it&#39;s not parsed"
+    },
+    {
+      "index": 337,
+      "start_time": 1843240.0,
+      "end_time": 1851530.0,
+      "text": "and executed. So -- so let&#39;s say this is compose a new message JavaScript. It pops up in div,"
+    },
+    {
+      "index": 338,
+      "start_time": 1851530.0,
+      "end_time": 1859200.0,
+      "text": "it formats everything, it does error detection and things like that. So we don&#39;t really need"
+    },
+    {
+      "index": 339,
+      "start_time": 1859200.0,
+      "end_time": 1864090.0,
+      "text": "this JavaScript to block the UI thread for parse and execution until the user actually"
+    },
+    {
+      "index": 340,
+      "start_time": 1864090.0,
+      "end_time": 1868350.0,
+      "text": "clicks on the compose button, which they may never do during this session. So what we do"
+    },
+    {
+      "index": 341,
+      "start_time": 1868350.0,
+      "end_time": 1873980.0,
+      "text": "is we download the code because we want it on the device. When they click compose, especially"
+    },
+    {
+      "index": 342,
+      "start_time": 1873980.0,
+      "end_time": 1878730.0,
+      "text": "on a phone, we don&#39;t want to wait to download 300 k of JavaScript, we don&#39;t want to make"
+    },
+    {
+      "index": 343,
+      "start_time": 1878730.0,
+      "end_time": 1883290.0,
+      "text": "the user wait. So what we do is we download it, you can even download it in the background."
+    },
+    {
+      "index": 344,
+      "start_time": 1883290.0,
+      "end_time": 1887720.0,
+      "text": "It&#39;s not going to block the UI thread when it arrives. Now the user clicks compose, you"
+    },
+    {
+      "index": 345,
+      "start_time": 1887720.0,
+      "end_time": 1892690.0,
+      "text": "have all of the JavaScript on the client and now you just find the DOM element for the"
+    },
+    {
+      "index": 346,
+      "start_time": 1892690.0,
+      "end_time": 1899240.0,
+      "text": "script tag, remove the comment delimiters and eval the code. A lot of people say eval"
+    },
+    {
+      "index": 347,
+      "start_time": 1899240.0,
+      "end_time": 1904549.0,
+      "text": "is evil. Doug Crawford is here today, I saw him downstairs, he&#39;ll tell you that. Certainly"
+    },
+    {
+      "index": 348,
+      "start_time": 1904550.0,
+      "end_time": 1909761.0,
+      "text": "eval is evil from a security perspective. If you are eval&#39;ing code that you didn&#39;t generate,"
+    },
+    {
+      "index": 349,
+      "start_time": 1909760.0,
+      "end_time": 1913870.0,
+      "text": "that can produce really bad things. You wouldn&#39;t want to do this with third party widgets and"
+    },
+    {
+      "index": 350,
+      "start_time": 1913870.0,
+      "end_time": 1921710.0,
+      "text": "ads, et cetera. So this is code that you control, that you generated. So from a security perspective,"
+    },
+    {
+      "index": 351,
+      "start_time": 1921710.0,
+      "end_time": 1926799.0,
+      "text": "it&#39;s okay and the actual performance of eval is less than 10% worse than just a script"
+    },
+    {
+      "index": 352,
+      "start_time": 1926800.0,
+      "end_time": 1931441.0,
+      "text": "block. So from a performance perspective, it&#39;s actually down like around one or two"
+    },
+    {
+      "index": 353,
+      "start_time": 1931440.0,
+      "end_time": 1936299.0,
+      "text": "percent. From a performance perspective, it&#39;s fine. So you control the code, performance-wise"
+    },
+    {
+      "index": 354,
+      "start_time": 1936300.0,
+      "end_time": 1941101.0,
+      "text": "it&#39;s good. So this is a -- this is a really nice hack."
+    },
+    {
+      "index": 355,
+      "start_time": 1941100.0,
+      "end_time": 1945700.0,
+      "text": "And it&#39;s perfect for pre-fetching JavaScript that you might need but you are not sure."
+    },
+    {
+      "index": 356,
+      "start_time": 1945700.0,
+      "end_time": 1949530.0,
+      "text": "It&#39;s possible that you will never need it. So don&#39;t block the UI thread, especially for"
+    },
+    {
+      "index": 357,
+      "start_time": 1949530.0,
+      "end_time": 1956580.0,
+      "text": "large amounts of JavaScript. You know, this -- might require a fair amount"
+    },
+    {
+      "index": 358,
+      "start_time": 1956580.0,
+      "end_time": 1964110.0,
+      "text": "of rewriting on your Web site. So I wrote something called ControlJS, that&#39;s open source,"
+    },
+    {
+      "index": 359,
+      "start_time": 1964110.0,
+      "end_time": 1968059.0,
+      "text": "you can get it off my Web site. Several big companies -- I was just at this conference,"
+    },
+    {
+      "index": 360,
+      "start_time": 1968060.0,
+      "end_time": 1972691.0,
+      "text": "and I found that -- including Wal-Mart, I found several big companies that were using"
+    },
+    {
+      "index": 361,
+      "start_time": 1972690.0,
+      "end_time": 1976330.0,
+      "text": "this that I was really surprised at because I don&#39;t do a lot of testing."
+    },
+    {
+      "index": 362,
+      "start_time": 1976330.0,
+      "end_time": 1981010.0,
+      "text": "[ Laughter ] &gt;&gt;Steve Souders: I trust that they&#39;ve done"
+    },
+    {
+      "index": 363,
+      "start_time": 1981010.0,
+      "end_time": 1985200.0,
+      "text": "that. And actually, who else -- Washington Post"
+    },
+    {
+      "index": 364,
+      "start_time": 1985200.0,
+      "end_time": 1991760.0,
+      "text": "is using it. And I asked them to contribute back the robustness changes they had to add."
+    },
+    {
+      "index": 365,
+      "start_time": 1991760.0,
+      "end_time": 1997540.0,
+      "text": "And so the thing that I like about this technique is that it&#39;s all done in markup. So we can"
+    },
+    {
+      "index": 366,
+      "start_time": 1997540.0,
+      "end_time": 2003429.0,
+      "text": "just change -- instead of script source, having type text script, we would say text CJS, and"
+    },
+    {
+      "index": 367,
+      "start_time": 2003430.0,
+      "end_time": 2008341.0,
+      "text": "instead of a source we have a data control.js source, so this means that the browser will"
+    },
+    {
+      "index": 368,
+      "start_time": 2008340.0,
+      "end_time": 2014100.0,
+      "text": "basically just ignore this and you can also do it with inline scripts just by changing"
+    },
+    {
+      "index": 369,
+      "start_time": 2014100.0,
+      "end_time": 2021190.0,
+      "text": "the type. Then you load control.js. What it does is it crawls the DOM, and it"
+    },
+    {
+      "index": 370,
+      "start_time": 2021190.0,
+      "end_time": 2026500.0,
+      "text": "finds these script nodes and it does the right thing. It downloads it asynchronously, it"
+    },
+    {
+      "index": 371,
+      "start_time": 2026500.0,
+      "end_time": 2030790.0,
+      "text": "does it in the background. Again, you would only do this with scripts that aren&#39;t critical"
+    },
+    {
+      "index": 372,
+      "start_time": 2030790.0,
+      "end_time": 2036950.0,
+      "text": "for generating the initial user experience and scripts that do not have any document.write."
+    },
+    {
+      "index": 373,
+      "start_time": 2036950.0,
+      "end_time": 2043380.0,
+      "text": "But I think it&#39;s a little easier to get on top of. You can even add this execute false,"
+    },
+    {
+      "index": 374,
+      "start_time": 2043380.0,
+      "end_time": 2048559.0,
+      "text": "which says downloaded but don&#39;t parse and execute it. And then later when the user,"
+    },
+    {
+      "index": 375,
+      "start_time": 2048560.0,
+      "end_time": 2056240.0,
+      "text": "for example, clicks on the compose button, you can say control.js execute script. So"
+    },
+    {
+      "index": 376,
+      "start_time": 2056239.9999999998,
+      "end_time": 2061569.9999999998,
+      "text": "that&#39;s kind of a nice alternative. The other thing I like about it, how many people here"
+    },
+    {
+      "index": 377,
+      "start_time": 2061570.0000000002,
+      "end_time": 2068030.0000000002,
+      "text": "have played with -- with JavaScript loader, script loaders, lab js or YUI lowered. Some"
+    },
+    {
+      "index": 378,
+      "start_time": 2068030.0000000002,
+      "end_time": 2073410.0000000002,
+      "text": "people -- the thing that I find ironic about all of the other alternatives out there is"
+    },
+    {
+      "index": 379,
+      "start_time": 2073409.9999999998,
+      "end_time": 2077979.9999999998,
+      "text": "their goal is to help you load JavaScript asynchronously. They do that with a helper"
+    },
+    {
+      "index": 380,
+      "start_time": 2077980.0,
+      "end_time": 2081930.0,
+      "text": "script, but you have to load their helper script synchronously."
+    },
+    {
+      "index": 381,
+      "start_time": 2081929.9999999998,
+      "end_time": 2084589.9999999998,
+      "text": "[ Laughter ] &gt;&gt;Steve Souders: Anyone else think that&#39;s"
+    },
+    {
+      "index": 382,
+      "start_time": 2084590.0000000002,
+      "end_time": 2091790.0000000002,
+      "text": "weird? Like, you know, synchronous loaded scripts are bad. So you load our scripts synchronously"
+    },
+    {
+      "index": 383,
+      "start_time": 2091790.0,
+      "end_time": 2094110.0,
+      "text": "and we will help you avoid that problem. [ Laughter ]"
+    },
+    {
+      "index": 384,
+      "start_time": 2094110.0000000002,
+      "end_time": 2099590.0,
+      "text": "&gt;&gt;Steve Souders: Like -- so from the beginning, one of the requirements of ControlJS was that"
+    },
+    {
+      "index": 385,
+      "start_time": 2099590.0,
+      "end_time": 2105050.0,
+      "text": "you could load it asynchronously. So you would use the Google Analytics, async loading pattern"
+    },
+    {
+      "index": 386,
+      "start_time": 2105050.0,
+      "end_time": 2109760.0,
+      "text": "and load the script anywhere you want in a page and everything will still work."
+    },
+    {
+      "index": 387,
+      "start_time": 2109760.0,
+      "end_time": 2116080.0,
+      "text": "So JavaScript is a really, really big problem. I&#39;m -- make sure that you look at how it&#39;s"
+    },
+    {
+      "index": 388,
+      "start_time": 2116080.0,
+      "end_time": 2120911.0,
+      "text": "impacting your Web site and if possible adopt some of these asynchronous loading techniques."
+    },
+    {
+      "index": 389,
+      "start_time": 2120910.0,
+      "end_time": 2127369.0,
+      "text": "Okay. Shifting gears, I wanted to talk about app cache, which is good for offline apps"
+    },
+    {
+      "index": 390,
+      "start_time": 2127370.0,
+      "end_time": 2132590.0,
+      "text": "and also for longer caching. So again, the importance of the background"
+    },
+    {
+      "index": 391,
+      "start_time": 2132590.0,
+      "end_time": 2140570.0,
+      "text": "photo. You are in the desert. You typically don&#39;t have a good connection. So having the"
+    },
+    {
+      "index": 392,
+      "start_time": 2140570.0,
+      "end_time": 2142681.0,
+      "text": "offline apps is really important. [ Laughter ]"
+    },
+    {
+      "index": 393,
+      "start_time": 2142680.0,
+      "end_time": 2151910.0,
+      "text": "&gt;&gt;Steve Souders: There we go, the groan. So building offline apps is really cool. I think"
+    },
+    {
+      "index": 394,
+      "start_time": 2151910.0,
+      "end_time": 2157329.0,
+      "text": "Google docs just announced that this week or last week. It really helps with the user"
+    },
+    {
+      "index": 395,
+      "start_time": 2157330.0,
+      "end_time": 2164000.0,
+      "text": "experience when you have a bad connection, you are flying, whatever. But also people"
+    },
+    {
+      "index": 396,
+      "start_time": 2164000.0,
+      "end_time": 2167701.0,
+      "text": "are using it from a performance perspective for better caching."
+    },
+    {
+      "index": 397,
+      "start_time": 2167700.0,
+      "end_time": 2174259.0,
+      "text": "So this is a study that I did five or six years ago with (saying name) when we were"
+    },
+    {
+      "index": 398,
+      "start_time": 2174260.0,
+      "end_time": 2178661.0,
+      "text": "at Yahoo, it&#39;s been a long time, but I&#39;ve talked to people at other big Web companies"
+    },
+    {
+      "index": 399,
+      "start_time": 2178660.0,
+      "end_time": 2183900.0,
+      "text": "who have run the same experiment and they basically get the same results. So I encourage"
+    },
+    {
+      "index": 400,
+      "start_time": 2183900.0,
+      "end_time": 2189140.0,
+      "text": "you to run it on your Web site. Basically we put a hidden pixel in every page, we tracked"
+    },
+    {
+      "index": 401,
+      "start_time": 2189140.0,
+      "end_time": 2196720.0,
+      "text": "how often people made a request with or without an if-modified-since header. If they send"
+    },
+    {
+      "index": 402,
+      "start_time": 2196720.0,
+      "end_time": 2201160.0,
+      "text": "the if-modified-since request, it means they have it in the cache. If they don&#39;t, it means"
+    },
+    {
+      "index": 403,
+      "start_time": 2201160.0,
+      "end_time": 2205529.0,
+      "text": "they don&#39;t have it in the cache. So we can track how many people coming in, how many"
+    },
+    {
+      "index": 404,
+      "start_time": 2205530.0,
+      "end_time": 2212131.0,
+      "text": "page views are done with a full cache, a prime cache. Our resources are in their cache or"
+    },
+    {
+      "index": 405,
+      "start_time": 2212130.0,
+      "end_time": 2215019.0,
+      "text": "with an empty cache, our resources are not in their cache."
+    },
+    {
+      "index": 406,
+      "start_time": 2215020.0,
+      "end_time": 2221230.0,
+      "text": "I talk about in my best practices setting a far futures expires header. Turns out even"
+    },
+    {
+      "index": 407,
+      "start_time": 2221230.0,
+      "end_time": 2226661.0,
+      "text": "if you do that, browsers aren&#39;t going to keep things around for that long or for whatever"
+    },
+    {
+      "index": 408,
+      "start_time": 2226660.0,
+      "end_time": 2231019.0,
+      "text": "reason, users are going to come in and they&#39;re not going to have everything in cache that"
+    },
+    {
+      "index": 409,
+      "start_time": 2231020.0,
+      "end_time": 2235820.0,
+      "text": "you might expect. So what we see here is that for page views,"
+    },
+    {
+      "index": 410,
+      "start_time": 2235820.0,
+      "end_time": 2243161.0,
+      "text": "if you look at it from the page views perspective, about 20% of page views on any given day are"
+    },
+    {
+      "index": 411,
+      "start_time": 2243160.0,
+      "end_time": 2248880.0,
+      "text": "done with a -- with an empty cache. Right? My resources are not in the cache."
+    },
+    {
+      "index": 412,
+      "start_time": 2248880.0,
+      "end_time": 2253680.0,
+      "text": "You can see on the first day, when we put this pixel on the page, 100% of the pages"
+    },
+    {
+      "index": 413,
+      "start_time": 2253680.0,
+      "end_time": 2258470.0,
+      "text": "had an empty cache because this image had never been loaded before. After about two"
+    },
+    {
+      "index": 414,
+      "start_time": 2258470.0,
+      "end_time": 2263930.0,
+      "text": "weeks, we hit a steady state and we can see it&#39;s about 20%. We ran this on various properties"
+    },
+    {
+      "index": 415,
+      "start_time": 2263930.0,
+      "end_time": 2268759.0,
+      "text": "at Yahoo that had different user metrics. This was always about the same. This number"
+    },
+    {
+      "index": 416,
+      "start_time": 2268760.0,
+      "end_time": 2274760.0,
+      "text": "fluctuated a little bit more, but it was always between 40 and 60%. About half of your users"
+    },
+    {
+      "index": 417,
+      "start_time": 2274760.0,
+      "end_time": 2280401.0,
+      "text": "come in at least once a day with an empty cache. So why are these numbers different?"
+    },
+    {
+      "index": 418,
+      "start_time": 2280400.0,
+      "end_time": 2285299.0,
+      "text": "Typically, users are doing multiple page views in a session. So even if they have an empty"
+    },
+    {
+      "index": 419,
+      "start_time": 2285300.0,
+      "end_time": 2290260.0,
+      "text": "cache, they will come in and have an empty cache page view, which will show up here and"
+    },
+    {
+      "index": 420,
+      "start_time": 2290260.0,
+      "end_time": 2294480.0,
+      "text": "show up here. But then they might do three or four more page views, which are going to"
+    },
+    {
+      "index": 421,
+      "start_time": 2294480.0,
+      "end_time": 2299280.0,
+      "text": "be a prime cache, because when they did their empty cache page load stuff got put into the"
+    },
+    {
+      "index": 422,
+      "start_time": 2299280.0,
+      "end_time": 2304911.0,
+      "text": "cache. So that&#39;s why these numbers are different. But it still means people anchor on negative"
+    },
+    {
+      "index": 423,
+      "start_time": 2304910.0,
+      "end_time": 2310210.0,
+      "text": "experience. So if half of your users were coming in every day with an empty cache, and"
+    },
+    {
+      "index": 424,
+      "start_time": 2310210.0,
+      "end_time": 2314549.0,
+      "text": "you are not taking that into consideration, you are like, well, yeah, it&#39;s not 300 k image"
+    },
+    {
+      "index": 425,
+      "start_time": 2314550.0,
+      "end_time": 2319530.0,
+      "text": "or script but it will be in the cache, for about half of your users, it&#39;s not going to"
+    },
+    {
+      "index": 426,
+      "start_time": 2319530.0,
+      "end_time": 2325721.0,
+      "text": "be in the cache. So you can run this experiment yourself and you will get the same results."
+    },
+    {
+      "index": 427,
+      "start_time": 2325720.0,
+      "end_time": 2331319.0,
+      "text": "So the cache, even if you are doing far future expires, the cache might not be doing what"
+    },
+    {
+      "index": 428,
+      "start_time": 2331320.0,
+      "end_time": 2338050.0,
+      "text": "you think. And -- and here&#39;s a great study from Guy Poe over at Blaze, now Akamai, where"
+    },
+    {
+      "index": 429,
+      "start_time": 2338050.0,
+      "end_time": 2343921.0,
+      "text": "he shows that mobile caches are very small. This is another reason why things you think"
+    },
+    {
+      "index": 430,
+      "start_time": 2343920.0,
+      "end_time": 2348670.0,
+      "text": "should be in the cache won&#39;t be. This was a study I did where I found that -- I like"
+    },
+    {
+      "index": 431,
+      "start_time": 2348670.0,
+      "end_time": 2354440.0,
+      "text": "building Web apps and putting them on the home screen and turned out in iOS if you do"
+    },
+    {
+      "index": 432,
+      "start_time": 2354440.0,
+      "end_time": 2363019.0,
+      "text": "that the cache isn&#39;t used optimally. So you can use app cache for caching."
+    },
+    {
+      "index": 433,
+      "start_time": 2363020.0,
+      "end_time": 2368270.0,
+      "text": "So the way they use app cache at this manifest attribute, you give it a file name, which"
+    },
+    {
+      "index": 434,
+      "start_time": 2368270.0,
+      "end_time": 2374530.0,
+      "text": "is your app cache. Manifest is a good name I think we all intuitively recognize what"
+    },
+    {
+      "index": 435,
+      "start_time": 2374530.0,
+      "end_time": 2380151.0,
+      "text": "we are going to see here. Here&#39;s your manifest file. It has to start with this cache manifest"
+    },
+    {
+      "index": 436,
+      "start_time": 2380150.0,
+      "end_time": 2384229.0,
+      "text": "header. We will talk about the revision number in a second, but you&#39;ll want to add that."
+    },
+    {
+      "index": 437,
+      "start_time": 2384230.0,
+      "end_time": 2388671.0,
+      "text": "It&#39;s got these various sections, a cache section says these are the things that I want you"
+    },
+    {
+      "index": 438,
+      "start_time": 2388670.0,
+      "end_time": 2393359.0,
+      "text": "to put into app cache. The network session says these are the things that you should"
+    },
+    {
+      "index": 439,
+      "start_time": 2393360.0,
+      "end_time": 2401131.0,
+      "text": "never put into app cache. The fallback section says if the user is online, then use this"
+    },
+    {
+      "index": 440,
+      "start_time": 2401130.0,
+      "end_time": 2406719.0,
+      "text": "URL. But if they are offline, read this one from app cache. So the browser, when the user"
+    },
+    {
+      "index": 441,
+      "start_time": 2406720.0,
+      "end_time": 2411381.0,
+      "text": "is online, will download this one, but will also download this one and save it into app"
+    },
+    {
+      "index": 442,
+      "start_time": 2411380.0,
+      "end_time": 2415140.0,
+      "text": "cache. At least right now, you have to make sure to give this a very specific content"
+    },
+    {
+      "index": 443,
+      "start_time": 2415140.0,
+      "end_time": 2422690.0,
+      "text": "type. Text/cache-manifest. So it looks pretty good. It turns out actually it&#39;s really, really,"
+    },
+    {
+      "index": 444,
+      "start_time": 2422690.0,
+      "end_time": 2427180.0,
+      "text": "really hard and complicated to work with. So here are some of the gotchas that you will"
+    },
+    {
+      "index": 445,
+      "start_time": 2427180.0,
+      "end_time": 2431960.0,
+      "text": "probably run into. I know I did. I didn&#39;t realize -- like, I never listed my"
+    },
+    {
+      "index": 446,
+      "start_time": 2431960.0,
+      "end_time": 2438640.0,
+      "text": "HTML document itself, .php, .HTML in the manifest file, so I just assumed it wouldn&#39;t be put"
+    },
+    {
+      "index": 447,
+      "start_time": 2438640.0,
+      "end_time": 2443259.0,
+      "text": "into app cache. But if your HTML document uses the manifest"
+    },
+    {
+      "index": 448,
+      "start_time": 2443260.0,
+      "end_time": 2447921.0,
+      "text": "attribute, then it&#39;s going to be saved to app cache. This was really confusing for me"
+    },
+    {
+      "index": 449,
+      "start_time": 2447920.0,
+      "end_time": 2453569.0,
+      "text": "because I had a log-in box on the front page. And if the user came in and their app cache"
+    },
+    {
+      "index": 450,
+      "start_time": 2453570.0,
+      "end_time": 2459431.0,
+      "text": "was empty and they weren&#39;t logged in, the logged-out version of the page would be saved;"
+    },
+    {
+      "index": 451,
+      "start_time": 2459430.0,
+      "end_time": 2463729.0,
+      "text": "every time they came back, that&#39;s what they would see even after logging in. So that&#39;s"
+    },
+    {
+      "index": 452,
+      "start_time": 2463730.0,
+      "end_time": 2469580.0,
+      "text": "a little confusing. If anything in the manifest list 404s, nothing is saved. You get about"
+    },
+    {
+      "index": 453,
+      "start_time": 2469580.0,
+      "end_time": 2476421.0,
+      "text": "five meg, which is pretty good. Yeah, so this is interesting, suppose you change one of"
+    },
+    {
+      "index": 454,
+      "start_time": 2476420.0,
+      "end_time": 2480930.0,
+      "text": "the resources listed in the manifest file, like an image, you would think that the next"
+    },
+    {
+      "index": 455,
+      "start_time": 2480930.0,
+      "end_time": 2487130.0,
+      "text": "time the user opens the app, they would see that new image. They don&#39;t. You actually have"
+    },
+    {
+      "index": 456,
+      "start_time": 2487130.0,
+      "end_time": 2492210.0,
+      "text": "to change something in the manifest file to make it different, and that&#39;s why the revision"
+    },
+    {
+      "index": 457,
+      "start_time": 2492210.0,
+      "end_time": 2498460.0,
+      "text": "number was in there on the previous slide. That&#39;s what I do is I have that automatically"
+    },
+    {
+      "index": 458,
+      "start_time": 2498460.0,
+      "end_time": 2503670.0,
+      "text": "updated whenever I update through source code, through my source code control system, it"
+    },
+    {
+      "index": 459,
+      "start_time": 2503670.0,
+      "end_time": 2508630.0,
+      "text": "will automatically update that revision number, so the manifest is always touched whenever"
+    },
+    {
+      "index": 460,
+      "start_time": 2508630.0,
+      "end_time": 2518670.0,
+      "text": "I update a resource, and this was really confusing to me. Even if you do, you know, rev the manifest"
+    },
+    {
+      "index": 461,
+      "start_time": 2518670.0,
+      "end_time": 2524210.0,
+      "text": "file, the user still won&#39;t see the change until the second time they open the app. So"
+    },
+    {
+      "index": 462,
+      "start_time": 2524210.0,
+      "end_time": 2528440.0,
+      "text": "I think this is really interesting, and it&#39;s a real gotcha&#39;, so I wanted to walk through"
+    },
+    {
+      "index": 463,
+      "start_time": 2528440.0,
+      "end_time": 2535509.0,
+      "text": "it in more detail, so let&#39;s suppose you go home today and you build mobile Web app that"
+    },
+    {
+      "index": 464,
+      "start_time": 2535510.0,
+      "end_time": 2540530.0,
+      "text": "uses app cache, or a desktop app that uses app cache, and it&#39;s got this awesome green"
+    },
+    {
+      "index": 465,
+      "start_time": 2540530.0,
+      "end_time": 2548290.0,
+      "text": "logo that the designer gave you, and you list that into your app cache manifest file, so"
+    },
+    {
+      "index": 466,
+      "start_time": 2548290.0,
+      "end_time": 2556461.0,
+      "text": "you push that tonight, tomorrow, the first user ever downloads your app, and the app"
+    },
+    {
+      "index": 467,
+      "start_time": 2556460.0,
+      "end_time": 2561099.0,
+      "text": "cache is obviously empty. They&#39;ve never seen this before, and so the browser fetches the"
+    },
+    {
+      "index": 468,
+      "start_time": 2561100.0,
+      "end_time": 2566870.0,
+      "text": "manifest file and in there the logo is listed so the browser downloads that, puts it into"
+    },
+    {
+      "index": 469,
+      "start_time": 2566870.0,
+      "end_time": 2573520.0,
+      "text": "app cache, and renders the app to the user so the user sees the awesome green logo. So"
+    },
+    {
+      "index": 470,
+      "start_time": 2573520.0,
+      "end_time": 2579620.0,
+      "text": "now suppose tomorrow night you go, you know, I really think an orange logo would be better,"
+    },
+    {
+      "index": 471,
+      "start_time": 2579620.0,
+      "end_time": 2585240.0,
+      "text": "so you push to your server this new orange logo, and you remember to change the version"
+    },
+    {
+      "index": 472,
+      "start_time": 2585240.0,
+      "end_time": 2594911.0,
+      "text": "number in the manifest file. So the logo is new, the manifest file is new. And on -- today&#39;s"
+    },
+    {
+      "index": 473,
+      "start_time": 2594910.0,
+      "end_time": 2602670.0,
+      "text": "Friday, so you do that Saturday night, so on Sunday, the user -- same user loads the"
+    },
+    {
+      "index": 474,
+      "start_time": 2602670.0,
+      "end_time": 2609170.0,
+      "text": "app again, and the browser says, okay, well, this app has a manifest file associated with"
+    },
+    {
+      "index": 475,
+      "start_time": 2609170.0,
+      "end_time": 2611719.0,
+      "text": "it. Do I have any of those resources in my app cache?"
+    },
+    {
+      "index": 476,
+      "start_time": 2611720.0,
+      "end_time": 2617480.0,
+      "text": "Oh, I do. I need logo.jif, or i have logo.jif in my app cache; it&#39;s this pretty green logo."
+    },
+    {
+      "index": 477,
+      "start_time": 2617480.0,
+      "end_time": 2622080.0,
+      "text": "Even though I&#39;ve already pushed an orange logo to my server, the browser is ignoring"
+    },
+    {
+      "index": 478,
+      "start_time": 2622080.0,
+      "end_time": 2628230.0,
+      "text": "that. That&#39;s why it can work offline. It can say I have this stuff in app cache, let me"
+    },
+    {
+      "index": 479,
+      "start_time": 2628230.0,
+      "end_time": 2635211.0,
+      "text": "load as much as I can without using the network. And so it displays that app cache logo to"
+    },
+    {
+      "index": 480,
+      "start_time": 2635210.0,
+      "end_time": 2642180.0,
+      "text": "the user. But now what it does is it&#39;s -- once it&#39;s rendered the app with the old out-of-date"
+    },
+    {
+      "index": 481,
+      "start_time": 2642180.0,
+      "end_time": 2648049.0,
+      "text": "logo, it fetches the manifest file, it detects that it&#39;s changed and so then it checks all"
+    },
+    {
+      "index": 482,
+      "start_time": 2648050.0,
+      "end_time": 2653360.0,
+      "text": "other resources in the manifest file and it gets the new version of the logo which is"
+    },
+    {
+      "index": 483,
+      "start_time": 2653360.0,
+      "end_time": 2660600.0,
+      "text": "orange, it saves that to app cache, so if the user reloads the app, a second time, it"
+    },
+    {
+      "index": 484,
+      "start_time": 2660600.0,
+      "end_time": 2665080.0,
+      "text": "will -- the browser will look in app cache and now it has the orange logo, so it renders"
+    },
+    {
+      "index": 485,
+      "start_time": 2665080.0,
+      "end_time": 2669830.0,
+      "text": "the orange logo to the user, it fetches the manifest file which hasn&#39;t changed and so"
+    },
+    {
+      "index": 486,
+      "start_time": 2669830.0,
+      "end_time": 2674411.0,
+      "text": "it&#39;s done. So it&#39;s really taken these two loads -- after I update a resource it takes"
+    },
+    {
+      "index": 487,
+      "start_time": 2674410.0,
+      "end_time": 2680549.0,
+      "text": "two loads for the user to see the changes. Now, there is a work around to this, it&#39;s"
+    },
+    {
+      "index": 488,
+      "start_time": 2680550.0,
+      "end_time": 2685461.0,
+      "text": "not that hard, but not that easy. There&#39;s this update ready part. The implementation"
+    },
+    {
+      "index": 489,
+      "start_time": 2685460.0,
+      "end_time": 2690420.0,
+      "text": "is pretty easy. I can track this. But it&#39;s what do I want to do with the user experience?"
+    },
+    {
+      "index": 490,
+      "start_time": 2690420.0,
+      "end_time": 2695599.0,
+      "text": "So in the background, the browser detected that there was a new logo, and it fires this"
+    },
+    {
+      "index": 491,
+      "start_time": 2695600.0,
+      "end_time": 2701080.0,
+      "text": "update ready, but are you going to tell the user to like reload the app to see the changes?"
+    },
+    {
+      "index": 492,
+      "start_time": 2701080.0,
+      "end_time": 2705441.0,
+      "text": "I don&#39;t know, you have to decide for yourself. Maybe if it&#39;s just images it&#39;s not that important."
+    },
+    {
+      "index": 493,
+      "start_time": 2705440.0,
+      "end_time": 2710359.0,
+      "text": "If it&#39;s like an important JavaScript security privacy fix, then, yeah, maybe you want to"
+    },
+    {
+      "index": 494,
+      "start_time": 2710360.0,
+      "end_time": 2714030.0,
+      "text": "tell them to reload it, or you want to reload it without even telling them, just reload"
+    },
+    {
+      "index": 495,
+      "start_time": 2714030.0,
+      "end_time": 2721350.0,
+      "text": "the app. Another way to do improved caching because we know the browser cache doesn&#39;t"
+    },
+    {
+      "index": 496,
+      "start_time": 2721350.0,
+      "end_time": 2728600.0,
+      "text": "work super awesome is local storage. Really simple API. Local storage is persistent across"
+    },
+    {
+      "index": 497,
+      "start_time": 2728600.0,
+      "end_time": 2732530.0,
+      "text": "sessions. If you only care about sessions, you can use session storage. It&#39;s about five"
+    },
+    {
+      "index": 498,
+      "start_time": 2732530.0,
+      "end_time": 2740770.0,
+      "text": "meg. One warning, browser developers really are worried about this getting too much use"
+    },
+    {
+      "index": 499,
+      "start_time": 2740770.0,
+      "end_time": 2745750.0,
+      "text": "because it does a synchronous read. Some browsers will actually read everything out of local"
+    },
+    {
+      "index": 500,
+      "start_time": 2745750.0,
+      "end_time": 2750131.0,
+      "text": "storage, the first time you go to that page during the session, and if you have a lot"
+    },
+    {
+      "index": 501,
+      "start_time": 2750130.0,
+      "end_time": 2756319.0,
+      "text": "of stuff in local storage, again, it&#39;s single-threaded so that can slow down the user experience."
+    },
+    {
+      "index": 502,
+      "start_time": 2756320.0,
+      "end_time": 2762750.0,
+      "text": "So I built this bookmark that lets you look into what is stored in local storage, and"
+    },
+    {
+      "index": 503,
+      "start_time": 2762750.0,
+      "end_time": 2767431.0,
+      "text": "I discovered a couple of interesting things that Bing and Google search were doing, which"
+    },
+    {
+      "index": 504,
+      "start_time": 2767430.0,
+      "end_time": 2772249.0,
+      "text": "I hadn&#39;t thought of, and it&#39;s very cool to help with caching. So I think this is the"
+    },
+    {
+      "index": 505,
+      "start_time": 2772250.0,
+      "end_time": 2779790.0,
+      "text": "Google search -- Google mobile search implementation. The first time you do a search, the HTML document"
+    },
+    {
+      "index": 506,
+      "start_time": 2779790.0,
+      "end_time": 2787661.0,
+      "text": "will return all of these inline script and style blocks, a lot of JavaScript and CSS,"
+    },
+    {
+      "index": 507,
+      "start_time": 2787660.0,
+      "end_time": 2793369.0,
+      "text": "and when it&#39;s done, it iterates over those script tags and style tags that have IDs,"
+    },
+    {
+      "index": 508,
+      "start_time": 2793370.0,
+      "end_time": 2799040.0,
+      "text": "and it takes the content of the block, and writes it into local storage based on the"
+    },
+    {
+      "index": 509,
+      "start_time": 2799040.0,
+      "end_time": 2805980.0,
+      "text": "ID of that element. So now, after I&#39;ve done this first search ever on my phone, I have"
+    },
+    {
+      "index": 510,
+      "start_time": 2805980.0,
+      "end_time": 2812490.0,
+      "text": "blocks of JavaScript and CSS in my local storage, so now let&#39;s say I do another -- oh, and the"
+    },
+    {
+      "index": 511,
+      "start_time": 2812490.0,
+      "end_time": 2819310.0,
+      "text": "other thing it does is it sets a cookie that says which blocks of JavaScript and CSS have"
+    },
+    {
+      "index": 512,
+      "start_time": 2819310.0,
+      "end_time": 2824520.0,
+      "text": "been written into this user&#39;s local storage. So now if I do another search, this cookie"
+    },
+    {
+      "index": 513,
+      "start_time": 2824520.0,
+      "end_time": 2828891.0,
+      "text": "goes up to the server, and the server says, oh, well, you&#39;re doing a search, I have to"
+    },
+    {
+      "index": 514,
+      "start_time": 2828890.0,
+      "end_time": 2833479.0,
+      "text": "give you this block and that block and this JavaScript and this CSS. Let me see what you"
+    },
+    {
+      "index": 515,
+      "start_time": 2833480.0,
+      "end_time": 2837901.0,
+      "text": "already have in local storage. It looks at the cookie and says, oh, you already have"
+    },
+    {
+      "index": 516,
+      "start_time": 2837900.0,
+      "end_time": 2841849.0,
+      "text": "this block, I don&#39;t have to send you that, I don&#39;t have to send you this CSS, and for"
+    },
+    {
+      "index": 517,
+      "start_time": 2841850.0,
+      "end_time": 2849260.0,
+      "text": "-- in the case of mobile search, it drops the download size from about 110K to just"
+    },
+    {
+      "index": 518,
+      "start_time": 2849260.0,
+      "end_time": 2855320.0,
+      "text": "10K, because all that stuff is now in local storage. And then when the lightweight page"
+    },
+    {
+      "index": 519,
+      "start_time": 2855320.0,
+      "end_time": 2860510.0,
+      "text": "arrives, there&#39;s some JavaScript that will pull all of these things out of local storage"
+    },
+    {
+      "index": 520,
+      "start_time": 2860510.0,
+      "end_time": 2867641.0,
+      "text": "and write them into the page. So this is a really cool way to get more persistent cache."
+    },
+    {
+      "index": 521,
+      "start_time": 2867640.0,
+      "end_time": 2873569.0,
+      "text": "Local storage is unaffected by other Web sites whereas the shared browser cache, if the user"
+    },
+    {
+      "index": 522,
+      "start_time": 2873570.0,
+      "end_time": 2878480.0,
+      "text": "visits a bunch of other Web sites that have large resources, your content might get pushed"
+    },
+    {
+      "index": 523,
+      "start_time": 2878480.0,
+      "end_time": 2884510.0,
+      "text": "out. So I did a quick survey using this is what this -- I&#39;m a good JavaScript hacker."
+    },
+    {
+      "index": 524,
+      "start_time": 2884510.0,
+      "end_time": 2889641.0,
+      "text": "I&#39;m not a good UI designer. This is my awesome storage or bookmark list, and you can see"
+    },
+    {
+      "index": 525,
+      "start_time": 2889640.0,
+      "end_time": 2895619.0,
+      "text": "it lets you look at what&#39;s in the local storage and session storage, tells you how big it"
+    },
+    {
+      "index": 526,
+      "start_time": 2895620.0,
+      "end_time": 2901040.0,
+      "text": "is, how many items it is. So let&#39;s just do a quick run through the Alexa Top 10 and see"
+    },
+    {
+      "index": 527,
+      "start_time": 2901040.0,
+      "end_time": 2908470.0,
+      "text": "how local storage is being used. So here we have -- Google search is using it on both"
+    },
+    {
+      "index": 528,
+      "start_time": 2908470.0,
+      "end_time": 2916330.0,
+      "text": "mobile and desktop, so that&#39;s one. Bing is using it on mobile. Facebook is using it on"
+    },
+    {
+      "index": 529,
+      "start_time": 2916330.0,
+      "end_time": 2924040.0,
+      "text": "mobile. Yahoo is maybe using it a little bit, but not really. We&#39;re not going to count that."
+    },
+    {
+      "index": 530,
+      "start_time": 2924040.0,
+      "end_time": 2931181.0,
+      "text": "YouTube, yeah, we&#39;ll count that. Quite a bit of content on mobile. Amazon, no. Twitter?"
+    },
+    {
+      "index": 531,
+      "start_time": 2931180.0,
+      "end_time": 2943019.0,
+      "text": "Yeah, okay, we&#39;ll count that. Five. LinkedIn, no, I would say. eBay, no. MSN, no. So about"
+    },
+    {
+      "index": 532,
+      "start_time": 2943020.0,
+      "end_time": 2948770.0,
+      "text": "five or six of the Alexa Top 10 are using local storage, so that&#39;s an indicator that,"
+    },
+    {
+      "index": 533,
+      "start_time": 2948770.0,
+      "end_time": 2952870.0,
+      "text": "you know, it&#39;s worth investigating. Why is it more -- maybe used more prevalently on"
+    },
+    {
+      "index": 534,
+      "start_time": 2952870.0,
+      "end_time": 2956090.0,
+      "text": "mobile? You know, the experience of not having something"
+    },
+    {
+      "index": 535,
+      "start_time": 2956090.0,
+      "end_time": 2961730.0,
+      "text": "in the cache in mobile is worse, because the network connection speed is so slow, also"
+    },
+    {
+      "index": 536,
+      "start_time": 2961730.0,
+      "end_time": 2966901.0,
+      "text": "the cache is smaller on mobile, so caching isn&#39;t awesome on desktop, but is much better"
+    },
+    {
+      "index": 537,
+      "start_time": 2966900.0,
+      "end_time": 2972289.0,
+      "text": "on mobile, so I think that&#39;s why these top properties started using local storage on"
+    },
+    {
+      "index": 538,
+      "start_time": 2972290.0,
+      "end_time": 2978970.0,
+      "text": "mobile, but I would expect to see this proliferate on desktop apps as well. So I want to talk"
+    },
+    {
+      "index": 539,
+      "start_time": 2978970.0,
+      "end_time": 2988610.0,
+      "text": "about font-face. Again, pay attention to the photos, not to what I say. So, you know, fonts,"
+    },
+    {
+      "index": 540,
+      "start_time": 2988610.0,
+      "end_time": 2993980.0,
+      "text": "using custom fonts can create a more compelling, beautiful experience, but people haven&#39;t really"
+    },
+    {
+      "index": 541,
+      "start_time": 2993980.0,
+      "end_time": 2999240.0,
+      "text": "paid attention to what it does, similar to how scripts and style sheets can block a page,"
+    },
+    {
+      "index": 542,
+      "start_time": 2999240.0,
+      "end_time": 3007151.0,
+      "text": "what custom font files do, and so I created this table that here&#39;s the blog post, that"
+    },
+    {
+      "index": 543,
+      "start_time": 3007150.0,
+      "end_time": 3012979.0,
+      "text": "shows how scripts and style sheets and fonts can affect, and, you know, &quot;blank below in"
+    },
+    {
+      "index": 544,
+      "start_time": 3012980.0,
+      "end_time": 3021600.0,
+      "text": "red&quot; means that everything using this font or below it are going to be affected. Flash"
+    },
+    {
+      "index": 545,
+      "start_time": 3021600.0,
+      "end_time": 3028610.0,
+      "text": "-- oh, delayed means -- blank is really bad. It means like everything in the page is blank."
+    },
+    {
+      "index": 546,
+      "start_time": 3028610.0,
+      "end_time": 3034550.0,
+      "text": "Delayed means just the element that&#39;s using the font file is affected. Flash means once"
+    },
+    {
+      "index": 547,
+      "start_time": 3034550.0,
+      "end_time": 3040540.0,
+      "text": "the things -- things will render, but once the resource arrives it has to be redrawn,"
+    },
+    {
+      "index": 548,
+      "start_time": 3040540.0,
+      "end_time": 3045941.0,
+      "text": "and so it&#39;s kind of a jerky user experience, things have to be rerenderred and repainted."
+    },
+    {
+      "index": 549,
+      "start_time": 3045940.0,
+      "end_time": 3050759.0,
+      "text": "So you can see the impact. Even the green &quot;good&quot; is not really a good experience. And"
+    },
+    {
+      "index": 550,
+      "start_time": 3050760.0,
+      "end_time": 3057750.0,
+      "text": "so you want to use fonts kind of carefully. And it&#39;s kind of ironic, it&#39;s kind of how"
+    },
+    {
+      "index": 551,
+      "start_time": 3057750.0,
+      "end_time": 3062830.0,
+      "text": "these async script loader libraries make you load their scripts synchronously. When I talk"
+    },
+    {
+      "index": 552,
+      "start_time": 3062830.0,
+      "end_time": 3067570.0,
+      "text": "to designers about why they&#39;re using custom fonts, even though we know it has this impact"
+    },
+    {
+      "index": 553,
+      "start_time": 3067570.0,
+      "end_time": 3071931.0,
+      "text": "on the user experience, they say, well, these are the most important design elements in"
+    },
+    {
+      "index": 554,
+      "start_time": 3071930.0,
+      "end_time": 3076930.0,
+      "text": "the page. I&#39;m like, &quot;so you want the most important parts of the page to take the longest"
+    },
+    {
+      "index": 555,
+      "start_time": 3076930.0,
+      "end_time": 3082130.0,
+      "text": "to render?&quot; Like, that doesn&#39;t make sense to me. So despite"
+    },
+    {
+      "index": 556,
+      "start_time": 3082130.0,
+      "end_time": 3088119.0,
+      "text": "my warnings, custom fonts have taken off, like they&#39;ve more than doubled in the last"
+    },
+    {
+      "index": 557,
+      "start_time": 3088120.0,
+      "end_time": 3094790.0,
+      "text": "year, this is a chart from the HTP archive. So they&#39;re taking off. The good thing is the"
+    },
+    {
+      "index": 558,
+      "start_time": 3094790.0,
+      "end_time": 3102350.0,
+      "text": "folks at Typekit and the Google fonts library have done a lot of good work to mitigate the"
+    },
+    {
+      "index": 559,
+      "start_time": 3102350.0,
+      "end_time": 3108151.0,
+      "text": "impact that custom fonts files have, but we can still go farther. In fact, I think Google"
+    },
+    {
+      "index": 560,
+      "start_time": 3108150.0,
+      "end_time": 3113160.0,
+      "text": "fonts library just announced custom fonts a few months ago. If you don&#39;t need -- like"
+    },
+    {
+      "index": 561,
+      "start_time": 3113160.0,
+      "end_time": 3117719.0,
+      "text": "if you&#39;re only using digits or other certain characters, like it&#39;s just a word that you"
+    },
+    {
+      "index": 562,
+      "start_time": 3117720.0,
+      "end_time": 3123120.0,
+      "text": "want to render in that font, you can actually create a smaller font. The font files are"
+    },
+    {
+      "index": 563,
+      "start_time": 3123120.0,
+      "end_time": 3132510.0,
+      "text": "typically like over 100K, so you can create one that is just the characters that you need."
+    },
+    {
+      "index": 564,
+      "start_time": 3132510.0,
+      "end_time": 3138710.0,
+      "text": "The flash of unstyled text means you draw text and then you have to redraw it, and so"
+    },
+    {
+      "index": 565,
+      "start_time": 3138710.0,
+      "end_time": 3145810.0,
+      "text": "what I would propose is that browsers have like an impatient fallback, like if -- I don&#39;t"
+    },
+    {
+      "index": 566,
+      "start_time": 3145810.0,
+      "end_time": 3151100.0,
+      "text": "want to have this flash of my text, so I&#39;m going to wait 250 milliseconds for the font"
+    },
+    {
+      "index": 567,
+      "start_time": 3151100.0,
+      "end_time": 3155750.0,
+      "text": "file. If it hasn&#39;t come back and we&#39;re drawing in a default font, and even if the font files"
+    },
+    {
+      "index": 568,
+      "start_time": 3155750.0,
+      "end_time": 3159510.0,
+      "text": "comes back later, I&#39;m not going to redraw it. I&#39;ll cache that font for the next time"
+    },
+    {
+      "index": 569,
+      "start_time": 3159510.0,
+      "end_time": 3164730.0,
+      "text": "the user goes to the page, but I&#39;m not going to do that, and again, I think this is a behavior"
+    },
+    {
+      "index": 570,
+      "start_time": 3164730.0,
+      "end_time": 3175240.0,
+      "text": "that the Google font library and Typekit loaders do automatically for you. Yeah. And also,"
+    },
+    {
+      "index": 571,
+      "start_time": 3175240.0,
+      "end_time": 3179740.0,
+      "text": "okay, I&#39;m running short on time, so I&#39;m going to go a little faster. Font should be given"
+    },
+    {
+      "index": 572,
+      "start_time": 3179740.0,
+      "end_time": 3185431.0,
+      "text": "a higher priority in caching. Browsers are still just starting to pay attention to that,"
+    },
+    {
+      "index": 573,
+      "start_time": 3185430.0,
+      "end_time": 3193039.0,
+      "text": "and even if a font is expired, I might want to render with it, and do a &quot;if modified since"
+    },
+    {
+      "index": 574,
+      "start_time": 3193040.0,
+      "end_time": 3195870.0,
+      "text": "request&quot;, and then if I get back, &quot;oh, not modified?&quot;"
+    },
+    {
+      "index": 575,
+      "start_time": 3195870.0,
+      "end_time": 3200220.0,
+      "text": "It&#39;s okay, I&#39;ve already rendered with a font. All I have to do is validate it. Oh, good,"
+    },
+    {
+      "index": 576,
+      "start_time": 3200220.0,
+      "end_time": 3205570.0,
+      "text": "I&#39;m getting close to the end, so there&#39;s a lot more stuff I didn&#39;t talk about. We -- you"
+    },
+    {
+      "index": 577,
+      "start_time": 3205570.0,
+      "end_time": 3210730.0,
+      "text": "know, all of us spent a lot of time building rounded corners that downloaded a bunch of"
+    },
+    {
+      "index": 578,
+      "start_time": 3210730.0,
+      "end_time": 3215480.0,
+      "text": "images, so now you can do a lot of things that used to require HTP traffic, you can"
+    },
+    {
+      "index": 579,
+      "start_time": 3215480.0,
+      "end_time": 3222651.0,
+      "text": "do with CSS 3, so that&#39;s cool. You have to be a little careful, these incur, you know,"
+    },
+    {
+      "index": 580,
+      "start_time": 3222650.0,
+      "end_time": 3229609.0,
+      "text": "might incur a lot of CPU overhead or repaints. You can use SVG and canvas instead of downloading"
+    },
+    {
+      "index": 581,
+      "start_time": 3229610.0,
+      "end_time": 3235370.0,
+      "text": "images. Video tag could make starting up videos faster. Web sockets, if you have a very chatty"
+    },
+    {
+      "index": 582,
+      "start_time": 3235370.0,
+      "end_time": 3240280.0,
+      "text": "sort of app can be used. Web workers, if you have like a lot of computation that you want"
+    },
+    {
+      "index": 583,
+      "start_time": 3240280.0,
+      "end_time": 3245901.0,
+      "text": "to get out of the UI thread, you can use Web workers, oh, for some things that we used"
+    },
+    {
+      "index": 584,
+      "start_time": 3245900.0,
+      "end_time": 3251880.0,
+      "text": "to have to write a lot of JavaScript or HTML for, you can do with these new built-in controls."
+    },
+    {
+      "index": 585,
+      "start_time": 3251880.0,
+      "end_time": 3260609.0,
+      "text": "Again, the photo, more, infinite number of digits. History API, we used to have to implement"
+    },
+    {
+      "index": 586,
+      "start_time": 3260610.0,
+      "end_time": 3265201.0,
+      "text": "this in JavaScript. Now we don&#39;t have to download all that JavaScript. Ping is a way to avoid"
+    },
+    {
+      "index": 587,
+      "start_time": 3265200.0,
+      "end_time": 3271009.0,
+      "text": "a redirect if you want to track something. Don&#39;t use set time-out for animation. Use"
+    },
+    {
+      "index": 588,
+      "start_time": 3271010.0,
+      "end_time": 3277921.0,
+      "text": "request animation frame. It will be faster. You can use the native JSON parser, and here"
+    },
+    {
+      "index": 589,
+      "start_time": 3277920.0,
+      "end_time": 3282979.0,
+      "text": "are some good resources to get more information about this other HTML5 stuff. So what are"
+    },
+    {
+      "index": 590,
+      "start_time": 3282980.0,
+      "end_time": 3286770.0,
+      "text": "the takeaways? Speed matters. Hopefully we all agree about"
+    },
+    {
+      "index": 591,
+      "start_time": 3286770.0,
+      "end_time": 3290881.0,
+      "text": "that. I saw you raise your hand before. So I&#39;m going to hold you to that. Pay attention"
+    },
+    {
+      "index": 592,
+      "start_time": 3290880.0,
+      "end_time": 3295339.0,
+      "text": "to what&#39;s coming out of the Web performance working group out of the W3C. You can use"
+    },
+    {
+      "index": 593,
+      "start_time": 3295340.0,
+      "end_time": 3299770.0,
+      "text": "window.performance to track the timing on your pages, and even if you haven&#39;t done that"
+    },
+    {
+      "index": 594,
+      "start_time": 3299770.0,
+      "end_time": 3303560.0,
+      "text": "yet, if you&#39;re using Google Analytics, you can go and see the data there. It&#39;s already"
+    },
+    {
+      "index": 595,
+      "start_time": 3303560.0,
+      "end_time": 3309780.0,
+      "text": "been gathered for the last few months. JavaScript blocking the UI thread is really critical."
+    },
+    {
+      "index": 596,
+      "start_time": 3309780.0,
+      "end_time": 3314681.0,
+      "text": "Try to get a lot of that stuff deferred or async, and caching is really important. I"
+    },
+    {
+      "index": 597,
+      "start_time": 3314680.0,
+      "end_time": 3319479.0,
+      "text": "think it&#39;s one of the most important things for a fast user experience. Browsers are improving"
+    },
+    {
+      "index": 598,
+      "start_time": 3319480.0,
+      "end_time": 3323941.0,
+      "text": "their cache. Mobile browsers have a lot of room to catch up on, so you can try some of"
+    },
+    {
+      "index": 599,
+      "start_time": 3323940.0,
+      "end_time": 3329599.0,
+      "text": "these other techniques. And be careful about using font-face. So before I close out, I"
+    },
+    {
+      "index": 600,
+      "start_time": 3329600.0,
+      "end_time": 3334350.0,
+      "text": "want to mention, if you like this kind of performance stuff, I&#39;m sorry, but you should"
+    },
+    {
+      "index": 601,
+      "start_time": 3334350.0,
+      "end_time": 3340070.0,
+      "text": "have been at Velocity this week. We just finished that Wednesday. But if you missed that, you"
+    },
+    {
+      "index": 602,
+      "start_time": 3340070.0,
+      "end_time": 3343950.0,
+      "text": "could go to Web PERF days, the first ever, but -- well, actually, that was yesterday."
+    },
+    {
+      "index": 603,
+      "start_time": 3343950.0,
+      "end_time": 3346700.0,
+      "text": "Okay, so you missed that one. [ Laughter ]"
+    },
+    {
+      "index": 604,
+      "start_time": 3346700.0,
+      "end_time": 3351421.0,
+      "text": "&gt;&gt;Steve Souders: Oh, okay, we&#39;ve got Velocity Europe coming up in October, so you might"
+    },
+    {
+      "index": 605,
+      "start_time": 3351420.0,
+      "end_time": 3356170.0,
+      "text": "have to go a little farther, but -- and we&#39;ll be back next year in June for Velocity. I"
+    },
+    {
+      "index": 606,
+      "start_time": 3356170.0,
+      "end_time": 3362390.0,
+      "text": "also wanted to just mention this -- oh, I added this like five minutes before I came"
+    },
+    {
+      "index": 607,
+      "start_time": 3362390.0,
+      "end_time": 3369319.0,
+      "text": "on stage. How can I do this, like -- I don&#39;t know, I have to go through them all. So (indiscernible)"
+    },
+    {
+      "index": 608,
+      "start_time": 3369320.0,
+      "end_time": 3375381.0,
+      "text": "runs this performance calendar every year, and O&#39;Reilly took the most recent performance"
+    },
+    {
+      "index": 609,
+      "start_time": 3375380.0,
+      "end_time": 3381079.0,
+      "text": "calendar and put it into a book, so this just came out this week, and you can get most of"
+    },
+    {
+      "index": 610,
+      "start_time": 3381080.0,
+      "end_time": 3386760.0,
+      "text": "this content on the blog for the performance calendar, but the -- they were updated, and"
+    },
+    {
+      "index": 611,
+      "start_time": 3386760.0,
+      "end_time": 3396411.0,
+      "text": "if you like books, you can get it in book form here. So that&#39;s it. Thank you very much."
+    },
+    {
+      "index": 612,
+      "start_time": 3396410.0,
+      "end_time": 3401539.0,
+      "text": "[ Applause ] &gt;&gt;Steve Souders: So I&#39;ve got about four minutes,"
+    },
+    {
+      "index": 613,
+      "start_time": 3401540.0,
+      "end_time": 3408191.0,
+      "text": "I would be happy to answer any questions and I think they want you to use the mic. Everyone"
+    },
+    {
+      "index": 614,
+      "start_time": 3408190.0,
+      "end_time": 3414279.0,
+      "text": "is heading out. &gt;&gt;&gt; Would you care to expand upon font awesome?"
+    },
+    {
+      "index": 615,
+      "start_time": 3414280.0,
+      "end_time": 3419860.0,
+      "text": "And also to resolve some of the issues of pop-in, I found setting a fixed type for whatever"
+    },
+    {
+      "index": 616,
+      "start_time": 3419860.0,
+      "end_time": 3424530.0,
+      "text": "text I decide is very nice. &gt;&gt;Steve Souders: What&#39;s the first one? Expound"
+    },
+    {
+      "index": 617,
+      "start_time": 3424530.0,
+      "end_time": 3428290.0,
+      "text": "on... &gt;&gt;&gt; Font awesome, using fonts instead of sprites?"
+    },
+    {
+      "index": 618,
+      "start_time": 3428290.0,
+      "end_time": 3438720.0,
+      "text": "&gt;&gt;Steve Souders: Oh, yeah, so you can create a custom font, you know, file, that has little"
+    },
+    {
+      "index": 619,
+      "start_time": 3438720.0,
+      "end_time": 3445641.0,
+      "text": "pictures, you know, kind of like wings -- what is it on windows? The wings font, wingdings,"
+    },
+    {
+      "index": 620,
+      "start_time": 3445640.0,
+      "end_time": 3450869.0,
+      "text": "yeah, so you can do that with a font, so if you have like really small images that you&#39;re"
+    },
+    {
+      "index": 621,
+      "start_time": 3450870.0,
+      "end_time": 3455080.0,
+      "text": "using now and you&#39;re downloading them as HTP requests instead of images, instead you can"
+    },
+    {
+      "index": 622,
+      "start_time": 3455080.0,
+      "end_time": 3458790.0,
+      "text": "download a font fall. It doesn&#39;t have to be huge. Maybe you have 10 of those or 20 of"
+    },
+    {
+      "index": 623,
+      "start_time": 3458790.0,
+      "end_time": 3466770.0,
+      "text": "those, and you can download those and use those to draw those little images, those little"
+    },
+    {
+      "index": 624,
+      "start_time": 3466770.0,
+      "end_time": 3471750.0,
+      "text": "sprites in the page for like maybe little buttons or things like that, and so, you know,"
+    },
+    {
+      "index": 625,
+      "start_time": 3471750.0,
+      "end_time": 3475740.0,
+      "text": "I think that&#39;s a great idea. You could also use sprites. Sprites are maybe a little harder"
+    },
+    {
+      "index": 626,
+      "start_time": 3475740.0,
+      "end_time": 3480350.0,
+      "text": "to do. You have to create the image and know all the CSS, but the one thing I would say,"
+    },
+    {
+      "index": 627,
+      "start_time": 3480350.0,
+      "end_time": 3484980.0,
+      "text": "if you&#39;re using any kind of font file, is try to figure out a way to do it that doesn&#39;t"
+    },
+    {
+      "index": 628,
+      "start_time": 3484980.0,
+      "end_time": 3490360.0,
+      "text": "block the page, like especially in IE. Custom font files block rendering of everything in"
+    },
+    {
+      "index": 629,
+      "start_time": 3490360.0,
+      "end_time": 3495800.0,
+      "text": "the page, so if you could do that lazily or something like that, that would be good, and"
+    },
+    {
+      "index": 630,
+      "start_time": 3495800.0,
+      "end_time": 3502131.0,
+      "text": "then the second one was... &gt;&gt;&gt; Just a tip to deal with font snapping"
+    },
+    {
+      "index": 631,
+      "start_time": 3502130.0,
+      "end_time": 3507029.0,
+      "text": "in after they loaded, the ugly hack of just setting a fixed type for everything. So at"
+    },
+    {
+      "index": 632,
+      "start_time": 3507030.0,
+      "end_time": 3510080.0,
+      "text": "least it doesn&#39;t like reflow. &gt;&gt;Steve Souders: Yeah, yeah, you could do"
+    },
+    {
+      "index": 633,
+      "start_time": 3510080.0,
+      "end_time": 3516040.0,
+      "text": "that. Yes, another question. &gt;&gt;&gt; Yeah, you said mobile browsers don&#39;t support"
+    },
+    {
+      "index": 634,
+      "start_time": 3516040.0,
+      "end_time": 3522290.0,
+      "text": "most of those features yet, custom, you know, desktop browsers either, so how would we test"
+    },
+    {
+      "index": 635,
+      "start_time": 3522290.0,
+      "end_time": 3525520.0,
+      "text": "them? &gt;&gt;Steve Souders: I guess I wasn&#39;t clear. Everything"
+    },
+    {
+      "index": 636,
+      "start_time": 3525520.0,
+      "end_time": 3531360.0,
+      "text": "I talked about is supported in mobile browsers, pretty much, and, in fact, you&#39;re going to"
+    },
+    {
+      "index": 637,
+      "start_time": 3531360.0,
+      "end_time": 3537411.0,
+      "text": "get -- I think that&#39;s another reason why we&#39;re seeing more HTML5 stuff on mobile and desktop,"
+    },
+    {
+      "index": 638,
+      "start_time": 3537410.0,
+      "end_time": 3543789.0,
+      "text": "because on desktop, there&#39;s still a lot more lingering IE6, IE7 legacy browsers out there,"
+    },
+    {
+      "index": 639,
+      "start_time": 3543790.0,
+      "end_time": 3547540.0,
+      "text": "so you&#39;re almost a little safer using the cutting edge stuff on mobile than you are"
+    },
+    {
+      "index": 640,
+      "start_time": 3547540.0,
+      "end_time": 3554421.0,
+      "text": "on desktop. The only thing I can think about is I thought there was something -- well,"
+    },
+    {
+      "index": 641,
+      "start_time": 3554420.0,
+      "end_time": 3561459.0,
+      "text": "the page visibility API is only in Chrome, but all the timing stuff, local storage fonts,"
+    },
+    {
+      "index": 642,
+      "start_time": 3561460.0,
+      "end_time": 3566741.0,
+      "text": "app cache, async and defer attributes, all of that is supported on mobile too."
+    },
+    {
+      "index": 643,
+      "start_time": 3566740.0,
+      "end_time": 3572160.0,
+      "text": "&gt;&gt;&gt; Thank you. &gt;&gt;Steve Souders: Yeah. Okay, let&#39;s go here."
+    },
+    {
+      "index": 644,
+      "start_time": 3572160.0,
+      "end_time": 3580009.0,
+      "text": "&gt;&gt;&gt; Let&#39;s see here. You were talking about visibility and document.webkit hidden and"
+    },
+    {
+      "index": 645,
+      "start_time": 3580010.0,
+      "end_time": 3585580.0,
+      "text": "how that relates with click tracking and stuff like that. One click unsubscribes and e-mails"
+    },
+    {
+      "index": 646,
+      "start_time": 3585580.0,
+      "end_time": 3591320.0,
+      "text": "and things like that, is that another way that we can avoid being automatically unsubscribed?"
+    },
+    {
+      "index": 647,
+      "start_time": 3591320.0,
+      "end_time": 3600550.0,
+      "text": "&gt;&gt;Steve Souders: Oh, oh, well, but how would you -- how would you -- what&#39;s the scenario"
+    },
+    {
+      "index": 648,
+      "start_time": 3600550.0,
+      "end_time": 3604991.0,
+      "text": "where you would render unsubscribed page without the user seeing it?"
+    },
+    {
+      "index": 649,
+      "start_time": 3604990.0,
+      "end_time": 3609199.0,
+      "text": "&gt;&gt;&gt; Well, if they&#39;re following links and pre-loading in the background, you might follow --"
+    },
+    {
+      "index": 650,
+      "start_time": 3609200.0,
+      "end_time": 3614970.0,
+      "text": "&gt;&gt;Steve Souders: Oh, yeah, the pre-rendering I was talking about is the developer or user"
+    },
+    {
+      "index": 651,
+      "start_time": 3614970.0,
+      "end_time": 3620060.0,
+      "text": "has explicitly asked to open a page, but we can just know we can do it in the background."
+    },
+    {
+      "index": 652,
+      "start_time": 3620060.0,
+      "end_time": 3624990.0,
+      "text": "But, so, yeah, if you&#39;re crawling a page, that could be something that you could do"
+    },
+    {
+      "index": 653,
+      "start_time": 3624990.0,
+      "end_time": 3630720.0,
+      "text": "is to make sure not to -- you know, you could instrument an unsubscribed link so that it"
+    },
+    {
+      "index": 654,
+      "start_time": 3630720.0,
+      "end_time": 3634760.0,
+      "text": "only worked if the page was visible. Yeah. &gt;&gt;&gt; Thank you."
+    },
+    {
+      "index": 655,
+      "start_time": 3634760.0,
+      "end_time": 3638510.0,
+      "text": "&gt;&gt;Steve Souders: Yeah. &gt;&gt;&gt; What&#39;s your recommendation in terms of"
+    },
+    {
+      "index": 656,
+      "start_time": 3638510.0,
+      "end_time": 3644600.0,
+      "text": "moving the script tags physically to the bottom of the body tag versus using the defer script"
+    },
+    {
+      "index": 657,
+      "start_time": 3644600.0,
+      "end_time": 3648750.0,
+      "text": "tag that you described? &gt;&gt;Steve Souders: Yeah, I think both of those"
+    },
+    {
+      "index": 658,
+      "start_time": 3648750.0,
+      "end_time": 3655431.0,
+      "text": "work. One thing that we -- I only have a few seconds, so one thing we don&#39;t have time to"
+    },
+    {
+      "index": 659,
+      "start_time": 3655430.0,
+      "end_time": 3661859.0,
+      "text": "talk about is the importance of the onload event firing as quickly as possible, so in"
+    },
+    {
+      "index": 660,
+      "start_time": 3661860.0,
+      "end_time": 3666631.0,
+      "text": "both cases with defer and async and putting scripts at the bottom, you&#39;re going to block"
+    },
+    {
+      "index": 661,
+      "start_time": 3666630.0,
+      "end_time": 3672279.0,
+      "text": "the onload link, the onload event from firing, so really putting scripts at the bottom is"
+    },
+    {
+      "index": 662,
+      "start_time": 3672280.0,
+      "end_time": 3678391.0,
+      "text": "almost the same as doing defer. It really has more to do with kind of the size of your"
+    },
+    {
+      "index": 663,
+      "start_time": 3678390.0,
+      "end_time": 3684140.0,
+      "text": "team. A lot of times there&#39;s, you know, 20 or 200 people working on a property, and so"
+    },
+    {
+      "index": 664,
+      "start_time": 3684140.0,
+      "end_time": 3690180.0,
+      "text": "it&#39;s hard to get the message out to put scripts at the bottom or like someone&#39;s code is only"
+    },
+    {
+      "index": 665,
+      "start_time": 3690180.0,
+      "end_time": 3695759.0,
+      "text": "going to be executed at the top and be really hard to give them a foothold in the top and"
+    },
+    {
+      "index": 666,
+      "start_time": 3695760.0,
+      "end_time": 3700151.0,
+      "text": "give them also a foothold in the bottom and make sure that both of those are done in sync,"
+    },
+    {
+      "index": 667,
+      "start_time": 3700150.0,
+      "end_time": 3706049.0,
+      "text": "so if the only place like the logging or metrics team has a place to -- a foothold in the page"
+    },
+    {
+      "index": 668,
+      "start_time": 3706050.0,
+      "end_time": 3711441.0,
+      "text": "is at the top, they can get the same behavior using the defer attribute as just putting"
+    },
+    {
+      "index": 669,
+      "start_time": 3711440.0,
+      "end_time": 3715880.0,
+      "text": "the script tag at the bottom. Putting the script tag at the bottom is another lightweight"
+    },
+    {
+      "index": 670,
+      "start_time": 3715880.0,
+      "end_time": 3721539.0,
+      "text": "way to avoid that blocking of the UI thread. Okay. So I should wrap up. Thank you very"
+    },
+    {
+      "index": 671,
+      "start_time": 3721540.0,
+      "end_time": 3731540.0,
+      "text": "much. [ Applause ]"
+    }
+  ]
+}

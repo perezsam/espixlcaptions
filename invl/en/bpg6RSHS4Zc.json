@@ -1,0 +1,756 @@
+{
+  "video_id": "bpg6RSHS4Zc",
+  "title": "#126 Cheap MQTT Broker on Raspberry Zero W / DietPi / MQTT Message Logger SQlite / PHPliteAdmin",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 4640.0,
+      "end_time": 11930.0,
+      "text": "In my last video, I started to use MQTT and a Raspberry Pi as a Broker This week, I got"
+    },
+    {
+      "index": 2,
+      "start_time": 11930.0,
+      "end_time": 15380.0,
+      "text": "my new Pi zero with Wi-Fi."
+    },
+    {
+      "index": 3,
+      "start_time": 15380.0,
+      "end_time": 20970.0,
+      "text": "With this board, there is no excuse to not use MQTT for my projects."
+    },
+    {
+      "index": 4,
+      "start_time": 20970.0,
+      "end_time": 28599.0,
+      "text": "So, today, I build a cheapo MQTT broker for under 20 dollars."
+    },
+    {
+      "index": 5,
+      "start_time": 28599.0,
+      "end_time": 34590.0,
+      "text": "Look at the length of this video and you see, how easy it is to build one."
+    },
+    {
+      "index": 6,
+      "start_time": 34590.0,
+      "end_time": 41250.0,
+      "text": "And you will be astonished, what this little bugger is able to do in addition to broker"
+    },
+    {
+      "index": 7,
+      "start_time": 41250.0,
+      "end_time": 42750.0,
+      "text": "MQTT messages!"
+    },
+    {
+      "index": 8,
+      "start_time": 42750.0,
+      "end_time": 48930.0,
+      "text": "So, let’s start: The secret behind the whole thing is Peter"
+    },
+    {
+      "index": 9,
+      "start_time": 48930.0,
+      "end_time": 49930.0,
+      "text": "Scargill."
+    },
+    {
+      "index": 10,
+      "start_time": 49930.0,
+      "end_time": 55960.0,
+      "text": "He is a wizard in small devices and I recommend to check out his blog."
+    },
+    {
+      "index": 11,
+      "start_time": 55960.0,
+      "end_time": 63010.0,
+      "text": "Pete produced a Christmas gift for the community: A script, which automatically installs a lot"
+    },
+    {
+      "index": 12,
+      "start_time": 63010.0,
+      "end_time": 67660.0,
+      "text": "of things on Linux systems, including the Raspberry Pi."
+    },
+    {
+      "index": 13,
+      "start_time": 67660.0,
+      "end_time": 72369.0,
+      "text": "You chose, which packets you want and wait for a few minutes or hours."
+    },
+    {
+      "index": 14,
+      "start_time": 72369.0,
+      "end_time": 77360.0,
+      "text": "After that, you get your system more or less completely configured."
+    },
+    {
+      "index": 15,
+      "start_time": 77360.0,
+      "end_time": 79000.0,
+      "text": "Really great stuff!"
+    },
+    {
+      "index": 16,
+      "start_time": 79000.0,
+      "end_time": 84799.0,
+      "text": "I wanted to use this script for my new Pi zero, when I read, that Peter was not happy"
+    },
+    {
+      "index": 17,
+      "start_time": 84799.0,
+      "end_time": 89740.0,
+      "text": "with Raspian on the Pi Zero."
+    },
+    {
+      "index": 18,
+      "start_time": 89740.0,
+      "end_time": 92360.0,
+      "text": "It was way too slow for him."
+    },
+    {
+      "index": 19,
+      "start_time": 92360.0,
+      "end_time": 100010.0,
+      "text": "Fortunately, he found a better solution: Diet Pi, which can also be used for our project."
+    },
+    {
+      "index": 20,
+      "start_time": 100010.0,
+      "end_time": 108259.0,
+      "text": "So, I started with installing dietPi on an SD card, enabled it for my Wi-Fi, and copied"
+    },
+    {
+      "index": 21,
+      "start_time": 108259.0,
+      "end_time": 111310.0,
+      "text": "Peter’s script to my device."
+    },
+    {
+      "index": 22,
+      "start_time": 111310.0,
+      "end_time": 119009.0,
+      "text": "After that, I created two new users, Pi and admin, and started the script."
+    },
+    {
+      "index": 23,
+      "start_time": 119009.0,
+      "end_time": 122090.0,
+      "text": "Then, I had to wait for a few hours."
+    },
+    {
+      "index": 24,
+      "start_time": 122090.0,
+      "end_time": 127539.0,
+      "text": "Eventually, the script finished, and I had to reboot my Zero."
+    },
+    {
+      "index": 25,
+      "start_time": 127539.0,
+      "end_time": 133810.0,
+      "text": "You find the link in the description, if you want to use Peters script for your purposes."
+    },
+    {
+      "index": 26,
+      "start_time": 133810.0,
+      "end_time": 138660.0,
+      "text": "To check my newly created system out, I started the Mosquitto broker."
+    },
+    {
+      "index": 27,
+      "start_time": 138660.0,
+      "end_time": 140010.0,
+      "text": "It worked."
+    },
+    {
+      "index": 28,
+      "start_time": 140010.0,
+      "end_time": 144739.0,
+      "text": "Next, I started Node-Red using the admin user."
+    },
+    {
+      "index": 29,
+      "start_time": 144739.0,
+      "end_time": 147230.0,
+      "text": "And it worked, too."
+    },
+    {
+      "index": 30,
+      "start_time": 147230.0,
+      "end_time": 154540.0,
+      "text": "Maybe not as fast as I runs on my pi 3, but usable without any problems."
+    },
+    {
+      "index": 31,
+      "start_time": 154540.0,
+      "end_time": 161860.0,
+      "text": "When I looked at the available nodes, I discovered, that Peter did completed staff work."
+    },
+    {
+      "index": 32,
+      "start_time": 161860.0,
+      "end_time": 170500.0,
+      "text": "He already added many nodes like his famous big-timer, johnny5, pushbullet, some google"
+    },
+    {
+      "index": 33,
+      "start_time": 170500.0,
+      "end_time": 175129.0,
+      "text": "stuff, raspberry stuff and so on, and so on."
+    },
+    {
+      "index": 34,
+      "start_time": 175129.0,
+      "end_time": 178670.0,
+      "text": "This alone is worth many hours of work!"
+    },
+    {
+      "index": 35,
+      "start_time": 178670.0,
+      "end_time": 181760.0,
+      "text": "And he added also the Node-Red dashboard."
+    },
+    {
+      "index": 36,
+      "start_time": 181760.0,
+      "end_time": 187220.0,
+      "text": "So, you get a more-or less complete Node-Red installation."
+    },
+    {
+      "index": 37,
+      "start_time": 187220.0,
+      "end_time": 195970.0,
+      "text": "In addition, he added the SQlite database system and phpadmin light for its administration."
+    },
+    {
+      "index": 38,
+      "start_time": 195970.0,
+      "end_time": 198240.0,
+      "text": "Absolutely great!"
+    },
+    {
+      "index": 39,
+      "start_time": 198240.0,
+      "end_time": 204450.0,
+      "text": "There is only one thing I can add here: I made a copy of my SD card and make it available"
+    },
+    {
+      "index": 40,
+      "start_time": 204450.0,
+      "end_time": 206600.0,
+      "text": "to you for download."
+    },
+    {
+      "index": 41,
+      "start_time": 206600.0,
+      "end_time": 212230.0,
+      "text": "This saves you all the hassles of downloading and installing dietpi, and wait for the completion"
+    },
+    {
+      "index": 42,
+      "start_time": 212230.0,
+      "end_time": 214260.0,
+      "text": "of Peters Script."
+    },
+    {
+      "index": 43,
+      "start_time": 214260.0,
+      "end_time": 221280.0,
+      "text": "If you want, you can download and copy this file to a SD card using Win32 Disk Imager,"
+    },
+    {
+      "index": 44,
+      "start_time": 221280.0,
+      "end_time": 227849.0,
+      "text": "insert the card into your Raspby Pi Zero, connect your Zero to a display and a keyboard"
+    },
+    {
+      "index": 45,
+      "start_time": 227849.0,
+      "end_time": 232810.0,
+      "text": "and enter your Wi-Fi credentials into the file /etc/network/interfaces."
+    },
+    {
+      "index": 46,
+      "start_time": 232810.0,
+      "end_time": 236530.0,
+      "text": "That’s all."
+    },
+    {
+      "index": 47,
+      "start_time": 236530.0,
+      "end_time": 240580.0,
+      "text": "And the whole thing did take for sure less than half an hour."
+    },
+    {
+      "index": 48,
+      "start_time": 240580.0,
+      "end_time": 247420.0,
+      "text": "If you kept the assigned fixed IP address, you can Putty into a fully configured MQTT"
+    },
+    {
+      "index": 49,
+      "start_time": 247420.0,
+      "end_time": 253680.0,
+      "text": "broker by connecting to 192.168.0.202."
+    },
+    {
+      "index": 50,
+      "start_time": 253680.0,
+      "end_time": 257410.0,
+      "text": "Just for your information, you find these three users on your system:"
+    },
+    {
+      "index": 51,
+      "start_time": 257410.00000000003,
+      "end_time": 258410.00000000003,
+      "text": "Username Password pi password"
+    },
+    {
+      "index": 52,
+      "start_time": 258410.00000000003,
+      "end_time": 259410.00000000003,
+      "text": "admin admin For Node-Red root dietpi"
+    },
+    {
+      "index": 53,
+      "start_time": 259410.00000000003,
+      "end_time": 264170.0,
+      "text": "Of course, you can change the passwords, or add new users, if you wish."
+    },
+    {
+      "index": 54,
+      "start_time": 264170.0,
+      "end_time": 268120.0,
+      "text": "Because we saved so many hours, we still have some time left."
+    },
+    {
+      "index": 55,
+      "start_time": 268120.0,
+      "end_time": 275410.0,
+      "text": "So, I will build a small data logger for my Sonoff switch using MQTT, Node-Red, and the"
+    },
+    {
+      "index": 56,
+      "start_time": 275410.0,
+      "end_time": 277780.0,
+      "text": "SQlite data base."
+    },
+    {
+      "index": 57,
+      "start_time": 277780.0,
+      "end_time": 284330.0,
+      "text": "From now on, I assume, that you used my SD card image for your Pi Zero."
+    },
+    {
+      "index": 58,
+      "start_time": 284330.0,
+      "end_time": 287010.0,
+      "text": "This image contains all material needed."
+    },
+    {
+      "index": 59,
+      "start_time": 287010.0,
+      "end_time": 290400.0,
+      "text": "So, first, we test the Mosquitto broker."
+    },
+    {
+      "index": 60,
+      "start_time": 290400.0,
+      "end_time": 297240.0,
+      "text": "We could do this by using the built-in functions like mosquitto_sub and mosquitto_pub in the"
+    },
+    {
+      "index": 61,
+      "start_time": 297240.0,
+      "end_time": 298710.0,
+      "text": "terminal window."
+    },
+    {
+      "index": 62,
+      "start_time": 298710.0,
+      "end_time": 304330.0,
+      "text": "But, because we already have Node-Red available, we use this tool to do that."
+    },
+    {
+      "index": 63,
+      "start_time": 304330.0,
+      "end_time": 320240.0,
+      "text": "So, we can also check the connection between the two packages."
+    },
+    {
+      "index": 64,
+      "start_time": 320240.0,
+      "end_time": 325900.0,
+      "text": "We use the “MQTT test flow” in Node-Red to do that."
+    },
+    {
+      "index": 65,
+      "start_time": 325900.0,
+      "end_time": 331100.0,
+      "text": "First we have to adjust the IP address of the MQTT broker to the address of your Pi"
+    },
+    {
+      "index": 66,
+      "start_time": 331100.0,
+      "end_time": 333710.0,
+      "text": "zero, if you changed it."
+    },
+    {
+      "index": 67,
+      "start_time": 333710.0,
+      "end_time": 336930.0,
+      "text": "This has to be done in these two nodes."
+    },
+    {
+      "index": 68,
+      "start_time": 336930.0,
+      "end_time": 343560.0,
+      "text": "In Node-Red, you have to “deploy” after every change to activate the changes."
+    },
+    {
+      "index": 69,
+      "start_time": 343560.0,
+      "end_time": 349950.0,
+      "text": "Now, Node-Red should connect to Mosquitto and you should see the green points here."
+    },
+    {
+      "index": 70,
+      "start_time": 349950.0,
+      "end_time": 354830.0,
+      "text": "If we now press this button, a text is published to Mosquitto."
+    },
+    {
+      "index": 71,
+      "start_time": 354830.0,
+      "end_time": 361230.0,
+      "text": "And because we subscribed to the all topics, the message comes back from Mosquitto to Node-Red"
+    },
+    {
+      "index": 72,
+      "start_time": 361230.0,
+      "end_time": 363610.0,
+      "text": "and into our debug window."
+    },
+    {
+      "index": 73,
+      "start_time": 363610.0,
+      "end_time": 368150.0,
+      "text": "So, our “Hello world” scenario is live."
+    },
+    {
+      "index": 74,
+      "start_time": 368150.0,
+      "end_time": 371150.0,
+      "text": "Node-Red and Mosquitto are working together."
+    },
+    {
+      "index": 75,
+      "start_time": 371150.0,
+      "end_time": 372230.0,
+      "text": "Cool."
+    },
+    {
+      "index": 76,
+      "start_time": 372230.0,
+      "end_time": 377010.0,
+      "text": "Next, we go to the “MQTT data Logger Flow”."
+    },
+    {
+      "index": 77,
+      "start_time": 377010.0,
+      "end_time": 381860.0,
+      "text": "This scenario needs three main nodes to perform the task."
+    },
+    {
+      "index": 78,
+      "start_time": 381860.0,
+      "end_time": 386180.0,
+      "text": "I added two debug nodes to show you, what happens."
+    },
+    {
+      "index": 79,
+      "start_time": 386180.0,
+      "end_time": 389530.0,
+      "text": "Let’s start with the MQTT node."
+    },
+    {
+      "index": 80,
+      "start_time": 389530.0,
+      "end_time": 396910.0,
+      "text": "This node is subscribed to the “Relay topic of our Sonoff device from last video."
+    },
+    {
+      "index": 81,
+      "start_time": 396910.0,
+      "end_time": 403730.0,
+      "text": "The next node inserts the topic, the payload, and a timestamp to SQlite."
+    },
+    {
+      "index": 82,
+      "start_time": 403730.0,
+      "end_time": 407200.0,
+      "text": "The last node creates the connection to the database."
+    },
+    {
+      "index": 83,
+      "start_time": 407200.0,
+      "end_time": 411420.0,
+      "text": "So, Let’s first look at the setup of the database."
+    },
+    {
+      "index": 84,
+      "start_time": 411420.0,
+      "end_time": 415000.0,
+      "text": "To do that, we have to connect to phpadminlite."
+    },
+    {
+      "index": 85,
+      "start_time": 415000.0,
+      "end_time": 419430.0,
+      "text": "Here, we can manage our database."
+    },
+    {
+      "index": 86,
+      "start_time": 419430.0,
+      "end_time": 427220.0,
+      "text": "If you used my image file, you will already find a database called IOT with a few tables."
+    },
+    {
+      "index": 87,
+      "start_time": 427220.0,
+      "end_time": 431652.0,
+      "text": "We will only use table Sonoff for this logger."
+    },
+    {
+      "index": 88,
+      "start_time": 431652.0,
+      "end_time": 438820.0,
+      "text": "This table has three fields: The topic, a timestamp, and the relay state."
+    },
+    {
+      "index": 89,
+      "start_time": 438820.0,
+      "end_time": 443210.0,
+      "text": "If we browse this database, we see, that it is empty."
+    },
+    {
+      "index": 90,
+      "start_time": 443210.0,
+      "end_time": 450330.0,
+      "text": "Now, we go back to Node-Red and to the function which creates the SQL statement which inserts"
+    },
+    {
+      "index": 91,
+      "start_time": 450330.0,
+      "end_time": 452480.0,
+      "text": "a record into the database."
+    },
+    {
+      "index": 92,
+      "start_time": 452480.0,
+      "end_time": 459450.0,
+      "text": "I have to confess, I have no idea of Java script and I just used an example and adapted"
+    },
+    {
+      "index": 93,
+      "start_time": 459450.0,
+      "end_time": 461560.0,
+      "text": "it till it did, what I wanted."
+    },
+    {
+      "index": 94,
+      "start_time": 461560.0,
+      "end_time": 465120.0,
+      "text": "So, for sure, there are better ways of doing it."
+    },
+    {
+      "index": 95,
+      "start_time": 465120.0,
+      "end_time": 468230.0,
+      "text": "But still, it might be useful for you."
+    },
+    {
+      "index": 96,
+      "start_time": 468230.0,
+      "end_time": 472890.0,
+      "text": "The first part creates this line in Node-Red."
+    },
+    {
+      "index": 97,
+      "start_time": 472890.0,
+      "end_time": 477060.0,
+      "text": "It shows us, when the last update took place."
+    },
+    {
+      "index": 98,
+      "start_time": 477060.0,
+      "end_time": 483270.0,
+      "text": "The next part creates a string called SQL which is filled with an SQL statement."
+    },
+    {
+      "index": 99,
+      "start_time": 483270.0,
+      "end_time": 487340.0,
+      "text": "At the end, this string is pushed to the database."
+    },
+    {
+      "index": 100,
+      "start_time": 487340.0,
+      "end_time": 493810.0,
+      "text": "If we look at the creation of this string, we see “Insert into Sonoff, which is the"
+    },
+    {
+      "index": 101,
+      "start_time": 493810.0,
+      "end_time": 495410.0,
+      "text": "table we want to fill."
+    },
+    {
+      "index": 102,
+      "start_time": 495410.0,
+      "end_time": 498900.0,
+      "text": "Then, we find all three fields we want to populate."
+    },
+    {
+      "index": 103,
+      "start_time": 498900.0,
+      "end_time": 503080.0,
+      "text": "Next, we find the Values, also separated by commas."
+    },
+    {
+      "index": 104,
+      "start_time": 503080.0,
+      "end_time": 507610.0,
+      "text": "The string values have to be framed by quotes."
+    },
+    {
+      "index": 105,
+      "start_time": 507610.0,
+      "end_time": 514130.0,
+      "text": "If we have a closer look, we see, that we created an ordinary SQL statement."
+    },
+    {
+      "index": 106,
+      "start_time": 514130.0,
+      "end_time": 520320.0,
+      "text": "If we go back to our SWL administration, we can execute this statement."
+    },
+    {
+      "index": 107,
+      "start_time": 520320.00000000006,
+      "end_time": 523130.00000000006,
+      "text": "And we see the result in the database."
+    },
+    {
+      "index": 108,
+      "start_time": 523130.0,
+      "end_time": 529610.0,
+      "text": "The last node does exactly that: It transfers the SQL statement to the database."
+    },
+    {
+      "index": 109,
+      "start_time": 529610.0,
+      "end_time": 531470.0,
+      "text": "That’s all."
+    },
+    {
+      "index": 110,
+      "start_time": 531470.0,
+      "end_time": 538850.0,
+      "text": "If we now switch the Sonoff of- and on again, we see two additional SQL statements in Node-Red"
+    },
+    {
+      "index": 111,
+      "start_time": 538850.0,
+      "end_time": 541440.0,
+      "text": "and the two entries in the database."
+    },
+    {
+      "index": 112,
+      "start_time": 541440.0,
+      "end_time": 545200.0,
+      "text": "So, our MQTT logger works!"
+    },
+    {
+      "index": 113,
+      "start_time": 545200.0,
+      "end_time": 551600.0,
+      "text": "Summarized: - We can use our Pi Zero W as a MQTT broker."
+    },
+    {
+      "index": 114,
+      "start_time": 551600.0,
+      "end_time": 558300.0,
+      "text": "- If we use dietpi and Peter Scargill’s script, we easily can create such a device."
+    },
+    {
+      "index": 115,
+      "start_time": 558300.0,
+      "end_time": 564410.0,
+      "text": "- If you use my pre-fabricated SD card image, you are even faster and you get your broker"
+    },
+    {
+      "index": 116,
+      "start_time": 564410.0,
+      "end_time": 567720.0,
+      "text": "in less than half an hour."
+    },
+    {
+      "index": 117,
+      "start_time": 567720.0,
+      "end_time": 571180.0,
+      "text": "- This broker does not only work as a MQTT broker."
+    },
+    {
+      "index": 118,
+      "start_time": 571180.0,
+      "end_time": 573970.0,
+      "text": "It includes also many other pre-installed packets"
+    },
+    {
+      "index": 119,
+      "start_time": 573970.0,
+      "end_time": 581270.0,
+      "text": "- Because viewers asked me, how to log MQTT data, I used this newly created device to"
+    },
+    {
+      "index": 120,
+      "start_time": 581270.0,
+      "end_time": 588810.0,
+      "text": "build a simple MQTT messages broker with SQlite - All-in all, it is astonishing what we can"
+    },
+    {
+      "index": 121,
+      "start_time": 588810.0,
+      "end_time": 593400.0,
+      "text": "get for less than 20 dollars and half an hour of work."
+    },
+    {
+      "index": 122,
+      "start_time": 593400.0,
+      "end_time": 597820.0,
+      "text": "It does what we wanted and we even can extend its usage ."
+    },
+    {
+      "index": 123,
+      "start_time": 597820.0,
+      "end_time": 602080.0,
+      "text": "I hope, this video was useful, or at least interesting for you."
+    },
+    {
+      "index": 124,
+      "start_time": 602080.0,
+      "end_time": 604720.0,
+      "text": "If true, then like."
+    },
+    {
+      "index": 125,
+      "start_time": 604720.0,
+      "end_time": 614720.0,
+      "text": "Bye"
+    }
+  ]
+}

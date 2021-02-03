@@ -1,0 +1,5784 @@
+{
+  "video_id": "CxB1DuwGRqk",
+  "title": "Google I/O 2013 - Building Glass Services with the Google Mirror API",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 620.0,
+      "end_time": 3420.0,
+      "text": "JENNY MURPHY: So welcome to Building Glassware With the"
+    },
+    {
+      "index": 2,
+      "start_time": 3420.0,
+      "end_time": 5440.0,
+      "text": "Google Mirror API."
+    },
+    {
+      "index": 3,
+      "start_time": 5440.0,
+      "end_time": 6940.0,
+      "text": "Today, we&#39;re going to show you some code on"
+    },
+    {
+      "index": 4,
+      "start_time": 6940.0,
+      "end_time": 8680.0,
+      "text": "building some Glassware."
+    },
+    {
+      "index": 5,
+      "start_time": 8680.0,
+      "end_time": 10440.0,
+      "text": "Before we get into that, let&#39;s tell you a"
+    },
+    {
+      "index": 6,
+      "start_time": 10440.0,
+      "end_time": 12140.0,
+      "text": "little bit about ourselves."
+    },
+    {
+      "index": 7,
+      "start_time": 12140.0,
+      "end_time": 13220.0,
+      "text": "ALAIN VONGSOUVANH: Hi, everyone."
+    },
+    {
+      "index": 8,
+      "start_time": 13220.0,
+      "end_time": 14380.0,
+      "text": "My name&#39;s Alain Vongsouvanh."
+    },
+    {
+      "index": 9,
+      "start_time": 14380.0,
+      "end_time": 16110.0,
+      "text": "I&#39;m a Developer Programs Engineer on"
+    },
+    {
+      "index": 10,
+      "start_time": 16110.0,
+      "end_time": 17850.0,
+      "text": "Glass, and this is--"
+    },
+    {
+      "index": 11,
+      "start_time": 17850.0,
+      "end_time": 18450.0,
+      "text": "JENNY MURPHY: Hi."
+    },
+    {
+      "index": 12,
+      "start_time": 18450.0,
+      "end_time": 19460.0,
+      "text": "I&#39;m Jenny Murphy."
+    },
+    {
+      "index": 13,
+      "start_time": 19460.0,
+      "end_time": 23820.0,
+      "text": "I&#39;m also a Developer Programs Engineer on Glass."
+    },
+    {
+      "index": 14,
+      "start_time": 23820.0,
+      "end_time": 26510.0,
+      "text": "So here&#39;s our menu for today."
+    },
+    {
+      "index": 15,
+      "start_time": 26510.0,
+      "end_time": 29790.0,
+      "text": "We&#39;re going to briefly touch on the guidelines so you know"
+    },
+    {
+      "index": 16,
+      "start_time": 29790.0,
+      "end_time": 31830.0,
+      "text": "how to build some awesome Glassware."
+    },
+    {
+      "index": 17,
+      "start_time": 31830.0,
+      "end_time": 34530.0,
+      "text": "We&#39;re going to cover this really briefly because it&#39;s a"
+    },
+    {
+      "index": 18,
+      "start_time": 34530.0,
+      "end_time": 36230.0,
+      "text": "lot of the same information that Timothy"
+    },
+    {
+      "index": 19,
+      "start_time": 36230.0,
+      "end_time": 38310.0,
+      "text": "covered early in a session."
+    },
+    {
+      "index": 20,
+      "start_time": 38310.0,
+      "end_time": 42780.0,
+      "text": "In fact, we assume a little bit of foreknowledge here."
+    },
+    {
+      "index": 21,
+      "start_time": 42780.0,
+      "end_time": 45500.0,
+      "text": "We assume you&#39;re familiar with Glass, either you attended"
+    },
+    {
+      "index": 22,
+      "start_time": 45500.0,
+      "end_time": 49660.0,
+      "text": "Timothy&#39;s session, or you have Glass on right now, or maybe"
+    },
+    {
+      "index": 23,
+      "start_time": 49660.0,
+      "end_time": 52330.0,
+      "text": "you visited some of our partners in the"
+    },
+    {
+      "index": 24,
+      "start_time": 52330.0,
+      "end_time": 54840.0,
+      "text": "Glass Sandbox earlier."
+    },
+    {
+      "index": 25,
+      "start_time": 54840.0,
+      "end_time": 58760.0,
+      "text": "But even if you haven&#39;t, just hang tight, take some notes,"
+    },
+    {
+      "index": 26,
+      "start_time": 58760.0,
+      "end_time": 60900.0,
+      "text": "and make sure to follow up with that information like"
+    },
+    {
+      "index": 27,
+      "start_time": 60900.0,
+      "end_time": 63500.0,
+      "text": "seeing Timothy&#39;s video."
+    },
+    {
+      "index": 28,
+      "start_time": 63500.0,
+      "end_time": 65390.0,
+      "text": "Once we&#39;re done with that, we&#39;re going to go through the"
+    },
+    {
+      "index": 29,
+      "start_time": 65390.0,
+      "end_time": 67786.0,
+      "text": "components of the Mirror API."
+    },
+    {
+      "index": 30,
+      "start_time": 67786.0,
+      "end_time": 69060.0,
+      "text": "These are the building blocks that you"
+    },
+    {
+      "index": 31,
+      "start_time": 69060.0,
+      "end_time": 71140.0,
+      "text": "use to build Glassware."
+    },
+    {
+      "index": 32,
+      "start_time": 71140.0,
+      "end_time": 72990.0,
+      "text": "We&#39;re going to go through each one and show you some code of"
+    },
+    {
+      "index": 33,
+      "start_time": 72990.0,
+      "end_time": 75230.0,
+      "text": "using them in isolation."
+    },
+    {
+      "index": 34,
+      "start_time": 75230.0,
+      "end_time": 77320.0,
+      "text": "Once we&#39;re done with that, we&#39;re going to show you a"
+    },
+    {
+      "index": 35,
+      "start_time": 77320.0,
+      "end_time": 79970.0,
+      "text": "couple of examples of how you can put them together to build"
+    },
+    {
+      "index": 36,
+      "start_time": 79970.0,
+      "end_time": 81960.0,
+      "text": "some interesting Glassware."
+    },
+    {
+      "index": 37,
+      "start_time": 81960.0,
+      "end_time": 83990.0,
+      "text": "We hope that this will give you the context that you can"
+    },
+    {
+      "index": 38,
+      "start_time": 83990.0,
+      "end_time": 85240.0,
+      "text": "use to build your own Glassware."
+    },
+    {
+      "index": 39,
+      "start_time": 87955.0,
+      "end_time": 88660.0,
+      "text": "ALAIN VONGSOUVANH: All right."
+    },
+    {
+      "index": 40,
+      "start_time": 88660.0,
+      "end_time": 90240.0,
+      "text": "Thank you, Jenny."
+    },
+    {
+      "index": 41,
+      "start_time": 90240.0,
+      "end_time": 91800.0,
+      "text": "Sounds really interesting."
+    },
+    {
+      "index": 42,
+      "start_time": 91800.0,
+      "end_time": 94680.0,
+      "text": "But before we dive into the code and learn how we can use"
+    },
+    {
+      "index": 43,
+      "start_time": 94680.0,
+      "end_time": 97580.0,
+      "text": "the Mirror API to build Glass services, or what we call"
+    },
+    {
+      "index": 44,
+      "start_time": 97580.0,
+      "end_time": 100170.0,
+      "text": "Glassware, we&#39;d like to take a few moments to talk about"
+    },
+    {
+      "index": 45,
+      "start_time": 100170.0,
+      "end_time": 101810.0,
+      "text": "guidelines."
+    },
+    {
+      "index": 46,
+      "start_time": 101810.0,
+      "end_time": 105510.0,
+      "text": "So keep in mind that the Glassware you write"
+    },
+    {
+      "index": 47,
+      "start_time": 105510.0,
+      "end_time": 109300.0,
+      "text": "[INAUDIBLE] user, and with the technology being so close to"
+    },
+    {
+      "index": 48,
+      "start_time": 109300.0,
+      "end_time": 111880.0,
+      "text": "the user, it&#39;s really important that the experience"
+    },
+    {
+      "index": 49,
+      "start_time": 111880.0,
+      "end_time": 113830.0,
+      "text": "we provide is the best possible."
+    },
+    {
+      "index": 50,
+      "start_time": 113830.0,
+      "end_time": 116390.0,
+      "text": "That is why we designed guidelines"
+    },
+    {
+      "index": 51,
+      "start_time": 116390.0,
+      "end_time": 118860.0,
+      "text": "around those four points."
+    },
+    {
+      "index": 52,
+      "start_time": 118860.0,
+      "end_time": 121840.0,
+      "text": "I won&#39;t go into details into those because Timothy really"
+    },
+    {
+      "index": 53,
+      "start_time": 121840.0,
+      "end_time": 123670.0,
+      "text": "did a great job explaining them."
+    },
+    {
+      "index": 54,
+      "start_time": 123670.0,
+      "end_time": 125280.0,
+      "text": "If you managed to attend his sessions--"
+    },
+    {
+      "index": 55,
+      "start_time": 125280.0,
+      "end_time": 127560.0,
+      "text": "I bet many of you have--"
+    },
+    {
+      "index": 56,
+      "start_time": 127560.0,
+      "end_time": 128930.0,
+      "text": "you should be good to go."
+    },
+    {
+      "index": 57,
+      "start_time": 128930.0,
+      "end_time": 131770.0,
+      "text": "If not, make sure to check his session when it&#39;s back online."
+    },
+    {
+      "index": 58,
+      "start_time": 131770.0,
+      "end_time": 134170.0,
+      "text": "And always keep those guidelines in mind when you"
+    },
+    {
+      "index": 59,
+      "start_time": 134170.0,
+      "end_time": 137700.0,
+      "text": "are designing in Glassware, [INAUDIBLE] in Glassware, and"
+    },
+    {
+      "index": 60,
+      "start_time": 137700.0,
+      "end_time": 139190.0,
+      "text": "testing in Glassware."
+    },
+    {
+      "index": 61,
+      "start_time": 139190.0,
+      "end_time": 140800.0,
+      "text": "Sounds good?"
+    },
+    {
+      "index": 62,
+      "start_time": 140800.0,
+      "end_time": 142050.0,
+      "text": "All right."
+    },
+    {
+      "index": 63,
+      "start_time": 144530.0,
+      "end_time": 145380.0,
+      "text": "JENNY MURPHY: Hi."
+    },
+    {
+      "index": 64,
+      "start_time": 145380.0,
+      "end_time": 147820.0,
+      "text": "Let&#39;s move on to the Mirror API, those building blocks I"
+    },
+    {
+      "index": 65,
+      "start_time": 147820.0,
+      "end_time": 150280.0,
+      "text": "mentioned before."
+    },
+    {
+      "index": 66,
+      "start_time": 150280.0,
+      "end_time": 154115.0,
+      "text": "Before I get into that, how many of you here have built"
+    },
+    {
+      "index": 67,
+      "start_time": 154115.0,
+      "end_time": 157570.0,
+      "text": "software using RESTful web services before?"
+    },
+    {
+      "index": 68,
+      "start_time": 157570.0,
+      "end_time": 157950.0,
+      "text": "Wow."
+    },
+    {
+      "index": 69,
+      "start_time": 157950.0,
+      "end_time": 159490.0,
+      "text": "Almost everyone."
+    },
+    {
+      "index": 70,
+      "start_time": 159490.0,
+      "end_time": 162810.0,
+      "text": "How about mobile applications like Android apps?"
+    },
+    {
+      "index": 71,
+      "start_time": 162810.0,
+      "end_time": 166370.0,
+      "text": "A good number, and quite a bit of overlap."
+    },
+    {
+      "index": 72,
+      "start_time": 166370.0,
+      "end_time": 168980.0,
+      "text": "You&#39;re going to find that you can leverage a lot of the"
+    },
+    {
+      "index": 73,
+      "start_time": 168980.0,
+      "end_time": 171190.0,
+      "text": "knowledge you already have, a lot of the experience you have"
+    },
+    {
+      "index": 74,
+      "start_time": 171190.0,
+      "end_time": 171963.0,
+      "text": "from those two."
+    },
+    {
+      "index": 75,
+      "start_time": 171963.0,
+      "end_time": 176160.0,
+      "text": "But our perspective is a little bit different so please"
+    },
+    {
+      "index": 76,
+      "start_time": 176160.0,
+      "end_time": 177410.0,
+      "text": "try to keep an open mind."
+    },
+    {
+      "index": 77,
+      "start_time": 180250.0,
+      "end_time": 182810.0,
+      "text": "And as many technical presentations start, we have"
+    },
+    {
+      "index": 78,
+      "start_time": 182810.0,
+      "end_time": 187360.0,
+      "text": "our architecture diagram, and this one is no different."
+    },
+    {
+      "index": 79,
+      "start_time": 187360.0,
+      "end_time": 190790.0,
+      "text": "We have the Mirror API, the 10,000 foot view."
+    },
+    {
+      "index": 80,
+      "start_time": 190790.0,
+      "end_time": 193390.0,
+      "text": "Up at the top, we have a green circle representing the Mirror"
+    },
+    {
+      "index": 81,
+      "start_time": 193390.0,
+      "end_time": 197040.0,
+      "text": "API itself, and this is a collection of RESTful web"
+    },
+    {
+      "index": 82,
+      "start_time": 197040.0,
+      "end_time": 200400.0,
+      "text": "services, which is really just a bunch of directories of JSON"
+    },
+    {
+      "index": 83,
+      "start_time": 200400.0,
+      "end_time": 204100.0,
+      "text": "that you work with over HTTPS."
+    },
+    {
+      "index": 84,
+      "start_time": 204100.0,
+      "end_time": 207640.0,
+      "text": "Over on the right side, we have a box representing Glass"
+    },
+    {
+      "index": 85,
+      "start_time": 207640.0,
+      "end_time": 211210.0,
+      "text": "and its connection to the Mirror API with Glass Sync."
+    },
+    {
+      "index": 86,
+      "start_time": 211210.0,
+      "end_time": 212620.0,
+      "text": "This is something you actually don&#39;t need to"
+    },
+    {
+      "index": 87,
+      "start_time": 212620.0,
+      "end_time": 214140.0,
+      "text": "worry too much about."
+    },
+    {
+      "index": 88,
+      "start_time": 214140.0,
+      "end_time": 216200.0,
+      "text": "This is one of the cool parts of the Mirror API."
+    },
+    {
+      "index": 89,
+      "start_time": 216200.0,
+      "end_time": 218410.0,
+      "text": "We take care of the synchronization for you."
+    },
+    {
+      "index": 90,
+      "start_time": 218410.0,
+      "end_time": 220880.0,
+      "text": "We handle connectivity, we handle power, all"
+    },
+    {
+      "index": 91,
+      "start_time": 220880.0,
+      "end_time": 221980.0,
+      "text": "that kind of stuff."
+    },
+    {
+      "index": 92,
+      "start_time": 221980.0,
+      "end_time": 226670.0,
+      "text": "You get to focus on the stuff to the other side, those JSON"
+    },
+    {
+      "index": 93,
+      "start_time": 226670.0,
+      "end_time": 231385.0,
+      "text": "messages you send back over HTTPS and your Glassware, the"
+    },
+    {
+      "index": 94,
+      "start_time": 231385.0,
+      "end_time": 232720.0,
+      "text": "code that interacts with the Mirror API."
+    },
+    {
+      "index": 95,
+      "start_time": 236260.0,
+      "end_time": 237910.0,
+      "text": "And if you&#39;re observant, you may have noticed"
+    },
+    {
+      "index": 96,
+      "start_time": 237910.0,
+      "end_time": 238840.0,
+      "text": "I missed one thing."
+    },
+    {
+      "index": 97,
+      "start_time": 238840.0,
+      "end_time": 241910.0,
+      "text": "There were directories of JSON up there, but we currently"
+    },
+    {
+      "index": 98,
+      "start_time": 241910.0,
+      "end_time": 246510.0,
+      "text": "have no way to tell the Mirror API what user you&#39;re"
+    },
+    {
+      "index": 99,
+      "start_time": 246510.0,
+      "end_time": 251900.0,
+      "text": "interacting with and no way to verify that they&#39;ve given you"
+    },
+    {
+      "index": 100,
+      "start_time": 251900.0,
+      "end_time": 253620.0,
+      "text": "access to their data."
+    },
+    {
+      "index": 101,
+      "start_time": 253620.0,
+      "end_time": 255215.0,
+      "text": "This is where OAuth comes in."
+    },
+    {
+      "index": 102,
+      "start_time": 255215.0,
+      "end_time": 258890.0,
+      "text": "We use OAuth to install Glassware and to give the user"
+    },
+    {
+      "index": 103,
+      "start_time": 258890.0,
+      "end_time": 264020.0,
+      "text": "the opportunity to provide you access to their data."
+    },
+    {
+      "index": 104,
+      "start_time": 264020.0,
+      "end_time": 266700.0,
+      "text": "OAuth is kind of like the valet keys for the internet."
+    },
+    {
+      "index": 105,
+      "start_time": 266700.0,
+      "end_time": 269890.0,
+      "text": "It gives users the ability to give you access to just some"
+    },
+    {
+      "index": 106,
+      "start_time": 269890.0,
+      "end_time": 271980.0,
+      "text": "of their data out there."
+    },
+    {
+      "index": 107,
+      "start_time": 271980.0,
+      "end_time": 274460.0,
+      "text": "Valet keys that kind of dance, and I&#39;m going to walk you"
+    },
+    {
+      "index": 108,
+      "start_time": 274460.0,
+      "end_time": 277620.0,
+      "text": "through the dance that we use to do this."
+    },
+    {
+      "index": 109,
+      "start_time": 277620.0,
+      "end_time": 281590.0,
+      "text": "So a new user arrives at your Glassware."
+    },
+    {
+      "index": 110,
+      "start_time": 281590.0,
+      "end_time": 283880.0,
+      "text": "You don&#39;t know who they are."
+    },
+    {
+      "index": 111,
+      "start_time": 283880.0,
+      "end_time": 286470.0,
+      "text": "Maybe it&#39;s time to install, maybe it&#39;s time just to hit a"
+    },
+    {
+      "index": 112,
+      "start_time": 286470.0,
+      "end_time": 287850.0,
+      "text": "Settings page."
+    },
+    {
+      "index": 113,
+      "start_time": 287850.0,
+      "end_time": 291300.0,
+      "text": "In either case, what you&#39;re going to do is you&#39;re going to"
+    },
+    {
+      "index": 114,
+      "start_time": 291300.0,
+      "end_time": 294190.0,
+      "text": "redirect then to Google&#39;s OS servers, or"
+    },
+    {
+      "index": 115,
+      "start_time": 294190.0,
+      "end_time": 296060.0,
+      "text": "maybe open a pop-up."
+    },
+    {
+      "index": 116,
+      "start_time": 296060.0,
+      "end_time": 298280.0,
+      "text": "You&#39;re going to send over all the permissions you want."
+    },
+    {
+      "index": 117,
+      "start_time": 298280.0,
+      "end_time": 300900.0,
+      "text": "Typically, this is going to be glass.timeline, but we have"
+    },
+    {
+      "index": 118,
+      "start_time": 300900.0,
+      "end_time": 303390.0,
+      "text": "some other permissions like glass.location which I&#39;ll be"
+    },
+    {
+      "index": 119,
+      "start_time": 303390.0,
+      "end_time": 305406.0,
+      "text": "going into a little bit later."
+    },
+    {
+      "index": 120,
+      "start_time": 305406.0,
+      "end_time": 307995.0,
+      "text": "The user logs into their Google account if they&#39;re not"
+    },
+    {
+      "index": 121,
+      "start_time": 307995.0,
+      "end_time": 311020.0,
+      "text": "already logged in, and then they see a page where they see"
+    },
+    {
+      "index": 122,
+      "start_time": 311020.0,
+      "end_time": 313390.0,
+      "text": "a list of permissions that you&#39;ve asked for."
+    },
+    {
+      "index": 123,
+      "start_time": 313390.0,
+      "end_time": 316750.0,
+      "text": "Since your Glassware has been prudent on the permissions"
+    },
+    {
+      "index": 124,
+      "start_time": 316750.0,
+      "end_time": 318680.0,
+      "text": "you&#39;re asking for and you have some really compelling"
+    },
+    {
+      "index": 125,
+      "start_time": 318680.0,
+      "end_time": 321350.0,
+      "text": "functionality, of course they&#39;re going say yes and"
+    },
+    {
+      "index": 126,
+      "start_time": 321350.0,
+      "end_time": 323890.0,
+      "text": "grant you those permissions."
+    },
+    {
+      "index": 127,
+      "start_time": 323890.0,
+      "end_time": 328980.0,
+      "text": "They get redirected back to your service, and along with"
+    },
+    {
+      "index": 128,
+      "start_time": 328980.0,
+      "end_time": 331810.0,
+      "text": "that redirection comes a code."
+    },
+    {
+      "index": 129,
+      "start_time": 331810.0,
+      "end_time": 334920.0,
+      "text": "Now it&#39;s your turn to complete that three way handshake."
+    },
+    {
+      "index": 130,
+      "start_time": 334920.0,
+      "end_time": 338180.0,
+      "text": "You take that code and you make a back end request, along"
+    },
+    {
+      "index": 131,
+      "start_time": 338180.0,
+      "end_time": 342480.0,
+      "text": "with some details of your service, and we send you an"
+    },
+    {
+      "index": 132,
+      "start_time": 342480.0,
+      "end_time": 344910.0,
+      "text": "access token."
+    },
+    {
+      "index": 133,
+      "start_time": 344910.0,
+      "end_time": 348210.0,
+      "text": "You use this access token to both identify the user when"
+    },
+    {
+      "index": 134,
+      "start_time": 348210.0,
+      "end_time": 351400.0,
+      "text": "you make those requests and to verify that you have those"
+    },
+    {
+      "index": 135,
+      "start_time": 351400.0,
+      "end_time": 352510.0,
+      "text": "permissions."
+    },
+    {
+      "index": 136,
+      "start_time": 352510.0,
+      "end_time": 356170.0,
+      "text": "You include it in a header on all those requests."
+    },
+    {
+      "index": 137,
+      "start_time": 356170.0,
+      "end_time": 357520.0,
+      "text": "There are a bunch of steps here."
+    },
+    {
+      "index": 138,
+      "start_time": 357520.0,
+      "end_time": 359720.0,
+      "text": "One cool thing is we have client libraries in our"
+    },
+    {
+      "index": 139,
+      "start_time": 359720.0,
+      "end_time": 362520.0,
+      "text": "Resources that care of almost all of this heavy lifting for"
+    },
+    {
+      "index": 140,
+      "start_time": 362520.0,
+      "end_time": 365450.0,
+      "text": "you, so you don&#39;t need to worry about these details."
+    },
+    {
+      "index": 141,
+      "start_time": 365450.0,
+      "end_time": 370680.0,
+      "text": "But if you want to, you can code at this level, too."
+    },
+    {
+      "index": 142,
+      "start_time": 370680.0,
+      "end_time": 374380.0,
+      "text": "So now we have access tokens and we can start using the"
+    },
+    {
+      "index": 143,
+      "start_time": 374380.0,
+      "end_time": 376260.0,
+      "text": "Mirror API."
+    },
+    {
+      "index": 144,
+      "start_time": 376260.0,
+      "end_time": 377510.0,
+      "text": "ALAIN VONGSOUVANH: Thank you, Jenny."
+    },
+    {
+      "index": 145,
+      "start_time": 377510.0,
+      "end_time": 382430.0,
+      "text": "So now that the user has installed your Glassware, it&#39;s"
+    },
+    {
+      "index": 146,
+      "start_time": 382430.0,
+      "end_time": 384590.0,
+      "text": "time to do stuff with it."
+    },
+    {
+      "index": 147,
+      "start_time": 384590.0,
+      "end_time": 386990.0,
+      "text": "Before we dive into how to write Glassware, let&#39;s talk"
+    },
+    {
+      "index": 148,
+      "start_time": 386990.0,
+      "end_time": 389300.0,
+      "text": "about the Mirror API and what it&#39;s made of."
+    },
+    {
+      "index": 149,
+      "start_time": 389300.0,
+      "end_time": 392450.0,
+      "text": "I&#39;m pretty sure many of you already know, but it&#39;s always"
+    },
+    {
+      "index": 150,
+      "start_time": 392450.0,
+      "end_time": 394190.0,
+      "text": "good to get a reminder."
+    },
+    {
+      "index": 151,
+      "start_time": 394190.0,
+      "end_time": 397740.0,
+      "text": "So Jenny mentioned that the Mirror API is a RESTful API,"
+    },
+    {
+      "index": 152,
+      "start_time": 397740.0,
+      "end_time": 402070.0,
+      "text": "so it means that it&#39;s an API composed of connections that"
+    },
+    {
+      "index": 153,
+      "start_time": 402070.0,
+      "end_time": 403970.0,
+      "text": "you manipulate through HTTP requests."
+    },
+    {
+      "index": 154,
+      "start_time": 403970.0,
+      "end_time": 408480.0,
+      "text": "So you can update, retrieve, delete, insert new items to"
+    },
+    {
+      "index": 155,
+      "start_time": 408480.0,
+      "end_time": 410290.0,
+      "text": "your collections."
+    },
+    {
+      "index": 156,
+      "start_time": 410290.0,
+      "end_time": 412060.0,
+      "text": "The main collection you&#39;re going to use when you write"
+    },
+    {
+      "index": 157,
+      "start_time": 412060.0,
+      "end_time": 414320.0,
+      "text": "your Glassware is the Timeline collection."
+    },
+    {
+      "index": 158,
+      "start_time": 414320.0,
+      "end_time": 417950.0,
+      "text": "This is how you insert content into the user&#39;s Glass, what we"
+    },
+    {
+      "index": 159,
+      "start_time": 417950.0,
+      "end_time": 421080.0,
+      "text": "call Timeline Card, and this is how you retrieve Timeline"
+    },
+    {
+      "index": 160,
+      "start_time": 421080.0,
+      "end_time": 424330.0,
+      "text": "Card from the user&#39;s Glass as well."
+    },
+    {
+      "index": 161,
+      "start_time": 424330.0,
+      "end_time": 427640.0,
+      "text": "Each Glassware has their own Timeline, so you don&#39;t get"
+    },
+    {
+      "index": 162,
+      "start_time": 427640.0,
+      "end_time": 429720.0,
+      "text": "access to another Glassware Timeline."
+    },
+    {
+      "index": 163,
+      "start_time": 429720.0,
+      "end_time": 432100.0,
+      "text": "For example, the Google+ Glassware doesn&#39;t have access"
+    },
+    {
+      "index": 164,
+      "start_time": 432100.0,
+      "end_time": 434480.0,
+      "text": "to the Gmail Glassware, and so forth."
+    },
+    {
+      "index": 165,
+      "start_time": 434480.0,
+      "end_time": 437950.0,
+      "text": "Very few exceptions, but that needs user input and we&#39;ll get"
+    },
+    {
+      "index": 166,
+      "start_time": 437950.0,
+      "end_time": 439750.0,
+      "text": "into that later."
+    },
+    {
+      "index": 167,
+      "start_time": 439750.0,
+      "end_time": 442910.0,
+      "text": "Now, the example you see on screen is the most simple"
+    },
+    {
+      "index": 168,
+      "start_time": 442910.0,
+      "end_time": 444290.0,
+      "text": "Timeline Card you can insert."
+    },
+    {
+      "index": 169,
+      "start_time": 444290.0,
+      "end_time": 445610.0,
+      "text": "It&#39;s text only."
+    },
+    {
+      "index": 170,
+      "start_time": 445610.0,
+      "end_time": 447660.0,
+      "text": "So this is a JSON representation of a Timeline"
+    },
+    {
+      "index": 171,
+      "start_time": 447660.0,
+      "end_time": 452580.0,
+      "text": "item, set the text property to Hello World, and then send an"
+    },
+    {
+      "index": 172,
+      "start_time": 452580.0,
+      "end_time": 455730.0,
+      "text": "authorized post request to the Timeline collection, and boom,"
+    },
+    {
+      "index": 173,
+      "start_time": 455730.0,
+      "end_time": 457080.0,
+      "text": "it&#39;s going to be in the user&#39;s Glass."
+    },
+    {
+      "index": 174,
+      "start_time": 457080.0,
+      "end_time": 458040.0,
+      "text": "MALE SPEAKER: Hi everyone."
+    },
+    {
+      "index": 175,
+      "start_time": 458040.0,
+      "end_time": 460210.0,
+      "text": "ALAIN VONGSOUVANH: It&#39;s as simple as that."
+    },
+    {
+      "index": 176,
+      "start_time": 460210.0,
+      "end_time": 463320.0,
+      "text": "Thanks for the noise."
+    },
+    {
+      "index": 177,
+      "start_time": 463320.0,
+      "end_time": 464080.0,
+      "text": "All right."
+    },
+    {
+      "index": 178,
+      "start_time": 464080.0,
+      "end_time": 466030.0,
+      "text": "Let&#39;s jump to the other example."
+    },
+    {
+      "index": 179,
+      "start_time": 466030.0,
+      "end_time": 469360.0,
+      "text": "So we inserted text, but you can also insert rich media to"
+    },
+    {
+      "index": 180,
+      "start_time": 469360.0,
+      "end_time": 470700.0,
+      "text": "the user&#39;s Glass."
+    },
+    {
+      "index": 181,
+      "start_time": 470700.0,
+      "end_time": 473850.0,
+      "text": "The Glass client supports images and videos, and you"
+    },
+    {
+      "index": 182,
+      "start_time": 473850.0,
+      "end_time": 476750.0,
+      "text": "insert those using HTTP requests as well."
+    },
+    {
+      "index": 183,
+      "start_time": 476750.0,
+      "end_time": 479345.0,
+      "text": "So you can insert media only, or you can also provide"
+    },
+    {
+      "index": 184,
+      "start_time": 479345.0,
+      "end_time": 482280.0,
+      "text": "metadata along with the media."
+    },
+    {
+      "index": 185,
+      "start_time": 482280.0,
+      "end_time": 486350.0,
+      "text": "This is an example of a multipart HTTP request, but as"
+    },
+    {
+      "index": 186,
+      "start_time": 486350.0,
+      "end_time": 488370.0,
+      "text": "Jenny mentioned, we have client libraries that leverage"
+    },
+    {
+      "index": 187,
+      "start_time": 488370.0,
+      "end_time": 490040.0,
+      "text": "all of that for you so you don&#39;t have to do"
+    },
+    {
+      "index": 188,
+      "start_time": 490040.0,
+      "end_time": 491270.0,
+      "text": "all the heavy lifting."
+    },
+    {
+      "index": 189,
+      "start_time": 491270.0,
+      "end_time": 493420.0,
+      "text": "And we have extensive documentation on how to do"
+    },
+    {
+      "index": 190,
+      "start_time": 493420.0,
+      "end_time": 496360.0,
+      "text": "that in our reference documentation."
+    },
+    {
+      "index": 191,
+      "start_time": 496360.0,
+      "end_time": 500640.0,
+      "text": "So now, we have text, we have media, but sometimes, you want"
+    },
+    {
+      "index": 192,
+      "start_time": 500640.0,
+      "end_time": 502170.0,
+      "text": "to add your own branding as well."
+    },
+    {
+      "index": 193,
+      "start_time": 502170.0,
+      "end_time": 504010.0,
+      "text": "You want to customize your Timeline Card."
+    },
+    {
+      "index": 194,
+      "start_time": 504010.0,
+      "end_time": 507980.0,
+      "text": "You want to do more stuff, provide a better"
+    },
+    {
+      "index": 195,
+      "start_time": 507980.0,
+      "end_time": 509450.0,
+      "text": "experience to the user."
+    },
+    {
+      "index": 196,
+      "start_time": 509450.0,
+      "end_time": 512179.0,
+      "text": "For that, we have HTML support."
+    },
+    {
+      "index": 197,
+      "start_time": 512179.0,
+      "end_time": 514700.0,
+      "text": "So you can set HTML payload into the"
+    },
+    {
+      "index": 198,
+      "start_time": 514700.00000000006,
+      "end_time": 516850.00000000006,
+      "text": "Timeline item metadata."
+    },
+    {
+      "index": 199,
+      "start_time": 516850.0,
+      "end_time": 519539.0,
+      "text": "It&#39;s as simple as just setting the HTML into the HTML"
+    },
+    {
+      "index": 200,
+      "start_time": 519539.0,
+      "end_time": 523370.0,
+      "text": "Property, and we have a list of tags that we support and"
+    },
+    {
+      "index": 201,
+      "start_time": 523370.0,
+      "end_time": 526920.0,
+      "text": "tags that we don&#39;t, like Script and Link."
+    },
+    {
+      "index": 202,
+      "start_time": 526920.0,
+      "end_time": 530820.0,
+      "text": "All of that is documented in our Reference Guide as well."
+    },
+    {
+      "index": 203,
+      "start_time": 530820.0,
+      "end_time": 535630.0,
+      "text": "And we also have a built-in CSS that we encourage you to"
+    },
+    {
+      "index": 204,
+      "start_time": 535630.0,
+      "end_time": 538230.0,
+      "text": "use to provide a consistent experience"
+    },
+    {
+      "index": 205,
+      "start_time": 538230.0,
+      "end_time": 540470.0,
+      "text": "across all the Glassware."
+    },
+    {
+      "index": 206,
+      "start_time": 540470.0,
+      "end_time": 543920.0,
+      "text": "Now, let&#39;s look at how it looks like to the code."
+    },
+    {
+      "index": 207,
+      "start_time": 543920.0,
+      "end_time": 547710.0,
+      "text": "So in our slide, we decided to use Java, but again, the"
+    },
+    {
+      "index": 208,
+      "start_time": 547710.0,
+      "end_time": 550680.0,
+      "text": "Mirror API is a RESTful API, so as long as you have a"
+    },
+    {
+      "index": 209,
+      "start_time": 550680.0,
+      "end_time": 553700.0,
+      "text": "language that can communicate over HTTP, you&#39;re good to go."
+    },
+    {
+      "index": 210,
+      "start_time": 553700.0,
+      "end_time": 556280.0,
+      "text": "And Google does provide many client libraries in different"
+    },
+    {
+      "index": 211,
+      "start_time": 556280.0,
+      "end_time": 560470.0,
+      "text": "languages like Java, Python, PHP, .NET, and so forth."
+    },
+    {
+      "index": 212,
+      "start_time": 560470.0,
+      "end_time": 563110.0,
+      "text": "We have documentation again, and then you can also check"
+    },
+    {
+      "index": 213,
+      "start_time": 563110.0,
+      "end_time": 565370.0,
+      "text": "the Client Libraries Project page to"
+    },
+    {
+      "index": 214,
+      "start_time": 565370.0,
+      "end_time": 567220.0,
+      "text": "learn more about those."
+    },
+    {
+      "index": 215,
+      "start_time": 567220.0,
+      "end_time": 571120.0,
+      "text": "So for Java, how to insert a Timeline Item, you just create"
+    },
+    {
+      "index": 216,
+      "start_time": 571120.0,
+      "end_time": 574860.0,
+      "text": "a new Timeline Item Resource and then set the text or the"
+    },
+    {
+      "index": 217,
+      "start_time": 574860.0,
+      "end_time": 577590.0,
+      "text": "metadata properties you want for the Timeline Item."
+    },
+    {
+      "index": 218,
+      "start_time": 577590.0,
+      "end_time": 581090.0,
+      "text": "In this example, we&#39;re only saying hello to our Explorers."
+    },
+    {
+      "index": 219,
+      "start_time": 581090.0,
+      "end_time": 584370.0,
+      "text": "And then once you&#39;re good with your Timeline Item, use an"
+    },
+    {
+      "index": 220,
+      "start_time": 584370.0,
+      "end_time": 588380.0,
+      "text": "authorized Mirror service and send an authorized HTTP"
+    },
+    {
+      "index": 221,
+      "start_time": 588380.0,
+      "end_time": 589970.0,
+      "text": "request to the user&#39;s Glass."
+    },
+    {
+      "index": 222,
+      "start_time": 589970.0,
+      "end_time": 591270.0,
+      "text": "And that&#39;s it."
+    },
+    {
+      "index": 223,
+      "start_time": 591270.0,
+      "end_time": 591970.0,
+      "text": "You&#39;re done."
+    },
+    {
+      "index": 224,
+      "start_time": 591970.0,
+      "end_time": 595360.0,
+      "text": "You just sent a Timeline Item to your user&#39;s Glass."
+    },
+    {
+      "index": 225,
+      "start_time": 595360.0,
+      "end_time": 597110.0,
+      "text": "It&#39;s so simple."
+    },
+    {
+      "index": 226,
+      "start_time": 597110.0,
+      "end_time": 601050.0,
+      "text": "Now, I could talk about this for 20 more minutes, or I can"
+    },
+    {
+      "index": 227,
+      "start_time": 601050.0,
+      "end_time": 602300.0,
+      "text": "jump to a demo."
+    },
+    {
+      "index": 228,
+      "start_time": 605400.0,
+      "end_time": 606370.0,
+      "text": "All right."
+    },
+    {
+      "index": 229,
+      "start_time": 606370.0,
+      "end_time": 609420.0,
+      "text": "So we have a tool we built for you called the Playground"
+    },
+    {
+      "index": 230,
+      "start_time": 609420.0,
+      "end_time": 611040.0,
+      "text": "where you can experiment with the API."
+    },
+    {
+      "index": 231,
+      "start_time": 611040.0,
+      "end_time": 614010.0,
+      "text": "So the Playground is actually using the Mirror API to send"
+    },
+    {
+      "index": 232,
+      "start_time": 614010.0,
+      "end_time": 615880.0,
+      "text": "data to your user&#39;s Glass."
+    },
+    {
+      "index": 233,
+      "start_time": 615880.0,
+      "end_time": 618860.0,
+      "text": "So we have a bunch of templates."
+    },
+    {
+      "index": 234,
+      "start_time": 618860.0,
+      "end_time": 621800.0,
+      "text": "Let&#39;s start with a much simpler one, text only."
+    },
+    {
+      "index": 235,
+      "start_time": 621800.0,
+      "end_time": 625820.0,
+      "text": "So you can simply edit the text."
+    },
+    {
+      "index": 236,
+      "start_time": 625820.0,
+      "end_time": 630330.0,
+      "text": "Glass Explorers are awesome!"
+    },
+    {
+      "index": 237,
+      "start_time": 630330.0,
+      "end_time": 633620.0,
+      "text": "You can see on the right side of the screen, the JSON"
+    },
+    {
+      "index": 238,
+      "start_time": 633620.0,
+      "end_time": 634840.0,
+      "text": "representation."
+    },
+    {
+      "index": 239,
+      "start_time": 634840.0,
+      "end_time": 638570.0,
+      "text": "And then when you&#39;re good with the Timeline Item, just hit"
+    },
+    {
+      "index": 240,
+      "start_time": 638570.0,
+      "end_time": 639680.0,
+      "text": "Insert Item."
+    },
+    {
+      "index": 241,
+      "start_time": 639680.0,
+      "end_time": 641920.0,
+      "text": "It&#39;s going to use the API and then send it"
+    },
+    {
+      "index": 242,
+      "start_time": 641920.0,
+      "end_time": 643450.0,
+      "text": "to the user&#39;s Glass."
+    },
+    {
+      "index": 243,
+      "start_time": 643450.0,
+      "end_time": 647800.0,
+      "text": "Now, let me go to my demo device with a cable."
+    },
+    {
+      "index": 244,
+      "start_time": 647800.0,
+      "end_time": 650360.0,
+      "text": "Hang into it so I can show you what the screen"
+    },
+    {
+      "index": 245,
+      "start_time": 650360.0,
+      "end_time": 651610.0,
+      "text": "looks like for me."
+    },
+    {
+      "index": 246,
+      "start_time": 655550.0,
+      "end_time": 656320.0,
+      "text": "There we go."
+    },
+    {
+      "index": 247,
+      "start_time": 656320.0,
+      "end_time": 658770.0,
+      "text": "Just now, I just received the item I just inserted."
+    },
+    {
+      "index": 248,
+      "start_time": 658770.0,
+      "end_time": 660660.0,
+      "text": "It&#39;s as simple as that."
+    },
+    {
+      "index": 249,
+      "start_time": 660660.0,
+      "end_time": 662160.0,
+      "text": "Cool."
+    },
+    {
+      "index": 250,
+      "start_time": 662160.0,
+      "end_time": 663830.0,
+      "text": "Now, let&#39;s jump back to the Playground."
+    },
+    {
+      "index": 251,
+      "start_time": 666850.0,
+      "end_time": 670660.0,
+      "text": "We also have template support, HTML support, and we have"
+    },
+    {
+      "index": 252,
+      "start_time": 670660.0,
+      "end_time": 672990.0,
+      "text": "built some templates for you so you can get started"
+    },
+    {
+      "index": 253,
+      "start_time": 672990.0,
+      "end_time": 674050.0,
+      "text": "building your own."
+    },
+    {
+      "index": 254,
+      "start_time": 674050.0,
+      "end_time": 677590.0,
+      "text": "So use the ones you like, do some modifications"
+    },
+    {
+      "index": 255,
+      "start_time": 677590.0,
+      "end_time": 681150.0,
+      "text": "like JFK, et cetera."
+    },
+    {
+      "index": 256,
+      "start_time": 681150.0,
+      "end_time": 681890.0,
+      "text": "Modify it."
+    },
+    {
+      "index": 257,
+      "start_time": 681890.0,
+      "end_time": 685950.0,
+      "text": "You have the JSON on the right side."
+    },
+    {
+      "index": 258,
+      "start_time": 685950.0,
+      "end_time": 688730.0,
+      "text": "It&#39;s kind of complicated to modify via HTML from the JSON"
+    },
+    {
+      "index": 259,
+      "start_time": 688730.0,
+      "end_time": 692590.0,
+      "text": "payload, so you can also just edit the HTML by"
+    },
+    {
+      "index": 260,
+      "start_time": 692590.0,
+      "end_time": 693510.0,
+      "text": "clicking on the tab."
+    },
+    {
+      "index": 261,
+      "start_time": 693510.0,
+      "end_time": 696820.0,
+      "text": "And then when you&#39;re happy with your template, just push"
+    },
+    {
+      "index": 262,
+      "start_time": 696820.0,
+      "end_time": 699440.0,
+      "text": "it into your Glass, make sure it looks the same, copy the"
+    },
+    {
+      "index": 263,
+      "start_time": 699440.0,
+      "end_time": 702660.0,
+      "text": "template over into your code, and you&#39;re good to go."
+    },
+    {
+      "index": 264,
+      "start_time": 702660.0,
+      "end_time": 703903.0,
+      "text": "Sounds good?"
+    },
+    {
+      "index": 265,
+      "start_time": 703903.0,
+      "end_time": 704306.0,
+      "text": "Cool."
+    },
+    {
+      "index": 266,
+      "start_time": 704306.0,
+      "end_time": 707820.0,
+      "text": "Let&#39;s jump back to the slide."
+    },
+    {
+      "index": 267,
+      "start_time": 707820.0,
+      "end_time": 709070.0,
+      "text": "All right."
+    },
+    {
+      "index": 268,
+      "start_time": 712950.0,
+      "end_time": 717000.0,
+      "text": "So right now, we&#39;ve been doing one way interaction."
+    },
+    {
+      "index": 269,
+      "start_time": 717000.0,
+      "end_time": 719340.0,
+      "text": "We&#39;ve been pushing content to a user of Glass."
+    },
+    {
+      "index": 270,
+      "start_time": 719340.0,
+      "end_time": 722475.0,
+      "text": "But the Glass also lets users take action on the card you"
+    },
+    {
+      "index": 271,
+      "start_time": 722475.0,
+      "end_time": 724340.0,
+      "text": "insert to the users."
+    },
+    {
+      "index": 272,
+      "start_time": 724340.0,
+      "end_time": 727030.0,
+      "text": "You do that by adding more information into a Timeline"
+    },
+    {
+      "index": 273,
+      "start_time": 727030.0,
+      "end_time": 730350.0,
+      "text": "Item Resource that we call Menu Items."
+    },
+    {
+      "index": 274,
+      "start_time": 730350.0,
+      "end_time": 733270.0,
+      "text": "There are two main categories of Menu Items, the built-in"
+    },
+    {
+      "index": 275,
+      "start_time": 733270.0,
+      "end_time": 737220.0,
+      "text": "ones that usually leverage the Glass client, like sharing,"
+    },
+    {
+      "index": 276,
+      "start_time": 737220.0,
+      "end_time": 739890.0,
+      "text": "which would create a new item-- more on that later--"
+    },
+    {
+      "index": 277,
+      "start_time": 739890.0,
+      "end_time": 743880.0,
+      "text": "Get Directions, that uses the Glass GPS and internal"
+    },
+    {
+      "index": 278,
+      "start_time": 743880.0,
+      "end_time": 747130.0,
+      "text": "navigation mode to navigate to the location provided in the"
+    },
+    {
+      "index": 279,
+      "start_time": 747130.0,
+      "end_time": 750940.0,
+      "text": "Timeline Item, and Reply, that will use a microphone from"
+    },
+    {
+      "index": 280,
+      "start_time": 750940.0,
+      "end_time": 753850.0,
+      "text": "Glass to get text input from the user."
+    },
+    {
+      "index": 281,
+      "start_time": 753850.0,
+      "end_time": 757280.0,
+      "text": "There are many others built in menu items that we have in our"
+    },
+    {
+      "index": 282,
+      "start_time": 757280.0,
+      "end_time": 758800.0,
+      "text": "documentation."
+    },
+    {
+      "index": 283,
+      "start_time": 758800.0,
+      "end_time": 762960.0,
+      "text": "And then we also have custom menu items."
+    },
+    {
+      "index": 284,
+      "start_time": 762960.0,
+      "end_time": 767260.0,
+      "text": "This is what you use when you want to provide custom"
+    },
+    {
+      "index": 285,
+      "start_time": 767260.0,
+      "end_time": 768720.0,
+      "text": "features to the user."
+    },
+    {
+      "index": 286,
+      "start_time": 768720.0,
+      "end_time": 772060.0,
+      "text": "For example, if you&#39;re a news agency and you&#39;re pushing news"
+    },
+    {
+      "index": 287,
+      "start_time": 772060.0,
+      "end_time": 774810.0,
+      "text": "content to a user of Glass, you might want to provide a"
+    },
+    {
+      "index": 288,
+      "start_time": 774810.0,
+      "end_time": 777060.0,
+      "text": "way for the user to save an article or"
+    },
+    {
+      "index": 289,
+      "start_time": 777060.0,
+      "end_time": 778515.0,
+      "text": "to vote on an article."
+    },
+    {
+      "index": 290,
+      "start_time": 778515.0,
+      "end_time": 780840.0,
+      "text": "Glass doesn&#39;t know what to do with that, so you simply"
+    },
+    {
+      "index": 291,
+      "start_time": 780840.0,
+      "end_time": 783110.0,
+      "text": "provide more information to us."
+    },
+    {
+      "index": 292,
+      "start_time": 783110.0,
+      "end_time": 788250.0,
+      "text": "You provide an ID, so you get to know when the user took an"
+    },
+    {
+      "index": 293,
+      "start_time": 788250.0,
+      "end_time": 790860.0,
+      "text": "action, you get to know which action the user took."
+    },
+    {
+      "index": 294,
+      "start_time": 790860.0,
+      "end_time": 794330.0,
+      "text": "And then when we push that to you, it&#39;s up to you to process"
+    },
+    {
+      "index": 295,
+      "start_time": 794330.0,
+      "end_time": 796060.0,
+      "text": "the notification."
+    },
+    {
+      "index": 296,
+      "start_time": 796060.0,
+      "end_time": 798510.0,
+      "text": "And then you also need to provide more information to"
+    },
+    {
+      "index": 297,
+      "start_time": 798510.0,
+      "end_time": 800670.0,
+      "text": "us, like the display name, because we don&#39;t know how to"
+    },
+    {
+      "index": 298,
+      "start_time": 800670.0,
+      "end_time": 804080.0,
+      "text": "display your custom menu item in an icon URL that will be"
+    },
+    {
+      "index": 299,
+      "start_time": 804080.0,
+      "end_time": 808560.0,
+      "text": "displayed alongside the display name."
+    },
+    {
+      "index": 300,
+      "start_time": 808560.0,
+      "end_time": 809080.0,
+      "text": "All right."
+    },
+    {
+      "index": 301,
+      "start_time": 809080.0,
+      "end_time": 812020.0,
+      "text": "Now, let&#39;s take a quick look at the code."
+    },
+    {
+      "index": 302,
+      "start_time": 812020.0,
+      "end_time": 814490.0,
+      "text": "So as I mentioned, adding a menu item is simply adding"
+    },
+    {
+      "index": 303,
+      "start_time": 814490.0,
+      "end_time": 816730.0,
+      "text": "more property to the Timeline Resource."
+    },
+    {
+      "index": 304,
+      "start_time": 816730.0,
+      "end_time": 820310.0,
+      "text": "So again, we create a new Timeline Item Resource, set"
+    },
+    {
+      "index": 305,
+      "start_time": 820310.0,
+      "end_time": 823900.0,
+      "text": "the text, and then set a built-in menu item."
+    },
+    {
+      "index": 306,
+      "start_time": 823900.0,
+      "end_time": 827370.0,
+      "text": "In our case, we want to let the user be able to share this"
+    },
+    {
+      "index": 307,
+      "start_time": 827370.0,
+      "end_time": 829190.0,
+      "text": "card with other Glassware."
+    },
+    {
+      "index": 308,
+      "start_time": 829190.0,
+      "end_time": 832620.0,
+      "text": "So you simply set the action to menu item to share, and"
+    },
+    {
+      "index": 309,
+      "start_time": 832620.0,
+      "end_time": 835940.0,
+      "text": "then add it to the list of menu items to"
+    },
+    {
+      "index": 310,
+      "start_time": 835940.0,
+      "end_time": 837410.0,
+      "text": "the Timeline Resource."
+    },
+    {
+      "index": 311,
+      "start_time": 837410.0,
+      "end_time": 840040.0,
+      "text": "Add other properties, use the service object to push it to"
+    },
+    {
+      "index": 312,
+      "start_time": 840040.0,
+      "end_time": 842700.0,
+      "text": "Glass, and you&#39;re good to go."
+    },
+    {
+      "index": 313,
+      "start_time": 842700.0,
+      "end_time": 845390.0,
+      "text": "Now let&#39;s take a quick look at custom menu items."
+    },
+    {
+      "index": 314,
+      "start_time": 845390.0,
+      "end_time": 847060.0,
+      "text": "So it&#39;s almost the same thing."
+    },
+    {
+      "index": 315,
+      "start_time": 847060.0,
+      "end_time": 851490.0,
+      "text": "Create a new Timeline Item, create a new Menu Item, set"
+    },
+    {
+      "index": 316,
+      "start_time": 851490.0,
+      "end_time": 854460.0,
+      "text": "the action to Custom, but now we need more information from"
+    },
+    {
+      "index": 317,
+      "start_time": 854460.0,
+      "end_time": 856860.0,
+      "text": "you so we know what to do."
+    },
+    {
+      "index": 318,
+      "start_time": 856860.0,
+      "end_time": 860800.0,
+      "text": "So you need to set the ID so when the user takes the"
+    },
+    {
+      "index": 319,
+      "start_time": 860800.0,
+      "end_time": 863880.0,
+      "text": "action, the API will push a notification back to you and"
+    },
+    {
+      "index": 320,
+      "start_time": 863880.0,
+      "end_time": 866520.0,
+      "text": "let you know which action was taken by the user."
+    },
+    {
+      "index": 321,
+      "start_time": 866520.0,
+      "end_time": 869560.0,
+      "text": "And also, we need to know how to display the menu item."
+    },
+    {
+      "index": 322,
+      "start_time": 869560.0,
+      "end_time": 872870.0,
+      "text": "So simply provide a list of values with a display name"
+    },
+    {
+      "index": 323,
+      "start_time": 872870.0,
+      "end_time": 875360.0,
+      "text": "that will be displayed when the user selects the list of"
+    },
+    {
+      "index": 324,
+      "start_time": 875360.0,
+      "end_time": 878520.0,
+      "text": "menu items and an icon that will be displayed alongside"
+    },
+    {
+      "index": 325,
+      "start_time": 878520.0,
+      "end_time": 880260.0,
+      "text": "the display name."
+    },
+    {
+      "index": 326,
+      "start_time": 880260.0,
+      "end_time": 885480.0,
+      "text": "Add other properties and then add the Menu Items to the"
+    },
+    {
+      "index": 327,
+      "start_time": 885480.0,
+      "end_time": 887660.0,
+      "text": "Timeline Resource and push it to Glass, and"
+    },
+    {
+      "index": 328,
+      "start_time": 887660.0,
+      "end_time": 889600.0,
+      "text": "you&#39;re good to go."
+    },
+    {
+      "index": 329,
+      "start_time": 889600.0,
+      "end_time": 892270.0,
+      "text": "That&#39;s pretty simple, right?"
+    },
+    {
+      "index": 330,
+      "start_time": 892270.0,
+      "end_time": 893520.0,
+      "text": "Cool."
+    },
+    {
+      "index": 331,
+      "start_time": 897056.0,
+      "end_time": 898730.0,
+      "text": "JENNY MURPHY: Next collection."
+    },
+    {
+      "index": 332,
+      "start_time": 898730.0,
+      "end_time": 900110.0,
+      "text": "Next collection."
+    },
+    {
+      "index": 333,
+      "start_time": 900110.0,
+      "end_time": 901390.0,
+      "text": "Contacts."
+    },
+    {
+      "index": 334,
+      "start_time": 901390.0,
+      "end_time": 904450.0,
+      "text": "Here&#39;s a flow you&#39;re probably familiar with on Glass."
+    },
+    {
+      "index": 335,
+      "start_time": 904450.0,
+      "end_time": 906560.0,
+      "text": "Pick a photo, in this case, a wonderful photo of"
+    },
+    {
+      "index": 336,
+      "start_time": 906560.0,
+      "end_time": 909020.0,
+      "text": "Chipotle the cat."
+    },
+    {
+      "index": 337,
+      "start_time": 909020.0,
+      "end_time": 911315.0,
+      "text": "Of course you want to share that with all your friends."
+    },
+    {
+      "index": 338,
+      "start_time": 911315.0,
+      "end_time": 914170.0,
+      "text": "So you tap, you share, and you share it with"
+    },
+    {
+      "index": 339,
+      "start_time": 914170.0,
+      "end_time": 916230.0,
+      "text": "your friends on Google+."
+    },
+    {
+      "index": 340,
+      "start_time": 916230.0,
+      "end_time": 919470.0,
+      "text": "This is a flow of sharing that shares to contacts."
+    },
+    {
+      "index": 341,
+      "start_time": 919470.0,
+      "end_time": 922030.0,
+      "text": "In this case, the contact represents"
+    },
+    {
+      "index": 342,
+      "start_time": 922030.0,
+      "end_time": 924750.0,
+      "text": "that Circle on Google+."
+    },
+    {
+      "index": 343,
+      "start_time": 924750.0,
+      "end_time": 928320.0,
+      "text": "But contacts can represent other things, too, anything"
+    },
+    {
+      "index": 344,
+      "start_time": 928320.0,
+      "end_time": 929700.0,
+      "text": "you might want to share to."
+    },
+    {
+      "index": 345,
+      "start_time": 929700.0,
+      "end_time": 932640.0,
+      "text": "They might represent an individual person, they might"
+    },
+    {
+      "index": 346,
+      "start_time": 932640.0,
+      "end_time": 935790.0,
+      "text": "represent a group of people like that circle, or they can"
+    },
+    {
+      "index": 347,
+      "start_time": 935790.0,
+      "end_time": 938440.0,
+      "text": "represent things that are a little bit more abstract, like"
+    },
+    {
+      "index": 348,
+      "start_time": 938440.0,
+      "end_time": 943620.0,
+      "text": "a whole Glassware or a feature within a Glassware like Path."
+    },
+    {
+      "index": 349,
+      "start_time": 943620.0,
+      "end_time": 946780.0,
+      "text": "So let&#39;s look at the code that makes this possible."
+    },
+    {
+      "index": 350,
+      "start_time": 946780.0,
+      "end_time": 950680.0,
+      "text": "So we&#39;re going to create a Contact Resource, we&#39;re going"
+    },
+    {
+      "index": 351,
+      "start_time": 950680.0,
+      "end_time": 953610.0,
+      "text": "to create an object."
+    },
+    {
+      "index": 352,
+      "start_time": 953610.0,
+      "end_time": 954720.0,
+      "text": "We&#39;re going to set an ID."
+    },
+    {
+      "index": 353,
+      "start_time": 954720.0,
+      "end_time": 958950.0,
+      "text": "This ID is passed back in the notification so that you can"
+    },
+    {
+      "index": 354,
+      "start_time": 958950.0,
+      "end_time": 960800.0,
+      "text": "figure out which contact was tripped"
+    },
+    {
+      "index": 355,
+      "start_time": 960800.0,
+      "end_time": 963030.0,
+      "text": "when an item was shared."
+    },
+    {
+      "index": 356,
+      "start_time": 963030.0,
+      "end_time": 965650.0,
+      "text": "It&#39;s how you do the correlation of the round trip."
+    },
+    {
+      "index": 357,
+      "start_time": 965650.0,
+      "end_time": 968240.0,
+      "text": "We&#39;re going to set some display properties."
+    },
+    {
+      "index": 358,
+      "start_time": 968240.0,
+      "end_time": 970370.0,
+      "text": "We&#39;re going to set a name and an icon."
+    },
+    {
+      "index": 359,
+      "start_time": 970370.0,
+      "end_time": 974110.0,
+      "text": "This is what shows up on your user&#39;s Glass."
+    },
+    {
+      "index": 360,
+      "start_time": 974110.0,
+      "end_time": 976500.0,
+      "text": "And one property that&#39;s a little more sophisticated,"
+    },
+    {
+      "index": 361,
+      "start_time": 976500.0,
+      "end_time": 979150.0,
+      "text": "we&#39;re going to set Accept Type."
+    },
+    {
+      "index": 362,
+      "start_time": 979150.0,
+      "end_time": 984050.0,
+      "text": "By default, contacts accept any kind of content on Glass."
+    },
+    {
+      "index": 363,
+      "start_time": 984050.0,
+      "end_time": 986960.0,
+      "text": "Any Timeline Item that has been marked sharable could be"
+    },
+    {
+      "index": 364,
+      "start_time": 986960.0,
+      "end_time": 989060.0,
+      "text": "copied and shared."
+    },
+    {
+      "index": 365,
+      "start_time": 989060.0,
+      "end_time": 994240.0,
+      "text": "So this includes text Timeline Items, HTML, images, video."
+    },
+    {
+      "index": 366,
+      "start_time": 994240.0,
+      "end_time": 996980.0,
+      "text": "But sometimes, the Glassware may only want to process one"
+    },
+    {
+      "index": 367,
+      "start_time": 996980.0,
+      "end_time": 998830.0,
+      "text": "kind of content."
+    },
+    {
+      "index": 368,
+      "start_time": 998830.0,
+      "end_time": 1001770.0,
+      "text": "In this case, this example, we only want to process images,"
+    },
+    {
+      "index": 369,
+      "start_time": 1001770.0,
+      "end_time": 1004760.0,
+      "text": "so we&#39;re only going to accept cards."
+    },
+    {
+      "index": 370,
+      "start_time": 1004760.0,
+      "end_time": 1008470.0,
+      "text": "And we specify that using a Mime Content Type, in this"
+    },
+    {
+      "index": 371,
+      "start_time": 1008470.0,
+      "end_time": 1009410.0,
+      "text": "case, image/*."
+    },
+    {
+      "index": 372,
+      "start_time": 1009410.0,
+      "end_time": 1011020.0,
+      "text": "Accept any type of image."
+    },
+    {
+      "index": 373,
+      "start_time": 1013700.0,
+      "end_time": 1015830.0,
+      "text": "Then we insert it, and that&#39;s it."
+    },
+    {
+      "index": 374,
+      "start_time": 1015830.0,
+      "end_time": 1019730.0,
+      "text": "The contact is made available, and users can turn it on in My"
+    },
+    {
+      "index": 375,
+      "start_time": 1019730.0,
+      "end_time": 1021170.0,
+      "text": "Glass and start sharing content with it."
+    },
+    {
+      "index": 376,
+      "start_time": 1025359.9999999999,
+      "end_time": 1027829.9999999999,
+      "text": "And one more collection, location."
+    },
+    {
+      "index": 377,
+      "start_time": 1027829.9999999999,
+      "end_time": 1029609.9999999999,
+      "text": "So say we want to render something cool, like"
+    },
+    {
+      "index": 378,
+      "start_time": 1029609.9999999999,
+      "end_time": 1032290.9999999999,
+      "text": "this map, in a card."
+    },
+    {
+      "index": 379,
+      "start_time": 1032290.0,
+      "end_time": 1034300.0,
+      "text": "We want to get the user&#39;s location."
+    },
+    {
+      "index": 380,
+      "start_time": 1034300.0,
+      "end_time": 1037329.0,
+      "text": "There&#39;s a special collection, which has its own scope that"
+    },
+    {
+      "index": 381,
+      "start_time": 1037329.9999999999,
+      "end_time": 1041089.9999999999,
+      "text": "you can request, and the user can opt to share their"
+    },
+    {
+      "index": 382,
+      "start_time": 1041089.9999999999,
+      "end_time": 1042890.9999999999,
+      "text": "location with your Glassware."
+    },
+    {
+      "index": 383,
+      "start_time": 1042890.0000000001,
+      "end_time": 1045609.0000000001,
+      "text": "If they&#39;ve done that, you can check for"
+    },
+    {
+      "index": 384,
+      "start_time": 1045609.9999999999,
+      "end_time": 1046890.9999999999,
+      "text": "their latest location."
+    },
+    {
+      "index": 385,
+      "start_time": 1046890.0000000001,
+      "end_time": 1049500.0,
+      "text": "It&#39;s updated about every 10 minutes."
+    },
+    {
+      "index": 386,
+      "start_time": 1049500.0,
+      "end_time": 1052110.0,
+      "text": "This one is super easy to use because we&#39;re just pulling"
+    },
+    {
+      "index": 387,
+      "start_time": 1052110.0,
+      "end_time": 1053370.0,
+      "text": "from a collection."
+    },
+    {
+      "index": 388,
+      "start_time": 1053370.0,
+      "end_time": 1055230.0,
+      "text": "So the code is very simple."
+    },
+    {
+      "index": 389,
+      "start_time": 1055230.0,
+      "end_time": 1059520.0,
+      "text": "We just do a Get request for the latest location, which"
+    },
+    {
+      "index": 390,
+      "start_time": 1059520.0,
+      "end_time": 1061390.0,
+      "text": "will give us their location within"
+    },
+    {
+      "index": 391,
+      "start_time": 1061390.0,
+      "end_time": 1063260.0,
+      "text": "about the past 10 minutes."
+    },
+    {
+      "index": 392,
+      "start_time": 1063260.0,
+      "end_time": 1064955.0,
+      "text": "Then we do cool stuff with it."
+    },
+    {
+      "index": 393,
+      "start_time": 1064950.0,
+      "end_time": 1067325.0,
+      "text": "In this case, we&#39;re doing something pretty simple."
+    },
+    {
+      "index": 394,
+      "start_time": 1067330.0,
+      "end_time": 1068830.0,
+      "text": "We&#39;re just printing out the latitude,"
+    },
+    {
+      "index": 395,
+      "start_time": 1068830.0,
+      "end_time": 1071320.0,
+      "text": "longitude, and accuracy."
+    },
+    {
+      "index": 396,
+      "start_time": 1071320.0,
+      "end_time": 1072890.0,
+      "text": "That&#39;s all there really is to location."
+    },
+    {
+      "index": 397,
+      "start_time": 1072890.0,
+      "end_time": 1074375.0,
+      "text": "We read it, we get the latest location."
+    },
+    {
+      "index": 398,
+      "start_time": 1078040.0,
+      "end_time": 1080730.0,
+      "text": "So up until now, we&#39;ve been talking about pushing content"
+    },
+    {
+      "index": 399,
+      "start_time": 1080730.0,
+      "end_time": 1083280.0,
+      "text": "to Glass and having users interact with the content"
+    },
+    {
+      "index": 400,
+      "start_time": 1083280.0,
+      "end_time": 1086770.0,
+      "text": "you&#39;ve pushed to their Glass device."
+    },
+    {
+      "index": 401,
+      "start_time": 1086770.0,
+      "end_time": 1090580.0,
+      "text": "But there&#39;s really no mechanism yet for that"
+    },
+    {
+      "index": 402,
+      "start_time": 1090580.0,
+      "end_time": 1094170.0,
+      "text": "information to get from their Glass back to your Glassware."
+    },
+    {
+      "index": 403,
+      "start_time": 1094170.0,
+      "end_time": 1096090.0,
+      "text": "What you could actually do is you could poll all these"
+    },
+    {
+      "index": 404,
+      "start_time": 1096090.0,
+      "end_time": 1098720.0,
+      "text": "collections every couple minutes and look for changes."
+    },
+    {
+      "index": 405,
+      "start_time": 1098720.0,
+      "end_time": 1100016.0,
+      "text": "You could look for new cards that have"
+    },
+    {
+      "index": 406,
+      "start_time": 1100020.0,
+      "end_time": 1101434.0,
+      "text": "been shared with you."
+    },
+    {
+      "index": 407,
+      "start_time": 1101430.0,
+      "end_time": 1103960.0,
+      "text": "But that&#39;s not very efficient."
+    },
+    {
+      "index": 408,
+      "start_time": 1103960.0,
+      "end_time": 1106870.0,
+      "text": "So we have a better way with subscriptions."
+    },
+    {
+      "index": 409,
+      "start_time": 1106870.0,
+      "end_time": 1111890.0,
+      "text": "Subscriptions allow you to subscribe to notifications"
+    },
+    {
+      "index": 410,
+      "start_time": 1111890.0,
+      "end_time": 1114710.0,
+      "text": "about changes in collections on Glass."
+    },
+    {
+      "index": 411,
+      "start_time": 1114710.0,
+      "end_time": 1116950.0,
+      "text": "Kind of flips the API on its head."
+    },
+    {
+      "index": 412,
+      "start_time": 1116950.0,
+      "end_time": 1121030.0,
+      "text": "Instead of you posting JSON to the Mirror API, the Mirror API"
+    },
+    {
+      "index": 413,
+      "start_time": 1121030.0,
+      "end_time": 1122410.0,
+      "text": "will post JSON back to you."
+    },
+    {
+      "index": 414,
+      "start_time": 1126960.0,
+      "end_time": 1128880.0,
+      "text": "Here&#39;s some code that allows you to do it."
+    },
+    {
+      "index": 415,
+      "start_time": 1128880.0,
+      "end_time": 1131038.0,
+      "text": "This is code that captures kind of the first half of"
+    },
+    {
+      "index": 416,
+      "start_time": 1131040.0,
+      "end_time": 1132932.0,
+      "text": "this, subscribing to notifications."
+    },
+    {
+      "index": 417,
+      "start_time": 1136060.0,
+      "end_time": 1138610.0,
+      "text": "To subscribe to notifications, you insert an object into a"
+    },
+    {
+      "index": 418,
+      "start_time": 1138610.0,
+      "end_time": 1142060.0,
+      "text": "collection called subscriptions, you specify the"
+    },
+    {
+      "index": 419,
+      "start_time": 1142060.0,
+      "end_time": 1143530.0,
+      "text": "collection you want to monitor."
+    },
+    {
+      "index": 420,
+      "start_time": 1143530.0,
+      "end_time": 1145160.0,
+      "text": "There are a couple of options."
+    },
+    {
+      "index": 421,
+      "start_time": 1145160.0,
+      "end_time": 1147390.0,
+      "text": "In this case, you&#39;re subscribing to changes in the"
+    },
+    {
+      "index": 422,
+      "start_time": 1147390.0,
+      "end_time": 1150144.0,
+      "text": "Timeline Collection."
+    },
+    {
+      "index": 423,
+      "start_time": 1150140.0,
+      "end_time": 1152566.0,
+      "text": "You specify a couple of identifiers."
+    },
+    {
+      "index": 424,
+      "start_time": 1152570.0,
+      "end_time": 1155720.0,
+      "text": "These are user-specific identifiers that are passed"
+    },
+    {
+      "index": 425,
+      "start_time": 1155720.0,
+      "end_time": 1158400.0,
+      "text": "back in all of the notifications so that you can"
+    },
+    {
+      "index": 426,
+      "start_time": 1158400.0,
+      "end_time": 1162110.0,
+      "text": "verify that this is a bona fide notification, a true"
+    },
+    {
+      "index": 427,
+      "start_time": 1162110.0,
+      "end_time": 1165270.0,
+      "text": "notification, and you can identify the user that"
+    },
+    {
+      "index": 428,
+      "start_time": 1165270.0,
+      "end_time": 1167210.0,
+      "text": "triggered that change."
+    },
+    {
+      "index": 429,
+      "start_time": 1167210.0,
+      "end_time": 1168950.0,
+      "text": "And of course, we need somewhere to send those"
+    },
+    {
+      "index": 430,
+      "start_time": 1168950.0,
+      "end_time": 1170410.0,
+      "text": "notifications."
+    },
+    {
+      "index": 431,
+      "start_time": 1170410.0,
+      "end_time": 1172670.0,
+      "text": "So as part of this description, you specify a"
+    },
+    {
+      "index": 432,
+      "start_time": 1172670.0,
+      "end_time": 1175290.0,
+      "text": "URL, and you&#39;ll want to use an HTTPS URL"
+    },
+    {
+      "index": 433,
+      "start_time": 1175290.0,
+      "end_time": 1177316.0,
+      "text": "to keep things secure."
+    },
+    {
+      "index": 434,
+      "start_time": 1177320.0,
+      "end_time": 1180324.0,
+      "text": "Once you have all that together, you insert it, and"
+    },
+    {
+      "index": 435,
+      "start_time": 1180320.0,
+      "end_time": 1183760.0,
+      "text": "after this point, any changes to the Timeline Collection"
+    },
+    {
+      "index": 436,
+      "start_time": 1183760.0,
+      "end_time": 1185010.0,
+      "text": "will be sent back to your service."
+    },
+    {
+      "index": 437,
+      "start_time": 1188450.0,
+      "end_time": 1191000.0,
+      "text": "When the user takes action, or over time, for the case of"
+    },
+    {
+      "index": 438,
+      "start_time": 1191000.0,
+      "end_time": 1193090.0,
+      "text": "locations, you&#39;re going to be receiving these"
+    },
+    {
+      "index": 439,
+      "start_time": 1193090.0,
+      "end_time": 1196670.0,
+      "text": "pingbacks to that URL."
+    },
+    {
+      "index": 440,
+      "start_time": 1196670.0,
+      "end_time": 1197960.0,
+      "text": "The structure looks a lot like the"
+    },
+    {
+      "index": 441,
+      "start_time": 1197960.0,
+      "end_time": 1200640.0,
+      "text": "subscription we just inserted."
+    },
+    {
+      "index": 442,
+      "start_time": 1200640.0,
+      "end_time": 1203010.0,
+      "text": "Up at the top, we have the collection."
+    },
+    {
+      "index": 443,
+      "start_time": 1203010.0,
+      "end_time": 1204980.0,
+      "text": "On one side, we have the Timeline."
+    },
+    {
+      "index": 444,
+      "start_time": 1204980.0,
+      "end_time": 1207690.0,
+      "text": "On another case, we have the Locations."
+    },
+    {
+      "index": 445,
+      "start_time": 1207690.0,
+      "end_time": 1210370.0,
+      "text": "We have an identifier of the object that caused the change"
+    },
+    {
+      "index": 446,
+      "start_time": 1210370.0,
+      "end_time": 1211760.0,
+      "text": "in notifications."
+    },
+    {
+      "index": 447,
+      "start_time": 1211760.0,
+      "end_time": 1214700.0,
+      "text": "If there&#39;s a shared item, this is going to be the ID of that"
+    },
+    {
+      "index": 448,
+      "start_time": 1214700.0,
+      "end_time": 1218400.0,
+      "text": "card in the timeline, same for a menu trigger."
+    },
+    {
+      "index": 449,
+      "start_time": 1221930.0,
+      "end_time": 1224620.0,
+      "text": "Another case for Locations on the other side, that&#39;s always"
+    },
+    {
+      "index": 450,
+      "start_time": 1224620.0,
+      "end_time": 1226420.0,
+      "text": "going to be the same ID because Locations always"
+    },
+    {
+      "index": 451,
+      "start_time": 1226420.0,
+      "end_time": 1229346.0,
+      "text": "surfaces the latest location."
+    },
+    {
+      "index": 452,
+      "start_time": 1229350.0,
+      "end_time": 1232594.0,
+      "text": "In both cases, in all notifications that come back,"
+    },
+    {
+      "index": 453,
+      "start_time": 1232590.0,
+      "end_time": 1235660.0,
+      "text": "we&#39;re going to echo back to you the User Token and the"
+    },
+    {
+      "index": 454,
+      "start_time": 1235660.0,
+      "end_time": 1238700.0,
+      "text": "Verify Token so that you can verify the authenticity and"
+    },
+    {
+      "index": 455,
+      "start_time": 1238700.0,
+      "end_time": 1240480.0,
+      "text": "the user who made that request."
+    },
+    {
+      "index": 456,
+      "start_time": 1240480.0,
+      "end_time": 1241940.0,
+      "text": "And in the case of Timeline, we&#39;re also going"
+    },
+    {
+      "index": 457,
+      "start_time": 1241940.0,
+      "end_time": 1243400.0,
+      "text": "to share some metadata."
+    },
+    {
+      "index": 458,
+      "start_time": 1243400.0,
+      "end_time": 1245500.0,
+      "text": "In this case, we&#39;re telling you upfront from the"
+    },
+    {
+      "index": 459,
+      "start_time": 1245500.0,
+      "end_time": 1248270.0,
+      "text": "notification that this is a share that triggered this so"
+    },
+    {
+      "index": 460,
+      "start_time": 1248270.0,
+      "end_time": 1253500.0,
+      "text": "you can write cleaner code that takes advantage of that."
+    },
+    {
+      "index": 461,
+      "start_time": 1253500.0,
+      "end_time": 1255280.0,
+      "text": "So let&#39;s take a look at the code for processing that"
+    },
+    {
+      "index": 462,
+      "start_time": 1255280.0,
+      "end_time": 1256920.0,
+      "text": "notification."
+    },
+    {
+      "index": 463,
+      "start_time": 1256920.0,
+      "end_time": 1258580.0,
+      "text": "This code looks a little different than the code we&#39;ve"
+    },
+    {
+      "index": 464,
+      "start_time": 1258580.0,
+      "end_time": 1261160.0,
+      "text": "had up here before."
+    },
+    {
+      "index": 465,
+      "start_time": 1261160.0,
+      "end_time": 1264490.0,
+      "text": "Instead of doing an Insert, we&#39;re responding to a request."
+    },
+    {
+      "index": 466,
+      "start_time": 1264490.0,
+      "end_time": 1267700.0,
+      "text": "Since we&#39;re talking Java today, we&#39;re going to use a"
+    },
+    {
+      "index": 467,
+      "start_time": 1267700.0,
+      "end_time": 1268340.0,
+      "text": "servelet method."
+    },
+    {
+      "index": 468,
+      "start_time": 1268340.0,
+      "end_time": 1270710.0,
+      "text": "In this case, we&#39;re going to handle a post."
+    },
+    {
+      "index": 469,
+      "start_time": 1270710.0,
+      "end_time": 1274220.0,
+      "text": "So a post comes on in."
+    },
+    {
+      "index": 470,
+      "start_time": 1274220.0,
+      "end_time": 1277830.0,
+      "text": "The notification is given to us in the request body."
+    },
+    {
+      "index": 471,
+      "start_time": 1277830.0,
+      "end_time": 1279830.0,
+      "text": "So the first thing we&#39;re going to do is pull that request"
+    },
+    {
+      "index": 472,
+      "start_time": 1279830.0,
+      "end_time": 1281940.0,
+      "text": "body and parse the JSON."
+    },
+    {
+      "index": 473,
+      "start_time": 1281940.0,
+      "end_time": 1283050.0,
+      "text": "We&#39;re going to build an object."
+    },
+    {
+      "index": 474,
+      "start_time": 1283050.0,
+      "end_time": 1286200.0,
+      "text": "We&#39;re going to push it into a notification using Jackson, so"
+    },
+    {
+      "index": 475,
+      "start_time": 1286200.0,
+      "end_time": 1287790.0,
+      "text": "then we can take action."
+    },
+    {
+      "index": 476,
+      "start_time": 1287790.0,
+      "end_time": 1290050.0,
+      "text": "First thing we&#39;re going to do is we&#39;re going"
+    },
+    {
+      "index": 477,
+      "start_time": 1290050.0,
+      "end_time": 1291890.0,
+      "text": "to verify that data."
+    },
+    {
+      "index": 478,
+      "start_time": 1291890.0,
+      "end_time": 1294360.0,
+      "text": "We&#39;re going to find the user, we&#39;re going to verify the"
+    },
+    {
+      "index": 479,
+      "start_time": 1294360.0,
+      "end_time": 1297220.0,
+      "text": "Verify Token to make sure everything&#39;s on the up and up,"
+    },
+    {
+      "index": 480,
+      "start_time": 1297220.0,
+      "end_time": 1302590.0,
+      "text": "and then we&#39;re going to create a Client Object that allows us"
+    },
+    {
+      "index": 481,
+      "start_time": 1302590.0,
+      "end_time": 1305290.0,
+      "text": "to make calls on their request using their credentials that"
+    },
+    {
+      "index": 482,
+      "start_time": 1305290.0,
+      "end_time": 1307770.0,
+      "text": "we got from that OAuth flow."
+    },
+    {
+      "index": 483,
+      "start_time": 1307770.0,
+      "end_time": 1310720.0,
+      "text": "And then the fun stuff starts."
+    },
+    {
+      "index": 484,
+      "start_time": 1310720.0,
+      "end_time": 1313240.0,
+      "text": "In this case, what we&#39;re doing is if it was a Timeline"
+    },
+    {
+      "index": 485,
+      "start_time": 1313240.0,
+      "end_time": 1317960.0,
+      "text": "notification, we&#39;re going to go fetch that Timeline Item,"
+    },
+    {
+      "index": 486,
+      "start_time": 1317960.0,
+      "end_time": 1322560.0,
+      "text": "we can inspect it, and then we can take action based on it."
+    },
+    {
+      "index": 487,
+      "start_time": 1322560.0,
+      "end_time": 1324200.0,
+      "text": "That&#39;s the flow you&#39;re going to use for most of your"
+    },
+    {
+      "index": 488,
+      "start_time": 1324200.0,
+      "end_time": 1325450.0,
+      "text": "notifications coming in."
+    },
+    {
+      "index": 489,
+      "start_time": 1328390.0,
+      "end_time": 1331040.0,
+      "text": "That&#39;s all the pieces of the Mirror API that you can use to"
+    },
+    {
+      "index": 490,
+      "start_time": 1331040.0,
+      "end_time": 1333510.0,
+      "text": "build stuff."
+    },
+    {
+      "index": 491,
+      "start_time": 1333510.0,
+      "end_time": 1337390.0,
+      "text": "Here they are, Timeline, Menu Items, Contacts,"
+    },
+    {
+      "index": 492,
+      "start_time": 1337390.0,
+      "end_time": 1339680.0,
+      "text": "Subscriptions, and Locations."
+    },
+    {
+      "index": 493,
+      "start_time": 1339680.0,
+      "end_time": 1341840.0,
+      "text": "And now let&#39;s see how we can put them together to build"
+    },
+    {
+      "index": 494,
+      "start_time": 1341840.0,
+      "end_time": 1343090.0,
+      "text": "some cool stuff."
+    },
+    {
+      "index": 495,
+      "start_time": 1345650.0,
+      "end_time": 1346762.0,
+      "text": "ALAIN VONGSOUVANH: All right."
+    },
+    {
+      "index": 496,
+      "start_time": 1346760.0,
+      "end_time": 1348538.0,
+      "text": "Thank you, Jenny."
+    },
+    {
+      "index": 497,
+      "start_time": 1348540.0,
+      "end_time": 1350880.0,
+      "text": "So now we know what the Mirror API is made of."
+    },
+    {
+      "index": 498,
+      "start_time": 1350880.0,
+      "end_time": 1353010.0,
+      "text": "It&#39;s quite simple but still pretty powerful."
+    },
+    {
+      "index": 499,
+      "start_time": 1355600.0,
+      "end_time": 1358680.0,
+      "text": "We&#39;d like now to take a moment to actually dive into some"
+    },
+    {
+      "index": 500,
+      "start_time": 1358680.0,
+      "end_time": 1362260.0,
+      "text": "demos of Glassware we brought for you, and we actually have"
+    },
+    {
+      "index": 501,
+      "start_time": 1362260.0,
+      "end_time": 1363540.0,
+      "text": "two of them."
+    },
+    {
+      "index": 502,
+      "start_time": 1363540.0,
+      "end_time": 1366560.0,
+      "text": "First one, it&#39;s probably the most simple Glassware you"
+    },
+    {
+      "index": 503,
+      "start_time": 1366560.0,
+      "end_time": 1369050.0,
+      "text": "might start with, and we encourage you to start with"
+    },
+    {
+      "index": 504,
+      "start_time": 1369050.0,
+      "end_time": 1370300.0,
+      "text": "such a Glassware."
+    },
+    {
+      "index": 505,
+      "start_time": 1372290.0,
+      "end_time": 1375200.0,
+      "text": "Cat Facts."
+    },
+    {
+      "index": 506,
+      "start_time": 1375200.0,
+      "end_time": 1377650.0,
+      "text": "So everybody loves Cat Facts, right?"
+    },
+    {
+      "index": 507,
+      "start_time": 1377650.0,
+      "end_time": 1380480.0,
+      "text": "Just simple Glassware."
+    },
+    {
+      "index": 508,
+      "start_time": 1380480.0,
+      "end_time": 1384180.0,
+      "text": "Just receive new Cat Facts every few minutes, every few"
+    },
+    {
+      "index": 509,
+      "start_time": 1384180.0,
+      "end_time": 1386220.0,
+      "text": "hours, or when new Cat Facts are available."
+    },
+    {
+      "index": 510,
+      "start_time": 1386220.0,
+      "end_time": 1389416.0,
+      "text": "But on a more serious note, it&#39;s actually how the &quot;New"
+    },
+    {
+      "index": 511,
+      "start_time": 1389420.0,
+      "end_time": 1392474.0,
+      "text": "York Times&quot; Glassware or the CNN Glassware is working."
+    },
+    {
+      "index": 512,
+      "start_time": 1392470.0,
+      "end_time": 1396220.0,
+      "text": "Every time they get a news update, they go through a user"
+    },
+    {
+      "index": 513,
+      "start_time": 1396220.0,
+      "end_time": 1399670.0,
+      "text": "database and then send push notifications to all users who"
+    },
+    {
+      "index": 514,
+      "start_time": 1399670.0,
+      "end_time": 1401680.0,
+      "text": "have subscribed."
+    },
+    {
+      "index": 515,
+      "start_time": 1401680.0,
+      "end_time": 1402160.0,
+      "text": "Cool."
+    },
+    {
+      "index": 516,
+      "start_time": 1402160.0,
+      "end_time": 1403960.0,
+      "text": "Now, let&#39;s take a look at the demo."
+    },
+    {
+      "index": 517,
+      "start_time": 1403960.0,
+      "end_time": 1408740.0,
+      "text": "So again, this is a live demo, and we&#39;ve been using random"
+    },
+    {
+      "index": 518,
+      "start_time": 1408740.0,
+      "end_time": 1413390.0,
+      "text": "Cat Facts, so we might have funny things showing up."
+    },
+    {
+      "index": 519,
+      "start_time": 1413390.0,
+      "end_time": 1416170.0,
+      "text": "Let&#39;s go back to my Gmail Glass."
+    },
+    {
+      "index": 520,
+      "start_time": 1416170.0,
+      "end_time": 1420680.0,
+      "text": "Let&#39;s see what I got while talking."
+    },
+    {
+      "index": 521,
+      "start_time": 1420680.0,
+      "end_time": 1423675.0,
+      "text": "Cats are very lazy and yet very warm creatures."
+    },
+    {
+      "index": 522,
+      "start_time": 1423680.0,
+      "end_time": 1424785.0,
+      "text": "I didn&#39;t know that."
+    },
+    {
+      "index": 523,
+      "start_time": 1424780.0,
+      "end_time": 1425035.0,
+      "text": "Did you?"
+    },
+    {
+      "index": 524,
+      "start_time": 1425040.0,
+      "end_time": 1426155.0,
+      "text": "JENNY MURPHY: No, I didn&#39;t."
+    },
+    {
+      "index": 525,
+      "start_time": 1426150.0,
+      "end_time": 1426580.0,
+      "text": "ALAIN VONGSOUVANH: Wow."
+    },
+    {
+      "index": 526,
+      "start_time": 1426580.0,
+      "end_time": 1427510.0,
+      "text": "Cool."
+    },
+    {
+      "index": 527,
+      "start_time": 1427510.0,
+      "end_time": 1428020.0,
+      "text": "Now I know."
+    },
+    {
+      "index": 528,
+      "start_time": 1428020.0,
+      "end_time": 1429730.0,
+      "text": "It&#39;s awesome."
+    },
+    {
+      "index": 529,
+      "start_time": 1429730.0,
+      "end_time": 1430630.0,
+      "text": "It&#39;s really simple."
+    },
+    {
+      "index": 530,
+      "start_time": 1430630.0,
+      "end_time": 1432300.0,
+      "text": "Let&#39;s try another one."
+    },
+    {
+      "index": 531,
+      "start_time": 1432300.0,
+      "end_time": 1436860.0,
+      "text": "We&#39;ve seen this one, it&#39;s the item I inserted."
+    },
+    {
+      "index": 532,
+      "start_time": 1436860.0,
+      "end_time": 1437890.0,
+      "text": "Let&#39;s see if I have one."
+    },
+    {
+      "index": 533,
+      "start_time": 1437890.0,
+      "end_time": 1441980.0,
+      "text": "Pure black cats are part of an ancient cat voodoo cult."
+    },
+    {
+      "index": 534,
+      "start_time": 1441980.0,
+      "end_time": 1445350.0,
+      "text": "Might be why some people are scared of black cats."
+    },
+    {
+      "index": 535,
+      "start_time": 1445350.0,
+      "end_time": 1445950.0,
+      "text": "Cool."
+    },
+    {
+      "index": 536,
+      "start_time": 1445950.0,
+      "end_time": 1447020.0,
+      "text": "All right."
+    },
+    {
+      "index": 537,
+      "start_time": 1447020.0,
+      "end_time": 1448530.0,
+      "text": "So this is Cat Facts."
+    },
+    {
+      "index": 538,
+      "start_time": 1448530.0,
+      "end_time": 1451510.0,
+      "text": "It&#39;s actually quite simple."
+    },
+    {
+      "index": 539,
+      "start_time": 1451510.0,
+      "end_time": 1453490.0,
+      "text": "And we also had a placeholder for you."
+    },
+    {
+      "index": 540,
+      "start_time": 1453490.0,
+      "end_time": 1455820.0,
+      "text": "Did you know that cats can see in the dark?"
+    },
+    {
+      "index": 541,
+      "start_time": 1455820.0,
+      "end_time": 1457700.0,
+      "text": "Again, I didn&#39;t know."
+    },
+    {
+      "index": 542,
+      "start_time": 1457700.0,
+      "end_time": 1461560.0,
+      "text": "That&#39;s why I got so spooked many times by my cat."
+    },
+    {
+      "index": 543,
+      "start_time": 1461560.0,
+      "end_time": 1465520.0,
+      "text": "Let&#39;s see what Cat Facts used from the Mirror API."
+    },
+    {
+      "index": 544,
+      "start_time": 1465520.0,
+      "end_time": 1467780.0,
+      "text": "Well, this is a pretty simple Glassware."
+    },
+    {
+      "index": 545,
+      "start_time": 1467780.0,
+      "end_time": 1469220.0,
+      "text": "This is the most simple Glassware you can write."
+    },
+    {
+      "index": 546,
+      "start_time": 1469220.0,
+      "end_time": 1471530.0,
+      "text": "It&#39;s only using the Timeline collection."
+    },
+    {
+      "index": 547,
+      "start_time": 1471530.0,
+      "end_time": 1473670.0,
+      "text": "We don&#39;t need any other features from the Mirror API"
+    },
+    {
+      "index": 548,
+      "start_time": 1473670.0,
+      "end_time": 1476440.0,
+      "text": "because we&#39;re only pushing contents to the Glass."
+    },
+    {
+      "index": 549,
+      "start_time": 1476440.0,
+      "end_time": 1478560.0,
+      "text": "But for instance, if you wanted to provide a way for a"
+    },
+    {
+      "index": 550,
+      "start_time": 1478560.0,
+      "end_time": 1481900.0,
+      "text": "user to save Cat Facts or to share Cat Facts with their"
+    },
+    {
+      "index": 551,
+      "start_time": 1481900.0,
+      "end_time": 1487090.0,
+      "text": "friends, you might want to add menu items, et cetera."
+    },
+    {
+      "index": 552,
+      "start_time": 1487090.0,
+      "end_time": 1489840.0,
+      "text": "Let&#39;s see what the user flow looks like."
+    },
+    {
+      "index": 553,
+      "start_time": 1489840.0,
+      "end_time": 1491630.0,
+      "text": "Again, it&#39;s pretty simple."
+    },
+    {
+      "index": 554,
+      "start_time": 1491630.0,
+      "end_time": 1494420.0,
+      "text": "So the user starts on your website,"
+    },
+    {
+      "index": 555,
+      "start_time": 1494420.0,
+      "end_time": 1497200.0,
+      "text": "authenticate using OAuth 2.0."
+    },
+    {
+      "index": 556,
+      "start_time": 1497200.0,
+      "end_time": 1500540.0,
+      "text": "Then once you get the user&#39;s token, store the"
+    },
+    {
+      "index": 557,
+      "start_time": 1500540.0,
+      "end_time": 1502360.0,
+      "text": "token in your database."
+    },
+    {
+      "index": 558,
+      "start_time": 1502360.0,
+      "end_time": 1504680.0,
+      "text": "And when you get a new Cat Fact or when your Chron Job"
+    },
+    {
+      "index": 559,
+      "start_time": 1504680.0,
+      "end_time": 1508960.0,
+      "text": "runs, just go through your list of users, get the"
+    },
+    {
+      "index": 560,
+      "start_time": 1508960.0,
+      "end_time": 1512430.0,
+      "text": "credentials, insert a new service object, insert the"
+    },
+    {
+      "index": 561,
+      "start_time": 1512430.0,
+      "end_time": 1515750.0,
+      "text": "item into the Mirror API, and we&#39;ll take care of"
+    },
+    {
+      "index": 562,
+      "start_time": 1515750.0,
+      "end_time": 1517320.0,
+      "text": "the rest from here."
+    },
+    {
+      "index": 563,
+      "start_time": 1517320.0,
+      "end_time": 1519300.0,
+      "text": "Google&#39;s server will sync with the user&#39;s Glass and"
+    },
+    {
+      "index": 564,
+      "start_time": 1519300.0,
+      "end_time": 1522300.0,
+      "text": "eventually, Cat Facts will be pushed to the user&#39;s Glass and"
+    },
+    {
+      "index": 565,
+      "start_time": 1522300.0,
+      "end_time": 1525030.0,
+      "text": "make the user happy."
+    },
+    {
+      "index": 566,
+      "start_time": 1525030.0,
+      "end_time": 1527520.0,
+      "text": "Let&#39;s take a look at the code."
+    },
+    {
+      "index": 567,
+      "start_time": 1527520.0,
+      "end_time": 1530040.0,
+      "text": "Again very simple."
+    },
+    {
+      "index": 568,
+      "start_time": 1530040.0,
+      "end_time": 1532670.0,
+      "text": "We start by getting a random cat fact."
+    },
+    {
+      "index": 569,
+      "start_time": 1532670.0,
+      "end_time": 1535300.0,
+      "text": "So this is case, we&#39;re only setting the text, but in your"
+    },
+    {
+      "index": 570,
+      "start_time": 1535300.0,
+      "end_time": 1537373.0,
+      "text": "Glassware, you might want to use HTML to be able to add"
+    },
+    {
+      "index": 571,
+      "start_time": 1537370.0,
+      "end_time": 1538687.0,
+      "text": "your own branding."
+    },
+    {
+      "index": 572,
+      "start_time": 1538690.0,
+      "end_time": 1542230.0,
+      "text": "Then we are getting a random cat fact, but you should get"
+    },
+    {
+      "index": 573,
+      "start_time": 1542230.0,
+      "end_time": 1545215.0,
+      "text": "push notifications from the news provider you&#39;re getting"
+    },
+    {
+      "index": 574,
+      "start_time": 1545210.0,
+      "end_time": 1546665.0,
+      "text": "your information from."
+    },
+    {
+      "index": 575,
+      "start_time": 1546670.0,
+      "end_time": 1551310.0,
+      "text": "And then you go through all of your users in your database,"
+    },
+    {
+      "index": 576,
+      "start_time": 1551310.0,
+      "end_time": 1556210.0,
+      "text": "get their credentials, build a Mirror service."
+    },
+    {
+      "index": 577,
+      "start_time": 1556210.0,
+      "end_time": 1557040.0,
+      "text": "This is Java."
+    },
+    {
+      "index": 578,
+      "start_time": 1557040.0,
+      "end_time": 1559490.0,
+      "text": "It might change according to the language you&#39;re using."
+    },
+    {
+      "index": 579,
+      "start_time": 1559490.0,
+      "end_time": 1562770.0,
+      "text": "And then push the item to the user&#39;s Glass,"
+    },
+    {
+      "index": 580,
+      "start_time": 1562770.0,
+      "end_time": 1564630.0,
+      "text": "to the user&#39;s Timeline."
+    },
+    {
+      "index": 581,
+      "start_time": 1564630.0,
+      "end_time": 1567050.0,
+      "text": "Of course, always check for exceptions."
+    },
+    {
+      "index": 582,
+      "start_time": 1567050.0,
+      "end_time": 1569380.0,
+      "text": "Something bad might happen and you want to catch that so you"
+    },
+    {
+      "index": 583,
+      "start_time": 1569380.0,
+      "end_time": 1573330.0,
+      "text": "don&#39;t break the process for all the rest of the users."
+    },
+    {
+      "index": 584,
+      "start_time": 1573330.0,
+      "end_time": 1574690.0,
+      "text": "And then that&#39;s it."
+    },
+    {
+      "index": 585,
+      "start_time": 1574690.0,
+      "end_time": 1576830.0,
+      "text": "You just send all the cat facts to all of the users."
+    },
+    {
+      "index": 586,
+      "start_time": 1576830.0,
+      "end_time": 1581260.0,
+      "text": "But what we did here was sending a request"
+    },
+    {
+      "index": 587,
+      "start_time": 1581260.0,
+      "end_time": 1582180.0,
+      "text": "for all of our users."
+    },
+    {
+      "index": 588,
+      "start_time": 1582180.0,
+      "end_time": 1584050.0,
+      "text": "There might be a better way to do that."
+    },
+    {
+      "index": 589,
+      "start_time": 1584050.0,
+      "end_time": 1588250.0,
+      "text": "Instead of sending tons of HTTP requests every hour when"
+    },
+    {
+      "index": 590,
+      "start_time": 1588250.0,
+      "end_time": 1592325.0,
+      "text": "you get a new update, you might be able to"
+    },
+    {
+      "index": 591,
+      "start_time": 1592320.0,
+      "end_time": 1593795.0,
+      "text": "have a better process."
+    },
+    {
+      "index": 592,
+      "start_time": 1593800.0,
+      "end_time": 1597810.0,
+      "text": "And actually, API Stacks, on which the Mirror API is built"
+    },
+    {
+      "index": 593,
+      "start_time": 1597810.0,
+      "end_time": 1601170.0,
+      "text": "on, supports batching requests."
+    },
+    {
+      "index": 594,
+      "start_time": 1601170.0,
+      "end_time": 1604860.0,
+      "text": "The way it works is that you simply build a multipart HTTP"
+    },
+    {
+      "index": 595,
+      "start_time": 1604860.0,
+      "end_time": 1608850.0,
+      "text": "request composed of sub-HTTP requests, and you send a"
+    },
+    {
+      "index": 596,
+      "start_time": 1608850.0,
+      "end_time": 1612130.0,
+      "text": "single HTTP request for all the users."
+    },
+    {
+      "index": 597,
+      "start_time": 1612130.0,
+      "end_time": 1613800.0,
+      "text": "So all the current libraries might not"
+    },
+    {
+      "index": 598,
+      "start_time": 1613800.0,
+      "end_time": 1614810.0,
+      "text": "support batch requests."
+    },
+    {
+      "index": 599,
+      "start_time": 1614810.0,
+      "end_time": 1616740.0,
+      "text": "You should check on the Project page."
+    },
+    {
+      "index": 600,
+      "start_time": 1616740.0,
+      "end_time": 1619090.0,
+      "text": "The Java that we&#39;re using here does"
+    },
+    {
+      "index": 601,
+      "start_time": 1619090.0,
+      "end_time": 1620900.0,
+      "text": "support batching requests."
+    },
+    {
+      "index": 602,
+      "start_time": 1620900.0,
+      "end_time": 1624720.0,
+      "text": "And the way it works is that you first need to create a"
+    },
+    {
+      "index": 603,
+      "start_time": 1624720.0,
+      "end_time": 1628600.0,
+      "text": "batch callback class that extends the JSON batch"
+    },
+    {
+      "index": 604,
+      "start_time": 1628600.0,
+      "end_time": 1630790.0,
+      "text": "callback interface."
+    },
+    {
+      "index": 605,
+      "start_time": 1630790.0,
+      "end_time": 1632430.0,
+      "text": "You need to implement two methods, on"
+    },
+    {
+      "index": 606,
+      "start_time": 1632430.0,
+      "end_time": 1633810.0,
+      "text": "success and on failure."
+    },
+    {
+      "index": 607,
+      "start_time": 1633810.0,
+      "end_time": 1637450.0,
+      "text": "This is to keep track of which requests have failed or which"
+    },
+    {
+      "index": 608,
+      "start_time": 1637450.0,
+      "end_time": 1638950.0,
+      "text": "requests have succeeded."
+    },
+    {
+      "index": 609,
+      "start_time": 1638950.0,
+      "end_time": 1641180.0,
+      "text": "In our case, we&#39;re only keeping track of"
+    },
+    {
+      "index": 610,
+      "start_time": 1641180.0,
+      "end_time": 1642480.0,
+      "text": "the number of requests."
+    },
+    {
+      "index": 611,
+      "start_time": 1642480.0,
+      "end_time": 1645160.0,
+      "text": "But in your case, you might want to keep the request and"
+    },
+    {
+      "index": 612,
+      "start_time": 1645160.0,
+      "end_time": 1648560.0,
+      "text": "retry again, or if the user had revoked your token, just"
+    },
+    {
+      "index": 613,
+      "start_time": 1648560.0,
+      "end_time": 1650970.0,
+      "text": "remove the user from the database."
+    },
+    {
+      "index": 614,
+      "start_time": 1650970.0,
+      "end_time": 1655140.0,
+      "text": "Once you&#39;re done implementing your class, simply create a"
+    },
+    {
+      "index": 615,
+      "start_time": 1655140.0,
+      "end_time": 1657400.0,
+      "text": "Batch Request from the Mirror service."
+    },
+    {
+      "index": 616,
+      "start_time": 1657400.0,
+      "end_time": 1659720.0,
+      "text": "So this is unauthorized."
+    },
+    {
+      "index": 617,
+      "start_time": 1659720.0,
+      "end_time": 1662400.0,
+      "text": "You don&#39;t need to authorize a Batch Request."
+    },
+    {
+      "index": 618,
+      "start_time": 1662400.0,
+      "end_time": 1665580.0,
+      "text": "Create the new callback object and then go through all your"
+    },
+    {
+      "index": 619,
+      "start_time": 1665580.0,
+      "end_time": 1670120.0,
+      "text": "users again, get a credentials from the"
+    },
+    {
+      "index": 620,
+      "start_time": 1670120.0,
+      "end_time": 1671580.0,
+      "text": "database, same as before."
+    },
+    {
+      "index": 621,
+      "start_time": 1675220.0,
+      "end_time": 1677770.0,
+      "text": "Create a new Insert Request, but don&#39;t execute the"
+    },
+    {
+      "index": 622,
+      "start_time": 1677770.0,
+      "end_time": 1679540.0,
+      "text": "request right now."
+    },
+    {
+      "index": 623,
+      "start_time": 1679540.0,
+      "end_time": 1681930.0,
+      "text": "Simply add them to the queue of a Batch Request."
+    },
+    {
+      "index": 624,
+      "start_time": 1681930.0,
+      "end_time": 1686780.0,
+      "text": "Once you&#39;ve added all the sub-requests to the batch,"
+    },
+    {
+      "index": 625,
+      "start_time": 1686780.0,
+      "end_time": 1689810.0,
+      "text": "execute the Batch Request and check out the results."
+    },
+    {
+      "index": 626,
+      "start_time": 1689810.0,
+      "end_time": 1690840.0,
+      "text": "That&#39;s it."
+    },
+    {
+      "index": 627,
+      "start_time": 1690840.0,
+      "end_time": 1691960.0,
+      "text": "You just saved bandwidth."
+    },
+    {
+      "index": 628,
+      "start_time": 1691960.0,
+      "end_time": 1695790.0,
+      "text": "You sent multiple requests into one SQL request, and with"
+    },
+    {
+      "index": 629,
+      "start_time": 1695790.0,
+      "end_time": 1698070.0,
+      "text": "gzip encoding you might actually save a lot of"
+    },
+    {
+      "index": 630,
+      "start_time": 1698070.0,
+      "end_time": 1700400.0,
+      "text": "bandwidth and data."
+    },
+    {
+      "index": 631,
+      "start_time": 1700400.0,
+      "end_time": 1703260.0,
+      "text": "But batching requests doesn&#39;t save you quota, though."
+    },
+    {
+      "index": 632,
+      "start_time": 1703260.0,
+      "end_time": 1705270.0,
+      "text": "All right, this was really simple."
+    },
+    {
+      "index": 633,
+      "start_time": 1705270.0,
+      "end_time": 1708290.0,
+      "text": "Let&#39;s jump into another demo that leverages the API more."
+    },
+    {
+      "index": 634,
+      "start_time": 1711990.0,
+      "end_time": 1714524.0,
+      "text": "JENNY MURPHY: Now we&#39;re going to show you another Glassware."
+    },
+    {
+      "index": 635,
+      "start_time": 1714520.0,
+      "end_time": 1717410.0,
+      "text": "This one&#39;s a little bit more sophisticated."
+    },
+    {
+      "index": 636,
+      "start_time": 1717410.0,
+      "end_time": 1720952.0,
+      "text": "It makes photos better by adding cats to them."
+    },
+    {
+      "index": 637,
+      "start_time": 1720950.0,
+      "end_time": 1724598.0,
+      "text": "Let&#39;s take a look at it."
+    },
+    {
+      "index": 638,
+      "start_time": 1724600.0,
+      "end_time": 1727550.0,
+      "text": "So switch into the demo Glass device."
+    },
+    {
+      "index": 639,
+      "start_time": 1727550.0,
+      "end_time": 1730740.0,
+      "text": "Does anyone mind if I take a photograph?"
+    },
+    {
+      "index": 640,
+      "start_time": 1730740.0,
+      "end_time": 1731660.0,
+      "text": "Here we go."
+    },
+    {
+      "index": 641,
+      "start_time": 1731660.0,
+      "end_time": 1733172.0,
+      "text": "So here&#39;s a photo of all of you."
+    },
+    {
+      "index": 642,
+      "start_time": 1733170.0,
+      "end_time": 1737688.0,
+      "text": "What I can do now is I can share it with not a circle,"
+    },
+    {
+      "index": 643,
+      "start_time": 1737690.0,
+      "end_time": 1741460.0,
+      "text": "but with Add a Cat to That."
+    },
+    {
+      "index": 644,
+      "start_time": 1741460.0,
+      "end_time": 1742880.0,
+      "text": "And we&#39;ll loop back in a moment"
+    },
+    {
+      "index": 645,
+      "start_time": 1742880.0,
+      "end_time": 1744610.0,
+      "text": "just to see what happens."
+    },
+    {
+      "index": 646,
+      "start_time": 1744610.0,
+      "end_time": 1747050.0,
+      "text": "So right now, that&#39;s being sent off to the server to get"
+    },
+    {
+      "index": 647,
+      "start_time": 1747050.0,
+      "end_time": 1750226.0,
+      "text": "processed, have a cat added to it."
+    },
+    {
+      "index": 648,
+      "start_time": 1750230.0,
+      "end_time": 1752034.0,
+      "text": "So let&#39;s take a look at how that works."
+    },
+    {
+      "index": 649,
+      "start_time": 1755580.0,
+      "end_time": 1758190.0,
+      "text": "This uses a few more features of the Mirror API."
+    },
+    {
+      "index": 650,
+      "start_time": 1758190.0,
+      "end_time": 1760930.0,
+      "text": "In addition to the Timeline, which we used to work with the"
+    },
+    {
+      "index": 651,
+      "start_time": 1760930.0,
+      "end_time": 1765410.0,
+      "text": "card up there and also to change the card once the proof"
+    },
+    {
+      "index": 652,
+      "start_time": 1765410.0,
+      "end_time": 1769680.0,
+      "text": "photo comes back, we also used the Contacts Collection to add"
+    },
+    {
+      "index": 653,
+      "start_time": 1769680.0,
+      "end_time": 1773170.0,
+      "text": "a contact for adding a cat."
+    },
+    {
+      "index": 654,
+      "start_time": 1773170.0,
+      "end_time": 1776180.0,
+      "text": "And we subscribed to changes in the Timeline Collection so"
+    },
+    {
+      "index": 655,
+      "start_time": 1776180.0,
+      "end_time": 1777790.0,
+      "text": "we know when it&#39;s time to add a cat to a photo."
+    },
+    {
+      "index": 656,
+      "start_time": 1780640.0,
+      "end_time": 1784300.0,
+      "text": "The flow of this Glassware has a couple different chunks."
+    },
+    {
+      "index": 657,
+      "start_time": 1784300.0,
+      "end_time": 1787350.0,
+      "text": "First chunk is the Bootstrap phase."
+    },
+    {
+      "index": 658,
+      "start_time": 1787350.0,
+      "end_time": 1789820.0,
+      "text": "This is a design pattern we see in a lot of Glassware,"
+    },
+    {
+      "index": 659,
+      "start_time": 1789820.0,
+      "end_time": 1792500.0,
+      "text": "especially the more sophisticated ones."
+    },
+    {
+      "index": 660,
+      "start_time": 1792500.0,
+      "end_time": 1795980.0,
+      "text": "This gets executed whenever a user installs this Glassware."
+    },
+    {
+      "index": 661,
+      "start_time": 1795980.0,
+      "end_time": 1799060.0,
+      "text": "We do a few different things to set them up."
+    },
+    {
+      "index": 662,
+      "start_time": 1799060.0,
+      "end_time": 1800910.0,
+      "text": "So it starts with the user authenticating"
+    },
+    {
+      "index": 663,
+      "start_time": 1800910.0,
+      "end_time": 1802420.0,
+      "text": "for the first time."
+    },
+    {
+      "index": 664,
+      "start_time": 1802420.0,
+      "end_time": 1805660.0,
+      "text": "We store their authentication credentials so that we can"
+    },
+    {
+      "index": 665,
+      "start_time": 1805660.0,
+      "end_time": 1808900.0,
+      "text": "make requests on their behalf later, and we immediately do a"
+    },
+    {
+      "index": 666,
+      "start_time": 1808900.0,
+      "end_time": 1809850.0,
+      "text": "couple things."
+    },
+    {
+      "index": 667,
+      "start_time": 1809850.0,
+      "end_time": 1812120.0,
+      "text": "We&#39;re going to insert that contact so they can share"
+    },
+    {
+      "index": 668,
+      "start_time": 1812120.0,
+      "end_time": 1815170.0,
+      "text": "photos to a Glassware, and we&#39;re also going to insert the"
+    },
+    {
+      "index": 669,
+      "start_time": 1815170.0,
+      "end_time": 1818210.0,
+      "text": "subscription to their changes in the Timeline so we know"
+    },
+    {
+      "index": 670,
+      "start_time": 1818210.0,
+      "end_time": 1819460.0,
+      "text": "when they share a photo with us."
+    },
+    {
+      "index": 671,
+      "start_time": 1823300.0,
+      "end_time": 1826410.0,
+      "text": "Later, when our user is out about running around, taking"
+    },
+    {
+      "index": 672,
+      "start_time": 1826410.0,
+      "end_time": 1828800.0,
+      "text": "pictures that could be a little bit better with the"
+    },
+    {
+      "index": 673,
+      "start_time": 1828800.0,
+      "end_time": 1834300.0,
+      "text": "addition of a cat, we do our interesting stuff."
+    },
+    {
+      "index": 674,
+      "start_time": 1834300.0,
+      "end_time": 1837610.0,
+      "text": "They take the photo, they share it with us."
+    },
+    {
+      "index": 675,
+      "start_time": 1837610.0,
+      "end_time": 1841530.0,
+      "text": "That causes a notification to be sent to our Glassware."
+    },
+    {
+      "index": 676,
+      "start_time": 1841530.0,
+      "end_time": 1845030.0,
+      "text": "We fetch the bytes of the photo, take those bytes and"
+    },
+    {
+      "index": 677,
+      "start_time": 1845030.0,
+      "end_time": 1846200.0,
+      "text": "composite them with the pictures of the"
+    },
+    {
+      "index": 678,
+      "start_time": 1846200.0,
+      "end_time": 1849270.0,
+      "text": "cat, making it better."
+    },
+    {
+      "index": 679,
+      "start_time": 1849270.0,
+      "end_time": 1851590.0,
+      "text": "Then we go back to their Timeline and find the card"
+    },
+    {
+      "index": 680,
+      "start_time": 1851590.0,
+      "end_time": 1855680.0,
+      "text": "that was created when they shared that, and replace the"
+    },
+    {
+      "index": 681,
+      "start_time": 1855680.0,
+      "end_time": 1857355.0,
+      "text": "image with our improved image."
+    },
+    {
+      "index": 682,
+      "start_time": 1860830.0,
+      "end_time": 1861380.0,
+      "text": "Let&#39;s take a look."
+    },
+    {
+      "index": 683,
+      "start_time": 1861380.0,
+      "end_time": 1863810.0,
+      "text": "It&#39;s already back."
+    },
+    {
+      "index": 684,
+      "start_time": 1863810.0,
+      "end_time": 1866248.0,
+      "text": "And here is that photo improved."
+    },
+    {
+      "index": 685,
+      "start_time": 1866250.0,
+      "end_time": 1876012.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 686,
+      "start_time": 1876010.0,
+      "end_time": 1877280.0,
+      "text": "JENNY MURPHY: So let&#39;s take a look at the code that made"
+    },
+    {
+      "index": 687,
+      "start_time": 1877280.0,
+      "end_time": 1878530.0,
+      "text": "that possible."
+    },
+    {
+      "index": 688,
+      "start_time": 1880340.0,
+      "end_time": 1881270.0,
+      "text": "First, we&#39;re going to go through that"
+    },
+    {
+      "index": 689,
+      "start_time": 1881270.0,
+      "end_time": 1882780.0,
+      "text": "Bootstrap phase again."
+    },
+    {
+      "index": 690,
+      "start_time": 1882780.0,
+      "end_time": 1884890.0,
+      "text": "This code will look really familiar because we&#39;re just"
+    },
+    {
+      "index": 691,
+      "start_time": 1884890.0,
+      "end_time": 1886670.0,
+      "text": "using the basic features of those two different"
+    },
+    {
+      "index": 692,
+      "start_time": 1886670.0,
+      "end_time": 1888120.0,
+      "text": "collections."
+    },
+    {
+      "index": 693,
+      "start_time": 1888120.0,
+      "end_time": 1891060.0,
+      "text": "First, we&#39;re adding that contact."
+    },
+    {
+      "index": 694,
+      "start_time": 1891060.0,
+      "end_time": 1893125.0,
+      "text": "We&#39;re giving it a name, we&#39;re setting display properties and"
+    },
+    {
+      "index": 695,
+      "start_time": 1893120.0,
+      "end_time": 1896955.0,
+      "text": "then ID so we can correlate it later, and we&#39;re setting an"
+    },
+    {
+      "index": 696,
+      "start_time": 1896960.0,
+      "end_time": 1898280.0,
+      "text": "accept type."
+    },
+    {
+      "index": 697,
+      "start_time": 1898280.0,
+      "end_time": 1901290.0,
+      "text": "Our software can make any image better."
+    },
+    {
+      "index": 698,
+      "start_time": 1901290.0,
+      "end_time": 1902350.0,
+      "text": "But we could have made it more narrow."
+    },
+    {
+      "index": 699,
+      "start_time": 1902350.0,
+      "end_time": 1904690.0,
+      "text": "For example, if we only wanted to process JPEGs, we could"
+    },
+    {
+      "index": 700,
+      "start_time": 1904690.0,
+      "end_time": 1906320.0,
+      "text": "have said image/JPEG here."
+    },
+    {
+      "index": 701,
+      "start_time": 1909890.0,
+      "end_time": 1911455.0,
+      "text": "And then we insert it."
+    },
+    {
+      "index": 702,
+      "start_time": 1911450.0,
+      "end_time": 1914875.0,
+      "text": "We&#39;re also subscribing to notifications on the Timeline"
+    },
+    {
+      "index": 703,
+      "start_time": 1914880.0,
+      "end_time": 1916410.0,
+      "text": "Collection."
+    },
+    {
+      "index": 704,
+      "start_time": 1916410.0,
+      "end_time": 1920120.0,
+      "text": "This is pretty much the same code you saw before."
+    },
+    {
+      "index": 705,
+      "start_time": 1920120.0,
+      "end_time": 1924180.0,
+      "text": "We&#39;re setting an endpoint, HTTPS, setting tokens, and"
+    },
+    {
+      "index": 706,
+      "start_time": 1924180.0,
+      "end_time": 1926980.0,
+      "text": "subscribing."
+    },
+    {
+      "index": 707,
+      "start_time": 1926980.0,
+      "end_time": 1929550.0,
+      "text": "Once the Bootstrap phase is complete, then we are ready to"
+    },
+    {
+      "index": 708,
+      "start_time": 1929550.0,
+      "end_time": 1931980.0,
+      "text": "start handling those notifications as they come in"
+    },
+    {
+      "index": 709,
+      "start_time": 1931980.0,
+      "end_time": 1933230.0,
+      "text": "from photos being shared."
+    },
+    {
+      "index": 710,
+      "start_time": 1935660.0,
+      "end_time": 1938230.0,
+      "text": "Pretty similar to last time, we&#39;re using Jackson to parse"
+    },
+    {
+      "index": 711,
+      "start_time": 1938230.0,
+      "end_time": 1940400.0,
+      "text": "those notifications as they come in."
+    },
+    {
+      "index": 712,
+      "start_time": 1940400.0,
+      "end_time": 1943190.0,
+      "text": "We&#39;re verifying the notification, we&#39;re inspecting"
+    },
+    {
+      "index": 713,
+      "start_time": 1943190.0,
+      "end_time": 1945755.0,
+      "text": "that token and making sure everything looks clean."
+    },
+    {
+      "index": 714,
+      "start_time": 1945760.0,
+      "end_time": 1949465.0,
+      "text": "Fetching the user, creating a client so that we can make"
+    },
+    {
+      "index": 715,
+      "start_time": 1949460.0,
+      "end_time": 1953930.0,
+      "text": "requests and manipulate their Timeline Item."
+    },
+    {
+      "index": 716,
+      "start_time": 1953930.0,
+      "end_time": 1957545.0,
+      "text": "And then we call the Add a Cat to that function to add a cat"
+    },
+    {
+      "index": 717,
+      "start_time": 1957550.0,
+      "end_time": 1959725.0,
+      "text": "to that Timeline Item."
+    },
+    {
+      "index": 718,
+      "start_time": 1959720.0,
+      "end_time": 1961820.0,
+      "text": "Let&#39;s dig into there."
+    },
+    {
+      "index": 719,
+      "start_time": 1961820.0,
+      "end_time": 1964620.0,
+      "text": "First thing we do up here is we get the"
+    },
+    {
+      "index": 720,
+      "start_time": 1964620.0,
+      "end_time": 1966230.0,
+      "text": "Timeline Item that impacted."
+    },
+    {
+      "index": 721,
+      "start_time": 1966230.0,
+      "end_time": 1969560.0,
+      "text": "This is a copy of the original photo that we took that is"
+    },
+    {
+      "index": 722,
+      "start_time": 1969560.0,
+      "end_time": 1971760.0,
+      "text": "accessible to our Glassware so that we can"
+    },
+    {
+      "index": 723,
+      "start_time": 1971760.0,
+      "end_time": 1975010.0,
+      "text": "make changes in place."
+    },
+    {
+      "index": 724,
+      "start_time": 1975010.0,
+      "end_time": 1977190.0,
+      "text": "We&#39;re going to go through all of the attachments that are on"
+    },
+    {
+      "index": 725,
+      "start_time": 1977190.0,
+      "end_time": 1979290.0,
+      "text": "this Timeline Item."
+    },
+    {
+      "index": 726,
+      "start_time": 1979290.0,
+      "end_time": 1981520.0,
+      "text": "Typically, a card that&#39;s taken from the built-in camera will"
+    },
+    {
+      "index": 727,
+      "start_time": 1981520.0,
+      "end_time": 1984470.0,
+      "text": "only have one attachment, but another Glassware could have"
+    },
+    {
+      "index": 728,
+      "start_time": 1984470.0,
+      "end_time": 1987750.0,
+      "text": "created and made sharable a Timeline Item with many"
+    },
+    {
+      "index": 729,
+      "start_time": 1987750.0,
+      "end_time": 1988860.0,
+      "text": "attachments."
+    },
+    {
+      "index": 730,
+      "start_time": 1988860.0,
+      "end_time": 1990860.0,
+      "text": "We&#39;re going to iterate through all of them and make them all"
+    },
+    {
+      "index": 731,
+      "start_time": 1990860.0,
+      "end_time": 1993150.0,
+      "text": "better, because of course, they want cats in all of them."
+    },
+    {
+      "index": 732,
+      "start_time": 1996580.0,
+      "end_time": 1999625.0,
+      "text": "We&#39;re going to get the bytes and process the photo."
+    },
+    {
+      "index": 733,
+      "start_time": 1999620.0,
+      "end_time": 2003055.0,
+      "text": "We&#39;re going to do the composition in that function."
+    },
+    {
+      "index": 734,
+      "start_time": 2003060.0,
+      "end_time": 2005050.0,
+      "text": "Then what we&#39;re going to do is we&#39;re going to go through each"
+    },
+    {
+      "index": 735,
+      "start_time": 2005050.0,
+      "end_time": 2008060.0,
+      "text": "one of those attachments and we&#39;re going to remove the one"
+    },
+    {
+      "index": 736,
+      "start_time": 2008060.0,
+      "end_time": 2011250.0,
+      "text": "that came to us and replace it with the improved one so that"
+    },
+    {
+      "index": 737,
+      "start_time": 2011250.0,
+      "end_time": 2014260.0,
+      "text": "the card is replaced in place."
+    },
+    {
+      "index": 738,
+      "start_time": 2014260.0,
+      "end_time": 2017520.0,
+      "text": "And then finally, we&#39;re going to update the card itself and"
+    },
+    {
+      "index": 739,
+      "start_time": 2017520.0,
+      "end_time": 2018240.0,
+      "text": "make it sharable."
+    },
+    {
+      "index": 740,
+      "start_time": 2018240.0,
+      "end_time": 2020430.0,
+      "text": "Because of course, you&#39;re going to want to share these"
+    },
+    {
+      "index": 741,
+      "start_time": 2020430.0,
+      "end_time": 2022750.0,
+      "text": "cat improved photos with social"
+    },
+    {
+      "index": 742,
+      "start_time": 2022750.0,
+      "end_time": 2025630.0,
+      "text": "networks and other Glassware."
+    },
+    {
+      "index": 743,
+      "start_time": 2025630.0,
+      "end_time": 2028730.0,
+      "text": "Then we insert it."
+    },
+    {
+      "index": 744,
+      "start_time": 2028730.0,
+      "end_time": 2031840.0,
+      "text": "And that was Add a Cat to That."
+    },
+    {
+      "index": 745,
+      "start_time": 2031840.0,
+      "end_time": 2033460.0,
+      "text": "Slightly more sophisticated Glassware."
+    },
+    {
+      "index": 746,
+      "start_time": 2033460.0,
+      "end_time": 2036400.0,
+      "text": "And yeah, it&#39;s silly, but it shows you how some of those"
+    },
+    {
+      "index": 747,
+      "start_time": 2036400.0,
+      "end_time": 2039170.0,
+      "text": "features in the API can come together to maybe produce"
+    },
+    {
+      "index": 748,
+      "start_time": 2039170.0,
+      "end_time": 2043630.0,
+      "text": "something you didn&#39;t think was quite obvious."
+    },
+    {
+      "index": 749,
+      "start_time": 2043630.0,
+      "end_time": 2044880.0,
+      "text": "So let&#39;s talk about next steps."
+    },
+    {
+      "index": 750,
+      "start_time": 2050050.0000000002,
+      "end_time": 2053489.0000000002,
+      "text": "So we&#39;re now two sessions into the track."
+    },
+    {
+      "index": 751,
+      "start_time": 2053489.9999999998,
+      "end_time": 2055310.9999999998,
+      "text": "I hope you&#39;ve enjoyed them so far."
+    },
+    {
+      "index": 752,
+      "start_time": 2055310.0,
+      "end_time": 2057050.0,
+      "text": "There are a couple more left and we&#39;d like to encourage you"
+    },
+    {
+      "index": 753,
+      "start_time": 2057050.0000000002,
+      "end_time": 2058784.0000000002,
+      "text": "to go check them out."
+    },
+    {
+      "index": 754,
+      "start_time": 2058780.0000000002,
+      "end_time": 2062226.0000000002,
+      "text": "We have Hack Your Glass coming up in a little while where you"
+    },
+    {
+      "index": 755,
+      "start_time": 2062230.0,
+      "end_time": 2064800.0,
+      "text": "can dive deeper in beyond the Mirror API on the bleeding"
+    },
+    {
+      "index": 756,
+      "start_time": 2064800.0000000002,
+      "end_time": 2068130.0000000002,
+      "text": "edge in maybe void your warranty in the process."
+    },
+    {
+      "index": 757,
+      "start_time": 2068130.0,
+      "end_time": 2071070.0,
+      "text": "And immediately after, we have a fireside chat with a lot of"
+    },
+    {
+      "index": 758,
+      "start_time": 2071070.0000000002,
+      "end_time": 2072320.0000000002,
+      "text": "the leaders of our team."
+    },
+    {
+      "index": 759,
+      "start_time": 2074840.0000000002,
+      "end_time": 2077300.0000000002,
+      "text": "Alain and myself and a whole bunch of developers from the"
+    },
+    {
+      "index": 760,
+      "start_time": 2077300.0000000002,
+      "end_time": 2081330.0000000002,
+      "text": "Glass team are hanging out in the Sandbox so please come by"
+    },
+    {
+      "index": 761,
+      "start_time": 2081330.0,
+      "end_time": 2084969.0,
+      "text": "later today, maybe tomorrow, and ask us questions, share"
+    },
+    {
+      "index": 762,
+      "start_time": 2084969.9999999998,
+      "end_time": 2087280.9999999998,
+      "text": "your ideas, and just chat with us about Glass."
+    },
+    {
+      "index": 763,
+      "start_time": 2087280.0000000002,
+      "end_time": 2090070.0000000002,
+      "text": "We love hearing from you."
+    },
+    {
+      "index": 764,
+      "start_time": 2090070.0000000002,
+      "end_time": 2094580.0000000002,
+      "text": "And now and beyond I/O, we have community"
+    },
+    {
+      "index": 765,
+      "start_time": 2094580.0,
+      "end_time": 2097690.0,
+      "text": "on the web, of course."
+    },
+    {
+      "index": 766,
+      "start_time": 2097690.0,
+      "end_time": 2099720.0,
+      "text": "You can come and find us on StackOverflow to ask your"
+    },
+    {
+      "index": 767,
+      "start_time": 2099720.0,
+      "end_time": 2102100.0,
+      "text": "questions about the Mirror API in Glass."
+    },
+    {
+      "index": 768,
+      "start_time": 2102100.0,
+      "end_time": 2105240.0,
+      "text": "You can find our sample code on GitHub."
+    },
+    {
+      "index": 769,
+      "start_time": 2105240.0,
+      "end_time": 2107740.0,
+      "text": "And if you found an issue or have a feature request, you"
+    },
+    {
+      "index": 770,
+      "start_time": 2107740.0,
+      "end_time": 2109900.0,
+      "text": "can go to our Issue Track and report it."
+    },
+    {
+      "index": 771,
+      "start_time": 2109900.0,
+      "end_time": 2112537.0,
+      "text": "You can find links to all of these up on developers.googl"
+    },
+    {
+      "index": 772,
+      "start_time": 2112540.0,
+      "end_time": 2118233.0,
+      "text": "e.com/glass/community."
+    },
+    {
+      "index": 773,
+      "start_time": 2118230.0,
+      "end_time": 2120120.0,
+      "text": "And just for you Explorers in the audience--"
+    },
+    {
+      "index": 774,
+      "start_time": 2120120.0,
+      "end_time": 2121585.0,
+      "text": "I see a bunch of you--"
+    },
+    {
+      "index": 775,
+      "start_time": 2121580.0,
+      "end_time": 2125645.0,
+      "text": "we have a special community for you to discuss Glass and"
+    },
+    {
+      "index": 776,
+      "start_time": 2125650.0,
+      "end_time": 2127200.0,
+      "text": "the Mirror API."
+    },
+    {
+      "index": 777,
+      "start_time": 2127200.0,
+      "end_time": 2130360.0,
+      "text": "So if you have Glass already, you can go there right now and"
+    },
+    {
+      "index": 778,
+      "start_time": 2130360.0,
+      "end_time": 2132930.0,
+      "text": "discuss with your co-explorers, and if you"
+    },
+    {
+      "index": 779,
+      "start_time": 2132930.0,
+      "end_time": 2136030.0,
+      "text": "haven&#39;t picked up Glass yet, you&#39;ll gain access once you"
+    },
+    {
+      "index": 780,
+      "start_time": 2136030.0,
+      "end_time": 2137280.0,
+      "text": "pick it up."
+    },
+    {
+      "index": 781,
+      "start_time": 2140400.0,
+      "end_time": 2141000.0,
+      "text": "And that&#39;s it."
+    },
+    {
+      "index": 782,
+      "start_time": 2141000.0,
+      "end_time": 2143210.0,
+      "text": "We have a few minutes for questions now."
+    },
+    {
+      "index": 783,
+      "start_time": 2143210.0,
+      "end_time": 2145955.0,
+      "text": "Thank you for listening to us."
+    },
+    {
+      "index": 784,
+      "start_time": 2145960.0,
+      "end_time": 2147895.0,
+      "text": "So if you&#39;d like to come up to the microphone to ask"
+    },
+    {
+      "index": 785,
+      "start_time": 2147890.0,
+      "end_time": 2149940.0,
+      "text": "questions, please do."
+    },
+    {
+      "index": 786,
+      "start_time": 2149940.0,
+      "end_time": 2151545.0,
+      "text": "And after that, we&#39;re going to be in the Sandbox."
+    },
+    {
+      "index": 787,
+      "start_time": 2151540.0,
+      "end_time": 2153509.0,
+      "text": "So if you have questions we don&#39;t have time to answer,"
+    },
+    {
+      "index": 788,
+      "start_time": 2153510.0,
+      "end_time": 2154498.0,
+      "text": "come ask me there."
+    },
+    {
+      "index": 789,
+      "start_time": 2154500.0,
+      "end_time": 2161416.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 790,
+      "start_time": 2161420.0,
+      "end_time": 2162422.0,
+      "text": "ALAIN VONGSOUVANH: Thank you."
+    },
+    {
+      "index": 791,
+      "start_time": 2162420.0,
+      "end_time": 2163050.0,
+      "text": "Question?"
+    },
+    {
+      "index": 792,
+      "start_time": 2163050.0,
+      "end_time": 2163350.0,
+      "text": "AUDIENCE: Yeah."
+    },
+    {
+      "index": 793,
+      "start_time": 2163350.0,
+      "end_time": 2167720.0,
+      "text": "So in the Add a Cat example, you describe removing the"
+    },
+    {
+      "index": 794,
+      "start_time": 2167720.0,
+      "end_time": 2172690.0,
+      "text": "attachments, modifying them, and then doing an update."
+    },
+    {
+      "index": 795,
+      "start_time": 2172690.0,
+      "end_time": 2173670.0,
+      "text": "Why is that the pattern?"
+    },
+    {
+      "index": 796,
+      "start_time": 2173670.0,
+      "end_time": 2178330.0,
+      "text": "Why isn&#39;t it creating a new update and pushing that?"
+    },
+    {
+      "index": 797,
+      "start_time": 2178330.0,
+      "end_time": 2179490.0,
+      "text": "Could you describe the difference"
+    },
+    {
+      "index": 798,
+      "start_time": 2179490.0,
+      "end_time": 2181700.0,
+      "text": "between both of those?"
+    },
+    {
+      "index": 799,
+      "start_time": 2181700.0,
+      "end_time": 2184100.0,
+      "text": "ALAIN VONGSOUVANH: You mean the client, creating a copy."
+    },
+    {
+      "index": 800,
+      "start_time": 2184100.0,
+      "end_time": 2186670.0,
+      "text": "So it&#39;s that because the Glassware, so each Glassware"
+    },
+    {
+      "index": 801,
+      "start_time": 2186670.0,
+      "end_time": 2189250.0,
+      "text": "has access to their own timeline only, so you don&#39;t"
+    },
+    {
+      "index": 802,
+      "start_time": 2189250.0,
+      "end_time": 2191430.0,
+      "text": "get to share a common timeline."
+    },
+    {
+      "index": 803,
+      "start_time": 2191430.0,
+      "end_time": 2195090.0,
+      "text": "And so that the user still has access to the original photo"
+    },
+    {
+      "index": 804,
+      "start_time": 2195090.0,
+      "end_time": 2196900.0,
+      "text": "if they want to share with other Glasswares."
+    },
+    {
+      "index": 805,
+      "start_time": 2196900.0,
+      "end_time": 2199620.0,
+      "text": "So we create a copy for you that only your Glassware has"
+    },
+    {
+      "index": 806,
+      "start_time": 2199620.0,
+      "end_time": 2202430.0,
+      "text": "access to, and you have ownership over this item."
+    },
+    {
+      "index": 807,
+      "start_time": 2202430.0,
+      "end_time": 2203130.0,
+      "text": "AUDIENCE: Got it."
+    },
+    {
+      "index": 808,
+      "start_time": 2203130.0,
+      "end_time": 2205250.0,
+      "text": "ALAIN VONGSOUVANH: So you can do updates on it, and if"
+    },
+    {
+      "index": 809,
+      "start_time": 2205250.0,
+      "end_time": 2208290.0,
+      "text": "you&#39;ve been using the Path on Google+ Glassware, this is"
+    },
+    {
+      "index": 810,
+      "start_time": 2208290.0,
+      "end_time": 2209110.0,
+      "text": "actually what we&#39;re doing."
+    },
+    {
+      "index": 811,
+      "start_time": 2209110.0,
+      "end_time": 2212600.0,
+      "text": "So when you share a photo with Google+, Google+ reports that"
+    },
+    {
+      "index": 812,
+      "start_time": 2212600.0,
+      "end_time": 2215970.0,
+      "text": "photo and then updates the card to let the user know that"
+    },
+    {
+      "index": 813,
+      "start_time": 2215970.0,
+      "end_time": 2217010.0,
+      "text": "it has been processed."
+    },
+    {
+      "index": 814,
+      "start_time": 2217010.0,
+      "end_time": 2220220.0,
+      "text": "And then when they get Plus One or comments, they&#39;ll be"
+    },
+    {
+      "index": 815,
+      "start_time": 2220220.0,
+      "end_time": 2221960.0,
+      "text": "pushed into the bundle."
+    },
+    {
+      "index": 816,
+      "start_time": 2221960.0,
+      "end_time": 2224070.0,
+      "text": "AUDIENCE: So you don&#39;t have to create a new one and push it?"
+    },
+    {
+      "index": 817,
+      "start_time": 2224070.0,
+      "end_time": 2224570.0,
+      "text": "ALAIN VONGSOUVANH: Yes."
+    },
+    {
+      "index": 818,
+      "start_time": 2224570.0,
+      "end_time": 2225720.0,
+      "text": "You update the existing one."
+    },
+    {
+      "index": 819,
+      "start_time": 2225720.0,
+      "end_time": 2229460.0,
+      "text": "AUDIENCE: And would there be any time that you would"
+    },
+    {
+      "index": 820,
+      "start_time": 2229460.0,
+      "end_time": 2231650.0,
+      "text": "actually create a new one?"
+    },
+    {
+      "index": 821,
+      "start_time": 2231650.0,
+      "end_time": 2232570.0,
+      "text": "ALAIN VONGSOUVANH: It really depends."
+    },
+    {
+      "index": 822,
+      "start_time": 2232570.0,
+      "end_time": 2232920.0,
+      "text": "JENNY MURPHY: For bundles."
+    },
+    {
+      "index": 823,
+      "start_time": 2232920.0,
+      "end_time": 2233910.0,
+      "text": "ALAIN VONGSOUVANH: Yeah, it really depends."
+    },
+    {
+      "index": 824,
+      "start_time": 2233910.0,
+      "end_time": 2236990.0,
+      "text": "If you have an Instagram Glassware, for instance, you"
+    },
+    {
+      "index": 825,
+      "start_time": 2236990.0,
+      "end_time": 2241580.0,
+      "text": "might want to create multiple attachments and add them to"
+    },
+    {
+      "index": 826,
+      "start_time": 2241580.0,
+      "end_time": 2245820.0,
+      "text": "the item so the user can choose which one they prefer."
+    },
+    {
+      "index": 827,
+      "start_time": 2245820.0,
+      "end_time": 2246680.0,
+      "text": "AUDIENCE: OK, got it."
+    },
+    {
+      "index": 828,
+      "start_time": 2246680.0,
+      "end_time": 2247110.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 829,
+      "start_time": 2247110.0,
+      "end_time": 2248048.0,
+      "text": "ALAIN VONGSOUVANH: You&#39;re welcome."
+    },
+    {
+      "index": 830,
+      "start_time": 2248050.0,
+      "end_time": 2249046.0,
+      "text": "JENNY MURPHY: How about from this side?"
+    },
+    {
+      "index": 831,
+      "start_time": 2249040.0,
+      "end_time": 2249538.0,
+      "text": "Question?"
+    },
+    {
+      "index": 832,
+      "start_time": 2249540.0,
+      "end_time": 2250536.0,
+      "text": "AUDIENCE: Hello."
+    },
+    {
+      "index": 833,
+      "start_time": 2250540.0,
+      "end_time": 2252352.0,
+      "text": "I&#39;m [INAUDIBLE] from Thailand."
+    },
+    {
+      "index": 834,
+      "start_time": 2252350.0,
+      "end_time": 2256650.0,
+      "text": "I&#39;m wondering if it supports international language, for"
+    },
+    {
+      "index": 835,
+      "start_time": 2256650.0,
+      "end_time": 2260680.0,
+      "text": "example, Thai language or any Asian language for displaying"
+    },
+    {
+      "index": 836,
+      "start_time": 2260680.0,
+      "end_time": 2261930.0,
+      "text": "the timeline."
+    },
+    {
+      "index": 837,
+      "start_time": 2264470.0,
+      "end_time": 2266770.0,
+      "text": "JENNY MURPHY: So the Timeline Items themselves are UTFA, and"
+    },
+    {
+      "index": 838,
+      "start_time": 2266770.0,
+      "end_time": 2269620.0,
+      "text": "you can actually see from some of our previous demos, we do"
+    },
+    {
+      "index": 839,
+      "start_time": 2269620.0,
+      "end_time": 2270910.0,
+      "text": "translation."
+    },
+    {
+      "index": 840,
+      "start_time": 2270910.0,
+      "end_time": 2273046.0,
+      "text": "We&#39;re actually putting character sets from other"
+    },
+    {
+      "index": 841,
+      "start_time": 2273050.0,
+      "end_time": 2275064.0,
+      "text": "languages in there."
+    },
+    {
+      "index": 842,
+      "start_time": 2275060.0,
+      "end_time": 2276560.0,
+      "text": "So they should work, and if you encounter a situation"
+    },
+    {
+      "index": 843,
+      "start_time": 2276560.0,
+      "end_time": 2279720.0,
+      "text": "where they don&#39;t, please let us know."
+    },
+    {
+      "index": 844,
+      "start_time": 2279720.0,
+      "end_time": 2281811.0,
+      "text": "AUDIENCE: How can I know that it doesn&#39;t work?"
+    },
+    {
+      "index": 845,
+      "start_time": 2281810.0,
+      "end_time": 2282259.0,
+      "text": "JENNY MURPHY: Sorry?"
+    },
+    {
+      "index": 846,
+      "start_time": 2282260.0,
+      "end_time": 2286560.0,
+      "text": "AUDIENCE: I&#39;m wondering if this works."
+    },
+    {
+      "index": 847,
+      "start_time": 2286560.0,
+      "end_time": 2290780.0,
+      "text": "I saw in the last session there is a &quot;late-aral&quot;?"
+    },
+    {
+      "index": 848,
+      "start_time": 2290780.0,
+      "end_time": 2291450.0,
+      "text": "menu?"
+    },
+    {
+      "index": 849,
+      "start_time": 2291450.0,
+      "end_time": 2292250.0,
+      "text": "JENNY MURPHY: Literal?"
+    },
+    {
+      "index": 850,
+      "start_time": 2292250.0,
+      "end_time": 2293240.0,
+      "text": "AUDIENCE: Literal, yeah."
+    },
+    {
+      "index": 851,
+      "start_time": 2293240.0,
+      "end_time": 2297500.0,
+      "text": "And this works for non-English languages, too?"
+    },
+    {
+      "index": 852,
+      "start_time": 2297500.0,
+      "end_time": 2298960.0,
+      "text": "JENNY MURPHY: Yeah, it&#39;s actually one of the really"
+    },
+    {
+      "index": 853,
+      "start_time": 2298960.0,
+      "end_time": 2302120.0,
+      "text": "cool features of Glass is you can Google for a translation."
+    },
+    {
+      "index": 854,
+      "start_time": 2302120.0,
+      "end_time": 2304480.0,
+      "text": "So I can ask it how to say something in another language,"
+    },
+    {
+      "index": 855,
+      "start_time": 2304480.0,
+      "end_time": 2306040.0,
+      "text": "and it reads to me in that language, too."
+    },
+    {
+      "index": 856,
+      "start_time": 2306040.0,
+      "end_time": 2306770.0,
+      "text": "AUDIENCE: OK, cool."
+    },
+    {
+      "index": 857,
+      "start_time": 2306770.0,
+      "end_time": 2307030.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 858,
+      "start_time": 2307030.0,
+      "end_time": 2309770.0,
+      "text": "JENNY MURPHY: It&#39;s pretty neat."
+    },
+    {
+      "index": 859,
+      "start_time": 2309770.0,
+      "end_time": 2310090.0,
+      "text": "AUDIENCE: Hi."
+    },
+    {
+      "index": 860,
+      "start_time": 2310090.0,
+      "end_time": 2311990.0,
+      "text": "Billy Lo from Toronto."
+    },
+    {
+      "index": 861,
+      "start_time": 2311990.0,
+      "end_time": 2315920.0,
+      "text": "Specifically around the OAuth integration, it&#39;s not quite"
+    },
+    {
+      "index": 862,
+      "start_time": 2315920.0,
+      "end_time": 2321120.0,
+      "text": "clear how a Glass Mirror API handles the OAuth Refresh of"
+    },
+    {
+      "index": 863,
+      "start_time": 2321120.0,
+      "end_time": 2325120.0,
+      "text": "the token because generally, there&#39;s an expiration of the"
+    },
+    {
+      "index": 864,
+      "start_time": 2325120.0,
+      "end_time": 2326910.0,
+      "text": "OAuth token, right?"
+    },
+    {
+      "index": 865,
+      "start_time": 2326910.0,
+      "end_time": 2329030.0,
+      "text": "ALAIN VONGSOUVANH: This is actually part of the protocol"
+    },
+    {
+      "index": 866,
+      "start_time": 2329030.0,
+      "end_time": 2329950.0,
+      "text": "and our API Stack."
+    },
+    {
+      "index": 867,
+      "start_time": 2329950.0,
+      "end_time": 2336280.0,
+      "text": "So usually, what you can do is either keep the expiry date"
+    },
+    {
+      "index": 868,
+      "start_time": 2336280.0,
+      "end_time": 2338836.0,
+      "text": "you get when you retrieve an access token, or the other way"
+    },
+    {
+      "index": 869,
+      "start_time": 2338840.0,
+      "end_time": 2342794.0,
+      "text": "you can do that is try to send a request and look for an"
+    },
+    {
+      "index": 870,
+      "start_time": 2342790.0,
+      "end_time": 2344660.0,
+      "text": "authorized request back from the API."
+    },
+    {
+      "index": 871,
+      "start_time": 2344660.0,
+      "end_time": 2348000.0,
+      "text": "So if you get a 401 or 403 back, try to refresh the"
+    },
+    {
+      "index": 872,
+      "start_time": 2348000.0,
+      "end_time": 2350110.0,
+      "text": "token, and if this is successful,"
+    },
+    {
+      "index": 873,
+      "start_time": 2350110.0,
+      "end_time": 2351110.0,
+      "text": "just use the new token."
+    },
+    {
+      "index": 874,
+      "start_time": 2351110.0,
+      "end_time": 2351420.0,
+      "text": "AUDIENCE: I see."
+    },
+    {
+      "index": 875,
+      "start_time": 2351420.0,
+      "end_time": 2351730.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 876,
+      "start_time": 2351730.0,
+      "end_time": 2353310.0,
+      "text": "ALAIN VONGSOUVANH: And our client libraries handle that"
+    },
+    {
+      "index": 877,
+      "start_time": 2353310.0,
+      "end_time": 2353970.0,
+      "text": "for you as well."
+    },
+    {
+      "index": 878,
+      "start_time": 2353970.0,
+      "end_time": 2354352.0,
+      "text": "AUDIENCE: Excellent."
+    },
+    {
+      "index": 879,
+      "start_time": 2354350.0,
+      "end_time": 2355498.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 880,
+      "start_time": 2355500.0,
+      "end_time": 2357280.0,
+      "text": "JENNY MURPHY: The slide we showed was a slight"
+    },
+    {
+      "index": 881,
+      "start_time": 2357280.0,
+      "end_time": 2360980.0,
+      "text": "oversimplification to try and do OAuth in one slide, so"
+    },
+    {
+      "index": 882,
+      "start_time": 2360980.0,
+      "end_time": 2363660.0,
+      "text": "there&#39;s a little more detail to it."
+    },
+    {
+      "index": 883,
+      "start_time": 2363660.0,
+      "end_time": 2364806.0,
+      "text": "This side?"
+    },
+    {
+      "index": 884,
+      "start_time": 2364810.0,
+      "end_time": 2365624.0,
+      "text": "AUDIENCE: Hi there."
+    },
+    {
+      "index": 885,
+      "start_time": 2365620.0,
+      "end_time": 2366170.0,
+      "text": "JENNY MURPHY: Hi."
+    },
+    {
+      "index": 886,
+      "start_time": 2366170.0,
+      "end_time": 2370260.0,
+      "text": "AUDIENCE: How soon can we send audio attachments to the"
+    },
+    {
+      "index": 887,
+      "start_time": 2370260.0,
+      "end_time": 2371190.0,
+      "text": "Mirror API?"
+    },
+    {
+      "index": 888,
+      "start_time": 2371190.0,
+      "end_time": 2372170.0,
+      "text": "JENNY MURPHY: Audio attachments."
+    },
+    {
+      "index": 889,
+      "start_time": 2372170.0,
+      "end_time": 2375100.0,
+      "text": "So right now, you can attach photographs and video, and you"
+    },
+    {
+      "index": 890,
+      "start_time": 2375100.0,
+      "end_time": 2377510.0,
+      "text": "can take the photos and embed them into the card."
+    },
+    {
+      "index": 891,
+      "start_time": 2377510.0,
+      "end_time": 2380260.0,
+      "text": "Audio attachments is something we want to support sometime."
+    },
+    {
+      "index": 892,
+      "start_time": 2380260.0,
+      "end_time": 2383250.0,
+      "text": "I don&#39;t have any specific timeline on it."
+    },
+    {
+      "index": 893,
+      "start_time": 2383250.0,
+      "end_time": 2385310.0,
+      "text": "You can actually attach them, they just"
+    },
+    {
+      "index": 894,
+      "start_time": 2385310.0,
+      "end_time": 2387080.0,
+      "text": "don&#39;t play right now."
+    },
+    {
+      "index": 895,
+      "start_time": 2387080.0,
+      "end_time": 2390890.0,
+      "text": "But as we&#39;ve mentioned before, it&#39;s in developer preview, so"
+    },
+    {
+      "index": 896,
+      "start_time": 2390890.0,
+      "end_time": 2392020.0,
+      "text": "that&#39;ll be coming at some point."
+    },
+    {
+      "index": 897,
+      "start_time": 2392020.0,
+      "end_time": 2392620.0,
+      "text": "AUDIENCE: Thank you."
+    },
+    {
+      "index": 898,
+      "start_time": 2392620.0,
+      "end_time": 2393670.0,
+      "text": "JENNY MURPHY: You&#39;re welcome."
+    },
+    {
+      "index": 899,
+      "start_time": 2393670.0,
+      "end_time": 2396490.0,
+      "text": "AUDIENCE: Hey, this is Andreas from Minnesota."
+    },
+    {
+      "index": 900,
+      "start_time": 2396490.0,
+      "end_time": 2399930.0,
+      "text": "I&#39;m interested in lower latency scenarios and wonder"
+    },
+    {
+      "index": 901,
+      "start_time": 2399930.0,
+      "end_time": 2402280.0,
+      "text": "what round trip times could be in [INAUDIBLE]"
+    },
+    {
+      "index": 902,
+      "start_time": 2402280.0,
+      "end_time": 2402910.0,
+      "text": "scenarios."
+    },
+    {
+      "index": 903,
+      "start_time": 2402910.0,
+      "end_time": 2407790.0,
+      "text": "And beyond Mirror, if you&#39;re looking at other APIs which"
+    },
+    {
+      "index": 904,
+      "start_time": 2407790.0,
+      "end_time": 2410350.0,
+      "text": "enable like more real time things?"
+    },
+    {
+      "index": 905,
+      "start_time": 2410350.0,
+      "end_time": 2412230.0,
+      "text": "ALAIN VONGSOUVANH: So Timothy this morning during his"
+    },
+    {
+      "index": 906,
+      "start_time": 2412230.0,
+      "end_time": 2415050.0,
+      "text": "session announced that we&#39;re working on GDK, so Glass"
+    },
+    {
+      "index": 907,
+      "start_time": 2415050.0,
+      "end_time": 2415970.0,
+      "text": "Development Kit."
+    },
+    {
+      "index": 908,
+      "start_time": 2415970.0,
+      "end_time": 2418150.0,
+      "text": "It&#39;s not ready yet."
+    },
+    {
+      "index": 909,
+      "start_time": 2418150.0,
+      "end_time": 2419210.0,
+      "text": "We&#39;re still working on it."
+    },
+    {
+      "index": 910,
+      "start_time": 2419210.0,
+      "end_time": 2422500.0,
+      "text": "Make sure to file feature requests if you have any, and"
+    },
+    {
+      "index": 911,
+      "start_time": 2422500.0,
+      "end_time": 2424770.0,
+      "text": "we&#39;ll keep you updated when we have more information."
+    },
+    {
+      "index": 912,
+      "start_time": 2424770.0,
+      "end_time": 2427160.0,
+      "text": "JENNY MURPHY: And in the meantime, I recommend you go"
+    },
+    {
+      "index": 913,
+      "start_time": 2427160.0,
+      "end_time": 2429100.0,
+      "text": "to the Hack Your Glass session."
+    },
+    {
+      "index": 914,
+      "start_time": 2429100.0,
+      "end_time": 2432530.0,
+      "text": "I think you&#39;ll like the content there."
+    },
+    {
+      "index": 915,
+      "start_time": 2432530.0,
+      "end_time": 2433970.0,
+      "text": "Switching sides again."
+    },
+    {
+      "index": 916,
+      "start_time": 2433970.0,
+      "end_time": 2434770.0,
+      "text": "Hi."
+    },
+    {
+      "index": 917,
+      "start_time": 2434770.0,
+      "end_time": 2436980.0,
+      "text": "AUDIENCE: Is there a character limit for the bodies of the"
+    },
+    {
+      "index": 918,
+      "start_time": 2436980.0,
+      "end_time": 2439970.0,
+      "text": "messages, because it looks like in the Gmail app, emails"
+    },
+    {
+      "index": 919,
+      "start_time": 2439970.0,
+      "end_time": 2441600.0,
+      "text": "are truncated?"
+    },
+    {
+      "index": 920,
+      "start_time": 2441600.0,
+      "end_time": 2445890.0,
+      "text": "JENNY MURPHY: So for content and length."
+    },
+    {
+      "index": 921,
+      "start_time": 2445890.0,
+      "end_time": 2448390.0,
+      "text": "So you can fit about seven lines comfortably, but they&#39;re"
+    },
+    {
+      "index": 922,
+      "start_time": 2448390.0,
+      "end_time": 2450470.0,
+      "text": "variable with fonts."
+    },
+    {
+      "index": 923,
+      "start_time": 2450470.0,
+      "end_time": 2452100.0,
+      "text": "AUDIENCE: So when you have multiple cards, though, the"
+    },
+    {
+      "index": 924,
+      "start_time": 2452100.0,
+      "end_time": 2453230.0,
+      "text": "message will keep going?"
+    },
+    {
+      "index": 925,
+      "start_time": 2453230.0,
+      "end_time": 2454160.0,
+      "text": "JENNY MURPHY: Yes, you can have multiple cards."
+    },
+    {
+      "index": 926,
+      "start_time": 2454160.0,
+      "end_time": 2455920.0,
+      "text": "AUDIENCE: Is there a limit on how many"
+    },
+    {
+      "index": 927,
+      "start_time": 2455920.0,
+      "end_time": 2457300.0,
+      "text": "characters you can put?"
+    },
+    {
+      "index": 928,
+      "start_time": 2457300.0,
+      "end_time": 2458420.0,
+      "text": "JENNY MURPHY: There are a couple ways to do this."
+    },
+    {
+      "index": 929,
+      "start_time": 2458420.0,
+      "end_time": 2461950.0,
+      "text": "If you&#39;re handcrafting HTML, you kind of frame it so it"
+    },
+    {
+      "index": 930,
+      "start_time": 2461950.0,
+      "end_time": 2463570.0,
+      "text": "fits in there well."
+    },
+    {
+      "index": 931,
+      "start_time": 2463570.0,
+      "end_time": 2465910.0,
+      "text": "If you have plain text content, we&#39;ll actually page"
+    },
+    {
+      "index": 932,
+      "start_time": 2465910.0,
+      "end_time": 2467280.0,
+      "text": "it for you automatically."
+    },
+    {
+      "index": 933,
+      "start_time": 2467280.0,
+      "end_time": 2468540.0,
+      "text": "That&#39;s how Gmail supports it."
+    },
+    {
+      "index": 934,
+      "start_time": 2468540.0,
+      "end_time": 2471200.0,
+      "text": "AUDIENCE: Is that a bug in the Gmail app then?"
+    },
+    {
+      "index": 935,
+      "start_time": 2471200.0,
+      "end_time": 2473990.0,
+      "text": "If you have a long email, it truncates the message and you"
+    },
+    {
+      "index": 936,
+      "start_time": 2473990.0,
+      "end_time": 2476040.0,
+      "text": "can&#39;t read the full email on Glass."
+    },
+    {
+      "index": 937,
+      "start_time": 2476040.0,
+      "end_time": 2477250.0,
+      "text": "JENNY MURPHY: You can&#39;t read the full email?"
+    },
+    {
+      "index": 938,
+      "start_time": 2477250.0,
+      "end_time": 2478660.0,
+      "text": "It should be showing you the full email."
+    },
+    {
+      "index": 939,
+      "start_time": 2478660.0,
+      "end_time": 2482965.0,
+      "text": "So if you can show that to me, swing back by the Sandbox, and"
+    },
+    {
+      "index": 940,
+      "start_time": 2482970.0,
+      "end_time": 2483715.0,
+      "text": "we&#39;ll take a peek."
+    },
+    {
+      "index": 941,
+      "start_time": 2483710.0,
+      "end_time": 2484340.0,
+      "text": "AUDIENCE: Thanks."
+    },
+    {
+      "index": 942,
+      "start_time": 2484340.0,
+      "end_time": 2487640.0,
+      "text": "JENNY MURPHY: I think we have time for one more quick one."
+    },
+    {
+      "index": 943,
+      "start_time": 2487640.0,
+      "end_time": 2487710.0,
+      "text": "ALAIN VONGSOUVANH: Seven seconds."
+    },
+    {
+      "index": 944,
+      "start_time": 2487710.0,
+      "end_time": 2490030.0,
+      "text": "JENNY MURPHY: Six seconds left."
+    },
+    {
+      "index": 945,
+      "start_time": 2490030.0,
+      "end_time": 2491370.0,
+      "text": "AUDIENCE: So I&#39;ve been wondering--"
+    },
+    {
+      "index": 946,
+      "start_time": 2491370.0,
+      "end_time": 2493760.0,
+      "text": "Timothy showed this morning the Facebook application which"
+    },
+    {
+      "index": 947,
+      "start_time": 2493760.0,
+      "end_time": 2496860.0,
+      "text": "allows you to add a caption to a photo after sharing it."
+    },
+    {
+      "index": 948,
+      "start_time": 2496860.0,
+      "end_time": 2500890.0,
+      "text": "I&#39;ve been wondering what kind of menu item this is."
+    },
+    {
+      "index": 949,
+      "start_time": 2500890.0,
+      "end_time": 2502260.0,
+      "text": "ALAIN VONGSOUVANH: It&#39;s a reply menu item."
+    },
+    {
+      "index": 950,
+      "start_time": 2502260.0,
+      "end_time": 2504950.0,
+      "text": "AUDIENCE: So you can change the way the standard menu"
+    },
+    {
+      "index": 951,
+      "start_time": 2504950.0,
+      "end_time": 2505700.0,
+      "text": "items are displayed?"
+    },
+    {
+      "index": 952,
+      "start_time": 2505700.0,
+      "end_time": 2505940.0,
+      "text": "ALAIN VONGSOUVANH: Yes."
+    },
+    {
+      "index": 953,
+      "start_time": 2505940.0,
+      "end_time": 2508650.0,
+      "text": "So you can use built-in menu items and override the display"
+    },
+    {
+      "index": 954,
+      "start_time": 2508650.0,
+      "end_time": 2509650.0,
+      "text": "name and the icon."
+    },
+    {
+      "index": 955,
+      "start_time": 2509650.0,
+      "end_time": 2511216.0,
+      "text": "AUDIENCE: OK, thanks."
+    },
+    {
+      "index": 956,
+      "start_time": 2511220.0,
+      "end_time": 2512674.0,
+      "text": "ALAIN VONGSOUVANH: So for other questions, we&#39;ll be at"
+    },
+    {
+      "index": 957,
+      "start_time": 2512670.0,
+      "end_time": 2513680.0,
+      "text": "the Sandbox."
+    },
+    {
+      "index": 958,
+      "start_time": 2513680.0,
+      "end_time": 2516100.0,
+      "text": "Feel free to swing by and ask us any questions you have."
+    },
+    {
+      "index": 959,
+      "start_time": 2516100.0,
+      "end_time": 2516530.0,
+      "text": "JENNY MURPHY: Yes."
+    },
+    {
+      "index": 960,
+      "start_time": 2516530.0,
+      "end_time": 2517290.0,
+      "text": "Come talk to us."
+    },
+    {
+      "index": 961,
+      "start_time": 2517290.0,
+      "end_time": 2518490.0,
+      "text": "We love talking about Glass."
+    },
+    {
+      "index": 962,
+      "start_time": 2518490.0,
+      "end_time": 2519850.0,
+      "text": "ALAIN VONGSOUVANH: Thank you for coming."
+    },
+    {
+      "index": 963,
+      "start_time": 2519850.0,
+      "end_time": 2521100.0,
+      "text": "JENNY MURPHY: Thank you, everyone."
+    }
+  ]
+}

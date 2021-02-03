@@ -1,0 +1,4776 @@
+{
+  "video_id": "gauOI0O9fRM",
+  "title": "Microservices in the Cloud with Kubernetes and Istio (Google I/O '18)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 4990.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 2,
+      "start_time": 7490.0,
+      "end_time": 9840.0,
+      "text": "SANDEEP DINESH: All right, good morning."
+    },
+    {
+      "index": 3,
+      "start_time": 9840.0,
+      "end_time": 11780.0,
+      "text": "My name is Sandeep."
+    },
+    {
+      "index": 4,
+      "start_time": 11780.0,
+      "end_time": 15490.0,
+      "text": "Today, I want to talk to you about microservices"
+    },
+    {
+      "index": 5,
+      "start_time": 15500.0,
+      "end_time": 17570.0,
+      "text": "with Kubernetes and Istio."
+    },
+    {
+      "index": 6,
+      "start_time": 17570.0,
+      "end_time": 19570.0,
+      "text": "So I&#39;m a developer advocate on the Google Cloud."
+    },
+    {
+      "index": 7,
+      "start_time": 19570.0,
+      "end_time": 21980.0,
+      "text": "I&#39;ve been working with Kubernetes for the past three"
+    },
+    {
+      "index": 8,
+      "start_time": 21980.0,
+      "end_time": 22520.0,
+      "text": "years."
+    },
+    {
+      "index": 9,
+      "start_time": 22520.0,
+      "end_time": 23840.0,
+      "text": "It&#39;s grown a lot."
+    },
+    {
+      "index": 10,
+      "start_time": 23840.0,
+      "end_time": 26300.0,
+      "text": "And Istio is the next new hot thing coming out,"
+    },
+    {
+      "index": 11,
+      "start_time": 26300.0,
+      "end_time": 27850.0,
+      "text": "so you&#39;re all here to learn about it."
+    },
+    {
+      "index": 12,
+      "start_time": 27850.0,
+      "end_time": 29990.0,
+      "text": "So let&#39;s go."
+    },
+    {
+      "index": 13,
+      "start_time": 29990.0,
+      "end_time": 34670.0,
+      "text": "Because we all know microservices are awesome--"
+    },
+    {
+      "index": 14,
+      "start_time": 34670.0,
+      "end_time": 38600.0,
+      "text": "when you have a traditional application, like a monolith,"
+    },
+    {
+      "index": 15,
+      "start_time": 38600.0,
+      "end_time": 40520.0,
+      "text": "you&#39;d have all of your logic in one app,"
+    },
+    {
+      "index": 16,
+      "start_time": 40520.0,
+      "end_time": 43290.0,
+      "text": "so a Java app, Ruby app, node, whatever."
+    },
+    {
+      "index": 17,
+      "start_time": 43290.0,
+      "end_time": 46127.0,
+      "text": "You would have all the code in your one app."
+    },
+    {
+      "index": 18,
+      "start_time": 46127.0,
+      "end_time": 47210.0,
+      "text": "It would do all the parts."
+    },
+    {
+      "index": 19,
+      "start_time": 47210.0,
+      "end_time": 49760.0,
+      "text": "Maybe you&#39;re using object orientation,"
+    },
+    {
+      "index": 20,
+      "start_time": 49760.0,
+      "end_time": 52410.0,
+      "text": "so you have different classes that do different things."
+    },
+    {
+      "index": 21,
+      "start_time": 52410.0,
+      "end_time": 55279.0,
+      "text": "But at the end of the day, it&#39;s like one big program"
+    },
+    {
+      "index": 22,
+      "start_time": 55280.0,
+      "end_time": 56489.0,
+      "text": "that does all the stuff."
+    },
+    {
+      "index": 23,
+      "start_time": 56489.0,
+      "end_time": 59290.0,
+      "text": "And there&#39;s a lot of advantages to doing this monolithic type"
+    },
+    {
+      "index": 24,
+      "start_time": 59300.0,
+      "end_time": 61884.0,
+      "text": "of development-- it&#39;s easier to debug, it&#39;s easier to deploy."
+    },
+    {
+      "index": 25,
+      "start_time": 61884.0,
+      "end_time": 63800.0,
+      "text": "You just have one thing, you just push it out,"
+    },
+    {
+      "index": 26,
+      "start_time": 63800.0,
+      "end_time": 64830.0,
+      "text": "and you&#39;re done."
+    },
+    {
+      "index": 27,
+      "start_time": 64830.0,
+      "end_time": 66530.0,
+      "text": "And then you have a really small team,"
+    },
+    {
+      "index": 28,
+      "start_time": 66530.0,
+      "end_time": 70260.0,
+      "text": "and you have a very small app, it&#39;s really easy to do."
+    },
+    {
+      "index": 29,
+      "start_time": 70260.0,
+      "end_time": 71960.0,
+      "text": "But the problem with the monolith"
+    },
+    {
+      "index": 30,
+      "start_time": 71960.0,
+      "end_time": 75660.0,
+      "text": "comes when your app starts to grow a little bigger."
+    },
+    {
+      "index": 31,
+      "start_time": 75660.0,
+      "end_time": 79100.0,
+      "text": "So now you have all of these things"
+    },
+    {
+      "index": 32,
+      "start_time": 79100.0,
+      "end_time": 80940.0,
+      "text": "and all these different pieces."
+    },
+    {
+      "index": 33,
+      "start_time": 80940.0,
+      "end_time": 83690.0,
+      "text": "But you still have one app that&#39;s doing all of it."
+    },
+    {
+      "index": 34,
+      "start_time": 83690.0,
+      "end_time": 86158.0,
+      "text": "So any time you want to make a change in invoicing, that"
+    },
+    {
+      "index": 35,
+      "start_time": 86159.0,
+      "end_time": 87950.0,
+      "text": "means you have to redeploy the whole thing,"
+    },
+    {
+      "index": 36,
+      "start_time": 87950.0,
+      "end_time": 89660.0,
+      "text": "even though the ETL pipeline might"
+    },
+    {
+      "index": 37,
+      "start_time": 89660.0,
+      "end_time": 91450.0,
+      "text": "have not been affected at all."
+    },
+    {
+      "index": 38,
+      "start_time": 91450.0,
+      "end_time": 95600.0,
+      "text": "And maybe the invoicing part is really good to be done in Java,"
+    },
+    {
+      "index": 39,
+      "start_time": 95600.0,
+      "end_time": 98000.0,
+      "text": "the ETL pipeline you want to use Python, and the front end,"
+    },
+    {
+      "index": 40,
+      "start_time": 98000.0,
+      "end_time": 99470.0,
+      "text": "you want to use Node.js."
+    },
+    {
+      "index": 41,
+      "start_time": 99470.0,
+      "end_time": 102500.0,
+      "text": "But if you have a monolithic app, you can&#39;t really do that."
+    },
+    {
+      "index": 42,
+      "start_time": 102500.0,
+      "end_time": 104759.0,
+      "text": "You&#39;re kind of stuck into using one language."
+    },
+    {
+      "index": 43,
+      "start_time": 104760.0,
+      "end_time": 107450.0,
+      "text": "So a team that wants to make an update to one little part"
+    },
+    {
+      "index": 44,
+      "start_time": 107450.0,
+      "end_time": 109640.0,
+      "text": "has to touch the whole thing, and things"
+    },
+    {
+      "index": 45,
+      "start_time": 109640.0,
+      "end_time": 112190.0,
+      "text": "start to get really hairy really quickly."
+    },
+    {
+      "index": 46,
+      "start_time": 112190.0,
+      "end_time": 114710.0,
+      "text": "So with microservices, each one of these"
+    },
+    {
+      "index": 47,
+      "start_time": 114710.0,
+      "end_time": 117401.0,
+      "text": "becomes its own individual component"
+    },
+    {
+      "index": 48,
+      "start_time": 117401.0,
+      "end_time": 119899.0,
+      "text": "that can be written in its own language, that can be updated"
+    },
+    {
+      "index": 49,
+      "start_time": 119900.0,
+      "end_time": 122624.0,
+      "text": "and deployed independently of the others."
+    },
+    {
+      "index": 50,
+      "start_time": 122624.0,
+      "end_time": 124789.0,
+      "text": "And so this gives you a lot more agility, a lot more"
+    },
+    {
+      "index": 51,
+      "start_time": 124790.0,
+      "end_time": 127310.0,
+      "text": "flexibility, a lot more speed, and a lot more cool"
+    },
+    {
+      "index": 52,
+      "start_time": 127310.0,
+      "end_time": 129620.0,
+      "text": "things like that."
+    },
+    {
+      "index": 53,
+      "start_time": 129620.0,
+      "end_time": 131270.0,
+      "text": "And so you&#39;re like, yes, that sounds really good, why"
+    },
+    {
+      "index": 54,
+      "start_time": 131270.0,
+      "end_time": 133950.0,
+      "text": "isn&#39;t anyone using monoliths?"
+    },
+    {
+      "index": 55,
+      "start_time": 133950.0,
+      "end_time": 137310.0,
+      "text": "Because once you start growing even bigger,"
+    },
+    {
+      "index": 56,
+      "start_time": 137310.0,
+      "end_time": 140220.0,
+      "text": "it gets even more complicated."
+    },
+    {
+      "index": 57,
+      "start_time": 140220.0,
+      "end_time": 143400.0,
+      "text": "Honestly, a monolith would fall apart at this point too."
+    },
+    {
+      "index": 58,
+      "start_time": 143400.0,
+      "end_time": 145380.0,
+      "text": "But even all the advantages of the microservice"
+    },
+    {
+      "index": 59,
+      "start_time": 145380.0,
+      "end_time": 148790.0,
+      "text": "start to get really hard to manage,"
+    },
+    {
+      "index": 60,
+      "start_time": 148800.0,
+      "end_time": 150960.0,
+      "text": "because now you don&#39;t have just 20 services,"
+    },
+    {
+      "index": 61,
+      "start_time": 150960.0,
+      "end_time": 153930.0,
+      "text": "you have 2,000 microservices."
+    },
+    {
+      "index": 62,
+      "start_time": 153930.0,
+      "end_time": 156330.0,
+      "text": "And how do you know which one talks to which one"
+    },
+    {
+      "index": 63,
+      "start_time": 156330.0,
+      "end_time": 160120.0,
+      "text": "and how the intricate spider web of connections even works?"
+    },
+    {
+      "index": 64,
+      "start_time": 160120.0,
+      "end_time": 161844.0,
+      "text": "You might have a single request that"
+    },
+    {
+      "index": 65,
+      "start_time": 161844.0,
+      "end_time": 163260.0,
+      "text": "comes into your load balancer that"
+    },
+    {
+      "index": 66,
+      "start_time": 163260.0,
+      "end_time": 166380.0,
+      "text": "gets sent to like 20,000 different microservices"
+    },
+    {
+      "index": 67,
+      "start_time": 166380.0,
+      "end_time": 168300.0,
+      "text": "and then all the way back up."
+    },
+    {
+      "index": 68,
+      "start_time": 168300.0,
+      "end_time": 171210.0,
+      "text": "And anywhere that chain breaks, your whole application"
+    },
+    {
+      "index": 69,
+      "start_time": 171210.0,
+      "end_time": 173400.0,
+      "text": "looks like it&#39;s broken."
+    },
+    {
+      "index": 70,
+      "start_time": 173400.0,
+      "end_time": 175500.0,
+      "text": "And so debugging this becomes super hard."
+    },
+    {
+      "index": 71,
+      "start_time": 175500.0,
+      "end_time": 177780.0,
+      "text": "Deploying things, making sure everything&#39;s in lockstep"
+    },
+    {
+      "index": 72,
+      "start_time": 177780.0,
+      "end_time": 179880.0,
+      "text": "with each other, it becomes really"
+    },
+    {
+      "index": 73,
+      "start_time": 179880.0,
+      "end_time": 184240.0,
+      "text": "difficult to try to manage this huge stack of services."
+    },
+    {
+      "index": 74,
+      "start_time": 184240.0,
+      "end_time": 186860.0,
+      "text": "So are microservices terrible?"
+    },
+    {
+      "index": 75,
+      "start_time": 186860.0,
+      "end_time": 190710.0,
+      "text": "Maybe, but we can use a lot of tooling to try"
+    },
+    {
+      "index": 76,
+      "start_time": 190710.0,
+      "end_time": 193680.0,
+      "text": "to make them more manageable."
+    },
+    {
+      "index": 77,
+      "start_time": 193680.0,
+      "end_time": 198630.0,
+      "text": "So let&#39;s use tools to automate this infrastructure components,"
+    },
+    {
+      "index": 78,
+      "start_time": 198630.0,
+      "end_time": 200160.0,
+      "text": "automate the networking components,"
+    },
+    {
+      "index": 79,
+      "start_time": 200160.0,
+      "end_time": 202345.0,
+      "text": "automate the management side of things."
+    },
+    {
+      "index": 80,
+      "start_time": 202345.0,
+      "end_time": 204720.0,
+      "text": "And so when you look at a monolith versus a microservice,"
+    },
+    {
+      "index": 81,
+      "start_time": 204720.0,
+      "end_time": 206880.0,
+      "text": "they both have a lot of complexity."
+    },
+    {
+      "index": 82,
+      "start_time": 206880.0,
+      "end_time": 210269.0,
+      "text": "The difference is-- and unless you know something"
+    },
+    {
+      "index": 83,
+      "start_time": 210270.0,
+      "end_time": 212160.0,
+      "text": "that I don&#39;t, there is no tools out there"
+    },
+    {
+      "index": 84,
+      "start_time": 212160.0,
+      "end_time": 213750.0,
+      "text": "that automatically write code for you"
+    },
+    {
+      "index": 85,
+      "start_time": 213750.0,
+      "end_time": 218307.0,
+      "text": "and can maintain a 2 million line Java app, right?"
+    },
+    {
+      "index": 86,
+      "start_time": 218307.0,
+      "end_time": 220140.0,
+      "text": "It&#39;s like some magic AI that can write code,"
+    },
+    {
+      "index": 87,
+      "start_time": 220140.0,
+      "end_time": 222339.0,
+      "text": "we&#39;d all be out of jobs maybe in a few years."
+    },
+    {
+      "index": 88,
+      "start_time": 222340.0,
+      "end_time": 225570.0,
+      "text": "But now we do have tools like Kubernetes, like Docker,"
+    },
+    {
+      "index": 89,
+      "start_time": 225570.0,
+      "end_time": 227670.0,
+      "text": "like Istio, like Google Cloud that"
+    },
+    {
+      "index": 90,
+      "start_time": 227670.0,
+      "end_time": 230790.0,
+      "text": "can automate infrastructure a lot more easily."
+    },
+    {
+      "index": 91,
+      "start_time": 230790.0,
+      "end_time": 233489.0,
+      "text": "So a lot of the issues that we have with microservice"
+    },
+    {
+      "index": 92,
+      "start_time": 233490.0,
+      "end_time": 236197.0,
+      "text": "can be automated away."
+    },
+    {
+      "index": 93,
+      "start_time": 236197.0,
+      "end_time": 238300.0,
+      "text": "So let&#39;s take a look at some of those tools."
+    },
+    {
+      "index": 94,
+      "start_time": 238300.0,
+      "end_time": 239863.0,
+      "text": "So how many people are familiar with Docker?"
+    },
+    {
+      "index": 95,
+      "start_time": 239863.0,
+      "end_time": 241582.0,
+      "text": "I expect a lot of hands to go up."
+    },
+    {
+      "index": 96,
+      "start_time": 241582.0,
+      "end_time": 243790.0,
+      "text": "So for those of you who are not familiar with Docker,"
+    },
+    {
+      "index": 97,
+      "start_time": 243790.0,
+      "end_time": 246700.0,
+      "text": "Docker is basically a way to package your application."
+    },
+    {
+      "index": 98,
+      "start_time": 246700.0,
+      "end_time": 249609.0,
+      "text": "So it doesn&#39;t matter if you&#39;re writing Node code, Python,"
+    },
+    {
+      "index": 99,
+      "start_time": 249610.0,
+      "end_time": 250350.0,
+      "text": "Java, whatever."
+    },
+    {
+      "index": 100,
+      "start_time": 250350.0,
+      "end_time": 252100.0,
+      "text": "It doesn&#39;t matter if you have ImageMagick,"
+    },
+    {
+      "index": 101,
+      "start_time": 252100.0,
+      "end_time": 254920.0,
+      "text": "some random library that some 13-year-old kid in Ukraine"
+    },
+    {
+      "index": 102,
+      "start_time": 254920.0,
+      "end_time": 256539.0,
+      "text": "compiled-- doesn&#39;t matter, you put it"
+    },
+    {
+      "index": 103,
+      "start_time": 256540.00000000003,
+      "end_time": 259720.00000000003,
+      "text": "in your Docker container, and you&#39;re good to go."
+    },
+    {
+      "index": 104,
+      "start_time": 259720.00000000003,
+      "end_time": 262630.0,
+      "text": "All you have to do is care about running the container,"
+    },
+    {
+      "index": 105,
+      "start_time": 262630.0,
+      "end_time": 266639.0,
+      "text": "you don&#39;t have to care about running what&#39;s inside of it."
+    },
+    {
+      "index": 106,
+      "start_time": 266639.0,
+      "end_time": 268930.0,
+      "text": "So basically, you take your code and your dependencies,"
+    },
+    {
+      "index": 107,
+      "start_time": 268930.0,
+      "end_time": 271925.0,
+      "text": "and you put it into some sort of generic container format."
+    },
+    {
+      "index": 108,
+      "start_time": 271925.0,
+      "end_time": 273550.0,
+      "text": "And so it doesn&#39;t matter what&#39;s inside."
+    },
+    {
+      "index": 109,
+      "start_time": 273550.0,
+      "end_time": 275500.0,
+      "text": "As long as you can run a container,"
+    },
+    {
+      "index": 110,
+      "start_time": 275500.0,
+      "end_time": 278892.0,
+      "text": "you can run all the containers."
+    },
+    {
+      "index": 111,
+      "start_time": 278892.0,
+      "end_time": 280350.0,
+      "text": "So now you have a container, you&#39;ve"
+    },
+    {
+      "index": 112,
+      "start_time": 280350.0,
+      "end_time": 284100.0,
+      "text": "got to actually run it on your cluster, because logging"
+    },
+    {
+      "index": 113,
+      "start_time": 284100.0,
+      "end_time": 287340.0,
+      "text": "into a single machine, and then running Docker run,"
+    },
+    {
+      "index": 114,
+      "start_time": 287340.0,
+      "end_time": 290440.0,
+      "text": "and then doing that 1,000 times, it seems like a waste of time"
+    },
+    {
+      "index": 115,
+      "start_time": 290440.0,
+      "end_time": 290940.0,
+      "text": "to me."
+    },
+    {
+      "index": 116,
+      "start_time": 290940.0,
+      "end_time": 293605.0,
+      "text": "So instead, we can use something like Kubernetes,"
+    },
+    {
+      "index": 117,
+      "start_time": 293605.0,
+      "end_time": 296659.0,
+      "text": "which is a container orchestration system."
+    },
+    {
+      "index": 118,
+      "start_time": 296659.0,
+      "end_time": 298450.0,
+      "text": "And what we can do with that is we can say,"
+    },
+    {
+      "index": 119,
+      "start_time": 298450.0,
+      "end_time": 301200.0,
+      "text": "hey Kubernetes, run this container like five times"
+    },
+    {
+      "index": 120,
+      "start_time": 301200.0,
+      "end_time": 303300.0,
+      "text": "somewhere in my cluster."
+    },
+    {
+      "index": 121,
+      "start_time": 303300.0,
+      "end_time": 306690.0,
+      "text": "So what it&#39;ll do is it&#39;ll run your containers for you"
+    },
+    {
+      "index": 122,
+      "start_time": 306690.0,
+      "end_time": 307944.0,
+      "text": "automatically."
+    },
+    {
+      "index": 123,
+      "start_time": 307944.0,
+      "end_time": 309360.0,
+      "text": "And so let&#39;s say you wanted to run"
+    },
+    {
+      "index": 124,
+      "start_time": 309360.0,
+      "end_time": 311110.0,
+      "text": "this container, that container, that container,"
+    },
+    {
+      "index": 125,
+      "start_time": 311110.0,
+      "end_time": 313276.0,
+      "text": "and that container, and you want two copies of each."
+    },
+    {
+      "index": 126,
+      "start_time": 313276.0,
+      "end_time": 315390.0,
+      "text": "You just tell Kubernetes that, and it figures out"
+    },
+    {
+      "index": 127,
+      "start_time": 315390.0,
+      "end_time": 316645.0,
+      "text": "how to run them."
+    },
+    {
+      "index": 128,
+      "start_time": 316646.0,
+      "end_time": 318270.0,
+      "text": "And so the really nice thing about this"
+    },
+    {
+      "index": 129,
+      "start_time": 318270.0,
+      "end_time": 320484.0,
+      "text": "is if a server crashes, it will figure out"
+    },
+    {
+      "index": 130,
+      "start_time": 320484.0,
+      "end_time": 322650.0,
+      "text": "that the server crashed and run them somewhere else."
+    },
+    {
+      "index": 131,
+      "start_time": 322650.0,
+      "end_time": 325169.0,
+      "text": "If an application crashes, it&#39;ll figure that out."
+    },
+    {
+      "index": 132,
+      "start_time": 325170.0,
+      "end_time": 327630.0,
+      "text": "If you want to scale it up, you want to go from two copies"
+    },
+    {
+      "index": 133,
+      "start_time": 327630.0,
+      "end_time": 330600.0,
+      "text": "to four copies, you can say, hey, make it four,"
+    },
+    {
+      "index": 134,
+      "start_time": 330600.0,
+      "end_time": 331410.0,
+      "text": "and it&#39;ll spin up two more."
+    },
+    {
+      "index": 135,
+      "start_time": 331410.0,
+      "end_time": 333600.0,
+      "text": "You want to go down to one, because you"
+    },
+    {
+      "index": 136,
+      "start_time": 333600.0,
+      "end_time": 335880.0,
+      "text": "want to save some money, you can say, hey, make one."
+    },
+    {
+      "index": 137,
+      "start_time": 335880.0,
+      "end_time": 337650.0,
+      "text": "It will remove three."
+    },
+    {
+      "index": 138,
+      "start_time": 337650.0,
+      "end_time": 339900.0,
+      "text": "And so this is like a declarative syntax"
+    },
+    {
+      "index": 139,
+      "start_time": 339900.0,
+      "end_time": 343620.0,
+      "text": "that makes it really easy to manage these containers running"
+    },
+    {
+      "index": 140,
+      "start_time": 343620.0,
+      "end_time": 344370.0,
+      "text": "on your cluster."
+    },
+    {
+      "index": 141,
+      "start_time": 344370.0,
+      "end_time": 345850.0,
+      "text": "You might have thousands of these running."
+    },
+    {
+      "index": 142,
+      "start_time": 345850.0,
+      "end_time": 347760.0,
+      "text": "Trying to do it manually is going to be impossible."
+    },
+    {
+      "index": 143,
+      "start_time": 347760.0,
+      "end_time": 349635.0,
+      "text": "And how many people have heard of Kubernetes."
+    },
+    {
+      "index": 144,
+      "start_time": 349635.0,
+      "end_time": 352640.0,
+      "text": "And keep your hands up if you&#39;ve used it before."
+    },
+    {
+      "index": 145,
+      "start_time": 352640.0,
+      "end_time": 355979.0,
+      "text": "About half, OK, cool."
+    },
+    {
+      "index": 146,
+      "start_time": 355980.0,
+      "end_time": 358500.0,
+      "text": "But that&#39;s kind of just a starting point."
+    },
+    {
+      "index": 147,
+      "start_time": 358500.0,
+      "end_time": 360150.0,
+      "text": "Now that you have these containers running,"
+    },
+    {
+      "index": 148,
+      "start_time": 360150.0,
+      "end_time": 362424.0,
+      "text": "you actually have to manage the services,"
+    },
+    {
+      "index": 149,
+      "start_time": 362424.0,
+      "end_time": 364965.0,
+      "text": "because you have a container A talking to container B talking"
+    },
+    {
+      "index": 150,
+      "start_time": 364965.0,
+      "end_time": 367590.0,
+      "text": "to container C talking to container D,"
+    },
+    {
+      "index": 151,
+      "start_time": 367590.0,
+      "end_time": 369799.0,
+      "text": "how do you manage that set of points"
+    },
+    {
+      "index": 152,
+      "start_time": 369799.0,
+      "end_time": 370840.0,
+      "text": "going between each other?"
+    },
+    {
+      "index": 153,
+      "start_time": 370840.0,
+      "end_time": 372780.0,
+      "text": "How do you set rules on who can talk"
+    },
+    {
+      "index": 154,
+      "start_time": 372780.0,
+      "end_time": 376140.0,
+      "text": "to who, who can talk to what, how many tries should you have,"
+    },
+    {
+      "index": 155,
+      "start_time": 376140.0,
+      "end_time": 378120.0,
+      "text": "how much network traffic should you send?"
+    },
+    {
+      "index": 156,
+      "start_time": 378120.0,
+      "end_time": 380700.0,
+      "text": "All this kind of stuff becomes really complicated,"
+    },
+    {
+      "index": 157,
+      "start_time": 380700.0,
+      "end_time": 382900.0,
+      "text": "and that&#39;s where Istio comes into play."
+    },
+    {
+      "index": 158,
+      "start_time": 382900.0,
+      "end_time": 386400.0,
+      "text": "So Istio is a service mesh, which at the end of the day,"
+    },
+    {
+      "index": 159,
+      "start_time": 386400.0,
+      "end_time": 390419.0,
+      "text": "it means that it manages your services and the connections"
+    },
+    {
+      "index": 160,
+      "start_time": 390420.0,
+      "end_time": 393150.0,
+      "text": "that they make between themselves."
+    },
+    {
+      "index": 161,
+      "start_time": 393150.0,
+      "end_time": 396390.0,
+      "text": "So if you look at it, we take orchestration,"
+    },
+    {
+      "index": 162,
+      "start_time": 396390.0,
+      "end_time": 401100.0,
+      "text": "and we go to management and communication."
+    },
+    {
+      "index": 163,
+      "start_time": 401100.0,
+      "end_time": 402694.0,
+      "text": "So you want to manage how these services"
+    },
+    {
+      "index": 164,
+      "start_time": 402694.0,
+      "end_time": 404360.0,
+      "text": "interact with each other, because that&#39;s"
+    },
+    {
+      "index": 165,
+      "start_time": 404360.0,
+      "end_time": 407794.0,
+      "text": "what really causes microservices to be so useful,"
+    },
+    {
+      "index": 166,
+      "start_time": 407794.0,
+      "end_time": 409460.0,
+      "text": "is the communication between each other."
+    },
+    {
+      "index": 167,
+      "start_time": 409460.0,
+      "end_time": 411236.0,
+      "text": "You can reuse one service, it can"
+    },
+    {
+      "index": 168,
+      "start_time": 411237.0,
+      "end_time": 413570.0,
+      "text": "talk to three different ones, give the same information,"
+    },
+    {
+      "index": 169,
+      "start_time": 413570.0,
+      "end_time": 415200.0,
+      "text": "you can mix and match, you can do all"
+    },
+    {
+      "index": 170,
+      "start_time": 415200.0,
+      "end_time": 417500.0,
+      "text": "these really powerful things."
+    },
+    {
+      "index": 171,
+      "start_time": 417500.0,
+      "end_time": 420470.0,
+      "text": "But it becomes hard to really understand what&#39;s happening,"
+    },
+    {
+      "index": 172,
+      "start_time": 420470.0,
+      "end_time": 423560.0,
+      "text": "and Istio makes it a lot easier to understand what&#39;s happening"
+    },
+    {
+      "index": 173,
+      "start_time": 423560.0,
+      "end_time": 427480.0,
+      "text": "and control what&#39;s happening."
+    },
+    {
+      "index": 174,
+      "start_time": 427480.0,
+      "end_time": 431200.0,
+      "text": "So that&#39;s enough of me just talking about random things."
+    },
+    {
+      "index": 175,
+      "start_time": 431200.0,
+      "end_time": 434300.0,
+      "text": "Let&#39;s actually move to a demo."
+    },
+    {
+      "index": 176,
+      "start_time": 434300.0,
+      "end_time": 436789.0,
+      "text": "And if we can go to the screen, thank you very much, OK,"
+    },
+    {
+      "index": 177,
+      "start_time": 436789.0,
+      "end_time": 437830.0,
+      "text": "and I can&#39;t see anything."
+    },
+    {
+      "index": 178,
+      "start_time": 437830.0,
+      "end_time": 440159.0,
+      "text": "Let me-- sweet."
+    },
+    {
+      "index": 179,
+      "start_time": 440160.0,
+      "end_time": 442230.0,
+      "text": "So what we&#39;re going to do first--"
+    },
+    {
+      "index": 180,
+      "start_time": 442230.0,
+      "end_time": 444313.0,
+      "text": "actually, can we go back to the slides real quick?"
+    },
+    {
+      "index": 181,
+      "start_time": 447802.0,
+      "end_time": 449510.0,
+      "text": "I didn&#39;t tell you what we&#39;re going to do."
+    },
+    {
+      "index": 182,
+      "start_time": 449510.0,
+      "end_time": 452240.0,
+      "text": "So what we&#39;re going to do is walk through"
+    },
+    {
+      "index": 183,
+      "start_time": 452240.0,
+      "end_time": 455660.0,
+      "text": "the end-to-end story of taking an app"
+    },
+    {
+      "index": 184,
+      "start_time": 455660.0,
+      "end_time": 457400.0,
+      "text": "and making it into a microservice."
+    },
+    {
+      "index": 185,
+      "start_time": 457400.0,
+      "end_time": 459710.0,
+      "text": "So we&#39;re going to take an app, put it into a container,"
+    },
+    {
+      "index": 186,
+      "start_time": 459710.0,
+      "end_time": 461870.0,
+      "text": "run that container locally, store"
+    },
+    {
+      "index": 187,
+      "start_time": 461870.0,
+      "end_time": 463219.0,
+      "text": "the container on the cloud."
+    },
+    {
+      "index": 188,
+      "start_time": 463219.0,
+      "end_time": 465260.0,
+      "text": "Then, we&#39;re going to create a Kubernetes cluster,"
+    },
+    {
+      "index": 189,
+      "start_time": 465260.0,
+      "end_time": 468990.0,
+      "text": "run our app on that cluster, then scale it out."
+    },
+    {
+      "index": 190,
+      "start_time": 468990.0,
+      "end_time": 470390.0,
+      "text": "And then, we&#39;re going to do something a little bit more"
+    },
+    {
+      "index": 191,
+      "start_time": 470390.0,
+      "end_time": 472473.0,
+      "text": "interesting, we&#39;re going to run multiple apps that"
+    },
+    {
+      "index": 192,
+      "start_time": 472473.0,
+      "end_time": 475190.0,
+      "text": "work together, a true microservices services pattern."
+    },
+    {
+      "index": 193,
+      "start_time": 475190.0,
+      "end_time": 478500.0,
+      "text": "And then, we&#39;re going to monitor and manage them with Istio."
+    },
+    {
+      "index": 194,
+      "start_time": 478500.0,
+      "end_time": 479000.0,
+      "text": "Awesome."
+    },
+    {
+      "index": 195,
+      "start_time": 479000.0,
+      "end_time": 480470.0,
+      "text": "So let&#39;s move back to the demo."
+    },
+    {
+      "index": 196,
+      "start_time": 483126.0,
+      "end_time": 484750.0,
+      "text": "So here, I am using Google Cloud Shell."
+    },
+    {
+      "index": 197,
+      "start_time": 484750.0,
+      "end_time": 486208.0,
+      "text": "If you haven&#39;t used it before, it&#39;s"
+    },
+    {
+      "index": 198,
+      "start_time": 486208.0,
+      "end_time": 490930.0,
+      "text": "basically a free VM in the cloud that lets"
+    },
+    {
+      "index": 199,
+      "start_time": 490930.0,
+      "end_time": 492250.0,
+      "text": "you do your development work."
+    },
+    {
+      "index": 200,
+      "start_time": 492250.0,
+      "end_time": 494800.0,
+      "text": "I&#39;m on a Chromebook right now running the dev build."
+    },
+    {
+      "index": 201,
+      "start_time": 494800.0,
+      "end_time": 497260.0,
+      "text": "If it all crashes, we&#39;re going to like jumping jacks"
+    },
+    {
+      "index": 202,
+      "start_time": 497260.0,
+      "end_time": 500695.0,
+      "text": "until it comes back or something, I don&#39;t know."
+    },
+    {
+      "index": 203,
+      "start_time": 500696.0,
+      "end_time": 501800.0,
+      "text": "It happens before."
+    },
+    {
+      "index": 204,
+      "start_time": 501800.0,
+      "end_time": 505260.0,
+      "text": "So basically, here I have some code."
+    },
+    {
+      "index": 205,
+      "start_time": 505260.0,
+      "end_time": 506820.0,
+      "text": "It&#39;s a little Node.js application."
+    },
+    {
+      "index": 206,
+      "start_time": 506820.0,
+      "end_time": 509290.0,
+      "text": "If you don&#39;t know JavaScript, that&#39;s fine."
+    },
+    {
+      "index": 207,
+      "start_time": 509290.0,
+      "end_time": 511860.0,
+      "text": "It&#39;s a really simple app."
+    },
+    {
+      "index": 208,
+      "start_time": 511860.0,
+      "end_time": 515500.0,
+      "text": "Basically, it&#39;s a web server that listens to slash."
+    },
+    {
+      "index": 209,
+      "start_time": 515500.0,
+      "end_time": 518440.0,
+      "text": "And it will basically ping a downstream."
+    },
+    {
+      "index": 210,
+      "start_time": 518440.00000000006,
+      "end_time": 521786.00000000006,
+      "text": "So in this case, it&#39;ll ping time.jsontest.com."
+    },
+    {
+      "index": 211,
+      "start_time": 521784.99999999994,
+      "end_time": 524560.0,
+      "text": "And then, it&#39;ll concatenate that response,"
+    },
+    {
+      "index": 212,
+      "start_time": 524560.0,
+      "end_time": 527500.0,
+      "text": "and then send it to us."
+    },
+    {
+      "index": 213,
+      "start_time": 527500.0,
+      "end_time": 529400.0,
+      "text": "So let&#39;s run this locally right now."
+    },
+    {
+      "index": 214,
+      "start_time": 535731.0,
+      "end_time": 540620.0,
+      "text": "Nope, don&#39;t want node modules."
+    },
+    {
+      "index": 215,
+      "start_time": 540620.0,
+      "end_time": 549750.0,
+      "text": "OK, internet-- so if I go npm-start--"
+    },
+    {
+      "index": 216,
+      "start_time": 555173.0,
+      "end_time": 557650.0,
+      "text": "let&#39;s see what happens."
+    },
+    {
+      "index": 217,
+      "start_time": 557650.0,
+      "end_time": 558270.0,
+      "text": "Cool."
+    },
+    {
+      "index": 218,
+      "start_time": 558270.0,
+      "end_time": 560939.0,
+      "text": "So it&#39;s listening on port 3000."
+    },
+    {
+      "index": 219,
+      "start_time": 560940.0,
+      "end_time": 567800.0,
+      "text": "So I will-- that&#39;s fine, I&#39;ll do this."
+    },
+    {
+      "index": 220,
+      "start_time": 567800.0,
+      "end_time": 569226.0,
+      "text": "Let&#39;s go to port 3000."
+    },
+    {
+      "index": 221,
+      "start_time": 569226.0,
+      "end_time": 572845.0,
+      "text": "So on Cloud Shell, we can do a web preview,"
+    },
+    {
+      "index": 222,
+      "start_time": 572845.0,
+      "end_time": 575220.0,
+      "text": "so it looks like we&#39;re basically running a local machine."
+    },
+    {
+      "index": 223,
+      "start_time": 578640.0,
+      "end_time": 579210.0,
+      "text": "Awesome."
+    },
+    {
+      "index": 224,
+      "start_time": 579210.0,
+      "end_time": 582100.0,
+      "text": "So you can see here that we go to time.jsontest.com,"
+    },
+    {
+      "index": 225,
+      "start_time": 582100.0,
+      "end_time": 584100.0,
+      "text": "and we print out our current service name, which"
+    },
+    {
+      "index": 226,
+      "start_time": 584100.0,
+      "end_time": 585484.0,
+      "text": "is test-1 version 1."
+    },
+    {
+      "index": 227,
+      "start_time": 585484.0,
+      "end_time": 586900.0,
+      "text": "And we&#39;re seeing the current time."
+    },
+    {
+      "index": 228,
+      "start_time": 586900.0,
+      "end_time": 590280.0,
+      "text": "So if I refresh this, the time will change."
+    },
+    {
+      "index": 229,
+      "start_time": 590280.0,
+      "end_time": 591180.0,
+      "text": "Awesome, cool."
+    },
+    {
+      "index": 230,
+      "start_time": 591180.0,
+      "end_time": 593931.0,
+      "text": "So now, let&#39;s take this and put it into a Docker container."
+    },
+    {
+      "index": 231,
+      "start_time": 596590.0,
+      "end_time": 599320.0,
+      "text": "So to make a Docker container, basically what we do is,"
+    },
+    {
+      "index": 232,
+      "start_time": 599320.0,
+      "end_time": 601180.0,
+      "text": "we make something called a Docker file."
+    },
+    {
+      "index": 233,
+      "start_time": 601180.0,
+      "end_time": 603699.0,
+      "text": "So a Docker file is basically a set of instructions"
+    },
+    {
+      "index": 234,
+      "start_time": 603700.0,
+      "end_time": 605620.0,
+      "text": "that creates this endpoint."
+    },
+    {
+      "index": 235,
+      "start_time": 605620.0,
+      "end_time": 608927.0,
+      "text": "So you can almost think of it like a bash script,"
+    },
+    {
+      "index": 236,
+      "start_time": 608927.0,
+      "end_time": 610100.0,
+      "text": "it&#39;s basically what it is."
+    },
+    {
+      "index": 237,
+      "start_time": 610100.0,
+      "end_time": 612370.0,
+      "text": "So here we start with node/8/alpine."
+    },
+    {
+      "index": 238,
+      "start_time": 612370.0,
+      "end_time": 613900.0,
+      "text": "So that&#39;s kind of a base image."
+    },
+    {
+      "index": 239,
+      "start_time": 613900.0,
+      "end_time": 616310.0,
+      "text": "It gives us a bunch of the Node stuff out of the box,"
+    },
+    {
+      "index": 240,
+      "start_time": 616310.0,
+      "end_time": 618719.0,
+      "text": "so we don&#39;t have to worry about installing Node.js."
+    },
+    {
+      "index": 241,
+      "start_time": 618720.0,
+      "end_time": 620350.0,
+      "text": "Then, we copy in our package.json,"
+    },
+    {
+      "index": 242,
+      "start_time": 620350.0,
+      "end_time": 622280.0,
+      "text": "which has our dependencies."
+    },
+    {
+      "index": 243,
+      "start_time": 622280.0,
+      "end_time": 624819.0,
+      "text": "Run npm install to install those dependencies,"
+    },
+    {
+      "index": 244,
+      "start_time": 624820.0,
+      "end_time": 628270.0,
+      "text": "copy in our index.js, which is our code, expose some ports,"
+    },
+    {
+      "index": 245,
+      "start_time": 628270.0,
+      "end_time": 630490.0,
+      "text": "and then run npm-start."
+    },
+    {
+      "index": 246,
+      "start_time": 630490.0,
+      "end_time": 632530.0,
+      "text": "So once you run Docker build, it&#39;ll"
+    },
+    {
+      "index": 247,
+      "start_time": 632530.0,
+      "end_time": 634569.0,
+      "text": "create a Docker container."
+    },
+    {
+      "index": 248,
+      "start_time": 634570.0,
+      "end_time": 636656.0,
+      "text": "So let&#39;s actually build and run that container."
+    },
+    {
+      "index": 249,
+      "start_time": 636656.0,
+      "end_time": 638530.0,
+      "text": "Just for sake of time, I&#39;ve already built it."
+    },
+    {
+      "index": 250,
+      "start_time": 644811.0,
+      "end_time": 653300.0,
+      "text": "Run local-- so here, when I run that container,"
+    },
+    {
+      "index": 251,
+      "start_time": 653300.0,
+      "end_time": 655110.0,
+      "text": "once I&#39;ve built it--"
+    },
+    {
+      "index": 252,
+      "start_time": 655110.0,
+      "end_time": 656680.0,
+      "text": "oh, no, I need to build it."
+    },
+    {
+      "index": 253,
+      "start_time": 662340.0,
+      "end_time": 663200.0,
+      "text": "So actually, let&#39;s build it."
+    },
+    {
+      "index": 254,
+      "start_time": 663200.0,
+      "end_time": 664620.0,
+      "text": "It&#39;s just not found."
+    },
+    {
+      "index": 255,
+      "start_time": 664620.0,
+      "end_time": 667480.0,
+      "text": "So this might take a little bit of time."
+    },
+    {
+      "index": 256,
+      "start_time": 667480.0,
+      "end_time": 669290.0,
+      "text": "And while we&#39;re building this, let&#39;s"
+    },
+    {
+      "index": 257,
+      "start_time": 669290.0,
+      "end_time": 673680.0,
+      "text": "switch to going and building our Kubernetes cluster."
+    },
+    {
+      "index": 258,
+      "start_time": 673680.0,
+      "end_time": 680160.0,
+      "text": "So here in our Kubernetes-- if I go to Google Kubernetes Engine."
+    },
+    {
+      "index": 259,
+      "start_time": 680160.0,
+      "end_time": 683420.0,
+      "text": "Google Kubernetes Engine is Google&#39;s managed Kubernetes"
+    },
+    {
+      "index": 260,
+      "start_time": 683420.0,
+      "end_time": 684411.0,
+      "text": "offering."
+    },
+    {
+      "index": 261,
+      "start_time": 684411.0,
+      "end_time": 685910.0,
+      "text": "And so it&#39;s probably the easiest way"
+    },
+    {
+      "index": 262,
+      "start_time": 685910.0,
+      "end_time": 688320.0,
+      "text": "to create a production-ready Kubernetes cluster."
+    },
+    {
+      "index": 263,
+      "start_time": 688321.0,
+      "end_time": 690320.0,
+      "text": "So what you can do is just click Create Cluster,"
+    },
+    {
+      "index": 264,
+      "start_time": 690320.0,
+      "end_time": 693140.0,
+      "text": "and you get a bunch of options on what you"
+    },
+    {
+      "index": 265,
+      "start_time": 693140.0,
+      "end_time": 695150.0,
+      "text": "can do to create this cluster."
+    },
+    {
+      "index": 266,
+      "start_time": 695150.0,
+      "end_time": 698240.0,
+      "text": "So here, you can give it a name, you can give a description,"
+    },
+    {
+      "index": 267,
+      "start_time": 698240.0,
+      "end_time": 700195.0,
+      "text": "you can make it a zonal or a regional cluster."
+    },
+    {
+      "index": 268,
+      "start_time": 700195.0,
+      "end_time": 701570.0,
+      "text": "And this is a really cool feature"
+    },
+    {
+      "index": 269,
+      "start_time": 701570.0,
+      "end_time": 703280.0,
+      "text": "where you can have multiple masters,"
+    },
+    {
+      "index": 270,
+      "start_time": 703280.0,
+      "end_time": 705890.0,
+      "text": "so it&#39;s highly available."
+    },
+    {
+      "index": 271,
+      "start_time": 705900.0,
+      "end_time": 707600.0,
+      "text": "So even if a zone goes down, your cluster"
+    },
+    {
+      "index": 272,
+      "start_time": 707600.0,
+      "end_time": 710360.0,
+      "text": "will still be up and running."
+    },
+    {
+      "index": 273,
+      "start_time": 710360.0,
+      "end_time": 713960.0,
+      "text": "You can choose the version of Kubernetes you want,"
+    },
+    {
+      "index": 274,
+      "start_time": 713960.0,
+      "end_time": 716140.0,
+      "text": "the size of the cluster, and then"
+    },
+    {
+      "index": 275,
+      "start_time": 716140.0,
+      "end_time": 720496.0,
+      "text": "a bunch of-- not negative 21, let&#39;s not do that."
+    },
+    {
+      "index": 276,
+      "start_time": 720496.0,
+      "end_time": 722120.0,
+      "text": "You can do a lot of other cool features"
+    },
+    {
+      "index": 277,
+      "start_time": 722120.0,
+      "end_time": 724780.0,
+      "text": "too that Google Kubernetes Engine gives you out"
+    },
+    {
+      "index": 278,
+      "start_time": 724780.0,
+      "end_time": 724850.0,
+      "text": "of the box--"
+    },
+    {
+      "index": 279,
+      "start_time": 724850.0,
+      "end_time": 727730.0,
+      "text": "things like automatically upgrading your nodes,"
+    },
+    {
+      "index": 280,
+      "start_time": 727730.0,
+      "end_time": 731100.0,
+      "text": "automatically repairing them if they get broken, logging,"
+    },
+    {
+      "index": 281,
+      "start_time": 731100.0,
+      "end_time": 735482.0,
+      "text": "monitoring, and a lot more too, for example, auto scaling."
+    },
+    {
+      "index": 282,
+      "start_time": 735482.0,
+      "end_time": 736939.0,
+      "text": "You can turn auto scaling on, which"
+    },
+    {
+      "index": 283,
+      "start_time": 736940.0,
+      "end_time": 741530.0,
+      "text": "means that if you have more containers that"
+    },
+    {
+      "index": 284,
+      "start_time": 741530.0,
+      "end_time": 744260.0,
+      "text": "can fit in your cluster, Google Kubernetes Engine will actually"
+    },
+    {
+      "index": 285,
+      "start_time": 744260.0,
+      "end_time": 746780.0,
+      "text": "automatically scale it up to create that space."
+    },
+    {
+      "index": 286,
+      "start_time": 746780.0,
+      "end_time": 749704.0,
+      "text": "And even better, if you have less containers,"
+    },
+    {
+      "index": 287,
+      "start_time": 749704.0,
+      "end_time": 751370.0,
+      "text": "we&#39;ll actually scale it down to save you"
+    },
+    {
+      "index": 288,
+      "start_time": 751370.0,
+      "end_time": 753950.0,
+      "text": "money, which is really cool."
+    },
+    {
+      "index": 289,
+      "start_time": 753950.0,
+      "end_time": 755592.0,
+      "text": "So a lot of that cool stuff--"
+    },
+    {
+      "index": 290,
+      "start_time": 755592.0,
+      "end_time": 757550.0,
+      "text": "and then, all you&#39;ve got to do is click Create,"
+    },
+    {
+      "index": 291,
+      "start_time": 757550.0,
+      "end_time": 759439.0,
+      "text": "and it&#39;ll create that cluster."
+    },
+    {
+      "index": 292,
+      "start_time": 759440.0,
+      "end_time": 761773.0,
+      "text": "So I&#39;m going to click cancel, because I already did one."
+    },
+    {
+      "index": 293,
+      "start_time": 761773.0,
+      "end_time": 765490.0,
+      "text": "It&#39;s like a cooking show, we have one ready in the oven."
+    },
+    {
+      "index": 294,
+      "start_time": 765490.0,
+      "end_time": 766430.0,
+      "text": "This is still going."
+    },
+    {
+      "index": 295,
+      "start_time": 771130.0,
+      "end_time": 771630.0,
+      "text": "That&#39;s OK."
+    },
+    {
+      "index": 296,
+      "start_time": 773867.0,
+      "end_time": 774824.0,
+      "text": "What we&#39;ll do instead--"
+    },
+    {
+      "index": 297,
+      "start_time": 777574.0,
+      "end_time": 779740.0,
+      "text": "because I&#39;ve already built this, and I&#39;ve pushed it."
+    },
+    {
+      "index": 298,
+      "start_time": 779740.0,
+      "end_time": 781610.0,
+      "text": "So we&#39;re going to do the opposite of what I said,"
+    },
+    {
+      "index": 299,
+      "start_time": 781610.0,
+      "end_time": 782943.0,
+      "text": "And we&#39;re going to pull it down."
+    },
+    {
+      "index": 300,
+      "start_time": 803000.0,
+      "end_time": 804560.0,
+      "text": "So I kind of cheated, but that&#39;s OK."
+    },
+    {
+      "index": 301,
+      "start_time": 807290.0,
+      "end_time": 808800.0,
+      "text": "So let&#39;s run that container locally."
+    },
+    {
+      "index": 302,
+      "start_time": 812382.0,
+      "end_time": 814890.0,
+      "text": "So what we&#39;re going to do with Docker is,"
+    },
+    {
+      "index": 303,
+      "start_time": 814900.0,
+      "end_time": 815430.0,
+      "text": "we&#39;re going to say Docker run."
+    },
+    {
+      "index": 304,
+      "start_time": 815430.0,
+      "end_time": 817900.0,
+      "text": "And then, we&#39;re going to open up that port 3000."
+    },
+    {
+      "index": 305,
+      "start_time": 817900.0,
+      "end_time": 819850.0,
+      "text": "And so if we go back here, you can"
+    },
+    {
+      "index": 306,
+      "start_time": 819850.0,
+      "end_time": 822590.0,
+      "text": "see that it&#39;s basically the exact same thing, except now"
+    },
+    {
+      "index": 307,
+      "start_time": 822590.0,
+      "end_time": 823900.0,
+      "text": "it&#39;s running in Docker."
+    },
+    {
+      "index": 308,
+      "start_time": 823900.0,
+      "end_time": 825376.0,
+      "text": "And so the really nice thing is, we"
+    },
+    {
+      "index": 309,
+      "start_time": 825376.0,
+      "end_time": 827000.0,
+      "text": "didn&#39;t have the change any of our code."
+    },
+    {
+      "index": 310,
+      "start_time": 827000.0,
+      "end_time": 828500.0,
+      "text": "We just put into a Docker container,"
+    },
+    {
+      "index": 311,
+      "start_time": 828500.0,
+      "end_time": 831280.0,
+      "text": "and we&#39;re good to go."
+    },
+    {
+      "index": 312,
+      "start_time": 831280.0,
+      "end_time": 832110.0,
+      "text": "OK, cool."
+    },
+    {
+      "index": 313,
+      "start_time": 832110.0,
+      "end_time": 834440.0,
+      "text": "So the next step is actually pushing it"
+    },
+    {
+      "index": 314,
+      "start_time": 834440.0,
+      "end_time": 837380.0,
+      "text": "to a Container Registry."
+    },
+    {
+      "index": 315,
+      "start_time": 837380.0,
+      "end_time": 838970.0,
+      "text": "And the reason why we have to do this"
+    },
+    {
+      "index": 316,
+      "start_time": 838970.0,
+      "end_time": 840680.0,
+      "text": "is because we can&#39;t just run containers"
+    },
+    {
+      "index": 317,
+      "start_time": 840680.0,
+      "end_time": 842120.0,
+      "text": "running on our local machine."
+    },
+    {
+      "index": 318,
+      "start_time": 842120.0,
+      "end_time": 843530.0,
+      "text": "We&#39;ve got to push them to a secure location"
+    },
+    {
+      "index": 319,
+      "start_time": 843530.0,
+      "end_time": 845180.0,
+      "text": "so that we can run them on our cluster."
+    },
+    {
+      "index": 320,
+      "start_time": 845180.0,
+      "end_time": 846709.0,
+      "text": "And Google Container Registry is probably"
+    },
+    {
+      "index": 321,
+      "start_time": 846710.0,
+      "end_time": 848543.0,
+      "text": "the best place to put them if you&#39;re running"
+    },
+    {
+      "index": 322,
+      "start_time": 848543.0,
+      "end_time": 849970.0,
+      "text": "Google Kubernetes Engine."
+    },
+    {
+      "index": 323,
+      "start_time": 849970.0,
+      "end_time": 852000.0,
+      "text": "You&#39;ve got automatic authentication and stuff"
+    },
+    {
+      "index": 324,
+      "start_time": 852000.0,
+      "end_time": 854250.0,
+      "text": "and a few other features we&#39;ll look at it in a second."
+    },
+    {
+      "index": 325,
+      "start_time": 854250.0,
+      "end_time": 858720.0,
+      "text": "So let&#39;s actually push it up."
+    },
+    {
+      "index": 326,
+      "start_time": 858720.0,
+      "end_time": 861570.0,
+      "text": "That&#39;s not how you spell make--"
+    },
+    {
+      "index": 327,
+      "start_time": 861570.0,
+      "end_time": 868280.0,
+      "text": "M-A-K-E. I love using make, it makes demos super easy."
+    },
+    {
+      "index": 328,
+      "start_time": 868280.0,
+      "end_time": 870910.0,
+      "text": "So what we do is run Docker push."
+    },
+    {
+      "index": 329,
+      "start_time": 870910.0,
+      "end_time": 874391.0,
+      "text": "Can people read that, or should I make it a little bigger?"
+    },
+    {
+      "index": 330,
+      "start_time": 874391.0,
+      "end_time": 875640.0,
+      "text": "All right, people can read it."
+    },
+    {
+      "index": 331,
+      "start_time": 875640.0,
+      "end_time": 881169.0,
+      "text": "So Docker push, and then give the name of the container."
+    },
+    {
+      "index": 332,
+      "start_time": 881169.0,
+      "end_time": 883710.0,
+      "text": "So what will happen is, it&#39;ll actually go to Google Container"
+    },
+    {
+      "index": 333,
+      "start_time": 883710.0,
+      "end_time": 884210.0,
+      "text": "Registry."
+    },
+    {
+      "index": 334,
+      "start_time": 889940.0,
+      "end_time": 892850.0,
+      "text": "And so here in my Istio test container,"
+    },
+    {
+      "index": 335,
+      "start_time": 892850.0,
+      "end_time": 896990.0,
+      "text": "you can see that we have the newest one pushed up right now."
+    },
+    {
+      "index": 336,
+      "start_time": 896990.0,
+      "end_time": 899310.0,
+      "text": "And it&#39;s tagged as version 1.0."
+    },
+    {
+      "index": 337,
+      "start_time": 899310.0,
+      "end_time": 902300.0,
+      "text": "Now, if I enabled it, one really cool thing that it could do"
+    },
+    {
+      "index": 338,
+      "start_time": 902300.0,
+      "end_time": 903620.0,
+      "text": "is vulnerability scanning."
+    },
+    {
+      "index": 339,
+      "start_time": 903620.0,
+      "end_time": 905900.0,
+      "text": "So we can actually scan your containers"
+    },
+    {
+      "index": 340,
+      "start_time": 905900.0,
+      "end_time": 909150.0,
+      "text": "for known vulnerabilities automatically for any Ubuntu-"
+    },
+    {
+      "index": 341,
+      "start_time": 909150.0,
+      "end_time": 910531.0,
+      "text": "or Alpine-based images."
+    },
+    {
+      "index": 342,
+      "start_time": 910532.0,
+      "end_time": 912240.0,
+      "text": "So that&#39;s a really cool thing, especially"
+    },
+    {
+      "index": 343,
+      "start_time": 912240.0,
+      "end_time": 914450.0,
+      "text": "if you have older containers that you haven&#39;t updated"
+    },
+    {
+      "index": 344,
+      "start_time": 914450.0,
+      "end_time": 916100.0,
+      "text": "in a while, you go back and look,"
+    },
+    {
+      "index": 345,
+      "start_time": 916100.0,
+      "end_time": 918590.0,
+      "text": "and you&#39;ll have tons of vulnerabilities."
+    },
+    {
+      "index": 346,
+      "start_time": 918590.0,
+      "end_time": 920810.0,
+      "text": "So it&#39;s a really good idea to check this out."
+    },
+    {
+      "index": 347,
+      "start_time": 920810.0,
+      "end_time": 924253.0,
+      "text": "It&#39;s in beta right now, but it&#39;ll find a bunch of stuff"
+    },
+    {
+      "index": 348,
+      "start_time": 924254.0,
+      "end_time": 926420.0,
+      "text": "wrong with your things and tell you how to fix them."
+    },
+    {
+      "index": 349,
+      "start_time": 926420.0,
+      "end_time": 927780.0,
+      "text": "And then, you just go--"
+    },
+    {
+      "index": 350,
+      "start_time": 927780.0,
+      "end_time": 929660.0,
+      "text": "usually, you just update your containers,"
+    },
+    {
+      "index": 351,
+      "start_time": 929660.0,
+      "end_time": 931245.0,
+      "text": "and you&#39;re good to go."
+    },
+    {
+      "index": 352,
+      "start_time": 931245.0,
+      "end_time": 932870.0,
+      "text": "So it&#39;s a really good thing, especially"
+    },
+    {
+      "index": 353,
+      "start_time": 932870.0,
+      "end_time": 936500.0,
+      "text": "running on production and running older containers."
+    },
+    {
+      "index": 354,
+      "start_time": 936500.0,
+      "end_time": 938300.0,
+      "text": "So now we have this pushed up."
+    },
+    {
+      "index": 355,
+      "start_time": 938300.0,
+      "end_time": 941300.0,
+      "text": "We actually can start to deploy to a Kubernetes cluster."
+    },
+    {
+      "index": 356,
+      "start_time": 941300.0,
+      "end_time": 945300.0,
+      "text": "So like I said before, we already have a cluster created."
+    },
+    {
+      "index": 357,
+      "start_time": 945300.0,
+      "end_time": 947760.0,
+      "text": "Let&#39;s go back there."
+    },
+    {
+      "index": 358,
+      "start_time": 947760.0,
+      "end_time": 950220.0,
+      "text": "Now, basically to connect to it, we just run this command."
+    },
+    {
+      "index": 359,
+      "start_time": 952900.0,
+      "end_time": 954790.0,
+      "text": "All right, let&#39;s run it."
+    },
+    {
+      "index": 360,
+      "start_time": 962189.0,
+      "end_time": 967610.0,
+      "text": "Great, so now, we can say kubectl, which is a Kubernetes"
+    },
+    {
+      "index": 361,
+      "start_time": 967610.0,
+      "end_time": 971760.0,
+      "text": "command line tool, get nodes just to make"
+    },
+    {
+      "index": 362,
+      "start_time": 971760.0,
+      "end_time": 972200.0,
+      "text": "sure everything is working."
+    },
+    {
+      "index": 363,
+      "start_time": 979884.0,
+      "end_time": 980800.0,
+      "text": "Is everything working?"
+    },
+    {
+      "index": 364,
+      "start_time": 980800.0,
+      "end_time": 982729.0,
+      "text": "That&#39;s a good question."
+    },
+    {
+      "index": 365,
+      "start_time": 982730.0,
+      "end_time": 983770.0,
+      "text": "Yes, there it is."
+    },
+    {
+      "index": 366,
+      "start_time": 983770.0,
+      "end_time": 986780.0,
+      "text": "So we have a four node Kubernetes cluster."
+    },
+    {
+      "index": 367,
+      "start_time": 986780.0,
+      "end_time": 991120.0,
+      "text": "They&#39;re all good to go, running version 1.9.7."
+    },
+    {
+      "index": 368,
+      "start_time": 991120.0,
+      "end_time": 992969.0,
+      "text": "So here now that we have our Kubernetes cluster"
+    },
+    {
+      "index": 369,
+      "start_time": 992970.0,
+      "end_time": 994490.0,
+      "text": "and we&#39;re authenticated to it, we"
+    },
+    {
+      "index": 370,
+      "start_time": 994490.0,
+      "end_time": 998110.0,
+      "text": "can start running the same container that we ran locally."
+    },
+    {
+      "index": 371,
+      "start_time": 998110.0,
+      "end_time": 1007380.0,
+      "text": "So what we&#39;re going to do is, do kubectl run demo, and then"
+    },
+    {
+      "index": 372,
+      "start_time": 1007380.0,
+      "end_time": 1010110.0,
+      "text": "give it the name of that image."
+    },
+    {
+      "index": 373,
+      "start_time": 1010110.0,
+      "end_time": 1012686.0,
+      "text": "And demo is going to be the name of the deployment"
+    },
+    {
+      "index": 374,
+      "start_time": 1012690.0,
+      "end_time": 1013814.0,
+      "text": "that we&#39;re going to create."
+    },
+    {
+      "index": 375,
+      "start_time": 1013810.0,
+      "end_time": 1020199.0,
+      "text": "So if I say kubectl get deployment,"
+    },
+    {
+      "index": 376,
+      "start_time": 1020200.0,
+      "end_time": 1021660.0,
+      "text": "and then give that namespace."
+    },
+    {
+      "index": 377,
+      "start_time": 1021660.0,
+      "end_time": 1023770.0,
+      "text": "The namespace is just for this demo&#39;s sake."
+    },
+    {
+      "index": 378,
+      "start_time": 1023770.0,
+      "end_time": 1025853.0,
+      "text": "Don&#39;t worry about it, you don&#39;t need it real life."
+    },
+    {
+      "index": 379,
+      "start_time": 1031839.9999999999,
+      "end_time": 1036579.9999999999,
+      "text": "So you can see that we have our demo deployment created."
+    },
+    {
+      "index": 380,
+      "start_time": 1036579.9999999999,
+      "end_time": 1037668.9999999999,
+      "text": "And if you say get pods--"
+    },
+    {
+      "index": 381,
+      "start_time": 1043960.0,
+      "end_time": 1047200.0,
+      "text": "and so pods are basically the containers in Kubernetes--"
+    },
+    {
+      "index": 382,
+      "start_time": 1047200.0,
+      "end_time": 1051700.0,
+      "text": "you can see that we have our container created, it&#39;s ready,"
+    },
+    {
+      "index": 383,
+      "start_time": 1051700.0,
+      "end_time": 1052732.0,
+      "text": "and it&#39;s running."
+    },
+    {
+      "index": 384,
+      "start_time": 1052730.0,
+      "end_time": 1054188.0,
+      "text": "But now that it&#39;s running, you have"
+    },
+    {
+      "index": 385,
+      "start_time": 1054190.0,
+      "end_time": 1056182.0,
+      "text": "to be able to actually access it."
+    },
+    {
+      "index": 386,
+      "start_time": 1056180.0,
+      "end_time": 1058638.0,
+      "text": "And so this is where it gets a little bit more complicated."
+    },
+    {
+      "index": 387,
+      "start_time": 1058640.0,
+      "end_time": 1060520.0,
+      "text": "Where in the old world, with Docker,"
+    },
+    {
+      "index": 388,
+      "start_time": 1060520.0,
+      "end_time": 1062200.0,
+      "text": "you just kind of access it directly,"
+    },
+    {
+      "index": 389,
+      "start_time": 1062200.0,
+      "end_time": 1063889.0,
+      "text": "because it&#39;s just running on your local machine."
+    },
+    {
+      "index": 390,
+      "start_time": 1063890.0,
+      "end_time": 1065264.0,
+      "text": "But in the Kubernetes world, it&#39;s"
+    },
+    {
+      "index": 391,
+      "start_time": 1065260.0,
+      "end_time": 1067155.0,
+      "text": "running on one of those four nodes,"
+    },
+    {
+      "index": 392,
+      "start_time": 1067160.0,
+      "end_time": 1068980.0,
+      "text": "and we really don&#39;t care which one."
+    },
+    {
+      "index": 393,
+      "start_time": 1068980.0,
+      "end_time": 1070750.0,
+      "text": "So we want a static endpoint that"
+    },
+    {
+      "index": 394,
+      "start_time": 1070750.0,
+      "end_time": 1074774.0,
+      "text": "can route traffic and access that node."
+    },
+    {
+      "index": 395,
+      "start_time": 1074770.0,
+      "end_time": 1076685.0,
+      "text": "So what we&#39;re going to do is create a service."
+    },
+    {
+      "index": 396,
+      "start_time": 1086360.0,
+      "end_time": 1088330.0,
+      "text": "And now I forget what my make command is."
+    },
+    {
+      "index": 397,
+      "start_time": 1088330.0,
+      "end_time": 1093200.0,
+      "text": "That&#39;s OK, I&#39;ll just go look, it&#39;s like a cheat sheet."
+    },
+    {
+      "index": 398,
+      "start_time": 1093200.0,
+      "end_time": 1096889.0,
+      "text": "Let&#39;s see-- expose, there it is."
+    },
+    {
+      "index": 399,
+      "start_time": 1096890.0,
+      "end_time": 1101450.0,
+      "text": "Cool, and so what we&#39;ll do here is, we&#39;ll run kubectl expose,"
+    },
+    {
+      "index": 400,
+      "start_time": 1101450.0,
+      "end_time": 1103970.0,
+      "text": "and then we&#39;ll give it the target port of 3000, which"
+    },
+    {
+      "index": 401,
+      "start_time": 1103970.0,
+      "end_time": 1106340.0,
+      "text": "is where our node.js app is listening,"
+    },
+    {
+      "index": 402,
+      "start_time": 1106340.0,
+      "end_time": 1110399.0,
+      "text": "and then run it on port 80, so access a normal HTTP port."
+    },
+    {
+      "index": 403,
+      "start_time": 1110400.0,
+      "end_time": 1112140.0,
+      "text": "And we&#39;ll open a type load balancer,"
+    },
+    {
+      "index": 404,
+      "start_time": 1112140.0,
+      "end_time": 1116560.0,
+      "text": "which will give us a public IP address using a Google Cloud"
+    },
+    {
+      "index": 405,
+      "start_time": 1116560.0,
+      "end_time": 1118780.0,
+      "text": "load balancer."
+    },
+    {
+      "index": 406,
+      "start_time": 1118780.0,
+      "end_time": 1122764.0,
+      "text": "So now, we can say get service--"
+    },
+    {
+      "index": 407,
+      "start_time": 1126930.0,
+      "end_time": 1129388.0,
+      "text": "and I assume most people here are familiar with Kubernetes."
+    },
+    {
+      "index": 408,
+      "start_time": 1129390.0,
+      "end_time": 1131431.0,
+      "text": "If you&#39;re not familiar, come and just talk to me."
+    },
+    {
+      "index": 409,
+      "start_time": 1131430.0,
+      "end_time": 1133109.0,
+      "text": "I know I&#39;m going kind of quickly,"
+    },
+    {
+      "index": 410,
+      "start_time": 1133110.0,
+      "end_time": 1136169.0,
+      "text": "but there&#39;s more exciting things to happen soon."
+    },
+    {
+      "index": 411,
+      "start_time": 1136170.0,
+      "end_time": 1137220.0,
+      "text": "So I want to get to them."
+    },
+    {
+      "index": 412,
+      "start_time": 1137220.0,
+      "end_time": 1139710.0,
+      "text": "So you can see the external IP address is pending,"
+    },
+    {
+      "index": 413,
+      "start_time": 1139710.0,
+      "end_time": 1143520.0,
+      "text": "so let&#39;s just run a watch on that."
+    },
+    {
+      "index": 414,
+      "start_time": 1143520.0,
+      "end_time": 1145730.0,
+      "text": "And it&#39;s done the moment I try anything complicated,"
+    },
+    {
+      "index": 415,
+      "start_time": 1145730.0,
+      "end_time": 1148100.0,
+      "text": "it just finishes, it knows."
+    },
+    {
+      "index": 416,
+      "start_time": 1148100.0,
+      "end_time": 1150760.0,
+      "text": "All right, cool, let&#39;s go to that URL."
+    },
+    {
+      "index": 417,
+      "start_time": 1150760.0,
+      "end_time": 1152150.0,
+      "text": "That, not copy it--"
+    },
+    {
+      "index": 418,
+      "start_time": 1152150.0,
+      "end_time": 1152650.0,
+      "text": "all right."
+    },
+    {
+      "index": 419,
+      "start_time": 1160500.0,
+      "end_time": 1163450.0,
+      "text": "All right, we&#39;ll just do this."
+    },
+    {
+      "index": 420,
+      "start_time": 1163450.0,
+      "end_time": 1164000.0,
+      "text": "Cool."
+    },
+    {
+      "index": 421,
+      "start_time": 1164000.0,
+      "end_time": 1167840.0,
+      "text": "And if you go here, you can see the exact same app"
+    },
+    {
+      "index": 422,
+      "start_time": 1167840.0,
+      "end_time": 1170300.0,
+      "text": "running on our cluster."
+    },
+    {
+      "index": 423,
+      "start_time": 1170300.0,
+      "end_time": 1173570.0,
+      "text": "So now, we actually have it running on a public IP address."
+    },
+    {
+      "index": 424,
+      "start_time": 1173570.0,
+      "end_time": 1177520.0,
+      "text": "If you go there on your phone or laptop, it will work."
+    },
+    {
+      "index": 425,
+      "start_time": 1177520.0,
+      "end_time": 1179389.0,
+      "text": "And what we can do--"
+    },
+    {
+      "index": 426,
+      "start_time": 1179390.0,
+      "end_time": 1181900.0,
+      "text": "let&#39;s say all of you go on your phone to this IP address,"
+    },
+    {
+      "index": 427,
+      "start_time": 1181900.0,
+      "end_time": 1186350.0,
+      "text": "it will probably overwhelm this app."
+    },
+    {
+      "index": 428,
+      "start_time": 1186350.0,
+      "end_time": 1188889.0,
+      "text": "So in Kubernetes, we can actually just scale it out"
+    },
+    {
+      "index": 429,
+      "start_time": 1188890.0,
+      "end_time": 1191520.0,
+      "text": "with the scale command."
+    },
+    {
+      "index": 430,
+      "start_time": 1191520.0,
+      "end_time": 1191760.0,
+      "text": "So let&#39;s do that."
+    },
+    {
+      "index": 431,
+      "start_time": 1191760.0,
+      "end_time": 1199129.0,
+      "text": "So let&#39;s say kubectl scale deployment demo--"
+    },
+    {
+      "index": 432,
+      "start_time": 1199130.0,
+      "end_time": 1203540.0,
+      "text": "the name of deployment-- then, I&#39;m going to say replicas"
+    },
+    {
+      "index": 433,
+      "start_time": 1203540.0,
+      "end_time": 1208440.0,
+      "text": "equals 5, and again, that namespace."
+    },
+    {
+      "index": 434,
+      "start_time": 1212700.0,
+      "end_time": 1213210.0,
+      "text": "Awesome."
+    },
+    {
+      "index": 435,
+      "start_time": 1213210.0,
+      "end_time": 1217500.0,
+      "text": "So it will say deployment demo scaled."
+    },
+    {
+      "index": 436,
+      "start_time": 1217500.0,
+      "end_time": 1221652.0,
+      "text": "So now, if we go back to our get pods,"
+    },
+    {
+      "index": 437,
+      "start_time": 1221650.0,
+      "end_time": 1223108.0,
+      "text": "you&#39;ll notice that we actually have"
+    },
+    {
+      "index": 438,
+      "start_time": 1223110.0,
+      "end_time": 1227219.0,
+      "text": "five of them running in our cluster, which is really cool."
+    },
+    {
+      "index": 439,
+      "start_time": 1227220.0,
+      "end_time": 1230690.0,
+      "text": "And then, if you say get deployments,"
+    },
+    {
+      "index": 440,
+      "start_time": 1230690.0,
+      "end_time": 1234540.0,
+      "text": "you can see it also says that we have 5 desired, 5 current, 5"
+    },
+    {
+      "index": 441,
+      "start_time": 1234540.0,
+      "end_time": 1236610.0,
+      "text": "up to date, and 5 available."
+    },
+    {
+      "index": 442,
+      "start_time": 1236610.0,
+      "end_time": 1239300.0,
+      "text": "So now, if we go back to this IP address, it still works."
+    },
+    {
+      "index": 443,
+      "start_time": 1239300.0,
+      "end_time": 1241340.0,
+      "text": "The only difference is it&#39;s now round robining"
+    },
+    {
+      "index": 444,
+      "start_time": 1241340.0,
+      "end_time": 1245240.0,
+      "text": "traffic between all five instances of our application."
+    },
+    {
+      "index": 445,
+      "start_time": 1245240.0,
+      "end_time": 1248960.0,
+      "text": "So you have a lot more scalability, a lot more"
+    },
+    {
+      "index": 446,
+      "start_time": 1248960.0,
+      "end_time": 1249717.0,
+      "text": "robustness."
+    },
+    {
+      "index": 447,
+      "start_time": 1249720.0,
+      "end_time": 1252503.0,
+      "text": "And you might notice that we&#39;re running five copies even"
+    },
+    {
+      "index": 448,
+      "start_time": 1252500.0,
+      "end_time": 1254600.0,
+      "text": "though we only have four VMs."
+    },
+    {
+      "index": 449,
+      "start_time": 1254600.0,
+      "end_time": 1258851.0,
+      "text": "That&#39;s because we&#39;re able to run multiple copies on a single VM,"
+    },
+    {
+      "index": 450,
+      "start_time": 1258850.0,
+      "end_time": 1260808.0,
+      "text": "so we get more utilization out of our machines."
+    },
+    {
+      "index": 451,
+      "start_time": 1265120.0,
+      "end_time": 1266979.0,
+      "text": "Let&#39;s see-- clean."
+    },
+    {
+      "index": 452,
+      "start_time": 1266980.0,
+      "end_time": 1270770.0,
+      "text": "So let&#39;s clean that up, we no longer need that demo."
+    },
+    {
+      "index": 453,
+      "start_time": 1270770.0,
+      "end_time": 1273389.0,
+      "text": "Let&#39;s start looking at Istio."
+    },
+    {
+      "index": 454,
+      "start_time": 1273390.0,
+      "end_time": 1277990.0,
+      "text": "So now we had a single service running, kind of useless"
+    },
+    {
+      "index": 455,
+      "start_time": 1277990.0,
+      "end_time": 1279370.0,
+      "text": "in the long scheme of things."
+    },
+    {
+      "index": 456,
+      "start_time": 1279370.0,
+      "end_time": 1280510.0,
+      "text": "No one just runs one thing, you don&#39;t"
+    },
+    {
+      "index": 457,
+      "start_time": 1280510.0,
+      "end_time": 1281810.0,
+      "text": "need Kubernetes to do that."
+    },
+    {
+      "index": 458,
+      "start_time": 1281810.0,
+      "end_time": 1284296.0,
+      "text": "What you really want to do is run multiple applications"
+    },
+    {
+      "index": 459,
+      "start_time": 1284300.0,
+      "end_time": 1286424.0,
+      "text": "together and make sure they all work together well."
+    },
+    {
+      "index": 460,
+      "start_time": 1293280.0,
+      "end_time": 1297708.0,
+      "text": "What we&#39;re going to do is run this same application"
+    },
+    {
+      "index": 461,
+      "start_time": 1297710.0,
+      "end_time": 1300660.0,
+      "text": "three times and then chain it together."
+    },
+    {
+      "index": 462,
+      "start_time": 1300660.0,
+      "end_time": 1302400.0,
+      "text": "So you might have noticed in our code,"
+    },
+    {
+      "index": 463,
+      "start_time": 1302400.0,
+      "end_time": 1304530.0,
+      "text": "I&#39;m going to go back to it for a second,"
+    },
+    {
+      "index": 464,
+      "start_time": 1304530.0,
+      "end_time": 1306649.0,
+      "text": "that basically I can set whatever"
+    },
+    {
+      "index": 465,
+      "start_time": 1306650.0,
+      "end_time": 1310900.0,
+      "text": "I want as the upstream URI using an environment variable."
+    },
+    {
+      "index": 466,
+      "start_time": 1310900.0,
+      "end_time": 1313430.0,
+      "text": "And so what I can do is actually tie multiple"
+    },
+    {
+      "index": 467,
+      "start_time": 1313430.0,
+      "end_time": 1315890.0,
+      "text": "of these together using one to talk to the other"
+    },
+    {
+      "index": 468,
+      "start_time": 1315890.0,
+      "end_time": 1319400.0,
+      "text": "to talk to the other, and then finally to time.jsontest.com."
+    },
+    {
+      "index": 469,
+      "start_time": 1319400.0,
+      "end_time": 1321770.0,
+      "text": "And then, they will all concatenate their responses,"
+    },
+    {
+      "index": 470,
+      "start_time": 1321770.0,
+      "end_time": 1325310.0,
+      "text": "and finally show it to the end user."
+    },
+    {
+      "index": 471,
+      "start_time": 1325310.0,
+      "end_time": 1326659.0,
+      "text": "So that&#39;s a really cool thing."
+    },
+    {
+      "index": 472,
+      "start_time": 1326660.0,
+      "end_time": 1329000.0,
+      "text": "In Kubernetes, we can actually dynamically set"
+    },
+    {
+      "index": 473,
+      "start_time": 1329000.0,
+      "end_time": 1331730.0,
+      "text": "these environment variables when we&#39;re deploying."
+    },
+    {
+      "index": 474,
+      "start_time": 1331730.0,
+      "end_time": 1334532.0,
+      "text": "So let&#39;s actually look at that and so normally"
+    },
+    {
+      "index": 475,
+      "start_time": 1334530.0,
+      "end_time": 1335988.0,
+      "text": "in Kubernetes, what we would do is,"
+    },
+    {
+      "index": 476,
+      "start_time": 1335990.0,
+      "end_time": 1337650.0,
+      "text": "we would create a YAML file."
+    },
+    {
+      "index": 477,
+      "start_time": 1337650.0,
+      "end_time": 1340560.0,
+      "text": "And I&#39;ll make this a little bigger."
+    },
+    {
+      "index": 478,
+      "start_time": 1340560.0,
+      "end_time": 1344700.0,
+      "text": "And in this YAML file, we will define our deployments."
+    },
+    {
+      "index": 479,
+      "start_time": 1344700.0,
+      "end_time": 1346379.0,
+      "text": "So I&#39;m going to make four deployments."
+    },
+    {
+      "index": 480,
+      "start_time": 1346380.0,
+      "end_time": 1349990.0,
+      "text": "So the first one is going to be called front end prod, so"
+    },
+    {
+      "index": 481,
+      "start_time": 1349990.0,
+      "end_time": 1351199.0,
+      "text": "front end production service."
+    },
+    {
+      "index": 482,
+      "start_time": 1351200.0,
+      "end_time": 1353740.0,
+      "text": "As you can see here, I&#39;m giving it the service name front end"
+    },
+    {
+      "index": 483,
+      "start_time": 1353740.0,
+      "end_time": 1354301.0,
+      "text": "prod."
+    },
+    {
+      "index": 484,
+      "start_time": 1354300.0,
+      "end_time": 1358110.0,
+      "text": "And the upstream URI, I&#39;m going to call it middleware."
+    },
+    {
+      "index": 485,
+      "start_time": 1358110.0,
+      "end_time": 1360240.0,
+      "text": "And so Kubernetes will automatically"
+    },
+    {
+      "index": 486,
+      "start_time": 1360240.0,
+      "end_time": 1362580.0,
+      "text": "do DNS-based service discovery."
+    },
+    {
+      "index": 487,
+      "start_time": 1362580.0,
+      "end_time": 1365310.0,
+      "text": "So I can actually find my middleware application"
+    },
+    {
+      "index": 488,
+      "start_time": 1365310.0,
+      "end_time": 1367424.0,
+      "text": "by just pointing it at middleware,"
+    },
+    {
+      "index": 489,
+      "start_time": 1367420.0,
+      "end_time": 1368336.0,
+      "text": "which was really cool."
+    },
+    {
+      "index": 490,
+      "start_time": 1368340.0,
+      "end_time": 1370879.0,
+      "text": "I don&#39;t need IP addresses or anything like that."
+    },
+    {
+      "index": 491,
+      "start_time": 1370880.0,
+      "end_time": 1372420.0,
+      "text": "And you can see here, we&#39;re giving it"
+    },
+    {
+      "index": 492,
+      "start_time": 1372420.0,
+      "end_time": 1376230.0,
+      "text": "some labels, app front end, version prod, and then"
+    },
+    {
+      "index": 493,
+      "start_time": 1376230.0,
+      "end_time": 1379595.0,
+      "text": "the same container name that we used before."
+    },
+    {
+      "index": 494,
+      "start_time": 1379590.0,
+      "end_time": 1381215.0,
+      "text": "And then, in our middleware, everything"
+    },
+    {
+      "index": 495,
+      "start_time": 1381220.0,
+      "end_time": 1384600.0,
+      "text": "looks exactly the same, except it&#39;s app middleware version"
+    },
+    {
+      "index": 496,
+      "start_time": 1384600.0,
+      "end_time": 1385356.0,
+      "text": "prod."
+    },
+    {
+      "index": 497,
+      "start_time": 1385360.0,
+      "end_time": 1386984.0,
+      "text": "And then the service name is different,"
+    },
+    {
+      "index": 498,
+      "start_time": 1386980.0,
+      "end_time": 1390100.0,
+      "text": "and the upstream URI is now back end."
+    },
+    {
+      "index": 499,
+      "start_time": 1390100.0,
+      "end_time": 1393200.0,
+      "text": "Then, we also have a Canary version of our middleware."
+    },
+    {
+      "index": 500,
+      "start_time": 1393200.0,
+      "end_time": 1395417.0,
+      "text": "So it&#39;s like our test version that we&#39;re just"
+    },
+    {
+      "index": 501,
+      "start_time": 1395420.0,
+      "end_time": 1397003.0,
+      "text": "kind of working on, but we want to see"
+    },
+    {
+      "index": 502,
+      "start_time": 1397000.0,
+      "end_time": 1399370.0,
+      "text": "how it works in the real world."
+    },
+    {
+      "index": 503,
+      "start_time": 1399370.0,
+      "end_time": 1400968.0,
+      "text": "So again, this also points back end."
+    },
+    {
+      "index": 504,
+      "start_time": 1400970.0,
+      "end_time": 1402511.0,
+      "text": "And then, finally our back end, which"
+    },
+    {
+      "index": 505,
+      "start_time": 1402510.0,
+      "end_time": 1406590.0,
+      "text": "points to time.jsontest.com."
+    },
+    {
+      "index": 506,
+      "start_time": 1406590.0,
+      "end_time": 1411900.0,
+      "text": "So at this point, we can deploy it into our cluster."
+    },
+    {
+      "index": 507,
+      "start_time": 1420390.0,
+      "end_time": 1422330.0,
+      "text": "And so now, we&#39;ll create these deployments."
+    },
+    {
+      "index": 508,
+      "start_time": 1422330.0,
+      "end_time": 1423800.0,
+      "text": "But of course, we&#39;ll also need to create"
+    },
+    {
+      "index": 509,
+      "start_time": 1423800.0,
+      "end_time": 1425780.0,
+      "text": "the corresponding services so they can actually"
+    },
+    {
+      "index": 510,
+      "start_time": 1425780.0,
+      "end_time": 1427110.0,
+      "text": "find each other."
+    },
+    {
+      "index": 511,
+      "start_time": 1427110.0,
+      "end_time": 1429570.0,
+      "text": "So let&#39;s take a look at that."
+    },
+    {
+      "index": 512,
+      "start_time": 1429570.0,
+      "end_time": 1432480.0,
+      "text": "So here in our services.YAML, it&#39;s pretty straightforward."
+    },
+    {
+      "index": 513,
+      "start_time": 1432480.0,
+      "end_time": 1434750.0,
+      "text": "We have a front end, a middleware, and a back end"
+    },
+    {
+      "index": 514,
+      "start_time": 1434750.0,
+      "end_time": 1436610.0,
+      "text": "service."
+    },
+    {
+      "index": 515,
+      "start_time": 1436610.0,
+      "end_time": 1441260.0,
+      "text": "They all open up port 3000 to port 80, which makes sense."
+    },
+    {
+      "index": 516,
+      "start_time": 1441260.0,
+      "end_time": 1443629.0,
+      "text": "The only difference here is the front end service"
+    },
+    {
+      "index": 517,
+      "start_time": 1443630.0,
+      "end_time": 1449300.0,
+      "text": "is of type load balancer so that we get that public IP address."
+    },
+    {
+      "index": 518,
+      "start_time": 1449300.0,
+      "end_time": 1452310.0,
+      "text": "So let&#39;s go to that public IP address and see what happens."
+    },
+    {
+      "index": 519,
+      "start_time": 1460640.0,
+      "end_time": 1464446.0,
+      "text": "Great, OK, still pending, that&#39;s fine."
+    },
+    {
+      "index": 520,
+      "start_time": 1464450.0,
+      "end_time": 1467705.0,
+      "text": "Let&#39;s do it one more time."
+    },
+    {
+      "index": 521,
+      "start_time": 1467700.0,
+      "end_time": 1468199.0,
+      "text": "There we go."
+    },
+    {
+      "index": 522,
+      "start_time": 1473130.0,
+      "end_time": 1477740.0,
+      "text": "OK so interesting, it was a little bit"
+    },
+    {
+      "index": 523,
+      "start_time": 1477740.0,
+      "end_time": 1479210.0,
+      "text": "different than before."
+    },
+    {
+      "index": 524,
+      "start_time": 1479210.0,
+      "end_time": 1482482.0,
+      "text": "You can see that our front end prod went to our middleware,"
+    },
+    {
+      "index": 525,
+      "start_time": 1482480.0,
+      "end_time": 1484188.0,
+      "text": "then the middleware went to our back end,"
+    },
+    {
+      "index": 526,
+      "start_time": 1484190.0,
+      "end_time": 1487730.0,
+      "text": "and our back end went to time.jsontest.com."
+    },
+    {
+      "index": 527,
+      "start_time": 1487730.0,
+      "end_time": 1491150.0,
+      "text": "But we&#39;re getting a 404, which is really"
+    },
+    {
+      "index": 528,
+      "start_time": 1491150.0,
+      "end_time": 1494600.0,
+      "text": "weird, because I mean, if I go to this website,"
+    },
+    {
+      "index": 529,
+      "start_time": 1494600.0,
+      "end_time": 1494990.0,
+      "text": "clearly it works."
+    },
+    {
+      "index": 530,
+      "start_time": 1494990.0,
+      "end_time": 1497840.0,
+      "text": "We were seeing it working all this time before, right?"
+    },
+    {
+      "index": 531,
+      "start_time": 1497840.0,
+      "end_time": 1502250.0,
+      "text": "It&#39;s working, so why are we getting a 404?"
+    },
+    {
+      "index": 532,
+      "start_time": 1502250.0,
+      "end_time": 1505340.0,
+      "text": "And so now, we go into the world of Istio."
+    },
+    {
+      "index": 533,
+      "start_time": 1505340.0,
+      "end_time": 1509580.0,
+      "text": "So I actually have Istio already running in this cluster."
+    },
+    {
+      "index": 534,
+      "start_time": 1509580.0,
+      "end_time": 1511530.0,
+      "text": "And what it&#39;s just going to do is,"
+    },
+    {
+      "index": 535,
+      "start_time": 1511530.0,
+      "end_time": 1513480.0,
+      "text": "it&#39;s going to really lock down and help"
+    },
+    {
+      "index": 536,
+      "start_time": 1513480.0,
+      "end_time": 1515640.0,
+      "text": "you manage your microservices."
+    },
+    {
+      "index": 537,
+      "start_time": 1515640.0,
+      "end_time": 1518340.0,
+      "text": "So it knows that time.jsontest.com"
+    },
+    {
+      "index": 538,
+      "start_time": 1518340.0,
+      "end_time": 1520230.0,
+      "text": "is an external service."
+    },
+    {
+      "index": 539,
+      "start_time": 1520230.0,
+      "end_time": 1523470.0,
+      "text": "And by default, it&#39;s going to block all traffic going out"
+    },
+    {
+      "index": 540,
+      "start_time": 1523470.0,
+      "end_time": 1524380.0,
+      "text": "of your cluster."
+    },
+    {
+      "index": 541,
+      "start_time": 1524380.0,
+      "end_time": 1525970.0,
+      "text": "And this is really good for security reasons,"
+    },
+    {
+      "index": 542,
+      "start_time": 1525970.0,
+      "end_time": 1528303.0,
+      "text": "you don&#39;t want your app just talking to random endpoints"
+    },
+    {
+      "index": 543,
+      "start_time": 1528300.0,
+      "end_time": 1529647.0,
+      "text": "on the internet."
+    },
+    {
+      "index": 544,
+      "start_time": 1529650.0,
+      "end_time": 1531750.0,
+      "text": "You want you as a cluster administrator"
+    },
+    {
+      "index": 545,
+      "start_time": 1531750.0,
+      "end_time": 1535560.0,
+      "text": "to be able to lock down and only talk to trusted endpoints."
+    },
+    {
+      "index": 546,
+      "start_time": 1535560.0,
+      "end_time": 1537210.0,
+      "text": "So by default, everything is blocked"
+    },
+    {
+      "index": 547,
+      "start_time": 1537210.0,
+      "end_time": 1539460.0,
+      "text": "that&#39;s going out of your cluster."
+    },
+    {
+      "index": 548,
+      "start_time": 1539460.0,
+      "end_time": 1540690.0,
+      "text": "So how do you unblock it?"
+    },
+    {
+      "index": 549,
+      "start_time": 1540690.0,
+      "end_time": 1544590.0,
+      "text": "Well, in Istio, we have something called egress rules."
+    },
+    {
+      "index": 550,
+      "start_time": 1544590.0,
+      "end_time": 1546209.0,
+      "text": "So it&#39;s a pretty simple thing."
+    },
+    {
+      "index": 551,
+      "start_time": 1546210.0,
+      "end_time": 1549330.0,
+      "text": "You can see it&#39;s only like a few lines of YAML."
+    },
+    {
+      "index": 552,
+      "start_time": 1549330.0,
+      "end_time": 1551790.0,
+      "text": "And so here, we&#39;re going to say allow traffic"
+    },
+    {
+      "index": 553,
+      "start_time": 1551790.0,
+      "end_time": 1557220.0,
+      "text": "to time.jsontest.com on both port 80 for HTP and 443"
+    },
+    {
+      "index": 554,
+      "start_time": 1557220.0,
+      "end_time": 1559320.0,
+      "text": "for HTPS."
+    },
+    {
+      "index": 555,
+      "start_time": 1559320.0,
+      "end_time": 1560510.0,
+      "text": "So let&#39;s deploy that rule."
+    },
+    {
+      "index": 556,
+      "start_time": 1569600.0,
+      "end_time": 1572470.0,
+      "text": "And for Istio, we use the Istio control command line tool."
+    },
+    {
+      "index": 557,
+      "start_time": 1572470.0,
+      "end_time": 1576675.0,
+      "text": "It&#39;s just like the kubctl, or kubctl, Istioctl,"
+    },
+    {
+      "index": 558,
+      "start_time": 1576680.0,
+      "end_time": 1578505.0,
+      "text": "I don&#39;t know how to pronounce it,"
+    },
+    {
+      "index": 559,
+      "start_time": 1578500.0,
+      "end_time": 1580419.0,
+      "text": "your guess is as good as mine."
+    },
+    {
+      "index": 560,
+      "start_time": 1580420.0,
+      "end_time": 1584290.0,
+      "text": "But it&#39;s very similar to the kubctl tool."
+    },
+    {
+      "index": 561,
+      "start_time": 1584290.0,
+      "end_time": 1585760.0,
+      "text": "And so now, we&#39;ve created that."
+    },
+    {
+      "index": 562,
+      "start_time": 1585760.0,
+      "end_time": 1590100.0,
+      "text": "And we can go back to our web site, and hit refresh,"
+    },
+    {
+      "index": 563,
+      "start_time": 1590100.0,
+      "end_time": 1592000.0,
+      "text": "and you can see it&#39;s all working perfectly fine."
+    },
+    {
+      "index": 564,
+      "start_time": 1592000.0,
+      "end_time": 1596810.0,
+      "text": "So we&#39;ve kind of whitelisted traffic to time.jsontest.com."
+    },
+    {
+      "index": 565,
+      "start_time": 1596810.0,
+      "end_time": 1599419.0,
+      "text": "Now, you might notice another thing going on."
+    },
+    {
+      "index": 566,
+      "start_time": 1599420.0,
+      "end_time": 1605780.0,
+      "text": "If I hit refresh, just look at this line right here."
+    },
+    {
+      "index": 567,
+      "start_time": 1605780.0,
+      "end_time": 1610280.0,
+      "text": "Sometimes it says canary and sometimes it says prod."
+    },
+    {
+      "index": 568,
+      "start_time": 1610280.0,
+      "end_time": 1612560.0,
+      "text": "And So the reason why this is happening is,"
+    },
+    {
+      "index": 569,
+      "start_time": 1612560.0,
+      "end_time": 1614960.0,
+      "text": "by default, Kubernetes will use round robin load"
+    },
+    {
+      "index": 570,
+      "start_time": 1614960.0,
+      "end_time": 1617900.0,
+      "text": "balancing for its services."
+    },
+    {
+      "index": 571,
+      "start_time": 1617900.0,
+      "end_time": 1618800.0,
+      "text": "So our middleware service is pointing"
+    },
+    {
+      "index": 572,
+      "start_time": 1618800.0,
+      "end_time": 1622159.0,
+      "text": "to any deployment or any pod that"
+    },
+    {
+      "index": 573,
+      "start_time": 1622160.0,
+      "end_time": 1624500.0,
+      "text": "has the tag app middleware."
+    },
+    {
+      "index": 574,
+      "start_time": 1624500.0,
+      "end_time": 1627800.0,
+      "text": "But both the Canary and the prod versions"
+    },
+    {
+      "index": 575,
+      "start_time": 1627800.0,
+      "end_time": 1629600.0,
+      "text": "both have that tag, so Kubernetes will blindly"
+    },
+    {
+      "index": 576,
+      "start_time": 1629600.0,
+      "end_time": 1631550.0,
+      "text": "send traffic to both."
+    },
+    {
+      "index": 577,
+      "start_time": 1631550.0,
+      "end_time": 1633950.0,
+      "text": "In fact, if you had three versions of Canary"
+    },
+    {
+      "index": 578,
+      "start_time": 1633950.0,
+      "end_time": 1635930.0,
+      "text": "and only two versions of your prod,"
+    },
+    {
+      "index": 579,
+      "start_time": 1635930.0,
+      "end_time": 1638330.0,
+      "text": "a disproportionate amount of traffic would go to canary."
+    },
+    {
+      "index": 580,
+      "start_time": 1638330.0,
+      "end_time": 1640100.0,
+      "text": "In fact, 3 to 2."
+    },
+    {
+      "index": 581,
+      "start_time": 1640100.0,
+      "end_time": 1642800.0,
+      "text": "Because it&#39;s just round robin."
+    },
+    {
+      "index": 582,
+      "start_time": 1642800.0,
+      "end_time": 1645169.0,
+      "text": "So with Istio, we can actually make traffic"
+    },
+    {
+      "index": 583,
+      "start_time": 1645170.0,
+      "end_time": 1647621.0,
+      "text": "go exactly where we want."
+    },
+    {
+      "index": 584,
+      "start_time": 1647620.0,
+      "end_time": 1648619.0,
+      "text": "Let&#39;s do that real fast."
+    },
+    {
+      "index": 585,
+      "start_time": 1658430.0,
+      "end_time": 1662380.0,
+      "text": "So what we can do is set something called a route rule."
+    },
+    {
+      "index": 586,
+      "start_time": 1662380.0,
+      "end_time": 1665220.0,
+      "text": "And basically, we can send whenever"
+    },
+    {
+      "index": 587,
+      "start_time": 1665220.0,
+      "end_time": 1670270.0,
+      "text": "the destination is middleware, always send it to prod."
+    },
+    {
+      "index": 588,
+      "start_time": 1670270.0,
+      "end_time": 1672270.0,
+      "text": "And then, whenever the destination is front end,"
+    },
+    {
+      "index": 589,
+      "start_time": 1672270.0,
+      "end_time": 1675600.0,
+      "text": "send it to prod, and back into prod, super simple things."
+    },
+    {
+      "index": 590,
+      "start_time": 1675600.0,
+      "end_time": 1678100.0,
+      "text": "But what this happens is, now I hit refresh,"
+    },
+    {
+      "index": 591,
+      "start_time": 1678100.0,
+      "end_time": 1681310.0,
+      "text": "it will always go to our production service."
+    },
+    {
+      "index": 592,
+      "start_time": 1681310.0,
+      "end_time": 1683532.0,
+      "text": "So as an end user, I never have to worry about it."
+    },
+    {
+      "index": 593,
+      "start_time": 1683530.0,
+      "end_time": 1684988.0,
+      "text": "I&#39;ll always hit production, I won&#39;t"
+    },
+    {
+      "index": 594,
+      "start_time": 1684990.0,
+      "end_time": 1687610.0,
+      "text": "hit some random test build that&#39;s running"
+    },
+    {
+      "index": 595,
+      "start_time": 1687610.0,
+      "end_time": 1688560.0,
+      "text": "in my cluster, which is really nice."
+    },
+    {
+      "index": 596,
+      "start_time": 1691540.0,
+      "end_time": 1692290.0,
+      "text": "But this is great."
+    },
+    {
+      "index": 597,
+      "start_time": 1692290.0,
+      "end_time": 1695190.0,
+      "text": "This app is like bulletproof, so simple it never breaks."
+    },
+    {
+      "index": 598,
+      "start_time": 1695190.0,
+      "end_time": 1698786.0,
+      "text": "But in the real world, our code is not perfect."
+    },
+    {
+      "index": 599,
+      "start_time": 1698790.0,
+      "end_time": 1701164.0,
+      "text": "I don&#39;t write perfect code, you don&#39;t write perfect code,"
+    },
+    {
+      "index": 600,
+      "start_time": 1701160.0,
+      "end_time": 1703320.0,
+      "text": "let&#39;s be honest with each other."
+    },
+    {
+      "index": 601,
+      "start_time": 1703320.0,
+      "end_time": 1706270.0,
+      "text": "In the real world, things break all the time."
+    },
+    {
+      "index": 602,
+      "start_time": 1706270.0,
+      "end_time": 1709620.0,
+      "text": "So to simulate that, I have this really cool function"
+    },
+    {
+      "index": 603,
+      "start_time": 1709620.0,
+      "end_time": 1711165.0,
+      "text": "called create issues."
+    },
+    {
+      "index": 604,
+      "start_time": 1713790.0,
+      "end_time": 1715710.0,
+      "text": "And what create issues will do is,"
+    },
+    {
+      "index": 605,
+      "start_time": 1715710.0,
+      "end_time": 1717870.0,
+      "text": "it&#39;ll look at a header called fail."
+    },
+    {
+      "index": 606,
+      "start_time": 1717870.0,
+      "end_time": 1721200.0,
+      "text": "And then, it will generally generate a number,"
+    },
+    {
+      "index": 607,
+      "start_time": 1721200.0,
+      "end_time": 1724620.0,
+      "text": "and if it&#39;s less than that, it&#39;ll just return a 500."
+    },
+    {
+      "index": 608,
+      "start_time": 1724620.0,
+      "end_time": 1728939.0,
+      "text": "Yeah, I didn&#39;t know how else to make things break on purpose."
+    },
+    {
+      "index": 609,
+      "start_time": 1728940.0,
+      "end_time": 1731640.0,
+      "text": "It&#39;s hard to make things break on purpose."
+    },
+    {
+      "index": 610,
+      "start_time": 1731640.0,
+      "end_time": 1733180.0,
+      "text": "So if you&#39;ve ever-- this is going"
+    },
+    {
+      "index": 611,
+      "start_time": 1733180.0,
+      "end_time": 1734770.0,
+      "text": "to be a program called Postman."
+    },
+    {
+      "index": 612,
+      "start_time": 1734770.0,
+      "end_time": 1736889.0,
+      "text": "If you&#39;ve never used it before, it&#39;s awesome."
+    },
+    {
+      "index": 613,
+      "start_time": 1736890.0,
+      "end_time": 1740600.0,
+      "text": "Basically, it lets you set headers in json and things"
+    },
+    {
+      "index": 614,
+      "start_time": 1740600.0,
+      "end_time": 1741240.0,
+      "text": "like that automatically."
+    },
+    {
+      "index": 615,
+      "start_time": 1741240.0,
+      "end_time": 1744252.0,
+      "text": "So let&#39;s just do a normal request right now."
+    },
+    {
+      "index": 616,
+      "start_time": 1744250.0,
+      "end_time": 1746208.0,
+      "text": "You can see it works just the same way as doing"
+    },
+    {
+      "index": 617,
+      "start_time": 1746210.0,
+      "end_time": 1748460.0,
+      "text": "a request from the web browser."
+    },
+    {
+      "index": 618,
+      "start_time": 1748460.0,
+      "end_time": 1752640.0,
+      "text": "But now, we can actually send headers from this tool."
+    },
+    {
+      "index": 619,
+      "start_time": 1752640.0,
+      "end_time": 1755330.0,
+      "text": "And let&#39;s set a value of 0.3."
+    },
+    {
+      "index": 620,
+      "start_time": 1755330.0,
+      "end_time": 1757260.0,
+      "text": "So it&#39;s a 30% chance of failure."
+    },
+    {
+      "index": 621,
+      "start_time": 1757260.0,
+      "end_time": 1758780.0,
+      "text": "Let&#39;s see what happens."
+    },
+    {
+      "index": 622,
+      "start_time": 1758780.0,
+      "end_time": 1762770.0,
+      "text": "Boom, back end failed, boom, middleware failed."
+    },
+    {
+      "index": 623,
+      "start_time": 1762770.0,
+      "end_time": 1766250.0,
+      "text": "Everything worked, back end failed again,"
+    },
+    {
+      "index": 624,
+      "start_time": 1766250.0,
+      "end_time": 1769680.0,
+      "text": "everything worked again, middleware failed,"
+    },
+    {
+      "index": 625,
+      "start_time": 1769680.0,
+      "end_time": 1772200.0,
+      "text": "there, everything failed."
+    },
+    {
+      "index": 626,
+      "start_time": 1772200.0,
+      "end_time": 1774450.0,
+      "text": "And we might notice that the problem is actually"
+    },
+    {
+      "index": 627,
+      "start_time": 1774450.0,
+      "end_time": 1777810.0,
+      "text": "worse than we think, because in our code what we&#39;re actually"
+    },
+    {
+      "index": 628,
+      "start_time": 1777810.0,
+      "end_time": 1781904.0,
+      "text": "doing is, we&#39;re propagating these headers."
+    },
+    {
+      "index": 629,
+      "start_time": 1781900.0,
+      "end_time": 1783566.0,
+      "text": "These are for tracing, we&#39;ll take a look"
+    },
+    {
+      "index": 630,
+      "start_time": 1783570.0,
+      "end_time": 1784720.0,
+      "text": "at that in a second."
+    },
+    {
+      "index": 631,
+      "start_time": 1784720.0,
+      "end_time": 1786690.0,
+      "text": "But we&#39;re actually forwarding this fail header"
+    },
+    {
+      "index": 632,
+      "start_time": 1786690.0,
+      "end_time": 1788350.0,
+      "text": "along each request."
+    },
+    {
+      "index": 633,
+      "start_time": 1788350.0,
+      "end_time": 1791370.0,
+      "text": "So it&#39;s not just a 30% chance, it&#39;s a 30% times 30%"
+    },
+    {
+      "index": 634,
+      "start_time": 1791370.0,
+      "end_time": 1794400.0,
+      "text": "times 30% chance of failure."
+    },
+    {
+      "index": 635,
+      "start_time": 1794400.0,
+      "end_time": 1796224.0,
+      "text": "And that&#39;s where all these cascading failures"
+    },
+    {
+      "index": 636,
+      "start_time": 1796220.0,
+      "end_time": 1797635.0,
+      "text": "come into play with microservices,"
+    },
+    {
+      "index": 637,
+      "start_time": 1797640.0,
+      "end_time": 1802320.0,
+      "text": "because one failure can trigger tons of failures downstream."
+    },
+    {
+      "index": 638,
+      "start_time": 1802320.0,
+      "end_time": 1805399.0,
+      "text": "So let&#39;s take a look how Istio can help us with this."
+    },
+    {
+      "index": 639,
+      "start_time": 1805400.0,
+      "end_time": 1809980.0,
+      "text": "So let&#39;s do our second routing rules."
+    },
+    {
+      "index": 640,
+      "start_time": 1809980.0,
+      "end_time": 1813320.0,
+      "text": "Let&#39;s do something called a simple retry policy."
+    },
+    {
+      "index": 641,
+      "start_time": 1813320.0,
+      "end_time": 1816129.0,
+      "text": "So let&#39;s have Istio automatically retry the request"
+    },
+    {
+      "index": 642,
+      "start_time": 1816130.0,
+      "end_time": 1818470.0,
+      "text": "three times before giving up."
+    },
+    {
+      "index": 643,
+      "start_time": 1818470.0,
+      "end_time": 1821740.0,
+      "text": "And again, we don&#39;t have to change our code at all."
+    },
+    {
+      "index": 644,
+      "start_time": 1821740.0,
+      "end_time": 1825910.0,
+      "text": "Istio is transparently proxying all of these network calls--"
+    },
+    {
+      "index": 645,
+      "start_time": 1825910.0,
+      "end_time": 1827710.0,
+      "text": "proxying is a strong word-- transparently"
+    },
+    {
+      "index": 646,
+      "start_time": 1827710.0,
+      "end_time": 1830390.0,
+      "text": "managing all these network calls."
+    },
+    {
+      "index": 647,
+      "start_time": 1830390.0,
+      "end_time": 1834720.0,
+      "text": "So what happens is, our code doesn&#39;t"
+    },
+    {
+      "index": 648,
+      "start_time": 1834720.0,
+      "end_time": 1837510.0,
+      "text": "have to know at all that Istio is trying it three times."
+    },
+    {
+      "index": 649,
+      "start_time": 1837510.0,
+      "end_time": 1839129.0,
+      "text": "It just tries it once."
+    },
+    {
+      "index": 650,
+      "start_time": 1839130.0,
+      "end_time": 1841179.0,
+      "text": "And Istio actually manages all the back off,"
+    },
+    {
+      "index": 651,
+      "start_time": 1841180.0,
+      "end_time": 1842971.0,
+      "text": "and the retries, and all that kind of stuff"
+    },
+    {
+      "index": 652,
+      "start_time": 1842970.0,
+      "end_time": 1844420.0,
+      "text": "for you automatically."
+    },
+    {
+      "index": 653,
+      "start_time": 1844420.0,
+      "end_time": 1845730.0,
+      "text": "So you don&#39;t have to."
+    },
+    {
+      "index": 654,
+      "start_time": 1845730.0,
+      "end_time": 1847320.0,
+      "text": "So now, if we go back to Postman,"
+    },
+    {
+      "index": 655,
+      "start_time": 1847320.0,
+      "end_time": 1848610.0,
+      "text": "let&#39;s see what happens."
+    },
+    {
+      "index": 656,
+      "start_time": 1848610.0,
+      "end_time": 1851550.0,
+      "text": "Boom, working."
+    },
+    {
+      "index": 657,
+      "start_time": 1851550.0,
+      "end_time": 1855210.0,
+      "text": "Still some issues, working, working, working,"
+    },
+    {
+      "index": 658,
+      "start_time": 1855210.0,
+      "end_time": 1858100.0,
+      "text": "working, much better."
+    },
+    {
+      "index": 659,
+      "start_time": 1858100.0,
+      "end_time": 1859939.0,
+      "text": "Obviously, it didn&#39;t fix the issue."
+    },
+    {
+      "index": 660,
+      "start_time": 1859940.0,
+      "end_time": 1865500.0,
+      "text": "In fact, if I increase this to something like version 0.5,"
+    },
+    {
+      "index": 661,
+      "start_time": 1865500.0,
+      "end_time": 1869940.0,
+      "text": "you see it&#39;s going to fail a lot more, or not."
+    },
+    {
+      "index": 662,
+      "start_time": 1869940.0,
+      "end_time": 1872310.0,
+      "text": "It might not fail, it might mask that."
+    },
+    {
+      "index": 663,
+      "start_time": 1872310.0,
+      "end_time": 1873280.0,
+      "text": "You know what?"
+    },
+    {
+      "index": 664,
+      "start_time": 1873280.0,
+      "end_time": 1877800.0,
+      "text": "0.9, all right, see, failure."
+    },
+    {
+      "index": 665,
+      "start_time": 1877800.0,
+      "end_time": 1880620.0,
+      "text": "And you might notice it&#39;s failing a lot at the front,"
+    },
+    {
+      "index": 666,
+      "start_time": 1880620.0,
+      "end_time": 1883189.0,
+      "text": "too."
+    },
+    {
+      "index": 667,
+      "start_time": 1883190.0,
+      "end_time": 1885120.0,
+      "text": "So let&#39;s take a look at two things."
+    },
+    {
+      "index": 668,
+      "start_time": 1885120.0,
+      "end_time": 1888790.0,
+      "text": "One, it&#39;s able to mask--"
+    },
+    {
+      "index": 669,
+      "start_time": 1888790.0,
+      "end_time": 1891889.0,
+      "text": "M-A-S-K-- your failures."
+    },
+    {
+      "index": 670,
+      "start_time": 1891890.0,
+      "end_time": 1895100.0,
+      "text": "But you don&#39;t want it to always do that."
+    },
+    {
+      "index": 671,
+      "start_time": 1895100.0,
+      "end_time": 1898520.0,
+      "text": "Just because things are working doesn&#39;t mean things are good."
+    },
+    {
+      "index": 672,
+      "start_time": 1898520.0,
+      "end_time": 1902240.0,
+      "text": "You want to be able to detect that you have errors,"
+    },
+    {
+      "index": 673,
+      "start_time": 1902240.0,
+      "end_time": 1904810.0,
+      "text": "and be able to detect that and fix it."
+    },
+    {
+      "index": 674,
+      "start_time": 1904810.0,
+      "end_time": 1907460.0,
+      "text": "So Istio actually gives you a lot"
+    },
+    {
+      "index": 675,
+      "start_time": 1907460.0,
+      "end_time": 1910364.0,
+      "text": "of tooling out of the box to manage your systems."
+    },
+    {
+      "index": 676,
+      "start_time": 1910360.0,
+      "end_time": 1911776.0,
+      "text": "The first thing I want to show you"
+    },
+    {
+      "index": 677,
+      "start_time": 1911780.0,
+      "end_time": 1914360.0,
+      "text": "is something called service graph."
+    },
+    {
+      "index": 678,
+      "start_time": 1914360.0,
+      "end_time": 1918320.0,
+      "text": "So because Istio is sitting and intercepting all those network"
+    },
+    {
+      "index": 679,
+      "start_time": 1918320.0,
+      "end_time": 1921350.0,
+      "text": "calls, it&#39;s actually able to create a full picture"
+    },
+    {
+      "index": 680,
+      "start_time": 1921350.0,
+      "end_time": 1923000.0,
+      "text": "of your services for you."
+    },
+    {
+      "index": 681,
+      "start_time": 1923000.0,
+      "end_time": 1925610.0,
+      "text": "So you can see here, we have a front end talking to our prod"
+    },
+    {
+      "index": 682,
+      "start_time": 1925610.0,
+      "end_time": 1927110.0,
+      "text": "and canary, talking to our back end,"
+    },
+    {
+      "index": 683,
+      "start_time": 1927110.0,
+      "end_time": 1931900.0,
+      "text": "just talking to time.jsontest.com--"
+    },
+    {
+      "index": 684,
+      "start_time": 1931900.0,
+      "end_time": 1937100.0,
+      "text": "we can also start doing things, automatically"
+    },
+    {
+      "index": 685,
+      "start_time": 1937100.0,
+      "end_time": 1940219.0,
+      "text": "start getting metrics from our cluster as well."
+    },
+    {
+      "index": 686,
+      "start_time": 1940220.0,
+      "end_time": 1943250.0,
+      "text": "Wow, that looks way too zoomed in."
+    },
+    {
+      "index": 687,
+      "start_time": 1943250.0,
+      "end_time": 1945510.0,
+      "text": "All right, let&#39;s zoom out a little bit."
+    },
+    {
+      "index": 688,
+      "start_time": 1945510.0,
+      "end_time": 1948580.0,
+      "text": "You can see here, once we started adding those errors,"
+    },
+    {
+      "index": 689,
+      "start_time": 1948580.0,
+      "end_time": 1951949.0,
+      "text": "our global success rate just started crashing to the bottom."
+    },
+    {
+      "index": 690,
+      "start_time": 1951950.0,
+      "end_time": 1954500.0,
+      "text": "And so Istio will actually automatically find"
+    },
+    {
+      "index": 691,
+      "start_time": 1954500.0,
+      "end_time": 1959810.0,
+      "text": "your 500s, your 400s, your volume, your QPS, your latency,"
+    },
+    {
+      "index": 692,
+      "start_time": 1959810.0,
+      "end_time": 1961730.0,
+      "text": "all this stuff automatically for you,"
+    },
+    {
+      "index": 693,
+      "start_time": 1961730.0,
+      "end_time": 1965100.0,
+      "text": "and start throwing it onto Prometheus and other dashboards"
+    },
+    {
+      "index": 694,
+      "start_time": 1965100.0,
+      "end_time": 1967100.0,
+      "text": "so you can start putting them into your systems,"
+    },
+    {
+      "index": 695,
+      "start_time": 1967100.0,
+      "end_time": 1969530.0,
+      "text": "and start running metrics, and understanding what"
+    },
+    {
+      "index": 696,
+      "start_time": 1969530.0,
+      "end_time": 1971660.0,
+      "text": "is going on in your services."
+    },
+    {
+      "index": 697,
+      "start_time": 1971660.0,
+      "end_time": 1973600.0,
+      "text": "And I didn&#39;t have to write any code for this."
+    },
+    {
+      "index": 698,
+      "start_time": 1973600.0,
+      "end_time": 1978439.0,
+      "text": "Istio gives me all these metrics out of the box for free."
+    },
+    {
+      "index": 699,
+      "start_time": 1978440.0,
+      "end_time": 1982190.0,
+      "text": "And then finally, we can use something like Zipkin,"
+    },
+    {
+      "index": 700,
+      "start_time": 1982190.0,
+      "end_time": 1984540.0,
+      "text": "or Jaeger to do tracing."
+    },
+    {
+      "index": 701,
+      "start_time": 1984540.0,
+      "end_time": 1988700.0,
+      "text": "So our stack level trace, a lot of these tools all work."
+    },
+    {
+      "index": 702,
+      "start_time": 1988700.0,
+      "end_time": 1990760.0,
+      "text": "So let&#39;s find some traces."
+    },
+    {
+      "index": 703,
+      "start_time": 1990760.0,
+      "end_time": 1994244.0,
+      "text": "So you can see here, we can see our front end talks"
+    },
+    {
+      "index": 704,
+      "start_time": 1994240.0,
+      "end_time": 1995905.0,
+      "text": "to our middleware talks to our back end."
+    },
+    {
+      "index": 705,
+      "start_time": 1995910.0,
+      "end_time": 1998409.0,
+      "text": "And we can see that obviously the back end takes the longest"
+    },
+    {
+      "index": 706,
+      "start_time": 1998410.0,
+      "end_time": 1999911.0,
+      "text": "amount of time, because it&#39;s talking"
+    },
+    {
+      "index": 707,
+      "start_time": 1999910.0,
+      "end_time": 2002460.0,
+      "text": "to our external service."
+    },
+    {
+      "index": 708,
+      "start_time": 2002460.0,
+      "end_time": 2011600.0,
+      "text": "But even more interesting than this, you can see here,"
+    },
+    {
+      "index": 709,
+      "start_time": 2011600.0,
+      "end_time": 2016250.0,
+      "text": "it actually has back end 2x, 2x, and middleware 2x."
+    },
+    {
+      "index": 710,
+      "start_time": 2016250.0,
+      "end_time": 2018890.0,
+      "text": "And I can&#39;t find one, that&#39;s OK."
+    },
+    {
+      "index": 711,
+      "start_time": 2018890.0,
+      "end_time": 2020150.0,
+      "text": "Let&#39;s see look back one hour."
+    },
+    {
+      "index": 712,
+      "start_time": 2027890.0,
+      "end_time": 2028520.0,
+      "text": "That&#39;s OK."
+    },
+    {
+      "index": 713,
+      "start_time": 2028520.0,
+      "end_time": 2030440.0,
+      "text": "So you can see all the distributed tracing."
+    },
+    {
+      "index": 714,
+      "start_time": 2030440.0,
+      "end_time": 2033110.0,
+      "text": "And to do that, all I had to do was forward those trace headers"
+    },
+    {
+      "index": 715,
+      "start_time": 2033110.0,
+      "end_time": 2034161.0,
+      "text": "along."
+    },
+    {
+      "index": 716,
+      "start_time": 2034160.0,
+      "end_time": 2038548.0,
+      "text": "Let&#39;s look at that for one second, those trace headers."
+    },
+    {
+      "index": 717,
+      "start_time": 2038550.0,
+      "end_time": 2041481.0,
+      "text": "So as long as I&#39;m forwarding those trace headers,"
+    },
+    {
+      "index": 718,
+      "start_time": 2041480.0,
+      "end_time": 2043985.0,
+      "text": "I get distributed tracing for free out of the box."
+    },
+    {
+      "index": 719,
+      "start_time": 2043990.0,
+      "end_time": 2045364.0,
+      "text": "And actually, I have another talk"
+    },
+    {
+      "index": 720,
+      "start_time": 2045360.0,
+      "end_time": 2048890.0,
+      "text": "where I talk about open census, which can automatically forward"
+    },
+    {
+      "index": 721,
+      "start_time": 2048900.0,
+      "end_time": 2049360.0,
+      "text": "these for you as well--"
+    },
+    {
+      "index": 722,
+      "start_time": 2049360.0000000002,
+      "end_time": 2053590.0000000002,
+      "text": "so even less work for you as a developer."
+    },
+    {
+      "index": 723,
+      "start_time": 2053590.0000000002,
+      "end_time": 2055909.0000000002,
+      "text": "Now, let&#39;s do one final thing."
+    },
+    {
+      "index": 724,
+      "start_time": 2055909.9999999998,
+      "end_time": 2058179.9999999998,
+      "text": "So here, you can see when I hit refresh,"
+    },
+    {
+      "index": 725,
+      "start_time": 2058179.9999999998,
+      "end_time": 2060699.9999999998,
+      "text": "I&#39;m always going to my prod service."
+    },
+    {
+      "index": 726,
+      "start_time": 2060699.9999999998,
+      "end_time": 2063909.9999999998,
+      "text": "But as a tester, I kind of want to actually use"
+    },
+    {
+      "index": 727,
+      "start_time": 2063909.9999999998,
+      "end_time": 2067179.9999999998,
+      "text": "a Canary service and see what happens in this new path."
+    },
+    {
+      "index": 728,
+      "start_time": 2067179.9999999998,
+      "end_time": 2068679.9999999998,
+      "text": "And the really nice thing is that we"
+    },
+    {
+      "index": 729,
+      "start_time": 2068679.9999999998,
+      "end_time": 2072820.9999999998,
+      "text": "can do in-production testing using Istio."
+    },
+    {
+      "index": 730,
+      "start_time": 2072820.0000000002,
+      "end_time": 2075159.0000000002,
+      "text": "Because when we have thousands of services,"
+    },
+    {
+      "index": 731,
+      "start_time": 2075159.9999999998,
+      "end_time": 2078700.9999999998,
+      "text": "it&#39;s impossible to launch them all in our local machine"
+    },
+    {
+      "index": 732,
+      "start_time": 2078699.9999999998,
+      "end_time": 2079569.9999999998,
+      "text": "and test it that way."
+    },
+    {
+      "index": 733,
+      "start_time": 2079570.0000000002,
+      "end_time": 2082190.0000000002,
+      "text": "We want to kind of push our service."
+    },
+    {
+      "index": 734,
+      "start_time": 2082179.9999999998,
+      "end_time": 2083559.9999999998,
+      "text": "You think it&#39;s working, so we push it"
+    },
+    {
+      "index": 735,
+      "start_time": 2083560.0,
+      "end_time": 2086800.0,
+      "text": "into a production cluster, but we don&#39;t want any production"
+    },
+    {
+      "index": 736,
+      "start_time": 2086800.0000000002,
+      "end_time": 2086920.0000000002,
+      "text": "traffic hitting it."
+    },
+    {
+      "index": 737,
+      "start_time": 2086920.0,
+      "end_time": 2089500.0,
+      "text": "We just want our test traffic hitting it."
+    },
+    {
+      "index": 738,
+      "start_time": 2089500.0,
+      "end_time": 2091630.0,
+      "text": "So what we&#39;re going to do is put up the last and final route"
+    },
+    {
+      "index": 739,
+      "start_time": 2091630.0,
+      "end_time": 2092130.0,
+      "text": "rule."
+    },
+    {
+      "index": 740,
+      "start_time": 2095150.0,
+      "end_time": 2096858.0,
+      "text": "And it&#39;s going to make a new route called"
+    },
+    {
+      "index": 741,
+      "start_time": 2096860.0000000002,
+      "end_time": 2098540.0,
+      "text": "the middleware canary route."
+    },
+    {
+      "index": 742,
+      "start_time": 2098540.0,
+      "end_time": 2102560.0,
+      "text": "And what it&#39;s going to look for is a header called x-dev-user."
+    },
+    {
+      "index": 743,
+      "start_time": 2102560.0,
+      "end_time": 2105320.0,
+      "text": "And then, whenever it sees a value of super secret,"
+    },
+    {
+      "index": 744,
+      "start_time": 2105320.0,
+      "end_time": 2107330.0,
+      "text": "it&#39;s going to route it to our Canary."
+    },
+    {
+      "index": 745,
+      "start_time": 2107330.0,
+      "end_time": 2109964.0,
+      "text": "So all normal traffic will go to our production service."
+    },
+    {
+      "index": 746,
+      "start_time": 2109960.0,
+      "end_time": 2111376.0,
+      "text": "And then, the super secret traffic"
+    },
+    {
+      "index": 747,
+      "start_time": 2111380.0,
+      "end_time": 2112942.0,
+      "text": "will go to our Canary service."
+    },
+    {
+      "index": 748,
+      "start_time": 2112940.0,
+      "end_time": 2114648.0,
+      "text": "Obviously, you&#39;d use something like OAuth"
+    },
+    {
+      "index": 749,
+      "start_time": 2114650.0,
+      "end_time": 2116510.0,
+      "text": "or some sort of authentication scheme,"
+    },
+    {
+      "index": 750,
+      "start_time": 2116510.0,
+      "end_time": 2122190.0,
+      "text": "not just the word super secret, because security is important."
+    },
+    {
+      "index": 751,
+      "start_time": 2122190.0,
+      "end_time": 2123940.0,
+      "text": "Let&#39;s take a look at that, so make Canary."
+    },
+    {
+      "index": 752,
+      "start_time": 2128600.0,
+      "end_time": 2130230.0,
+      "text": "So let&#39;s deploy this rule."
+    },
+    {
+      "index": 753,
+      "start_time": 2130230.0,
+      "end_time": 2132120.0,
+      "text": "And so now, if we go here, obviously it"
+    },
+    {
+      "index": 754,
+      "start_time": 2132120.0,
+      "end_time": 2135490.0,
+      "text": "will still go to our production service."
+    },
+    {
+      "index": 755,
+      "start_time": 2135490.0,
+      "end_time": 2136939.0,
+      "text": "But if we go to Postman--"
+    },
+    {
+      "index": 756,
+      "start_time": 2136940.0,
+      "end_time": 2139870.0,
+      "text": "and let&#39;s remove that fail header."
+    },
+    {
+      "index": 757,
+      "start_time": 2139870.0,
+      "end_time": 2142200.0,
+      "text": "And let&#39;s go to x-dev-user."
+    },
+    {
+      "index": 758,
+      "start_time": 2151130.0,
+      "end_time": 2153650.0,
+      "text": "Boom, nope, did I spell it wrong?"
+    },
+    {
+      "index": 759,
+      "start_time": 2153650.0,
+      "end_time": 2155274.0,
+      "text": "I don&#39;t know, let&#39;s see what happened."
+    },
+    {
+      "index": 760,
+      "start_time": 2159370.0,
+      "end_time": 2161470.0,
+      "text": "Oh, this is disabled, ah-ha, there we go."
+    },
+    {
+      "index": 761,
+      "start_time": 2161470.0,
+      "end_time": 2161980.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 762,
+      "start_time": 2165720.0,
+      "end_time": 2167700.0,
+      "text": "There we go, middleware Canary."
+    },
+    {
+      "index": 763,
+      "start_time": 2167700.0,
+      "end_time": 2171960.0,
+      "text": "So we&#39;re able to route to a specific service in the middle"
+    },
+    {
+      "index": 764,
+      "start_time": 2171960.0,
+      "end_time": 2173957.0,
+      "text": "of our stack using headers."
+    },
+    {
+      "index": 765,
+      "start_time": 2173960.0,
+      "end_time": 2176403.0,
+      "text": "And that&#39;s because we&#39;re using header propagation."
+    },
+    {
+      "index": 766,
+      "start_time": 2176400.0,
+      "end_time": 2180290.0,
+      "text": "So even if you had like 2,000 services,"
+    },
+    {
+      "index": 767,
+      "start_time": 2180300.0,
+      "end_time": 2185290.0,
+      "text": "and you want to make the middle one, the 900th service,"
+    },
+    {
+      "index": 768,
+      "start_time": 2185290.0,
+      "end_time": 2186630.0,
+      "text": "a special thing."
+    },
+    {
+      "index": 769,
+      "start_time": 2186630.0,
+      "end_time": 2189300.0,
+      "text": "By propagating these headers, we can actually"
+    },
+    {
+      "index": 770,
+      "start_time": 2189300.0,
+      "end_time": 2192440.0,
+      "text": "use Istio and then route to that one,"
+    },
+    {
+      "index": 771,
+      "start_time": 2192440.0,
+      "end_time": 2193710.0,
+      "text": "even if it&#39;s in the middle of our stack."
+    },
+    {
+      "index": 772,
+      "start_time": 2193710.0,
+      "end_time": 2196350.0,
+      "text": "So not just the front end, we can test anything"
+    },
+    {
+      "index": 773,
+      "start_time": 2196350.0,
+      "end_time": 2200450.0,
+      "text": "in the whole stack using Istio and header propagation."
+    },
+    {
+      "index": 774,
+      "start_time": 2200450.0,
+      "end_time": 2202170.0,
+      "text": "All right, let&#39;s switch back to the slides, please."
+    },
+    {
+      "index": 775,
+      "start_time": 2205820.0,
+      "end_time": 2206930.0,
+      "text": "So we do all this stuff--"
+    },
+    {
+      "index": 776,
+      "start_time": 2209710.0,
+      "end_time": 2211100.0,
+      "text": "thank you all so much."
+    },
+    {
+      "index": 777,
+      "start_time": 2211100.0,
+      "end_time": 2213100.0,
+      "text": "If you want to get a deeper dive into Istio,"
+    },
+    {
+      "index": 778,
+      "start_time": 2213100.0,
+      "end_time": 2215640.0,
+      "text": "it&#39;s basically this top with a little bit more things"
+    },
+    {
+      "index": 779,
+      "start_time": 2215640.0,
+      "end_time": 2217520.0,
+      "text": "to focus specifically on Istio."
+    },
+    {
+      "index": 780,
+      "start_time": 2217520.0,
+      "end_time": 2220960.0,
+      "text": "You can check out my main dot com slash Istio-101,"
+    },
+    {
+      "index": 781,
+      "start_time": 2220960.0,
+      "end_time": 2222370.0,
+      "text": "it will have a YouTube video."
+    },
+    {
+      "index": 782,
+      "start_time": 2222370.0,
+      "end_time": 2225790.0,
+      "text": "All this code is open source on my GitHub."
+    },
+    {
+      "index": 783,
+      "start_time": 2225790.0,
+      "end_time": 2229600.0,
+      "text": "Again, if you go to that website, Istio-101,"
+    },
+    {
+      "index": 784,
+      "start_time": 2229600.0,
+      "end_time": 2231690.0,
+      "text": "I have a link to my GitHub repository there."
+    },
+    {
+      "index": 785,
+      "start_time": 2231690.0,
+      "end_time": 2234970.0,
+      "text": "You can check out Google Kubernetes Engine at g.co/gke,"
+    },
+    {
+      "index": 786,
+      "start_time": 2234970.0,
+      "end_time": 2238180.0,
+      "text": "istio.io, follow me on Twitter."
+    },
+    {
+      "index": 787,
+      "start_time": 2238180.0,
+      "end_time": 2242310.0,
+      "text": "If you have any questions, please follow me out the door."
+    },
+    {
+      "index": 788,
+      "start_time": 2242310.0,
+      "end_time": 2244520.0,
+      "text": "I&#39;m going to go staff the office hours right now,"
+    },
+    {
+      "index": 789,
+      "start_time": 2244520.0,
+      "end_time": 2247150.0,
+      "text": "so come talk to me there, or talk to me right outside,"
+    },
+    {
+      "index": 790,
+      "start_time": 2247150.0,
+      "end_time": 2248350.0,
+      "text": "or find me in the sandbox."
+    },
+    {
+      "index": 791,
+      "start_time": 2248350.0,
+      "end_time": 2249980.0,
+      "text": "I&#39;m happy to answer any questions."
+    },
+    {
+      "index": 792,
+      "start_time": 2249980.0,
+      "end_time": 2252112.0,
+      "text": "I know we went kind of quickly today."
+    },
+    {
+      "index": 793,
+      "start_time": 2252110.0,
+      "end_time": 2253548.0,
+      "text": "But yeah, thank you all so much."
+    },
+    {
+      "index": 794,
+      "start_time": 2253550.0,
+      "end_time": 2256230.0,
+      "text": "Enjoy the rest of your IO, enjoy the concert tonight."
+    },
+    {
+      "index": 795,
+      "start_time": 2256230.0,
+      "end_time": 2258330.0,
+      "text": "And I&#39;ll see you out there."
+    }
+  ]
+}

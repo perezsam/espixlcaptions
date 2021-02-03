@@ -1,0 +1,246 @@
+{
+  "video_id": "Az3a91NXoD8",
+  "title": "WiMOD HCI (Host Controller Interface)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 13060.0,
+      "end_time": 16059.0,
+      "text": "The  Host Controller Interface protocol is designed"
+    },
+    {
+      "index": 2,
+      "start_time": 16059.000000000002,
+      "end_time": 20020.0,
+      "text": "to expose the firmware services to an external host controller."
+    },
+    {
+      "index": 3,
+      "start_time": 20020.0,
+      "end_time": 25640.0,
+      "text": "A detailed feature description is given in corresponding HCI specification."
+    },
+    {
+      "index": 4,
+      "start_time": 25640.0,
+      "end_time": 32870.0,
+      "text": "HCI minimizes transmission and processing time due to its binary character in comparison"
+    },
+    {
+      "index": 5,
+      "start_time": 32870.0,
+      "end_time": 34770.0,
+      "text": "to an ASCII based protocol."
+    },
+    {
+      "index": 6,
+      "start_time": 34770.0,
+      "end_time": 40800.0,
+      "text": "The communication between host and the radio is based on HCI messages which can be sent"
+    },
+    {
+      "index": 7,
+      "start_time": 40800.0,
+      "end_time": 43309.0,
+      "text": "through a UART interface."
+    },
+    {
+      "index": 8,
+      "start_time": 43309.0,
+      "end_time": 47780.0,
+      "text": "The HCI protocol defines three different types of messages:"
+    },
+    {
+      "index": 9,
+      "start_time": 47780.0,
+      "end_time": 48740.0,
+      "text": "1."
+    },
+    {
+      "index": 10,
+      "start_time": 48740.0,
+      "end_time": 54800.0,
+      "text": "Command Messages: always sent from the host controller to the radio module to trigger"
+    },
+    {
+      "index": 11,
+      "start_time": 54800.0,
+      "end_time": 56160.0,
+      "text": "a function."
+    },
+    {
+      "index": 12,
+      "start_time": 56160.0,
+      "end_time": 57160.0,
+      "text": "2."
+    },
+    {
+      "index": 13,
+      "start_time": 57160.0,
+      "end_time": 63590.0,
+      "text": "Response Messages: sent from the radio module to the host controller to answer a preceding"
+    },
+    {
+      "index": 14,
+      "start_time": 63590.0,
+      "end_time": 65520.0,
+      "text": "HCI request message."
+    },
+    {
+      "index": 15,
+      "start_time": 65519.99999999999,
+      "end_time": 66400.0,
+      "text": "3."
+    },
+    {
+      "index": 16,
+      "start_time": 66400.0,
+      "end_time": 73340.0,
+      "text": "Event Messages: can be sent from the radio module to the host controller at any time"
+    },
+    {
+      "index": 17,
+      "start_time": 73340.0,
+      "end_time": 78490.0,
+      "text": "to indicate an event or to pass data which was received over the radio"
+    },
+    {
+      "index": 18,
+      "start_time": 78490.0,
+      "end_time": 81570.0,
+      "text": "over the radio link from a peer device."
+    },
+    {
+      "index": 19,
+      "start_time": 81570.0,
+      "end_time": 89290.0,
+      "text": "An HCI message consists of a “Destination Endpoint Identifier” and a ”Message Identifier”."
+    },
+    {
+      "index": 20,
+      "start_time": 89290.0,
+      "end_time": 95240.0,
+      "text": "The “Destination Endpoint Identifier” is used to separate between groups of functionalities,"
+    },
+    {
+      "index": 21,
+      "start_time": 95240.0,
+      "end_time": 99020.0,
+      "text": "like “Device Management” or “LoRaWAN Radio Services”."
+    },
+    {
+      "index": 22,
+      "start_time": 99020.0,
+      "end_time": 105810.0,
+      "text": "The functionalities within a group are distinguished by “Message Identifiers” followed by the"
+    },
+    {
+      "index": 23,
+      "start_time": 105810.0,
+      "end_time": 108530.0,
+      "text": "payload of the corresponding message."
+    },
+    {
+      "index": 24,
+      "start_time": 108530.0,
+      "end_time": 114120.0,
+      "text": "The HCI messages are protected by a 16 bit Frame Check Sum."
+    },
+    {
+      "index": 25,
+      "start_time": 114120.0,
+      "end_time": 115920.0,
+      "text": "Afterwards the binary bit stream"
+    },
+    {
+      "index": 26,
+      "start_time": 115920.0,
+      "end_time": 117480.0,
+      "text": "is SLIP (Serial Line Interface Protocol) encoded."
+    },
+    {
+      "index": 27,
+      "start_time": 117480.0,
+      "end_time": 119840.0,
+      "text": "There are 2 endpoint identifier:"
+    },
+    {
+      "index": 28,
+      "start_time": 119840.0,
+      "end_time": 124960.0,
+      "text": "- Device Management Endpoint Identifier - LoRaWAN Endpoint Identifier"
+    },
+    {
+      "index": 29,
+      "start_time": 124960.0,
+      "end_time": 131660.0,
+      "text": "Message Identifier identifies a specific type of message and is used to trigger a corresponding"
+    },
+    {
+      "index": 30,
+      "start_time": 131660.0,
+      "end_time": 138660.0,
+      "text": "service function or to indicate a service response or event when sent to the host controller."
+    },
+    {
+      "index": 31,
+      "start_time": 138660.0,
+      "end_time": 144560.0,
+      "text": "This example shows the output of a request for Get Firmware Information,"
+    },
+    {
+      "index": 32,
+      "start_time": 144560.0,
+      "end_time": 148420.0,
+      "text": "which corresponds to the Device Management Endpoint Identifier 0x05."
+    },
+    {
+      "index": 33,
+      "start_time": 148420.0,
+      "end_time": 151820.0,
+      "text": "The downlink message contains the following information:"
+    },
+    {
+      "index": 34,
+      "start_time": 151820.0,
+      "end_time": 155220.0,
+      "text": "- Endpoint and Message ID. - Status byte."
+    },
+    {
+      "index": 35,
+      "start_time": 155220.0,
+      "end_time": 158400.0,
+      "text": "- Firmware information field which contains:"
+    },
+    {
+      "index": 36,
+      "start_time": 158400.0,
+      "end_time": 165920.0,
+      "text": "- FW version: In this case 1.16 which correspond with 1001"
+    },
+    {
+      "index": 37,
+      "start_time": 165920.0,
+      "end_time": 171660.0,
+      "text": "- Build counter: 72 which correspond with 4800 in Hex."
+    },
+    {
+      "index": 38,
+      "start_time": 171660.0,
+      "end_time": 176960.0,
+      "text": "Then the date of this version, the Name of Firmware integrated LoRaWAN radio stack"
+    },
+    {
+      "index": 39,
+      "start_time": 176960.0,
+      "end_time": 180800.0,
+      "text": "band support and application, separated by semicolon"
+    },
+    {
+      "index": 40,
+      "start_time": 180800.0,
+      "end_time": 190800.0,
+      "text": "All of these parameters are defined in WiMOD LoRaWAN EndNode Modem HCI Specification."
+    }
+  ]
+}

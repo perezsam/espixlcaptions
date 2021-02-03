@@ -1,0 +1,1998 @@
+{
+  "video_id": "gwLQ0cDb4cE",
+  "title": "Understanding Shadow Colors (Ambient Light Part 2)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3720.0,
+      "end_time": 7770.0,
+      "text": "So it should come as no surprise that it also plays a huge role in shadow colors"
+    },
+    {
+      "index": 2,
+      "start_time": 8109.0,
+      "end_time": 12759.0,
+      "text": "Okay, so this video is a direct continuation of my ambient light and ambient occlusion lesson"
+    },
+    {
+      "index": 3,
+      "start_time": 12759.0,
+      "end_time": 13259.0,
+      "text": "Мы видели, как огни окружения играют огромную роль в теневых значениях"
+    },
+    {
+      "index": 4,
+      "start_time": 13259.0,
+      "end_time": 17879.0,
+      "text": "We're about to go full speed ahead from there. So if you haven't seen it, check it out first"
+    },
+    {
+      "index": 5,
+      "start_time": 18160.0,
+      "end_time": 20580.0,
+      "text": "Let's recall our quick light ray diagram"
+    },
+    {
+      "index": 6,
+      "start_time": 20580.0,
+      "end_time": 25619.0,
+      "text": "We have the Sun a light ray comes from the sun hits the ground and bounces back up."
+    },
+    {
+      "index": 7,
+      "start_time": 25619.0,
+      "end_time": 32578.0,
+      "text": "Oh yeah, and when these rays bounce they get progressively weaker. That information really helped us with our studies and breakdowns in lesson 1."
+    },
+    {
+      "index": 8,
+      "start_time": 32619.0,
+      "end_time": 36988.0,
+      "text": "But now we want to add color to the mix. So we've got to do a bit more analysis."
+    },
+    {
+      "index": 9,
+      "start_time": 37030.0,
+      "end_time": 43020.0,
+      "text": "Let's begin with the most fundamental aspect of how these reflected or bounced light rays interact with color."
+    },
+    {
+      "index": 10,
+      "start_time": 43059.0,
+      "end_time": 47249.0,
+      "text": "So let's redo this diagram with this green card here. When a light ray"
+    },
+    {
+      "index": 11,
+      "start_time": 47500.0,
+      "end_time": 51389.0,
+      "text": "bounces off something, its color mixes with the color of that object!"
+    },
+    {
+      "index": 12,
+      "start_time": 51640.0,
+      "end_time": 58320.0,
+      "text": "Light rays inherit other colors throughout their lifespan. Now as for the exact balance of these interactions, don't worry"
+    },
+    {
+      "index": 13,
+      "start_time": 58320.0,
+      "end_time": 59520.0,
+      "text": "we'll get there. For now"
+    },
+    {
+      "index": 14,
+      "start_time": 59520.0,
+      "end_time": 64589.0,
+      "text": "let me just point out something obvious: the world contains a lot of different colored objects"
+    },
+    {
+      "index": 15,
+      "start_time": 64589.0,
+      "end_time": 69059.0,
+      "text": "So you can imagine there's a whole lot of opportunity for many subtle colors to bounce around."
+    },
+    {
+      "index": 16,
+      "start_time": 69369.0,
+      "end_time": 74879.0,
+      "text": "Let's start with just the sun, and kind of simulate the lifespan of its light rays. And I want to remind you:"
+    },
+    {
+      "index": 17,
+      "start_time": 74880.0,
+      "end_time": 80280.0,
+      "text": "I'm only talking about color right now, not value. We'll bring value back into the conversation later."
+    },
+    {
+      "index": 18,
+      "start_time": 80350.0,
+      "end_time": 84750.0,
+      "text": "So the sun's rays come in nice and orderly and uniformly yellow like this."
+    },
+    {
+      "index": 19,
+      "start_time": 84880.0,
+      "end_time": 92280.0,
+      "text": "But when they bounce, the whole thing starts resembling the Wild West with colors coming and going from all angles and in all directions! And"
+    },
+    {
+      "index": 20,
+      "start_time": 92590.0,
+      "end_time": 94570.0,
+      "text": "that was just the first bounce."
+    },
+    {
+      "index": 21,
+      "start_time": 94570.0,
+      "end_time": 101339.0,
+      "text": "These light rays will bounce again ... and again, and again - until they're simply too weak to be seen. And our little diagram here is becoming"
+    },
+    {
+      "index": 22,
+      "start_time": 101340.0,
+      "end_time": 105000.0,
+      "text": "pretty cluttered. Oh, and by the way, I haven't even put in the sky yet."
+    },
+    {
+      "index": 23,
+      "start_time": 105000.0,
+      "end_time": 108809.0,
+      "text": "The sky is a giant dome throwing blue ambient light down into the scene."
+    },
+    {
+      "index": 24,
+      "start_time": 108820.0,
+      "end_time": 110939.0,
+      "text": "Those light rays are weaker than the sun's,"
+    },
+    {
+      "index": 25,
+      "start_time": 110939.0,
+      "end_time": 116729.0,
+      "text": "but they bounce too, and when they do, their blue color mixes with the colors of other objects. Yeah,"
+    },
+    {
+      "index": 26,
+      "start_time": 116729.0,
+      "end_time": 119609.0,
+      "text": "I know, it's daunting. But don't despair, I have some good news!"
+    },
+    {
+      "index": 27,
+      "start_time": 119829.0,
+      "end_time": 124468.0,
+      "text": "You would literally have to be a computer program to keep track of all those light rays."
+    },
+    {
+      "index": 28,
+      "start_time": 124479.0,
+      "end_time": 128428.0,
+      "text": "In fact, we do have computer programs that do that: they're called rendering engines."
+    },
+    {
+      "index": 29,
+      "start_time": 128429.0,
+      "end_time": 131128.0,
+      "text": "I'll fire up a rendering engine in just a few minutes,"
+    },
+    {
+      "index": 30,
+      "start_time": 131129.0,
+      "end_time": 137789.0,
+      "text": "but first let's take quick step into the land of color theory ... because something very important is happening here that I need to point out."
+    },
+    {
+      "index": 31,
+      "start_time": 138069.0,
+      "end_time": 139720.0,
+      "text": "So I've cropped in on our diagram."
+    },
+    {
+      "index": 32,
+      "start_time": 139720.0,
+      "end_time": 143249.0,
+      "text": "What I'm going to do is start sampling colors from these bounce light rays and"
+    },
+    {
+      "index": 33,
+      "start_time": 143319.0,
+      "end_time": 149429.0,
+      "text": "painting them into this little panel that I've made down below here. Now. I'm only sampling the mixed colors."
+    },
+    {
+      "index": 34,
+      "start_time": 149459.0,
+      "end_time": 157139.0,
+      "text": "I'm not sampling the direct sunlight rays or the direct sky light rays. Just the resulting mixtures that have occurred. In other words, our"
+    },
+    {
+      "index": 35,
+      "start_time": 157480.0,
+      "end_time": 163560.0,
+      "text": "simulated reflected light. And I say 'simulated' because the way light rays actually mix in real life is,"
+    },
+    {
+      "index": 36,
+      "start_time": 163900.0,
+      "end_time": 170670.0,
+      "text": "shall we say, more scientifically involved than this. But this approximation will still allow me to make some important observations."
+    },
+    {
+      "index": 37,
+      "start_time": 171489.0,
+      "end_time": 177569.0,
+      "text": "Okay, the very first thing I want to point out, just aesthetically as I'm looking at all these ambient colors side by side, is that"
+    },
+    {
+      "index": 38,
+      "start_time": 177569.0,
+      "end_time": 179939.0,
+      "text": "there is a pleasing effect to them. They feel"
+    },
+    {
+      "index": 39,
+      "start_time": 180489.0,
+      "end_time": 181680.0,
+      "text": "harmonious. Or in other words,"
+    },
+    {
+      "index": 40,
+      "start_time": 181680.0,
+      "end_time": 188040.0,
+      "text": "they just look like they belong together. That they have something in common that binds them. Which totally makes sense, right?"
+    },
+    {
+      "index": 41,
+      "start_time": 188040.0,
+      "end_time": 189280.0,
+      "text": "They do have things in common!"
+    },
+    {
+      "index": 42,
+      "start_time": 189280.0,
+      "end_time": 195600.0,
+      "text": "For example, the environment they all came from. Also the sun and sky light rays they all came from."
+    },
+    {
+      "index": 43,
+      "start_time": 195970.0,
+      "end_time": 201479.0,
+      "text": "It's almost as though the environment and the light source are the parents and these resulting colors are the children."
+    },
+    {
+      "index": 44,
+      "start_time": 201730.0,
+      "end_time": 207239.0,
+      "text": "Let's bring in our color picker so we can examine these relationships under an artistic microscope."
+    },
+    {
+      "index": 45,
+      "start_time": 207280.0,
+      "end_time": 211049.0,
+      "text": "So please watch this box as I start sampling colors. And I need to remind you:"
+    },
+    {
+      "index": 46,
+      "start_time": 211049.0,
+      "end_time": 214679.0,
+      "text": "I'm still only talking about color right now. Not values yet!"
+    },
+    {
+      "index": 47,
+      "start_time": 214750.0,
+      "end_time": 215250.0,
+      "text": "Okay ..."
+    },
+    {
+      "index": 48,
+      "start_time": 215250.0,
+      "end_time": 219209.0,
+      "text": "so I'll start here and I'll just scrub through again. Watch the color box as I do this."
+    },
+    {
+      "index": 49,
+      "start_time": 219489.0,
+      "end_time": 224699.0,
+      "text": "Just kind of take general stock of what's happening. We'll go back to the beginning and just kind of run through this again."
+    },
+    {
+      "index": 50,
+      "start_time": 227680.0,
+      "end_time": 234540.0,
+      "text": "Now I noticed two things happening here. The first is the colors the hues themselves were all over the map."
+    },
+    {
+      "index": 51,
+      "start_time": 234780.0,
+      "end_time": 239190.0,
+      "text": "It was totally unpredictable where each color would end up. We found colors everywhere."
+    },
+    {
+      "index": 52,
+      "start_time": 239190.0,
+      "end_time": 244949.0,
+      "text": "And the second thing I noticed has to do with the saturation. That is, the amount of color present."
+    },
+    {
+      "index": 53,
+      "start_time": 245079.0,
+      "end_time": 248969.0,
+      "text": "The saturation level was generally within this range of the color picker."
+    },
+    {
+      "index": 54,
+      "start_time": 249220.0,
+      "end_time": 252809.0,
+      "text": "So even though we were bouncing around like crazy finding different hues,"
+    },
+    {
+      "index": 55,
+      "start_time": 252819.0,
+      "end_time": 259048.0,
+      "text": "we were always within, you know, this kind of range in in here. And it's that aspect - this"
+    },
+    {
+      "index": 56,
+      "start_time": 259120.0,
+      "end_time": 263669.0,
+      "text": "saturation aspect - or actually I like to term it the other way: the amount of gray in a color,"
+    },
+    {
+      "index": 57,
+      "start_time": 263669.0,
+      "end_time": 269499.0,
+      "text": "that is a very important player in our ambient light discussion because grays link colors together!"
+    },
+    {
+      "index": 58,
+      "start_time": 269630.0,
+      "end_time": 272350.0,
+      "text": "You see, it doesn't matter where the hue is on the color wheel."
+    },
+    {
+      "index": 59,
+      "start_time": 272420.0,
+      "end_time": 279309.0,
+      "text": "As we've just seen with our sample environment, the hue can come from anywhere but every hue or color you can think of has this"
+    },
+    {
+      "index": 60,
+      "start_time": 279310.0,
+      "end_time": 280810.0,
+      "text": "gray area in common!"
+    },
+    {
+      "index": 61,
+      "start_time": 280810.0,
+      "end_time": 285250.0,
+      "text": "And the closer they get to that gray the more naturally they can kind of weave, or"
+    },
+    {
+      "index": 62,
+      "start_time": 285410.0,
+      "end_time": 290140.0,
+      "text": "modulate in and out of each other. And that's exactly how we can take all these colors and"
+    },
+    {
+      "index": 63,
+      "start_time": 290210.0,
+      "end_time": 293530.0,
+      "text": "handle them without totally going insane! In fact, painting"
+    },
+    {
+      "index": 64,
+      "start_time": 293530.0,
+      "end_time": 297850.0,
+      "text": "the ambient light is often my favorite part of any painting! It can be fun and"
+    },
+    {
+      "index": 65,
+      "start_time": 298160.0,
+      "end_time": 300730.0,
+      "text": "expressive, so long as you have these principles in mind."
+    },
+    {
+      "index": 66,
+      "start_time": 300980.0,
+      "end_time": 305230.0,
+      "text": "All right. Let's now bring value back into the conversation and do some painting."
+    },
+    {
+      "index": 67,
+      "start_time": 305230.0,
+      "end_time": 312159.0,
+      "text": "You'll probably recall this sphere demo from lesson one. It dealt with both direct light from the sun and ambient light in the shadow."
+    },
+    {
+      "index": 68,
+      "start_time": 312200.0,
+      "end_time": 317200.0,
+      "text": "We're gonna do something similar here today, only this time we can't use a blank background like that."
+    },
+    {
+      "index": 69,
+      "start_time": 317200.0,
+      "end_time": 323739.0,
+      "text": "We need an environment to inform our color decisions. For the sake of demonstration, I'll use this photograph for my environment."
+    },
+    {
+      "index": 70,
+      "start_time": 323740.0,
+      "end_time": 329230.0,
+      "text": "I'll just drag my color picker in there so you can follow along with my color choices and let's paint a sphere into this scene,"
+    },
+    {
+      "index": 71,
+      "start_time": 329230.0,
+      "end_time": 330729.0,
+      "text": "right on the path here. Now"
+    },
+    {
+      "index": 72,
+      "start_time": 330729.0,
+      "end_time": 336249.0,
+      "text": "I will choose to make this a white sphere because white has no local color of its own. In other words, you know,"
+    },
+    {
+      "index": 73,
+      "start_time": 336250.0,
+      "end_time": 340059.0,
+      "text": "its local color is perfectly desaturated and that's nice for our first demonstration"
+    },
+    {
+      "index": 74,
+      "start_time": 340280.0,
+      "end_time": 346630.0,
+      "text": "because it allows all the color that goes into the sphere to be the result of either the yellowish sunlight rays or the"
+    },
+    {
+      "index": 75,
+      "start_time": 346729.0,
+      "end_time": 349329.0,
+      "text": "ambient light colors that are bouncing around in shadow."
+    },
+    {
+      "index": 76,
+      "start_time": 349400.0,
+      "end_time": 350870.0,
+      "text": "The first thing I'm gonna do is"
+    },
+    {
+      "index": 77,
+      "start_time": 350870.0,
+      "end_time": 356260.0,
+      "text": "establish a basic value block in to determine where the light and shadow families go. And of course"
+    },
+    {
+      "index": 78,
+      "start_time": 356260.0,
+      "end_time": 360939.0,
+      "text": "let's not forget about this cast shadow that positions the sphere on this path. And right away"
+    },
+    {
+      "index": 79,
+      "start_time": 360940.0,
+      "end_time": 366429.0,
+      "text": "I want to remind you that when you have direct light like the sun in this case, all those bounced light rays"
+    },
+    {
+      "index": 80,
+      "start_time": 366430.0,
+      "end_time": 373090.0,
+      "text": "we just looked at? We don't perceive those in the sunlight! Remember from lesson one that direct light visually overpowers ambient light."
+    },
+    {
+      "index": 81,
+      "start_time": 373090.0,
+      "end_time": 378489.0,
+      "text": "So I'm just taking a light value, tinting it generically yellow, and that's really all I need to represent the sun."
+    },
+    {
+      "index": 82,
+      "start_time": 378800.0,
+      "end_time": 384640.0,
+      "text": "Now the first thing I like to think about, especially when I'm painting an outdoors scene, is where is the skylight coming in from."
+    },
+    {
+      "index": 83,
+      "start_time": 384979.0,
+      "end_time": 389349.0,
+      "text": "It's pretty obvious. It comes down from above. It's weaker than the sun, but still has some strength."
+    },
+    {
+      "index": 84,
+      "start_time": 389419.0,
+      "end_time": 396429.0,
+      "text": "So this shadow is going to both lighten and get tinted blue in the areas that are exposed upwards towards the sky!"
+    },
+    {
+      "index": 85,
+      "start_time": 396500.0,
+      "end_time": 398500.0,
+      "text": "So when that sky light comes down, it's"
+    },
+    {
+      "index": 86,
+      "start_time": 398790.0,
+      "end_time": 403260.0,
+      "text": "gonna hit this area of the sphere and it's also gonna hit this area of the cast shadow."
+    },
+    {
+      "index": 87,
+      "start_time": 403360.0,
+      "end_time": 410069.0,
+      "text": "The skylight will probably not get in here because it's way too deep of a crevice. If you remember lesson 1, that's where the ambient"
+    },
+    {
+      "index": 88,
+      "start_time": 410070.0,
+      "end_time": 415409.0,
+      "text": "occlusion goes. So for now, let's just start by applying the ambient light from the sky to our painting."
+    },
+    {
+      "index": 89,
+      "start_time": 415600.0,
+      "end_time": 419790.0,
+      "text": "What I'm going to do is kind of pick a generic color for the sky. Now"
+    },
+    {
+      "index": 90,
+      "start_time": 419790.0,
+      "end_time": 423510.0,
+      "text": "this is probably going to be too light if I went super hard with the tablet ..."
+    },
+    {
+      "index": 91,
+      "start_time": 423510.0,
+      "end_time": 427200.0,
+      "text": "but because I'm using a tablet I can just press softly and"
+    },
+    {
+      "index": 92,
+      "start_time": 427360.0,
+      "end_time": 431219.0,
+      "text": "mix these colors on the canvas as if this were an oil or acrylic"
+    },
+    {
+      "index": 93,
+      "start_time": 431380.0,
+      "end_time": 437219.0,
+      "text": "painting. I can also sample, say, this color here ... mix it a little bit ... sample this color here ... mix it a little bit ..."
+    },
+    {
+      "index": 94,
+      "start_time": 437290.0,
+      "end_time": 438730.0,
+      "text": "So even at this early stage"
+    },
+    {
+      "index": 95,
+      "start_time": 438730.0,
+      "end_time": 445439.0,
+      "text": "I'm already starting to build up that intricate weaving of ambient light that is causing multiple shadow colors to occur."
+    },
+    {
+      "index": 96,
+      "start_time": 446530.0,
+      "end_time": 448050.0,
+      "text": "And I'll just show you a little closer."
+    },
+    {
+      "index": 97,
+      "start_time": 448050.0,
+      "end_time": 453749.0,
+      "text": "If I start sampling through these ambient light colors, you notice that we are starting to have those relationships"
+    },
+    {
+      "index": 98,
+      "start_time": 453970.0,
+      "end_time": 457020.0,
+      "text": "of grays! I've painted the most blue up here,"
+    },
+    {
+      "index": 99,
+      "start_time": 457270.0,
+      "end_time": 459809.0,
+      "text": "so the most saturation I'm getting is here."
+    },
+    {
+      "index": 100,
+      "start_time": 459810.0,
+      "end_time": 464970.0,
+      "text": "Which is still very low and therefore remains bound to the other colors. And down here by comparison,"
+    },
+    {
+      "index": 101,
+      "start_time": 464970.0,
+      "end_time": 471690.0,
+      "text": "just based on the block-in I did, is warmer grays. But next to that blue, those grays that looked just dead before"
+    },
+    {
+      "index": 102,
+      "start_time": 472030.0,
+      "end_time": 479190.0,
+      "text": "actually have some meaning now because they're playing off each other! That blue gray against this yellowy orange gray. In my judgment,"
+    },
+    {
+      "index": 103,
+      "start_time": 479190.0,
+      "end_time": 480780.0,
+      "text": "there are two more areas to consider."
+    },
+    {
+      "index": 104,
+      "start_time": 480780.0,
+      "end_time": 487650.0,
+      "text": "The first is: the sun would be shining down here and hitting the ground all in here and those light rays would bounce up,"
+    },
+    {
+      "index": 105,
+      "start_time": 488440.0,
+      "end_time": 493440.0,
+      "text": "giving a little more illumination to this area of shadow as well as more saturation."
+    },
+    {
+      "index": 106,
+      "start_time": 493440.0,
+      "end_time": 497130.0,
+      "text": "And then lastly, of course, we'll have to deal with our area of ambient occlusion,"
+    },
+    {
+      "index": 107,
+      "start_time": 497170.0,
+      "end_time": 502619.0,
+      "text": "which will happen down here as we know from lesson 1. So I'm gonna tackle the reflected light coming up from this path."
+    },
+    {
+      "index": 108,
+      "start_time": 502660.0,
+      "end_time": 508380.0,
+      "text": "But which color do I choose? Well, I know that the sun is generally this kind of yellowish orange color,"
+    },
+    {
+      "index": 109,
+      "start_time": 508380.0,
+      "end_time": 513210.0,
+      "text": "I also know that when it hits the path, it's going to lose a little bit of its strength."
+    },
+    {
+      "index": 110,
+      "start_time": 513479.00000000006,
+      "end_time": 518579.00000000006,
+      "text": "It'll also lose a bit of its color as it inherits some of the path's color. And the path is kind of a neutral"
+    },
+    {
+      "index": 111,
+      "start_time": 518770.0,
+      "end_time": 523739.0,
+      "text": "earthy color, like a toned-down sienna color, maybe somewhere in this range."
+    },
+    {
+      "index": 112,
+      "start_time": 523900.0,
+      "end_time": 529530.0,
+      "text": "So what I'll do, I'll just pick a color that's again fairly grayed off - so it remains linked to all the other colors -"
+    },
+    {
+      "index": 113,
+      "start_time": 529530.0,
+      "end_time": 533259.0,
+      "text": "maybe maybe a little darker. After all it is a shadow. We don't want to ever forget that!"
+    },
+    {
+      "index": 114,
+      "start_time": 533260.0,
+      "end_time": 536710.0,
+      "text": "It's a shadow. And I want to remind everyone: I'm not a scientist!"
+    },
+    {
+      "index": 115,
+      "start_time": 536710.0,
+      "end_time": 542229.0,
+      "text": "I don't I'm not trying to think of the exact scientific blending! I'm just trying to get some color in here"
+    },
+    {
+      "index": 116,
+      "start_time": 542230.0,
+      "end_time": 545680.0,
+      "text": "I'll adjust this as I go, I was trying to get some color in here that is"
+    },
+    {
+      "index": 117,
+      "start_time": 546200.0,
+      "end_time": 549460.0,
+      "text": "motivated by the environment! Now watch this I'm gonna switch to the smudge tool."
+    },
+    {
+      "index": 118,
+      "start_time": 549470.0,
+      "end_time": 554320.0,
+      "text": "I really like the smudge tool because it does a great job with soft edges and when you're talking about"
+    },
+    {
+      "index": 119,
+      "start_time": 554420.0,
+      "end_time": 560770.0,
+      "text": "ambient light, soft edges are really appropriate because that ambient light is coming from everywhere. It's a soft effect in real life ..."
+    },
+    {
+      "index": 120,
+      "start_time": 560770.0,
+      "end_time": 567279.0,
+      "text": "so we use soft edges to help mimic that in our painting. Soft edges also help you to transition between multiple colors."
+    },
+    {
+      "index": 121,
+      "start_time": 567620.0,
+      "end_time": 572289.0,
+      "text": "Now what I'm gonna do is just handle this transition area here. And I'm darkening this area a little bit,"
+    },
+    {
+      "index": 122,
+      "start_time": 572570.0,
+      "end_time": 574339.0,
+      "text": "starting to think about ambient occlusion."
+    },
+    {
+      "index": 123,
+      "start_time": 574339.0,
+      "end_time": 580779.0,
+      "text": "I'm also using a slightly more reddish color just to continue on with these, like, sienna earthy colors of the path maybe bouncing into this"
+    },
+    {
+      "index": 124,
+      "start_time": 580779.0,
+      "end_time": 582710.0,
+      "text": "part of the sphere. I"
+    },
+    {
+      "index": 125,
+      "start_time": 582710.0,
+      "end_time": 586269.0,
+      "text": "might also want to try some greens! Like, maybe some of these greens from the environment"
+    },
+    {
+      "index": 126,
+      "start_time": 586460.0,
+      "end_time": 590589.0,
+      "text": "might be coming into our sphere just very subtly. After all those greens are pretty far away."
+    },
+    {
+      "index": 127,
+      "start_time": 590589.0,
+      "end_time": 592899.0,
+      "text": "So they wouldn't dominate the reflected light."
+    },
+    {
+      "index": 128,
+      "start_time": 592900.0,
+      "end_time": 597219.0,
+      "text": "But just a little bit of influence of them will help inform this passage of grays."
+    },
+    {
+      "index": 129,
+      "start_time": 597220.0,
+      "end_time": 601810.0,
+      "text": "Another word for grays, by the way, is 'neutrals.' You might hear other people call them 'neutrals.'"
+    },
+    {
+      "index": 130,
+      "start_time": 601850.0,
+      "end_time": 604690.0,
+      "text": "And then, while I have this brush selected, I'll just, you know,"
+    },
+    {
+      "index": 131,
+      "start_time": 604690.0,
+      "end_time": 609580.0,
+      "text": "keep working the transition until there's a statement that I find interesting and aesthetically pleasing."
+    },
+    {
+      "index": 132,
+      "start_time": 609800.0,
+      "end_time": 614800.0,
+      "text": "And I am pushing the colors a little bit just for demonstration purposes. And on that note,"
+    },
+    {
+      "index": 133,
+      "start_time": 614800.0,
+      "end_time": 616800.0,
+      "text": "I'm gonna push for a little more blue in the shadow."
+    },
+    {
+      "index": 134,
+      "start_time": 616910.0,
+      "end_time": 621820.0,
+      "text": "Just cuz I'm looking at the shadows in the background and I'm seeing that there's a cyan quality to them."
+    },
+    {
+      "index": 135,
+      "start_time": 621820.0,
+      "end_time": 627609.0,
+      "text": "Probably from the blue sky mixing with the green trees. But I don't have to repaint anything. Because I'm using grays,"
+    },
+    {
+      "index": 136,
+      "start_time": 627610.0,
+      "end_time": 632919.0,
+      "text": "I can really just paint over these colors that are there and they will mingle. So if there's one takeaway here,"
+    },
+    {
+      "index": 137,
+      "start_time": 632920.0,
+      "end_time": 638349.0,
+      "text": "it's that there is no one shadow color. There are multiple shadow colors across the same object!"
+    },
+    {
+      "index": 138,
+      "start_time": 638959.0,
+      "end_time": 641499.0,
+      "text": "Going to some warmer neutrals here for the ambient occlusion,"
+    },
+    {
+      "index": 139,
+      "start_time": 641500.0,
+      "end_time": 642220.0,
+      "text": "and again,"
+    },
+    {
+      "index": 140,
+      "start_time": 642220.0,
+      "end_time": 646480.0,
+      "text": "the reason I'm keeping it warmer is because there's not gonna be enough skylight colors here to cause any"
+    },
+    {
+      "index": 141,
+      "start_time": 646730.0,
+      "end_time": 652390.0,
+      "text": "blueish grays. Since the path's local color is warm, I'll just keep this warm. Don't worry,"
+    },
+    {
+      "index": 142,
+      "start_time": 652390.0,
+      "end_time": 655509.0,
+      "text": "we'll talk about local color more later on. And then as a last effort"
+    },
+    {
+      "index": 143,
+      "start_time": 655510.0,
+      "end_time": 657939.0,
+      "text": "I will grab an airbrush and set it to multiply mode."
+    },
+    {
+      "index": 144,
+      "start_time": 657940.0,
+      "end_time": 663940.0,
+      "text": "I'll pick a warmish color like this to contrast from the blues and just start to address my ambient occlusion area."
+    },
+    {
+      "index": 145,
+      "start_time": 664309.0,
+      "end_time": 667689.0,
+      "text": "Hopefully you remember from lesson one how soft ambient occlusion is."
+    },
+    {
+      "index": 146,
+      "start_time": 668360.0,
+      "end_time": 672490.0,
+      "text": "Here's a photograph of a sphere that demonstrates this kind of softness that I'm talking about."
+    },
+    {
+      "index": 147,
+      "start_time": 672619.0,
+      "end_time": 677139.0,
+      "text": "You can see that where the sphere meets the ground is more or less invisible to us."
+    },
+    {
+      "index": 148,
+      "start_time": 677139.0,
+      "end_time": 677959.0,
+      "text": "It's lost."
+    },
+    {
+      "index": 149,
+      "start_time": 677959.0,
+      "end_time": 682779.0,
+      "text": "And the reason it's lost, again, is because there are very few light rays to give us any information there."
+    },
+    {
+      "index": 150,
+      "start_time": 682779.0,
+      "end_time": 686558.0,
+      "text": "So as painters we soften these edges to imitate that lack of information."
+    },
+    {
+      "index": 151,
+      "start_time": 686569.0,
+      "end_time": 692378.0,
+      "text": "There's also one more aspect of shadow that I did not talk about in lesson one: the idea of a core shadow."
+    },
+    {
+      "index": 152,
+      "start_time": 692660.0,
+      "end_time": 698679.0,
+      "text": "Can you see in this photograph how this area of shadow is a little bit darker than this area of shadow?"
+    },
+    {
+      "index": 153,
+      "start_time": 698720.0,
+      "end_time": 700809.0,
+      "text": "This is common with round objects."
+    },
+    {
+      "index": 154,
+      "start_time": 700809.0,
+      "end_time": 707589.0,
+      "text": "But it doesn't happen always. It really depends on the exact nature of how the reflected light is reaching the object."
+    },
+    {
+      "index": 155,
+      "start_time": 707589.0,
+      "end_time": 709748.0,
+      "text": "There might be in this case a little bit more of it down here."
+    },
+    {
+      "index": 156,
+      "start_time": 710179.0,
+      "end_time": 714039.0,
+      "text": "This area is getting a lot of concentrated reflected light from the table."
+    },
+    {
+      "index": 157,
+      "start_time": 714040.0,
+      "end_time": 718179.0,
+      "text": "This area is getting a little from the table as well as a little from the surrounding room,"
+    },
+    {
+      "index": 158,
+      "start_time": 718309.0,
+      "end_time": 722589.0,
+      "text": "whereas the core shadow that I outlined here is getting just a bit less reflected light."
+    },
+    {
+      "index": 159,
+      "start_time": 722589.0,
+      "end_time": 726219.0,
+      "text": "So it registers as a bit darker. Remember that ambient light is weak,"
+    },
+    {
+      "index": 160,
+      "start_time": 726220.0,
+      "end_time": 731139.0,
+      "text": "so even minor changes in position can really affect how much ambient light an area is getting."
+    },
+    {
+      "index": 161,
+      "start_time": 731299.0,
+      "end_time": 736809.0,
+      "text": "So there's a bit of that core shadow, and I'm just speeding through the rest of this process ... and here it is! Ambient light ..."
+    },
+    {
+      "index": 162,
+      "start_time": 736970.0,
+      "end_time": 738970.0,
+      "text": "ambient occlusion ... in color! Okay"
+    },
+    {
+      "index": 163,
+      "start_time": 739249.0,
+      "end_time": 743558.0,
+      "text": "folks! Now I want to take a step into the exciting world of 3d software!"
+    },
+    {
+      "index": 164,
+      "start_time": 743749.0,
+      "end_time": 747459.0,
+      "text": "I'll be using a piece of software called Blender. And Blender is free."
+    },
+    {
+      "index": 165,
+      "start_time": 747619.0,
+      "end_time": 752919.0,
+      "text": "It comes with a real nice rendering engine, which I'll use to render variations on this simple scene."
+    },
+    {
+      "index": 166,
+      "start_time": 752920.0,
+      "end_time": 757360.0,
+      "text": "I've got the scene set up right now with one sunlight and absolutely no environment."
+    },
+    {
+      "index": 167,
+      "start_time": 757549.0,
+      "end_time": 763359.0,
+      "text": "So if I hit render we get a scene devoid of ambient light. Now I happen to have this nifty"
+    },
+    {
+      "index": 168,
+      "start_time": 763850.0,
+      "end_time": 768159.0,
+      "text": "panoramic environment photo. I'll feed that into blender and hit render again."
+    },
+    {
+      "index": 169,
+      "start_time": 768160.0,
+      "end_time": 772149.0,
+      "text": "And would you look at that! Blender has calculated the ambient light!"
+    },
+    {
+      "index": 170,
+      "start_time": 772149.0,
+      "end_time": 778779.0,
+      "text": "I just went ahead and sampled those shadow colors, and we find that same transition of neutrals colors that are based on the environment"
+    },
+    {
+      "index": 171,
+      "start_time": 778779.0,
+      "end_time": 784088.0,
+      "text": "they live in. If I swapped out the environment to, say, this one ... and hit render on that ..."
+    },
+    {
+      "index": 172,
+      "start_time": 784189.0,
+      "end_time": 789579.0,
+      "text": "we would naturally get different shadow colors. And because I'm enjoying not having to do the work myself,"
+    },
+    {
+      "index": 173,
+      "start_time": 789999.0,
+      "end_time": 793329.0,
+      "text": "let's see what else Blender can do! Back in our original scene here,"
+    },
+    {
+      "index": 174,
+      "start_time": 793360.0,
+      "end_time": 798700.0,
+      "text": "let's bring in an additional object right up to our sphere. ...Did you see the change shadow colors?"
+    },
+    {
+      "index": 175,
+      "start_time": 798710.0,
+      "end_time": 800120.0,
+      "text": "Watch the bottom of that sphere."
+    },
+    {
+      "index": 176,
+      "start_time": 800120.0,
+      "end_time": 801620.0,
+      "text": "When the ground goes down,"
+    },
+    {
+      "index": 177,
+      "start_time": 801620.0,
+      "end_time": 808539.0,
+      "text": "the sphere loses some of the green. And when the ground comes back up, the green is amplified on the underside of that sphere. We've"
+    },
+    {
+      "index": 178,
+      "start_time": 808540.0,
+      "end_time": 812260.0,
+      "text": "already seen the reason for this: rays from the sun inheriting that green and"
+    },
+    {
+      "index": 179,
+      "start_time": 812450.0,
+      "end_time": 817749.0,
+      "text": "bouncing up in a diffuse way into our sphere. And you notice the green is relegated to the bottom of the shadow,"
+    },
+    {
+      "index": 180,
+      "start_time": 817970.0,
+      "end_time": 821259.0,
+      "text": "closest to the green ground. The top of the shadow is still cast"
+    },
+    {
+      "index": 181,
+      "start_time": 821330.0,
+      "end_time": 825099.0,
+      "text": "blueish by the sky. The sky has a more direct route to that area,"
+    },
+    {
+      "index": 182,
+      "start_time": 825100.0,
+      "end_time": 829180.0,
+      "text": "so it has more of a say in the overall color cast. All right, just for comparison,"
+    },
+    {
+      "index": 183,
+      "start_time": 829190.0,
+      "end_time": 831729.0,
+      "text": "let's replace the green ground with a red ground."
+    },
+    {
+      "index": 184,
+      "start_time": 831730.0,
+      "end_time": 834970.0,
+      "text": "And of course, it's the same principle only with red instead of green."
+    },
+    {
+      "index": 185,
+      "start_time": 835370.0,
+      "end_time": 839799.0,
+      "text": "But I want to remind you: the color of the reflected light is usually a step down in"
+    },
+    {
+      "index": 186,
+      "start_time": 840290.0,
+      "end_time": 844840.0,
+      "text": "saturation from the local color of the object it's coming from. To demonstrate,"
+    },
+    {
+      "index": 187,
+      "start_time": 844840.0,
+      "end_time": 850389.0,
+      "text": "this is the red of the ground and this is the reddest part of the reflected light."
+    },
+    {
+      "index": 188,
+      "start_time": 850550.0,
+      "end_time": 855340.0,
+      "text": "These are the subtle relationships we have to learn to see if we want our paintings to look natural!"
+    },
+    {
+      "index": 189,
+      "start_time": 855980.0,
+      "end_time": 859060.0,
+      "text": "All right. Are you ready for the next animation? Check this out."
+    },
+    {
+      "index": 190,
+      "start_time": 866090.0,
+      "end_time": 871809.0,
+      "text": "First person to call out that sound effect gets a free video download from my store! Put your guesses in the comments!"
+    },
+    {
+      "index": 191,
+      "start_time": 872150.0,
+      "end_time": 877359.0,
+      "text": "Anyway, the reason I'm showing you this is because we have a new situation here. The entire sphere is in shadow"
+    },
+    {
+      "index": 192,
+      "start_time": 877360.0,
+      "end_time": 881590.0,
+      "text": "now. Which means the whole thing is lit by ambient light. In comparing them,"
+    },
+    {
+      "index": 193,
+      "start_time": 881590.0,
+      "end_time": 886509.0,
+      "text": "the color distribution is largely the same as before, but I see three major differences."
+    },
+    {
+      "index": 194,
+      "start_time": 886510.0,
+      "end_time": 890919.0,
+      "text": "The first is happening in this bottom area. When the sphere is totally in shadow,"
+    },
+    {
+      "index": 195,
+      "start_time": 890920.0,
+      "end_time": 895120.0,
+      "text": "we no longer get that strong red reflected light. The reason is simple:"
+    },
+    {
+      "index": 196,
+      "start_time": 895120.0,
+      "end_time": 898630.0,
+      "text": "there's no longer any strong sunlight rays bouncing in that immediate area."
+    },
+    {
+      "index": 197,
+      "start_time": 898940.0,
+      "end_time": 901599.0,
+      "text": "The second difference is happening at the top of the sphere."
+    },
+    {
+      "index": 198,
+      "start_time": 901600.0,
+      "end_time": 907719.0,
+      "text": "I can see a little more influence of blue in the shadow there. Which makes a lot of sense because without the sunlight in play,"
+    },
+    {
+      "index": 199,
+      "start_time": 907720.0,
+      "end_time": 912820.0,
+      "text": "we can see more influence from the sky as it now dominates that top part of the sphere. And the"
+    },
+    {
+      "index": 200,
+      "start_time": 913070.0,
+      "end_time": 916210.0,
+      "text": "third difference I see is the area of ambient occlusion."
+    },
+    {
+      "index": 201,
+      "start_time": 916730.0,
+      "end_time": 920950.0,
+      "text": "When the sphere is totally in shadow, it's getting less reflected light at the bottom,"
+    },
+    {
+      "index": 202,
+      "start_time": 921110.0,
+      "end_time": 924909.0,
+      "text": "so the transition to ambient occlusion happens over a larger area."
+    },
+    {
+      "index": 203,
+      "start_time": 925700.0,
+      "end_time": 926740.0,
+      "text": "Back in Blender,"
+    },
+    {
+      "index": 204,
+      "start_time": 926740.0,
+      "end_time": 931990.0,
+      "text": "I'm gonna delete the sphere and add a different kind of sphere - one made of more obvious planes."
+    },
+    {
+      "index": 205,
+      "start_time": 932390.0,
+      "end_time": 936699.0,
+      "text": "To recall one of my other YouTube videos, planes are nice because they have a very specific"
+    },
+    {
+      "index": 206,
+      "start_time": 937400.0,
+      "end_time": 938660.0,
+      "text": "orientation in space."
+    },
+    {
+      "index": 207,
+      "start_time": 938660.0,
+      "end_time": 945429.0,
+      "text": "These planes help us more clearly see how different areas of shadow receive different sections of bounce light from the environment."
+    },
+    {
+      "index": 208,
+      "start_time": 945430.0,
+      "end_time": 949239.0,
+      "text": "I really enjoy this little plane here. When we see it by itself like this"
+    },
+    {
+      "index": 209,
+      "start_time": 949240.0,
+      "end_time": 955000.0,
+      "text": "it just looks like a neutral pink. But in context, we know that it's one part skylight and one part red"
+    },
+    {
+      "index": 210,
+      "start_time": 955100.0,
+      "end_time": 956840.0,
+      "text": "reflected light from the ground."
+    },
+    {
+      "index": 211,
+      "start_time": 956840.0,
+      "end_time": 960639.0,
+      "text": "Okay, let's go one step further and add local color to the mix!"
+    },
+    {
+      "index": 212,
+      "start_time": 960890.0,
+      "end_time": 967299.0,
+      "text": "I'll color the sphere yellow and the ground green. We have our render and I'd like to talk about this area first."
+    },
+    {
+      "index": 213,
+      "start_time": 967430.0,
+      "end_time": 975219.0,
+      "text": "The color wheel shows us that yellow and green are next-door neighbors. And just like real next-door neighbors borrowing sugar from each other, the exchange"
+    },
+    {
+      "index": 214,
+      "start_time": 975220.0,
+      "end_time": 976700.0,
+      "text": "can happen very easily."
+    },
+    {
+      "index": 215,
+      "start_time": 976700.0,
+      "end_time": 978759.0,
+      "text": "Just replace sugar with hue and saturation."
+    },
+    {
+      "index": 216,
+      "start_time": 979040.0,
+      "end_time": 985599.0,
+      "text": "I can begin with the local color of the yellow sphere in light. Find an appropriate shadow value ... block that in ..."
+    },
+    {
+      "index": 217,
+      "start_time": 985670.0,
+      "end_time": 991390.0,
+      "text": "don't forget the cast shadow ... and then, knowing that yellow and green are next-door neighbors I can sample my yellow shadow,"
+    },
+    {
+      "index": 218,
+      "start_time": 992060.0,
+      "end_time": 994040.0,
+      "text": "slide up into the greens,"
+    },
+    {
+      "index": 219,
+      "start_time": 994040.0,
+      "end_time": 1000730.0,
+      "text": "increase the value a touch for some reflected light, staying in the same range of saturation ... because again borrowing sugar is easy here ..."
+    },
+    {
+      "index": 220,
+      "start_time": 1000890.0,
+      "end_time": 1006520.0,
+      "text": "Paint into my shadows and it starts looking good! When colors live close together like this, it's a pretty simple calculation."
+    },
+    {
+      "index": 221,
+      "start_time": 1007130.0,
+      "end_time": 1011080.0,
+      "text": "But what happens when we have two colors that are not next-door neighbors?"
+    },
+    {
+      "index": 222,
+      "start_time": 1011260.0,
+      "end_time": 1015669.0,
+      "text": "I'll keep the ground green, but color the sphere red. And on first glance"
+    },
+    {
+      "index": 223,
+      "start_time": 1015670.0,
+      "end_time": 1019000.0,
+      "text": "It looks like the green is gone. But it's not really gone!"
+    },
+    {
+      "index": 224,
+      "start_time": 1019220.0,
+      "end_time": 1026079.0,
+      "text": "What's happening here is: because these colors are not close neighbors, their journey to borrow sugar from each other becomes a little bit more"
+    },
+    {
+      "index": 225,
+      "start_time": 1026480.0,
+      "end_time": 1033459.0,
+      "text": "complicated. Now, you might be tempted to think that red's path to green would go like this - just like we saw from yellow to green"
+    },
+    {
+      "index": 226,
+      "start_time": 1033589.9999999999,
+      "end_time": 1040779.9999999999,
+      "text": "earlier. But that is just not the case. Near the beginning of this lesson, I pointed out that all colors share this gray area."
+    },
+    {
+      "index": 227,
+      "start_time": 1041359.9999999999,
+      "end_time": 1048279.9999999999,
+      "text": "This becomes relevant when colors live farther away from each other because that's the route they take. So for red to travel to green, it"
+    },
+    {
+      "index": 228,
+      "start_time": 1048280.0,
+      "end_time": 1053800.0,
+      "text": "takes a path that looks more like this. Now. It doesn't necessarily have to go perfectly through gray!"
+    },
+    {
+      "index": 229,
+      "start_time": 1053800.0,
+      "end_time": 1055210.0,
+      "text": "You can see in the path there,"
+    },
+    {
+      "index": 230,
+      "start_time": 1055210.0,
+      "end_time": 1059140.0,
+      "text": "it does still pass through orange and yellow ... just very great versions of them."
+    },
+    {
+      "index": 231,
+      "start_time": 1059300.0,
+      "end_time": 1062859.0,
+      "text": "Now, the strength of that red local color is pretty strong. In this case"
+    },
+    {
+      "index": 232,
+      "start_time": 1062960.0,
+      "end_time": 1064810.0,
+      "text": "probably somewhere around here in the color wheel."
+    },
+    {
+      "index": 233,
+      "start_time": 1064810.0,
+      "end_time": 1071319.0,
+      "text": "The weak reflected light simply doesn't really allow it to take much of the journey. It probably goes about this far."
+    },
+    {
+      "index": 234,
+      "start_time": 1071320.0,
+      "end_time": 1074530.0,
+      "text": "It's going toward green ... it just doesn't quite get there."
+    },
+    {
+      "index": 235,
+      "start_time": 1074540.0,
+      "end_time": 1077859.0,
+      "text": "That's why when you look at the color that's there ... and I'll zoom in on it ..."
+    },
+    {
+      "index": 236,
+      "start_time": 1077860.0,
+      "end_time": 1083530.0,
+      "text": "it certainly doesn't look green. But I hope you can still see the evidence of an influence of green! Now"
+    },
+    {
+      "index": 237,
+      "start_time": 1083530.0,
+      "end_time": 1088899.0,
+      "text": "watch this. If I wanted to, say, increase the effect of the green bounce light for aesthetic reasons:"
+    },
+    {
+      "index": 238,
+      "start_time": 1089030.0,
+      "end_time": 1092739.0,
+      "text": "with this whole gray path in mind I can do it quite easily. First"
+    },
+    {
+      "index": 239,
+      "start_time": 1092740.0,
+      "end_time": 1096699.0,
+      "text": "let me sample the shadow and then what I'll do, instead of going up toward the green like this,"
+    },
+    {
+      "index": 240,
+      "start_time": 1096830.0,
+      "end_time": 1102310.0,
+      "text": "what I'll do is I'll just gray this color off and move the hue just a hair up toward the green."
+    },
+    {
+      "index": 241,
+      "start_time": 1102530.0,
+      "end_time": 1104829.0,
+      "text": "Now that color I chose is certainly not green!"
+    },
+    {
+      "index": 242,
+      "start_time": 1104830.0,
+      "end_time": 1111699.0,
+      "text": "But when I paint it, it looks greenish because it represents that red's natural path towards green. It's subtle,"
+    },
+    {
+      "index": 243,
+      "start_time": 1111700.0,
+      "end_time": 1118569.0,
+      "text": "I know, but natural and effective. Okay, let's do one more render. This time I've cut that red local color in half."
+    },
+    {
+      "index": 244,
+      "start_time": 1118760.0,
+      "end_time": 1121060.0,
+      "text": "So the hue is still red just a much less"
+    },
+    {
+      "index": 245,
+      "start_time": 1121280.0,
+      "end_time": 1125859.0,
+      "text": "saturated red. And I think comparing these two will add one more notch to our understanding."
+    },
+    {
+      "index": 246,
+      "start_time": 1126290.0,
+      "end_time": 1131499.0,
+      "text": "Let's just use our eyes for a moment forget about theories and color wheels. Look at the bottom of the sphere"
+    },
+    {
+      "index": 247,
+      "start_time": 1131630.0,
+      "end_time": 1137079.0,
+      "text": "I'm sure you can see that the green bounce light shows up more clearly in the sphere on the right. Now"
+    },
+    {
+      "index": 248,
+      "start_time": 1137080.0,
+      "end_time": 1142569.0,
+      "text": "look at this upper area of shadow. You don't need me to tell you that that area looks more violet on the right."
+    },
+    {
+      "index": 249,
+      "start_time": 1142760.0,
+      "end_time": 1146859.0,
+      "text": "So the sphere on the right contains a greater variety of color in its shadow."
+    },
+    {
+      "index": 250,
+      "start_time": 1146960.0,
+      "end_time": 1148270.0,
+      "text": "Why? Well"
+    },
+    {
+      "index": 251,
+      "start_time": 1148270.0,
+      "end_time": 1153160.0,
+      "text": "it's simple: weaker local colors can more easily make the trip to other colors!"
+    },
+    {
+      "index": 252,
+      "start_time": 1153530.0,
+      "end_time": 1158979.0,
+      "text": "The sphere on the Left had a strong local color and there was no way it could make the trip all the way to the"
+    },
+    {
+      "index": 253,
+      "start_time": 1158980.0,
+      "end_time": 1159770.0,
+      "text": "green and"
+    },
+    {
+      "index": 254,
+      "start_time": 1159770.0,
+      "end_time": 1160840.0,
+      "text": "for this area"
+    },
+    {
+      "index": 255,
+      "start_time": 1160840.0,
+      "end_time": 1165610.0,
+      "text": "There is no way it could manage this trip all the way into the blues. It tried to get there,"
+    },
+    {
+      "index": 256,
+      "start_time": 1165610.0,
+      "end_time": 1173140.0,
+      "text": "but the local color was strong and prevented it. But on this sphere the local color is somewhere around here. Already much closer to gray."
+    },
+    {
+      "index": 257,
+      "start_time": 1173360.0,
+      "end_time": 1179530.0,
+      "text": "That means its journey to green is shorter. Maybe looking something like this. It's an easier trip,"
+    },
+    {
+      "index": 258,
+      "start_time": 1179530.0,
+      "end_time": 1181370.0,
+      "text": "so it's able to go further."
+    },
+    {
+      "index": 259,
+      "start_time": 1181370.0,
+      "end_time": 1187030.0,
+      "text": "That's why more green is showing up on our model. And it's really the same thing for the blues: for this color to get to"
+    },
+    {
+      "index": 260,
+      "start_time": 1187030.0,
+      "end_time": 1190629.0,
+      "text": "blue, it'll go through gray. But there's a pretty straight line available here."
+    },
+    {
+      "index": 261,
+      "start_time": 1190730.0,
+      "end_time": 1195579.0,
+      "text": "Now, it has to cover a greater distance to get to the blue than it did to the green and"
+    },
+    {
+      "index": 262,
+      "start_time": 1195740.0,
+      "end_time": 1198880.0,
+      "text": "because we remember from lesson 1 that ambient light is weak,"
+    },
+    {
+      "index": 263,
+      "start_time": 1198910.0,
+      "end_time": 1206589.0,
+      "text": "it just doesn't propel this color strongly enough to make the entire journey. In my estimation, it stops around there - resulting in that grayish purple."
+    },
+    {
+      "index": 264,
+      "start_time": 1207440.0,
+      "end_time": 1214929.0,
+      "text": "Alright, let's apply this in two different lighting scenarios. That's overcast on the left, sunlight on the right. I'll divide the process into stages"
+    },
+    {
+      "index": 265,
+      "start_time": 1214930.0,
+      "end_time": 1221080.0,
+      "text": "so it's easy to follow along. So let's go step one. Local color. The sphere is red, so I paint red. Dead simple."
+    },
+    {
+      "index": 266,
+      "start_time": 1221240.0,
+      "end_time": 1226719.0,
+      "text": "Let's move to step two: light and shadow. And you might be wondering why only the sphere on the right is updating."
+    },
+    {
+      "index": 267,
+      "start_time": 1226720.0,
+      "end_time": 1231490.0,
+      "text": "Well, if you remember from lesson one: an overcast day means the entire scene is in shadow."
+    },
+    {
+      "index": 268,
+      "start_time": 1231490.0,
+      "end_time": 1234670.0,
+      "text": "So that sphere on the left is only lit by ambient light."
+    },
+    {
+      "index": 269,
+      "start_time": 1235040.0,
+      "end_time": 1239829.0,
+      "text": "Ambient light is step three. Now watch carefully as both spheres get different treatments,"
+    },
+    {
+      "index": 270,
+      "start_time": 1239960.0,
+      "end_time": 1246880.0,
+      "text": "depending on the strength of ambient light they're being affected by. Starting on the left, an overcast day is very weak light."
+    },
+    {
+      "index": 271,
+      "start_time": 1246880.0,
+      "end_time": 1251140.0,
+      "text": "There isn't a lot of strong bounces going on like there is with sunlight."
+    },
+    {
+      "index": 272,
+      "start_time": 1251140.0,
+      "end_time": 1253869.0,
+      "text": "So on the right you can see greens from the grass"
+    },
+    {
+      "index": 273,
+      "start_time": 1254030.0,
+      "end_time": 1256509.0,
+      "text": "bouncing up into that red, like we looked at earlier."
+    },
+    {
+      "index": 274,
+      "start_time": 1256510.0,
+      "end_time": 1263229.0,
+      "text": "But on the left, that doesn't really happen. Or at least not nearly as much. Now consider the influence of the sky. On"
+    },
+    {
+      "index": 275,
+      "start_time": 1263680.0,
+      "end_time": 1268090.0,
+      "text": "left, the entire top part of the sphere is exposed to the lights of that cool grey sky."
+    },
+    {
+      "index": 276,
+      "start_time": 1268100.0,
+      "end_time": 1270519.0,
+      "text": "That's why it's getting a bit lighter and a bit cooler."
+    },
+    {
+      "index": 277,
+      "start_time": 1270520.0,
+      "end_time": 1273100.0,
+      "text": "The sky influences the sphere on the right as well,"
+    },
+    {
+      "index": 278,
+      "start_time": 1273100.0,
+      "end_time": 1278740.0,
+      "text": "but only in that top part of the shadow. It's bluer on the right because sunny days often come with blue skies,"
+    },
+    {
+      "index": 279,
+      "start_time": 1278780.0,
+      "end_time": 1282850.0,
+      "text": "but it also falls off more quickly as it gives way to the reflected light from the grass."
+    },
+    {
+      "index": 280,
+      "start_time": 1283340.0,
+      "end_time": 1283840.0,
+      "text": "Okay,"
+    },
+    {
+      "index": 281,
+      "start_time": 1283840.0,
+      "end_time": 1290740.0,
+      "text": "the next part of our lighting is ambient occlusion. And I'll apply what we saw in our 3d example before on the left. The soft"
+    },
+    {
+      "index": 282,
+      "start_time": 1290870.0,
+      "end_time": 1296470.0,
+      "text": "overall ambient lighting makes the ambient occlusion area pretty large. And in the sunlight on the right,"
+    },
+    {
+      "index": 283,
+      "start_time": 1296470.0,
+      "end_time": 1300279.0,
+      "text": "there's a lot of bounced light going on kind of competing to hit the object. And that"
+    },
+    {
+      "index": 284,
+      "start_time": 1301190.0,
+      "end_time": 1303850.0,
+      "text": "sequesters the ambient occlusion to a smaller area."
+    },
+    {
+      "index": 285,
+      "start_time": 1303850.0,
+      "end_time": 1310629.0,
+      "text": "And once I have all that information there the painting becomes kind of a free-for-all, where I can adjust this ... adjust that ... make the ambient"
+    },
+    {
+      "index": 286,
+      "start_time": 1310630.0,
+      "end_time": 1312380.0,
+      "text": "occlusion darker, lighter, softer,"
+    },
+    {
+      "index": 287,
+      "start_time": 1312380.0,
+      "end_time": 1318550.0,
+      "text": "you know, add some bounce light here ... remove some bounce light there ... all of it to come up with something that looks both accurate as"
+    },
+    {
+      "index": 288,
+      "start_time": 1318550.0,
+      "end_time": 1320360.0,
+      "text": "well as aesthetically pleasing."
+    },
+    {
+      "index": 289,
+      "start_time": 1320360.0,
+      "end_time": 1323110.0,
+      "text": "Alright, so what I'm doing now is just adding a bit of bonus information."
+    },
+    {
+      "index": 290,
+      "start_time": 1323180.0,
+      "end_time": 1329619.0,
+      "text": "I'm basically pretending like there's a white strip on that ball, because a white object gets all of its colour"
+    },
+    {
+      "index": 291,
+      "start_time": 1329720.0,
+      "end_time": 1331480.0,
+      "text": "information from the light that hits it."
+    },
+    {
+      "index": 292,
+      "start_time": 1331480.0,
+      "end_time": 1332900.0,
+      "text": "This little band is a good"
+    },
+    {
+      "index": 293,
+      "start_time": 1332900.0,
+      "end_time": 1339489.0,
+      "text": "indicator of the exact kind of bounce light that is occurring in each scene. One notable difference in the sunlight on the right:"
+    },
+    {
+      "index": 294,
+      "start_time": 1339490.0,
+      "end_time": 1344920.0,
+      "text": "there's way more green bounce light coming up from the grass and you can really see it influencing that white band."
+    },
+    {
+      "index": 295,
+      "start_time": 1345290.0,
+      "end_time": 1347230.0,
+      "text": "Contrast that with the white band on the left,"
+    },
+    {
+      "index": 296,
+      "start_time": 1347230.0,
+      "end_time": 1354519.0,
+      "text": "which is overall far more subdued in its colors, as its lighting situation doesn't provide that same intensity of the bounce light. And"
+    },
+    {
+      "index": 297,
+      "start_time": 1354800.0,
+      "end_time": 1361180.0,
+      "text": "here's the finish! Two different ambient light situations. Strong local color, weak local color, all in one study."
+    },
+    {
+      "index": 298,
+      "start_time": 1361180.0,
+      "end_time": 1365049.0,
+      "text": "It's a great way to practice this stuff. All right, painting spheres is fun,"
+    },
+    {
+      "index": 299,
+      "start_time": 1365050.0,
+      "end_time": 1370779.0,
+      "text": "but I'd like to suggest some broader ways of studying this. Two words: START SIMPLE!"
+    },
+    {
+      "index": 300,
+      "start_time": 1370780.0,
+      "end_time": 1375610.0,
+      "text": "This is a painting I did 12 years ago when I was first discovering this ambient light stuff."
+    },
+    {
+      "index": 301,
+      "start_time": 1375610.0,
+      "end_time": 1379239.0,
+      "text": "It's just a scene I saw out my window. It may appear simple,"
+    },
+    {
+      "index": 302,
+      "start_time": 1379240.0,
+      "end_time": 1380620.0,
+      "text": "but look at all the shadow colors"
+    },
+    {
+      "index": 303,
+      "start_time": 1380620.0,
+      "end_time": 1385180.0,
+      "text": "you can find in even this painting. And that's the thing when studying light from life."
+    },
+    {
+      "index": 304,
+      "start_time": 1385180.0,
+      "end_time": 1389470.0,
+      "text": "I recommend looking for scenes that don't present huge drawing problems."
+    },
+    {
+      "index": 305,
+      "start_time": 1389470.0,
+      "end_time": 1394480.0,
+      "text": "That way you can focus your efforts on capturing the light and color. And you can find things worthy of study"
+    },
+    {
+      "index": 306,
+      "start_time": 1394700.0,
+      "end_time": 1399899.0,
+      "text": "everywhere! That sketch on the left was done just down street from where I live. The sketch on the right is St."
+    },
+    {
+      "index": 307,
+      "start_time": 1399900.0,
+      "end_time": 1403619.0,
+      "text": "Peter's in Rome. But light doesn't discriminate based on location!"
+    },
+    {
+      "index": 308,
+      "start_time": 1403620.0,
+      "end_time": 1406500.0,
+      "text": "These are both paintings of white local colored objects,"
+    },
+    {
+      "index": 309,
+      "start_time": 1406500.0,
+      "end_time": 1412380.0,
+      "text": "which gave me the opportunity to explore various mixtures of shadow colors! Some more old paintings here."
+    },
+    {
+      "index": 310,
+      "start_time": 1412380.0,
+      "end_time": 1416460.0,
+      "text": "I did these to try and apply what I had been learning to more imaginative scenes."
+    },
+    {
+      "index": 311,
+      "start_time": 1416560.0,
+      "end_time": 1422700.0,
+      "text": "And you notice how they're all lit with this very contrived shaft of light? That allowed me to easily determine"
+    },
+    {
+      "index": 312,
+      "start_time": 1422700.0,
+      "end_time": 1424350.0,
+      "text": "what would be lit by direct light"
+    },
+    {
+      "index": 313,
+      "start_time": 1424350.0,
+      "end_time": 1429540.0,
+      "text": "and what would be lit by ambient light. And I know it's creatively redundant to always light a scene this way,"
+    },
+    {
+      "index": 314,
+      "start_time": 1429580.0,
+      "end_time": 1436049.0,
+      "text": "but as far as study is concerned this really helped me develop the skill of controlling both light and color from my imagination."
+    },
+    {
+      "index": 315,
+      "start_time": 1436900.0,
+      "end_time": 1441810.0,
+      "text": "Here's a sculpture by the inimitable Andrea Blasich. A sculpture with chiseled planes"
+    },
+    {
+      "index": 316,
+      "start_time": 1441810.0,
+      "end_time": 1442420.0,
+      "text": "like this"
+    },
+    {
+      "index": 317,
+      "start_time": 1442420.0,
+      "end_time": 1444810.0,
+      "text": "really makes clear the direction of the form."
+    },
+    {
+      "index": 318,
+      "start_time": 1444810.0,
+      "end_time": 1450629.0,
+      "text": "And in this case having that information helps us trace back the source of the ambient light happening in the shadows."
+    },
+    {
+      "index": 319,
+      "start_time": 1451030.0,
+      "end_time": 1457979.0,
+      "text": "Additionally, those color cards offer a very nice glimpse at how shadow colors weave together. You know, I recommend try sculpture yourself!"
+    },
+    {
+      "index": 320,
+      "start_time": 1457980.0,
+      "end_time": 1462810.0,
+      "text": "It'll really help with your understanding of form in general - which then feeds directly back into your painting."
+    },
+    {
+      "index": 321,
+      "start_time": 1463270.0,
+      "end_time": 1466200.0,
+      "text": "Understanding how light works in real life gives you the basis for"
+    },
+    {
+      "index": 322,
+      "start_time": 1466480.0,
+      "end_time": 1470490.0,
+      "text": "expression. If we were to grade this beautiful watercolor by Alvaro"
+    },
+    {
+      "index": 323,
+      "start_time": 1470650.0,
+      "end_time": 1477030.0,
+      "text": "Castagnet solely on its adherence to realism, you'd probably say that the bounced light in this area is way too red."
+    },
+    {
+      "index": 324,
+      "start_time": 1477060.0,
+      "end_time": 1480090.0,
+      "text": "I mean, sure, there'd be some red bounce light there ... but not that much."
+    },
+    {
+      "index": 325,
+      "start_time": 1480190.0,
+      "end_time": 1484320.0,
+      "text": "However, artistically, it's that exaggeration that makes this piece really pop!"
+    },
+    {
+      "index": 326,
+      "start_time": 1484330.0,
+      "end_time": 1486869.0,
+      "text": "It's almost like a caricature of light or an enhanced"
+    },
+    {
+      "index": 327,
+      "start_time": 1487270.0,
+      "end_time": 1490200.0,
+      "text": "reality. And the ability to pull that off does not come naturally."
+    },
+    {
+      "index": 328,
+      "start_time": 1490330.0,
+      "end_time": 1497759.0,
+      "text": "It can only be achieved after lots of experience with the fundamentals. And, well, that's where I hope this video has helped you!"
+    },
+    {
+      "index": 329,
+      "start_time": 1498400.0,
+      "end_time": 1504030.0,
+      "text": "Okay, folks, that's it for this lesson. Thanks for spending time on my channel today and extra thanks to my Patrons."
+    },
+    {
+      "index": 330,
+      "start_time": 1504030.0,
+      "end_time": 1509219.0,
+      "text": "You guys really help make these videos possible. If you haven't seen the patreon page go check it out"
+    },
+    {
+      "index": 331,
+      "start_time": 1509280.0,
+      "end_time": 1513869.0,
+      "text": "I've tried to put really good rewards up there and I've recently added some upper tier levels."
+    },
+    {
+      "index": 332,
+      "start_time": 1514030.0,
+      "end_time": 1517320.0,
+      "text": "So with that I'll say goodbye, and I'll see you in another video!"
+    }
+  ]
+}
