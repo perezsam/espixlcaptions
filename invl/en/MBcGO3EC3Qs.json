@@ -1,0 +1,462 @@
+{
+  "video_id": "MBcGO3EC3Qs",
+  "title": "2.4 - OFDMA/SC-FDMA IN 4G LTE - PART 2",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 170.0,
+      "end_time": 5991.0,
+      "text": "Streams of data, in the form of bits reaches\nnetwork gateway from various sources."
+    },
+    {
+      "index": 2,
+      "start_time": 5991.0,
+      "end_time": 11330.0,
+      "text": "The Gateway forwards it to the eNodeB. But how\ndoes the eNodeB converts them into radio"
+    },
+    {
+      "index": 3,
+      "start_time": 11330.0,
+      "end_time": 17100.0,
+      "text": "signals and transmit them to the user over\nthe air interface? How does the user equipment"
+    },
+    {
+      "index": 4,
+      "start_time": 17100.0,
+      "end_time": 23170.0,
+      "text": "communicate back with eNodeB?\nHello Friends. Welcome back to the world of 4G."
+    },
+    {
+      "index": 5,
+      "start_time": 23170.0,
+      "end_time": 28590.0,
+      "text": "Today we will discuss uplink and downlink\ndata transmission in the network."
+    },
+    {
+      "index": 6,
+      "start_time": 28590.0,
+      "end_time": 35020.0,
+      "text": "As discussed earlier, Data is transmitted\nin OFDMA over parallel subcarriers of 15 Kilo hertz."
+    },
+    {
+      "index": 7,
+      "start_time": 35020.0,
+      "end_time": 41710.0,
+      "text": "The subcarriers are further divided\non the time axis as blocks of one symbol duration,"
+    },
+    {
+      "index": 8,
+      "start_time": 41710.0,
+      "end_time": 49190.0,
+      "text": "or 66.7 microseconds. This basic unit is known\nas Resource Element. Each resource element"
+    },
+    {
+      "index": 9,
+      "start_time": 49190.0,
+      "end_time": 53749.0,
+      "text": "carries one symbol.\nNow, In order to transmit data over these"
+    },
+    {
+      "index": 10,
+      "start_time": 53749.0,
+      "end_time": 59989.0,
+      "text": "resource elements, first data is modulated\nwith specific modulation scheme, this scheme"
+    },
+    {
+      "index": 11,
+      "start_time": 59989.0,
+      "end_time": 65350.0,
+      "text": "depends on the physical channels mapped on\nthe resource grid. Suppose we have 8 bits"
+    },
+    {
+      "index": 12,
+      "start_time": 65349.99999999999,
+      "end_time": 71920.0,
+      "text": "of data to be transmitted using QPSK Modulation.\nThe data will be divided into four parallel"
+    },
+    {
+      "index": 13,
+      "start_time": 71920.0,
+      "end_time": 79020.0,
+      "text": "streams of 2 bits, Phase and amplitude assignment\nis done according to the QPSK Constellation."
+    },
+    {
+      "index": 14,
+      "start_time": 79020.0,
+      "end_time": 84350.0,
+      "text": "Finally, data is placed over the resource\nelements by adjusting the phase and amplitude"
+    },
+    {
+      "index": 15,
+      "start_time": 84350.0,
+      "end_time": 90440.0,
+      "text": "of subcarrier to those derived for the data\nstream. Mathematically, it means multiplying"
+    },
+    {
+      "index": 16,
+      "start_time": 90440.0,
+      "end_time": 95049.0,
+      "text": "the complex modulation symbol, to the corresponding\nsubcarrier frequency."
+    },
+    {
+      "index": 17,
+      "start_time": 95049.0,
+      "end_time": 106170.0,
+      "text": "Thus, in a 20 MHz channel, all the 1200 resource\nelements carrying 1200 symbols over 1200 subcarriers"
+    },
+    {
+      "index": 18,
+      "start_time": 106170.0,
+      "end_time": 109549.0,
+      "text": "are modulated with appropriate modulation\nscheme."
+    },
+    {
+      "index": 19,
+      "start_time": 109549.0,
+      "end_time": 117659.0,
+      "text": "Now, Since the data is modulated over 1200\nsubcarriers, A transmitter will require 1200"
+    },
+    {
+      "index": 20,
+      "start_time": 117659.0,
+      "end_time": 124329.0,
+      "text": "oscillators for its generation, and another\n1200 will be required by the receiver, for"
+    },
+    {
+      "index": 21,
+      "start_time": 124329.0,
+      "end_time": 130590.0,
+      "text": "proper Demodulation. The hardware complexity,\nand sheer amount of power consumption, would"
+    },
+    {
+      "index": 22,
+      "start_time": 130590.0,
+      "end_time": 135520.0,
+      "text": "have left OFDM to theoretical idea, and far\nfrom implementation."
+    },
+    {
+      "index": 23,
+      "start_time": 135520.0,
+      "end_time": 141340.0,
+      "text": "OFDM was made reality with the advent of Digital\nSignal processing techniques."
+    },
+    {
+      "index": 24,
+      "start_time": 141340.0,
+      "end_time": 148970.0,
+      "text": "So, instead of using 1200 oscillators, IFFT\nsolves this problem by converting the parallel"
+    },
+    {
+      "index": 25,
+      "start_time": 148970.0,
+      "end_time": 154390.0,
+      "text": "frequency domain signals, into samples of\na composite time domain signal. which are"
+    },
+    {
+      "index": 26,
+      "start_time": 154390.0,
+      "end_time": 160489.0,
+      "text": "much easier to generate at Transmitter side.\nall we need to do, is to send these time domain"
+    },
+    {
+      "index": 27,
+      "start_time": 160489.0,
+      "end_time": 163120.0,
+      "text": "samples at radio frequencies."
+    },
+    {
+      "index": 28,
+      "start_time": 163120.0,
+      "end_time": 169549.0,
+      "text": "As the data is being sampled by IFFT, Samples\nmust be taken above the Nyquist rate for faithful"
+    },
+    {
+      "index": 29,
+      "start_time": 169549.0,
+      "end_time": 176530.0,
+      "text": "reproduction at the receiver. For an LTE spectrum\nof 20 MHz, the highest frequency component"
+    },
+    {
+      "index": 30,
+      "start_time": 176530.0,
+      "end_time": 182459.0,
+      "text": "is 9MHz which means the sampling rate should\nbe greater than 18 Mega samples per second."
+    },
+    {
+      "index": 31,
+      "start_time": 182459.0,
+      "end_time": 187262.0,
+      "text": "In other words, 1200 samples per OFDM symbol\nof 66.7 microseconds."
+    },
+    {
+      "index": 32,
+      "start_time": 187262.0,
+      "end_time": 197890.0,
+      "text": "Since UMTS had a sampling rate of 3.84 Mega\nsamples per second. To achieve backwards compatibility,"
+    },
+    {
+      "index": 33,
+      "start_time": 197890.0,
+      "end_time": 205030.0,
+      "text": "Sampling rate in LTE is taken as multiple\nof 3.84 Mega samples per second. Thus for"
+    },
+    {
+      "index": 34,
+      "start_time": 205030.0,
+      "end_time": 210900.0,
+      "text": "20 MHz Spectrum which has a sampling rate\nof 30.72 mega samples per second, there are"
+    },
+    {
+      "index": 35,
+      "start_time": 210900.0,
+      "end_time": 213959.0,
+      "text": "2048 samples per symbol in O FDMA."
+    },
+    {
+      "index": 36,
+      "start_time": 213959.0,
+      "end_time": 221739.0,
+      "text": "The FFT size of the IFFT processor thus depends\non the LTE bandwidth as shown."
+    },
+    {
+      "index": 37,
+      "start_time": 221739.0,
+      "end_time": 227819.0,
+      "text": "Now, Previously we have shown, in wireless\nchannel due to multipath propagation, we face"
+    },
+    {
+      "index": 38,
+      "start_time": 227819.0,
+      "end_time": 233410.0,
+      "text": "delay spread and Inter symbol interference.\nWe have also discussed how it's effect can"
+    },
+    {
+      "index": 39,
+      "start_time": 233410.0,
+      "end_time": 239840.0,
+      "text": "be reduced by increasing the symbol duration.\nAlso, how guard period were used to eliminate"
+    },
+    {
+      "index": 40,
+      "start_time": 239840.0,
+      "end_time": 246150.0,
+      "text": "it. But abrupt changes in time domain during\ntransition period, from symbol to guard period"
+    },
+    {
+      "index": 41,
+      "start_time": 246150.0,
+      "end_time": 252819.0,
+      "text": "causes inter carrier interference in frequency\ndomain, and disturbs the orthogonality between subcarriers"
+    },
+    {
+      "index": 42,
+      "start_time": 252819.0,
+      "end_time": 259750.0,
+      "text": "So In O FDMA, We employ a more\ncomplex kind of a guard period, called Cyclic prefix,"
+    },
+    {
+      "index": 43,
+      "start_time": 259750.0,
+      "end_time": 266220.0,
+      "text": "in which end part of a symbol is transmitted\nin the preceding guard period. It also ensures"
+    },
+    {
+      "index": 44,
+      "start_time": 266220.0,
+      "end_time": 272071.0,
+      "text": "orthogonality between the sub-carriers, by\nkeeping the OFDM symbol periodic over the"
+    },
+    {
+      "index": 45,
+      "start_time": 272071.0,
+      "end_time": 278760.0,
+      "text": "extended symbol duration and therefore, avoiding\nInter-carrier and inter channel Interference simultaneously."
+    },
+    {
+      "index": 46,
+      "start_time": 278760.0,
+      "end_time": 286360.0,
+      "text": "since O FDMA uses composite\nIFFT samples, cyclic prefix is added by taking"
+    },
+    {
+      "index": 47,
+      "start_time": 286360.0,
+      "end_time": 291510.0,
+      "text": "some samples from the end of a symbol period,\nand placing them at the beginning."
+    },
+    {
+      "index": 48,
+      "start_time": 291510.0,
+      "end_time": 297670.0,
+      "text": "Now This Time sampled signal, is converted\ninto an analog wave by a Digital to Analog"
+    },
+    {
+      "index": 49,
+      "start_time": 297670.0,
+      "end_time": 304930.0,
+      "text": "Converter. Further composite waveform is modulated\nat the desired radio frequency for transmission."
+    },
+    {
+      "index": 50,
+      "start_time": 304930.0,
+      "end_time": 315230.0,
+      "text": "For eg. For an operator having license for\n2320 Mhz to 2340 Mhz. The 18 Mhz band will be"
+    },
+    {
+      "index": 51,
+      "start_time": 315230.0,
+      "end_time": 325370.0,
+      "text": "mapped from 2321 Mhz to 2339 Mhz using analog\nmodulation. And finally the EnodeB transmits"
+    },
+    {
+      "index": 52,
+      "start_time": 325370.0,
+      "end_time": 327120.0,
+      "text": "signal over air."
+    },
+    {
+      "index": 53,
+      "start_time": 327120.0,
+      "end_time": 334660.0,
+      "text": "ENB informs the user about the allocated subcarriers\nand the corresponding modulation scheme. So,"
+    },
+    {
+      "index": 54,
+      "start_time": 334660.0,
+      "end_time": 339620.0,
+      "text": "when the RF signal reaches at the user’s\nterminal, all these processes are reversed"
+    },
+    {
+      "index": 55,
+      "start_time": 339620.0,
+      "end_time": 344170.0,
+      "text": "and finally user is able to receive the data\nintended for it."
+    },
+    {
+      "index": 56,
+      "start_time": 344170.0,
+      "end_time": 351520.0,
+      "text": "Although there are many positives in O-FDMA,\nbut IFFT summation, of multiple parallel subcarrier"
+    },
+    {
+      "index": 57,
+      "start_time": 351520.0,
+      "end_time": 358700.0,
+      "text": "results in high Peak to Average power ratio.\nHigh PAPR results in high power consumption"
+    },
+    {
+      "index": 58,
+      "start_time": 358700.0,
+      "end_time": 365840.0,
+      "text": "for signal generation. But handheld devices\nhave limited power capacity. This makes OFDMA"
+    },
+    {
+      "index": 59,
+      "start_time": 365840.0,
+      "end_time": 374110.0,
+      "text": "unfavourable for uplink transmission.\nIn order to overcome this, LTE uses SC-FDMA"
+    },
+    {
+      "index": 60,
+      "start_time": 374110.0,
+      "end_time": 375880.0,
+      "text": "in uplink direction."
+    },
+    {
+      "index": 61,
+      "start_time": 375880.0,
+      "end_time": 383260.0,
+      "text": "In O FDMA, we have one to one mapping between\nsymbol and subcarrier, but SC-FDMA allows"
+    },
+    {
+      "index": 62,
+      "start_time": 383260.0,
+      "end_time": 390290.0,
+      "text": "a symbol to be transmitted in parts, over\nmultiple subcarriers. For example, in O FDMA"
+    },
+    {
+      "index": 63,
+      "start_time": 390290.0,
+      "end_time": 398550.0,
+      "text": "one symbol occupies one subcarrier of 15 kilo\nhertz, but in SCFDMA, same symbol is distributed"
+    },
+    {
+      "index": 64,
+      "start_time": 398550.0,
+      "end_time": 406560.0,
+      "text": "among multiple subcarriers of 15 Kilo hertz.\nIn short, SC-FDMA behaves like a single carrier"
+    },
+    {
+      "index": 65,
+      "start_time": 406560.0,
+      "end_time": 411540.0,
+      "text": "system with short symbol duration compared\nto OFDMA."
+    },
+    {
+      "index": 66,
+      "start_time": 411540.0,
+      "end_time": 418520.0,
+      "text": "To achieve this, SC-FDMA introduces a N point\nFFT block right after the serial to parallel"
+    },
+    {
+      "index": 67,
+      "start_time": 418520.0,
+      "end_time": 425500.0,
+      "text": "converter in the O FDMA structure. The FFT\nblock converts parallel sequence of symbols"
+    },
+    {
+      "index": 68,
+      "start_time": 425500.0,
+      "end_time": 432770.0,
+      "text": "in time domain to different frequency points.\nNow, Peak to average power Ratio is proportional"
+    },
+    {
+      "index": 69,
+      "start_time": 432770.0,
+      "end_time": 439940.0,
+      "text": "to the square of number Of carriers involved.\nSC-FDMA reduces PAPR by reducing the number"
+    },
+    {
+      "index": 70,
+      "start_time": 439940.0,
+      "end_time": 446160.0,
+      "text": "Of carriers. Obviously, there are problems\nin Single carrier transmission as we discussed"
+    },
+    {
+      "index": 71,
+      "start_time": 446160.0,
+      "end_time": 451060.0,
+      "text": "earlier, but the side effects are reduced\nby ensuring that the total bandwidth over"
+    },
+    {
+      "index": 72,
+      "start_time": 451060.0,
+      "end_time": 456980.0,
+      "text": "which a symbol is transmitted is still not\ntoo high. Apart from this, Remaining block"
+    },
+    {
+      "index": 73,
+      "start_time": 456980.0,
+      "end_time": 461830.0,
+      "text": "in the uplink direction is same as used in\nDownlink Direction."
+    },
+    {
+      "index": 74,
+      "start_time": 461830.0,
+      "end_time": 467370.0,
+      "text": "In our next video, we will be talking about\nPhysical, Transport and Logical channels used"
+    },
+    {
+      "index": 75,
+      "start_time": 467370.0,
+      "end_time": 473840.0,
+      "text": "in Long Term Evolution. So friends, Don’t\nforget to subscribe to our channel, like our"
+    },
+    {
+      "index": 76,
+      "start_time": 473840.0,
+      "end_time": 476060.0,
+      "text": "videos and comments your views or suggestions."
+    }
+  ]
+}

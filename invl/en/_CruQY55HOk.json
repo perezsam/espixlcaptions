@@ -1,0 +1,7260 @@
+{
+  "video_id": "_CruQY55HOk",
+  "title": "Google I/O 2011: Memory management for Android Apps",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3400.0,
+      "end_time": 7000.0,
+      "text": "PATRICK DUBROY: Hi everybody, my name&#39;s Patrick Dubroy and"
+    },
+    {
+      "index": 2,
+      "start_time": 7000.0,
+      "end_time": 8600.0,
+      "text": "today I&#39;m going to talk to you about memory"
+    },
+    {
+      "index": 3,
+      "start_time": 8600.0,
+      "end_time": 10580.0,
+      "text": "management for Android."
+    },
+    {
+      "index": 4,
+      "start_time": 10580.0,
+      "end_time": 13330.0,
+      "text": "So I&#39;m really happy to see so many people here who care"
+    },
+    {
+      "index": 5,
+      "start_time": 13330.0,
+      "end_time": 15550.0,
+      "text": "about memory management, especially near"
+    },
+    {
+      "index": 6,
+      "start_time": 15550.0,
+      "end_time": 18500.0,
+      "text": "the end of the day."
+    },
+    {
+      "index": 7,
+      "start_time": 18500.0,
+      "end_time": 21210.0,
+      "text": "So let&#39;s get started."
+    },
+    {
+      "index": 8,
+      "start_time": 21210.0,
+      "end_time": 23080.0,
+      "text": "So I&#39;m sure you all remember this device."
+    },
+    {
+      "index": 9,
+      "start_time": 23080.0,
+      "end_time": 25490.0,
+      "text": "This is the T-Mobile G1."
+    },
+    {
+      "index": 10,
+      "start_time": 25490.0,
+      "end_time": 28400.0,
+      "text": "Hugo talked about it in the keynote yesterday."
+    },
+    {
+      "index": 11,
+      "start_time": 28400.0,
+      "end_time": 31110.0,
+      "text": "It was released about two and a half years ago."
+    },
+    {
+      "index": 12,
+      "start_time": 31110.0,
+      "end_time": 35650.0,
+      "text": "So, is there anybody here who actually developed on the G1?"
+    },
+    {
+      "index": 13,
+      "start_time": 35650.0,
+      "end_time": 36540.0,
+      "text": "All right, impressive."
+    },
+    {
+      "index": 14,
+      "start_time": 36540.0,
+      "end_time": 40050.0,
+      "text": "That&#39;s about maybe 40% of the room."
+    },
+    {
+      "index": 15,
+      "start_time": 40050.0,
+      "end_time": 43240.0,
+      "text": "So you may remember that the G1 came with 192"
+    },
+    {
+      "index": 16,
+      "start_time": 43240.0,
+      "end_time": 45010.0,
+      "text": "megabytes of RAM."
+    },
+    {
+      "index": 17,
+      "start_time": 45010.0,
+      "end_time": 48420.0,
+      "text": "And in fact, most of that was used up by the system."
+    },
+    {
+      "index": 18,
+      "start_time": 48420.0,
+      "end_time": 52100.0,
+      "text": "There wasn&#39;t a whole lot left over for apps."
+    },
+    {
+      "index": 19,
+      "start_time": 52100.0,
+      "end_time": 55300.0,
+      "text": "Fast forward a few years later, we have the Motorola"
+    },
+    {
+      "index": 20,
+      "start_time": 55300.0,
+      "end_time": 58180.0,
+      "text": "Zoom released just a couple of months ago."
+    },
+    {
+      "index": 21,
+      "start_time": 58180.0,
+      "end_time": 61780.0,
+      "text": "The Zoom comes with a gigabyte of RAM."
+    },
+    {
+      "index": 22,
+      "start_time": 61780.0,
+      "end_time": 64209.0,
+      "text": "Now some people might hear this and think, OK, my"
+    },
+    {
+      "index": 23,
+      "start_time": 64209.0,
+      "end_time": 65019.0,
+      "text": "troubles are over."
+    },
+    {
+      "index": 24,
+      "start_time": 65019.00000000001,
+      "end_time": 68170.0,
+      "text": "I never have to worry about memory management again."
+    },
+    {
+      "index": 25,
+      "start_time": 68170.0,
+      "end_time": 71730.0,
+      "text": "And of course, given that we have a whole room here, you"
+    },
+    {
+      "index": 26,
+      "start_time": 71730.0,
+      "end_time": 73230.0,
+      "text": "guys are all smart people and you realize"
+    },
+    {
+      "index": 27,
+      "start_time": 73230.0,
+      "end_time": 75940.0,
+      "text": "that that&#39;s not true."
+    },
+    {
+      "index": 28,
+      "start_time": 75940.0,
+      "end_time": 77950.0,
+      "text": "And there are a couple of reasons for this."
+    },
+    {
+      "index": 29,
+      "start_time": 77950.0,
+      "end_time": 81940.0,
+      "text": "First of all, the Zoom has six and a half times the"
+    },
+    {
+      "index": 30,
+      "start_time": 81940.0,
+      "end_time": 84005.0,
+      "text": "resolution that the G1 had."
+    },
+    {
+      "index": 31,
+      "start_time": 84005.0,
+      "end_time": 85590.0,
+      "text": "So you&#39;ve got six and a half times as"
+    },
+    {
+      "index": 32,
+      "start_time": 85590.0,
+      "end_time": 87500.0,
+      "text": "many pixels on screen."
+    },
+    {
+      "index": 33,
+      "start_time": 87500.0,
+      "end_time": 88540.0,
+      "text": "That means you&#39;re probably going to"
+    },
+    {
+      "index": 34,
+      "start_time": 88540.0,
+      "end_time": 90140.0,
+      "text": "need to use more memory."
+    },
+    {
+      "index": 35,
+      "start_time": 90140.0,
+      "end_time": 94110.0,
+      "text": "You got more bitmaps for example."
+    },
+    {
+      "index": 36,
+      "start_time": 94110.0,
+      "end_time": 96470.0,
+      "text": "The other thing is that on tablets, you really want to"
+    },
+    {
+      "index": 37,
+      "start_time": 96470.0,
+      "end_time": 100300.0,
+      "text": "create a new kind of application."
+    },
+    {
+      "index": 38,
+      "start_time": 100300.0,
+      "end_time": 103440.0,
+      "text": "You know, the rich, immersive applications, like this"
+    },
+    {
+      "index": 39,
+      "start_time": 103440.0,
+      "end_time": 106330.0,
+      "text": "YouTube app, for example."
+    },
+    {
+      "index": 40,
+      "start_time": 106330.0,
+      "end_time": 107940.0,
+      "text": "These are going to take a lot of memory."
+    },
+    {
+      "index": 41,
+      "start_time": 107940.0,
+      "end_time": 109940.0,
+      "text": "There&#39;s tons of bitmaps in here."
+    },
+    {
+      "index": 42,
+      "start_time": 109940.0,
+      "end_time": 113140.0,
+      "text": "Those use up a lot of memory."
+    },
+    {
+      "index": 43,
+      "start_time": 113140.0,
+      "end_time": 116600.0,
+      "text": "Also, the Zoom we&#39;re talking about a pretty new device."
+    },
+    {
+      "index": 44,
+      "start_time": 116600.0,
+      "end_time": 119280.0,
+      "text": "This is basically bleeding edge hardware."
+    },
+    {
+      "index": 45,
+      "start_time": 119280.0,
+      "end_time": 121560.0,
+      "text": "Most your customers are not going to be using something"
+    },
+    {
+      "index": 46,
+      "start_time": 121560.0,
+      "end_time": 123280.0,
+      "text": "that&#39;s only two months old."
+    },
+    {
+      "index": 47,
+      "start_time": 123280.0,
+      "end_time": 125750.0,
+      "text": "So of course, you want to support people who are using"
+    },
+    {
+      "index": 48,
+      "start_time": 125750.0,
+      "end_time": 129389.0,
+      "text": "older hardware as well."
+    },
+    {
+      "index": 49,
+      "start_time": 129389.00000000001,
+      "end_time": 133270.0,
+      "text": "Finally, maybe you&#39;re all familiar with Parkinson&#39;s Law,"
+    },
+    {
+      "index": 50,
+      "start_time": 133270.0,
+      "end_time": 137070.0,
+      "text": "which says that work always take as much time as you have."
+    },
+    {
+      "index": 51,
+      "start_time": 137070.0,
+      "end_time": 141400.0,
+      "text": "And really, it&#39;s kind of the same for software."
+    },
+    {
+      "index": 52,
+      "start_time": 141400.0,
+      "end_time": 143880.0,
+      "text": "So, no matter how much memory you have, you&#39;re going to find"
+    },
+    {
+      "index": 53,
+      "start_time": 143880.0,
+      "end_time": 146510.0,
+      "text": "a way to use it and wish you had just a little bit more."
+    },
+    {
+      "index": 54,
+      "start_time": 151760.0,
+      "end_time": 154860.0,
+      "text": "What I want to talk about today are basically two"
+    },
+    {
+      "index": 55,
+      "start_time": 154860.0,
+      "end_time": 156500.0,
+      "text": "different things."
+    },
+    {
+      "index": 56,
+      "start_time": 156500.0,
+      "end_time": 158870.0,
+      "text": "First of all, I want to cover some of the changes that we&#39;ve"
+    },
+    {
+      "index": 57,
+      "start_time": 158870.0,
+      "end_time": 161890.0,
+      "text": "made in Gingerbread and Honeycomb that affect how your"
+    },
+    {
+      "index": 58,
+      "start_time": 161890.0,
+      "end_time": 163140.0,
+      "text": "app uses memory."
+    },
+    {
+      "index": 59,
+      "start_time": 178480.0,
+      "end_time": 179730.0,
+      "text": "That&#39;s your cameo."
+    },
+    {
+      "index": 60,
+      "start_time": 182910.0,
+      "end_time": 186130.0,
+      "text": "All right, so as I was saying, there are two different things"
+    },
+    {
+      "index": 61,
+      "start_time": 186130.0,
+      "end_time": 187650.0,
+      "text": "I want to cover today."
+    },
+    {
+      "index": 62,
+      "start_time": 187650.0,
+      "end_time": 190020.0,
+      "text": "So first of all, I want to talk about some of the changes"
+    },
+    {
+      "index": 63,
+      "start_time": 190020.0,
+      "end_time": 193240.0,
+      "text": "we&#39;ve made in Gingerbread and Honeycomb that affect how your"
+    },
+    {
+      "index": 64,
+      "start_time": 193240.0,
+      "end_time": 194750.0,
+      "text": "apps use memory."
+    },
+    {
+      "index": 65,
+      "start_time": 194750.0,
+      "end_time": 198400.0,
+      "text": "And basically, memory management in general."
+    },
+    {
+      "index": 66,
+      "start_time": 198400.0,
+      "end_time": 200890.0,
+      "text": "In the second half of the talk I want to talk about some"
+    },
+    {
+      "index": 67,
+      "start_time": 200890.0,
+      "end_time": 204200.0,
+      "text": "tools you can use to better understand how your app is"
+    },
+    {
+      "index": 68,
+      "start_time": 204200.0,
+      "end_time": 205420.0,
+      "text": "using memory."
+    },
+    {
+      "index": 69,
+      "start_time": 205420.0,
+      "end_time": 208340.0,
+      "text": "And if you have memory leaks, how you can figure out where"
+    },
+    {
+      "index": 70,
+      "start_time": 208340.0,
+      "end_time": 211570.0,
+      "text": "those memory leaks are."
+    },
+    {
+      "index": 71,
+      "start_time": 211570.0,
+      "end_time": 215160.0,
+      "text": "So just to set expectations for this talk, I&#39;m going to"
+    },
+    {
+      "index": 72,
+      "start_time": 215160.0,
+      "end_time": 219320.0,
+      "text": "make them some assumptions about the stuff you&#39;ve done"
+    },
+    {
+      "index": 73,
+      "start_time": 219320.0,
+      "end_time": 222470.0,
+      "text": "and it&#39;ll really help you get the most out of this if you&#39;re"
+    },
+    {
+      "index": 74,
+      "start_time": 222470.0,
+      "end_time": 224530.0,
+      "text": "familiar with these concepts."
+    },
+    {
+      "index": 75,
+      "start_time": 224530.0,
+      "end_time": 227270.0,
+      "text": "So I&#39;m hoping that you&#39;ve all written Android apps before."
+    },
+    {
+      "index": 76,
+      "start_time": 227270.0,
+      "end_time": 230150.0,
+      "text": "And it looked like about half the room had developed on the"
+    },
+    {
+      "index": 77,
+      "start_time": 230150.0,
+      "end_time": 234050.0,
+      "text": "G1, so that&#39;s probably true."
+    },
+    {
+      "index": 78,
+      "start_time": 234050.0,
+      "end_time": 236960.0,
+      "text": "I hope that most of you have heard of the Dalvik heap."
+    },
+    {
+      "index": 79,
+      "start_time": 236960.0,
+      "end_time": 239350.0,
+      "text": "You have a basic idea of what I&#39;m talking about when I talk"
+    },
+    {
+      "index": 80,
+      "start_time": 239350.0,
+      "end_time": 241690.0,
+      "text": "about heap memory."
+    },
+    {
+      "index": 81,
+      "start_time": 241690.0,
+      "end_time": 244360.0,
+      "text": "I&#39;m sure you&#39;re familiar with the garbage collector."
+    },
+    {
+      "index": 82,
+      "start_time": 244360.0,
+      "end_time": 246860.0,
+      "text": "You have a basic idea hopefully of what garbage"
+    },
+    {
+      "index": 83,
+      "start_time": 246860.0,
+      "end_time": 249070.0,
+      "text": "collection is and how it works."
+    },
+    {
+      "index": 84,
+      "start_time": 249070.0,
+      "end_time": 251960.0,
+      "text": "And probably, most of you have seen an OutOfMememoryError"
+    },
+    {
+      "index": 85,
+      "start_time": 251960.0,
+      "end_time": 255400.0,
+      "text": "before and you have a basic idea of why you get it and"
+    },
+    {
+      "index": 86,
+      "start_time": 255400.0,
+      "end_time": 256790.0,
+      "text": "what you can do to deal with it."
+    },
+    {
+      "index": 87,
+      "start_time": 259730.00000000003,
+      "end_time": 262590.0,
+      "text": "So first, let&#39;s talk about heap size."
+    },
+    {
+      "index": 88,
+      "start_time": 262590.0,
+      "end_time": 266250.0,
+      "text": "So you may know that in Android, there&#39;s a hard limit"
+    },
+    {
+      "index": 89,
+      "start_time": 266250.0,
+      "end_time": 268896.0,
+      "text": "on your application&#39;s heap size."
+    },
+    {
+      "index": 90,
+      "start_time": 268896.0,
+      "end_time": 271140.0,
+      "text": "And there&#39;s a couple reasons for this."
+    },
+    {
+      "index": 91,
+      "start_time": 271140.0,
+      "end_time": 274596.0,
+      "text": "So first of all, one of the great features of Android is"
+    },
+    {
+      "index": 92,
+      "start_time": 274596.0,
+      "end_time": 276870.0,
+      "text": "that it has full multitasking."
+    },
+    {
+      "index": 93,
+      "start_time": 276870.0,
+      "end_time": 280160.0,
+      "text": "So you actually have multiple programs running at once."
+    },
+    {
+      "index": 94,
+      "start_time": 280160.0,
+      "end_time": 283055.0,
+      "text": "And so obviously, each one can&#39;t use all of"
+    },
+    {
+      "index": 95,
+      "start_time": 283055.0,
+      "end_time": 285360.0,
+      "text": "your devices memory."
+    },
+    {
+      "index": 96,
+      "start_time": 285360.0,
+      "end_time": 289000.0,
+      "text": "We also don&#39;t want a runaway app to just start getting"
+    },
+    {
+      "index": 97,
+      "start_time": 289000.0,
+      "end_time": 291760.0,
+      "text": "bigger and bigger and bloating the entire system."
+    },
+    {
+      "index": 98,
+      "start_time": 291760.0,
+      "end_time": 294830.0,
+      "text": "You always want your dialer to work, your launcher t work,"
+    },
+    {
+      "index": 99,
+      "start_time": 294830.0,
+      "end_time": 297610.0,
+      "text": "that sort of thing."
+    },
+    {
+      "index": 100,
+      "start_time": 297610.0,
+      "end_time": 300800.0,
+      "text": "So there&#39;s this hard limit on heap size and if your"
+    },
+    {
+      "index": 101,
+      "start_time": 300800.0,
+      "end_time": 304470.0,
+      "text": "application needs to allocate more memory and you&#39;ve gone up"
+    },
+    {
+      "index": 102,
+      "start_time": 304470.0,
+      "end_time": 306540.0,
+      "text": "to that heap size limit already, then you&#39;re basically"
+    },
+    {
+      "index": 103,
+      "start_time": 306540.0,
+      "end_time": 309730.0,
+      "text": "going to get an out of memory error."
+    },
+    {
+      "index": 104,
+      "start_time": 309730.0,
+      "end_time": 312710.0,
+      "text": "So this heap size limit is device dependent."
+    },
+    {
+      "index": 105,
+      "start_time": 312710.0,
+      "end_time": 314500.0,
+      "text": "It&#39;s changed a lot over the years."
+    },
+    {
+      "index": 106,
+      "start_time": 314500.0,
+      "end_time": 318040.0,
+      "text": "On the G1 it was 16 megabytes."
+    },
+    {
+      "index": 107,
+      "start_time": 318040.0,
+      "end_time": 320380.0,
+      "text": "On the Zoom it&#39;s now 48 megabytes."
+    },
+    {
+      "index": 108,
+      "start_time": 320380.0,
+      "end_time": 322890.0,
+      "text": "So it&#39;s a little bit bigger."
+    },
+    {
+      "index": 109,
+      "start_time": 322890.0,
+      "end_time": 325360.0,
+      "text": "If you&#39;re writing an app and you want to know, OK, how much"
+    },
+    {
+      "index": 110,
+      "start_time": 325360.0,
+      "end_time": 326850.0,
+      "text": "heap space do I have available?"
+    },
+    {
+      "index": 111,
+      "start_time": 326850.0,
+      "end_time": 329945.0,
+      "text": "You know, maybe you want to decide how much stuff to keep"
+    },
+    {
+      "index": 112,
+      "start_time": 329945.0,
+      "end_time": 332480.0,
+      "text": "in a cache for example."
+    },
+    {
+      "index": 113,
+      "start_time": 332480.0,
+      "end_time": 335170.0,
+      "text": "There&#39;s a method you can use in ActivityManager,"
+    },
+    {
+      "index": 114,
+      "start_time": 335170.0,
+      "end_time": 338040.0,
+      "text": "getMemoryClass that will return an integer value in"
+    },
+    {
+      "index": 115,
+      "start_time": 338040.0,
+      "end_time": 342570.0,
+      "text": "megabytes, which is your heap size."
+    },
+    {
+      "index": 116,
+      "start_time": 342570.0,
+      "end_time": 346780.0,
+      "text": "Now these limits were designed assuming that you know almost"
+    },
+    {
+      "index": 117,
+      "start_time": 346780.0,
+      "end_time": 349160.0,
+      "text": "any app that you would want to build on Android should be"
+    },
+    {
+      "index": 118,
+      "start_time": 349160.0,
+      "end_time": 351860.0,
+      "text": "able to fit under these limits."
+    },
+    {
+      "index": 119,
+      "start_time": 351860.0,
+      "end_time": 353440.0,
+      "text": "Of course, there are some apps that are"
+    },
+    {
+      "index": 120,
+      "start_time": 353440.0,
+      "end_time": 356920.0,
+      "text": "really memory intensive."
+    },
+    {
+      "index": 121,
+      "start_time": 356920.0,
+      "end_time": 359950.0,
+      "text": "And as I said, on the tablet, we really want to build almost"
+    },
+    {
+      "index": 122,
+      "start_time": 359950.0,
+      "end_time": 361430.0,
+      "text": "a new class of application."
+    },
+    {
+      "index": 123,
+      "start_time": 361430.0,
+      "end_time": 364050.0,
+      "text": "It&#39;s quite a different than the kind of things you were"
+    },
+    {
+      "index": 124,
+      "start_time": 364050.0,
+      "end_time": 366550.0,
+      "text": "building on phones."
+    },
+    {
+      "index": 125,
+      "start_time": 366550.0,
+      "end_time": 368750.0,
+      "text": "So we thought, if someone wants to build an image"
+    },
+    {
+      "index": 126,
+      "start_time": 368750.0,
+      "end_time": 371140.0,
+      "text": "editor, for example, on the Zoom, they should"
+    },
+    {
+      "index": 127,
+      "start_time": 371140.0,
+      "end_time": 372400.0,
+      "text": "be able to do that."
+    },
+    {
+      "index": 128,
+      "start_time": 372400.0,
+      "end_time": 376050.0,
+      "text": "But an image editor&#39;s a really memory intensive application."
+    },
+    {
+      "index": 129,
+      "start_time": 376050.0,
+      "end_time": 378590.0,
+      "text": "It&#39;s unlikely that you could build a good one that used"
+    },
+    {
+      "index": 130,
+      "start_time": 378590.0,
+      "end_time": 381536.0,
+      "text": "less than 48 megabytes of heap."
+    },
+    {
+      "index": 131,
+      "start_time": 381536.0,
+      "end_time": 385380.0,
+      "text": "So in Honeycomb we&#39;ve added a new option that allows"
+    },
+    {
+      "index": 132,
+      "start_time": 385380.0,
+      "end_time": 389440.0,
+      "text": "applications like this to get a larger heap size."
+    },
+    {
+      "index": 133,
+      "start_time": 389440.0,
+      "end_time": 390950.0,
+      "text": "Basically, , you can put something in your"
+    },
+    {
+      "index": 134,
+      "start_time": 390950.0,
+      "end_time": 394510.0,
+      "text": "AndroidManifest, largeHeap equals true."
+    },
+    {
+      "index": 135,
+      "start_time": 394510.0,
+      "end_time": 398400.0,
+      "text": "And that will allow your application to use more heap."
+    },
+    {
+      "index": 136,
+      "start_time": 398400.0,
+      "end_time": 402790.0,
+      "text": "And similarly, there&#39;s a method you can use to"
+    },
+    {
+      "index": 137,
+      "start_time": 402790.0,
+      "end_time": 405390.0,
+      "text": "determine how much memory you have available to you."
+    },
+    {
+      "index": 138,
+      "start_time": 405390.0,
+      "end_time": 408100.0,
+      "text": "The ActivityManager getLargeMemoryClass method"
+    },
+    {
+      "index": 139,
+      "start_time": 408100.0,
+      "end_time": 413140.0,
+      "text": "again, will return an integer value of this large heap size."
+    },
+    {
+      "index": 140,
+      "start_time": 413140.0,
+      "end_time": 415570.0,
+      "text": "Now before we go any further, I want to give"
+    },
+    {
+      "index": 141,
+      "start_time": 415570.0,
+      "end_time": 417490.0,
+      "text": "a big warning here."
+    },
+    {
+      "index": 142,
+      "start_time": 417490.0,
+      "end_time": 419430.0,
+      "text": "You know, this is not something you should be doing"
+    },
+    {
+      "index": 143,
+      "start_time": 419430.0,
+      "end_time": 422630.0,
+      "text": "just because you got an out of memory error, or you think"
+    },
+    {
+      "index": 144,
+      "start_time": 422630.0,
+      "end_time": 425160.0,
+      "text": "that your app deserves a bigger heap."
+    },
+    {
+      "index": 145,
+      "start_time": 425160.0,
+      "end_time": 428130.0,
+      "text": "You&#39;re not going to be doing yourself any favors because"
+    },
+    {
+      "index": 146,
+      "start_time": 428130.0,
+      "end_time": 431480.0,
+      "text": "your app is going to perform more poorly because bigger"
+    },
+    {
+      "index": 147,
+      "start_time": 431480.0,
+      "end_time": 433270.0,
+      "text": "heap means you&#39;re going to spend more time at garbage"
+    },
+    {
+      "index": 148,
+      "start_time": 433270.0,
+      "end_time": 434530.0,
+      "text": "collection."
+    },
+    {
+      "index": 149,
+      "start_time": 434530.0,
+      "end_time": 437040.0,
+      "text": "Also, your users are probably going to notice because all"
+    },
+    {
+      "index": 150,
+      "start_time": 437040.0,
+      "end_time": 440450.0,
+      "text": "their other apps are getting kicked out of memory."
+    },
+    {
+      "index": 151,
+      "start_time": 440450.0,
+      "end_time": 443620.0,
+      "text": "It&#39;s really something you want to reserve for when you really"
+    },
+    {
+      "index": 152,
+      "start_time": 443620.0,
+      "end_time": 447360.0,
+      "text": "understand OK, I&#39;m using tons of memory and I know exactly"
+    },
+    {
+      "index": 153,
+      "start_time": 447360.0,
+      "end_time": 449050.0,
+      "text": "why I&#39;m using that memory, and I really"
+    },
+    {
+      "index": 154,
+      "start_time": 449050.0,
+      "end_time": 450510.0,
+      "text": "need to use that memory."
+    },
+    {
+      "index": 155,
+      "start_time": 450510.0,
+      "end_time": 452710.0,
+      "text": "That&#39;s the only time that you should be using this large"
+    },
+    {
+      "index": 156,
+      "start_time": 452710.0,
+      "end_time": 453960.0,
+      "text": "heap option."
+    },
+    {
+      "index": 157,
+      "start_time": 458450.0,
+      "end_time": 460920.0,
+      "text": "So I mentioned garbage collection."
+    },
+    {
+      "index": 158,
+      "start_time": 460920.0,
+      "end_time": 465126.0,
+      "text": "And that it takes longer when you have a bigger heap."
+    },
+    {
+      "index": 159,
+      "start_time": 465126.0,
+      "end_time": 467940.0,
+      "text": "Let&#39;s talk a little bit about garbage collection."
+    },
+    {
+      "index": 160,
+      "start_time": 467940.0,
+      "end_time": 471160.0,
+      "text": "So I just want to go through a quick explanation here of what"
+    },
+    {
+      "index": 161,
+      "start_time": 471160.0,
+      "end_time": 472180.0,
+      "text": "[INAUDIBLE]"
+    },
+    {
+      "index": 162,
+      "start_time": 472180.0,
+      "end_time": 475540.0,
+      "text": "garbage collection is doing."
+    },
+    {
+      "index": 163,
+      "start_time": 475540.0,
+      "end_time": 478390.0,
+      "text": "So basically, you have a set of objects."
+    },
+    {
+      "index": 164,
+      "start_time": 478390.0,
+      "end_time": 481190.0,
+      "text": "First of all, let&#39;s say these blue objects here, these are"
+    },
+    {
+      "index": 165,
+      "start_time": 481190.0,
+      "end_time": 482950.0,
+      "text": "the objects in your heap."
+    },
+    {
+      "index": 166,
+      "start_time": 482950.0,
+      "end_time": 484590.0,
+      "text": "And they form a kind of graph."
+    },
+    {
+      "index": 167,
+      "start_time": 484590.0,
+      "end_time": 487940.0,
+      "text": "They&#39;ve got references to each other."
+    },
+    {
+      "index": 168,
+      "start_time": 487940.0,
+      "end_time": 489920.0,
+      "text": "Some of those objects are alive, some of them are not"
+    },
+    {
+      "index": 169,
+      "start_time": 489920.0,
+      "end_time": 491190.0,
+      "text": "used anymore."
+    },
+    {
+      "index": 170,
+      "start_time": 491190.0,
+      "end_time": 493970.0,
+      "text": "So what the GC does is it starts from a set of objects"
+    },
+    {
+      "index": 171,
+      "start_time": 493970.0,
+      "end_time": 495440.0,
+      "text": "that we call the roots."
+    },
+    {
+      "index": 172,
+      "start_time": 495440.0,
+      "end_time": 498890.0,
+      "text": "These are the objects that the GC knows is alive."
+    },
+    {
+      "index": 173,
+      "start_time": 498890.0,
+      "end_time": 503705.0,
+      "text": "For example, variables that are alive on a thread stack, J"
+    },
+    {
+      "index": 174,
+      "start_time": 503705.0,
+      "end_time": 508860.0,
+      "text": "and I global references, we treat objects in the zygote as"
+    },
+    {
+      "index": 175,
+      "start_time": 508860.0,
+      "end_time": 511670.0,
+      "text": "heap, or as roots as well."
+    },
+    {
+      "index": 176,
+      "start_time": 511670.0,
+      "end_time": 515460.0,
+      "text": "So basically, the GC starts with those objects and starts"
+    },
+    {
+      "index": 177,
+      "start_time": 515460.00000000006,
+      "end_time": 517830.00000000006,
+      "text": "visiting the other objects."
+    },
+    {
+      "index": 178,
+      "start_time": 517830.00000000006,
+      "end_time": 520450.00000000006,
+      "text": "And basically, traversing through the whole graph to"
+    },
+    {
+      "index": 179,
+      "start_time": 520450.00000000006,
+      "end_time": 523169.00000000006,
+      "text": "find out which objects are referenced directly or"
+    },
+    {
+      "index": 180,
+      "start_time": 523169.0,
+      "end_time": 526220.0,
+      "text": "indirectly from the GC roots."
+    },
+    {
+      "index": 181,
+      "start_time": 526220.0,
+      "end_time": 528990.0,
+      "text": "At the end of this process, you&#39;ve got some objects left"
+    },
+    {
+      "index": 182,
+      "start_time": 528990.0,
+      "end_time": 531720.0,
+      "text": "over, which the GC never visited."
+    },
+    {
+      "index": 183,
+      "start_time": 531720.0,
+      "end_time": 533260.0,
+      "text": "Those are your garbage."
+    },
+    {
+      "index": 184,
+      "start_time": 533260.0,
+      "end_time": 535090.0,
+      "text": "They can be collected."
+    },
+    {
+      "index": 185,
+      "start_time": 535090.0,
+      "end_time": 537650.0,
+      "text": "So it&#39;s a pretty simple concept."
+    },
+    {
+      "index": 186,
+      "start_time": 537650.0,
+      "end_time": 540720.0,
+      "text": "And you can see why when I said that you have bigger"
+    },
+    {
+      "index": 187,
+      "start_time": 540720.0,
+      "end_time": 543840.0,
+      "text": "heaps you&#39;re going to have larger pause times."
+    },
+    {
+      "index": 188,
+      "start_time": 543840.0,
+      "end_time": 547530.0,
+      "text": "Because the garbage collector basically has to traverse your"
+    },
+    {
+      "index": 189,
+      "start_time": 547530.0,
+      "end_time": 550940.0,
+      "text": "entire live set of objects."
+    },
+    {
+      "index": 190,
+      "start_time": 550940.0,
+      "end_time": 554850.0,
+      "text": "If you&#39;re using say the large heap option and you&#39;ve got 256"
+    },
+    {
+      "index": 191,
+      "start_time": 554850.0,
+      "end_time": 557470.0,
+      "text": "megs of heap, well, that&#39;s a lot of memory for the garbage"
+    },
+    {
+      "index": 192,
+      "start_time": 557470.0,
+      "end_time": 558510.0,
+      "text": "collector to walk over."
+    },
+    {
+      "index": 193,
+      "start_time": 558510.0,
+      "end_time": 562370.0,
+      "text": "You&#39;re going to see longer pause times with that."
+    },
+    {
+      "index": 194,
+      "start_time": 562370.0,
+      "end_time": 564280.0,
+      "text": "We have some good news though."
+    },
+    {
+      "index": 195,
+      "start_time": 564280.0,
+      "end_time": 567690.0,
+      "text": "In Gingerbread, there have been some great changes to the"
+    },
+    {
+      "index": 196,
+      "start_time": 567690.0,
+      "end_time": 570880.0,
+      "text": "garbage collector that make things a lot better."
+    },
+    {
+      "index": 197,
+      "start_time": 570880.0,
+      "end_time": 572590.0,
+      "text": "So in Gingerbre--"
+    },
+    {
+      "index": 198,
+      "start_time": 572590.0,
+      "end_time": 575610.0,
+      "text": "sorry, pre-Gingerbread, the state of the garbage collector"
+    },
+    {
+      "index": 199,
+      "start_time": 575610.0,
+      "end_time": 577902.0,
+      "text": "was that we had to stop the world collector."
+    },
+    {
+      "index": 200,
+      "start_time": 577902.0,
+      "end_time": 580880.0,
+      "text": "So what this means is that basically, when a garbage"
+    },
+    {
+      "index": 201,
+      "start_time": 580880.0,
+      "end_time": 584510.0,
+      "text": "collection is in progress, your application is stopped."
+    },
+    {
+      "index": 202,
+      "start_time": 584510.0,
+      "end_time": 587530.0,
+      "text": "All your application threads are completely stopped while"
+    },
+    {
+      "index": 203,
+      "start_time": 587530.0,
+      "end_time": 589060.0,
+      "text": "the collection is proceeding."
+    },
+    {
+      "index": 204,
+      "start_time": 589060.0,
+      "end_time": 590380.0,
+      "text": "This is a pretty standard things."
+    },
+    {
+      "index": 205,
+      "start_time": 590380.0,
+      "end_time": 593895.0,
+      "text": "These pauses generally tend to be pretty short."
+    },
+    {
+      "index": 206,
+      "start_time": 593895.0,
+      "end_time": 597220.0,
+      "text": "What we found was that pause times as heaps were getting"
+    },
+    {
+      "index": 207,
+      "start_time": 597220.0,
+      "end_time": 600440.0,
+      "text": "bigger, these were getting to be a little bit too long."
+    },
+    {
+      "index": 208,
+      "start_time": 600440.0,
+      "end_time": 604480.0,
+      "text": "So we were seeing stuff up 50 to 100 milliseconds."
+    },
+    {
+      "index": 209,
+      "start_time": 604480.0,
+      "end_time": 607510.0,
+      "text": "And if you&#39;re trying to build a really responsive app that"
+    },
+    {
+      "index": 210,
+      "start_time": 607510.0,
+      "end_time": 611350.0,
+      "text": "kind of pause time is not really acceptable."
+    },
+    {
+      "index": 211,
+      "start_time": 611350.0,
+      "end_time": 613580.0,
+      "text": "So in Gingerbread, we now have a"
+    },
+    {
+      "index": 212,
+      "start_time": 613580.0,
+      "end_time": 615350.0,
+      "text": "concurrent garbage collector."
+    },
+    {
+      "index": 213,
+      "start_time": 615350.0,
+      "end_time": 618230.0,
+      "text": "It does most of its work concurrently, which means that"
+    },
+    {
+      "index": 214,
+      "start_time": 618230.0,
+      "end_time": 621275.0,
+      "text": "your application is not stopped for the duration of"
+    },
+    {
+      "index": 215,
+      "start_time": 621275.0,
+      "end_time": 622610.0,
+      "text": "the garbage collection."
+    },
+    {
+      "index": 216,
+      "start_time": 622610.0,
+      "end_time": 624510.0,
+      "text": "Basically, we have another thread that&#39;s running at the"
+    },
+    {
+      "index": 217,
+      "start_time": 624510.0,
+      "end_time": 627420.0,
+      "text": "same time as your application that can perform garbage"
+    },
+    {
+      "index": 218,
+      "start_time": 627420.0,
+      "end_time": 629200.0,
+      "text": "collection work."
+    },
+    {
+      "index": 219,
+      "start_time": 629200.0,
+      "end_time": 631740.0,
+      "text": "You&#39;ll see basically two short pauses."
+    },
+    {
+      "index": 220,
+      "start_time": 631740.0,
+      "end_time": 633590.0,
+      "text": "One at the beginning of a collection and"
+    },
+    {
+      "index": 221,
+      "start_time": 633590.0,
+      "end_time": 635260.0,
+      "text": "one near the end."
+    },
+    {
+      "index": 222,
+      "start_time": 635260.0,
+      "end_time": 637820.0,
+      "text": "But these pause times are going to be much, much lower."
+    },
+    {
+      "index": 223,
+      "start_time": 637820.0,
+      "end_time": 641930.0,
+      "text": "Usually you&#39;ll see two, three, four, or five milliseconds for"
+    },
+    {
+      "index": 224,
+      "start_time": 641930.0,
+      "end_time": 643180.0,
+      "text": "your pause time."
+    },
+    {
+      "index": 225,
+      "start_time": 643180.0,
+      "end_time": 645140.0,
+      "text": "So that&#39;s a significant improvement."
+    },
+    {
+      "index": 226,
+      "start_time": 645140.0,
+      "end_time": 648610.0,
+      "text": "Pause times about 10% of what they used to be."
+    },
+    {
+      "index": 227,
+      "start_time": 648610.0,
+      "end_time": 652770.0,
+      "text": "So that&#39;s a really good change that we have in Gingerbread."
+    },
+    {
+      "index": 228,
+      "start_time": 652770.0,
+      "end_time": 655000.0,
+      "text": "Now if you&#39;re building memory heavy apps, there&#39;s a good"
+    },
+    {
+      "index": 229,
+      "start_time": 655000.0,
+      "end_time": 657350.0,
+      "text": "chance you&#39;re using a lot of bitmaps."
+    },
+    {
+      "index": 230,
+      "start_time": 657350.0,
+      "end_time": 661060.0,
+      "text": "We found that in a lot of apps you have maybe 50 or 75% of"
+    },
+    {
+      "index": 231,
+      "start_time": 661060.0,
+      "end_time": 664120.0,
+      "text": "your heap is taken up by bitmaps."
+    },
+    {
+      "index": 232,
+      "start_time": 664120.0,
+      "end_time": 666840.0,
+      "text": "And in Honeycomb because you&#39;re going to be developing"
+    },
+    {
+      "index": 233,
+      "start_time": 666840.0,
+      "end_time": 669230.0,
+      "text": "on tablets, this gets even worse."
+    },
+    {
+      "index": 234,
+      "start_time": 669230.0,
+      "end_time": 674820.0,
+      "text": "Because your images are bigger to fill the screen."
+    },
+    {
+      "index": 235,
+      "start_time": 674820.0,
+      "end_time": 679170.0,
+      "text": "So before Honeycomb, the way we managed bitmaps was this."
+    },
+    {
+      "index": 236,
+      "start_time": 679170.0,
+      "end_time": 683250.0,
+      "text": "So the blue area up here is the Dalvik heap and this"
+    },
+    {
+      "index": 237,
+      "start_time": 683250.0,
+      "end_time": 685820.0,
+      "text": "yellow object is a bitmap object."
+    },
+    {
+      "index": 238,
+      "start_time": 685820.0,
+      "end_time": 689250.0,
+      "text": "Now bitmap objects are always the same size in the heap no"
+    },
+    {
+      "index": 239,
+      "start_time": 689250.0,
+      "end_time": 691750.0,
+      "text": "matter what their resolution is."
+    },
+    {
+      "index": 240,
+      "start_time": 691750.0,
+      "end_time": 694240.0,
+      "text": "The backing memory for the bitmap is actually stored in"
+    },
+    {
+      "index": 241,
+      "start_time": 694240.0,
+      "end_time": 695780.0,
+      "text": "another object."
+    },
+    {
+      "index": 242,
+      "start_time": 695780.0,
+      "end_time": 699090.0,
+      "text": "So the pixel data is stored separately."
+    },
+    {
+      "index": 243,
+      "start_time": 699090.0,
+      "end_time": 702250.0,
+      "text": "Now before Honeycomb what we did was this pixel data was"
+    },
+    {
+      "index": 244,
+      "start_time": 702250.0,
+      "end_time": 703480.0,
+      "text": "actually native memory."
+    },
+    {
+      "index": 245,
+      "start_time": 703480.0,
+      "end_time": 707860.0,
+      "text": "It was allocated using malloc outside the Dalvik heap."
+    },
+    {
+      "index": 246,
+      "start_time": 707860.0,
+      "end_time": 709875.0,
+      "text": "And this had a few consequences."
+    },
+    {
+      "index": 247,
+      "start_time": 709875.0,
+      "end_time": 712430.0,
+      "text": "If you wanted to free this memory you could either call"
+    },
+    {
+      "index": 248,
+      "start_time": 712430.0,
+      "end_time": 716510.0,
+      "text": "recycle, which would free the memory synchronously."
+    },
+    {
+      "index": 249,
+      "start_time": 716510.0,
+      "end_time": 718610.0,
+      "text": "But if you didn&#39;t call recycle and you were waiting for your"
+    },
+    {
+      "index": 250,
+      "start_time": 718610.0,
+      "end_time": 721340.0,
+      "text": "bitmap to get garbage collected, we had to rely on"
+    },
+    {
+      "index": 251,
+      "start_time": 721340.0,
+      "end_time": 725070.0,
+      "text": "the finalizer to free the backing memory for the bitmap."
+    },
+    {
+      "index": 252,
+      "start_time": 725070.0,
+      "end_time": 727330.0,
+      "text": "And if you&#39;re familiar with finalization, you probably"
+    },
+    {
+      "index": 253,
+      "start_time": 727330.0,
+      "end_time": 730580.0,
+      "text": "know that it&#39;s an inherently unreliable process."
+    },
+    {
+      "index": 254,
+      "start_time": 730580.0,
+      "end_time": 735030.0,
+      "text": "Just by its nature it takes several collections, usually"
+    },
+    {
+      "index": 255,
+      "start_time": 735030.0,
+      "end_time": 737470.0,
+      "text": "for finalization to complete."
+    },
+    {
+      "index": 256,
+      "start_time": 737470.0,
+      "end_time": 740280.0,
+      "text": "So this can cause problems with bitmap heavy app as you"
+    },
+    {
+      "index": 257,
+      "start_time": 740280.0,
+      "end_time": 743020.0,
+      "text": "had to wait for several garbage collections before"
+    },
+    {
+      "index": 258,
+      "start_time": 743020.0,
+      "end_time": 745110.0,
+      "text": "your pixel data was reclaimed."
+    },
+    {
+      "index": 259,
+      "start_time": 745110.0,
+      "end_time": 747380.0,
+      "text": "And this could be a lot of memory because bitmap pixel"
+    },
+    {
+      "index": 260,
+      "start_time": 747380.0,
+      "end_time": 752080.0,
+      "text": "data is quite a significant portion of the heap."
+    },
+    {
+      "index": 261,
+      "start_time": 752080.0,
+      "end_time": 753920.0,
+      "text": "This also made things harder to debug."
+    },
+    {
+      "index": 262,
+      "start_time": 753920.0,
+      "end_time": 757140.0,
+      "text": "If you were using standard memory analysis tools like the"
+    },
+    {
+      "index": 263,
+      "start_time": 757140.0,
+      "end_time": 760690.0,
+      "text": "Eclipse Memory Analyzer, it couldn&#39;t actually see this"
+    },
+    {
+      "index": 264,
+      "start_time": 760690.0,
+      "end_time": 761230.0,
+      "text": "native memory."
+    },
+    {
+      "index": 265,
+      "start_time": 761230.0,
+      "end_time": 763390.0,
+      "text": "You would see this tiny bitmap object."
+    },
+    {
+      "index": 266,
+      "start_time": 763390.0,
+      "end_time": 765190.0,
+      "text": "Sure, but that doesn&#39;t tell you very much."
+    },
+    {
+      "index": 267,
+      "start_time": 765190.0,
+      "end_time": 767880.0,
+      "text": "You don&#39;t mind if you have a 10 by 10 bitmap."
+    },
+    {
+      "index": 268,
+      "start_time": 767880.0,
+      "end_time": 772580.0,
+      "text": "But if you have a 512 by 512 bitmap it&#39;s a big difference."
+    },
+    {
+      "index": 269,
+      "start_time": 772580.0,
+      "end_time": 775010.0,
+      "text": "Finally, the other problem that we had with this approach"
+    },
+    {
+      "index": 270,
+      "start_time": 775010.0,
+      "end_time": 778180.0,
+      "text": "was that it required full stop the world garbage collections"
+    },
+    {
+      "index": 271,
+      "start_time": 778180.0,
+      "end_time": 781580.0,
+      "text": "in order to reclaim the backing memory, assuming that"
+    },
+    {
+      "index": 272,
+      "start_time": 781580.0,
+      "end_time": 784740.0,
+      "text": "you didn&#39;t call recycle, that is."
+    },
+    {
+      "index": 273,
+      "start_time": 784740.0,
+      "end_time": 786590.0,
+      "text": "The good news is in Honeycomb we&#39;ve changed"
+    },
+    {
+      "index": 274,
+      "start_time": 786590.0,
+      "end_time": 787820.0,
+      "text": "the way this works."
+    },
+    {
+      "index": 275,
+      "start_time": 787820.0,
+      "end_time": 791080.0,
+      "text": "And the bitmap pixel data is now allocated inside the"
+    },
+    {
+      "index": 276,
+      "start_time": 791080.0,
+      "end_time": 792310.0,
+      "text": "Dalvik heap."
+    },
+    {
+      "index": 277,
+      "start_time": 792310.0,
+      "end_time": 795780.0,
+      "text": "So this means it can be freed synchronously by the GC on the"
+    },
+    {
+      "index": 278,
+      "start_time": 795780.0,
+      "end_time": 798690.0,
+      "text": "same cycle that your bitmap gets collected."
+    },
+    {
+      "index": 279,
+      "start_time": 798690.0,
+      "end_time": 801360.0,
+      "text": "It&#39;s also easier to debug because you can see this"
+    },
+    {
+      "index": 280,
+      "start_time": 801360.0,
+      "end_time": 804950.0,
+      "text": "backing memory in standard analysis tools like Eclipse"
+    },
+    {
+      "index": 281,
+      "start_time": 804950.0,
+      "end_time": 805962.0,
+      "text": "Memory Analyzer."
+    },
+    {
+      "index": 282,
+      "start_time": 805962.0,
+      "end_time": 808870.0,
+      "text": "And I&#39;m going to do a demo in a few minutes and you&#39;ll see"
+    },
+    {
+      "index": 283,
+      "start_time": 808870.0,
+      "end_time": 811520.0,
+      "text": "really, how much more useful this is when you"
+    },
+    {
+      "index": 284,
+      "start_time": 811520.0,
+      "end_time": 813820.0,
+      "text": "can see that memory."
+    },
+    {
+      "index": 285,
+      "start_time": 813820.0,
+      "end_time": 817340.0,
+      "text": "Finally, this strategy is more amenable to concurrent and"
+    },
+    {
+      "index": 286,
+      "start_time": 817340.0,
+      "end_time": 820570.0,
+      "text": "partial garbage collections, which means we can generally"
+    },
+    {
+      "index": 287,
+      "start_time": 820570.0,
+      "end_time": 822160.0,
+      "text": "keep those pause times down."
+    },
+    {
+      "index": 288,
+      "start_time": 824850.0,
+      "end_time": 827100.0,
+      "text": "So those are the two biggest changes that we&#39;ve introduced"
+    },
+    {
+      "index": 289,
+      "start_time": 827100.0,
+      "end_time": 829480.0,
+      "text": "in Gingerbread and Honeycomb that affect how"
+    },
+    {
+      "index": 290,
+      "start_time": 829480.0,
+      "end_time": 831600.0,
+      "text": "your apps use memory."
+    },
+    {
+      "index": 291,
+      "start_time": 831600.0,
+      "end_time": 834950.0,
+      "text": "And now I want to dive in to some tools that you can use to"
+    },
+    {
+      "index": 292,
+      "start_time": 834950.0,
+      "end_time": 838180.0,
+      "text": "better understand how much memory your app&#39;s using."
+    },
+    {
+      "index": 293,
+      "start_time": 838180.0,
+      "end_time": 842250.0,
+      "text": "And if you have memory leaks, better understanding where"
+    },
+    {
+      "index": 294,
+      "start_time": 842250.0,
+      "end_time": 845400.0,
+      "text": "those leaks are and generally, how your app is using memory."
+    },
+    {
+      "index": 295,
+      "start_time": 847970.0,
+      "end_time": 850360.0,
+      "text": "The most basic tool you can use for understanding your"
+    },
+    {
+      "index": 296,
+      "start_time": 850360.0,
+      "end_time": 854240.0,
+      "text": "apps memory usage is to look at your log messages."
+    },
+    {
+      "index": 297,
+      "start_time": 854240.0,
+      "end_time": 858230.0,
+      "text": "So these are the log messages that you see in DDMS in the"
+    },
+    {
+      "index": 298,
+      "start_time": 858230.0,
+      "end_time": 860100.0,
+      "text": "log cat view."
+    },
+    {
+      "index": 299,
+      "start_time": 860100.0,
+      "end_time": 861760.0,
+      "text": "You can also see them at the command line"
+    },
+    {
+      "index": 300,
+      "start_time": 861760.0,
+      "end_time": 864610.0,
+      "text": "using ADB log cat."
+    },
+    {
+      "index": 301,
+      "start_time": 864610.0,
+      "end_time": 866610.0,
+      "text": "And every time a garbage collection happens in your"
+    },
+    {
+      "index": 302,
+      "start_time": 866610.0,
+      "end_time": 869520.0,
+      "text": "process, you&#39;re going to see a message that looks something"
+    },
+    {
+      "index": 303,
+      "start_time": 869520.0,
+      "end_time": 870490.0,
+      "text": "like this one."
+    },
+    {
+      "index": 304,
+      "start_time": 870490.0,
+      "end_time": 872570.0,
+      "text": "And I just want to go through the different parts of this"
+    },
+    {
+      "index": 305,
+      "start_time": 872570.0,
+      "end_time": 874630.0,
+      "text": "message, so you can better understand what"
+    },
+    {
+      "index": 306,
+      "start_time": 874630.0,
+      "end_time": 877300.0,
+      "text": "it&#39;s telling you."
+    },
+    {
+      "index": 307,
+      "start_time": 877300.0,
+      "end_time": 879830.0,
+      "text": "The first thing we have is the reason for the garbage"
+    },
+    {
+      "index": 308,
+      "start_time": 879830.0,
+      "end_time": 880800.0,
+      "text": "collection."
+    },
+    {
+      "index": 309,
+      "start_time": 880800.0,
+      "end_time": 884830.0,
+      "text": "Kind of what triggered it and what kind of collection is it."
+    },
+    {
+      "index": 310,
+      "start_time": 884830.0,
+      "end_time": 887700.0,
+      "text": "This one here was a concurrent collection."
+    },
+    {
+      "index": 311,
+      "start_time": 887700.0,
+      "end_time": 893400.0,
+      "text": "So a concurrent collection is triggered by basically, as"
+    },
+    {
+      "index": 312,
+      "start_time": 893400.0,
+      "end_time": 896690.0,
+      "text": "your heap starts to fill up, we kick off our concurrent"
+    },
+    {
+      "index": 313,
+      "start_time": 896690.0,
+      "end_time": 899960.0,
+      "text": "garbage collection so that it can hopefully complete before"
+    },
+    {
+      "index": 314,
+      "start_time": 899960.0,
+      "end_time": 902600.0,
+      "text": "your heap gets full."
+    },
+    {
+      "index": 315,
+      "start_time": 902600.0,
+      "end_time": 904300.0,
+      "text": "Other kinds of collections that you&#39;ll"
+    },
+    {
+      "index": 316,
+      "start_time": 904300.0,
+      "end_time": 906110.0,
+      "text": "see in the log messages."
+    },
+    {
+      "index": 317,
+      "start_time": 906110.0,
+      "end_time": 908420.0,
+      "text": "GC for malloc is one of them."
+    },
+    {
+      "index": 318,
+      "start_time": 908420.0,
+      "end_time": 911210.0,
+      "text": "That&#39;s what happens when say, we didn&#39;t complete the"
+    },
+    {
+      "index": 319,
+      "start_time": 911210.0,
+      "end_time": 914020.0,
+      "text": "concurrent collection in time and your application had to"
+    },
+    {
+      "index": 320,
+      "start_time": 914020.0,
+      "end_time": 915350.0,
+      "text": "allocate more memory."
+    },
+    {
+      "index": 321,
+      "start_time": 915350.0,
+      "end_time": 917610.0,
+      "text": "The heap was full, so we had to stop and do a garbage"
+    },
+    {
+      "index": 322,
+      "start_time": 917610.0,
+      "end_time": 919580.0,
+      "text": "collection."
+    },
+    {
+      "index": 323,
+      "start_time": 919580.0,
+      "end_time": 923060.0,
+      "text": "You&#39;ll see GC external alloc, which is for externally"
+    },
+    {
+      "index": 324,
+      "start_time": 923060.0,
+      "end_time": 924970.0,
+      "text": "allocated memory, like the bitmap pixel"
+    },
+    {
+      "index": 325,
+      "start_time": 924970.0,
+      "end_time": 926400.0,
+      "text": "data which I mentioned."
+    },
+    {
+      "index": 326,
+      "start_time": 926400.0,
+      "end_time": 929616.0,
+      "text": "It&#39;s also used for NIO direct byte buffers."
+    },
+    {
+      "index": 327,
+      "start_time": 929616.0,
+      "end_time": 932080.0,
+      "text": "Now this external memory as I mentioned, has"
+    },
+    {
+      "index": 328,
+      "start_time": 932080.0,
+      "end_time": 933190.0,
+      "text": "gone away in Honeycomb."
+    },
+    {
+      "index": 329,
+      "start_time": 933190.0,
+      "end_time": 934950.0,
+      "text": "Basically everything is allocated inside"
+    },
+    {
+      "index": 330,
+      "start_time": 934950.0,
+      "end_time": 935920.0,
+      "text": "the Dalvik heap now."
+    },
+    {
+      "index": 331,
+      "start_time": 935920.0,
+      "end_time": 938600.0,
+      "text": "So you won&#39;t see this in your log messages in"
+    },
+    {
+      "index": 332,
+      "start_time": 938600.0,
+      "end_time": 941610.0,
+      "text": "Honeycomb and later."
+    },
+    {
+      "index": 333,
+      "start_time": 941610.0,
+      "end_time": 946630.0,
+      "text": "You&#39;ll also see a message if you do an HPROF, if you create"
+    },
+    {
+      "index": 334,
+      "start_time": 946630.0,
+      "end_time": 948810.0,
+      "text": "an HPROF profile."
+    },
+    {
+      "index": 335,
+      "start_time": 948810.0,
+      "end_time": 950000.0,
+      "text": "And finally, the last one I want to"
+    },
+    {
+      "index": 336,
+      "start_time": 950000.0,
+      "end_time": 952340.0,
+      "text": "mention is GC explicit."
+    },
+    {
+      "index": 337,
+      "start_time": 952340.0,
+      "end_time": 956930.0,
+      "text": "You&#39;ll see this generally when you&#39;re calling system.gc,"
+    },
+    {
+      "index": 338,
+      "start_time": 956930.0,
+      "end_time": 958520.0,
+      "text": "which is something that you know you really"
+    },
+    {
+      "index": 339,
+      "start_time": 958520.0,
+      "end_time": 960240.0,
+      "text": "should avoid doing."
+    },
+    {
+      "index": 340,
+      "start_time": 960240.0,
+      "end_time": 962400.0,
+      "text": "In general, you should trust in the garbage collector."
+    },
+    {
+      "index": 341,
+      "start_time": 965080.0,
+      "end_time": 967060.0,
+      "text": "We&#39;ve got some information also about the amount of"
+    },
+    {
+      "index": 342,
+      "start_time": 967060.0,
+      "end_time": 968565.0,
+      "text": "memory that was freed on this collection."
+    },
+    {
+      "index": 343,
+      "start_time": 971620.0,
+      "end_time": 973880.0,
+      "text": "There&#39;s some statistics about the heap."
+    },
+    {
+      "index": 344,
+      "start_time": 973880.0,
+      "end_time": 977330.0,
+      "text": "So the heap in this case, was 65% free after"
+    },
+    {
+      "index": 345,
+      "start_time": 977330.0,
+      "end_time": 979210.0,
+      "text": "the collection completed."
+    },
+    {
+      "index": 346,
+      "start_time": 979210.0,
+      "end_time": 982320.0,
+      "text": "There&#39;s about three and a half megs of live objects and the"
+    },
+    {
+      "index": 347,
+      "start_time": 982320.0,
+      "end_time": 984720.0,
+      "text": "total heap size here is listed as well."
+    },
+    {
+      "index": 348,
+      "start_time": 984720.0,
+      "end_time": 989460.0,
+      "text": "It&#39;s almost 10 megs, 9,991 K."
+    },
+    {
+      "index": 349,
+      "start_time": 989460.0,
+      "end_time": 992912.0,
+      "text": "There&#39;s some information about externally allocated memory,"
+    },
+    {
+      "index": 350,
+      "start_time": 992912.0,
+      "end_time": 995450.0,
+      "text": "which is the bitmap pixel data and also,"
+    },
+    {
+      "index": 351,
+      "start_time": 995450.0,
+      "end_time": 998530.0,
+      "text": "NIO direct byte buffers."
+    },
+    {
+      "index": 352,
+      "start_time": 998530.0,
+      "end_time": 1001710.0,
+      "text": "The two numbers here, the first number is the amount of"
+    },
+    {
+      "index": 353,
+      "start_time": 1001710.0,
+      "end_time": 1004380.0,
+      "text": "external memory that your app has allocated."
+    },
+    {
+      "index": 354,
+      "start_time": 1004380.0,
+      "end_time": 1007420.0,
+      "text": "The second number is a sort of soft limit."
+    },
+    {
+      "index": 355,
+      "start_time": 1007420.0,
+      "end_time": 1009430.0,
+      "text": "When you&#39;ve allocated that much memory, we&#39;re going to"
+    },
+    {
+      "index": 356,
+      "start_time": 1009430.0,
+      "end_time": 1010680.0,
+      "text": "kick off a GC."
+    },
+    {
+      "index": 357,
+      "start_time": 1012830.0,
+      "end_time": 1015920.0,
+      "text": "Finally, you&#39;ll see the pause times for that collection."
+    },
+    {
+      "index": 358,
+      "start_time": 1015920.0,
+      "end_time": 1017790.0,
+      "text": "And this is where you&#39;re going to see the effect"
+    },
+    {
+      "index": 359,
+      "start_time": 1017790.0,
+      "end_time": 1019320.0,
+      "text": "of your heap size."
+    },
+    {
+      "index": 360,
+      "start_time": 1019320.0,
+      "end_time": 1022540.0,
+      "text": "Larger heaps are going to have larger pause times."
+    },
+    {
+      "index": 361,
+      "start_time": 1022540.0,
+      "end_time": 1024560.0,
+      "text": "The good news is for a concurrent collection, you&#39;re"
+    },
+    {
+      "index": 362,
+      "start_time": 1024560.0,
+      "end_time": 1027710.0,
+      "text": "going to see these pause times generally pretty low."
+    },
+    {
+      "index": 363,
+      "start_time": 1027710.0,
+      "end_time": 1031470.0,
+      "text": "Concurrent collections are going to show two pause times."
+    },
+    {
+      "index": 364,
+      "start_time": 1031470.0,
+      "end_time": 1033670.0,
+      "text": "There&#39;s one short pause at the beginning of the collection"
+    },
+    {
+      "index": 365,
+      "start_time": 1033670.0000000001,
+      "end_time": 1036160.0000000001,
+      "text": "and one most of the way through."
+    },
+    {
+      "index": 366,
+      "start_time": 1036160.0000000001,
+      "end_time": 1038390.0000000001,
+      "text": "Non-concurrent collections you&#39;ll see a single pause"
+    },
+    {
+      "index": 367,
+      "start_time": 1038390.0000000001,
+      "end_time": 1039630.0000000001,
+      "text": "time, and this is generally going to"
+    },
+    {
+      "index": 368,
+      "start_time": 1039630.0000000001,
+      "end_time": 1043480.0000000001,
+      "text": "be quite a bit higher."
+    },
+    {
+      "index": 369,
+      "start_time": 1043480.0,
+      "end_time": 1045840.0,
+      "text": "So looking at your log messages is a really basic way"
+    },
+    {
+      "index": 370,
+      "start_time": 1045839.9999999999,
+      "end_time": 1048580.0,
+      "text": "to understand how much memory your app is using."
+    },
+    {
+      "index": 371,
+      "start_time": 1048580.0,
+      "end_time": 1051035.0,
+      "text": "But it doesn&#39;t really tell you, where am"
+    },
+    {
+      "index": 372,
+      "start_time": 1051040.0,
+      "end_time": 1051825.0,
+      "text": "I using that memory?"
+    },
+    {
+      "index": 373,
+      "start_time": 1051820.0,
+      "end_time": 1054870.0,
+      "text": "What objects are using this memory?"
+    },
+    {
+      "index": 374,
+      "start_time": 1054870.0,
+      "end_time": 1059120.0,
+      "text": "And the best way to do that is using heap dumps."
+    },
+    {
+      "index": 375,
+      "start_time": 1059120.0,
+      "end_time": 1062610.0,
+      "text": "So a heap dump is basically a binary file that contains"
+    },
+    {
+      "index": 376,
+      "start_time": 1062610.0,
+      "end_time": 1066510.0,
+      "text": "information about all of the objects in your heap."
+    },
+    {
+      "index": 377,
+      "start_time": 1066510.0,
+      "end_time": 1071040.0,
+      "text": "You can create a heap dump using DDMS by clicking on the"
+    },
+    {
+      "index": 378,
+      "start_time": 1071040.0,
+      "end_time": 1074470.0,
+      "text": "icon, this somewhat cryptic icon."
+    },
+    {
+      "index": 379,
+      "start_time": 1074470.0,
+      "end_time": 1075040.0,
+      "text": "I think [INAUDIBLE]"
+    },
+    {
+      "index": 380,
+      "start_time": 1075040.0,
+      "end_time": 1078300.0,
+      "text": "mentioned it in the previous talk."
+    },
+    {
+      "index": 381,
+      "start_time": 1078300.0,
+      "end_time": 1081200.0,
+      "text": "There&#39;s also an API for creating heap dumps."
+    },
+    {
+      "index": 382,
+      "start_time": 1081200.0,
+      "end_time": 1084890.0,
+      "text": "In general, I find using DDMS is fine."
+    },
+    {
+      "index": 383,
+      "start_time": 1084890.0,
+      "end_time": 1086830.0,
+      "text": "There are times when you want to create a heap dump at a"
+    },
+    {
+      "index": 384,
+      "start_time": 1086830.0,
+      "end_time": 1089250.0,
+      "text": "very, very specific point in time."
+    },
+    {
+      "index": 385,
+      "start_time": 1089250.0,
+      "end_time": 1091500.0,
+      "text": "Maybe when you&#39;re trying to track down a memory leak."
+    },
+    {
+      "index": 386,
+      "start_time": 1091500.0,
+      "end_time": 1095160.0,
+      "text": "So it can be helpful to use that API."
+    },
+    {
+      "index": 387,
+      "start_time": 1095160.0,
+      "end_time": 1098190.0,
+      "text": "You may need to convert the heap dump to the standard"
+    },
+    {
+      "index": 388,
+      "start_time": 1098190.0,
+      "end_time": 1099310.0,
+      "text": "HPROF format."
+    },
+    {
+      "index": 389,
+      "start_time": 1099310.0,
+      "end_time": 1101960.0,
+      "text": "You&#39;ll only need to do that if you&#39;re using the standalone"
+    },
+    {
+      "index": 390,
+      "start_time": 1101960.0,
+      "end_time": 1106610.0,
+      "text": "version of DDMS. If you&#39;re using the Eclipse plug-in, the"
+    },
+    {
+      "index": 391,
+      "start_time": 1106610.0,
+      "end_time": 1110650.0,
+      "text": "ADT plug-in, it will automatically convert it."
+    },
+    {
+      "index": 392,
+      "start_time": 1110650.0,
+      "end_time": 1111840.0,
+      "text": "But the conversion is pretty simple."
+    },
+    {
+      "index": 393,
+      "start_time": 1111840.0,
+      "end_time": 1114080.0,
+      "text": "There&#39;s a tool in the Android SDK, which you"
+    },
+    {
+      "index": 394,
+      "start_time": 1114080.0,
+      "end_time": 1115740.0,
+      "text": "can use to do it."
+    },
+    {
+      "index": 395,
+      "start_time": 1115740.0,
+      "end_time": 1118780.0,
+      "text": "And after you&#39;ve converted it to the standard HPROF format,"
+    },
+    {
+      "index": 396,
+      "start_time": 1118780.0,
+      "end_time": 1121950.0,
+      "text": "you can analyze it with standard heap analysis tools,"
+    },
+    {
+      "index": 397,
+      "start_time": 1121950.0,
+      "end_time": 1126120.0,
+      "text": "like MAT or jhat."
+    },
+    {
+      "index": 398,
+      "start_time": 1126120.0,
+      "end_time": 1130290.0,
+      "text": "And I&#39;m going to show an example of MAT, which is the"
+    },
+    {
+      "index": 399,
+      "start_time": 1130290.0,
+      "end_time": 1134090.0,
+      "text": "shorter way of saying the Eclipse Memory Analyzer."
+    },
+    {
+      "index": 400,
+      "start_time": 1134090.0,
+      "end_time": 1136300.0,
+      "text": "And before I jump into the demo, I want to talk about"
+    },
+    {
+      "index": 401,
+      "start_time": 1136300.0,
+      "end_time": 1138600.0,
+      "text": "memory leaks."
+    },
+    {
+      "index": 402,
+      "start_time": 1138600.0,
+      "end_time": 1141370.0,
+      "text": "So there&#39;s kind of a misconception that in a"
+    },
+    {
+      "index": 403,
+      "start_time": 1141370.0,
+      "end_time": 1144830.0,
+      "text": "managed run time, you can&#39;t have memory leaks."
+    },
+    {
+      "index": 404,
+      "start_time": 1144830.0,
+      "end_time": 1146940.0,
+      "text": "And I&#39;m sure you guys know that&#39;s not true."
+    },
+    {
+      "index": 405,
+      "start_time": 1146940.0,
+      "end_time": 1151590.0,
+      "text": "Having a garbage collector does not prevent memory leaks."
+    },
+    {
+      "index": 406,
+      "start_time": 1151590.0,
+      "end_time": 1154070.0,
+      "text": "A memory leak in a managed run time is a little bit different"
+    },
+    {
+      "index": 407,
+      "start_time": 1154070.0,
+      "end_time": 1157770.0,
+      "text": "though, than a memory leak in C or C++."
+    },
+    {
+      "index": 408,
+      "start_time": 1157770.0,
+      "end_time": 1160550.0,
+      "text": "Basically, a leak is when you have a reference to an unused"
+    },
+    {
+      "index": 409,
+      "start_time": 1160550.0,
+      "end_time": 1162760.0,
+      "text": "object that&#39;s preventing that object from"
+    },
+    {
+      "index": 410,
+      "start_time": 1162760.0,
+      "end_time": 1164560.0,
+      "text": "being garbage collected."
+    },
+    {
+      "index": 411,
+      "start_time": 1164560.0,
+      "end_time": 1167220.0,
+      "text": "And sometimes you can have a reference to a single object,"
+    },
+    {
+      "index": 412,
+      "start_time": 1167220.0,
+      "end_time": 1170180.0,
+      "text": "but that object points to a bunch of other objects."
+    },
+    {
+      "index": 413,
+      "start_time": 1170180.0,
+      "end_time": 1173320.0,
+      "text": "And basically, that single reference is preventing a"
+    },
+    {
+      "index": 414,
+      "start_time": 1173320.0,
+      "end_time": 1177400.0,
+      "text": "large group of objects from being collected."
+    },
+    {
+      "index": 415,
+      "start_time": 1177400.0,
+      "end_time": 1180580.0,
+      "text": "One thing to watch out for in Android."
+    },
+    {
+      "index": 416,
+      "start_time": 1180580.0,
+      "end_time": 1183530.0,
+      "text": "I see people sometimes and I&#39;ve done this myself,"
+    },
+    {
+      "index": 417,
+      "start_time": 1183530.0,
+      "end_time": 1186060.0,
+      "text": "accidentally create a memory leak by holding a long lived"
+    },
+    {
+      "index": 418,
+      "start_time": 1186060.0,
+      "end_time": 1188600.0,
+      "text": "reference to an activity."
+    },
+    {
+      "index": 419,
+      "start_time": 1188600.0,
+      "end_time": 1190750.0,
+      "text": "So you need to be really careful with that and maybe"
+    },
+    {
+      "index": 420,
+      "start_time": 1190750.0,
+      "end_time": 1193230.0,
+      "text": "it&#39;s you&#39;re holding a reference to the context and"
+    },
+    {
+      "index": 421,
+      "start_time": 1193230.0,
+      "end_time": 1194540.0,
+      "text": "that&#39;s what happens."
+    },
+    {
+      "index": 422,
+      "start_time": 1194540.0,
+      "end_time": 1197590.0,
+      "text": "You can also do it by keeping a long lived reference to a"
+    },
+    {
+      "index": 423,
+      "start_time": 1197590.0,
+      "end_time": 1200240.0,
+      "text": "view or to a drawable, because these will also hold a"
+    },
+    {
+      "index": 424,
+      "start_time": 1200240.0,
+      "end_time": 1205530.0,
+      "text": "reference to the activity that they were originally in."
+    },
+    {
+      "index": 425,
+      "start_time": 1205530.0,
+      "end_time": 1208170.0,
+      "text": "And the reason that this is a problem, the reason this"
+    },
+    {
+      "index": 426,
+      "start_time": 1208170.0,
+      "end_time": 1211070.0,
+      "text": "causes a memory leak is this."
+    },
+    {
+      "index": 427,
+      "start_time": 1211070.0,
+      "end_time": 1214680.0,
+      "text": "So you&#39;ve got your activity, it contains a view group, a"
+    },
+    {
+      "index": 428,
+      "start_time": 1214680.0,
+      "end_time": 1218160.0,
+      "text": "linear layout or something, and it contains some views."
+    },
+    {
+      "index": 429,
+      "start_time": 1218160.0,
+      "end_time": 1220910.0,
+      "text": "And we&#39;ve got a reference from the framework to the currently"
+    },
+    {
+      "index": 430,
+      "start_time": 1220910.0,
+      "end_time": 1222160.0,
+      "text": "visible activity."
+    },
+    {
+      "index": 431,
+      "start_time": 1224250.0,
+      "end_time": 1227380.0,
+      "text": "But in Android, when you have a rotation event, so you"
+    },
+    {
+      "index": 432,
+      "start_time": 1227380.0,
+      "end_time": 1231870.0,
+      "text": "rotate your device, what we do is actually build up a new"
+    },
+    {
+      "index": 433,
+      "start_time": 1231870.0,
+      "end_time": 1235780.0,
+      "text": "view hierarchy because you need to load new resources,"
+    },
+    {
+      "index": 434,
+      "start_time": 1235780.0,
+      "end_time": 1237890.0,
+      "text": "you may have a brand new layout for landscape or"
+    },
+    {
+      "index": 435,
+      "start_time": 1237890.0,
+      "end_time": 1239980.0,
+      "text": "portrait, you may have differently"
+    },
+    {
+      "index": 436,
+      "start_time": 1239980.0,
+      "end_time": 1243040.0,
+      "text": "sized icons or bitmaps."
+    },
+    {
+      "index": 437,
+      "start_time": 1243040.0,
+      "end_time": 1246160.0,
+      "text": "And then we basically remove the reference to the old view"
+    },
+    {
+      "index": 438,
+      "start_time": 1246160.0,
+      "end_time": 1249190.0,
+      "text": "hierarchy and point to the new one."
+    },
+    {
+      "index": 439,
+      "start_time": 1249190.0,
+      "end_time": 1251870.0,
+      "text": "And the idea is that this old view hierarchy sure get"
+    },
+    {
+      "index": 440,
+      "start_time": 1251870.0,
+      "end_time": 1252650.0,
+      "text": "garbage collected."
+    },
+    {
+      "index": 441,
+      "start_time": 1252650.0,
+      "end_time": 1254600.0,
+      "text": "But if you&#39;re holding a reference to that, you&#39;re"
+    },
+    {
+      "index": 442,
+      "start_time": 1254600.0,
+      "end_time": 1257410.0,
+      "text": "going to prevent it from getting garbage collected."
+    },
+    {
+      "index": 443,
+      "start_time": 1257410.0,
+      "end_time": 1259440.0,
+      "text": "And that&#39;s why it&#39;s a problem to hold the long lived"
+    },
+    {
+      "index": 444,
+      "start_time": 1259440.0,
+      "end_time": 1262550.0,
+      "text": "reference to an activity or even to a view because in"
+    },
+    {
+      "index": 445,
+      "start_time": 1262550.0,
+      "end_time": 1265890.0,
+      "text": "fact, the arrows connecting these objects should be going"
+    },
+    {
+      "index": 446,
+      "start_time": 1265890.0,
+      "end_time": 1266740.0,
+      "text": "in both directions."
+    },
+    {
+      "index": 447,
+      "start_time": 1266740.0,
+      "end_time": 1271250.0,
+      "text": "Because you&#39;ve got pointers all the way up."
+    },
+    {
+      "index": 448,
+      "start_time": 1271250.0,
+      "end_time": 1276120.0,
+      "text": "So if you do have a memory leak, a really good way to"
+    },
+    {
+      "index": 449,
+      "start_time": 1276120.0,
+      "end_time": 1277480.0,
+      "text": "figure out where it is is using the"
+    },
+    {
+      "index": 450,
+      "start_time": 1277480.0,
+      "end_time": 1279510.0,
+      "text": "Eclipse Memory Analyzer."
+    },
+    {
+      "index": 451,
+      "start_time": 1279510.0,
+      "end_time": 1281700.0,
+      "text": "I&#39;m going to do a demo of that, but I want to first"
+    },
+    {
+      "index": 452,
+      "start_time": 1281700.0,
+      "end_time": 1286330.0,
+      "text": "cover some of the concepts behind the Memory Analyzer, so"
+    },
+    {
+      "index": 453,
+      "start_time": 1286330.0,
+      "end_time": 1288950.0,
+      "text": "that when I do the demo you&#39;ll better understand what I&#39;m"
+    },
+    {
+      "index": 454,
+      "start_time": 1288950.0,
+      "end_time": 1291250.0,
+      "text": "showing you."
+    },
+    {
+      "index": 455,
+      "start_time": 1291250.0,
+      "end_time": 1294040.0,
+      "text": "So the Eclipse Memory Analyzer can be downloaded from the"
+    },
+    {
+      "index": 456,
+      "start_time": 1294040.0,
+      "end_time": 1295175.0,
+      "text": "eclipse.org site."
+    },
+    {
+      "index": 457,
+      "start_time": 1295180.0,
+      "end_time": 1297025.0,
+      "text": "It comes in a couple of flavors."
+    },
+    {
+      "index": 458,
+      "start_time": 1297020.0,
+      "end_time": 1299840.0,
+      "text": "There&#39;s an Eclipse plug-in version, there&#39;s also a"
+    },
+    {
+      "index": 459,
+      "start_time": 1299840.0,
+      "end_time": 1301510.0,
+      "text": "standalone version."
+    },
+    {
+      "index": 460,
+      "start_time": 1301510.0,
+      "end_time": 1303600.0,
+      "text": "I&#39;m going to be demonstrating the standalone version."
+    },
+    {
+      "index": 461,
+      "start_time": 1303600.0,
+      "end_time": 1308980.0,
+      "text": "I just personally prefer not to have Eclipse have all these"
+    },
+    {
+      "index": 462,
+      "start_time": 1308980.0,
+      "end_time": 1309690.0,
+      "text": "different plug-ins."
+    },
+    {
+      "index": 463,
+      "start_time": 1309690.0,
+      "end_time": 1312090.0,
+      "text": "I kind of like to keep things a little bit separate."
+    },
+    {
+      "index": 464,
+      "start_time": 1312090.0,
+      "end_time": 1315210.0,
+      "text": "But they&#39;re basically the same."
+    },
+    {
+      "index": 465,
+      "start_time": 1315210.0,
+      "end_time": 1318720.0,
+      "text": "Now, Memory Analyzer has some important concepts that"
+    },
+    {
+      "index": 466,
+      "start_time": 1318720.0,
+      "end_time": 1320080.0,
+      "text": "you&#39;ll see a lot."
+    },
+    {
+      "index": 467,
+      "start_time": 1320080.0,
+      "end_time": 1323920.0,
+      "text": "It talks about shallow heap and retained heap."
+    },
+    {
+      "index": 468,
+      "start_time": 1323920.0,
+      "end_time": 1326940.0,
+      "text": "So the shallow heap of an object is just how large is"
+    },
+    {
+      "index": 469,
+      "start_time": 1326940.0,
+      "end_time": 1329360.0,
+      "text": "this object, it&#39;s size and bytes."
+    },
+    {
+      "index": 470,
+      "start_time": 1329360.0,
+      "end_time": 1330620.0,
+      "text": "It&#39;s really simple."
+    },
+    {
+      "index": 471,
+      "start_time": 1330620.0,
+      "end_time": 1334420.0,
+      "text": "So let&#39;s say that all of these objects are 100 bytes."
+    },
+    {
+      "index": 472,
+      "start_time": 1334420.0,
+      "end_time": 1336080.0,
+      "text": "So they&#39;re shallow heap is 100 bytes."
+    },
+    {
+      "index": 473,
+      "start_time": 1336080.0,
+      "end_time": 1337532.0,
+      "text": "It&#39;s easy."
+    },
+    {
+      "index": 474,
+      "start_time": 1337530.0,
+      "end_time": 1340098.0,
+      "text": "The retained heap is something different."
+    },
+    {
+      "index": 475,
+      "start_time": 1340100.0,
+      "end_time": 1344050.0,
+      "text": "Basically, the retained heap says, if I have an object here"
+    },
+    {
+      "index": 476,
+      "start_time": 1344050.0,
+      "end_time": 1347500.0,
+      "text": "and I were to free this object, what other objects is"
+    },
+    {
+      "index": 477,
+      "start_time": 1347500.0,
+      "end_time": 1348200.0,
+      "text": "it pointing to?"
+    },
+    {
+      "index": 478,
+      "start_time": 1348200.0,
+      "end_time": 1350490.0,
+      "text": "And could those be freed at the same time?"
+    },
+    {
+      "index": 479,
+      "start_time": 1350490.0,
+      "end_time": 1353530.0,
+      "text": "And so you calculate the retained heap in terms of,"
+    },
+    {
+      "index": 480,
+      "start_time": 1353530.0,
+      "end_time": 1356790.0,
+      "text": "what is the total size of objects that could be freed by"
+    },
+    {
+      "index": 481,
+      "start_time": 1356790.0,
+      "end_time": 1359990.0,
+      "text": "freeing this one object?"
+    },
+    {
+      "index": 482,
+      "start_time": 1359990.0,
+      "end_time": 1363170.0,
+      "text": "So maybe it&#39;s best to understand with an example."
+    },
+    {
+      "index": 483,
+      "start_time": 1363170.0,
+      "end_time": 1366410.0,
+      "text": "So this object down on the right-hand side in yellow,"
+    },
+    {
+      "index": 484,
+      "start_time": 1366410.0,
+      "end_time": 1368210.0,
+      "text": "this guy doesn&#39;t point to any other objects."
+    },
+    {
+      "index": 485,
+      "start_time": 1368210.0,
+      "end_time": 1371460.0,
+      "text": "So his retained size is pretty easy to calculate."
+    },
+    {
+      "index": 486,
+      "start_time": 1371460.0,
+      "end_time": 1374580.0,
+      "text": "His retained heap is 100."
+    },
+    {
+      "index": 487,
+      "start_time": 1374580.0,
+      "end_time": 1379220.0,
+      "text": "This guy on top, he has a pointer to one other object."
+    },
+    {
+      "index": 488,
+      "start_time": 1379220.0,
+      "end_time": 1381610.0,
+      "text": "But he&#39;s not holding that object alive."
+    },
+    {
+      "index": 489,
+      "start_time": 1381610.0,
+      "end_time": 1384480.0,
+      "text": "There are other pointers to that same object."
+    },
+    {
+      "index": 490,
+      "start_time": 1384480.0,
+      "end_time": 1389680.0,
+      "text": "So this guy&#39;s retained heap is also just 100 bytes."
+    },
+    {
+      "index": 491,
+      "start_time": 1389680.0,
+      "end_time": 1391670.0,
+      "text": "Because if we were to remove this object, it&#39;s not going to"
+    },
+    {
+      "index": 492,
+      "start_time": 1391670.0,
+      "end_time": 1395110.0,
+      "text": "free up any other objects."
+    },
+    {
+      "index": 493,
+      "start_time": 1395110.0,
+      "end_time": 1399000.0,
+      "text": "The object down at the end however, it&#39;s basically"
+    },
+    {
+      "index": 494,
+      "start_time": 1399000.0,
+      "end_time": 1402050.0,
+      "text": "keeping all the other objects alive."
+    },
+    {
+      "index": 495,
+      "start_time": 1402050.0,
+      "end_time": 1405020.0,
+      "text": "So its retained heap is 400 because if we could free that"
+    },
+    {
+      "index": 496,
+      "start_time": 1405020.0,
+      "end_time": 1408360.0,
+      "text": "object, we could free all the other objects well, on this"
+    },
+    {
+      "index": 497,
+      "start_time": 1408360.0,
+      "end_time": 1411330.0,
+      "text": "slide anyway."
+    },
+    {
+      "index": 498,
+      "start_time": 1411330.0,
+      "end_time": 1414620.0,
+      "text": "So you might be wondering, how do you go about calculating"
+    },
+    {
+      "index": 499,
+      "start_time": 1414620.0,
+      "end_time": 1415405.0,
+      "text": "the retain heap?"
+    },
+    {
+      "index": 500,
+      "start_time": 1415410.0,
+      "end_time": 1417575.0,
+      "text": "So you&#39;re going to see this in Memory Analyzer."
+    },
+    {
+      "index": 501,
+      "start_time": 1417570.0,
+      "end_time": 1420455.0,
+      "text": "And actually, knowing how it calculates the retained heap"
+    },
+    {
+      "index": 502,
+      "start_time": 1420450.0,
+      "end_time": 1423055.0,
+      "text": "is quite useful."
+    },
+    {
+      "index": 503,
+      "start_time": 1423060.0,
+      "end_time": 1426090.0,
+      "text": "So the Memory Analyzer uses a concept called"
+    },
+    {
+      "index": 504,
+      "start_time": 1426090.0,
+      "end_time": 1427340.0,
+      "text": "the denominator tree."
+    },
+    {
+      "index": 505,
+      "start_time": 1427340.0,
+      "end_time": 1430490.0,
+      "text": "This is a concept from graph theory."
+    },
+    {
+      "index": 506,
+      "start_time": 1430490.0,
+      "end_time": 1435650.0,
+      "text": "Basically, if you have a node A and a node B, A is said to"
+    },
+    {
+      "index": 507,
+      "start_time": 1435650.0,
+      "end_time": 1441660.0,
+      "text": "be the dominator of B if every path to B goes through A."
+    },
+    {
+      "index": 508,
+      "start_time": 1441660.0,
+      "end_time": 1445120.0,
+      "text": "And so you might see how that could help us figure out what"
+    },
+    {
+      "index": 509,
+      "start_time": 1445120.0,
+      "end_time": 1447270.0,
+      "text": "the retained heap of an object is."
+    },
+    {
+      "index": 510,
+      "start_time": 1447270.0,
+      "end_time": 1449290.0,
+      "text": "So another example here."
+    },
+    {
+      "index": 511,
+      "start_time": 1449290.0,
+      "end_time": 1450590.0,
+      "text": "So let&#39;s start with A."
+    },
+    {
+      "index": 512,
+      "start_time": 1450590.0,
+      "end_time": 1452770.0,
+      "text": "It&#39;s kind of the root."
+    },
+    {
+      "index": 513,
+      "start_time": 1452770.0,
+      "end_time": 1456260.0,
+      "text": "B and C are only accessible through A."
+    },
+    {
+      "index": 514,
+      "start_time": 1456260.0,
+      "end_time": 1457830.0,
+      "text": "So it&#39;s pretty straightforward."
+    },
+    {
+      "index": 515,
+      "start_time": 1457830.0,
+      "end_time": 1461660.0,
+      "text": "They&#39;re children of A and the dominator tree."
+    },
+    {
+      "index": 516,
+      "start_time": 1461660.0,
+      "end_time": 1464866.0,
+      "text": "E is also only accessible through C."
+    },
+    {
+      "index": 517,
+      "start_time": 1464870.0,
+      "end_time": 1468464.0,
+      "text": "So it&#39;s a child of C in the dominator tree."
+    },
+    {
+      "index": 518,
+      "start_time": 1468460.0,
+      "end_time": 1470930.0,
+      "text": "D is a little bit interesting here."
+    },
+    {
+      "index": 519,
+      "start_time": 1470930.0,
+      "end_time": 1475740.0,
+      "text": "D can be accessed through B or C, but A is on"
+    },
+    {
+      "index": 520,
+      "start_time": 1475740.0,
+      "end_time": 1478270.0,
+      "text": "every path to D."
+    },
+    {
+      "index": 521,
+      "start_time": 1478270.0,
+      "end_time": 1480300.0,
+      "text": "So that means that A is the parent of D and"
+    },
+    {
+      "index": 522,
+      "start_time": 1480300.0,
+      "end_time": 1482260.0,
+      "text": "the dominator tree."
+    },
+    {
+      "index": 523,
+      "start_time": 1482260.0,
+      "end_time": 1484250.0,
+      "text": "And now you&#39;re going to see this dominator tree concept"
+    },
+    {
+      "index": 524,
+      "start_time": 1484250.0,
+      "end_time": 1487610.0,
+      "text": "also pop up in Memory Analyzer in its UI."
+    },
+    {
+      "index": 525,
+      "start_time": 1487610.0,
+      "end_time": 1489110.0,
+      "text": "And it can be really helpful for"
+    },
+    {
+      "index": 526,
+      "start_time": 1489110.0,
+      "end_time": 1490430.0,
+      "text": "tracking down memory leaks."
+    },
+    {
+      "index": 527,
+      "start_time": 1493150.0,
+      "end_time": 1496530.0,
+      "text": "So let&#39;s jump in and do a demo of debugging and"
+    },
+    {
+      "index": 528,
+      "start_time": 1496530.0,
+      "end_time": 1499250.0,
+      "text": "memory leak with MAT."
+    },
+    {
+      "index": 529,
+      "start_time": 1499250.0,
+      "end_time": 1503180.0,
+      "text": "So what I&#39;m going to use for this demo is the Honeycomb"
+    },
+    {
+      "index": 530,
+      "start_time": 1503180.0,
+      "end_time": 1504430.0,
+      "text": "gallery&#39;s sample application."
+    },
+    {
+      "index": 531,
+      "start_time": 1507420.0,
+      "end_time": 1512880.0,
+      "text": "It&#39;s a simple application that comes with the Android SDK the"
+    },
+    {
+      "index": 532,
+      "start_time": 1512880.0,
+      "end_time": 1514540.0,
+      "text": "basically just demonstrates some of"
+    },
+    {
+      "index": 533,
+      "start_time": 1514540.0,
+      "end_time": 1515790.0,
+      "text": "the features of Honeycomb."
+    },
+    {
+      "index": 534,
+      "start_time": 1518990.0,
+      "end_time": 1522850.0,
+      "text": "And really, all it is is a little app the lets you page"
+    },
+    {
+      "index": 535,
+      "start_time": 1522850.0,
+      "end_time": 1525420.0,
+      "text": "through some photos."
+    },
+    {
+      "index": 536,
+      "start_time": 1525420.0,
+      "end_time": 1528440.0,
+      "text": "Pretty simple."
+    },
+    {
+      "index": 537,
+      "start_time": 1528440.0,
+      "end_time": 1531750.0,
+      "text": "Now I&#39;ve done something kind of naughty here."
+    },
+    {
+      "index": 538,
+      "start_time": 1531750.0,
+      "end_time": 1534975.0,
+      "text": "I&#39;ve introduced a memory leak into this application."
+    },
+    {
+      "index": 539,
+      "start_time": 1534970.0,
+      "end_time": 1538870.0,
+      "text": "And I&#39;ll show you how I&#39;ve done that."
+    },
+    {
+      "index": 540,
+      "start_time": 1538880.0,
+      "end_time": 1541795.0,
+      "text": "Sorry, I better switch to the slides again."
+    },
+    {
+      "index": 541,
+      "start_time": 1546990.0,
+      "end_time": 1550810.0,
+      "text": "So you&#39;ll see here I have the source code, an excerpt of the"
+    },
+    {
+      "index": 542,
+      "start_time": 1550810.0,
+      "end_time": 1553890.0,
+      "text": "source code from the activity."
+    },
+    {
+      "index": 543,
+      "start_time": 1553890.0,
+      "end_time": 1557100.0,
+      "text": "And so what I&#39;ve done here is I&#39;ve introduced this inner"
+    },
+    {
+      "index": 544,
+      "start_time": 1557100.0,
+      "end_time": 1559590.0,
+      "text": "class called leaky."
+    },
+    {
+      "index": 545,
+      "start_time": 1559590.0,
+      "end_time": 1562140.0,
+      "text": "And this is not a static inner class."
+    },
+    {
+      "index": 546,
+      "start_time": 1562140.0,
+      "end_time": 1566720.0,
+      "text": "So you may know that if you create a non-static inner"
+    },
+    {
+      "index": 547,
+      "start_time": 1566720.0,
+      "end_time": 1568770.0,
+      "text": "class, it actually keeps a reference to"
+    },
+    {
+      "index": 548,
+      "start_time": 1568770.0,
+      "end_time": 1570722.0,
+      "text": "the enclosing object."
+    },
+    {
+      "index": 549,
+      "start_time": 1570720.0,
+      "end_time": 1572898.0,
+      "text": "And this is because from a non-static inner class, you"
+    },
+    {
+      "index": 550,
+      "start_time": 1572900.0,
+      "end_time": 1576310.0,
+      "text": "can actually refer to the instance variables of the"
+    },
+    {
+      "index": 551,
+      "start_time": 1576310.0,
+      "end_time": 1577120.0,
+      "text": "enclosing object."
+    },
+    {
+      "index": 552,
+      "start_time": 1577120.0,
+      "end_time": 1578870.0,
+      "text": "So it&#39;s going to retain a reference to"
+    },
+    {
+      "index": 553,
+      "start_time": 1578870.0,
+      "end_time": 1581160.0,
+      "text": "the activity here."
+    },
+    {
+      "index": 554,
+      "start_time": 1581160.0,
+      "end_time": 1584110.0,
+      "text": "That&#39;s fine as long as this object doesn&#39;t live longer"
+    },
+    {
+      "index": 555,
+      "start_time": 1584110.0,
+      "end_time": 1586210.0,
+      "text": "than the activity."
+    },
+    {
+      "index": 556,
+      "start_time": 1586210.0,
+      "end_time": 1590620.0,
+      "text": "But I&#39;ve got this static field and statics live longer than"
+    },
+    {
+      "index": 557,
+      "start_time": 1590620.0,
+      "end_time": 1593270.0,
+      "text": "any particular instance."
+    },
+    {
+      "index": 558,
+      "start_time": 1593270.0,
+      "end_time": 1596550.0,
+      "text": "And in my on create method, what I&#39;ve done is instantiated"
+    },
+    {
+      "index": 559,
+      "start_time": 1596550.0,
+      "end_time": 1601750.0,
+      "text": "the leaky object and stored it into the static field."
+    },
+    {
+      "index": 560,
+      "start_time": 1601750.0,
+      "end_time": 1604330.0,
+      "text": "So if you want to be able to visualize this, I basically"
+    },
+    {
+      "index": 561,
+      "start_time": 1604330.0,
+      "end_time": 1609170.0,
+      "text": "got my view hierarchy that starts with the main activity."
+    },
+    {
+      "index": 562,
+      "start_time": 1609170.0,
+      "end_time": 1612450.0,
+      "text": "I&#39;ve instantiated this leaky object and he has a reference"
+    },
+    {
+      "index": 563,
+      "start_time": 1612450.0,
+      "end_time": 1617060.0,
+      "text": "to the main activity because that was its enclosing class."
+    },
+    {
+      "index": 564,
+      "start_time": 1617060.0,
+      "end_time": 1620800.0,
+      "text": "Finally, I have the main activity class, which is"
+    },
+    {
+      "index": 565,
+      "start_time": 1620800.0,
+      "end_time": 1622730.0,
+      "text": "conceptually a different area of memory than"
+    },
+    {
+      "index": 566,
+      "start_time": 1622730.0,
+      "end_time": 1625320.0,
+      "text": "any particular instance."
+    },
+    {
+      "index": 567,
+      "start_time": 1625320.0,
+      "end_time": 1628790.0,
+      "text": "And there&#39;s a static variable pointing to the leaky object."
+    },
+    {
+      "index": 568,
+      "start_time": 1628790.0,
+      "end_time": 1630980.0,
+      "text": "So maybe you can see how this is going to cause a memory"
+    },
+    {
+      "index": 569,
+      "start_time": 1630980.0,
+      "end_time": 1632720.0,
+      "text": "leak when I rotate the screen."
+    },
+    {
+      "index": 570,
+      "start_time": 1635660.0,
+      "end_time": 1637750.0,
+      "text": "So let&#39;s jump in and take a look at this memory leak."
+    },
+    {
+      "index": 571,
+      "start_time": 1645180.0,
+      "end_time": 1648490.0,
+      "text": "So if you want to figure out whether you have a memory"
+    },
+    {
+      "index": 572,
+      "start_time": 1648490.0,
+      "end_time": 1652430.0,
+      "text": "leak, one of the easiest ways is to just kind of look at"
+    },
+    {
+      "index": 573,
+      "start_time": 1652430.0,
+      "end_time": 1655920.0,
+      "text": "your log messages."
+    },
+    {
+      "index": 574,
+      "start_time": 1655920.0,
+      "end_time": 1658270.0,
+      "text": "So I&#39;m just going to do that."
+    },
+    {
+      "index": 575,
+      "start_time": 1658270.0,
+      "end_time": 1659660.0,
+      "text": "I&#39;m going to do it at the command line."
+    },
+    {
+      "index": 576,
+      "start_time": 1662540.0,
+      "end_time": 1664610.0,
+      "text": "I can just type ADB log cat."
+    },
+    {
+      "index": 577,
+      "start_time": 1664610.0,
+      "end_time": 1668940.0,
+      "text": "And I want to restrict it to the particular process that"
+    },
+    {
+      "index": 578,
+      "start_time": 1668940.0,
+      "end_time": 1669620.0,
+      "text": "I&#39;ve got running here."
+    },
+    {
+      "index": 579,
+      "start_time": 1669620.0,
+      "end_time": 1674310.0,
+      "text": "I don&#39;t want to see all of the log messages on the system."
+    },
+    {
+      "index": 580,
+      "start_time": 1674310.0,
+      "end_time": 1676690.0,
+      "text": "So I&#39;m just going to grab on the process ID."
+    },
+    {
+      "index": 581,
+      "start_time": 1679780.0,
+      "end_time": 1682310.0,
+      "text": "There we see a bunch a log messages, including some"
+    },
+    {
+      "index": 582,
+      "start_time": 1682310.0,
+      "end_time": 1685840.0,
+      "text": "garbage collection messages."
+    },
+    {
+      "index": 583,
+      "start_time": 1685840.0,
+      "end_time": 1691100.0,
+      "text": "And the number you want to look at is basically the first"
+    },
+    {
+      "index": 584,
+      "start_time": 1691100.0,
+      "end_time": 1695880.0,
+      "text": "number here in the 9805K."
+    },
+    {
+      "index": 585,
+      "start_time": 1695880.0,
+      "end_time": 1697800.0,
+      "text": "The first number in your heap size."
+    },
+    {
+      "index": 586,
+      "start_time": 1697800.0,
+      "end_time": 1700970.0,
+      "text": "This is the amount of live objects in the system."
+    },
+    {
+      "index": 587,
+      "start_time": 1700970.0,
+      "end_time": 1703180.0,
+      "text": "And if you&#39;re looking for a memory leak, that&#39;s what you"
+    },
+    {
+      "index": 588,
+      "start_time": 1703180.0,
+      "end_time": 1705940.0,
+      "text": "want to look at."
+    },
+    {
+      "index": 589,
+      "start_time": 1705940.0,
+      "end_time": 1708990.0,
+      "text": "So I&#39;m going to flip through some of the photos here."
+    },
+    {
+      "index": 590,
+      "start_time": 1708990.0,
+      "end_time": 1711115.0,
+      "text": "And you&#39;ll see that that number stays pretty constant."
+    },
+    {
+      "index": 591,
+      "start_time": 1711110.0,
+      "end_time": 1713005.0,
+      "text": "We&#39;re up to 9872."
+    },
+    {
+      "index": 592,
+      "start_time": 1713010.0,
+      "end_time": 1716900.0,
+      "text": "But basically, the heap usage is pretty constant."
+    },
+    {
+      "index": 593,
+      "start_time": 1716900.0,
+      "end_time": 1720160.0,
+      "text": "Now when I rotate this device, we&#39;re going to be a bunch of"
+    },
+    {
+      "index": 594,
+      "start_time": 1720160.0,
+      "end_time": 1722430.0,
+      "text": "garbage collections happen."
+    },
+    {
+      "index": 595,
+      "start_time": 1722430.0,
+      "end_time": 1725340.0,
+      "text": "That heap usage goes up and it doesn&#39;t go down again."
+    },
+    {
+      "index": 596,
+      "start_time": 1725340.0,
+      "end_time": 1728160.0,
+      "text": "So we&#39;re now up to 12 megs of heap."
+    },
+    {
+      "index": 597,
+      "start_time": 1728160.0,
+      "end_time": 1732236.0,
+      "text": "So we leaked about two and a half megs."
+    },
+    {
+      "index": 598,
+      "start_time": 1732240.0,
+      "end_time": 1735914.0,
+      "text": "So whenever you see your memory go up in kind of a step"
+    },
+    {
+      "index": 599,
+      "start_time": 1735910.0,
+      "end_time": 1738500.0,
+      "text": "function like that, it steps up and just never goes back"
+    },
+    {
+      "index": 600,
+      "start_time": 1738500.0,
+      "end_time": 1743300.0,
+      "text": "down, that&#39;s a good sign you have a memory leak."
+    },
+    {
+      "index": 601,
+      "start_time": 1743300.0,
+      "end_time": 1745910.0,
+      "text": "So once you know that you have a leak, what you&#39;ll want to do"
+    },
+    {
+      "index": 602,
+      "start_time": 1745910.0,
+      "end_time": 1749620.0,
+      "text": "is create a heap dump, so you can go about debugging it."
+    },
+    {
+      "index": 603,
+      "start_time": 1749620.0,
+      "end_time": 1751082.0,
+      "text": "So I&#39;m going to do that right now."
+    },
+    {
+      "index": 604,
+      "start_time": 1751080.0,
+      "end_time": 1754768.0,
+      "text": "I&#39;ll open up DDMS."
+    },
+    {
+      "index": 605,
+      "start_time": 1754770.0,
+      "end_time": 1760660.0,
+      "text": "You just need to select the process that you care about"
+    },
+    {
+      "index": 606,
+      "start_time": 1760660.0,
+      "end_time": 1764180.0,
+      "text": "and click on this icon up in the toolbar that says dump"
+    },
+    {
+      "index": 607,
+      "start_time": 1764180.0,
+      "end_time": 1766550.0,
+      "text": "HPROF file."
+    },
+    {
+      "index": 608,
+      "start_time": 1766550.0,
+      "end_time": 1768230.0,
+      "text": "That&#39;ll create a heap dump."
+    },
+    {
+      "index": 609,
+      "start_time": 1768230.0,
+      "end_time": 1772340.0,
+      "text": "It takes a few seconds because it&#39;s dumping basically a huge"
+    },
+    {
+      "index": 610,
+      "start_time": 1772340.0,
+      "end_time": 1776000.0,
+      "text": "binary file out to disk."
+    },
+    {
+      "index": 611,
+      "start_time": 1776000.0,
+      "end_time": 1783330.0,
+      "text": "And then I can just save it in a file called dump.hprof."
+    },
+    {
+      "index": 612,
+      "start_time": 1786920.0,
+      "end_time": 1789570.0,
+      "text": "And then, because I&#39;m using this standalone version of"
+    },
+    {
+      "index": 613,
+      "start_time": 1789570.0,
+      "end_time": 1793890.0,
+      "text": "DDMS here, I need to convert this file."
+    },
+    {
+      "index": 614,
+      "start_time": 1793890.0,
+      "end_time": 1795980.0,
+      "text": "As I mentioned, if you&#39;re using the ADT plug-in for"
+    },
+    {
+      "index": 615,
+      "start_time": 1795980.0,
+      "end_time": 1798670.0,
+      "text": "Eclipse and using DDMS in there, you don&#39;t need to go"
+    },
+    {
+      "index": 616,
+      "start_time": 1798670.0,
+      "end_time": 1800530.0,
+      "text": "through this conversion step."
+    },
+    {
+      "index": 617,
+      "start_time": 1800530.0,
+      "end_time": 1802460.0,
+      "text": "But it&#39;s really simple."
+    },
+    {
+      "index": 618,
+      "start_time": 1802460.0,
+      "end_time": 1805390.0,
+      "text": "Now that I&#39;ve converted it, I can open up the Eclipse Memory"
+    },
+    {
+      "index": 619,
+      "start_time": 1805390.0,
+      "end_time": 1808910.0,
+      "text": "Analyzer and take a look at this heap dump."
+    },
+    {
+      "index": 620,
+      "start_time": 1808910.0,
+      "end_time": 1811830.0,
+      "text": "So there&#39;s not much to see in the Memory Analyzer until"
+    },
+    {
+      "index": 621,
+      "start_time": 1811830.0,
+      "end_time": 1814280.0,
+      "text": "you&#39;ve opened up a heap dump, which we can do just"
+    },
+    {
+      "index": 622,
+      "start_time": 1814280.0,
+      "end_time": 1815670.0,
+      "text": "from the file menu."
+    },
+    {
+      "index": 623,
+      "start_time": 1815670.0,
+      "end_time": 1817710.0,
+      "text": "Open heap dump."
+    },
+    {
+      "index": 624,
+      "start_time": 1817710.0,
+      "end_time": 1820140.0,
+      "text": "And I&#39;ll open up this converted heap dump, which I"
+    },
+    {
+      "index": 625,
+      "start_time": 1820140.0,
+      "end_time": 1821390.0,
+      "text": "just created."
+    },
+    {
+      "index": 626,
+      "start_time": 1824460.0,
+      "end_time": 1827990.0,
+      "text": "Doesn&#39;t take very long for it to load up."
+    },
+    {
+      "index": 627,
+      "start_time": 1827990.0,
+      "end_time": 1831210.0,
+      "text": "And the first thing you&#39;ll see is this pie chart."
+    },
+    {
+      "index": 628,
+      "start_time": 1831210.0,
+      "end_time": 1833880.0,
+      "text": "This is showing the biggest objects in the system by"
+    },
+    {
+      "index": 629,
+      "start_time": 1833880.0,
+      "end_time": 1836930.0,
+      "text": "retained size."
+    },
+    {
+      "index": 630,
+      "start_time": 1836930.0,
+      "end_time": 1839600.0,
+      "text": "Now this alone doesn&#39;t really tell us too much."
+    },
+    {
+      "index": 631,
+      "start_time": 1839600.0,
+      "end_time": 1844540.0,
+      "text": "You can see that down in the bottom left here, when I mouse"
+    },
+    {
+      "index": 632,
+      "start_time": 1844540.0,
+      "end_time": 1846980.0,
+      "text": "over the various slices of the pie, it&#39;s telling me what kind"
+    },
+    {
+      "index": 633,
+      "start_time": 1846980.0,
+      "end_time": 1848750.0,
+      "text": "of object I&#39;ve got."
+    },
+    {
+      "index": 634,
+      "start_time": 1848750.0,
+      "end_time": 1852030.0,
+      "text": "But that doesn&#39;t really tell us too much."
+    },
+    {
+      "index": 635,
+      "start_time": 1852030.0,
+      "end_time": 1855085.0,
+      "text": "If we want to get some more information, you want"
+    },
+    {
+      "index": 636,
+      "start_time": 1855080.0,
+      "end_time": 1855825.0,
+      "text": "to look down here."
+    },
+    {
+      "index": 637,
+      "start_time": 1855830.0,
+      "end_time": 1856870.0,
+      "text": "There are two views."
+    },
+    {
+      "index": 638,
+      "start_time": 1856870.0,
+      "end_time": 1859370.0,
+      "text": "The histogram view and the dominator tree."
+    },
+    {
+      "index": 639,
+      "start_time": 1859370.0,
+      "end_time": 1862085.0,
+      "text": "And these are the ones that I find most useful and I&#39;m going"
+    },
+    {
+      "index": 640,
+      "start_time": 1862080.0,
+      "end_time": 1863695.0,
+      "text": "to show to you."
+    },
+    {
+      "index": 641,
+      "start_time": 1863700.0,
+      "end_time": 1865480.0,
+      "text": "Let&#39;s take a look at the dominator tree."
+    },
+    {
+      "index": 642,
+      "start_time": 1865480.0,
+      "end_time": 1868290.0,
+      "text": "You remember the concept I explained."
+    },
+    {
+      "index": 643,
+      "start_time": 1868290.0,
+      "end_time": 1869950.0,
+      "text": "This is how it can be useful in tracking"
+    },
+    {
+      "index": 644,
+      "start_time": 1869950.0,
+      "end_time": 1872036.0,
+      "text": "down a memory leak."
+    },
+    {
+      "index": 645,
+      "start_time": 1872040.0,
+      "end_time": 1876114.0,
+      "text": "So what we&#39;ve got here is basically a list of instances"
+    },
+    {
+      "index": 646,
+      "start_time": 1876110.0,
+      "end_time": 1879600.0,
+      "text": "or a list of objects in this system organized."
+    },
+    {
+      "index": 647,
+      "start_time": 1879600.0,
+      "end_time": 1881010.0,
+      "text": "There&#39;s a column here."
+    },
+    {
+      "index": 648,
+      "start_time": 1881010.0,
+      "end_time": 1883565.0,
+      "text": "Organized by the amount of retained heap."
+    },
+    {
+      "index": 649,
+      "start_time": 1883560.0,
+      "end_time": 1885885.0,
+      "text": "So when you&#39;ve got a memory leak, looking at the amount of"
+    },
+    {
+      "index": 650,
+      "start_time": 1885890.0,
+      "end_time": 1890270.0,
+      "text": "retained heap is often a good way to look at things because"
+    },
+    {
+      "index": 651,
+      "start_time": 1890270.0,
+      "end_time": 1892650.0,
+      "text": "that&#39;s going to have the biggest effect on how much"
+    },
+    {
+      "index": 652,
+      "start_time": 1892650.0,
+      "end_time": 1894170.0,
+      "text": "memory you&#39;re using."
+    },
+    {
+      "index": 653,
+      "start_time": 1894170.0,
+      "end_time": 1896470.0,
+      "text": "And chances are, if you&#39;ve noticed that you&#39;ve got a"
+    },
+    {
+      "index": 654,
+      "start_time": 1896470.0,
+      "end_time": 1900320.0,
+      "text": "leak, you&#39;re leaking a significant amount."
+    },
+    {
+      "index": 655,
+      "start_time": 1900320.0,
+      "end_time": 1901860.0,
+      "text": "So let me just zoom in here."
+    },
+    {
+      "index": 656,
+      "start_time": 1901860.0,
+      "end_time": 1903860.0,
+      "text": "Hopefully you guys can see this a bit better."
+    },
+    {
+      "index": 657,
+      "start_time": 1906920.0,
+      "end_time": 1910530.0,
+      "text": "So at the very top of the list we have the resources class."
+    },
+    {
+      "index": 658,
+      "start_time": 1910530.0,
+      "end_time": 1913230.0,
+      "text": "That&#39;s not too surprising because our resources we have"
+    },
+    {
+      "index": 659,
+      "start_time": 1913230.0,
+      "end_time": 1915440.0,
+      "text": "to load lots of bitmaps."
+    },
+    {
+      "index": 660,
+      "start_time": 1915440.0,
+      "end_time": 1916890.0,
+      "text": "That&#39;s going to hold lots of memory alive."
+    },
+    {
+      "index": 661,
+      "start_time": 1916890.0,
+      "end_time": 1918180.0,
+      "text": "That&#39;s fine."
+    },
+    {
+      "index": 662,
+      "start_time": 1918180.0,
+      "end_time": 1920890.0,
+      "text": "These two bitmap objects are interesting."
+    },
+    {
+      "index": 663,
+      "start_time": 1920890.0,
+      "end_time": 1923730.0,
+      "text": "I&#39;ve got these two large bitmaps, more than two and a"
+    },
+    {
+      "index": 664,
+      "start_time": 1923730.0,
+      "end_time": 1925770.0,
+      "text": "half megs each."
+    },
+    {
+      "index": 665,
+      "start_time": 1925770.0,
+      "end_time": 1928300.0,
+      "text": "It&#39;s funny because that sounds about like the amount of"
+    },
+    {
+      "index": 666,
+      "start_time": 1928300.0,
+      "end_time": 1932130.0,
+      "text": "memory that I was leaking."
+    },
+    {
+      "index": 667,
+      "start_time": 1932130.0,
+      "end_time": 1935060.0,
+      "text": "So if I want to investigate a bit further, I can right click"
+    },
+    {
+      "index": 668,
+      "start_time": 1935060.0,
+      "end_time": 1940760.0,
+      "text": "on one of these objects and choose path to GC roots."
+    },
+    {
+      "index": 669,
+      "start_time": 1940760.0,
+      "end_time": 1944250.0,
+      "text": "And I&#39;ll chose excluding weak references because I want to"
+    },
+    {
+      "index": 670,
+      "start_time": 1944250.0,
+      "end_time": 1946410.0,
+      "text": "see what&#39;s keeping that object alive."
+    },
+    {
+      "index": 671,
+      "start_time": 1946410.0,
+      "end_time": 1950050.0,
+      "text": "And a weak reference is not going to keep it alive."
+    },
+    {
+      "index": 672,
+      "start_time": 1950050.0,
+      "end_time": 1954270.0,
+      "text": "So this opened up a new tab and what do you know?"
+    },
+    {
+      "index": 673,
+      "start_time": 1954270.0,
+      "end_time": 1957650.0,
+      "text": "It actually points right to my leak."
+    },
+    {
+      "index": 674,
+      "start_time": 1957650.0,
+      "end_time": 1960630.0,
+      "text": "So when you&#39;re creating leaks in your application, make sure"
+    },
+    {
+      "index": 675,
+      "start_time": 1960630.0,
+      "end_time": 1964200.0,
+      "text": "you name it something really helpful like this so you can"
+    },
+    {
+      "index": 676,
+      "start_time": 1964200.0,
+      "end_time": 1965070.0,
+      "text": "find it easily."
+    },
+    {
+      "index": 677,
+      "start_time": 1965070.0,
+      "end_time": 1966320.0,
+      "text": "AUDIENCE: [LAUGHTER]"
+    },
+    {
+      "index": 678,
+      "start_time": 1969470.0,
+      "end_time": 1973320.0,
+      "text": "PATRICK DUBROY: So some of you might have noticed this, that"
+    },
+    {
+      "index": 679,
+      "start_time": 1973320.0,
+      "end_time": 1976800.0,
+      "text": "if there&#39;s only a single path to this object, because that&#39;s"
+    },
+    {
+      "index": 680,
+      "start_time": 1976800.0,
+      "end_time": 1981240.0,
+      "text": "all I can see here, why didn&#39;t this leak object show up in"
+    },
+    {
+      "index": 681,
+      "start_time": 1981240.0,
+      "end_time": 1982800.0,
+      "text": "the dominator tree?"
+    },
+    {
+      "index": 682,
+      "start_time": 1982800.0,
+      "end_time": 1985670.0,
+      "text": "I mentioned that the dominator tree should show you the"
+    },
+    {
+      "index": 683,
+      "start_time": 1985670.0,
+      "end_time": 1989670.0,
+      "text": "largest objects by their amount of retained heap."
+    },
+    {
+      "index": 684,
+      "start_time": 1989670.0,
+      "end_time": 1992470.0,
+      "text": "And well this is a single object that&#39;s responsible for"
+    },
+    {
+      "index": 685,
+      "start_time": 1992470.0,
+      "end_time": 1994620.0,
+      "text": "retaining the bitmap."
+    },
+    {
+      "index": 686,
+      "start_time": 1994620.0,
+      "end_time": 1998280.0,
+      "text": "So the reason for that is that the Eclipse Memory Analyzer,"
+    },
+    {
+      "index": 687,
+      "start_time": 1998280.0,
+      "end_time": 2000980.0,
+      "text": "when it calculates the dominator tree, it actually"
+    },
+    {
+      "index": 688,
+      "start_time": 2000980.0,
+      "end_time": 2003540.0,
+      "text": "doesn&#39;t treat weak references separately."
+    },
+    {
+      "index": 689,
+      "start_time": 2003540.0,
+      "end_time": 2006300.0,
+      "text": "It basically just treats them like a normal reference."
+    },
+    {
+      "index": 690,
+      "start_time": 2006300.0,
+      "end_time": 2008480.0,
+      "text": "So you&#39;ll see that if I actually right click on this"
+    },
+    {
+      "index": 691,
+      "start_time": 2008480.0,
+      "end_time": 2013430.0,
+      "text": "guy again and say path to GC roots, and say with all"
+    },
+    {
+      "index": 692,
+      "start_time": 2013430.0,
+      "end_time": 2016720.0,
+      "text": "references, then there&#39;s actually another"
+    },
+    {
+      "index": 693,
+      "start_time": 2016720.0,
+      "end_time": 2018640.0,
+      "text": "path to this object."
+    },
+    {
+      "index": 694,
+      "start_time": 2018640.0,
+      "end_time": 2020050.0,
+      "text": "But it&#39;s a weak reference."
+    },
+    {
+      "index": 695,
+      "start_time": 2020050.0,
+      "end_time": 2022020.0,
+      "text": "Generally you don&#39;t need to be too concerned about weak"
+    },
+    {
+      "index": 696,
+      "start_time": 2022020.0,
+      "end_time": 2024930.0,
+      "text": "references because they&#39;re not going to prevent your object"
+    },
+    {
+      "index": 697,
+      "start_time": 2024930.0,
+      "end_time": 2027050.0,
+      "text": "from being garbage collected."
+    },
+    {
+      "index": 698,
+      "start_time": 2027050.0,
+      "end_time": 2030190.0,
+      "text": "But that&#39;s why the leak object didn&#39;t show up in the"
+    },
+    {
+      "index": 699,
+      "start_time": 2030190.0,
+      "end_time": 2031440.0,
+      "text": "dominator tree."
+    },
+    {
+      "index": 700,
+      "start_time": 2035770.0,
+      "end_time": 2039025.0,
+      "text": "So the dominator tree is one really, really useful way of"
+    },
+    {
+      "index": 701,
+      "start_time": 2039020.0,
+      "end_time": 2041790.0,
+      "text": "tracking down a memory leak."
+    },
+    {
+      "index": 702,
+      "start_time": 2041790.0,
+      "end_time": 2045100.0,
+      "text": "Another thing I like to use is the histogram view."
+    },
+    {
+      "index": 703,
+      "start_time": 2045100.0,
+      "end_time": 2049389.0,
+      "text": "So I mentioned that in Android, it&#39;s common to leak"
+    },
+    {
+      "index": 704,
+      "start_time": 2049389.9999999998,
+      "end_time": 2053010.9999999998,
+      "text": "memory by keeping long lived references to an activity."
+    },
+    {
+      "index": 705,
+      "start_time": 2053010.0000000002,
+      "end_time": 2055340.0000000002,
+      "text": "So you may want to actually go and look at the number"
+    },
+    {
+      "index": 706,
+      "start_time": 2055340.0000000002,
+      "end_time": 2058610.0000000002,
+      "text": "instances of your main activity class that you have."
+    },
+    {
+      "index": 707,
+      "start_time": 2058610.0000000002,
+      "end_time": 2061260.0000000002,
+      "text": "And the histogram view lets you do that."
+    },
+    {
+      "index": 708,
+      "start_time": 2061260.0000000002,
+      "end_time": 2064040.0000000002,
+      "text": "So the histogram view just shows a list of all the"
+    },
+    {
+      "index": 709,
+      "start_time": 2064040.0,
+      "end_time": 2068500.0,
+      "text": "classes in its system and right now it&#39;s sorted based on"
+    },
+    {
+      "index": 710,
+      "start_time": 2068500.0,
+      "end_time": 2070400.0,
+      "text": "the amount of shallow heap occupied by"
+    },
+    {
+      "index": 711,
+      "start_time": 2070400.0,
+      "end_time": 2073469.0,
+      "text": "classes in the system."
+    },
+    {
+      "index": 712,
+      "start_time": 2073469.9999999998,
+      "end_time": 2077050.9999999998,
+      "text": "So at the very top there, we see we have byte arrays."
+    },
+    {
+      "index": 713,
+      "start_time": 2077050.0000000002,
+      "end_time": 2078929.0000000002,
+      "text": "And the reason for this is that byte arrays are now the"
+    },
+    {
+      "index": 714,
+      "start_time": 2078929.9999999998,
+      "end_time": 2083170.9999999998,
+      "text": "backing memory for pixel data."
+    },
+    {
+      "index": 715,
+      "start_time": 2083170.0,
+      "end_time": 2085630.0,
+      "text": "And you know, this is a perfect example of why it&#39;s"
+    },
+    {
+      "index": 716,
+      "start_time": 2085630.0,
+      "end_time": 2087290.0,
+      "text": "really useful that we now have the pixel"
+    },
+    {
+      "index": 717,
+      "start_time": 2087290.0,
+      "end_time": 2088830.0,
+      "text": "data inside the heap."
+    },
+    {
+      "index": 718,
+      "start_time": 2088830.0,
+      "end_time": 2093350.0,
+      "text": "Because if you&#39;re using this on Gingerbread or earlier,"
+    },
+    {
+      "index": 719,
+      "start_time": 2093350.0,
+      "end_time": 2095139.0,
+      "text": "you&#39;re not going to see byte arrays at the top."
+    },
+    {
+      "index": 720,
+      "start_time": 2095139.9999999998,
+      "end_time": 2101351.0,
+      "text": "Because that memory with allocated in native memory."
+    },
+    {
+      "index": 721,
+      "start_time": 2101350.0,
+      "end_time": 2104400.0,
+      "text": "So we could also, if we were concerned about these byte"
+    },
+    {
+      "index": 722,
+      "start_time": 2104400.0,
+      "end_time": 2107750.0,
+      "text": "array objects, we might want to right click on it and say"
+    },
+    {
+      "index": 723,
+      "start_time": 2107750.0,
+      "end_time": 2112820.0,
+      "text": "list objects with incoming references."
+    },
+    {
+      "index": 724,
+      "start_time": 2112820.0,
+      "end_time": 2116720.0,
+      "text": "And we&#39;ve got our two large byte array objects here."
+    },
+    {
+      "index": 725,
+      "start_time": 2116720.0,
+      "end_time": 2120870.0,
+      "text": "We can right click on one and say, path to GC roots,"
+    },
+    {
+      "index": 726,
+      "start_time": 2120870.0,
+      "end_time": 2122120.0,
+      "text": "excluding weak references."
+    },
+    {
+      "index": 727,
+      "start_time": 2125250.0,
+      "end_time": 2128500.0,
+      "text": "So this guy looks to have several paths,"
+    },
+    {
+      "index": 728,
+      "start_time": 2128500.0,
+      "end_time": 2130770.0,
+      "text": "which keep it alive."
+    },
+    {
+      "index": 729,
+      "start_time": 2130770.0,
+      "end_time": 2133030.0,
+      "text": "Nothing looks out of the ordinary to me."
+    },
+    {
+      "index": 730,
+      "start_time": 2133030.0,
+      "end_time": 2136740.0,
+      "text": "And when you&#39;re trying to find a memory leak, there&#39;s not"
+    },
+    {
+      "index": 731,
+      "start_time": 2136740.0,
+      "end_time": 2139080.0,
+      "text": "really a magic answer for how you find a leak."
+    },
+    {
+      "index": 732,
+      "start_time": 2139080.0,
+      "end_time": 2142280.0,
+      "text": "You really have to understand your system and understand"
+    },
+    {
+      "index": 733,
+      "start_time": 2142280.0,
+      "end_time": 2145820.0,
+      "text": "what objects are alive, why they&#39;re alive, during the"
+    },
+    {
+      "index": 734,
+      "start_time": 2145820.0,
+      "end_time": 2148356.0,
+      "text": "various parts of your application."
+    },
+    {
+      "index": 735,
+      "start_time": 2148360.0,
+      "end_time": 2151704.0,
+      "text": "But you&#39;ll see if I look at this other byte array object,"
+    },
+    {
+      "index": 736,
+      "start_time": 2151700.0,
+      "end_time": 2157080.0,
+      "text": "and again, do path to GC roots excluding weak references,"
+    },
+    {
+      "index": 737,
+      "start_time": 2157080.0,
+      "end_time": 2159270.0,
+      "text": "well, I&#39;ve found my leak again."
+    },
+    {
+      "index": 738,
+      "start_time": 2159270.0,
+      "end_time": 2162400.0,
+      "text": "So this was another way that I might have found this if it"
+    },
+    {
+      "index": 739,
+      "start_time": 2162400.0,
+      "end_time": 2164320.0,
+      "text": "weren&#39;t so obvious from the dominator tree."
+    },
+    {
+      "index": 740,
+      "start_time": 2169340.0,
+      "end_time": 2171810.0,
+      "text": "The histogram view can also help us look for"
+    },
+    {
+      "index": 741,
+      "start_time": 2171810.0,
+      "end_time": 2174220.0,
+      "text": "our activity instances."
+    },
+    {
+      "index": 742,
+      "start_time": 2174220.0,
+      "end_time": 2177650.0,
+      "text": "So there&#39;s a lot of classes obviously in the system."
+    },
+    {
+      "index": 743,
+      "start_time": 2177650.0,
+      "end_time": 2179080.0,
+      "text": "Our activity is not here."
+    },
+    {
+      "index": 744,
+      "start_time": 2179080.0,
+      "end_time": 2181650.0,
+      "text": "There&#39;s 2,200 classes."
+    },
+    {
+      "index": 745,
+      "start_time": 2181650.0,
+      "end_time": 2184810.0,
+      "text": "But luckily, Eclipse Memory Analyzer has this handy little"
+    },
+    {
+      "index": 746,
+      "start_time": 2184810.0,
+      "end_time": 2186600.0,
+      "text": "filter view at the top."
+    },
+    {
+      "index": 747,
+      "start_time": 2186600.0,
+      "end_time": 2189670.0,
+      "text": "You can just start typing a regular expression."
+    },
+    {
+      "index": 748,
+      "start_time": 2189670.0,
+      "end_time": 2194386.0,
+      "text": "And it&#39;ll return you all the classes that match that."
+    },
+    {
+      "index": 749,
+      "start_time": 2194390.0,
+      "end_time": 2197544.0,
+      "text": "So here we&#39;ve got our main activity."
+    },
+    {
+      "index": 750,
+      "start_time": 2197540.0,
+      "end_time": 2201960.0,
+      "text": "And it tells us that there are actually two instances of this"
+    },
+    {
+      "index": 751,
+      "start_time": 2201960.0,
+      "end_time": 2203370.0,
+      "text": "main activity."
+    },
+    {
+      "index": 752,
+      "start_time": 2203370.0,
+      "end_time": 2205860.0,
+      "text": "And that should kind of be a red flag."
+    },
+    {
+      "index": 753,
+      "start_time": 2205860.0,
+      "end_time": 2209050.0,
+      "text": "Normally you should expect to see only a single instance of"
+    },
+    {
+      "index": 754,
+      "start_time": 2209050.0,
+      "end_time": 2210310.0,
+      "text": "your main activity alive."
+    },
+    {
+      "index": 755,
+      "start_time": 2210310.0,
+      "end_time": 2214450.0,
+      "text": "Now I mentioned during the screen rotation, we build up a"
+    },
+    {
+      "index": 756,
+      "start_time": 2214450.0,
+      "end_time": 2217100.0,
+      "text": "new view hierarchy, there&#39;s going to be a brief time where"
+    },
+    {
+      "index": 757,
+      "start_time": 2217100.0,
+      "end_time": 2219200.0,
+      "text": "there&#39;s two instances alive."
+    },
+    {
+      "index": 758,
+      "start_time": 2219200.0,
+      "end_time": 2222890.0,
+      "text": "But for the most part, you should expect to see one here."
+    },
+    {
+      "index": 759,
+      "start_time": 2222890.0,
+      "end_time": 2224830.0,
+      "text": "So I might think, OK, this is a red flag."
+    },
+    {
+      "index": 760,
+      "start_time": 2224830.0,
+      "end_time": 2227350.0,
+      "text": "Let&#39;s take a look."
+    },
+    {
+      "index": 761,
+      "start_time": 2227350.0,
+      "end_time": 2231720.0,
+      "text": "So I can right click on this object and list objects with"
+    },
+    {
+      "index": 762,
+      "start_time": 2231720.0,
+      "end_time": 2232695.0,
+      "text": "incoming references."
+    },
+    {
+      "index": 763,
+      "start_time": 2232700.0,
+      "end_time": 2236595.0,
+      "text": "So I want to look at what instances do I have and what&#39;s"
+    },
+    {
+      "index": 764,
+      "start_time": 2236590.0,
+      "end_time": 2239840.0,
+      "text": "pointing to them?"
+    },
+    {
+      "index": 765,
+      "start_time": 2239840.0,
+      "end_time": 2243810.0,
+      "text": "And so I&#39;ve got two instances here."
+    },
+    {
+      "index": 766,
+      "start_time": 2243810.0,
+      "end_time": 2247070.0,
+      "text": "If I right click on one of them and choose path to GC"
+    },
+    {
+      "index": 767,
+      "start_time": 2247070.0,
+      "end_time": 2251850.0,
+      "text": "roots, excluding weak references, I&#39;ve again, found"
+    },
+    {
+      "index": 768,
+      "start_time": 2251850.0,
+      "end_time": 2254400.0,
+      "text": "my memory leak."
+    },
+    {
+      "index": 769,
+      "start_time": 2254400.0,
+      "end_time": 2257640.0,
+      "text": "And in looking at this, I might realize that, oh, I"
+    },
+    {
+      "index": 770,
+      "start_time": 2257640.0,
+      "end_time": 2258970.0,
+      "text": "really didn&#39;t intend to do this."
+    },
+    {
+      "index": 771,
+      "start_time": 2258970.0,
+      "end_time": 2261990.0,
+      "text": "I didn&#39;t mean to keep this reference there."
+    },
+    {
+      "index": 772,
+      "start_time": 2261990.0,
+      "end_time": 2264470.0,
+      "text": "So that&#39;s another way that you could have found the leak."
+    },
+    {
+      "index": 773,
+      "start_time": 2267090.0,
+      "end_time": 2269690.0,
+      "text": "So now that we&#39;ve discovered where our memory leak is, why"
+    },
+    {
+      "index": 774,
+      "start_time": 2269690.0,
+      "end_time": 2272550.0,
+      "text": "don&#39;t we actually go ahead and fix it."
+    },
+    {
+      "index": 775,
+      "start_time": 2272550.0,
+      "end_time": 2277600.0,
+      "text": "So in this case, the problem was that we had a non-static"
+    },
+    {
+      "index": 776,
+      "start_time": 2277600.0,
+      "end_time": 2279310.0,
+      "text": "inner class."
+    },
+    {
+      "index": 777,
+      "start_time": 2279310.0,
+      "end_time": 2282720.0,
+      "text": "So we could fix this by making it a static inner class."
+    },
+    {
+      "index": 778,
+      "start_time": 2282720.0,
+      "end_time": 2286080.0,
+      "text": "And then it wouldn&#39;t actually keep a reference to the"
+    },
+    {
+      "index": 779,
+      "start_time": 2286080.0,
+      "end_time": 2289140.0,
+      "text": "enclosing activity."
+    },
+    {
+      "index": 780,
+      "start_time": 2289140.0,
+      "end_time": 2294010.0,
+      "text": "The other thing we could do is actually just not store it in"
+    },
+    {
+      "index": 781,
+      "start_time": 2294010.0,
+      "end_time": 2295500.0,
+      "text": "a static variable."
+    },
+    {
+      "index": 782,
+      "start_time": 2295500.0,
+      "end_time": 2298510.0,
+      "text": "So it&#39;s fine if this leaky object has a reference to the"
+    },
+    {
+      "index": 783,
+      "start_time": 2298510.0,
+      "end_time": 2301010.0,
+      "text": "activity, as long as it doesn&#39;t live"
+    },
+    {
+      "index": 784,
+      "start_time": 2301010.0,
+      "end_time": 2303170.0,
+      "text": "longer than the activity."
+    },
+    {
+      "index": 785,
+      "start_time": 2303170.0,
+      "end_time": 2304050.0,
+      "text": "So let&#39;s do that."
+    },
+    {
+      "index": 786,
+      "start_time": 2304050.0,
+      "end_time": 2305880.0,
+      "text": "Let&#39;s just make this a regular instance"
+    },
+    {
+      "index": 787,
+      "start_time": 2305880.0,
+      "end_time": 2307130.0,
+      "text": "variable and not a static."
+    },
+    {
+      "index": 788,
+      "start_time": 2310520.0,
+      "end_time": 2315670.0,
+      "text": "So then I can go in here recompile this and push it to"
+    },
+    {
+      "index": 789,
+      "start_time": 2315670.0,
+      "end_time": 2316920.0,
+      "text": "the device."
+    },
+    {
+      "index": 790,
+      "start_time": 2319530.0,
+      "end_time": 2322000.0,
+      "text": "And hopefully, we should see that our memory leak has been"
+    },
+    {
+      "index": 791,
+      "start_time": 2322000.0,
+      "end_time": 2323250.0,
+      "text": "eliminated."
+    },
+    {
+      "index": 792,
+      "start_time": 2333940.0,
+      "end_time": 2336420.0,
+      "text": "Sorry, what we actually want to do is look at our log"
+    },
+    {
+      "index": 793,
+      "start_time": 2336420.0,
+      "end_time": 2339990.0,
+      "text": "output in order to see how much memory we&#39;re using."
+    },
+    {
+      "index": 794,
+      "start_time": 2346030.0,
+      "end_time": 2351620.0,
+      "text": "So I&#39;m just going to fire up the process here, take a look"
+    },
+    {
+      "index": 795,
+      "start_time": 2351620.0,
+      "end_time": 2352870.0,
+      "text": "at the process ID."
+    },
+    {
+      "index": 796,
+      "start_time": 2355440.0,
+      "end_time": 2366140.0,
+      "text": "And again, just do ADP log cat just on that process."
+    },
+    {
+      "index": 797,
+      "start_time": 2366140.0,
+      "end_time": 2371080.0,
+      "text": "So as I page through the photos again, we see lots of"
+    },
+    {
+      "index": 798,
+      "start_time": 2371080.0,
+      "end_time": 2373000.0,
+      "text": "GC messages."
+    },
+    {
+      "index": 799,
+      "start_time": 2373000.0,
+      "end_time": 2376050.0,
+      "text": "When I rotate, we&#39;re going to see the memory usage goes up"
+    },
+    {
+      "index": 800,
+      "start_time": 2376050.0,
+      "end_time": 2378440.0,
+      "text": "for a minute there."
+    },
+    {
+      "index": 801,
+      "start_time": 2378440.0,
+      "end_time": 2382530.0,
+      "text": "But after a few collections, it does go back down to its"
+    },
+    {
+      "index": 802,
+      "start_time": 2382530.0,
+      "end_time": 2383930.0,
+      "text": "previous value."
+    },
+    {
+      "index": 803,
+      "start_time": 2383930.0,
+      "end_time": 2385950.0,
+      "text": "So we&#39;ve successfully eliminated the leak there."
+    },
+    {
+      "index": 804,
+      "start_time": 2388740.0,
+      "end_time": 2389360.0,
+      "text": "And this is great."
+    },
+    {
+      "index": 805,
+      "start_time": 2389360.0,
+      "end_time": 2391550.0,
+      "text": "You always want to eliminate memory leaks."
+    },
+    {
+      "index": 806,
+      "start_time": 2397550.0,
+      "end_time": 2402190.0,
+      "text": "So that&#39;s an example of using the Eclipse Memory Analyzer to"
+    },
+    {
+      "index": 807,
+      "start_time": 2402190.0,
+      "end_time": 2404100.0,
+      "text": "debug a memory leak."
+    },
+    {
+      "index": 808,
+      "start_time": 2404100.0,
+      "end_time": 2407190.0,
+      "text": "Eclipse Memory Analyzer is a really powerful tool."
+    },
+    {
+      "index": 809,
+      "start_time": 2407190.0,
+      "end_time": 2408460.0,
+      "text": "It&#39;s a little bit complex."
+    },
+    {
+      "index": 810,
+      "start_time": 2408460.0,
+      "end_time": 2411660.0,
+      "text": "It actually took me quite a while to figure out that these"
+    },
+    {
+      "index": 811,
+      "start_time": 2411660.0,
+      "end_time": 2413460.0,
+      "text": "were the two best tools for the job."
+    },
+    {
+      "index": 812,
+      "start_time": 2416430.0,
+      "end_time": 2419610.0,
+      "text": "So you really want to watch out for these memory leaks."
+    },
+    {
+      "index": 813,
+      "start_time": 2419610.0,
+      "end_time": 2422580.0,
+      "text": "So I gave an example here of retaining a long lived"
+    },
+    {
+      "index": 814,
+      "start_time": 2422580.0,
+      "end_time": 2425250.0,
+      "text": "reference to an activity."
+    },
+    {
+      "index": 815,
+      "start_time": 2425250.0,
+      "end_time": 2429180.0,
+      "text": "If you&#39;ve got our context, a view, a drawable, all of these"
+    },
+    {
+      "index": 816,
+      "start_time": 2429180.0,
+      "end_time": 2430480.0,
+      "text": "things you need to watch out for."
+    },
+    {
+      "index": 817,
+      "start_time": 2430480.0,
+      "end_time": 2434410.0,
+      "text": "Don&#39;t hold long lived references to those."
+    },
+    {
+      "index": 818,
+      "start_time": 2434410.0,
+      "end_time": 2436960.0,
+      "text": "It can also happen with non-static inner classes,"
+    },
+    {
+      "index": 819,
+      "start_time": 2436960.0,
+      "end_time": 2439770.0,
+      "text": "which is what I demonstrated there as well."
+    },
+    {
+      "index": 820,
+      "start_time": 2439770.0,
+      "end_time": 2442570.0,
+      "text": "Runnable is actually one that can bite you sometimes."
+    },
+    {
+      "index": 821,
+      "start_time": 2442570.0,
+      "end_time": 2444200.0,
+      "text": "You know, you create a new runnable."
+    },
+    {
+      "index": 822,
+      "start_time": 2444200.0,
+      "end_time": 2447320.0,
+      "text": "You have a deferred event that&#39;s going to run in like"
+    },
+    {
+      "index": 823,
+      "start_time": 2447320.0,
+      "end_time": 2448005.0,
+      "text": "five minutes."
+    },
+    {
+      "index": 824,
+      "start_time": 2448000.0,
+      "end_time": 2451755.0,
+      "text": "If user rotates the screen that deferred runnable is"
+    },
+    {
+      "index": 825,
+      "start_time": 2451760.0,
+      "end_time": 2455130.0,
+      "text": "going to hold your previous activity instance alive for"
+    },
+    {
+      "index": 826,
+      "start_time": 2455130.0,
+      "end_time": 2456205.0,
+      "text": "five minutes."
+    },
+    {
+      "index": 827,
+      "start_time": 2456210.0,
+      "end_time": 2458305.0,
+      "text": "So that&#39;s not good."
+    },
+    {
+      "index": 828,
+      "start_time": 2458300.0,
+      "end_time": 2460220.0,
+      "text": "You also want to watch out for caches."
+    },
+    {
+      "index": 829,
+      "start_time": 2460220.0,
+      "end_time": 2464620.0,
+      "text": "Sometimes you have a cache and you want to keep memory alive,"
+    },
+    {
+      "index": 830,
+      "start_time": 2464620.0,
+      "end_time": 2468540.0,
+      "text": "so that you can load images faster let&#39;s say."
+    },
+    {
+      "index": 831,
+      "start_time": 2468540.0,
+      "end_time": 2471510.0,
+      "text": "But you may inadvertently hold things alive too long."
+    },
+    {
+      "index": 832,
+      "start_time": 2474880.0,
+      "end_time": 2481270.0,
+      "text": "So that covers basically, the core parts of the Eclipse"
+    },
+    {
+      "index": 833,
+      "start_time": 2481270.0,
+      "end_time": 2485260.0,
+      "text": "Memory Analyzer, and gives you a basic understanding of"
+    },
+    {
+      "index": 834,
+      "start_time": 2485260.0,
+      "end_time": 2487120.0,
+      "text": "memory leaks."
+    },
+    {
+      "index": 835,
+      "start_time": 2487120.0,
+      "end_time": 2490140.0,
+      "text": "If you&#39;d like to get more information about Memory"
+    },
+    {
+      "index": 836,
+      "start_time": 2490140.0,
+      "end_time": 2494850.0,
+      "text": "Analyzer, the download link you can find on the"
+    },
+    {
+      "index": 837,
+      "start_time": 2494850.0,
+      "end_time": 2497740.0,
+      "text": "eclipse.org/mat site."
+    },
+    {
+      "index": 838,
+      "start_time": 2497740.0,
+      "end_time": 2500580.0,
+      "text": "Markus Kohler who&#39;s one of the original team members of"
+    },
+    {
+      "index": 839,
+      "start_time": 2500580.0,
+      "end_time": 2503680.0,
+      "text": "Eclipse Memory Analyzer, he has a blog called the Java"
+    },
+    {
+      "index": 840,
+      "start_time": 2503680.0,
+      "end_time": 2505400.0,
+      "text": "Performance Blog."
+    },
+    {
+      "index": 841,
+      "start_time": 2505400.0,
+      "end_time": 2506190.0,
+      "text": "This is really great."
+    },
+    {
+      "index": 842,
+      "start_time": 2506190.0,
+      "end_time": 2509200.0,
+      "text": "He&#39;s got tons of great articles on there about MAT"
+    },
+    {
+      "index": 843,
+      "start_time": 2509200.0,
+      "end_time": 2513260.0,
+      "text": "and different ways you can use it to understand your"
+    },
+    {
+      "index": 844,
+      "start_time": 2513260.0,
+      "end_time": 2515860.0,
+      "text": "applications memory usage."
+    },
+    {
+      "index": 845,
+      "start_time": 2515860.0,
+      "end_time": 2517870.0,
+      "text": "I&#39;ve also got an article that I wrote on the Android"
+    },
+    {
+      "index": 846,
+      "start_time": 2517870.0,
+      "end_time": 2521200.0,
+      "text": "Developer Blog called memory analysis for Android"
+    },
+    {
+      "index": 847,
+      "start_time": 2521200.0,
+      "end_time": 2522200.0,
+      "text": "applications."
+    },
+    {
+      "index": 848,
+      "start_time": 2522200.0,
+      "end_time": 2523890.0,
+      "text": "It covers a lot of the same stuff that I"
+    },
+    {
+      "index": 849,
+      "start_time": 2523890.0,
+      "end_time": 2526020.0,
+      "text": "did in my demo here."
+    },
+    {
+      "index": 850,
+      "start_time": 2526020.0,
+      "end_time": 2529200.0,
+      "text": "And Romain Guy also has a good article on avoiding memory"
+    },
+    {
+      "index": 851,
+      "start_time": 2529200.0,
+      "end_time": 2531640.0,
+      "text": "leaks in Android."
+    },
+    {
+      "index": 852,
+      "start_time": 2531640.0,
+      "end_time": 2534170.0,
+      "text": "So I hope that&#39;s been helpful, I hope you guys have a better"
+    },
+    {
+      "index": 853,
+      "start_time": 2534170.0,
+      "end_time": 2537490.0,
+      "text": "understanding now of how you can figure out your apps"
+    },
+    {
+      "index": 854,
+      "start_time": 2537490.0,
+      "end_time": 2538510.0,
+      "text": "memory usage."
+    },
+    {
+      "index": 855,
+      "start_time": 2538510.0,
+      "end_time": 2541740.0,
+      "text": "And I&#39;ve talked about two of the biggest changes that we&#39;ve"
+    },
+    {
+      "index": 856,
+      "start_time": 2541740.0,
+      "end_time": 2544360.0,
+      "text": "made in Gingerbread and Honeycomb that affect how your"
+    },
+    {
+      "index": 857,
+      "start_time": 2544360.0,
+      "end_time": 2546410.0,
+      "text": "apps use memory."
+    },
+    {
+      "index": 858,
+      "start_time": 2546410.0,
+      "end_time": 2547267.0,
+      "text": "Thanks."
+    },
+    {
+      "index": 859,
+      "start_time": 2547270.0,
+      "end_time": 2548520.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 860,
+      "start_time": 2555560.0,
+      "end_time": 2560540.0,
+      "text": "So I can take questions from the floor if anyone has any."
+    },
+    {
+      "index": 861,
+      "start_time": 2560540.0,
+      "end_time": 2564610.0,
+      "text": "Or you all want to get out and get to a pub and have a beer?"
+    },
+    {
+      "index": 862,
+      "start_time": 2564610.0,
+      "end_time": 2569250.0,
+      "text": "AUDIENCE: Hi, you mentioned that if you use NIO in"
+    },
+    {
+      "index": 863,
+      "start_time": 2569250.0,
+      "end_time": 2572150.0,
+      "text": "Honeycomb your objects are going to be not in native"
+    },
+    {
+      "index": 864,
+      "start_time": 2572150.0,
+      "end_time": 2574380.0,
+      "text": "memory and now they&#39;re going to be managed memory."
+    },
+    {
+      "index": 865,
+      "start_time": 2574380.0,
+      "end_time": 2577600.0,
+      "text": "How does that affect performance if you&#39;re doing an"
+    },
+    {
+      "index": 866,
+      "start_time": 2577600.0,
+      "end_time": 2581860.0,
+      "text": "IO, is that going to be any slower, like"
+    },
+    {
+      "index": 867,
+      "start_time": 2581860.0,
+      "end_time": 2585060.0,
+      "text": "very intense on network?"
+    },
+    {
+      "index": 868,
+      "start_time": 2585060.0,
+      "end_time": 2587390.0,
+      "text": "PATRICK DUBROY: No, I mean it shouldn&#39;t affect."
+    },
+    {
+      "index": 869,
+      "start_time": 2587390.0,
+      "end_time": 2592290.0,
+      "text": "So I should say that there is still a way to allocate native"
+    },
+    {
+      "index": 870,
+      "start_time": 2592290.0,
+      "end_time": 2594980.0,
+      "text": "memory for your NIO byte buffers."
+    },
+    {
+      "index": 871,
+      "start_time": 2594980.0,
+      "end_time": 2599380.0,
+      "text": "I&#39;m not that familiar with the NIO APIs, but I believe"
+    },
+    {
+      "index": 872,
+      "start_time": 2599380.0,
+      "end_time": 2602970.0,
+      "text": "there&#39;s a way in JNI you can allocate your own memory."
+    },
+    {
+      "index": 873,
+      "start_time": 2602970.0,
+      "end_time": 2606700.0,
+      "text": "So in that case, you&#39;ll still be using native memory."
+    },
+    {
+      "index": 874,
+      "start_time": 2606700.0,
+      "end_time": 2608830.0,
+      "text": "But either way, it&#39;s just memory."
+    },
+    {
+      "index": 875,
+      "start_time": 2608830.0,
+      "end_time": 2610790.0,
+      "text": "It&#39;s just allocated in a different place."
+    },
+    {
+      "index": 876,
+      "start_time": 2610790.0,
+      "end_time": 2614050.0,
+      "text": "So there&#39;s nothing that makes the Dalvik heap memory slower"
+    },
+    {
+      "index": 877,
+      "start_time": 2614050.0,
+      "end_time": 2617860.0,
+      "text": "than other memory."
+    },
+    {
+      "index": 878,
+      "start_time": 2617860.0,
+      "end_time": 2621630.0,
+      "text": "AUDIENCE: So you&#39;re saying how in Honeycomb the bitmaps are"
+    },
+    {
+      "index": 879,
+      "start_time": 2621630.0,
+      "end_time": 2625560.0,
+      "text": "stored in the Dalvik heap, but in previous versions to that"
+    },
+    {
+      "index": 880,
+      "start_time": 2625560.0,
+      "end_time": 2627900.0,
+      "text": "it was stored on native memory."
+    },
+    {
+      "index": 881,
+      "start_time": 2627900.0,
+      "end_time": 2630590.0,
+      "text": "Does that mean that bitmaps had a different"
+    },
+    {
+      "index": 882,
+      "start_time": 2630590.0,
+      "end_time": 2631690.0,
+      "text": "amount of heap size?"
+    },
+    {
+      "index": 883,
+      "start_time": 2631690.0,
+      "end_time": 2635680.0,
+      "text": "Or is that still all counted in the 16 or 24 megabytes that"
+    },
+    {
+      "index": 884,
+      "start_time": 2635680.0,
+      "end_time": 2636960.0,
+      "text": "previous versions had?"
+    },
+    {
+      "index": 885,
+      "start_time": 2636960.0,
+      "end_time": 2638850.0,
+      "text": "PATRICK DUBROY: Yeah, good question."
+    },
+    {
+      "index": 886,
+      "start_time": 2638850.0,
+      "end_time": 2640550.0,
+      "text": "The accounting limits are still the same."
+    },
+    {
+      "index": 887,
+      "start_time": 2640550.0,
+      "end_time": 2642920.0,
+      "text": "That was accounted for previously."
+    },
+    {
+      "index": 888,
+      "start_time": 2642920.0,
+      "end_time": 2646100.0,
+      "text": "You might have noticed if you ever ran into your heap limit,"
+    },
+    {
+      "index": 889,
+      "start_time": 2646100.0,
+      "end_time": 2648880.0,
+      "text": "you would be looking at your heap size and like, I haven&#39;t"
+    },
+    {
+      "index": 890,
+      "start_time": 2648880.0,
+      "end_time": 2651740.0,
+      "text": "hit the limit yet, why am I&#39;m getting out of memory?"
+    },
+    {
+      "index": 891,
+      "start_time": 2651740.0,
+      "end_time": 2654600.0,
+      "text": "That was actually accounted for, so it was your total heap"
+    },
+    {
+      "index": 892,
+      "start_time": 2654600.0,
+      "end_time": 2658040.0,
+      "text": "size plus the amount of externally allocated memory"
+    },
+    {
+      "index": 893,
+      "start_time": 2658040.0,
+      "end_time": 2659260.0,
+      "text": "that was your limit."
+    },
+    {
+      "index": 894,
+      "start_time": 2659260.0,
+      "end_time": 2660510.0,
+      "text": "So that hasn&#39;t changed."
+    },
+    {
+      "index": 895,
+      "start_time": 2663520.0,
+      "end_time": 2664480.0,
+      "text": "AUDIENCE: Hello."
+    },
+    {
+      "index": 896,
+      "start_time": 2664480.0,
+      "end_time": 2668080.0,
+      "text": "I have a question on when does the garbage"
+    },
+    {
+      "index": 897,
+      "start_time": 2668080.0,
+      "end_time": 2670200.0,
+      "text": "collector kicks in."
+    },
+    {
+      "index": 898,
+      "start_time": 2670200.0,
+      "end_time": 2673090.0,
+      "text": "Is is when a number of objects in memory or"
+    },
+    {
+      "index": 899,
+      "start_time": 2673090.0,
+      "end_time": 2675500.0,
+      "text": "the size of the heap?"
+    },
+    {
+      "index": 900,
+      "start_time": 2675500.0,
+      "end_time": 2677330.0,
+      "text": "PATRICK DUBROY: Well, it depends on what kind of"
+    },
+    {
+      "index": 901,
+      "start_time": 2677330.0,
+      "end_time": 2679380.0,
+      "text": "garbage collection you&#39;re talking about."
+    },
+    {
+      "index": 902,
+      "start_time": 2679380.0,
+      "end_time": 2680750.0,
+      "text": "The concurrent garbage collector--"
+    },
+    {
+      "index": 903,
+      "start_time": 2680750.0,
+      "end_time": 2681740.0,
+      "text": "AUDIENCE: Yeah, the concurrent."
+    },
+    {
+      "index": 904,
+      "start_time": 2681740.0,
+      "end_time": 2682220.0,
+      "text": "Yes."
+    },
+    {
+      "index": 905,
+      "start_time": 2682220.0,
+      "end_time": 2686250.0,
+      "text": "PATRICK DUBROY: Yeah, so that I believe is the amount of"
+    },
+    {
+      "index": 906,
+      "start_time": 2686250.0,
+      "end_time": 2688760.0,
+      "text": "basically, how full your heap is getting."
+    },
+    {
+      "index": 907,
+      "start_time": 2688760.0,
+      "end_time": 2692080.0,
+      "text": "AUDIENCE: Because I noticed that when you do a lot of"
+    },
+    {
+      "index": 908,
+      "start_time": 2692080.0,
+      "end_time": 2692370.0,
+      "text": "[INAUDIBLE]"
+    },
+    {
+      "index": 909,
+      "start_time": 2692370.0,
+      "end_time": 2694640.0,
+      "text": "provide operations, so you have like [INAUDIBLE]"
+    },
+    {
+      "index": 910,
+      "start_time": 2694640.0,
+      "end_time": 2700250.0,
+      "text": "list of operations, the garbage collector kicks in."
+    },
+    {
+      "index": 911,
+      "start_time": 2700250.0,
+      "end_time": 2703100.0,
+      "text": "But actually don&#39;t collect any objects because you&#39;re just"
+    },
+    {
+      "index": 912,
+      "start_time": 2703100.0,
+      "end_time": 2705130.0,
+      "text": "filling in the array of objects that you want to"
+    },
+    {
+      "index": 913,
+      "start_time": 2705130.0,
+      "end_time": 2706260.0,
+      "text": "insert into a database."
+    },
+    {
+      "index": 914,
+      "start_time": 2706260.0,
+      "end_time": 2707770.0,
+      "text": "And that&#39;s grow quite quickly."
+    },
+    {
+      "index": 915,
+      "start_time": 2707770.0,
+      "end_time": 2710820.0,
+      "text": "And that tends to slow down a bit, the application without"
+    },
+    {
+      "index": 916,
+      "start_time": 2710820.0,
+      "end_time": 2714010.0,
+      "text": "actually solving any heap size."
+    },
+    {
+      "index": 917,
+      "start_time": 2714010.0,
+      "end_time": 2720670.0,
+      "text": "PATRICK DUBROY: Yeah, I&#39;m not sure if the GC looks at--"
+    },
+    {
+      "index": 918,
+      "start_time": 2720670.0,
+      "end_time": 2723640.0,
+      "text": "so you&#39;re basically saying, I guess, that the collector is"
+    },
+    {
+      "index": 919,
+      "start_time": 2723640.0,
+      "end_time": 2724080.0,
+      "text": "kicking in."
+    },
+    {
+      "index": 920,
+      "start_time": 2724080.0,
+      "end_time": 2727400.0,
+      "text": "It&#39;s not actually able to collect anything, so it"
+    },
+    {
+      "index": 921,
+      "start_time": 2727400.0,
+      "end_time": 2728180.0,
+      "text": "shouldn&#39;t--"
+    },
+    {
+      "index": 922,
+      "start_time": 2728180.0,
+      "end_time": 2729580.0,
+      "text": "AUDIENCE: But it keeps trying."
+    },
+    {
+      "index": 923,
+      "start_time": 2729580.0,
+      "end_time": 2731410.0,
+      "text": "PATRICK DUBROY: Yeah, it should be smart enough."
+    },
+    {
+      "index": 924,
+      "start_time": 2731410.0,
+      "end_time": 2735070.0,
+      "text": "Yeah, I don&#39;t believe we actually look at those kind of"
+    },
+    {
+      "index": 925,
+      "start_time": 2735070.0,
+      "end_time": 2737170.0,
+      "text": "statistics yet."
+    },
+    {
+      "index": 926,
+      "start_time": 2737170.0,
+      "end_time": 2739280.0,
+      "text": "But I mean it seems reasonable."
+    },
+    {
+      "index": 927,
+      "start_time": 2739280.0,
+      "end_time": 2740530.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 928,
+      "start_time": 2743680.0,
+      "end_time": 2746880.0,
+      "text": "AUDIENCE: I was wondering if you guys have some plans for"
+    },
+    {
+      "index": 929,
+      "start_time": 2746880.0,
+      "end_time": 2751830.0,
+      "text": "making a profiler for applications or more tools for"
+    },
+    {
+      "index": 930,
+      "start_time": 2751830.0,
+      "end_time": 2755380.0,
+      "text": "analyzing memory and all that stuff?"
+    },
+    {
+      "index": 931,
+      "start_time": 2755380.0,
+      "end_time": 2757110.0,
+      "text": "PATRICK DUBROY: No plans that I know of."
+    },
+    {
+      "index": 932,
+      "start_time": 2760210.0,
+      "end_time": 2762310.0,
+      "text": "Is there anything in particular that you need?"
+    },
+    {
+      "index": 933,
+      "start_time": 2762310.0,
+      "end_time": 2765660.0,
+      "text": "I mean I think the Eclipse Memory Analyzer is a really"
+    },
+    {
+      "index": 934,
+      "start_time": 2765660.0,
+      "end_time": 2767930.0,
+      "text": "powerful tool and I use it in my day-to-day"
+    },
+    {
+      "index": 935,
+      "start_time": 2767930.0,
+      "end_time": 2769570.0,
+      "text": "work quite a bit."
+    },
+    {
+      "index": 936,
+      "start_time": 2769570.0,
+      "end_time": 2772110.0,
+      "text": "So I&#39;ve certainly never found that it it was missing certain"
+    },
+    {
+      "index": 937,
+      "start_time": 2772110.0,
+      "end_time": 2773590.0,
+      "text": "features that I needed."
+    },
+    {
+      "index": 938,
+      "start_time": 2773590.0,
+      "end_time": 2775900.0,
+      "text": "AUDIENCE: Yeah, probably because there are some old"
+    },
+    {
+      "index": 939,
+      "start_time": 2775900.0,
+      "end_time": 2778050.0,
+      "text": "versions from Android that show"
+    },
+    {
+      "index": 940,
+      "start_time": 2778050.0,
+      "end_time": 2779390.0,
+      "text": "memory leaks or something."
+    },
+    {
+      "index": 941,
+      "start_time": 2779390.0,
+      "end_time": 2783960.0,
+      "text": "But for example, on Eclair, there were"
+    },
+    {
+      "index": 942,
+      "start_time": 2783960.0,
+      "end_time": 2787060.0,
+      "text": "some stuff with the--"
+    },
+    {
+      "index": 943,
+      "start_time": 2787060.0,
+      "end_time": 2789200.0,
+      "text": "something there."
+    },
+    {
+      "index": 944,
+      "start_time": 2789200.0,
+      "end_time": 2791050.0,
+      "text": "PATRICK DUBROY: Yeah, I mean we don&#39;t have any immediate"
+    },
+    {
+      "index": 945,
+      "start_time": 2791050.0,
+      "end_time": 2794950.0,
+      "text": "plans I don&#39;t think to running specific tools."
+    },
+    {
+      "index": 946,
+      "start_time": 2794950.0,
+      "end_time": 2798170.0,
+      "text": "AUDIENCE: OK, thank you."
+    },
+    {
+      "index": 947,
+      "start_time": 2798170.0,
+      "end_time": 2799360.0,
+      "text": "PATRICK DUBROY: Oh, sorry I&#39;ve been--"
+    },
+    {
+      "index": 948,
+      "start_time": 2799360.0,
+      "end_time": 2800820.0,
+      "text": "yeah."
+    },
+    {
+      "index": 949,
+      "start_time": 2800820.0,
+      "end_time": 2804570.0,
+      "text": "AUDIENCE: To my understanding, the native part of a bitmap"
+    },
+    {
+      "index": 950,
+      "start_time": 2804570.0,
+      "end_time": 2808725.0,
+      "text": "memory before was actually an instance of the SKIA library,"
+    },
+    {
+      "index": 951,
+      "start_time": 2808730.0,
+      "end_time": 2812005.0,
+      "text": "of one of the SKIA library bitmap classes."
+    },
+    {
+      "index": 952,
+      "start_time": 2812000.0,
+      "end_time": 2816080.0,
+      "text": "So is this still there or is it gone now that there is no"
+    },
+    {
+      "index": 953,
+      "start_time": 2816080.0,
+      "end_time": 2818890.0,
+      "text": "more native memory allocated?"
+    },
+    {
+      "index": 954,
+      "start_time": 2818890.0,
+      "end_time": 2821290.0,
+      "text": "PATRICK DUBROY: No, SKIA is still part"
+    },
+    {
+      "index": 955,
+      "start_time": 2821290.0,
+      "end_time": 2823160.0,
+      "text": "of this stack there."
+    },
+    {
+      "index": 956,
+      "start_time": 2823160.0,
+      "end_time": 2827235.0,
+      "text": "Basically at the point where SKIA calls out to allocate"
+    },
+    {
+      "index": 957,
+      "start_time": 2827240.0,
+      "end_time": 2831445.0,
+      "text": "memory, we actually just call back into the VM and allocate"
+    },
+    {
+      "index": 958,
+      "start_time": 2831440.0,
+      "end_time": 2834220.0,
+      "text": "the memory there rather than calling malloc."
+    },
+    {
+      "index": 959,
+      "start_time": 2834220.0,
+      "end_time": 2839280.0,
+      "text": "So it&#39;s still basically the same mechanism, but the"
+    },
+    {
+      "index": 960,
+      "start_time": 2839280.0,
+      "end_time": 2841460.0,
+      "text": "memory&#39;s just coming from a different place."
+    },
+    {
+      "index": 961,
+      "start_time": 2841460.0,
+      "end_time": 2842710.0,
+      "text": "AUDIENCE: OK."
+    },
+    {
+      "index": 962,
+      "start_time": 2845150.0,
+      "end_time": 2848150.0,
+      "text": "AUDIENCE: I thought that when I was using my application, I"
+    },
+    {
+      "index": 963,
+      "start_time": 2848150.0,
+      "end_time": 2849440.0,
+      "text": "checked the heap size."
+    },
+    {
+      "index": 964,
+      "start_time": 2849440.0,
+      "end_time": 2851410.0,
+      "text": "While using the application the heap size was not"
+    },
+    {
+      "index": 965,
+      "start_time": 2851410.0,
+      "end_time": 2853700.0,
+      "text": "significantly going up."
+    },
+    {
+      "index": 966,
+      "start_time": 2853700.0,
+      "end_time": 2856380.0,
+      "text": "But the amount of memory used by the application, which is"
+    },
+    {
+      "index": 967,
+      "start_time": 2856380.0,
+      "end_time": 2858820.0,
+      "text": "listed in the applications tab under the running applications"
+    },
+    {
+      "index": 968,
+      "start_time": 2858820.0,
+      "end_time": 2861010.0,
+      "text": "is going up significantly."
+    },
+    {
+      "index": 969,
+      "start_time": 2861010.0,
+      "end_time": 2864110.0,
+      "text": "Sometimes even doubling."
+    },
+    {
+      "index": 970,
+      "start_time": 2864110.0,
+      "end_time": 2865270.0,
+      "text": "I know that this is a different heap"
+    },
+    {
+      "index": 971,
+      "start_time": 2865270.0,
+      "end_time": 2866150.0,
+      "text": "that is shown there."
+    },
+    {
+      "index": 972,
+      "start_time": 2866150.0,
+      "end_time": 2869340.0,
+      "text": "It&#39;s actually the process heap, right?"
+    },
+    {
+      "index": 973,
+      "start_time": 2869340.0,
+      "end_time": 2871050.0,
+      "text": "Can you tell me what the background of that is that"
+    },
+    {
+      "index": 974,
+      "start_time": 2871050.0,
+      "end_time": 2874630.0,
+      "text": "this is shown there because might like--"
+    },
+    {
+      "index": 975,
+      "start_time": 2874630.0,
+      "end_time": 2877460.0,
+      "text": "I don&#39;t have a memory leak and users complain about my"
+    },
+    {
+      "index": 976,
+      "start_time": 2877460.0,
+      "end_time": 2881650.0,
+      "text": "application leaking memory."
+    },
+    {
+      "index": 977,
+      "start_time": 2881650.0,
+      "end_time": 2884580.0,
+      "text": "Because for the user it looks like it&#39;s leaking memory."
+    },
+    {
+      "index": 978,
+      "start_time": 2884580.0,
+      "end_time": 2884890.0,
+      "text": "PATRICK DUBROY: Right."
+    },
+    {
+      "index": 979,
+      "start_time": 2884890.0,
+      "end_time": 2887700.0,
+      "text": "Because you&#39;re saying there&#39;s stuff that&#39;s attributed to"
+    },
+    {
+      "index": 980,
+      "start_time": 2887700.0,
+      "end_time": 2892970.0,
+      "text": "your process that are showing up in the--"
+    },
+    {
+      "index": 981,
+      "start_time": 2892970.0,
+      "end_time": 2894560.0,
+      "text": "basically, in system memory?"
+    },
+    {
+      "index": 982,
+      "start_time": 2894560.0,
+      "end_time": 2894950.0,
+      "text": "AUDIENCE: Yeah."
+    },
+    {
+      "index": 983,
+      "start_time": 2894950.0,
+      "end_time": 2899240.0,
+      "text": "So it&#39;s showing the system memory in the applications"
+    },
+    {
+      "index": 984,
+      "start_time": 2899240.0,
+      "end_time": 2902770.0,
+      "text": "tab, which is not really linked to my heap memory."
+    },
+    {
+      "index": 985,
+      "start_time": 2902770.0,
+      "end_time": 2906100.0,
+      "text": "So that is going up, but I can only control the heap memory."
+    },
+    {
+      "index": 986,
+      "start_time": 2906100.0,
+      "end_time": 2908350.0,
+      "text": "If I don&#39;t have a native application I cannot control"
+    },
+    {
+      "index": 987,
+      "start_time": 2908350.0,
+      "end_time": 2910480.0,
+      "text": "everything else."
+    },
+    {
+      "index": 988,
+      "start_time": 2910480.0,
+      "end_time": 2911760.0,
+      "text": "PATRICK DUBROY: I mean there are going to be various things"
+    },
+    {
+      "index": 989,
+      "start_time": 2911760.0,
+      "end_time": 2914950.0,
+      "text": "in the system that are going to get larger."
+    },
+    {
+      "index": 990,
+      "start_time": 2914950.0,
+      "end_time": 2918240.0,
+      "text": "For example, like your JIT code caches."
+    },
+    {
+      "index": 991,
+      "start_time": 2918240.0,
+      "end_time": 2922540.0,
+      "text": "As the JIT kicks in and is allocating memory, like it"
+    },
+    {
+      "index": 992,
+      "start_time": 2922540.0,
+      "end_time": 2924570.0,
+      "text": "needs to store the compiled code somewhere."
+    },
+    {
+      "index": 993,
+      "start_time": 2924570.0,
+      "end_time": 2928380.0,
+      "text": "So there&#39;s definitely other parts of this system that"
+    },
+    {
+      "index": 994,
+      "start_time": 2928380.0,
+      "end_time": 2931040.0,
+      "text": "allocate memory that&#39;s going to kind of get charged to your"
+    },
+    {
+      "index": 995,
+      "start_time": 2931040.0,
+      "end_time": 2931710.0,
+      "text": "application."
+    },
+    {
+      "index": 996,
+      "start_time": 2931710.0,
+      "end_time": 2935290.0,
+      "text": "But I can&#39;t think of why."
+    },
+    {
+      "index": 997,
+      "start_time": 2935290.0,
+      "end_time": 2938770.0,
+      "text": "I can&#39;t think of anything that would be out of the ordinary"
+    },
+    {
+      "index": 998,
+      "start_time": 2938770.0,
+      "end_time": 2940590.0,
+      "text": "really that should cause problems."
+    },
+    {
+      "index": 999,
+      "start_time": 2940590.0,
+      "end_time": 2942760.0,
+      "text": "AUDIENCE: But do you know if this will be changed maybe in"
+    },
+    {
+      "index": 1000,
+      "start_time": 2942760.0,
+      "end_time": 2943120.0,
+      "text": "the future?"
+    },
+    {
+      "index": 1001,
+      "start_time": 2943120.0,
+      "end_time": 2946110.0,
+      "text": "That this number is not shown there because for me, it"
+    },
+    {
+      "index": 1002,
+      "start_time": 2946110.0,
+      "end_time": 2948450.0,
+      "text": "doesn&#39;t make sense to show this number to the end user"
+    },
+    {
+      "index": 1003,
+      "start_time": 2948450.0,
+      "end_time": 2950920.0,
+      "text": "because he doesn&#39;t understand what it means."
+    },
+    {
+      "index": 1004,
+      "start_time": 2950920.0,
+      "end_time": 2951670.0,
+      "text": "PATRICK DUBROY: I see."
+    },
+    {
+      "index": 1005,
+      "start_time": 2951670.0,
+      "end_time": 2953520.0,
+      "text": "Where is he seeing the number?"
+    },
+    {
+      "index": 1006,
+      "start_time": 2953520.0,
+      "end_time": 2955110.0,
+      "text": "AUDIENCE: In the running applications tab."
+    },
+    {
+      "index": 1007,
+      "start_time": 2955110.0,
+      "end_time": 2957040.0,
+      "text": "If he goes to settings, running applications, he can"
+    },
+    {
+      "index": 1008,
+      "start_time": 2957040.0,
+      "end_time": 2959470.0,
+      "text": "see the memory usage per application and that&#39;s"
+    },
+    {
+      "index": 1009,
+      "start_time": 2959470.0,
+      "end_time": 2961380.0,
+      "text": "actually the system memory."
+    },
+    {
+      "index": 1010,
+      "start_time": 2961380.0,
+      "end_time": 2962880.0,
+      "text": "PATRICK DUBROY: I see."
+    },
+    {
+      "index": 1011,
+      "start_time": 2962880.0,
+      "end_time": 2965415.0,
+      "text": "Yeah, I&#39;m not sure what our plans are with that."
+    },
+    {
+      "index": 1012,
+      "start_time": 2965420.0,
+      "end_time": 2966045.0,
+      "text": "Sorry."
+    },
+    {
+      "index": 1013,
+      "start_time": 2966040.0,
+      "end_time": 2969600.0,
+      "text": "I can take a look and I&#39;m not actually sure where it&#39;s"
+    },
+    {
+      "index": 1014,
+      "start_time": 2969600.0,
+      "end_time": 2970760.0,
+      "text": "getting that number from."
+    },
+    {
+      "index": 1015,
+      "start_time": 2970760.0,
+      "end_time": 2972010.0,
+      "text": "AUDIENCE: OK, thanks."
+    },
+    {
+      "index": 1016,
+      "start_time": 2974510.0,
+      "end_time": 2977180.0,
+      "text": "AUDIENCE: My question&#39;s about reasonable expectations of out"
+    },
+    {
+      "index": 1017,
+      "start_time": 2977180.0,
+      "end_time": 2979500.0,
+      "text": "of memory errors."
+    },
+    {
+      "index": 1018,
+      "start_time": 2979500.0,
+      "end_time": 2981990.0,
+      "text": "Is it possible to completely eliminate them?"
+    },
+    {
+      "index": 1019,
+      "start_time": 2981990.0,
+      "end_time": 2984980.0,
+      "text": "We&#39;ve been working for a while in getting rid of all the out"
+    },
+    {
+      "index": 1020,
+      "start_time": 2984980.0,
+      "end_time": 2988260.0,
+      "text": "of memory errors and down to one in about"
+    },
+    {
+      "index": 1021,
+      "start_time": 2988260.0,
+      "end_time": 2991520.0,
+      "text": "every 17,000 sessions."
+    },
+    {
+      "index": 1022,
+      "start_time": 2991520.0,
+      "end_time": 2993220.0,
+      "text": "Should we keep troubleshooting."
+    },
+    {
+      "index": 1023,
+      "start_time": 2993220.0,
+      "end_time": 2995260.0,
+      "text": "I mean, I&#39;d like to get it down to zero, but is that"
+    },
+    {
+      "index": 1024,
+      "start_time": 2995260.0,
+      "end_time": 2996330.0,
+      "text": "reasonable or?"
+    },
+    {
+      "index": 1025,
+      "start_time": 2996330.0,
+      "end_time": 2999330.0,
+      "text": "PATRICK DUBROY: So there are certain scenarios where if"
+    },
+    {
+      "index": 1026,
+      "start_time": 2999330.0,
+      "end_time": 3001760.0,
+      "text": "you&#39;re really close to your memory limit, so if your"
+    },
+    {
+      "index": 1027,
+      "start_time": 3001760.0,
+      "end_time": 3007320.0,
+      "text": "applications live memory size is really close to that limit,"
+    },
+    {
+      "index": 1028,
+      "start_time": 3007320.0,
+      "end_time": 3009310.0,
+      "text": "the garbage collector&#39;s fundamentally kind of"
+    },
+    {
+      "index": 1029,
+      "start_time": 3009310.0,
+      "end_time": 3010965.0,
+      "text": "asynchronous."
+    },
+    {
+      "index": 1030,
+      "start_time": 3010970.0,
+      "end_time": 3015015.0,
+      "text": "So if you&#39;re really close to the limit, there can be times"
+    },
+    {
+      "index": 1031,
+      "start_time": 3015010.0,
+      "end_time": 3016980.0,
+      "text": "where you&#39;re just trying to allocate so fast that the"
+    },
+    {
+      "index": 1032,
+      "start_time": 3016980.0,
+      "end_time": 3019060.0,
+      "text": "garbage collector can&#39;t keep up."
+    },
+    {
+      "index": 1033,
+      "start_time": 3019060.0,
+      "end_time": 3020340.0,
+      "text": "So you can be actually sort of out"
+    },
+    {
+      "index": 1034,
+      "start_time": 3020340.0,
+      "end_time": 3023070.0,
+      "text": "running the garbage collector."
+    },
+    {
+      "index": 1035,
+      "start_time": 3023070.0,
+      "end_time": 3026180.0,
+      "text": "So certainly it&#39;s possible to build applications that never"
+    },
+    {
+      "index": 1036,
+      "start_time": 3026180.0,
+      "end_time": 3028180.0,
+      "text": "see an out of memory error."
+    },
+    {
+      "index": 1037,
+      "start_time": 3028180.0,
+      "end_time": 3030080.0,
+      "text": "But on the other hand, there are certain types of"
+    },
+    {
+      "index": 1038,
+      "start_time": 3030080.0,
+      "end_time": 3034960.0,
+      "text": "applications that are going to be running really, really"
+    },
+    {
+      "index": 1039,
+      "start_time": 3034960.0,
+      "end_time": 3038180.0,
+      "text": "close to the limits."
+    },
+    {
+      "index": 1040,
+      "start_time": 3038180.0,
+      "end_time": 3041800.0,
+      "text": "One thing you can use if you have caches or things that you"
+    },
+    {
+      "index": 1041,
+      "start_time": 3041800.0,
+      "end_time": 3045590.0,
+      "text": "can free up, there are several ways to figure out that you&#39;re"
+    },
+    {
+      "index": 1042,
+      "start_time": 3045590.0,
+      "end_time": 3048480.0,
+      "text": "getting close to the heap memory limit."
+    },
+    {
+      "index": 1043,
+      "start_time": 3048480.0,
+      "end_time": 3052240.0,
+      "text": "I believe there&#39;s a callback you can get notification that"
+    },
+    {
+      "index": 1044,
+      "start_time": 3052240.0,
+      "end_time": 3053540.0,
+      "text": "we&#39;re getting low on memory."
+    },
+    {
+      "index": 1045,
+      "start_time": 3053540.0,
+      "end_time": 3055360.0,
+      "text": "Although, the name escapes me."
+    },
+    {
+      "index": 1046,
+      "start_time": 3055360.0,
+      "end_time": 3059600.0,
+      "text": "But you can also look at that, the Activity Manager, get"
+    },
+    {
+      "index": 1047,
+      "start_time": 3059600.0,
+      "end_time": 3062350.0,
+      "text": "memory class to get a sense of how much memory you have"
+    },
+    {
+      "index": 1048,
+      "start_time": 3062350.0,
+      "end_time": 3063900.0,
+      "text": "available on the system."
+    },
+    {
+      "index": 1049,
+      "start_time": 3063900.0,
+      "end_time": 3069160.0,
+      "text": "And you know, maybe you can keep like smaller caches or"
+    },
+    {
+      "index": 1050,
+      "start_time": 3069160.0,
+      "end_time": 3072030.0,
+      "text": "leave the initialize objects rather than initializing them"
+    },
+    {
+      "index": 1051,
+      "start_time": 3072030.0,
+      "end_time": 3075530.0,
+      "text": "all in the constructor or something like that."
+    },
+    {
+      "index": 1052,
+      "start_time": 3075530.0,
+      "end_time": 3080055.0,
+      "text": "It really depends on the application whether you expect"
+    },
+    {
+      "index": 1053,
+      "start_time": 3080050.0,
+      "end_time": 3081915.0,
+      "text": "to be running close to that heap limit or not."
+    },
+    {
+      "index": 1054,
+      "start_time": 3086590.0,
+      "end_time": 3091580.0,
+      "text": "AUDIENCE: You recommended not to call system.gc manually if"
+    },
+    {
+      "index": 1055,
+      "start_time": 3091580.0,
+      "end_time": 3092910.0,
+      "text": "you can help it."
+    },
+    {
+      "index": 1056,
+      "start_time": 3092910.0,
+      "end_time": 3096740.0,
+      "text": "Is there any way to reliably free bitmap memory"
+    },
+    {
+      "index": 1057,
+      "start_time": 3096740.0,
+      "end_time": 3097990.0,
+      "text": "pre-Honeycomb?"
+    },
+    {
+      "index": 1058,
+      "start_time": 3100150.0,
+      "end_time": 3100600.0,
+      "text": "PATRICK DUBROY: Yes."
+    },
+    {
+      "index": 1059,
+      "start_time": 3100600.0,
+      "end_time": 3101640.0,
+      "text": "Pre-Honeycomb?"
+    },
+    {
+      "index": 1060,
+      "start_time": 3101640.0,
+      "end_time": 3102230.0,
+      "text": "AUDIENCE: Yes."
+    },
+    {
+      "index": 1061,
+      "start_time": 3102230.0,
+      "end_time": 3103860.0,
+      "text": "PATRICK DUBROY: You can call recycle on the bitmap."
+    },
+    {
+      "index": 1062,
+      "start_time": 3103860.0,
+      "end_time": 3106870.0,
+      "text": "AUDIENCE: Yeah, but it can still take several passes"
+    },
+    {
+      "index": 1063,
+      "start_time": 3106870.0,
+      "end_time": 3107780.0,
+      "text": "apparently."
+    },
+    {
+      "index": 1064,
+      "start_time": 3107780.0,
+      "end_time": 3108230.0,
+      "text": "PATRICK DUBROY: No."
+    },
+    {
+      "index": 1065,
+      "start_time": 3108230.0,
+      "end_time": 3110610.0,
+      "text": "If you call recycle that will immediately"
+    },
+    {
+      "index": 1066,
+      "start_time": 3110610.0,
+      "end_time": 3111730.0,
+      "text": "free the backing memory."
+    },
+    {
+      "index": 1067,
+      "start_time": 3111730.0,
+      "end_time": 3115610.0,
+      "text": "The bitmap itself, that&#39;s like 80 bytes or something."
+    },
+    {
+      "index": 1068,
+      "start_time": 3115610.0,
+      "end_time": 3117890.0,
+      "text": "AUDIENCE: There are also bitmaps like drawables that"
+    },
+    {
+      "index": 1069,
+      "start_time": 3117890.0,
+      "end_time": 3123620.0,
+      "text": "you can&#39;t manually recycle the bitmaps that the drawable"
+    },
+    {
+      "index": 1070,
+      "start_time": 3123620.0,
+      "end_time": 3126690.0,
+      "text": "object creates."
+    },
+    {
+      "index": 1071,
+      "start_time": 3126690.0,
+      "end_time": 3128960.0,
+      "text": "PATRICK DUBROY: OK."
+    },
+    {
+      "index": 1072,
+      "start_time": 3128960.0,
+      "end_time": 3131680.0,
+      "text": "AUDIENCE: The backing bitmaps for those."
+    },
+    {
+      "index": 1073,
+      "start_time": 3131680.0,
+      "end_time": 3134300.0,
+      "text": "PATRICK DUBROY: I see."
+    },
+    {
+      "index": 1074,
+      "start_time": 3134300.0,
+      "end_time": 3137750.0,
+      "text": "No, I mean there are still some cases I guess where"
+    },
+    {
+      "index": 1075,
+      "start_time": 3137750.0,
+      "end_time": 3141650.0,
+      "text": "system.gc is the right approach."
+    },
+    {
+      "index": 1076,
+      "start_time": 3141650.0,
+      "end_time": 3142900.0,
+      "text": "[UNINTELLIGIBLE PHRASE]"
+    },
+    {
+      "index": 1077,
+      "start_time": 3146010.0,
+      "end_time": 3147570.0,
+      "text": "PATRICK DUBROY: OK, which objects are you"
+    },
+    {
+      "index": 1078,
+      "start_time": 3147570.0,
+      "end_time": 3148430.0,
+      "text": "talking about in--"
+    },
+    {
+      "index": 1079,
+      "start_time": 3148430.0,
+      "end_time": 3154360.0,
+      "text": "AUDIENCE: My experience is when I have image drawables"
+    },
+    {
+      "index": 1080,
+      "start_time": 3154360.0,
+      "end_time": 3158020.0,
+      "text": "that are used some where in my layout and I know they&#39;re no"
+    },
+    {
+      "index": 1081,
+      "start_time": 3158020.0,
+      "end_time": 3160430.0,
+      "text": "longer needed."
+    },
+    {
+      "index": 1082,
+      "start_time": 3160430.0,
+      "end_time": 3163260.0,
+      "text": "Some of them are fairly large and it seems like--"
+    },
+    {
+      "index": 1083,
+      "start_time": 3163260.0,
+      "end_time": 3165450.0,
+      "text": "PATRICK DUBROY: You can call recycle on those I believe."
+    },
+    {
+      "index": 1084,
+      "start_time": 3165450.0,
+      "end_time": 3165880.0,
+      "text": "AUDIENCE: OK."
+    },
+    {
+      "index": 1085,
+      "start_time": 3165880.0,
+      "end_time": 3170690.0,
+      "text": "My experience is that it will cause other"
+    },
+    {
+      "index": 1086,
+      "start_time": 3170690.0,
+      "end_time": 3173790.0,
+      "text": "problems when I do that."
+    },
+    {
+      "index": 1087,
+      "start_time": 3173790.0,
+      "end_time": 3174850.0,
+      "text": "PATRICK DUBROY: If you&#39;re still using"
+    },
+    {
+      "index": 1088,
+      "start_time": 3174850.0,
+      "end_time": 3177040.0,
+      "text": "them, then you can&#39;t--"
+    },
+    {
+      "index": 1089,
+      "start_time": 3177040.0,
+      "end_time": 3179350.0,
+      "text": "I mean, you can only recycle that when you&#39;re not using it."
+    },
+    {
+      "index": 1090,
+      "start_time": 3179350.0,
+      "end_time": 3181290.0,
+      "text": "AUDIENCE: Sure."
+    },
+    {
+      "index": 1091,
+      "start_time": 3181290.0,
+      "end_time": 3182540.0,
+      "text": "OK."
+    },
+    {
+      "index": 1092,
+      "start_time": 3185530.0,
+      "end_time": 3189150.0,
+      "text": "AUDIENCE: For native code that uses a lot of mallocs, what&#39;s"
+    },
+    {
+      "index": 1093,
+      "start_time": 3189150.0,
+      "end_time": 3193540.0,
+      "text": "the best way to manage that memory?"
+    },
+    {
+      "index": 1094,
+      "start_time": 3193540.0,
+      "end_time": 3195890.0,
+      "text": "PATRICK DUBROY: That&#39;s a very good question."
+    },
+    {
+      "index": 1095,
+      "start_time": 3195890.0,
+      "end_time": 3197930.0,
+      "text": "When you&#39;ve got native code, I mean mostly what I was"
+    },
+    {
+      "index": 1096,
+      "start_time": 3197930.0,
+      "end_time": 3200830.0,
+      "text": "covering here was managing memory from the"
+    },
+    {
+      "index": 1097,
+      "start_time": 3200830.0,
+      "end_time": 3203710.0,
+      "text": "Dalvik side of things."
+    },
+    {
+      "index": 1098,
+      "start_time": 3203710.0,
+      "end_time": 3208970.0,
+      "text": "I don&#39;t know that I have any real pointers."
+    },
+    {
+      "index": 1099,
+      "start_time": 3208970.0,
+      "end_time": 3212110.0,
+      "text": "I mean that&#39;s one of the reasons why programming in a"
+    },
+    {
+      "index": 1100,
+      "start_time": 3212110.0,
+      "end_time": 3214450.0,
+      "text": "managed run time is very nice."
+    },
+    {
+      "index": 1101,
+      "start_time": 3214450.0,
+      "end_time": 3216990.0,
+      "text": "Is that you don&#39;t have to deal with manually"
+    },
+    {
+      "index": 1102,
+      "start_time": 3216990.0,
+      "end_time": 3219310.0,
+      "text": "managing your memory."
+    },
+    {
+      "index": 1103,
+      "start_time": 3219310.0,
+      "end_time": 3221563.0,
+      "text": "I don&#39;t have any great advice for that."
+    },
+    {
+      "index": 1104,
+      "start_time": 3224500.0,
+      "end_time": 3226740.0,
+      "text": "AUDIENCE: Does the app that calls into the native"
+    },
+    {
+      "index": 1105,
+      "start_time": 3226740.0,
+      "end_time": 3232340.0,
+      "text": "libraries, is it aware of, at least on an aggravate level,"
+    },
+    {
+      "index": 1106,
+      "start_time": 3232340.0,
+      "end_time": 3235700.0,
+      "text": "how much memory is being used or is it"
+    },
+    {
+      "index": 1107,
+      "start_time": 3235700.0,
+      "end_time": 3238190.0,
+      "text": "completely a separate--"
+    },
+    {
+      "index": 1108,
+      "start_time": 3238190.0,
+      "end_time": 3239850.0,
+      "text": "PATRICK DUBROY: I don&#39;t believe there&#39;s any way to"
+    },
+    {
+      "index": 1109,
+      "start_time": 3239850.0,
+      "end_time": 3242030.0,
+      "text": "account for if you&#39;re calling into the library and it&#39;s"
+    },
+    {
+      "index": 1110,
+      "start_time": 3242030.0,
+      "end_time": 3242760.0,
+      "text": "calling malloc."
+    },
+    {
+      "index": 1111,
+      "start_time": 3242760.0,
+      "end_time": 3245740.0,
+      "text": "I don&#39;t know that there&#39;s any way to account for that memory"
+    },
+    {
+      "index": 1112,
+      "start_time": 3245740.0,
+      "end_time": 3247390.0,
+      "text": "from your application side."
+    },
+    {
+      "index": 1113,
+      "start_time": 3247390.0,
+      "end_time": 3251420.0,
+      "text": "AUDIENCE: But that garbage collector will run when you"
+    },
+    {
+      "index": 1114,
+      "start_time": 3251420.0,
+      "end_time": 3255880.0,
+      "text": "start allocating memory, will it not?"
+    },
+    {
+      "index": 1115,
+      "start_time": 3255880.0,
+      "end_time": 3259820.0,
+      "text": "PATRICK DUBROY: It&#39;ll run when you start allocating like"
+    },
+    {
+      "index": 1116,
+      "start_time": 3259820.0,
+      "end_time": 3261070.0,
+      "text": "objects in Dalvik."
+    },
+    {
+      "index": 1117,
+      "start_time": 3265210.0,
+      "end_time": 3267660.0,
+      "text": "It doesn&#39;t have any knowledge of calls to malloc."
+    },
+    {
+      "index": 1118,
+      "start_time": 3270500.0,
+      "end_time": 3273920.0,
+      "text": "AUDIENCE: You&#39;ll just get an out of memory or a failed"
+    },
+    {
+      "index": 1119,
+      "start_time": 3273920.0,
+      "end_time": 3277680.0,
+      "text": "malloc if you--"
+    },
+    {
+      "index": 1120,
+      "start_time": 3277680.0,
+      "end_time": 3278090.0,
+      "text": "PATRICK DUBROY: Yeah."
+    },
+    {
+      "index": 1121,
+      "start_time": 3278090.0,
+      "end_time": 3278590.0,
+      "text": "Sure."
+    },
+    {
+      "index": 1122,
+      "start_time": 3278590.0,
+      "end_time": 3280510.0,
+      "text": "It&#39;s going to be the same mechanisms as"
+    },
+    {
+      "index": 1123,
+      "start_time": 3280510.0,
+      "end_time": 3282740.0,
+      "text": "any C or C++ program."
+    },
+    {
+      "index": 1124,
+      "start_time": 3282740.0,
+      "end_time": 3286250.0,
+      "text": "Malloc is going to return a null pointer."
+    },
+    {
+      "index": 1125,
+      "start_time": 3286250.0,
+      "end_time": 3286590.0,
+      "text": "Yes?"
+    },
+    {
+      "index": 1126,
+      "start_time": 3286590.0,
+      "end_time": 3288650.0,
+      "text": "AUDIENCE: [UNINTELLIGIBLE PHRASE]"
+    },
+    {
+      "index": 1127,
+      "start_time": 3288650.0,
+      "end_time": 3289533.0,
+      "text": "PATRICK DUBROY: Pardon me?"
+    },
+    {
+      "index": 1128,
+      "start_time": 3289530.0,
+      "end_time": 3291797.0,
+      "text": "AUDIENCE: [UNINTELLIGIBLE PHRASE]"
+    },
+    {
+      "index": 1129,
+      "start_time": 3291800.0,
+      "end_time": 3292220.0,
+      "text": "PATRICK DUBROY: Oh, OK."
+    },
+    {
+      "index": 1130,
+      "start_time": 3292220.0,
+      "end_time": 3293420.0,
+      "text": "That&#39;s news to me."
+    },
+    {
+      "index": 1131,
+      "start_time": 3293420.0,
+      "end_time": 3294910.0,
+      "text": "Malloc can&#39;t fail on Android."
+    },
+    {
+      "index": 1132,
+      "start_time": 3294910.0,
+      "end_time": 3296160.0,
+      "text": "AUDIENCE: [UNINTELLIGIBLE PHRASE]"
+    },
+    {
+      "index": 1133,
+      "start_time": 3298650.0,
+      "end_time": 3299360.0,
+      "text": "PATRICK DUBROY: I see."
+    },
+    {
+      "index": 1134,
+      "start_time": 3299360.0,
+      "end_time": 3300360.0,
+      "text": "OK."
+    },
+    {
+      "index": 1135,
+      "start_time": 3300360.0,
+      "end_time": 3302510.0,
+      "text": "AUDIENCE: Can you repeat that?"
+    },
+    {
+      "index": 1136,
+      "start_time": 3302510.0,
+      "end_time": 3304760.0,
+      "text": "PATRICK DUBROY: Romain tells me that malloc"
+    },
+    {
+      "index": 1137,
+      "start_time": 3304760.0,
+      "end_time": 3306120.0,
+      "text": "can&#39;t fail on Android."
+    },
+    {
+      "index": 1138,
+      "start_time": 3306120.0,
+      "end_time": 3307370.0,
+      "text": "AUDIENCE: [UNINTELLIGIBLE PHRASE]"
+    },
+    {
+      "index": 1139,
+      "start_time": 3310100.0,
+      "end_time": 3312800.0,
+      "text": "PATRICK DUBROY: I see."
+    },
+    {
+      "index": 1140,
+      "start_time": 3312800.0,
+      "end_time": 3318440.0,
+      "text": "So I think this is the old Linux lazy--"
+    },
+    {
+      "index": 1141,
+      "start_time": 3318440.0,
+      "end_time": 3319690.0,
+      "text": "yeah."
+    },
+    {
+      "index": 1142,
+      "start_time": 3321890.0,
+      "end_time": 3326780.0,
+      "text": "It&#39;ll successfully allocate the virtual memory, but Linux"
+    },
+    {
+      "index": 1143,
+      "start_time": 3326780.0,
+      "end_time": 3328800.0,
+      "text": "can actually hand out more virtual memory than it can"
+    },
+    {
+      "index": 1144,
+      "start_time": 3328800.0,
+      "end_time": 3330050.0,
+      "text": "actually commit."
+    },
+    {
+      "index": 1145,
+      "start_time": 3332070.0,
+      "end_time": 3338240.0,
+      "text": "So you can get problems. Like when your system is totally,"
+    },
+    {
+      "index": 1146,
+      "start_time": 3338240.0,
+      "end_time": 3342062.0,
+      "text": "totally out of native memory, you&#39;re going to see crashes."
+    },
+    {
+      "index": 1147,
+      "start_time": 3342060.0,
+      "end_time": 3344058.0,
+      "text": "AUDIENCE: So native memory is completely separate from"
+    },
+    {
+      "index": 1148,
+      "start_time": 3344060.0,
+      "end_time": 3345030.0,
+      "text": "anything Dalvik?"
+    },
+    {
+      "index": 1149,
+      "start_time": 3345030.0,
+      "end_time": 3346280.0,
+      "text": "PATRICK DUBROY: Yes."
+    },
+    {
+      "index": 1150,
+      "start_time": 3348400.0,
+      "end_time": 3351130.0,
+      "text": "Well, I mean, sorry, I should say, like Dalvik is still"
+    },
+    {
+      "index": 1151,
+      "start_time": 3351130.0,
+      "end_time": 3354970.0,
+      "text": "allocating its own memory like for the heap through the"
+    },
+    {
+      "index": 1152,
+      "start_time": 3354970.0,
+      "end_time": 3359320.0,
+      "text": "native mechanisms. So it&#39;s reserving the same virtual"
+    },
+    {
+      "index": 1153,
+      "start_time": 3359320.0,
+      "end_time": 3365290.0,
+      "text": "memory pages that other applications are using."
+    },
+    {
+      "index": 1154,
+      "start_time": 3365290.0,
+      "end_time": 3367030.0,
+      "text": "AUDIENCE: But if your system memory is--"
+    },
+    {
+      "index": 1155,
+      "start_time": 3367030.0,
+      "end_time": 3369070.0,
+      "text": "PATRICK DUBROY: Yeah, if your system memory is out, you&#39;re"
+    },
+    {
+      "index": 1156,
+      "start_time": 3369070.0,
+      "end_time": 3369940.0,
+      "text": "in trouble."
+    },
+    {
+      "index": 1157,
+      "start_time": 3369940.0,
+      "end_time": 3373230.0,
+      "text": "AUDIENCE: But Dalvik won&#39;t get a notice say, hey, better"
+    },
+    {
+      "index": 1158,
+      "start_time": 3373230.0,
+      "end_time": 3374940.0,
+      "text": "start garbage collecting?"
+    },
+    {
+      "index": 1159,
+      "start_time": 3374940.0,
+      "end_time": 3376190.0,
+      "text": "PATRICK DUBROY: Well, no."
+    },
+    {
+      "index": 1160,
+      "start_time": 3382300.0,
+      "end_time": 3386420.0,
+      "text": "AUDIENCE: The flag for using larger heap, does that require"
+    },
+    {
+      "index": 1161,
+      "start_time": 3386420.0,
+      "end_time": 3388910.0,
+      "text": "a permission, like users permission or"
+    },
+    {
+      "index": 1162,
+      "start_time": 3388910.0,
+      "end_time": 3390820.0,
+      "text": "something like that?"
+    },
+    {
+      "index": 1163,
+      "start_time": 3390820.0,
+      "end_time": 3392630.0,
+      "text": "PATRICK DUBROY: I can&#39;t remember whether we"
+    },
+    {
+      "index": 1164,
+      "start_time": 3392630.0,
+      "end_time": 3393620.0,
+      "text": "added that or not."
+    },
+    {
+      "index": 1165,
+      "start_time": 3393620.0,
+      "end_time": 3396820.0,
+      "text": "I don&#39;t think that it does."
+    },
+    {
+      "index": 1166,
+      "start_time": 3396820.0,
+      "end_time": 3397890.0,
+      "text": "AUDIENCE: Like the whole--"
+    },
+    {
+      "index": 1167,
+      "start_time": 3397890.0,
+      "end_time": 3400860.0,
+      "text": "could it been like a permission thing?"
+    },
+    {
+      "index": 1168,
+      "start_time": 3400860.0,
+      "end_time": 3402340.0,
+      "text": "But if it&#39;s not then--"
+    },
+    {
+      "index": 1169,
+      "start_time": 3402340.0,
+      "end_time": 3406440.0,
+      "text": "PATRICK DUBROY: Yeah, I mean the idea I think is that--"
+    },
+    {
+      "index": 1170,
+      "start_time": 3406440.0,
+      "end_time": 3407010.0,
+      "text": "yeah, you&#39;re right."
+    },
+    {
+      "index": 1171,
+      "start_time": 3407010.0,
+      "end_time": 3409280.0,
+      "text": "I mean it can affect the system as a whole because"
+    },
+    {
+      "index": 1172,
+      "start_time": 3409280.0,
+      "end_time": 3411520.0,
+      "text": "you&#39;re going to have apps that are using a lot more memory,"
+    },
+    {
+      "index": 1173,
+      "start_time": 3411520.0,
+      "end_time": 3414240.0,
+      "text": "which is why I gave that big warning, that this is not"
+    },
+    {
+      "index": 1174,
+      "start_time": 3414240.0,
+      "end_time": 3416570.0,
+      "text": "something that you should be using unless you know that you"
+    },
+    {
+      "index": 1175,
+      "start_time": 3416570.0,
+      "end_time": 3418050.0,
+      "text": "really need it."
+    },
+    {
+      "index": 1176,
+      "start_time": 3418050.0,
+      "end_time": 3418680.0,
+      "text": "AUDIENCE: Yeah."
+    },
+    {
+      "index": 1177,
+      "start_time": 3418680.0,
+      "end_time": 3419080.0,
+      "text": "But [INAUDIBLE]."
+    },
+    {
+      "index": 1178,
+      "start_time": 3419080.0,
+      "end_time": 3420390.0,
+      "text": "OK."
+    },
+    {
+      "index": 1179,
+      "start_time": 3420390.0,
+      "end_time": 3421280.0,
+      "text": "PATRICK DUBROY: I don&#39;t think there&#39;s a"
+    },
+    {
+      "index": 1180,
+      "start_time": 3421280.0,
+      "end_time": 3422530.0,
+      "text": "permission for it, though."
+    },
+    {
+      "index": 1181,
+      "start_time": 3426210.0,
+      "end_time": 3429570.0,
+      "text": "AUDIENCE: What if the app kind of runs in the background for"
+    },
+    {
+      "index": 1182,
+      "start_time": 3429570.0,
+      "end_time": 3431770.0,
+      "text": "weeks at a time?"
+    },
+    {
+      "index": 1183,
+      "start_time": 3431770.0,
+      "end_time": 3436400.0,
+      "text": "So I do everything I can to simulate a leak, click"
+    },
+    {
+      "index": 1184,
+      "start_time": 3436400.0,
+      "end_time": 3441188.0,
+      "text": "everywhere I can, but I see the leaks if the app runs two"
+    },
+    {
+      "index": 1185,
+      "start_time": 3441190.0,
+      "end_time": 3444422.0,
+      "text": "or three days and then I get [INAUDIBLE]."
+    },
+    {
+      "index": 1186,
+      "start_time": 3444420.0,
+      "end_time": 3449810.0,
+      "text": "PATRICK DUBROY: One thing you could try is if you can use"
+    },
+    {
+      "index": 1187,
+      "start_time": 3449810.0,
+      "end_time": 3453810.0,
+      "text": "the APIs to determine how much free memory you have. I don&#39;t"
+    },
+    {
+      "index": 1188,
+      "start_time": 3453810.0,
+      "end_time": 3456370.0,
+      "text": "know if there&#39;s any way you can actually kind of notice in"
+    },
+    {
+      "index": 1189,
+      "start_time": 3456370.0,
+      "end_time": 3460080.0,
+      "text": "your application that it started leaking."
+    },
+    {
+      "index": 1190,
+      "start_time": 3460080.0,
+      "end_time": 3465370.0,
+      "text": "But you could write out an HPROF file when you notice"
+    },
+    {
+      "index": 1191,
+      "start_time": 3465370.0,
+      "end_time": 3467270.0,
+      "text": "that you&#39;ve gotten to a certain point, your heap is"
+    },
+    {
+      "index": 1192,
+      "start_time": 3467270.0,
+      "end_time": 3469960.0,
+      "text": "getting smaller and smaller."
+    },
+    {
+      "index": 1193,
+      "start_time": 3469960.0,
+      "end_time": 3471720.0,
+      "text": "So there is some debug information there"
+    },
+    {
+      "index": 1194,
+      "start_time": 3471720.0,
+      "end_time": 3472380.0,
+      "text": "that you could use."
+    },
+    {
+      "index": 1195,
+      "start_time": 3472380.0,
+      "end_time": 3475120.0,
+      "text": "So if you have like some beta testers, who could actually"
+    },
+    {
+      "index": 1196,
+      "start_time": 3475120.0,
+      "end_time": 3478490.0,
+      "text": "send you these dumps, then you could do that."
+    },
+    {
+      "index": 1197,
+      "start_time": 3478490.0,
+      "end_time": 3483100.0,
+      "text": "So write out the HPROF file to SD card or something."
+    },
+    {
+      "index": 1198,
+      "start_time": 3483100.0,
+      "end_time": 3486500.0,
+      "text": "AUDIENCE: So maybe I can just write an HPROF file every--"
+    },
+    {
+      "index": 1199,
+      "start_time": 3486500.0,
+      "end_time": 3487170.0,
+      "text": "PATRICK DUBROY: I wouldn&#39;t do that."
+    },
+    {
+      "index": 1200,
+      "start_time": 3487170.0,
+      "end_time": 3488780.0,
+      "text": "I mean they&#39;re quite large."
+    },
+    {
+      "index": 1201,
+      "start_time": 3488780.0,
+      "end_time": 3490860.0,
+      "text": "You don&#39;t want to be doing that on a regular basis."
+    },
+    {
+      "index": 1202,
+      "start_time": 3490860.0,
+      "end_time": 3494490.0,
+      "text": "But if you detect that things have gone really, really wrong"
+    },
+    {
+      "index": 1203,
+      "start_time": 3494490.0,
+      "end_time": 3501100.0,
+      "text": "and you&#39;re about to die, in an alpha version or something for"
+    },
+    {
+      "index": 1204,
+      "start_time": 3501100.0,
+      "end_time": 3503495.0,
+      "text": "testing that&#39;s one way you could do it."
+    },
+    {
+      "index": 1205,
+      "start_time": 3503500.0,
+      "end_time": 3507015.0,
+      "text": "But I definitely wouldn&#39;t recommend putting an app in"
+    },
+    {
+      "index": 1206,
+      "start_time": 3507010.0,
+      "end_time": 3511270.0,
+      "text": "the market that&#39;s dumping like very large files to the SD"
+    },
+    {
+      "index": 1207,
+      "start_time": 3511270.0,
+      "end_time": 3512930.0,
+      "text": "card for no reason."
+    },
+    {
+      "index": 1208,
+      "start_time": 3512930.0,
+      "end_time": 3514180.0,
+      "text": "AUDIENCE: OK."
+    },
+    {
+      "index": 1209,
+      "start_time": 3516620.0,
+      "end_time": 3518720.0,
+      "text": "PATRICK DUBROY: OK, thanks a lot."
+    }
+  ]
+}

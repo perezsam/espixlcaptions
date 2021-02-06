@@ -1,0 +1,1698 @@
+{
+  "video_id": "jDlrfBLAIuQ",
+  "title": "2   1   Distributed File Systems 15 50",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 810.0,
+      "end_time": 2890.0,
+      "text": "Welcome to Mining Massive Datasets."
+    },
+    {
+      "index": 2,
+      "start_time": 2890.0,
+      "end_time": 6480.0,
+      "text": "I&#39;m Anand Rajaraman and today&#39;s topic is Map-Reduce."
+    },
+    {
+      "index": 3,
+      "start_time": 6480.0,
+      "end_time": 10100.0,
+      "text": "In the last few years Map-Reduce has emerged as a leading paradigm for"
+    },
+    {
+      "index": 4,
+      "start_time": 10100.0,
+      "end_time": 12250.0,
+      "text": "mining really massive data sets."
+    },
+    {
+      "index": 5,
+      "start_time": 12250.0,
+      "end_time": 15690.0,
+      "text": "But before we get into Map-Reduce proper, let&#39;s spend a few minutes trying to"
+    },
+    {
+      "index": 6,
+      "start_time": 15690.0,
+      "end_time": 17580.0,
+      "text": "understand why we need Map-Reduce in the first place."
+    },
+    {
+      "index": 7,
+      "start_time": 17580.0,
+      "end_time": 19450.0,
+      "text": "Let&#39;s start with the basics."
+    },
+    {
+      "index": 8,
+      "start_time": 21460.0,
+      "end_time": 24950.0,
+      "text": "Now we&#39;re all familiar with the basic computational model of CPU and"
+    },
+    {
+      "index": 9,
+      "start_time": 24950.0,
+      "end_time": 26349.0,
+      "text": "memory, right?"
+    },
+    {
+      "index": 10,
+      "start_time": 26350.0,
+      "end_time": 31190.0,
+      "text": "The algorithm runs on the CPU, and accesses data that&#39;s in memory."
+    },
+    {
+      "index": 11,
+      "start_time": 31190.0,
+      "end_time": 34784.0,
+      "text": "Now we may need to bring the data in from disk into memory, but"
+    },
+    {
+      "index": 12,
+      "start_time": 34784.0,
+      "end_time": 37691.0,
+      "text": "once the data is in memory, fits in there fully."
+    },
+    {
+      "index": 13,
+      "start_time": 37691.0,
+      "end_time": 39911.0,
+      "text": "So you don&#39;t need to access disk again, and"
+    },
+    {
+      "index": 14,
+      "start_time": 39911.0,
+      "end_time": 43240.0,
+      "text": "the algorithm just runs in the data that&#39;s on memory."
+    },
+    {
+      "index": 15,
+      "start_time": 43240.0,
+      "end_time": 47273.0,
+      "text": "Now there&#39;s a familiar model that we use to implement all kinds of algorithms, and"
+    },
+    {
+      "index": 16,
+      "start_time": 47273.0,
+      "end_time": 49840.0,
+      "text": "machined learning, and statistics."
+    },
+    {
+      "index": 17,
+      "start_time": 49840.0,
+      "end_time": 51850.0,
+      "text": "And pretty much everything else."
+    },
+    {
+      "index": 18,
+      "start_time": 51850.0,
+      "end_time": 52520.0,
+      "text": "All right?"
+    },
+    {
+      "index": 19,
+      "start_time": 52520.0,
+      "end_time": 54630.0,
+      "text": "Now, what happened to the data is so"
+    },
+    {
+      "index": 20,
+      "start_time": 54630.0,
+      "end_time": 57820.0,
+      "text": "big, that it can&#39;t all fit in memory at the same time."
+    },
+    {
+      "index": 21,
+      "start_time": 57820.0,
+      "end_time": 59460.0,
+      "text": "That&#39;s where data mining comes in."
+    },
+    {
+      "index": 22,
+      "start_time": 59460.0,
+      "end_time": 62410.0,
+      "text": "And classical data mining algorithms."
+    },
+    {
+      "index": 23,
+      "start_time": 62410.0,
+      "end_time": 65229.0,
+      "text": "Look at the disk in addition to looking at CPU and memory."
+    },
+    {
+      "index": 24,
+      "start_time": 65230.00000000001,
+      "end_time": 66670.0,
+      "text": "So the data&#39;s on disk,"
+    },
+    {
+      "index": 25,
+      "start_time": 66670.0,
+      "end_time": 69440.0,
+      "text": "you can only bring in a portion of the data into memory at a time."
+    },
+    {
+      "index": 26,
+      "start_time": 70510.0,
+      "end_time": 74930.0,
+      "text": "And you can process it in batches, and you know, write back results to disk."
+    },
+    {
+      "index": 27,
+      "start_time": 74930.0,
+      "end_time": 77700.0,
+      "text": "And this is the realm of classical data mining algorithms."
+    },
+    {
+      "index": 28,
+      "start_time": 77700.0,
+      "end_time": 80190.0,
+      "text": "But sometimes even this is not sufficient."
+    },
+    {
+      "index": 29,
+      "start_time": 80190.0,
+      "end_time": 81900.0,
+      "text": "Let&#39;s look at an example."
+    },
+    {
+      "index": 30,
+      "start_time": 83210.0,
+      "end_time": 88259.0,
+      "text": "So think about Google, crawling and indexing the web, right?"
+    },
+    {
+      "index": 31,
+      "start_time": 88260.0,
+      "end_time": 92510.0,
+      "text": "Let&#39;s say, google has crawled 10 billion web pages."
+    },
+    {
+      "index": 32,
+      "start_time": 92510.0,
+      "end_time": 97860.0,
+      "text": "And let&#39;s further say, that the average size of a web page is 20 KB."
+    },
+    {
+      "index": 33,
+      "start_time": 97860.0,
+      "end_time": 101450.0,
+      "text": "Now, these are representative numbers from real life."
+    },
+    {
+      "index": 34,
+      "start_time": 101450.0,
+      "end_time": 104780.0,
+      "text": "Now if you take ten billion webpages, each of 20 KB,"
+    },
+    {
+      "index": 35,
+      "start_time": 104780.0,
+      "end_time": 109480.0,
+      "text": "you have, total data set size of 200 TB."
+    },
+    {
+      "index": 36,
+      "start_time": 109480.0,
+      "end_time": 112300.0,
+      "text": "Now, when you have 200 TB, let&#39;s assume that they&#39;re using"
+    },
+    {
+      "index": 37,
+      "start_time": 112300.0,
+      "end_time": 115259.0,
+      "text": "the classical computational model, classical data mining model."
+    },
+    {
+      "index": 38,
+      "start_time": 115260.0,
+      "end_time": 117740.0,
+      "text": "And all this data is stored on a single disk, and"
+    },
+    {
+      "index": 39,
+      "start_time": 117740.0,
+      "end_time": 119860.0,
+      "text": "we have read tend to be processed inside a CPU."
+    },
+    {
+      "index": 40,
+      "start_time": 121240.0,
+      "end_time": 125330.0,
+      "text": "Now the fundamental limitation here is the bandwidth,"
+    },
+    {
+      "index": 41,
+      "start_time": 125330.0,
+      "end_time": 128300.0,
+      "text": "the data bandwidth between the disk and the CPU."
+    },
+    {
+      "index": 42,
+      "start_time": 128300.00000000001,
+      "end_time": 132450.0,
+      "text": "The data has to be read from the disk into the CPU, and"
+    },
+    {
+      "index": 43,
+      "start_time": 132450.0,
+      "end_time": 137700.0,
+      "text": "the disk read bandwidth for most modern SATA disk representative number."
+    },
+    {
+      "index": 44,
+      "start_time": 137700.0,
+      "end_time": 139430.0,
+      "text": "Is around 50MB a second."
+    },
+    {
+      "index": 45,
+      "start_time": 139430.0,
+      "end_time": 142130.0,
+      "text": "So, so we can read data at 50MB a second."
+    },
+    {
+      "index": 46,
+      "start_time": 142130.0,
+      "end_time": 145680.0,
+      "text": "How long does it take to read 200TB at 50MB a second?"
+    },
+    {
+      "index": 47,
+      "start_time": 145680.0,
+      "end_time": 147500.0,
+      "text": "Can do some simple math, and"
+    },
+    {
+      "index": 48,
+      "start_time": 147500.0,
+      "end_time": 151200.0,
+      "text": "the answer is 4 million seconds which is more than 46 days."
+    },
+    {
+      "index": 49,
+      "start_time": 151200.0,
+      "end_time": 152890.0,
+      "text": "Remember, this is an awfully long time, and"
+    },
+    {
+      "index": 50,
+      "start_time": 152890.0,
+      "end_time": 155940.0,
+      "text": "is just the time to read the data into memory."
+    },
+    {
+      "index": 51,
+      "start_time": 155940.0,
+      "end_time": 159829.0,
+      "text": "To do something useful with the data, it&#39;s going to take even longer."
+    },
+    {
+      "index": 52,
+      "start_time": 159830.0,
+      "end_time": 161870.0,
+      "text": "Right, so clearly this is unacceptable."
+    },
+    {
+      "index": 53,
+      "start_time": 161870.0,
+      "end_time": 164330.0,
+      "text": "You can&#39;t take four to six days just to read the data."
+    },
+    {
+      "index": 54,
+      "start_time": 164330.0,
+      "end_time": 165640.0,
+      "text": "So you need a better solution."
+    },
+    {
+      "index": 55,
+      "start_time": 165640.0,
+      "end_time": 170609.0,
+      "text": "Now the obvious thing that you think of is that it can split the data into chunks."
+    },
+    {
+      "index": 56,
+      "start_time": 170610.0,
+      "end_time": 173310.0,
+      "text": "And you can have multiple disks and CPUs."
+    },
+    {
+      "index": 57,
+      "start_time": 173310.0,
+      "end_time": 176900.0,
+      "text": "you, you stripe the data across multiple disks."
+    },
+    {
+      "index": 58,
+      "start_time": 176900.0,
+      "end_time": 180150.0,
+      "text": "And you can read it, and, and process it in parallel in multiple CPUs."
+    },
+    {
+      "index": 59,
+      "start_time": 180150.0,
+      "end_time": 182460.0,
+      "text": "That will cut down, this time by a lot."
+    },
+    {
+      "index": 60,
+      "start_time": 182460.0,
+      "end_time": 186668.0,
+      "text": "For example, if you had a 1,000 disks and CPUs, in four thousa-,"
+    },
+    {
+      "index": 61,
+      "start_time": 186668.0,
+      "end_time": 188800.0,
+      "text": "4 million seconds."
+    },
+    {
+      "index": 62,
+      "start_time": 188800.0,
+      "end_time": 192240.0,
+      "text": "And we were completely in parallel, in 4 million seconds, you could do the job in,"
+    },
+    {
+      "index": 63,
+      "start_time": 193600.0,
+      "end_time": 197940.0,
+      "text": "4 million by 1,000, which is 4,000 seconds."
+    },
+    {
+      "index": 64,
+      "start_time": 197940.0,
+      "end_time": 202609.0,
+      "text": "And that&#39;s just about an hour which is, which is very acceptable time."
+    },
+    {
+      "index": 65,
+      "start_time": 202610.0,
+      "end_time": 203490.0,
+      "text": "Right? So"
+    },
+    {
+      "index": 66,
+      "start_time": 203490.0,
+      "end_time": 207250.0,
+      "text": "this is the fundamental idea behind the idea of cluster computing."
+    },
+    {
+      "index": 67,
+      "start_time": 207250.0,
+      "end_time": 208100.0,
+      "text": "Right? And this is,"
+    },
+    {
+      "index": 68,
+      "start_time": 208100.0,
+      "end_time": 210280.0,
+      "text": "this tiered architecture that has emerged for"
+    },
+    {
+      "index": 69,
+      "start_time": 210280.0,
+      "end_time": 212140.0,
+      "text": "cluster computing is something like this."
+    },
+    {
+      "index": 70,
+      "start_time": 212140.0,
+      "end_time": 216870.0,
+      "text": "You have the racks consisting of commodity Linux nodes."
+    },
+    {
+      "index": 71,
+      "start_time": 216870.0,
+      "end_time": 219609.0,
+      "text": "As you go with commodity Linux nodes because they are very cheap."
+    },
+    {
+      "index": 72,
+      "start_time": 219610.0,
+      "end_time": 224428.0,
+      "text": "And you can, you can buy thousands and thousands of them and, and rack them up."
+    },
+    {
+      "index": 73,
+      "start_time": 224428.0,
+      "end_time": 227170.0,
+      "text": "you, you have many of these racks."
+    },
+    {
+      "index": 74,
+      "start_time": 227170.0,
+      "end_time": 233760.0,
+      "text": "Each rack has 16 to 64 of these commodity Linux nodes and"
+    },
+    {
+      "index": 75,
+      "start_time": 233760.0,
+      "end_time": 236602.0,
+      "text": "these nodes are connected by a switch."
+    },
+    {
+      "index": 76,
+      "start_time": 236602.0,
+      "end_time": 239851.0,
+      "text": "and, the, the, the switch in a rack is typically a gigabit switch."
+    },
+    {
+      "index": 77,
+      "start_time": 239851.0,
+      "end_time": 245120.0,
+      "text": "So there&#39;s 1 Gbps bandwidth between any pair of nodes in rack."
+    },
+    {
+      "index": 78,
+      "start_time": 246160.0,
+      "end_time": 248950.0,
+      "text": "Of course 16 to 64 nodes is not sufficient."
+    },
+    {
+      "index": 79,
+      "start_time": 248950.0,
+      "end_time": 252459.0,
+      "text": "So you have multiple racks, and all the,"
+    },
+    {
+      "index": 80,
+      "start_time": 252460.0,
+      "end_time": 255390.0,
+      "text": "the racks themselves are connected by backbone switches."
+    },
+    {
+      "index": 81,
+      "start_time": 255390.0,
+      "end_time": 256700.0,
+      "text": "And the backbones is,"
+    },
+    {
+      "index": 82,
+      "start_time": 256700.0,
+      "end_time": 262520.0,
+      "text": "is a higher bandwidth switch can do two to ten gigabits between racks."
+    },
+    {
+      "index": 83,
+      "start_time": 262520.0,
+      "end_time": 266000.0,
+      "text": "Right? So so we have 16 to 64 nodes in a rack."
+    },
+    {
+      "index": 84,
+      "start_time": 266000.0,
+      "end_time": 270580.0,
+      "text": "And then you, you rack up multiple racks, and, and you get a data center."
+    },
+    {
+      "index": 85,
+      "start_time": 270580.0,
+      "end_time": 274140.0,
+      "text": "So this is the standard classical architecture that has emerged over"
+    },
+    {
+      "index": 86,
+      "start_time": 274140.0,
+      "end_time": 275638.0,
+      "text": "the last few years."
+    },
+    {
+      "index": 87,
+      "start_time": 275638.0,
+      "end_time": 280832.0,
+      "text": "For you know, for storing and mining very large data sets."
+    },
+    {
+      "index": 88,
+      "start_time": 280832.0,
+      "end_time": 284349.0,
+      "text": "Now once you have this kind of cluster this doesn&#39;t solve the problem completely."
+    },
+    {
+      "index": 89,
+      "start_time": 284350.0,
+      "end_time": 287230.0,
+      "text": "Because cluster computing comes with it&#39;s own challenges."
+    },
+    {
+      "index": 90,
+      "start_time": 289422.0,
+      "end_time": 293963.0,
+      "text": "But before we get there, let&#39;s get us, you know, ideal of the scale, right?"
+    },
+    {
+      "index": 91,
+      "start_time": 293963.0,
+      "end_time": 298253.0,
+      "text": "In 2011 somebody estimated that Google had a million machines,"
+    },
+    {
+      "index": 92,
+      "start_time": 298253.0,
+      "end_time": 300490.0,
+      "text": "million nodes like this."
+    },
+    {
+      "index": 93,
+      "start_time": 300490.0,
+      "end_time": 303670.0,
+      "text": "In stacked up you know, is, is somewhat like this."
+    },
+    {
+      "index": 94,
+      "start_time": 303670.0,
+      "end_time": 308120.0,
+      "text": "So, so it gives, so that gives you a sense of the scale of modern data centers and,"
+    },
+    {
+      "index": 95,
+      "start_time": 308120.0,
+      "end_time": 309790.0,
+      "text": "and, and clusters, right?"
+    },
+    {
+      "index": 96,
+      "start_time": 309790.0,
+      "end_time": 311500.0,
+      "text": "So here&#39;s, here&#39;s a picture."
+    },
+    {
+      "index": 97,
+      "start_time": 311500.0,
+      "end_time": 315240.0,
+      "text": "This is what, it looks like inside a data center."
+    },
+    {
+      "index": 98,
+      "start_time": 315240.0,
+      "end_time": 318610.0,
+      "text": "So the, the, what you see there is, is the back up racks, and"
+    },
+    {
+      "index": 99,
+      "start_time": 318610.0,
+      "end_time": 321900.0,
+      "text": "you can see the connections, between, between the racks."
+    },
+    {
+      "index": 100,
+      "start_time": 322460.0,
+      "end_time": 326630.0,
+      "text": "Now, once you have such a big cluster,"
+    },
+    {
+      "index": 101,
+      "start_time": 326630.0,
+      "end_time": 329320.0,
+      "text": "you actually have to do computations on the cluster."
+    },
+    {
+      "index": 102,
+      "start_time": 329320.0,
+      "end_time": 329940.0,
+      "text": "Right?"
+    },
+    {
+      "index": 103,
+      "start_time": 329940.0,
+      "end_time": 333390.0,
+      "text": "And clustered computing comes with its own, challenges."
+    },
+    {
+      "index": 104,
+      "start_time": 333390.0,
+      "end_time": 337419.0,
+      "text": "The first and the most major challenge is that nodes can fail."
+    },
+    {
+      "index": 105,
+      "start_time": 337420.0,
+      "end_time": 337940.0,
+      "text": "Right?"
+    },
+    {
+      "index": 106,
+      "start_time": 337940.0,
+      "end_time": 341140.0,
+      "text": "Now a single, node doesn&#39;t fail that often."
+    },
+    {
+      "index": 107,
+      "start_time": 341140.0,
+      "end_time": 341940.0,
+      "text": "Right? If you,"
+    },
+    {
+      "index": 108,
+      "start_time": 341940.0,
+      "end_time": 343980.0,
+      "text": "if you just connect, the next node and"
+    },
+    {
+      "index": 109,
+      "start_time": 343980.0,
+      "end_time": 348000.0,
+      "text": "let it stay up, it can probably stay up for, three years without failing."
+    },
+    {
+      "index": 110,
+      "start_time": 348000.0,
+      "end_time": 349940.0,
+      "text": "Three years is about a 1,000 days."
+    },
+    {
+      "index": 111,
+      "start_time": 349940.0,
+      "end_time": 354160.0,
+      "text": "So that&#39;s, you know, once in a 1,000 days failure isn&#39;t such a big deal."
+    },
+    {
+      "index": 112,
+      "start_time": 354160.0,
+      "end_time": 357160.0,
+      "text": "But now imagine that you have a 1,000 servers in a cluster."
+    },
+    {
+      "index": 113,
+      "start_time": 357160.0,
+      "end_time": 362970.0,
+      "text": "And in your, and if you assume that these, servers fail, independent of each other."
+    },
+    {
+      "index": 114,
+      "start_time": 362970.0,
+      "end_time": 365500.0,
+      "text": "You&#39;re going to get approximately one failure a day."
+    },
+    {
+      "index": 115,
+      "start_time": 365500.0,
+      "end_time": 366840.0,
+      "text": "Which is, still isn&#39;t such a big deal."
+    },
+    {
+      "index": 116,
+      "start_time": 366840.0,
+      "end_time": 368359.0,
+      "text": "You can probably deal with it."
+    },
+    {
+      "index": 117,
+      "start_time": 368360.0,
+      "end_time": 371710.0,
+      "text": "But now imagine something on the scale of Google which has a million servers,"
+    },
+    {
+      "index": 118,
+      "start_time": 371710.0,
+      "end_time": 372710.0,
+      "text": "in its cluster."
+    },
+    {
+      "index": 119,
+      "start_time": 372710.0,
+      "end_time": 375989.0,
+      "text": "So if you have a million servers, you&#39;re going to get a 1,000 failures per day."
+    },
+    {
+      "index": 120,
+      "start_time": 375990.0,
+      "end_time": 378127.0,
+      "text": "Now a 1,000 failures per day is a lot and"
+    },
+    {
+      "index": 121,
+      "start_time": 378127.0,
+      "end_time": 381380.0,
+      "text": "you need some kind of infrastructure to deal with that kind of failure rate."
+    },
+    {
+      "index": 122,
+      "start_time": 382430.0,
+      "end_time": 385950.0,
+      "text": "Your failures on that scale introduce two kinds of problems."
+    },
+    {
+      "index": 123,
+      "start_time": 385950.0,
+      "end_time": 388610.0,
+      "text": "The first problem is that if, you know, if nodes are going to fail and"
+    },
+    {
+      "index": 124,
+      "start_time": 388610.0,
+      "end_time": 390840.0,
+      "text": "you&#39;re going to store your data on these nodes."
+    },
+    {
+      "index": 125,
+      "start_time": 390840.0,
+      "end_time": 394600.0,
+      "text": "How do you keep the data and store persistently?"
+    },
+    {
+      "index": 126,
+      "start_time": 394600.0,
+      "end_time": 395120.0,
+      "text": "What does this mean?"
+    },
+    {
+      "index": 127,
+      "start_time": 395120.0,
+      "end_time": 397430.0,
+      "text": "Persistence means that once you store the data,"
+    },
+    {
+      "index": 128,
+      "start_time": 397430.0,
+      "end_time": 399430.0,
+      "text": "you&#39;re guaranteed you can read it again."
+    },
+    {
+      "index": 129,
+      "start_time": 399430.0,
+      "end_time": 403460.0,
+      "text": "But if the node in which you stored the data fails, then you can&#39;t read the data."
+    },
+    {
+      "index": 130,
+      "start_time": 403460.0,
+      "end_time": 404640.0,
+      "text": "You might even lose the data."
+    },
+    {
+      "index": 131,
+      "start_time": 404640.0,
+      "end_time": 408500.0,
+      "text": "So how do you keep the data stored persistently if like,"
+    },
+    {
+      "index": 132,
+      "start_time": 408500.0,
+      "end_time": 409350.0,
+      "text": "these nodes can fail."
+    },
+    {
+      "index": 133,
+      "start_time": 409350.0,
+      "end_time": 413450.0,
+      "text": "Now the second problem is is is one of availability."
+    },
+    {
+      "index": 134,
+      "start_time": 413450.0,
+      "end_time": 418520.0,
+      "text": "So, let&#39;s say you&#39;re running one of the computations, and this computation is, a,"
+    },
+    {
+      "index": 135,
+      "start_time": 418520.0,
+      "end_time": 421849.0,
+      "text": "you know, analyzing massive amounts of data."
+    },
+    {
+      "index": 136,
+      "start_time": 421850.0,
+      "end_time": 423510.0,
+      "text": "And it&#39;s chugging through the computation and"
+    },
+    {
+      "index": 137,
+      "start_time": 423510.0,
+      "end_time": 426180.0,
+      "text": "it&#39;s going, you know, run half way through the computation."
+    },
+    {
+      "index": 138,
+      "start_time": 426180.0,
+      "end_time": 430690.0,
+      "text": "And, you know, at this critical point, a couple of nodes fail, right?"
+    },
+    {
+      "index": 139,
+      "start_time": 430690.0,
+      "end_time": 434500.0,
+      "text": "And that node had data that is necessary for the computation."
+    },
+    {
+      "index": 140,
+      "start_time": 434500.0,
+      "end_time": 435720.0,
+      "text": "Now how we deal with this problem."
+    },
+    {
+      "index": 141,
+      "start_time": 435720.0,
+      "end_time": 437590.0,
+      "text": "Now in the first place you may have to go back and"
+    },
+    {
+      "index": 142,
+      "start_time": 437590.0,
+      "end_time": 439590.0,
+      "text": "restart the computation all over again."
+    },
+    {
+      "index": 143,
+      "start_time": 439590.0,
+      "end_time": 442600.0,
+      "text": "But if you restart it now and, and, and"
+    },
+    {
+      "index": 144,
+      "start_time": 442600.0,
+      "end_time": 445860.0,
+      "text": "the computation turns again when the computation is running."
+    },
+    {
+      "index": 145,
+      "start_time": 445860.0,
+      "end_time": 450690.0,
+      "text": "So kind of need an infrastructure that can hide these kinds of node failures and"
+    },
+    {
+      "index": 146,
+      "start_time": 450690.0,
+      "end_time": 454410.0,
+      "text": "let the computation go to go to completion even if nodes fail."
+    },
+    {
+      "index": 147,
+      "start_time": 455990.0,
+      "end_time": 459800.0,
+      "text": "The second challenge of cluster computing is that"
+    },
+    {
+      "index": 148,
+      "start_time": 459800.0,
+      "end_time": 462450.0,
+      "text": "the network itself can become a bottleneck."
+    },
+    {
+      "index": 149,
+      "start_time": 462450.0,
+      "end_time": 465981.0,
+      "text": "Now remember, there is this 1 Gbps network bandwidth."
+    },
+    {
+      "index": 150,
+      "start_time": 465981.0,
+      "end_time": 469253.0,
+      "text": "That is available between individual nodes in a rack and"
+    },
+    {
+      "index": 151,
+      "start_time": 469253.0,
+      "end_time": 472923.0,
+      "text": "a smaller bandwidth that&#39;s available between individual racks."
+    },
+    {
+      "index": 152,
+      "start_time": 472923.0,
+      "end_time": 475953.0,
+      "text": "Though if you have 10 TB of data, and you have to move it"
+    },
+    {
+      "index": 153,
+      "start_time": 475953.0,
+      "end_time": 480990.0,
+      "text": "across a 1 Gbps network connection, that takes approximately a day."
+    },
+    {
+      "index": 154,
+      "start_time": 480100.0,
+      "end_time": 482450.0,
+      "text": "You can do the math and figure that out."
+    },
+    {
+      "index": 155,
+      "start_time": 482450.0,
+      "end_time": 487110.0,
+      "text": "You know a complex computation might need to move a lot of data, and"
+    },
+    {
+      "index": 156,
+      "start_time": 487110.0,
+      "end_time": 488420.0,
+      "text": "that can slow the computation down."
+    },
+    {
+      "index": 157,
+      "start_time": 488420.0,
+      "end_time": 492270.0,
+      "text": "So you need a framework that you know, doesn&#39;t move data around so"
+    },
+    {
+      "index": 158,
+      "start_time": 492270.0,
+      "end_time": 493680.0,
+      "text": "much while it&#39;s doing computation."
+    },
+    {
+      "index": 159,
+      "start_time": 495670.0,
+      "end_time": 499990.0,
+      "text": "The third problem is that distributed programming can be really really hard."
+    },
+    {
+      "index": 160,
+      "start_time": 499990.0,
+      "end_time": 504370.0,
+      "text": "Even sophisticated programmers find it hard to write distributed programs"
+    },
+    {
+      "index": 161,
+      "start_time": 504370.0,
+      "end_time": 508240.0,
+      "text": "correctly and avoid race conditions and various kinds of complications."
+    },
+    {
+      "index": 162,
+      "start_time": 508240.0,
+      "end_time": 511770.0,
+      "text": "So here&#39;s a simple problem that hides most of the complexity of"
+    },
+    {
+      "index": 163,
+      "start_time": 511770.0,
+      "end_time": 513189.0,
+      "text": "distributed programming."
+    },
+    {
+      "index": 164,
+      "start_time": 513190.00000000006,
+      "end_time": 515960.00000000006,
+      "text": "And, and makes it easy to write you know,"
+    },
+    {
+      "index": 165,
+      "start_time": 515960.00000000006,
+      "end_time": 518920.00000000006,
+      "text": "algorithms that can mine very massive data sets."
+    },
+    {
+      "index": 166,
+      "start_time": 518919.0,
+      "end_time": 523949.0,
+      "text": "So we look at three problems that you know that we face when,"
+    },
+    {
+      "index": 167,
+      "start_time": 523950.00000000006,
+      "end_time": 525800.0,
+      "text": "when we&#39;re dealing with cluster computing."
+    },
+    {
+      "index": 168,
+      "start_time": 525800.0,
+      "end_time": 531690.0,
+      "text": "And, Map-Reduce addresses all three of these challenges."
+    },
+    {
+      "index": 169,
+      "start_time": 531700.0,
+      "end_time": 531730.0,
+      "text": "Right? First of all,"
+    },
+    {
+      "index": 170,
+      "start_time": 531730.0,
+      "end_time": 534810.0,
+      "text": "the first problem that we saw was that, was one of persistence and"
+    },
+    {
+      "index": 171,
+      "start_time": 534810.0,
+      "end_time": 536540.0,
+      "text": "availability of nodes can fade."
+    },
+    {
+      "index": 172,
+      "start_time": 536540.0,
+      "end_time": 540230.0,
+      "text": "The Map-Reduce model addresses this problem by storing data redundantly on"
+    },
+    {
+      "index": 173,
+      "start_time": 540230.0,
+      "end_time": 541000.0,
+      "text": "multiple nodes."
+    },
+    {
+      "index": 174,
+      "start_time": 541000.0,
+      "end_time": 544700.0,
+      "text": "The same data is stored on multiple nodes so that even if you lose one of"
+    },
+    {
+      "index": 175,
+      "start_time": 544700.0,
+      "end_time": 546680.0,
+      "text": "those nodes, the data is still available on another node."
+    },
+    {
+      "index": 176,
+      "start_time": 547820.0,
+      "end_time": 551970.0,
+      "text": "The second problem that we saw was one of network bottlenecks."
+    },
+    {
+      "index": 177,
+      "start_time": 551970.0,
+      "end_time": 553986.0,
+      "text": "And this happens when you move around data a lot."
+    },
+    {
+      "index": 178,
+      "start_time": 553986.0,
+      "end_time": 558970.0,
+      "text": "What the Map-Reduce model does is it moves the computation close to the data."
+    },
+    {
+      "index": 179,
+      "start_time": 558970.0,
+      "end_time": 561910.0,
+      "text": "And avoids copying data around the network."
+    },
+    {
+      "index": 180,
+      "start_time": 561910.0,
+      "end_time": 564520.0,
+      "text": "And this minimizes the network bottle neck problem."
+    },
+    {
+      "index": 181,
+      "start_time": 564520.0,
+      "end_time": 567170.0,
+      "text": "And thirdly, the Map-Reduce model also provides a very"
+    },
+    {
+      "index": 182,
+      "start_time": 567170.0,
+      "end_time": 572690.0,
+      "text": "simple programming model that hides the complexity of all the online magic."
+    },
+    {
+      "index": 183,
+      "start_time": 572700.0,
+      "end_time": 574870.0,
+      "text": "So let&#39;s look at each of these pieces in turn."
+    },
+    {
+      "index": 184,
+      "start_time": 574870.0,
+      "end_time": 578160.0,
+      "text": "The first piece is the redundant storage infrastructure."
+    },
+    {
+      "index": 185,
+      "start_time": 578160.0,
+      "end_time": 581900.0,
+      "text": "Now redundant storage is provided by what&#39;s called a distributed file system."
+    },
+    {
+      "index": 186,
+      "start_time": 581900.0,
+      "end_time": 586949.0,
+      "text": "Now distributed file system is a file system that stores data you know,"
+    },
+    {
+      "index": 187,
+      "start_time": 586950.0,
+      "end_time": 590550.0,
+      "text": "across a cluster, but stores each piece of data multiple times."
+    },
+    {
+      "index": 188,
+      "start_time": 590550.0,
+      "end_time": 594140.0,
+      "text": "So, the distributed file system provides a global file namespace."
+    },
+    {
+      "index": 189,
+      "start_time": 594140.0,
+      "end_time": 596120.0,
+      "text": "It provides redundancy and availability."
+    },
+    {
+      "index": 190,
+      "start_time": 596120.0,
+      "end_time": 599220.0,
+      "text": "There are multiple implementations of distributed file systems."
+    },
+    {
+      "index": 191,
+      "start_time": 599220.0,
+      "end_time": 603490.0,
+      "text": "Google&#39;s GFS is or Google File System, or GFS is one example."
+    },
+    {
+      "index": 192,
+      "start_time": 603490.0,
+      "end_time": 606370.0,
+      "text": "Hadoop&#39;s HDFS is another example."
+    },
+    {
+      "index": 193,
+      "start_time": 606370.0,
+      "end_time": 609269.0,
+      "text": "And these are the two most popular distributed file systems out there."
+    },
+    {
+      "index": 194,
+      "start_time": 612230.0,
+      "end_time": 616730.0,
+      "text": "Our typical usage pattern that these distributed file systems are optimized for"
+    },
+    {
+      "index": 195,
+      "start_time": 616730.0,
+      "end_time": 618278.0,
+      "text": "is huge files."
+    },
+    {
+      "index": 196,
+      "start_time": 618278.0,
+      "end_time": 620820.0,
+      "text": "That are in the 100s to, of GB to TB."
+    },
+    {
+      "index": 197,
+      "start_time": 621850.0,
+      "end_time": 624700.0,
+      "text": "But the, even though the files are really huge,"
+    },
+    {
+      "index": 198,
+      "start_time": 624700.0,
+      "end_time": 626380.0,
+      "text": "the data is very rarely updated in place."
+    },
+    {
+      "index": 199,
+      "start_time": 626380.0,
+      "end_time": 630830.0,
+      "text": "Right, once, once data is written you know it&#39;s, it&#39;s very, very often."
+    },
+    {
+      "index": 200,
+      "start_time": 630830.0,
+      "end_time": 633450.0,
+      "text": "But when it&#39;s updated, it&#39;s updated through appends."
+    },
+    {
+      "index": 201,
+      "start_time": 633450.0,
+      "end_time": 635430.0,
+      "text": "It&#39;s never updated in place."
+    },
+    {
+      "index": 202,
+      "start_time": 635430.0,
+      "end_time": 641198.0,
+      "text": "And for example let, let, imagine the Google scenario once again."
+    },
+    {
+      "index": 203,
+      "start_time": 641198.0,
+      "end_time": 646271.0,
+      "text": "When Google encounters a new webpage it, it adds the webpage to a depository."
+    },
+    {
+      "index": 204,
+      "start_time": 646272.0,
+      "end_time": 647351.0,
+      "text": "Doesn&#39;t ever go and"
+    },
+    {
+      "index": 205,
+      "start_time": 647351.0,
+      "end_time": 651170.0,
+      "text": "update the content of the webpage that it already has crawled, right?"
+    },
+    {
+      "index": 206,
+      "start_time": 651170.0,
+      "end_time": 655660.0,
+      "text": "So a typical usage pattern consists of writing the data once,"
+    },
+    {
+      "index": 207,
+      "start_time": 655660.0,
+      "end_time": 658240.0,
+      "text": "reading it multiple times and appending to it occasionally."
+    },
+    {
+      "index": 208,
+      "start_time": 659380.0,
+      "end_time": 663900.0,
+      "text": "Lets go into the hood of a distributed file system to see how it actually works."
+    },
+    {
+      "index": 209,
+      "start_time": 663900.0,
+      "end_time": 666100.0,
+      "text": "Data is kept in chunks that are spread across machines."
+    },
+    {
+      "index": 210,
+      "start_time": 666100.0,
+      "end_time": 669900.0,
+      "text": "So if you take any file, the file is divided into chunks, and"
+    },
+    {
+      "index": 211,
+      "start_time": 669900.0,
+      "end_time": 672120.0,
+      "text": "these chunks are spread across multiple machines."
+    },
+    {
+      "index": 212,
+      "start_time": 672120.0,
+      "end_time": 676480.0,
+      "text": "So the machines themselves are called chunk servers in this context."
+    },
+    {
+      "index": 213,
+      "start_time": 676480.0,
+      "end_time": 678100.0,
+      "text": "So here&#39;s, here&#39;s an example."
+    },
+    {
+      "index": 214,
+      "start_time": 678100.0,
+      "end_time": 682468.0,
+      "text": "There are multiple multiple chunks servers."
+    },
+    {
+      "index": 215,
+      "start_time": 682468.0,
+      "end_time": 685150.0,
+      "text": "Chunk server 1, 2, 3, and 4."
+    },
+    {
+      "index": 216,
+      "start_time": 685150.0,
+      "end_time": 690600.0,
+      "text": "And here&#39;s the file 1."
+    },
+    {
+      "index": 217,
+      "start_time": 690600.0,
+      "end_time": 698900.0,
+      "text": "And file 1 is divided into six chunks in this case, C0, C1, C2, C3, C4 and C5."
+    },
+    {
+      "index": 218,
+      "start_time": 698910.0,
+      "end_time": 702810.0,
+      "text": "And these chunks as you can see four of the chunks happen to be on Chunk server 1."
+    },
+    {
+      "index": 219,
+      "start_time": 702810.0,
+      "end_time": 707729.0,
+      "text": "One of them is on Chunks server 2 and, one of them is on Chunks server 3."
+    },
+    {
+      "index": 220,
+      "start_time": 707730.0,
+      "end_time": 709710.0,
+      "text": "Now this is not sufficient."
+    },
+    {
+      "index": 221,
+      "start_time": 709710.0,
+      "end_time": 715480.0,
+      "text": "You actually have to store multiple copies of each of these chunks and so"
+    },
+    {
+      "index": 222,
+      "start_time": 715480.0,
+      "end_time": 719960.0,
+      "text": "we replicate these chunks so here copy, here is a copy of C1."
+    },
+    {
+      "index": 223,
+      "start_time": 721800.0,
+      "end_time": 724360.0,
+      "text": "On Chunk server 2, a copy of C2 in Chunk server 3, and so on."
+    },
+    {
+      "index": 224,
+      "start_time": 724360.0,
+      "end_time": 727830.0,
+      "text": "So each chunk, in this case is replicated twice."
+    },
+    {
+      "index": 225,
+      "start_time": 729100.0,
+      "end_time": 732980.0,
+      "text": "And if you notice carefully you&#39;ll see that replicas of"
+    },
+    {
+      "index": 226,
+      "start_time": 732980.0,
+      "end_time": 735640.0,
+      "text": "a chunk are never on the same chunk server."
+    },
+    {
+      "index": 227,
+      "start_time": 735640.0,
+      "end_time": 738216.0,
+      "text": "They&#39;re always on different chunks of, so"
+    },
+    {
+      "index": 228,
+      "start_time": 738216.0,
+      "end_time": 742698.0,
+      "text": "C1 has one replica on Chunk server 1 and one on Chunk server 2."
+    },
+    {
+      "index": 229,
+      "start_time": 742698.0,
+      "end_time": 747220.0,
+      "text": "C0 has one on Chunk server 1, and one on Chunk server N, and so on."
+    },
+    {
+      "index": 230,
+      "start_time": 748960.0,
+      "end_time": 752740.0,
+      "text": "And here is here is another file, D."
+    },
+    {
+      "index": 231,
+      "start_time": 752740.0,
+      "end_time": 755680.0,
+      "text": "D has two chunks, D0 and D1."
+    },
+    {
+      "index": 232,
+      "start_time": 755680.0,
+      "end_time": 758400.0,
+      "text": "And that&#39;s replicated twice."
+    },
+    {
+      "index": 233,
+      "start_time": 758400.0,
+      "end_time": 762279.0,
+      "text": "And so and so that&#39;s stored on different chunks server [INAUDIBLE]."
+    },
+    {
+      "index": 234,
+      "start_time": 766730.0,
+      "end_time": 771850.0,
+      "text": "Now so, so you serve you serve from chunk files and"
+    },
+    {
+      "index": 235,
+      "start_time": 771850.0,
+      "end_time": 774860.0,
+      "text": "store them on, on these, on these chunk servers."
+    },
+    {
+      "index": 236,
+      "start_time": 774860.0,
+      "end_time": 779960.0,
+      "text": "Now we turn some of the chunk servers, also act as compute servers."
+    },
+    {
+      "index": 237,
+      "start_time": 779960.0,
+      "end_time": 783430.0,
+      "text": "And when, whenever your computation has to access data."
+    },
+    {
+      "index": 238,
+      "start_time": 783430.0,
+      "end_time": 786750.0,
+      "text": "That computation is actually scheduled on the chunk server that"
+    },
+    {
+      "index": 239,
+      "start_time": 786750.0,
+      "end_time": 789600.0,
+      "text": "actually contains the data."
+    },
+    {
+      "index": 240,
+      "start_time": 789600.0,
+      "end_time": 793119.0,
+      "text": "This way you avoid moving data to where the computation needs to run,"
+    },
+    {
+      "index": 241,
+      "start_time": 793120.0,
+      "end_time": 796850.0,
+      "text": "but instead you move the computation to where the data is."
+    },
+    {
+      "index": 242,
+      "start_time": 796850.0,
+      "end_time": 802890.0,
+      "text": "And that&#39;s how you put a wide under the city data movement in the system."
+    },
+    {
+      "index": 243,
+      "start_time": 802890.0,
+      "end_time": 805540.0,
+      "text": "This isn&#39;t clear when you look at look at some examples."
+    },
+    {
+      "index": 244,
+      "start_time": 808920.0,
+      "end_time": 813709.0,
+      "text": "So the sum of this, each file is split into contiguous chunks."
+    },
+    {
+      "index": 245,
+      "start_time": 813710.0,
+      "end_time": 818850.0,
+      "text": "And the chunks are typically 16 to 64 MB in in size."
+    },
+    {
+      "index": 246,
+      "start_time": 818850.0,
+      "end_time": 820830.0,
+      "text": "On each chunk is replicated,"
+    },
+    {
+      "index": 247,
+      "start_time": 820830.0,
+      "end_time": 824580.0,
+      "text": "in our example we saw each chunk replicated twice."
+    },
+    {
+      "index": 248,
+      "start_time": 824580.0,
+      "end_time": 826790.0,
+      "text": "But it could be 2x or 3x replication."
+    },
+    {
+      "index": 249,
+      "start_time": 826790.0,
+      "end_time": 827990.0,
+      "text": "3x is the most common."
+    },
+    {
+      "index": 250,
+      "start_time": 829210.0,
+      "end_time": 834641.0,
+      "text": "And we saw that the chunks were actually kept on different chunk servers."
+    },
+    {
+      "index": 251,
+      "start_time": 834641.0,
+      "end_time": 839790.0,
+      "text": "But, but when you replicate 3x, you know, the system usually makes an effort."
+    },
+    {
+      "index": 252,
+      "start_time": 839800.0,
+      "end_time": 844240.0,
+      "text": "To keep at least one replica in a entirely different rack if possible and"
+    },
+    {
+      "index": 253,
+      "start_time": 844240.0,
+      "end_time": 844970.0,
+      "text": "why do we do that?"
+    },
+    {
+      "index": 254,
+      "start_time": 844970.0,
+      "end_time": 847893.0,
+      "text": "We do that because it&#39;s you know,"
+    },
+    {
+      "index": 255,
+      "start_time": 847893.0,
+      "end_time": 852690.0,
+      "text": "the most common scenario is that a single node can fail."
+    },
+    {
+      "index": 256,
+      "start_time": 852690.0,
+      "end_time": 855212.0,
+      "text": "But it&#39;s also possible that the switch on a rack can fail, and"
+    },
+    {
+      "index": 257,
+      "start_time": 855212.0,
+      "end_time": 859568.0,
+      "text": "when the switch on a rack fails, the entire rack becomes inaccessible."
+    },
+    {
+      "index": 258,
+      "start_time": 859568.0,
+      "end_time": 863489.0,
+      "text": "And then if you have all the chunks for a, for in all the replicas of a chunk in"
+    },
+    {
+      "index": 259,
+      "start_time": 863489.0,
+      "end_time": 866492.0,
+      "text": "one rack then that whole chunk can become inaccessible."
+    },
+    {
+      "index": 260,
+      "start_time": 866492.0,
+      "end_time": 870674.0,
+      "text": "So if you keep replicas of a chunk on different racks then even if"
+    },
+    {
+      "index": 261,
+      "start_time": 870674.0,
+      "end_time": 874500.0,
+      "text": "a switch fails then it can still access that chunk."
+    },
+    {
+      "index": 262,
+      "start_time": 874500.0,
+      "end_time": 876719.0,
+      "text": "Right so the system tries to make sure that,"
+    },
+    {
+      "index": 263,
+      "start_time": 876720.0,
+      "end_time": 879359.0,
+      "text": "that the replicas of a chunk are actually kept on different racks."
+    },
+    {
+      "index": 264,
+      "start_time": 882240.0,
+      "end_time": 885840.0,
+      "text": "The second component of a distributed file system is, is a master node."
+    },
+    {
+      "index": 265,
+      "start_time": 885840.0,
+      "end_time": 890110.0,
+      "text": "Now the master node is also known as the, it&#39;s called a master node in"
+    },
+    {
+      "index": 266,
+      "start_time": 890110.0,
+      "end_time": 893710.0,
+      "text": "the Google file system, it&#39;s a called a Name Node in Hadoop&#39;s HDFS."
+    },
+    {
+      "index": 267,
+      "start_time": 893710.0,
+      "end_time": 898970.0,
+      "text": "But the master node stores metadata about where the files are stored."
+    },
+    {
+      "index": 268,
+      "start_time": 898970.0,
+      "end_time": 899680.0,
+      "text": "And for"
+    },
+    {
+      "index": 269,
+      "start_time": 899680.0,
+      "end_time": 905209.0,
+      "text": "example, if my you know, it&#39;ll know that file one is divided into six chunks."
+    },
+    {
+      "index": 270,
+      "start_time": 905210.0,
+      "end_time": 908260.0,
+      "text": "And here is, here are the locations of each of the six chunks, and"
+    },
+    {
+      "index": 271,
+      "start_time": 908260.0,
+      "end_time": 910160.0,
+      "text": "here are the locations of the replicas."
+    },
+    {
+      "index": 272,
+      "start_time": 910160.0,
+      "end_time": 914170.0,
+      "text": "And the master node itself may be replicated because otherwise it"
+    },
+    {
+      "index": 273,
+      "start_time": 914170.0,
+      "end_time": 915610.0,
+      "text": "might become a single point of failure."
+    },
+    {
+      "index": 274,
+      "start_time": 917170.0,
+      "end_time": 920550.0,
+      "text": "The final component of a distributed file system is a client library."
+    },
+    {
+      "index": 275,
+      "start_time": 920550.0,
+      "end_time": 924690.0,
+      "text": "Now, when the, when a client, or, or an algorithm that needs to"
+    },
+    {
+      "index": 276,
+      "start_time": 924700.0,
+      "end_time": 928420.0,
+      "text": "access the data tries to access a file it goes through the client library."
+    },
+    {
+      "index": 277,
+      "start_time": 928420.0,
+      "end_time": 930990.0,
+      "text": "The client library talks to the master and"
+    },
+    {
+      "index": 278,
+      "start_time": 930990.0,
+      "end_time": 934188.0,
+      "text": "finds the chunk servers that actually store the chunks."
+    },
+    {
+      "index": 279,
+      "start_time": 934188.0,
+      "end_time": 940211.0,
+      "text": "And once that&#39;s done the client is directly connected to the chunk servers."
+    },
+    {
+      "index": 280,
+      "start_time": 940211.0,
+      "end_time": 943600.0,
+      "text": "Where it can access the data without going through the master nodes."
+    },
+    {
+      "index": 281,
+      "start_time": 943600.0,
+      "end_time": 946363.0,
+      "text": "So the data access actually happens in peer-to-peer fashion without going"
+    },
+    {
+      "index": 282,
+      "start_time": 946364.0,
+      "end_time": 947391.0,
+      "text": "through the master node"
+    }
+  ]
+}

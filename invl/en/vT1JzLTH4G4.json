@@ -1,0 +1,5754 @@
+{
+  "video_id": "vT1JzLTH4G4",
+  "title": "Lecture 1 | Introduction to Convolutional Neural Networks for Visual Recognition",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 7641.0,
+      "end_time": 10308.0,
+      "text": "- So welcome everyone to CS231n."
+    },
+    {
+      "index": 2,
+      "start_time": 11762.0,
+      "end_time": 14235.0,
+      "text": "I&#39;m super excited to offer this class again"
+    },
+    {
+      "index": 3,
+      "start_time": 14235.0,
+      "end_time": 15507.0,
+      "text": "for the third time."
+    },
+    {
+      "index": 4,
+      "start_time": 15507.0,
+      "end_time": 17567.0,
+      "text": "It seems that every time we offer this class"
+    },
+    {
+      "index": 5,
+      "start_time": 17568.0,
+      "end_time": 21523.0,
+      "text": "it&#39;s growing exponentially unlike most things in the world."
+    },
+    {
+      "index": 6,
+      "start_time": 21523.0,
+      "end_time": 24434.0,
+      "text": "This is the third time we&#39;re teaching this class."
+    },
+    {
+      "index": 7,
+      "start_time": 24434.0,
+      "end_time": 26466.0,
+      "text": "The first time we had 150 students."
+    },
+    {
+      "index": 8,
+      "start_time": 26466.0,
+      "end_time": 29000.0,
+      "text": "Last year, we had 350 students, so it doubled."
+    },
+    {
+      "index": 9,
+      "start_time": 29000.0,
+      "end_time": 32852.0,
+      "text": "This year we&#39;ve doubled again to about 730 students"
+    },
+    {
+      "index": 10,
+      "start_time": 32852.0,
+      "end_time": 34806.0,
+      "text": "when I checked this morning."
+    },
+    {
+      "index": 11,
+      "start_time": 34806.0,
+      "end_time": 38428.0,
+      "text": "So anyone who was not able to fit into the lecture hall"
+    },
+    {
+      "index": 12,
+      "start_time": 38428.0,
+      "end_time": 40930.0,
+      "text": "I apologize."
+    },
+    {
+      "index": 13,
+      "start_time": 40940.0,
+      "end_time": 43189.0,
+      "text": "But, the videos will be up on the SCPD website"
+    },
+    {
+      "index": 14,
+      "start_time": 43189.0,
+      "end_time": 44931.0,
+      "text": "within about two hours."
+    },
+    {
+      "index": 15,
+      "start_time": 44931.0,
+      "end_time": 46900.0,
+      "text": "So if you weren&#39;t able to come today,"
+    },
+    {
+      "index": 16,
+      "start_time": 46900.0,
+      "end_time": 50888.0,
+      "text": "then you can still check it out within a couple hours."
+    },
+    {
+      "index": 17,
+      "start_time": 50889.0,
+      "end_time": 55760.0,
+      "text": "So this class CS231n is really about computer vision."
+    },
+    {
+      "index": 18,
+      "start_time": 55760.0,
+      "end_time": 57412.0,
+      "text": "And, what is computer vision?"
+    },
+    {
+      "index": 19,
+      "start_time": 57412.0,
+      "end_time": 60141.0,
+      "text": "Computer vision is really the study of visual data."
+    },
+    {
+      "index": 20,
+      "start_time": 60141.0,
+      "end_time": 62577.0,
+      "text": "Since there&#39;s so many people enrolled in this class,"
+    },
+    {
+      "index": 21,
+      "start_time": 62578.0,
+      "end_time": 64522.0,
+      "text": "I think I probably don&#39;t need to convince you"
+    },
+    {
+      "index": 22,
+      "start_time": 64522.00000000001,
+      "end_time": 66219.0,
+      "text": "that this is an important problem,"
+    },
+    {
+      "index": 23,
+      "start_time": 66219.0,
+      "end_time": 70320.0,
+      "text": "but I&#39;m still going to try to do that anyway."
+    },
+    {
+      "index": 24,
+      "start_time": 70320.0,
+      "end_time": 71895.0,
+      "text": "The amount of visual data in our world"
+    },
+    {
+      "index": 25,
+      "start_time": 71895.0,
+      "end_time": 74173.0,
+      "text": "has really exploded to a ridiculous degree"
+    },
+    {
+      "index": 26,
+      "start_time": 74173.0,
+      "end_time": 75761.0,
+      "text": "in the last couple of years."
+    },
+    {
+      "index": 27,
+      "start_time": 75761.0,
+      "end_time": 77613.0,
+      "text": "And, this is largely a result of the large number"
+    },
+    {
+      "index": 28,
+      "start_time": 77613.0,
+      "end_time": 80398.0,
+      "text": "of sensors in the world."
+    },
+    {
+      "index": 29,
+      "start_time": 80398.0,
+      "end_time": 81759.0,
+      "text": "Probably most of us in this room"
+    },
+    {
+      "index": 30,
+      "start_time": 81759.0,
+      "end_time": 83640.0,
+      "text": "are carrying around smartphones,"
+    },
+    {
+      "index": 31,
+      "start_time": 83640.0,
+      "end_time": 85300.0,
+      "text": "and each smartphone has one, two,"
+    },
+    {
+      "index": 32,
+      "start_time": 85400.0,
+      "end_time": 86989.0,
+      "text": "or maybe even three cameras on it."
+    },
+    {
+      "index": 33,
+      "start_time": 86989.0,
+      "end_time": 88974.0,
+      "text": "So I think on average there&#39;s even more cameras"
+    },
+    {
+      "index": 34,
+      "start_time": 88974.0,
+      "end_time": 91114.0,
+      "text": "in the world than there are people."
+    },
+    {
+      "index": 35,
+      "start_time": 91114.0,
+      "end_time": 92765.0,
+      "text": "And, as a result of all of these sensors,"
+    },
+    {
+      "index": 36,
+      "start_time": 92765.0,
+      "end_time": 95371.0,
+      "text": "there&#39;s just a crazy large, massive amount"
+    },
+    {
+      "index": 37,
+      "start_time": 95371.0,
+      "end_time": 97524.0,
+      "text": "of visual data being produced out there in the world"
+    },
+    {
+      "index": 38,
+      "start_time": 97524.0,
+      "end_time": 98508.0,
+      "text": "each day."
+    },
+    {
+      "index": 39,
+      "start_time": 98508.0,
+      "end_time": 101238.0,
+      "text": "So one statistic that I really like to kind of put"
+    },
+    {
+      "index": 40,
+      "start_time": 101239.0,
+      "end_time": 103858.0,
+      "text": "this in perspective is a 2015 study"
+    },
+    {
+      "index": 41,
+      "start_time": 103858.0,
+      "end_time": 107250.0,
+      "text": "from CISCO that estimated that by 2017"
+    },
+    {
+      "index": 42,
+      "start_time": 108919.0,
+      "end_time": 111783.0,
+      "text": "which is where we are now that roughly 80%"
+    },
+    {
+      "index": 43,
+      "start_time": 111784.0,
+      "end_time": 114484.0,
+      "text": "of all traffic on the internet would be video."
+    },
+    {
+      "index": 44,
+      "start_time": 114484.0,
+      "end_time": 118740.0,
+      "text": "This is not even counting all the images"
+    },
+    {
+      "index": 45,
+      "start_time": 118740.0,
+      "end_time": 120524.0,
+      "text": "and other types of visual data on the web."
+    },
+    {
+      "index": 46,
+      "start_time": 120525.0,
+      "end_time": 123880.0,
+      "text": "But, just from a pure number of bits perspective,"
+    },
+    {
+      "index": 47,
+      "start_time": 123880.0,
+      "end_time": 126200.0,
+      "text": "the majority of bits flying around the internet"
+    },
+    {
+      "index": 48,
+      "start_time": 126200.0,
+      "end_time": 127476.0,
+      "text": "are actually visual data."
+    },
+    {
+      "index": 49,
+      "start_time": 127476.0,
+      "end_time": 129547.0,
+      "text": "So it&#39;s really critical that we develop algorithms"
+    },
+    {
+      "index": 50,
+      "start_time": 129547.0,
+      "end_time": 133157.0,
+      "text": "that can utilize and understand this data."
+    },
+    {
+      "index": 51,
+      "start_time": 133157.0,
+      "end_time": 135370.0,
+      "text": "However, there&#39;s a problem with visual data,"
+    },
+    {
+      "index": 52,
+      "start_time": 135370.0,
+      "end_time": 137813.0,
+      "text": "and that&#39;s that it&#39;s really hard to understand."
+    },
+    {
+      "index": 53,
+      "start_time": 137813.0,
+      "end_time": 140813.0,
+      "text": "Sometimes we call visual data the dark matter"
+    },
+    {
+      "index": 54,
+      "start_time": 140813.0,
+      "end_time": 144525.0,
+      "text": "of the internet in analogy with dark matter in physics."
+    },
+    {
+      "index": 55,
+      "start_time": 144526.0,
+      "end_time": 147437.0,
+      "text": "So for those of you who have heard of this in physics"
+    },
+    {
+      "index": 56,
+      "start_time": 147437.0,
+      "end_time": 151180.0,
+      "text": "before, dark matter accounts for some astonishingly large"
+    },
+    {
+      "index": 57,
+      "start_time": 151180.0,
+      "end_time": 153377.0,
+      "text": "fraction of the mass in the universe,"
+    },
+    {
+      "index": 58,
+      "start_time": 153377.0,
+      "end_time": 155167.0,
+      "text": "and we know about it due to the existence"
+    },
+    {
+      "index": 59,
+      "start_time": 155167.0,
+      "end_time": 158293.0,
+      "text": "of gravitational pulls on various celestial bodies"
+    },
+    {
+      "index": 60,
+      "start_time": 158293.0,
+      "end_time": 160535.0,
+      "text": "and what not, but we can&#39;t directly observe it."
+    },
+    {
+      "index": 61,
+      "start_time": 160535.0,
+      "end_time": 162838.0,
+      "text": "And, visual data on the internet is much the same"
+    },
+    {
+      "index": 62,
+      "start_time": 162838.0,
+      "end_time": 165488.0,
+      "text": "where it comprises the majority of bits"
+    },
+    {
+      "index": 63,
+      "start_time": 165488.0,
+      "end_time": 169164.0,
+      "text": "flying around the internet, but it&#39;s very difficult"
+    },
+    {
+      "index": 64,
+      "start_time": 169164.0,
+      "end_time": 171313.0,
+      "text": "for algorithms to actually go in and understand"
+    },
+    {
+      "index": 65,
+      "start_time": 171313.0,
+      "end_time": 174221.0,
+      "text": "and see what exactly is comprising all the visual data"
+    },
+    {
+      "index": 66,
+      "start_time": 174222.0,
+      "end_time": 175685.0,
+      "text": "on the web."
+    },
+    {
+      "index": 67,
+      "start_time": 175685.0,
+      "end_time": 178466.0,
+      "text": "Another statistic that I like is that of Youtube."
+    },
+    {
+      "index": 68,
+      "start_time": 178466.0,
+      "end_time": 182309.0,
+      "text": "So roughly every second of clock time"
+    },
+    {
+      "index": 69,
+      "start_time": 182309.0,
+      "end_time": 185303.0,
+      "text": "that happens in the world, there&#39;s something like five hours"
+    },
+    {
+      "index": 70,
+      "start_time": 185303.0,
+      "end_time": 187746.0,
+      "text": "of video being uploaded to Youtube."
+    },
+    {
+      "index": 71,
+      "start_time": 187746.0,
+      "end_time": 189305.0,
+      "text": "So if we just sit here and count,"
+    },
+    {
+      "index": 72,
+      "start_time": 189305.0,
+      "end_time": 192805.0,
+      "text": "one, two, three, now there&#39;s 15 more hours"
+    },
+    {
+      "index": 73,
+      "start_time": 193929.0,
+      "end_time": 195596.0,
+      "text": "of video on Youtube."
+    },
+    {
+      "index": 74,
+      "start_time": 197760.0,
+      "end_time": 198823.0,
+      "text": "Google has a lot of employees, but there&#39;s no way"
+    },
+    {
+      "index": 75,
+      "start_time": 198824.0,
+      "end_time": 201219.0,
+      "text": "that they could ever have an employee sit down"
+    },
+    {
+      "index": 76,
+      "start_time": 201219.0,
+      "end_time": 204146.0,
+      "text": "and watch and understand and annotate every video."
+    },
+    {
+      "index": 77,
+      "start_time": 204146.0,
+      "end_time": 206856.0,
+      "text": "So if they want to catalog and serve you"
+    },
+    {
+      "index": 78,
+      "start_time": 206856.0,
+      "end_time": 209361.0,
+      "text": "relevant videos and maybe monetize by putting ads"
+    },
+    {
+      "index": 79,
+      "start_time": 209361.0,
+      "end_time": 212570.0,
+      "text": "on those videos, it&#39;s really crucial that we develop"
+    },
+    {
+      "index": 80,
+      "start_time": 212570.0,
+      "end_time": 214803.0,
+      "text": "technologies that can dive in and automatically understand"
+    },
+    {
+      "index": 81,
+      "start_time": 214803.0,
+      "end_time": 217530.0,
+      "text": "the content of visual data."
+    },
+    {
+      "index": 82,
+      "start_time": 218649.0,
+      "end_time": 221379.0,
+      "text": "So this field of computer vision is"
+    },
+    {
+      "index": 83,
+      "start_time": 221379.0,
+      "end_time": 224890.0,
+      "text": "truly an interdisciplinary field, and it touches"
+    },
+    {
+      "index": 84,
+      "start_time": 224890.0,
+      "end_time": 225864.0,
+      "text": "on many different areas of science"
+    },
+    {
+      "index": 85,
+      "start_time": 225864.0,
+      "end_time": 227564.0,
+      "text": "and engineering and technology."
+    },
+    {
+      "index": 86,
+      "start_time": 227564.0,
+      "end_time": 230822.0,
+      "text": "So obviously, computer vision&#39;s the center of the universe,"
+    },
+    {
+      "index": 87,
+      "start_time": 230822.0,
+      "end_time": 233914.0,
+      "text": "but sort of as a constellation of fields"
+    },
+    {
+      "index": 88,
+      "start_time": 233914.0,
+      "end_time": 236452.0,
+      "text": "around computer vision, we touch on areas like physics"
+    },
+    {
+      "index": 89,
+      "start_time": 236453.0,
+      "end_time": 239418.0,
+      "text": "because we need to understand optics and image formation"
+    },
+    {
+      "index": 90,
+      "start_time": 239418.0,
+      "end_time": 241784.0,
+      "text": "and how images are actually physically formed."
+    },
+    {
+      "index": 91,
+      "start_time": 241784.0,
+      "end_time": 243995.0,
+      "text": "We need to understand biology and psychology"
+    },
+    {
+      "index": 92,
+      "start_time": 243995.0,
+      "end_time": 247879.0,
+      "text": "to understand how animal brains physically see"
+    },
+    {
+      "index": 93,
+      "start_time": 247879.0,
+      "end_time": 249893.0,
+      "text": "and process visual information."
+    },
+    {
+      "index": 94,
+      "start_time": 249894.0,
+      "end_time": 252450.0,
+      "text": "We of course draw a lot on computer science,"
+    },
+    {
+      "index": 95,
+      "start_time": 252450.0,
+      "end_time": 254304.0,
+      "text": "mathematics, and engineering as we actually strive"
+    },
+    {
+      "index": 96,
+      "start_time": 254305.0,
+      "end_time": 256954.0,
+      "text": "to build computer systems that implement"
+    },
+    {
+      "index": 97,
+      "start_time": 256954.0,
+      "end_time": 259640.0,
+      "text": "our computer vision algorithms."
+    },
+    {
+      "index": 98,
+      "start_time": 259640.0,
+      "end_time": 262594.0,
+      "text": "So a little bit more about where I&#39;m coming from"
+    },
+    {
+      "index": 99,
+      "start_time": 262595.0,
+      "end_time": 264985.0,
+      "text": "and about where the teaching staff of this course"
+    },
+    {
+      "index": 100,
+      "start_time": 264985.0,
+      "end_time": 265992.0,
+      "text": "is coming from."
+    },
+    {
+      "index": 101,
+      "start_time": 265992.0,
+      "end_time": 270722.0,
+      "text": "Me and my co-instructor Serena are both PHD students"
+    },
+    {
+      "index": 102,
+      "start_time": 270722.0,
+      "end_time": 273606.0,
+      "text": "in the Stanford Vision Lab which is headed"
+    },
+    {
+      "index": 103,
+      "start_time": 273606.0,
+      "end_time": 277183.0,
+      "text": "by professor Fei-Fei Li, and our lab really focuses"
+    },
+    {
+      "index": 104,
+      "start_time": 277184.0,
+      "end_time": 279940.0,
+      "text": "on machine learning and the computer science side"
+    },
+    {
+      "index": 105,
+      "start_time": 279940.0,
+      "end_time": 281184.0,
+      "text": "of things."
+    },
+    {
+      "index": 106,
+      "start_time": 281184.0,
+      "end_time": 283308.0,
+      "text": "I work a little bit more on language and vision."
+    },
+    {
+      "index": 107,
+      "start_time": 283308.0,
+      "end_time": 284900.0,
+      "text": "I&#39;ve done some projects in that."
+    },
+    {
+      "index": 108,
+      "start_time": 284900.0,
+      "end_time": 286657.0,
+      "text": "And, other folks in our group have worked"
+    },
+    {
+      "index": 109,
+      "start_time": 286658.0,
+      "end_time": 288525.0,
+      "text": "a little bit on the neuroscience and cognitive science"
+    },
+    {
+      "index": 110,
+      "start_time": 288525.0,
+      "end_time": 289775.0,
+      "text": "side of things."
+    },
+    {
+      "index": 111,
+      "start_time": 292541.0,
+      "end_time": 294404.0,
+      "text": "So as a bit of introduction, you might be curious"
+    },
+    {
+      "index": 112,
+      "start_time": 294404.0,
+      "end_time": 297557.0,
+      "text": "about how this course relates to other courses at Stanford."
+    },
+    {
+      "index": 113,
+      "start_time": 297557.0,
+      "end_time": 301408.0,
+      "text": "So we kind of assume a basic introductory understanding"
+    },
+    {
+      "index": 114,
+      "start_time": 301408.0,
+      "end_time": 302848.0,
+      "text": "of computer vision."
+    },
+    {
+      "index": 115,
+      "start_time": 302848.0,
+      "end_time": 304787.0,
+      "text": "So if you&#39;re kind of an undergrad,"
+    },
+    {
+      "index": 116,
+      "start_time": 304787.0,
+      "end_time": 306926.0,
+      "text": "and you&#39;ve never seen computer vision before,"
+    },
+    {
+      "index": 117,
+      "start_time": 306926.0,
+      "end_time": 309698.0,
+      "text": "maybe you should&#39;ve taken CS131 which was offered"
+    },
+    {
+      "index": 118,
+      "start_time": 309698.0,
+      "end_time": 314229.0,
+      "text": "earlier this year by Fei-Fei and Juan Carlos Niebles."
+    },
+    {
+      "index": 119,
+      "start_time": 314229.0,
+      "end_time": 317361.0,
+      "text": "There was a course taught last quarter"
+    },
+    {
+      "index": 120,
+      "start_time": 317361.0,
+      "end_time": 320836.0,
+      "text": "by Professor Chris Manning and Richard Socher"
+    },
+    {
+      "index": 121,
+      "start_time": 320836.0,
+      "end_time": 322705.0,
+      "text": "about the intersection of deep learning"
+    },
+    {
+      "index": 122,
+      "start_time": 322705.0,
+      "end_time": 324925.0,
+      "text": "and natural language processing."
+    },
+    {
+      "index": 123,
+      "start_time": 324925.0,
+      "end_time": 327512.0,
+      "text": "And, I imagine a number of you may have taken that course"
+    },
+    {
+      "index": 124,
+      "start_time": 327512.0,
+      "end_time": 328595.0,
+      "text": "last quarter."
+    },
+    {
+      "index": 125,
+      "start_time": 331482.0,
+      "end_time": 333785.0,
+      "text": "There&#39;ll be some overlap between this course and that,"
+    },
+    {
+      "index": 126,
+      "start_time": 333785.0,
+      "end_time": 335769.0,
+      "text": "but we&#39;re really focusing on the computer vision"
+    },
+    {
+      "index": 127,
+      "start_time": 335769.0,
+      "end_time": 338861.0,
+      "text": "side of thing, and really focusing all of our motivation"
+    },
+    {
+      "index": 128,
+      "start_time": 338861.0,
+      "end_time": 340444.0,
+      "text": "in computer vision."
+    },
+    {
+      "index": 129,
+      "start_time": 341361.0,
+      "end_time": 343780.0,
+      "text": "Also concurrently taught this quarter"
+    },
+    {
+      "index": 130,
+      "start_time": 343780.0,
+      "end_time": 347378.0,
+      "text": "is CS231a taught by Professor Silvio Savarese."
+    },
+    {
+      "index": 131,
+      "start_time": 347378.0,
+      "end_time": 352306.0,
+      "text": "And, CS231a really focuses is a more all encompassing"
+    },
+    {
+      "index": 132,
+      "start_time": 352306.0,
+      "end_time": 354100.0,
+      "text": "computer vision course."
+    },
+    {
+      "index": 133,
+      "start_time": 354100.0,
+      "end_time": 357569.0,
+      "text": "It&#39;s focusing on things like 3D reconstruction,"
+    },
+    {
+      "index": 134,
+      "start_time": 357569.0,
+      "end_time": 359896.0,
+      "text": "on matching and robotic vision,"
+    },
+    {
+      "index": 135,
+      "start_time": 359896.0,
+      "end_time": 361412.0,
+      "text": "and it&#39;s a bit more all encompassing"
+    },
+    {
+      "index": 136,
+      "start_time": 361412.0,
+      "end_time": 363813.0,
+      "text": "with regards to vision than our course."
+    },
+    {
+      "index": 137,
+      "start_time": 363813.0,
+      "end_time": 366647.0,
+      "text": "And, this course, CS231n, really focuses"
+    },
+    {
+      "index": 138,
+      "start_time": 366647.0,
+      "end_time": 369358.0,
+      "text": "on a particular class of algorithms revolving"
+    },
+    {
+      "index": 139,
+      "start_time": 369358.0,
+      "end_time": 371922.0,
+      "text": "around neural networks and especially convolutional"
+    },
+    {
+      "index": 140,
+      "start_time": 371922.0,
+      "end_time": 373786.0,
+      "text": "neural networks and their applications"
+    },
+    {
+      "index": 141,
+      "start_time": 373786.0,
+      "end_time": 376228.0,
+      "text": "to various visual recognition tasks."
+    },
+    {
+      "index": 142,
+      "start_time": 376228.0,
+      "end_time": 377725.0,
+      "text": "Of course, there&#39;s also a number"
+    },
+    {
+      "index": 143,
+      "start_time": 377725.0,
+      "end_time": 379178.0,
+      "text": "of seminar courses that are taught,"
+    },
+    {
+      "index": 144,
+      "start_time": 379178.0,
+      "end_time": 381154.0,
+      "text": "and you&#39;ll have to check the syllabus"
+    },
+    {
+      "index": 145,
+      "start_time": 381154.0,
+      "end_time": 384631.0,
+      "text": "and course schedule for more details on those"
+    },
+    {
+      "index": 146,
+      "start_time": 384631.0,
+      "end_time": 387866.0,
+      "text": "&#39;cause they vary a bit each year."
+    },
+    {
+      "index": 147,
+      "start_time": 387867.0,
+      "end_time": 389914.0,
+      "text": "So this lecture is normally given"
+    },
+    {
+      "index": 148,
+      "start_time": 389914.0,
+      "end_time": 391671.0,
+      "text": "by Professor Fei-Fei Li."
+    },
+    {
+      "index": 149,
+      "start_time": 391672.0,
+      "end_time": 394174.0,
+      "text": "Unfortunately, she wasn&#39;t able to be here today,"
+    },
+    {
+      "index": 150,
+      "start_time": 394174.0,
+      "end_time": 396438.0,
+      "text": "so instead for the majority of the lecture"
+    },
+    {
+      "index": 151,
+      "start_time": 396439.0,
+      "end_time": 398463.0,
+      "text": "we&#39;re going to tag team a little bit."
+    },
+    {
+      "index": 152,
+      "start_time": 398463.0,
+      "end_time": 401996.0,
+      "text": "She actually recorded a bit of pre-recorded audio"
+    },
+    {
+      "index": 153,
+      "start_time": 401996.0,
+      "end_time": 404772.0,
+      "text": "describing to you the history of computer vision"
+    },
+    {
+      "index": 154,
+      "start_time": 404772.0,
+      "end_time": 408229.0,
+      "text": "because this class is a computer vision course,"
+    },
+    {
+      "index": 155,
+      "start_time": 408229.0,
+      "end_time": 410455.0,
+      "text": "and it&#39;s very critical and important that you understand"
+    },
+    {
+      "index": 156,
+      "start_time": 410456.0,
+      "end_time": 413289.0,
+      "text": "the history and the context of all the existing work"
+    },
+    {
+      "index": 157,
+      "start_time": 413289.0,
+      "end_time": 415183.0,
+      "text": "that led us to these developments"
+    },
+    {
+      "index": 158,
+      "start_time": 415183.0,
+      "end_time": 418000.0,
+      "text": "of convolutional neural networks as we know them today."
+    },
+    {
+      "index": 159,
+      "start_time": 418500.0,
+      "end_time": 420000.0,
+      "text": "I&#39;ll let virtual Fei-Fei take over"
+    },
+    {
+      "index": 160,
+      "start_time": 420398.0,
+      "end_time": 421915.0,
+      "text": "[laughing]"
+    },
+    {
+      "index": 161,
+      "start_time": 421915.0,
+      "end_time": 423800.0,
+      "text": "and give you a brief introduction to the history"
+    },
+    {
+      "index": 162,
+      "start_time": 424000.0,
+      "end_time": 425500.0,
+      "text": "of computer vision."
+    },
+    {
+      "index": 163,
+      "start_time": 428610.0,
+      "end_time": 435309.0,
+      "text": "Okay let&#39;s start with today&#39;s agenda.  So we have two topics to cover one is a"
+    },
+    {
+      "index": 164,
+      "start_time": 435309.0,
+      "end_time": 440620.0,
+      "text": "brief history of computer vision and the other one is the overview of our course"
+    },
+    {
+      "index": 165,
+      "start_time": 440620.0,
+      "end_time": 448539.0,
+      "text": "CS 231 so we&#39;ll start with a very brief history of where vision comes"
+    },
+    {
+      "index": 166,
+      "start_time": 448540.0,
+      "end_time": 456100.0,
+      "text": "from when did computer vision start and where we are today. The history the"
+    },
+    {
+      "index": 167,
+      "start_time": 456100.0,
+      "end_time": 464770.0,
+      "text": "history of vision can go back many many years ago in fact about 543 million"
+    },
+    {
+      "index": 168,
+      "start_time": 464770.0,
+      "end_time": 470799.0,
+      "text": "years ago. What was life like during that time? Well the earth was mostly water"
+    },
+    {
+      "index": 169,
+      "start_time": 470920.0,
+      "end_time": 478300.0,
+      "text": "there were a few species of animals floating around in the ocean and life"
+    },
+    {
+      "index": 170,
+      "start_time": 478300.0,
+      "end_time": 483730.0,
+      "text": "was very chill. Animals didn&#39;t move around much there they don&#39;t have eyes or"
+    },
+    {
+      "index": 171,
+      "start_time": 483730.0,
+      "end_time": 489640.0,
+      "text": "anything when food swims by they grab them if the food didn&#39;t swim by they"
+    },
+    {
+      "index": 172,
+      "start_time": 489640.0,
+      "end_time": 497140.0,
+      "text": "just float around but something really remarkable happened around 540 million"
+    },
+    {
+      "index": 173,
+      "start_time": 497140.0,
+      "end_time": 505509.0,
+      "text": "years ago. From fossil studies zoologists found out within a very short period of"
+    },
+    {
+      "index": 174,
+      "start_time": 505509.0,
+      "end_time": 513820.0,
+      "text": "time —  ten million years — the number of animal species just exploded. It went"
+    },
+    {
+      "index": 175,
+      "start_time": 513820.00000000006,
+      "end_time": 521500.00000000006,
+      "text": "from a few of them to hundreds of thousands and that was strange — what caused this?"
+    },
+    {
+      "index": 176,
+      "start_time": 521500.0,
+      "end_time": 527920.0,
+      "text": "There were many theories but for many years it was a mystery evolutionary"
+    },
+    {
+      "index": 177,
+      "start_time": 527920.0,
+      "end_time": 535540.0,
+      "text": "biologists call this evolution&#39;s Big Bang. A few years ago an Australian zoologist"
+    },
+    {
+      "index": 178,
+      "start_time": 535540.0,
+      "end_time": 541299.0,
+      "text": "called Andrew Parker proposed one of the most convincing theory from the studies"
+    },
+    {
+      "index": 179,
+      "start_time": 541299.0,
+      "end_time": 547300.0,
+      "text": "of fossils he discovered around 540 million years"
+    },
+    {
+      "index": 180,
+      "start_time": 547300.0,
+      "end_time": 559310.0,
+      "text": "ago the first animals developed eyes and the onset of vision started this"
+    },
+    {
+      "index": 181,
+      "start_time": 559310.0,
+      "end_time": 566609.0,
+      "text": "explosive speciation phase. Animals can suddenly see; once you can see life"
+    },
+    {
+      "index": 182,
+      "start_time": 566610.0,
+      "end_time": 572580.0,
+      "text": "becomes much more proactive. Some predators went after prey and prey"
+    },
+    {
+      "index": 183,
+      "start_time": 572580.0,
+      "end_time": 579980.0,
+      "text": "have to escape from predators so the evolution or onset of vision started a"
+    },
+    {
+      "index": 184,
+      "start_time": 579980.0,
+      "end_time": 586860.0,
+      "text": "evolutionary arms race and animals had to evolve quickly in order to survive as"
+    },
+    {
+      "index": 185,
+      "start_time": 586860.0,
+      "end_time": 594870.0,
+      "text": "a species so that was the beginning of vision in animals after 540 million"
+    },
+    {
+      "index": 186,
+      "start_time": 594870.0,
+      "end_time": 601380.0,
+      "text": "years vision has developed into the biggest sensory system of almost all"
+    },
+    {
+      "index": 187,
+      "start_time": 601380.0,
+      "end_time": 609660.0,
+      "text": "animals especially intelligent animals in humans we have almost 50% of the"
+    },
+    {
+      "index": 188,
+      "start_time": 609660.0,
+      "end_time": 615449.0,
+      "text": "neurons in our cortex involved in visual processing it is the biggest sensory"
+    },
+    {
+      "index": 189,
+      "start_time": 615450.0,
+      "end_time": 622590.0,
+      "text": "system that enables us to survive, work, move around, manipulate things,"
+    },
+    {
+      "index": 190,
+      "start_time": 622590.0,
+      "end_time": 629730.0,
+      "text": "communicate, entertain, and many things. The vision is really important for"
+    },
+    {
+      "index": 191,
+      "start_time": 629730.0,
+      "end_time": 638930.0,
+      "text": "animals and especially intelligent animals. So that was a quick story of"
+    },
+    {
+      "index": 192,
+      "start_time": 638930.0,
+      "end_time": 648329.0,
+      "text": "biological vision. What about humans, the history of humans making mechanical"
+    },
+    {
+      "index": 193,
+      "start_time": 648329.0,
+      "end_time": 656449.0,
+      "text": "vision or cameras? Well one of the early cameras that we know today is from the"
+    },
+    {
+      "index": 194,
+      "start_time": 656450.0,
+      "end_time": 664410.0,
+      "text": "1600s, the Renaissance period of time, camera obscura and this is a camera"
+    },
+    {
+      "index": 195,
+      "start_time": 664410.0,
+      "end_time": 673730.0,
+      "text": "based on pinhole camera theories. It&#39;s very similar to, it&#39;s very similar to the"
+    },
+    {
+      "index": 196,
+      "start_time": 673730.0,
+      "end_time": 681390.0,
+      "text": "to the early eyes that animals developed with a hole that collects lights"
+    },
+    {
+      "index": 197,
+      "start_time": 681390.0,
+      "end_time": 688200.0,
+      "text": "and then a plane in the back of the camera that collects the information and"
+    },
+    {
+      "index": 198,
+      "start_time": 688200.0,
+      "end_time": 696560.0,
+      "text": "project the imagery. So as cameras evolved, today we have cameras"
+    },
+    {
+      "index": 199,
+      "start_time": 696560.0,
+      "end_time": 700910.0,
+      "text": "everywhere this is one of the most popular sensors people use from"
+    },
+    {
+      "index": 200,
+      "start_time": 700910.0,
+      "end_time": 709400.0,
+      "text": "smartphones to to other sensors. In the mean time biologists started"
+    },
+    {
+      "index": 201,
+      "start_time": 709400.0,
+      "end_time": 716510.0,
+      "text": "studying the mechanism of vision. One of the most influential work in both human"
+    },
+    {
+      "index": 202,
+      "start_time": 716510.0,
+      "end_time": 722689.0,
+      "text": "vision where animal vision as well as that inspired computer vision is the"
+    },
+    {
+      "index": 203,
+      "start_time": 722690.0,
+      "end_time": 730850.0,
+      "text": "work done by Hubel and Wiesel in the 50s and 60s using electrophysiology."
+    },
+    {
+      "index": 204,
+      "start_time": 730850.0,
+      "end_time": 738170.0,
+      "text": "What they were asking, the question is \"what was the visual processing mechanism like"
+    },
+    {
+      "index": 205,
+      "start_time": 738170.0,
+      "end_time": 746599.0,
+      "text": "in primates, in mammals\" so they chose to study cat brain which is more or less"
+    },
+    {
+      "index": 206,
+      "start_time": 746600.0,
+      "end_time": 752900.0,
+      "text": "similar to human brain from a visual processing point of view. What they did"
+    },
+    {
+      "index": 207,
+      "start_time": 752900.0,
+      "end_time": 757490.0,
+      "text": "is to stick some electrodes in the back of the cat brain which is where the"
+    },
+    {
+      "index": 208,
+      "start_time": 757490.0,
+      "end_time": 765830.0,
+      "text": "primary visual cortex area is and then look at what stimuli makes the neurons"
+    },
+    {
+      "index": 209,
+      "start_time": 765830.0,
+      "end_time": 772970.0,
+      "text": "in the in the back in the primary visual cortex of cat brain respond excitedly"
+    },
+    {
+      "index": 210,
+      "start_time": 772970.0,
+      "end_time": 780380.0,
+      "text": "what they learned is that there are many types of cells in the, in the primary"
+    },
+    {
+      "index": 211,
+      "start_time": 780380.0,
+      "end_time": 785630.0,
+      "text": "visual cortex part of the the cat brain but one of the most important cell is"
+    },
+    {
+      "index": 212,
+      "start_time": 785630.0,
+      "end_time": 792800.0,
+      "text": "the simple cells they respond to oriented edges when they move in certain"
+    },
+    {
+      "index": 213,
+      "start_time": 792800.0,
+      "end_time": 798410.0,
+      "text": "directions. Of course there are also more complex cells but by and large what they"
+    },
+    {
+      "index": 214,
+      "start_time": 798410.0,
+      "end_time": 806600.0,
+      "text": "discovered is visual processing starts with simple structure of the visual world,"
+    },
+    {
+      "index": 215,
+      "start_time": 806600.0,
+      "end_time": 812209.0,
+      "text": "oriented edges and as information moves along the visual processing"
+    },
+    {
+      "index": 216,
+      "start_time": 812210.0,
+      "end_time": 818560.0,
+      "text": "pathway the brain builds up the complexity of the visual information"
+    },
+    {
+      "index": 217,
+      "start_time": 818560.0,
+      "end_time": 826280.0,
+      "text": "until it can recognize the complex visual world. So the history of"
+    },
+    {
+      "index": 218,
+      "start_time": 826280.0,
+      "end_time": 835690.0,
+      "text": "computer vision also starts around early 60s. Block World is a set of work"
+    },
+    {
+      "index": 219,
+      "start_time": 835700.0,
+      "end_time": 840410.0,
+      "text": "published by Larry Roberts which is widely known as one of the first,"
+    },
+    {
+      "index": 220,
+      "start_time": 840410.0,
+      "end_time": 847250.0,
+      "text": "probably the first PhD thesis of computer vision where the visual world"
+    },
+    {
+      "index": 221,
+      "start_time": 847250.0,
+      "end_time": 853850.0,
+      "text": "was simplified into simple geometric shapes and the goal is to be able to"
+    },
+    {
+      "index": 222,
+      "start_time": 853850.0,
+      "end_time": 863419.0,
+      "text": "recognize them and reconstruct what these shapes are. In 1966 there was a now"
+    },
+    {
+      "index": 223,
+      "start_time": 863419.0,
+      "end_time": 871550.0,
+      "text": "famous MIT summer project called \"The Summer Vision Project.\" The goal of this"
+    },
+    {
+      "index": 224,
+      "start_time": 871550.0,
+      "end_time": 878439.0,
+      "text": "Summer Vision Project, I read: \"is an attempt to use our summer workers"
+    },
+    {
+      "index": 225,
+      "start_time": 878440.0,
+      "end_time": 884240.0,
+      "text": "effectively in a construction of a significant part of a visual system.\""
+    },
+    {
+      "index": 226,
+      "start_time": 884240.0,
+      "end_time": 887780.0,
+      "text": "So the goal is in one summer we&#39;re gonna work out"
+    },
+    {
+      "index": 227,
+      "start_time": 887780.0,
+      "end_time": 894589.0,
+      "text": "the bulk of the visual system. That was an ambitious goal. Fifty years have"
+    },
+    {
+      "index": 228,
+      "start_time": 894590.0,
+      "end_time": 902240.0,
+      "text": "passed; the field of computer vision has blossomed from one summer project into a"
+    },
+    {
+      "index": 229,
+      "start_time": 902240.0,
+      "end_time": 907610.0,
+      "text": "field of thousands of researchers worldwide still working on some of the"
+    },
+    {
+      "index": 230,
+      "start_time": 907610.0,
+      "end_time": 913940.0,
+      "text": "most fundamental problems of vision. We still have not yet solved vision but it"
+    },
+    {
+      "index": 231,
+      "start_time": 913940.0,
+      "end_time": 921380.0,
+      "text": "has grown into one of the most important and fastest growing areas"
+    },
+    {
+      "index": 232,
+      "start_time": 921380.0,
+      "end_time": 927410.0,
+      "text": "of artificial intelligence. Another person that we should pay tribute to is"
+    },
+    {
+      "index": 233,
+      "start_time": 927410.0,
+      "end_time": 934550.0,
+      "text": "David Marr. David Marr was a MIT vision scientist and he has written an"
+    },
+    {
+      "index": 234,
+      "start_time": 934550.0,
+      "end_time": 941510.0,
+      "text": "influential book in the late 70s about what he thinks vision is and how we"
+    },
+    {
+      "index": 235,
+      "start_time": 941510.0,
+      "end_time": 948200.0,
+      "text": "should go about computer vision and developing algorithms that can"
+    },
+    {
+      "index": 236,
+      "start_time": 948200.0,
+      "end_time": 957200.0,
+      "text": "enable computers to recognize the visual world. The thought process in his,"
+    },
+    {
+      "index": 237,
+      "start_time": 957200.0,
+      "end_time": 962439.0,
+      "text": "in David Mars book is that in order to take an image and"
+    },
+    {
+      "index": 238,
+      "start_time": 962440.0,
+      "end_time": 970639.0,
+      "text": "arrive at a final holistic full 3d representation of the visual world we"
+    },
+    {
+      "index": 239,
+      "start_time": 970640.0,
+      "end_time": 976360.0,
+      "text": "have to go through several process. The first process is what he calls \"primal sketch;\""
+    },
+    {
+      "index": 240,
+      "start_time": 976360.0,
+      "end_time": 983600.0,
+      "text": "this is where mostly the edges, the bars, the ends, the virtual lines, the"
+    },
+    {
+      "index": 241,
+      "start_time": 983600.0,
+      "end_time": 988969.0,
+      "text": "curves, the boundaries, are represented and this is very much inspired by what"
+    },
+    {
+      "index": 242,
+      "start_time": 988970.0,
+      "end_time": 994639.0,
+      "text": "neuroscientists have seen: Hubel and Wiesel told us the early stage of visual"
+    },
+    {
+      "index": 243,
+      "start_time": 994639.0,
+      "end_time": 1001420.0,
+      "text": "processing has a lot to do with simple structures like edges. Then the next step"
+    },
+    {
+      "index": 244,
+      "start_time": 1001420.0,
+      "end_time": 1005860.0,
+      "text": "after the edges and the curves is what David Marr calls"
+    },
+    {
+      "index": 245,
+      "start_time": 1005860.0,
+      "end_time": 1012300.0,
+      "text": "\"two-and-a-half d sketch;\" this is where we start to piece together the surfaces,"
+    },
+    {
+      "index": 246,
+      "start_time": 1012300.0,
+      "end_time": 1018839.0,
+      "text": "the depth information, the layers, or the discontinuities of the visual scene,"
+    },
+    {
+      "index": 247,
+      "start_time": 1018850.0,
+      "end_time": 1024930.0,
+      "text": "and then eventually we put everything together and have a 3d model"
+    },
+    {
+      "index": 248,
+      "start_time": 1024930.0000000001,
+      "end_time": 1031580.0000000001,
+      "text": "hierarchically organized in terms of surface and volumetric primitives and so on."
+    },
+    {
+      "index": 249,
+      "start_time": 1031579.9999999999,
+      "end_time": 1040720.9999999999,
+      "text": "So that was a very idealized thought process of what vision is and this way"
+    },
+    {
+      "index": 250,
+      "start_time": 1040720.0,
+      "end_time": 1045790.0,
+      "text": "of thinking actually has dominated computer vision for several decades and"
+    },
+    {
+      "index": 251,
+      "start_time": 1045790.0,
+      "end_time": 1051940.0,
+      "text": "is also a very intuitive way for students to enter the field of vision"
+    },
+    {
+      "index": 252,
+      "start_time": 1051940.0,
+      "end_time": 1058230.0,
+      "text": "and think about how we can deconstruct the visual information."
+    },
+    {
+      "index": 253,
+      "start_time": 1059310.0,
+      "end_time": 1068379.0,
+      "text": "Another very important seminal group of work happened in the 70s where people"
+    },
+    {
+      "index": 254,
+      "start_time": 1068380.0,
+      "end_time": 1075160.0,
+      "text": "began to ask the question \"how can we move beyond the simple block world and"
+    },
+    {
+      "index": 255,
+      "start_time": 1075160.0,
+      "end_time": 1082509.0,
+      "text": "start recognizing or representing real world objects?\" Think about the 70s,"
+    },
+    {
+      "index": 256,
+      "start_time": 1082510.0,
+      "end_time": 1087911.0,
+      "text": "it&#39;s the time that there&#39;s very little data available; computers are extremely"
+    },
+    {
+      "index": 257,
+      "start_time": 1087910.0,
+      "end_time": 1093360.0,
+      "text": "slow, PCs are not even around, but computer scientists are starting to"
+    },
+    {
+      "index": 258,
+      "start_time": 1093360.0,
+      "end_time": 1100169.0,
+      "text": "think about how we can recognize and represent objects. So in Palo Alto"
+    },
+    {
+      "index": 259,
+      "start_time": 1100170.0,
+      "end_time": 1106649.0,
+      "text": "both at Stanford as well as SRI, two groups of scientists that propose"
+    },
+    {
+      "index": 260,
+      "start_time": 1106650.0,
+      "end_time": 1112740.0,
+      "text": "similar ideas: one is called \"generalized cylinder,\" one is called \"pictorial structure.\""
+    },
+    {
+      "index": 261,
+      "start_time": 1112740.0,
+      "end_time": 1120600.0,
+      "text": "The basic idea is that every object is composed of simple geometric"
+    },
+    {
+      "index": 262,
+      "start_time": 1120600.0,
+      "end_time": 1125510.0,
+      "text": "primitives; for example a person can be pieced together by generalized"
+    },
+    {
+      "index": 263,
+      "start_time": 1125510.0,
+      "end_time": 1131339.0,
+      "text": "cylindrical shapes or a person can be pieced together by critical part in"
+    },
+    {
+      "index": 264,
+      "start_time": 1131340.0,
+      "end_time": 1136791.0,
+      "text": "their elastic distance between these parts"
+    },
+    {
+      "index": 265,
+      "start_time": 1136790.0,
+      "end_time": 1143879.0,
+      "text": "so either representation is a way to reduce the complex structure of the"
+    },
+    {
+      "index": 266,
+      "start_time": 1143880.0,
+      "end_time": 1151140.0,
+      "text": "object into a collection of simpler shapes and their geometric configuration."
+    },
+    {
+      "index": 267,
+      "start_time": 1151140.0,
+      "end_time": 1159220.0,
+      "text": "These work have been influential for quite a few, quite a few years"
+    },
+    {
+      "index": 268,
+      "start_time": 1159220.0,
+      "end_time": 1167630.0,
+      "text": "and then in the 80s David Lowe, here is another example of thinking how to"
+    },
+    {
+      "index": 269,
+      "start_time": 1167630.0,
+      "end_time": 1173699.0,
+      "text": "reconstruct or recognize the visual world from simple world structures, this"
+    },
+    {
+      "index": 270,
+      "start_time": 1173700.0,
+      "end_time": 1183441.0,
+      "text": "work is by David Lowe which he tries to recognize razors by constructing"
+    },
+    {
+      "index": 271,
+      "start_time": 1183440.0,
+      "end_time": 1190860.0,
+      "text": "lines and edges and and mostly straight lines and their combination."
+    },
+    {
+      "index": 272,
+      "start_time": 1190860.0,
+      "end_time": 1201139.0,
+      "text": "So there was a lot of effort in trying to think what what is the tasks in computer"
+    },
+    {
+      "index": 273,
+      "start_time": 1201150.0,
+      "end_time": 1210410.0,
+      "text": "vision in the 60s 70s and 80s and frankly it was very hard to solve the problem of"
+    },
+    {
+      "index": 274,
+      "start_time": 1210410.0,
+      "end_time": 1217980.0,
+      "text": "object recognition; everything I&#39;ve shown you so far are very audacious ambitious"
+    },
+    {
+      "index": 275,
+      "start_time": 1217980.0,
+      "end_time": 1224160.0,
+      "text": "attempts but they remain at the level of toy examples"
+    },
+    {
+      "index": 276,
+      "start_time": 1224160.0,
+      "end_time": 1230819.0,
+      "text": "or just a few examples. Not a lot of progress have been made in terms of"
+    },
+    {
+      "index": 277,
+      "start_time": 1230820.0,
+      "end_time": 1238191.0,
+      "text": "delivering something that can work in real world. So as people think about what"
+    },
+    {
+      "index": 278,
+      "start_time": 1238190.0,
+      "end_time": 1243709.0,
+      "text": "are the problems to solving vision one important question came around is:"
+    },
+    {
+      "index": 279,
+      "start_time": 1243710.0,
+      "end_time": 1250201.0,
+      "text": "if object recognition is too hard, maybe we should first do object segmentation,"
+    },
+    {
+      "index": 280,
+      "start_time": 1250200.0,
+      "end_time": 1258760.0,
+      "text": "that is the task of taking an image and group the pixels into meaningful areas."
+    },
+    {
+      "index": 281,
+      "start_time": 1258760.0,
+      "end_time": 1263879.0,
+      "text": "We might not know the pixels that group together is called a person,"
+    },
+    {
+      "index": 282,
+      "start_time": 1263880.0,
+      "end_time": 1270140.0,
+      "text": "but we can extract out all the pixels that belong to the person from its background;"
+    },
+    {
+      "index": 283,
+      "start_time": 1270140.0,
+      "end_time": 1275339.0,
+      "text": "that is called image segmentation. So here&#39;s one very early"
+    },
+    {
+      "index": 284,
+      "start_time": 1275340.0,
+      "end_time": 1281760.0,
+      "text": "seminal work by Jitendra Malik and his student Jianbo Shi from Berkeley from"
+    },
+    {
+      "index": 285,
+      "start_time": 1281760.0,
+      "end_time": 1289879.0,
+      "text": "using a graph theory algorithm for the problem of image segmentation."
+    },
+    {
+      "index": 286,
+      "start_time": 1289880.0,
+      "end_time": 1299600.0,
+      "text": "Here&#39;s another problem that made some headway ahead of many other problems in"
+    },
+    {
+      "index": 287,
+      "start_time": 1299610.0,
+      "end_time": 1305850.0,
+      "text": "computer vision, which is face detection. Faces one of the most important objects"
+    },
+    {
+      "index": 288,
+      "start_time": 1305850.0,
+      "end_time": 1311779.0,
+      "text": "to humans, probably the most important objects to humans, around the time of"
+    },
+    {
+      "index": 289,
+      "start_time": 1311780.0,
+      "end_time": 1319791.0,
+      "text": "1999 to 2000 machine learning techniques, especially statistical machine"
+    },
+    {
+      "index": 290,
+      "start_time": 1319790.0,
+      "end_time": 1325220.0,
+      "text": "learning techniques start to gain momentum. These are techniques such as"
+    },
+    {
+      "index": 291,
+      "start_time": 1325220.0,
+      "end_time": 1331620.0,
+      "text": "support vector machines, boosting, graphical models, including the first"
+    },
+    {
+      "index": 292,
+      "start_time": 1331620.0,
+      "end_time": 1338448.0,
+      "text": "wave of neural networks. One particular work that made a lot of contribution was"
+    },
+    {
+      "index": 293,
+      "start_time": 1338450.0,
+      "end_time": 1344940.0,
+      "text": "using AdaBoost algorithm to do real-time face detection by Paul Viola"
+    },
+    {
+      "index": 294,
+      "start_time": 1344940.0,
+      "end_time": 1351780.0,
+      "text": "and Michael Jones and there&#39;s a lot to admire in this work. It was done in 2001"
+    },
+    {
+      "index": 295,
+      "start_time": 1351780.0,
+      "end_time": 1356731.0,
+      "text": "when computer chips are still very very slow but they&#39;re able to do face"
+    },
+    {
+      "index": 296,
+      "start_time": 1356730.0,
+      "end_time": 1362550.0,
+      "text": "detection in images in near-real-time and after the"
+    },
+    {
+      "index": 297,
+      "start_time": 1362550.0,
+      "end_time": 1370800.0,
+      "text": "publication of this paper in five years time, 2006, Fujifilm rolled out the first"
+    },
+    {
+      "index": 298,
+      "start_time": 1370800.0,
+      "end_time": 1378960.0,
+      "text": "digital camera that has a real-time face detector in the in the camera so it"
+    },
+    {
+      "index": 299,
+      "start_time": 1378960.0,
+      "end_time": 1385960.0,
+      "text": "was a very rapid transfer from basic science research to real world application."
+    },
+    {
+      "index": 300,
+      "start_time": 1385960.0,
+      "end_time": 1393920.0,
+      "text": "So as a field we continue to explore how we can do object recognition"
+    },
+    {
+      "index": 301,
+      "start_time": 1393930.0,
+      "end_time": 1402720.0,
+      "text": "better so one of the very influential way of thinking in the late 90s til the"
+    },
+    {
+      "index": 302,
+      "start_time": 1402720.0,
+      "end_time": 1411300.0,
+      "text": "first 10 years of 2000 is feature based object recognition and here is a seminal"
+    },
+    {
+      "index": 303,
+      "start_time": 1411300.0,
+      "end_time": 1419669.0,
+      "text": "work by David Lowe called SIFT feature.  The idea is that to match and the entire object"
+    },
+    {
+      "index": 304,
+      "start_time": 1419670.0,
+      "end_time": 1424860.0,
+      "text": "for example here is a stop sign to another stop sight is very difficult"
+    },
+    {
+      "index": 305,
+      "start_time": 1424860.0,
+      "end_time": 1431600.0,
+      "text": "because there might be all kinds of changes due to camera angles, occlusion,"
+    },
+    {
+      "index": 306,
+      "start_time": 1431600.0,
+      "end_time": 1437210.0,
+      "text": "viewpoint, lighting, and just the intrinsic variation of the object itself"
+    },
+    {
+      "index": 307,
+      "start_time": 1437210.0,
+      "end_time": 1444680.0,
+      "text": "but it&#39;s inspired to observe that there are some parts of the object,"
+    },
+    {
+      "index": 308,
+      "start_time": 1444680.0,
+      "end_time": 1455000.0,
+      "text": "some features, that tend to remain diagnostic and invariant to changes so the task of"
+    },
+    {
+      "index": 309,
+      "start_time": 1455100.0,
+      "end_time": 1461610.0,
+      "text": "object recognition began with identifying these critical features on the object"
+    },
+    {
+      "index": 310,
+      "start_time": 1461610.0,
+      "end_time": 1468569.0,
+      "text": "and then match the features to a similar object, that&#39;s a easier task than pattern"
+    },
+    {
+      "index": 311,
+      "start_time": 1468570.0,
+      "end_time": 1476701.0,
+      "text": "matching the entire object. So here is a figure from his paper where it shows"
+    },
+    {
+      "index": 312,
+      "start_time": 1476700.0,
+      "end_time": 1482600.0,
+      "text": "that a handful, several dozen SIFT features from one stop sign are"
+    },
+    {
+      "index": 313,
+      "start_time": 1482600.0,
+      "end_time": 1489440.0,
+      "text": "identified and matched to the SIFT features of another stop sign."
+    },
+    {
+      "index": 314,
+      "start_time": 1491130.0,
+      "end_time": 1499330.0,
+      "text": "Using the same building block which is features, diagnostic features in images,"
+    },
+    {
+      "index": 315,
+      "start_time": 1499330.0,
+      "end_time": 1504780.0,
+      "text": "we have as a field has made another step forward and start to recognizing"
+    },
+    {
+      "index": 316,
+      "start_time": 1504780.0,
+      "end_time": 1512320.0,
+      "text": "holistic scenes. Here is an example algorithm called Spatial Pyramid Matching;"
+    },
+    {
+      "index": 317,
+      "start_time": 1512320.0,
+      "end_time": 1518620.0,
+      "text": "the idea is that there are features in the images that can give us"
+    },
+    {
+      "index": 318,
+      "start_time": 1518620.0,
+      "end_time": 1523750.0,
+      "text": "clues about which type of scene it is, whether it&#39;s a landscape or a kitchen or"
+    },
+    {
+      "index": 319,
+      "start_time": 1523750.0,
+      "end_time": 1531580.0,
+      "text": "a highway and so on and this particular work takes these features from different"
+    },
+    {
+      "index": 320,
+      "start_time": 1531580.0,
+      "end_time": 1537129.0,
+      "text": "parts of the image and in different resolutions and put them together in a"
+    },
+    {
+      "index": 321,
+      "start_time": 1537130.0,
+      "end_time": 1544780.0,
+      "text": "feature descriptor and then we do support vector machine algorithm on top of that."
+    },
+    {
+      "index": 322,
+      "start_time": 1544780.0,
+      "end_time": 1553930.0,
+      "text": "Similarly a very similar work has gained momentum in human recognition"
+    },
+    {
+      "index": 323,
+      "start_time": 1553930.0,
+      "end_time": 1562990.0,
+      "text": "so putting together these features well we have a number of work that looks at"
+    },
+    {
+      "index": 324,
+      "start_time": 1562990.0,
+      "end_time": 1570490.0,
+      "text": "how we can compose human bodies in more realistic images and recognize them."
+    },
+    {
+      "index": 325,
+      "start_time": 1570490.0,
+      "end_time": 1575710.0,
+      "text": "So one work is called the \"histogram of gradients,\" another work is called"
+    },
+    {
+      "index": 326,
+      "start_time": 1575710.0,
+      "end_time": 1586770.0,
+      "text": "\"deformable part models,\" so as you can see as we move from the 60s 70s 80s"
+    },
+    {
+      "index": 327,
+      "start_time": 1586770.0,
+      "end_time": 1594160.0,
+      "text": "towards the first decade of the 21st century one thing is changing and that&#39;s"
+    },
+    {
+      "index": 328,
+      "start_time": 1594160.0,
+      "end_time": 1600700.0,
+      "text": "the quality of the pictures were no longer, with the Internet the the the"
+    },
+    {
+      "index": 329,
+      "start_time": 1600700.0,
+      "end_time": 1605680.0,
+      "text": "growth of the Internet the digital cameras were having better and better"
+    },
+    {
+      "index": 330,
+      "start_time": 1605680.0,
+      "end_time": 1614380.0,
+      "text": "data to study computer vision. So one of the outcome in the early 2000s is that"
+    },
+    {
+      "index": 331,
+      "start_time": 1614380.0,
+      "end_time": 1622840.0,
+      "text": "the field of computer vision has defined a very important building block problem to solve."
+    },
+    {
+      "index": 332,
+      "start_time": 1622840.0,
+      "end_time": 1625600.0,
+      "text": "It&#39;s not the only problem to solve but"
+    },
+    {
+      "index": 333,
+      "start_time": 1625600.0,
+      "end_time": 1631120.0,
+      "text": "in terms of recognition this is a very important problem to solve which is"
+    },
+    {
+      "index": 334,
+      "start_time": 1631120.0,
+      "end_time": 1638949.0,
+      "text": "object recognition. I talked about object recognition all along but in the early"
+    },
+    {
+      "index": 335,
+      "start_time": 1638950.0,
+      "end_time": 1646600.0,
+      "text": "2000s we began to have benchmark data set that can enable us to measure the"
+    },
+    {
+      "index": 336,
+      "start_time": 1646600.0,
+      "end_time": 1652929.0,
+      "text": "progress of object recognition. One of the most influential benchmark data set"
+    },
+    {
+      "index": 337,
+      "start_time": 1652930.0,
+      "end_time": 1661480.0,
+      "text": "is called PASCAL Visual Object Challenge, and it&#39;s a data set composed of 20"
+    },
+    {
+      "index": 338,
+      "start_time": 1661480.0,
+      "end_time": 1668500.0,
+      "text": "object classes, three of them are shown here: train, airplane, person; I think it"
+    },
+    {
+      "index": 339,
+      "start_time": 1668500.0,
+      "end_time": 1677440.0,
+      "text": "also has cows, bottles, cats, and so on; and the data set is composed of several"
+    },
+    {
+      "index": 340,
+      "start_time": 1677440.0,
+      "end_time": 1684280.0,
+      "text": "thousand to ten thousand images per category and then the field different"
+    },
+    {
+      "index": 341,
+      "start_time": 1684280.0,
+      "end_time": 1691750.0,
+      "text": "groups develop algorithm to test against the testing set and see how we"
+    },
+    {
+      "index": 342,
+      "start_time": 1691750.0,
+      "end_time": 1699870.0,
+      "text": "have made progress. So here is a figure that shows from year 2007 to year 2012."
+    },
+    {
+      "index": 343,
+      "start_time": 1699870.0,
+      "end_time": 1711100.0,
+      "text": "The performance on detecting objects the 20 object in this image in a in a"
+    },
+    {
+      "index": 344,
+      "start_time": 1711100.0,
+      "end_time": 1718679.0,
+      "text": "benchmark data set has steadily increased. So there was a lot of progress made."
+    },
+    {
+      "index": 345,
+      "start_time": 1718680.0,
+      "end_time": 1725170.0,
+      "text": "Around that time a group of us from Princeton to Stanford also began to ask"
+    },
+    {
+      "index": 346,
+      "start_time": 1725170.0,
+      "end_time": 1733330.0,
+      "text": "a harder question to ourselves as well as our field which is: are we ready"
+    },
+    {
+      "index": 347,
+      "start_time": 1733330.0,
+      "end_time": 1740260.0,
+      "text": "to recognize every object or most of the object in the world. It&#39;s also motivated"
+    },
+    {
+      "index": 348,
+      "start_time": 1740260.0,
+      "end_time": 1747970.0,
+      "text": "by an observation that is rooted in machine learning which is that most of"
+    },
+    {
+      "index": 349,
+      "start_time": 1747970.0,
+      "end_time": 1752410.0,
+      "text": "the machine learning algorithms it doesn&#39;t matter if it&#39;s graphical model,"
+    },
+    {
+      "index": 350,
+      "start_time": 1752410.0,
+      "end_time": 1760700.0,
+      "text": "or support vector machine, or AdaBoost, is very likely to overfit in"
+    },
+    {
+      "index": 351,
+      "start_time": 1760700.0,
+      "end_time": 1765409.0,
+      "text": "the training process and part of the problem is visual data is very complex"
+    },
+    {
+      "index": 352,
+      "start_time": 1765410.0,
+      "end_time": 1772700.0,
+      "text": "because it&#39;s complex our models tend to have a high dimension a high dimension"
+    },
+    {
+      "index": 353,
+      "start_time": 1772700.0,
+      "end_time": 1777559.0,
+      "text": "of input and have to have a lot of parameters to fit and when we don&#39;t have"
+    },
+    {
+      "index": 354,
+      "start_time": 1777560.0,
+      "end_time": 1784161.0,
+      "text": "enough training data overfitting happens very fast and then we cannot generalize"
+    },
+    {
+      "index": 355,
+      "start_time": 1784160.0,
+      "end_time": 1792440.0,
+      "text": "very well. So motivated by this dual reason, one is just want to recognize the"
+    },
+    {
+      "index": 356,
+      "start_time": 1792440.0,
+      "end_time": 1798340.0,
+      "text": "world of all the objects, the other one is to come back the machine learning"
+    },
+    {
+      "index": 357,
+      "start_time": 1798340.0,
+      "end_time": 1804620.0,
+      "text": "overcome the the machine learning bottleneck of overfitting, we began this"
+    },
+    {
+      "index": 358,
+      "start_time": 1804620.0,
+      "end_time": 1811139.0,
+      "text": "project called ImageNet. We wanted to put together the largest possible dataset"
+    },
+    {
+      "index": 359,
+      "start_time": 1811140.0,
+      "end_time": 1817900.0,
+      "text": "of all the pictures we can find, the world of objects, and use that for"
+    },
+    {
+      "index": 360,
+      "start_time": 1817910.0,
+      "end_time": 1823250.0,
+      "text": "training as well as for benchmarking. So it was a project that took us about"
+    },
+    {
+      "index": 361,
+      "start_time": 1823250.0,
+      "end_time": 1830330.0,
+      "text": "three years, lots of hard work; it basically began with downloading"
+    },
+    {
+      "index": 362,
+      "start_time": 1830330.0,
+      "end_time": 1837620.0,
+      "text": "billions of images from the internet organized by the dictionary we called"
+    },
+    {
+      "index": 363,
+      "start_time": 1837620.0,
+      "end_time": 1845770.0,
+      "text": "WordNet which is tens of thousands of object classes and then we have to use"
+    },
+    {
+      "index": 364,
+      "start_time": 1845770.0,
+      "end_time": 1852230.0,
+      "text": "some clever crowd engineering trick a method using Amazon Mechanical Turk"
+    },
+    {
+      "index": 365,
+      "start_time": 1852230.0,
+      "end_time": 1862270.0,
+      "text": "platform to sort, clean, label each of the images. The end result is a ImageNet of"
+    },
+    {
+      "index": 366,
+      "start_time": 1862270.0,
+      "end_time": 1870830.0,
+      "text": "almost 15 million or 40 million plus images organized in twenty-two thousand"
+    },
+    {
+      "index": 367,
+      "start_time": 1870830.0,
+      "end_time": 1880879.0,
+      "text": "categories of objects and scenes and this is the gigantic, probably the"
+    },
+    {
+      "index": 368,
+      "start_time": 1880880.0,
+      "end_time": 1889289.0,
+      "text": "biggest dataset produced in the field of AI at that time and it began to push"
+    },
+    {
+      "index": 369,
+      "start_time": 1889290.0,
+      "end_time": 1895760.0,
+      "text": "forward the algorithm development of object recognition into another phase."
+    },
+    {
+      "index": 370,
+      "start_time": 1895760.0,
+      "end_time": 1901201.0,
+      "text": "Especially important is how to benchmark the progress"
+    },
+    {
+      "index": 371,
+      "start_time": 1901200.0,
+      "end_time": 1909419.0,
+      "text": "so starting 2009 the ImageNet team rolled out an international challenge called"
+    },
+    {
+      "index": 372,
+      "start_time": 1909420.0,
+      "end_time": 1917310.0,
+      "text": "ImageNet Large-Scale Visual Recognition Challenge and for this challenge we put"
+    },
+    {
+      "index": 373,
+      "start_time": 1917310.0,
+      "end_time": 1926191.0,
+      "text": "together a more stringent test set of 1.4 million objects across 1,000 object"
+    },
+    {
+      "index": 374,
+      "start_time": 1926190.0,
+      "end_time": 1933629.0,
+      "text": "classes and this is to test the image classification recognition results for"
+    },
+    {
+      "index": 375,
+      "start_time": 1933630.0,
+      "end_time": 1941989.0,
+      "text": "the computer vision algorithms. So here&#39;s the example picture and if an algorithm"
+    },
+    {
+      "index": 376,
+      "start_time": 1941990.0,
+      "end_time": 1952260.0,
+      "text": "can output 5 labels and and top five labels includes the correct object in"
+    },
+    {
+      "index": 377,
+      "start_time": 1952260.0,
+      "end_time": 1962910.0,
+      "text": "this picture then we call this a success. So here is a result summary of the"
+    },
+    {
+      "index": 378,
+      "start_time": 1962910.0,
+      "end_time": 1969721.0,
+      "text": "ImageNet Challenge, of the image classification result from 2010"
+    },
+    {
+      "index": 379,
+      "start_time": 1969720.0,
+      "end_time": 1980740.0,
+      "text": "to 2015 so on x axis you see the years and the y axis you see the error rate."
+    },
+    {
+      "index": 380,
+      "start_time": 1980740.0,
+      "end_time": 1986820.0,
+      "text": "So the good news is the error rate is steadily decreasing to the point by"
+    },
+    {
+      "index": 381,
+      "start_time": 1986820.0,
+      "end_time": 1995369.0,
+      "text": "2012 the error rate is so low is on par with what humans can do and here a human"
+    },
+    {
+      "index": 382,
+      "start_time": 1995370.0,
+      "end_time": 2005360.0,
+      "text": "I mean a single Stanford PhD student who spend weeks doing this task as if"
+    },
+    {
+      "index": 383,
+      "start_time": 2005360.0,
+      "end_time": 2012471.0,
+      "text": "he were a computer participating in the ImageNet Challenge. So that&#39;s a lot of"
+    },
+    {
+      "index": 384,
+      "start_time": 2012470.0,
+      "end_time": 2019669.0,
+      "text": "progress made even though we have not solved all the problems of object"
+    },
+    {
+      "index": 385,
+      "start_time": 2019670.0,
+      "end_time": 2023111.0,
+      "text": "recognition which you&#39;ll learn about in this class"
+    },
+    {
+      "index": 386,
+      "start_time": 2023110.0,
+      "end_time": 2030490.0,
+      "text": "but to go from an error rate that&#39;s unacceptable for real-world application"
+    },
+    {
+      "index": 387,
+      "start_time": 2030490.0,
+      "end_time": 2036400.0,
+      "text": "all the way to on par being on par with humans in ImageNet challenge, the field"
+    },
+    {
+      "index": 388,
+      "start_time": 2036400.0,
+      "end_time": 2045640.0,
+      "text": "took only a few years. And one particular moment you should notice on this graph"
+    },
+    {
+      "index": 389,
+      "start_time": 2045640.0,
+      "end_time": 2055720.0,
+      "text": "is the the year 2012. In the first two years our error rate hovered around 25"
+    },
+    {
+      "index": 390,
+      "start_time": 2055719.9999999998,
+      "end_time": 2065649.9999999998,
+      "text": "percent but in 2012 the error rate was dropped more almost 10 percent to 16"
+    },
+    {
+      "index": 391,
+      "start_time": 2065650.0,
+      "end_time": 2072970.0,
+      "text": "percent even though now it&#39;s better but that drop was very significant and the"
+    },
+    {
+      "index": 392,
+      "start_time": 2072969.9999999998,
+      "end_time": 2082569.9999999998,
+      "text": "winning algorithm of that year is a convolutional neural network model that"
+    },
+    {
+      "index": 393,
+      "start_time": 2082570.0000000002,
+      "end_time": 2089850.0000000002,
+      "text": "beat all other algorithms around that time to win the ImageNet challenge and"
+    },
+    {
+      "index": 394,
+      "start_time": 2089850.0,
+      "end_time": 2098200.0,
+      "text": "this is the focus of our whole course this quarter is to look at to have a"
+    },
+    {
+      "index": 395,
+      "start_time": 2098200.0,
+      "end_time": 2105700.0,
+      "text": "deep dive into what convolutional neural network models are and another name for"
+    },
+    {
+      "index": 396,
+      "start_time": 2105700.0,
+      "end_time": 2110370.0,
+      "text": "this is deep learning by by popular"
+    },
+    {
+      "index": 397,
+      "start_time": 2110520.0,
+      "end_time": 2115330.0,
+      "text": "popular name now it&#39;s called deep learning and to look at what these"
+    },
+    {
+      "index": 398,
+      "start_time": 2115330.0,
+      "end_time": 2120429.0,
+      "text": "models are what are the principles what are the good practices what are the"
+    },
+    {
+      "index": 399,
+      "start_time": 2120430.0,
+      "end_time": 2126401.0,
+      "text": "recent progress of this model, but here is where the history was made is"
+    },
+    {
+      "index": 400,
+      "start_time": 2126400.0,
+      "end_time": 2133000.0,
+      "text": "that we, around 2012 convolutional neural network model or deep learning"
+    },
+    {
+      "index": 401,
+      "start_time": 2133000.0,
+      "end_time": 2141309.0,
+      "text": "models showed the tremendous capacity and ability in making a good progress in"
+    },
+    {
+      "index": 402,
+      "start_time": 2141310.0,
+      "end_time": 2147371.0,
+      "text": "the field of computer vision along with several other sister fields like natural"
+    },
+    {
+      "index": 403,
+      "start_time": 2147370.0,
+      "end_time": 2151900.0,
+      "text": "language processing and speech recognition. So without further ado I&#39;m"
+    },
+    {
+      "index": 404,
+      "start_time": 2151900.0,
+      "end_time": 2160630.0,
+      "text": "going to hand the rest of the lecture to to Justin to talk about the overview of"
+    },
+    {
+      "index": 405,
+      "start_time": 2160630.0,
+      "end_time": 2162500.0,
+      "text": "CS 231n."
+    },
+    {
+      "index": 406,
+      "start_time": 2163000.0,
+      "end_time": 2164763.0,
+      "text": "Alright, thanks so much Fei-Fei."
+    },
+    {
+      "index": 407,
+      "start_time": 2165000.0,
+      "end_time": 2168158.0,
+      "text": "I&#39;ll take it over from here."
+    },
+    {
+      "index": 408,
+      "start_time": 2168190.0,
+      "end_time": 2169911.0,
+      "text": "So now I want to shift gears a little bit"
+    },
+    {
+      "index": 409,
+      "start_time": 2169910.0,
+      "end_time": 2174770.0,
+      "text": "and talk a little bit more about this class CS231n."
+    },
+    {
+      "index": 410,
+      "start_time": 2175440.0,
+      "end_time": 2178640.0,
+      "text": "So this class focuses on one of these most,"
+    },
+    {
+      "index": 411,
+      "start_time": 2178640.0,
+      "end_time": 2180818.0,
+      "text": "so the primary focus of this class"
+    },
+    {
+      "index": 412,
+      "start_time": 2180810.0,
+      "end_time": 2182946.0,
+      "text": "is this image classification problem"
+    },
+    {
+      "index": 413,
+      "start_time": 2182950.0,
+      "end_time": 2185269.0,
+      "text": "which we previewed a little bit in the contex"
+    },
+    {
+      "index": 414,
+      "start_time": 2185270.0,
+      "end_time": 2187371.0,
+      "text": "of the ImageNet Challenge."
+    },
+    {
+      "index": 415,
+      "start_time": 2187370.0,
+      "end_time": 2188848.0,
+      "text": "So in image classification, again,"
+    },
+    {
+      "index": 416,
+      "start_time": 2188850.0,
+      "end_time": 2191472.0,
+      "text": "the setup is that your algorithm looks at an image"
+    },
+    {
+      "index": 417,
+      "start_time": 2191470.0,
+      "end_time": 2194480.0,
+      "text": "and then picks from among some fixed set of categories"
+    },
+    {
+      "index": 418,
+      "start_time": 2194480.0,
+      "end_time": 2196442.0,
+      "text": "to classify that image."
+    },
+    {
+      "index": 419,
+      "start_time": 2196440.0,
+      "end_time": 2199547.0,
+      "text": "And, this might seem like somewhat of a restrictive"
+    },
+    {
+      "index": 420,
+      "start_time": 2199550.0,
+      "end_time": 2202506.0,
+      "text": "or artificial setup, but it&#39;s actual quite general."
+    },
+    {
+      "index": 421,
+      "start_time": 2202510.0,
+      "end_time": 2205524.0,
+      "text": "And, this problem can be applied in many different settings"
+    },
+    {
+      "index": 422,
+      "start_time": 2205520.0,
+      "end_time": 2209629.0,
+      "text": "both in industry and academia and many different places."
+    },
+    {
+      "index": 423,
+      "start_time": 2209630.0,
+      "end_time": 2212957.0,
+      "text": "So for example, you could apply this to recognizing food"
+    },
+    {
+      "index": 424,
+      "start_time": 2212960.0,
+      "end_time": 2214909.0,
+      "text": "or recognizing calories in food or recognizing"
+    },
+    {
+      "index": 425,
+      "start_time": 2214910.0,
+      "end_time": 2218434.0,
+      "text": "different artworks, different product out in the world."
+    },
+    {
+      "index": 426,
+      "start_time": 2218430.0,
+      "end_time": 2221576.0,
+      "text": "So this relatively basic tool of image classification"
+    },
+    {
+      "index": 427,
+      "start_time": 2221580.0,
+      "end_time": 2224276.0,
+      "text": "is super useful on its own and could be applied"
+    },
+    {
+      "index": 428,
+      "start_time": 2224270.0,
+      "end_time": 2228501.0,
+      "text": "all over the place for many different applications."
+    },
+    {
+      "index": 429,
+      "start_time": 2228500.0,
+      "end_time": 2230682.0,
+      "text": "But, in this course, we&#39;re also going to talk"
+    },
+    {
+      "index": 430,
+      "start_time": 2230690.0,
+      "end_time": 2233811.0,
+      "text": "about several other visual recognition problems"
+    },
+    {
+      "index": 431,
+      "start_time": 2233810.0,
+      "end_time": 2236677.0,
+      "text": "that build upon many of the tools that we develop"
+    },
+    {
+      "index": 432,
+      "start_time": 2236670.0,
+      "end_time": 2239657.0,
+      "text": "for the purpose of image classification."
+    },
+    {
+      "index": 433,
+      "start_time": 2239660.0,
+      "end_time": 2241266.0,
+      "text": "We&#39;ll talk about other problems"
+    },
+    {
+      "index": 434,
+      "start_time": 2241270.0,
+      "end_time": 2244787.0,
+      "text": "such as object detection or image captioning."
+    },
+    {
+      "index": 435,
+      "start_time": 2244780.0,
+      "end_time": 2246662.0,
+      "text": "So the setup in object detection"
+    },
+    {
+      "index": 436,
+      "start_time": 2246670.0,
+      "end_time": 2248440.0,
+      "text": "is a little bit different."
+    },
+    {
+      "index": 437,
+      "start_time": 2248440.0,
+      "end_time": 2250714.0,
+      "text": "Rather than classifying an entire image"
+    },
+    {
+      "index": 438,
+      "start_time": 2250710.0,
+      "end_time": 2253728.0,
+      "text": "as a cat or a dog or a horse or whatnot,"
+    },
+    {
+      "index": 439,
+      "start_time": 2253730.0,
+      "end_time": 2255853.0,
+      "text": "instead we want to go in and draw bounding boxes"
+    },
+    {
+      "index": 440,
+      "start_time": 2255850.0,
+      "end_time": 2258460.0,
+      "text": "and say that there is a dog here, and a cat here,"
+    },
+    {
+      "index": 441,
+      "start_time": 2258460.0,
+      "end_time": 2260349.0,
+      "text": "and a car over in the background,"
+    },
+    {
+      "index": 442,
+      "start_time": 2260350.0,
+      "end_time": 2262185.0,
+      "text": "and draw these boxes describing"
+    },
+    {
+      "index": 443,
+      "start_time": 2262190.0,
+      "end_time": 2264114.0,
+      "text": "where objects are in the image."
+    },
+    {
+      "index": 444,
+      "start_time": 2264110.0,
+      "end_time": 2266322.0,
+      "text": "We&#39;ll also talk about image captioning"
+    },
+    {
+      "index": 445,
+      "start_time": 2266320.0,
+      "end_time": 2267743.0,
+      "text": "where given an image the system"
+    },
+    {
+      "index": 446,
+      "start_time": 2267750.0,
+      "end_time": 2270116.0,
+      "text": "now needs to produce a natural language sentence"
+    },
+    {
+      "index": 447,
+      "start_time": 2270110.0,
+      "end_time": 2271474.0,
+      "text": "describing the image."
+    },
+    {
+      "index": 448,
+      "start_time": 2271480.0,
+      "end_time": 2273696.0,
+      "text": "It sounds like a really hard, complicated,"
+    },
+    {
+      "index": 449,
+      "start_time": 2273690.0,
+      "end_time": 2275597.0,
+      "text": "and different problem, but we&#39;ll see"
+    },
+    {
+      "index": 450,
+      "start_time": 2275600.0,
+      "end_time": 2277220.0,
+      "text": "that many of the tools that we develop"
+    },
+    {
+      "index": 451,
+      "start_time": 2277220.0,
+      "end_time": 2278964.0,
+      "text": "in service of image classification"
+    },
+    {
+      "index": 452,
+      "start_time": 2278960.0,
+      "end_time": 2282877.0,
+      "text": "will be reused in these other problems as well."
+    },
+    {
+      "index": 453,
+      "start_time": 2286480.0,
+      "end_time": 2288449.0,
+      "text": "So we mentioned this before in the context"
+    },
+    {
+      "index": 454,
+      "start_time": 2288450.0,
+      "end_time": 2291244.0,
+      "text": "of the ImageNet Challenge, but one of the things"
+    },
+    {
+      "index": 455,
+      "start_time": 2291250.0,
+      "end_time": 2292971.0,
+      "text": "that&#39;s really driven the progress of the field"
+    },
+    {
+      "index": 456,
+      "start_time": 2292970.0,
+      "end_time": 2294401.0,
+      "text": "in recent years has been this adoption"
+    },
+    {
+      "index": 457,
+      "start_time": 2294400.0,
+      "end_time": 2297935.0,
+      "text": "of convolutional neural networks or CNNs"
+    },
+    {
+      "index": 458,
+      "start_time": 2297930.0,
+      "end_time": 2300347.0,
+      "text": "or sometimes called convnets."
+    },
+    {
+      "index": 459,
+      "start_time": 2300350.0,
+      "end_time": 2304800.0,
+      "text": "So if we look at the algorithms that have won"
+    },
+    {
+      "index": 460,
+      "start_time": 2304800.0,
+      "end_time": 2306827.0,
+      "text": "the ImageNet Challenge for the last several years,"
+    },
+    {
+      "index": 461,
+      "start_time": 2306830.0,
+      "end_time": 2310482.0,
+      "text": "in 2011 we see this method from Lin et al"
+    },
+    {
+      "index": 462,
+      "start_time": 2310480.0,
+      "end_time": 2312632.0,
+      "text": "which is still hierarchical."
+    },
+    {
+      "index": 463,
+      "start_time": 2312630.0,
+      "end_time": 2314858.0,
+      "text": "It consists of multiple layers."
+    },
+    {
+      "index": 464,
+      "start_time": 2314860.0,
+      "end_time": 2316769.0,
+      "text": "So first we compute some features,"
+    },
+    {
+      "index": 465,
+      "start_time": 2316770.0,
+      "end_time": 2318742.0,
+      "text": "next we compute some local invariances,"
+    },
+    {
+      "index": 466,
+      "start_time": 2318740.0,
+      "end_time": 2321209.0,
+      "text": "some pooling, and go through several layers"
+    },
+    {
+      "index": 467,
+      "start_time": 2321210.0,
+      "end_time": 2322938.0,
+      "text": "of processing, and then finally feed"
+    },
+    {
+      "index": 468,
+      "start_time": 2322940.0,
+      "end_time": 2326277.0,
+      "text": "this resulting descriptor to a linear SVN."
+    },
+    {
+      "index": 469,
+      "start_time": 2326280.0,
+      "end_time": 2329234.0,
+      "text": "What you&#39;ll notice here is that this is still hierarchical."
+    },
+    {
+      "index": 470,
+      "start_time": 2329230.0,
+      "end_time": 2330553.0,
+      "text": "We&#39;re still detecting edges."
+    },
+    {
+      "index": 471,
+      "start_time": 2330550.0,
+      "end_time": 2332580.0,
+      "text": "We&#39;re still having notions of invariance."
+    },
+    {
+      "index": 472,
+      "start_time": 2332580.0,
+      "end_time": 2334408.0,
+      "text": "And, many of these intuitions will carry over"
+    },
+    {
+      "index": 473,
+      "start_time": 2334410.0,
+      "end_time": 2336176.0,
+      "text": "into convnets."
+    },
+    {
+      "index": 474,
+      "start_time": 2336180.0,
+      "end_time": 2339118.0,
+      "text": "But, the breakthrough moment was really in 2012"
+    },
+    {
+      "index": 475,
+      "start_time": 2339110.0,
+      "end_time": 2342305.0,
+      "text": "when Jeff Hinton&#39;s group in Toronto"
+    },
+    {
+      "index": 476,
+      "start_time": 2343690.0,
+      "end_time": 2347657.0,
+      "text": "together with Alex Krizhevsky and Ilya Sutskever"
+    },
+    {
+      "index": 477,
+      "start_time": 2347660.0,
+      "end_time": 2349225.0,
+      "text": "who were his PHD student at that time"
+    },
+    {
+      "index": 478,
+      "start_time": 2349230.0,
+      "end_time": 2352509.0,
+      "text": "created this seven layer convolutional neural network"
+    },
+    {
+      "index": 479,
+      "start_time": 2352500.0,
+      "end_time": 2355208.0,
+      "text": "now known as AlexNet, then called Supervision"
+    },
+    {
+      "index": 480,
+      "start_time": 2355210.0,
+      "end_time": 2358167.0,
+      "text": "which just did very, very well in the ImageNet competition"
+    },
+    {
+      "index": 481,
+      "start_time": 2358170.0,
+      "end_time": 2359652.0,
+      "text": "in 2012."
+    },
+    {
+      "index": 482,
+      "start_time": 2359650.0,
+      "end_time": 2362483.0,
+      "text": "And, since then every year the winner of ImageNet"
+    },
+    {
+      "index": 483,
+      "start_time": 2362480.0,
+      "end_time": 2364193.0,
+      "text": "has been a neural network."
+    },
+    {
+      "index": 484,
+      "start_time": 2364200.0,
+      "end_time": 2365914.0,
+      "text": "And, the trend has been that these networks"
+    },
+    {
+      "index": 485,
+      "start_time": 2365910.0,
+      "end_time": 2368959.0,
+      "text": "are getting deeper and deeper each year."
+    },
+    {
+      "index": 486,
+      "start_time": 2368960.0,
+      "end_time": 2371561.0,
+      "text": "So AlexNet was a seven or eight layer neural network"
+    },
+    {
+      "index": 487,
+      "start_time": 2371560.0,
+      "end_time": 2373591.0,
+      "text": "depending on how exactly you count things."
+    },
+    {
+      "index": 488,
+      "start_time": 2373590.0,
+      "end_time": 2375559.0,
+      "text": "In 2015 we had these much deeper networks."
+    },
+    {
+      "index": 489,
+      "start_time": 2375560.0,
+      "end_time": 2379517.0,
+      "text": "GoogleNet from Google and VGG, the VGG network"
+    },
+    {
+      "index": 490,
+      "start_time": 2379520.0,
+      "end_time": 2383174.0,
+      "text": "from Oxford which was about 19 layers at that time."
+    },
+    {
+      "index": 491,
+      "start_time": 2383170.0,
+      "end_time": 2384969.0,
+      "text": "And, then in 2015 it got really crazy"
+    },
+    {
+      "index": 492,
+      "start_time": 2384970.0,
+      "end_time": 2388597.0,
+      "text": "and this paper came out from Microsoft Research Asia"
+    },
+    {
+      "index": 493,
+      "start_time": 2388600.0,
+      "end_time": 2392375.0,
+      "text": "called Residual Networks which were 152 layers at that time."
+    },
+    {
+      "index": 494,
+      "start_time": 2392370.0,
+      "end_time": 2395367.0,
+      "text": "And, since then it turns out you can get"
+    },
+    {
+      "index": 495,
+      "start_time": 2395370.0,
+      "end_time": 2396745.0,
+      "text": "a little bit better if you go up to 200,"
+    },
+    {
+      "index": 496,
+      "start_time": 2396750.0,
+      "end_time": 2398510.0,
+      "text": "but you run our of memory on your GPUs."
+    },
+    {
+      "index": 497,
+      "start_time": 2398500.0,
+      "end_time": 2400347.0,
+      "text": "We&#39;ll get into all of that later,"
+    },
+    {
+      "index": 498,
+      "start_time": 2400350.0,
+      "end_time": 2403958.0,
+      "text": "but the main takeaway here is that convolutional neural"
+    },
+    {
+      "index": 499,
+      "start_time": 2403960.0,
+      "end_time": 2404824.0,
+      "text": "networks really had this breakthrough moment"
+    },
+    {
+      "index": 500,
+      "start_time": 2404820.0,
+      "end_time": 2406821.0,
+      "text": "in 2012, and since then there&#39;s been"
+    },
+    {
+      "index": 501,
+      "start_time": 2406820.0,
+      "end_time": 2408778.0,
+      "text": "a lot of effort focused in tuning and tweaking"
+    },
+    {
+      "index": 502,
+      "start_time": 2408780.0,
+      "end_time": 2411336.0,
+      "text": "these algorithms to make them perform better and better"
+    },
+    {
+      "index": 503,
+      "start_time": 2411340.0,
+      "end_time": 2413479.0,
+      "text": "on this problem of image classification."
+    },
+    {
+      "index": 504,
+      "start_time": 2413480.0,
+      "end_time": 2415480.0,
+      "text": "And, throughout the rest of the quarter,"
+    },
+    {
+      "index": 505,
+      "start_time": 2415480.0,
+      "end_time": 2417101.0,
+      "text": "we&#39;re going to really dive in deep,"
+    },
+    {
+      "index": 506,
+      "start_time": 2417100.0,
+      "end_time": 2419116.0,
+      "text": "and you&#39;ll understand exactly how these different models"
+    },
+    {
+      "index": 507,
+      "start_time": 2419120.0,
+      "end_time": 2419953.0,
+      "text": "work."
+    },
+    {
+      "index": 508,
+      "start_time": 2422510.0,
+      "end_time": 2424661.0,
+      "text": "But, one point that&#39;s really important,"
+    },
+    {
+      "index": 509,
+      "start_time": 2424670.0,
+      "end_time": 2427353.0,
+      "text": "it&#39;s true that the breakthrough moment"
+    },
+    {
+      "index": 510,
+      "start_time": 2427350.0,
+      "end_time": 2430261.0,
+      "text": "for convolutional neural networks was in 2012"
+    },
+    {
+      "index": 511,
+      "start_time": 2430260.0,
+      "end_time": 2432394.0,
+      "text": "when these networks performed very well"
+    },
+    {
+      "index": 512,
+      "start_time": 2432390.0,
+      "end_time": 2434817.0,
+      "text": "on the ImageNet Challenge, but they certainly weren&#39;t"
+    },
+    {
+      "index": 513,
+      "start_time": 2434820.0,
+      "end_time": 2436549.0,
+      "text": "invented in 2012."
+    },
+    {
+      "index": 514,
+      "start_time": 2436550.0,
+      "end_time": 2438185.0,
+      "text": "These algorithms had actually been around"
+    },
+    {
+      "index": 515,
+      "start_time": 2438190.0,
+      "end_time": 2440314.0,
+      "text": "for quite a long time before that."
+    },
+    {
+      "index": 516,
+      "start_time": 2440310.0,
+      "end_time": 2443796.0,
+      "text": "So one of the sort of foundational works"
+    },
+    {
+      "index": 517,
+      "start_time": 2443800.0,
+      "end_time": 2446160.0,
+      "text": "in this area of convolutional neural networks"
+    },
+    {
+      "index": 518,
+      "start_time": 2446160.0,
+      "end_time": 2450453.0,
+      "text": "was actually in the &#39;90s from Jan LeCun and collaborators"
+    },
+    {
+      "index": 519,
+      "start_time": 2450450.0,
+      "end_time": 2453633.0,
+      "text": "who at that time were at Bell Labs."
+    },
+    {
+      "index": 520,
+      "start_time": 2453630.0,
+      "end_time": 2457329.0,
+      "text": "So in 1998 they build this convolutional neural network"
+    },
+    {
+      "index": 521,
+      "start_time": 2457330.0,
+      "end_time": 2458826.0,
+      "text": "for recognizing digits."
+    },
+    {
+      "index": 522,
+      "start_time": 2458830.0,
+      "end_time": 2462592.0,
+      "text": "They wanted to deploy this and wanted to be able"
+    },
+    {
+      "index": 523,
+      "start_time": 2462590.0,
+      "end_time": 2464667.0,
+      "text": "to automatically recognize handwritten checks"
+    },
+    {
+      "index": 524,
+      "start_time": 2464670.0,
+      "end_time": 2467368.0,
+      "text": "or addresses for the post office."
+    },
+    {
+      "index": 525,
+      "start_time": 2467370.0,
+      "end_time": 2469388.0,
+      "text": "And, they built this convolutional neural network"
+    },
+    {
+      "index": 526,
+      "start_time": 2469380.0,
+      "end_time": 2471654.0,
+      "text": "which could take in the pixels of an image"
+    },
+    {
+      "index": 527,
+      "start_time": 2471660.0,
+      "end_time": 2474584.0,
+      "text": "and then classify either what digit it was"
+    },
+    {
+      "index": 528,
+      "start_time": 2474580.0,
+      "end_time": 2477235.0,
+      "text": "or what letter it was or whatnot."
+    },
+    {
+      "index": 529,
+      "start_time": 2477240.0,
+      "end_time": 2479209.0,
+      "text": "And, the structure of this network"
+    },
+    {
+      "index": 530,
+      "start_time": 2479210.0,
+      "end_time": 2481210.0,
+      "text": "actually look pretty similar to the AlexNet"
+    },
+    {
+      "index": 531,
+      "start_time": 2481210.0,
+      "end_time": 2483622.0,
+      "text": "architecture that was used in 2012."
+    },
+    {
+      "index": 532,
+      "start_time": 2483620.0,
+      "end_time": 2485451.0,
+      "text": "Here we see that, you know, we&#39;re taking"
+    },
+    {
+      "index": 533,
+      "start_time": 2485450.0,
+      "end_time": 2486679.0,
+      "text": "in these raw pixels."
+    },
+    {
+      "index": 534,
+      "start_time": 2486680.0,
+      "end_time": 2489802.0,
+      "text": "We have many layers of convolution and sub-sampling,"
+    },
+    {
+      "index": 535,
+      "start_time": 2489800.0,
+      "end_time": 2491398.0,
+      "text": "together with the so called fully connected layers."
+    },
+    {
+      "index": 536,
+      "start_time": 2491400.0,
+      "end_time": 2493397.0,
+      "text": "All of which will be explained in much more detail"
+    },
+    {
+      "index": 537,
+      "start_time": 2493400.0,
+      "end_time": 2494719.0,
+      "text": "later in the course."
+    },
+    {
+      "index": 538,
+      "start_time": 2494710.0,
+      "end_time": 2496712.0,
+      "text": "But, if you just kind of look at these two pictures,"
+    },
+    {
+      "index": 539,
+      "start_time": 2496720.0,
+      "end_time": 2498401.0,
+      "text": "they look pretty similar."
+    },
+    {
+      "index": 540,
+      "start_time": 2498400.0,
+      "end_time": 2501733.0,
+      "text": "And, this architecture in 2012 has a lot"
+    },
+    {
+      "index": 541,
+      "start_time": 2502610.0,
+      "end_time": 2504450.0,
+      "text": "of these architectural similarities"
+    },
+    {
+      "index": 542,
+      "start_time": 2504450.0,
+      "end_time": 2509300.0,
+      "text": "that are shared with this network going back to the &#39;90s."
+    },
+    {
+      "index": 543,
+      "start_time": 2509300.0,
+      "end_time": 2510817.0,
+      "text": "So then the question you might ask"
+    },
+    {
+      "index": 544,
+      "start_time": 2510820.0,
+      "end_time": 2513381.0,
+      "text": "is if these algorithms were around since the &#39;90s,"
+    },
+    {
+      "index": 545,
+      "start_time": 2513380.0,
+      "end_time": 2515818.0,
+      "text": "why have they only suddenly become popular"
+    },
+    {
+      "index": 546,
+      "start_time": 2515810.0,
+      "end_time": 2517449.0,
+      "text": "in the last couple of years?"
+    },
+    {
+      "index": 547,
+      "start_time": 2517450.0,
+      "end_time": 2519299.0,
+      "text": "And, there&#39;s a couple really key innovations"
+    },
+    {
+      "index": 548,
+      "start_time": 2519300.0,
+      "end_time": 2523274.0,
+      "text": "that happened that have changed since the &#39;90s."
+    },
+    {
+      "index": 549,
+      "start_time": 2523280.0,
+      "end_time": 2525354.0,
+      "text": "One is computation."
+    },
+    {
+      "index": 550,
+      "start_time": 2525350.0,
+      "end_time": 2527209.0,
+      "text": "Thanks to Moore&#39;s law, we&#39;ve gotten"
+    },
+    {
+      "index": 551,
+      "start_time": 2527210.0,
+      "end_time": 2529217.0,
+      "text": "faster and faster computers every year."
+    },
+    {
+      "index": 552,
+      "start_time": 2529220.0,
+      "end_time": 2531236.0,
+      "text": "And, this is kind of a coarse measure,"
+    },
+    {
+      "index": 553,
+      "start_time": 2531230.0,
+      "end_time": 2533231.0,
+      "text": "but if you just look at the number of transistors"
+    },
+    {
+      "index": 554,
+      "start_time": 2533230.0,
+      "end_time": 2535125.0,
+      "text": "that are on chips, then that has grown"
+    },
+    {
+      "index": 555,
+      "start_time": 2535130.0,
+      "end_time": 2538575.0,
+      "text": "by several orders of magnitude between the &#39;90s and today."
+    },
+    {
+      "index": 556,
+      "start_time": 2538570.0,
+      "end_time": 2543426.0,
+      "text": "We&#39;ve also had this advent of graphics processing units"
+    },
+    {
+      "index": 557,
+      "start_time": 2543430.0,
+      "end_time": 2545878.0,
+      "text": "or GPUs which are super parallelizable"
+    },
+    {
+      "index": 558,
+      "start_time": 2545880.0,
+      "end_time": 2548107.0,
+      "text": "and ended up being a perfect tool"
+    },
+    {
+      "index": 559,
+      "start_time": 2548100.0,
+      "end_time": 2550861.0,
+      "text": "for really crunching these computationally intensive"
+    },
+    {
+      "index": 560,
+      "start_time": 2550870.0,
+      "end_time": 2553324.0,
+      "text": "convolutional neural network models."
+    },
+    {
+      "index": 561,
+      "start_time": 2553320.0,
+      "end_time": 2555941.0,
+      "text": "So just by having more compute available,"
+    },
+    {
+      "index": 562,
+      "start_time": 2555940.0,
+      "end_time": 2559722.0,
+      "text": "it allowed researchers to explore with larger architectures"
+    },
+    {
+      "index": 563,
+      "start_time": 2559720.0,
+      "end_time": 2562146.0,
+      "text": "and larger models, and in some cases,"
+    },
+    {
+      "index": 564,
+      "start_time": 2562150.0,
+      "end_time": 2564126.0,
+      "text": "just increasing the model size, but still using"
+    },
+    {
+      "index": 565,
+      "start_time": 2564130.0,
+      "end_time": 2566842.0,
+      "text": "these kind of classical approaches and classical algorithms"
+    },
+    {
+      "index": 566,
+      "start_time": 2566840.0,
+      "end_time": 2568478.0,
+      "text": "tends to work quite well."
+    },
+    {
+      "index": 567,
+      "start_time": 2568480.0,
+      "end_time": 2571419.0,
+      "text": "So this idea of increasing computation"
+    },
+    {
+      "index": 568,
+      "start_time": 2571420.0,
+      "end_time": 2575559.0,
+      "text": "is super important in the history of deep learning."
+    },
+    {
+      "index": 569,
+      "start_time": 2575550.0,
+      "end_time": 2578643.0,
+      "text": "I think the second key innovation that changed"
+    },
+    {
+      "index": 570,
+      "start_time": 2578650.0,
+      "end_time": 2580561.0,
+      "text": "between now and the &#39;90s was data."
+    },
+    {
+      "index": 571,
+      "start_time": 2580560.0,
+      "end_time": 2584259.0,
+      "text": "So these algorithms are very hungry for data."
+    },
+    {
+      "index": 572,
+      "start_time": 2584260.0,
+      "end_time": 2586321.0,
+      "text": "You need to feed them a lot of labeled images"
+    },
+    {
+      "index": 573,
+      "start_time": 2586320.0,
+      "end_time": 2589396.0,
+      "text": "and labeled pixels for them to eventually work quite well."
+    },
+    {
+      "index": 574,
+      "start_time": 2589400.0,
+      "end_time": 2591658.0,
+      "text": "And, in the &#39;90s there just wasn&#39;t"
+    },
+    {
+      "index": 575,
+      "start_time": 2591650.0,
+      "end_time": 2594137.0,
+      "text": "that much labeled data available."
+    },
+    {
+      "index": 576,
+      "start_time": 2594140.0,
+      "end_time": 2597488.0,
+      "text": "This was, again, before tools like Mechanical Turk,"
+    },
+    {
+      "index": 577,
+      "start_time": 2597490.0,
+      "end_time": 2600233.0,
+      "text": "before the internet was super, super widely used."
+    },
+    {
+      "index": 578,
+      "start_time": 2600230.0,
+      "end_time": 2601869.0,
+      "text": "And, it was very difficult to collect"
+    },
+    {
+      "index": 579,
+      "start_time": 2601870.0,
+      "end_time": 2603613.0,
+      "text": "large, varied datasets."
+    },
+    {
+      "index": 580,
+      "start_time": 2603610.0,
+      "end_time": 2607527.0,
+      "text": "But, now in the 2010s with datasets like PASCAL"
+    },
+    {
+      "index": 581,
+      "start_time": 2608580.0,
+      "end_time": 2611630.0,
+      "text": "and ImageNet, there existed these relatively large,"
+    },
+    {
+      "index": 582,
+      "start_time": 2611630.0,
+      "end_time": 2614224.0,
+      "text": "high quality labeled datasets that were, again,"
+    },
+    {
+      "index": 583,
+      "start_time": 2614230.0,
+      "end_time": 2616592.0,
+      "text": "orders and orders magnitude bigger"
+    },
+    {
+      "index": 584,
+      "start_time": 2616590.0,
+      "end_time": 2618775.0,
+      "text": "than the dataset available in the &#39;90s."
+    },
+    {
+      "index": 585,
+      "start_time": 2618770.0,
+      "end_time": 2620617.0,
+      "text": "And, these much large datasets, again,"
+    },
+    {
+      "index": 586,
+      "start_time": 2620620.0,
+      "end_time": 2623151.0,
+      "text": "allowed us to work with higher capacity models"
+    },
+    {
+      "index": 587,
+      "start_time": 2623150.0,
+      "end_time": 2625258.0,
+      "text": "and train these models to actually work quite well"
+    },
+    {
+      "index": 588,
+      "start_time": 2625260.0,
+      "end_time": 2627156.0,
+      "text": "on real world problems."
+    },
+    {
+      "index": 589,
+      "start_time": 2627160.0,
+      "end_time": 2629265.0,
+      "text": "But, the critical takeaway here is"
+    },
+    {
+      "index": 590,
+      "start_time": 2629260.0,
+      "end_time": 2631228.0,
+      "text": "that convolutional neural networks"
+    },
+    {
+      "index": 591,
+      "start_time": 2631230.0,
+      "end_time": 2634159.0,
+      "text": "although they seem like this sort of fancy, new thing"
+    },
+    {
+      "index": 592,
+      "start_time": 2634160.0,
+      "end_time": 2636118.0,
+      "text": "that&#39;s only popped up in the last couple of years,"
+    },
+    {
+      "index": 593,
+      "start_time": 2636120.0,
+      "end_time": 2637530.0,
+      "text": "that&#39;s really not the case."
+    },
+    {
+      "index": 594,
+      "start_time": 2637530.0,
+      "end_time": 2639586.0,
+      "text": "And, these class of algorithms have existed"
+    },
+    {
+      "index": 595,
+      "start_time": 2639580.0,
+      "end_time": 2643663.0,
+      "text": "for quite a long time in their own right as well."
+    },
+    {
+      "index": 596,
+      "start_time": 2645150.0,
+      "end_time": 2647915.0,
+      "text": "Another thing I&#39;d like to point out"
+    },
+    {
+      "index": 597,
+      "start_time": 2647920.0,
+      "end_time": 2649729.0,
+      "text": "in computer vision we&#39;re in the business"
+    },
+    {
+      "index": 598,
+      "start_time": 2649720.0,
+      "end_time": 2652751.0,
+      "text": "of trying to build machines that can see like people."
+    },
+    {
+      "index": 599,
+      "start_time": 2652750.0,
+      "end_time": 2655252.0,
+      "text": "And, people can actually do a lot of amazing things"
+    },
+    {
+      "index": 600,
+      "start_time": 2655260.0,
+      "end_time": 2656653.0,
+      "text": "with their visual systems."
+    },
+    {
+      "index": 601,
+      "start_time": 2656650.0,
+      "end_time": 2658498.0,
+      "text": "When you go around the world,"
+    },
+    {
+      "index": 602,
+      "start_time": 2658500.0,
+      "end_time": 2661342.0,
+      "text": "you do a lot more than just drawing boxes"
+    },
+    {
+      "index": 603,
+      "start_time": 2661340.0,
+      "end_time": 2664988.0,
+      "text": "around the objects and classifying things as cats or dogs."
+    },
+    {
+      "index": 604,
+      "start_time": 2664990.0,
+      "end_time": 2667713.0,
+      "text": "Your visual system is much more powerful than that."
+    },
+    {
+      "index": 605,
+      "start_time": 2667710.0,
+      "end_time": 2669414.0,
+      "text": "And, as we move forward in the field,"
+    },
+    {
+      "index": 606,
+      "start_time": 2669420.0,
+      "end_time": 2671617.0,
+      "text": "I think there&#39;s still a ton of open challenges"
+    },
+    {
+      "index": 607,
+      "start_time": 2671610.0,
+      "end_time": 2674468.0,
+      "text": "and open problems that we need to address."
+    },
+    {
+      "index": 608,
+      "start_time": 2674470.0,
+      "end_time": 2676630.0,
+      "text": "And, we need to continue to develop our algorithms"
+    },
+    {
+      "index": 609,
+      "start_time": 2676630.0,
+      "end_time": 2680220.0,
+      "text": "to do even better and tackle even more ambitious problems."
+    },
+    {
+      "index": 610,
+      "start_time": 2680220.0,
+      "end_time": 2682964.0,
+      "text": "Some examples of this are going back to these older ideas"
+    },
+    {
+      "index": 611,
+      "start_time": 2682960.0,
+      "end_time": 2684426.0,
+      "text": "in fact."
+    },
+    {
+      "index": 612,
+      "start_time": 2684430.0,
+      "end_time": 2686923.0,
+      "text": "Things like semantic segmentation or perceptual grouping"
+    },
+    {
+      "index": 613,
+      "start_time": 2686920.0,
+      "end_time": 2689289.0,
+      "text": "where rather than labeling the entire image,"
+    },
+    {
+      "index": 614,
+      "start_time": 2689290.0,
+      "end_time": 2691967.0,
+      "text": "we want to understand for every pixel in the image"
+    },
+    {
+      "index": 615,
+      "start_time": 2691970.0,
+      "end_time": 2693867.0,
+      "text": "what is it doing, what does it mean."
+    },
+    {
+      "index": 616,
+      "start_time": 2693870.0,
+      "end_time": 2695665.0,
+      "text": "And, we&#39;ll revisit that idea a little bit later"
+    },
+    {
+      "index": 617,
+      "start_time": 2695660.0,
+      "end_time": 2696845.0,
+      "text": "in the course."
+    },
+    {
+      "index": 618,
+      "start_time": 2696850.0,
+      "end_time": 2698457.0,
+      "text": "There&#39;s definitely work going back"
+    },
+    {
+      "index": 619,
+      "start_time": 2698450.0,
+      "end_time": 2700131.0,
+      "text": "to this idea of 3D understanding,"
+    },
+    {
+      "index": 620,
+      "start_time": 2700130.0,
+      "end_time": 2702373.0,
+      "text": "of reconstructing the entire world,"
+    },
+    {
+      "index": 621,
+      "start_time": 2702380.0,
+      "end_time": 2706130.0,
+      "text": "and that&#39;s still an unsolved problem I think."
+    },
+    {
+      "index": 622,
+      "start_time": 2707500.0,
+      "end_time": 2709102.0,
+      "text": "There&#39;re just tons and tons of other tasks"
+    },
+    {
+      "index": 623,
+      "start_time": 2709100.0,
+      "end_time": 2710178.0,
+      "text": "that you can imagine."
+    },
+    {
+      "index": 624,
+      "start_time": 2710180.0,
+      "end_time": 2711819.0,
+      "text": "For example activity recognition,"
+    },
+    {
+      "index": 625,
+      "start_time": 2711820.0,
+      "end_time": 2713441.0,
+      "text": "if I&#39;m given a video of some person"
+    },
+    {
+      "index": 626,
+      "start_time": 2713440.0,
+      "end_time": 2715214.0,
+      "text": "doing some activity, what&#39;s the best way"
+    },
+    {
+      "index": 627,
+      "start_time": 2715210.0,
+      "end_time": 2716723.0,
+      "text": "to recognize that activity?"
+    },
+    {
+      "index": 628,
+      "start_time": 2716730.0,
+      "end_time": 2719474.0,
+      "text": "That&#39;s quite a challenging problem as well."
+    },
+    {
+      "index": 629,
+      "start_time": 2719470.0,
+      "end_time": 2721287.0,
+      "text": "And, then as we move forward with things"
+    },
+    {
+      "index": 630,
+      "start_time": 2721290.0,
+      "end_time": 2723278.0,
+      "text": "like augmented reality and virtual reality,"
+    },
+    {
+      "index": 631,
+      "start_time": 2723270.0,
+      "end_time": 2725328.0,
+      "text": "and as new technologies and new types of sensors"
+    },
+    {
+      "index": 632,
+      "start_time": 2725330.0,
+      "end_time": 2727576.0,
+      "text": "become available, I think we&#39;ll come up"
+    },
+    {
+      "index": 633,
+      "start_time": 2727580.0,
+      "end_time": 2729957.0,
+      "text": "with a lot of new, interesting hard and challenging"
+    },
+    {
+      "index": 634,
+      "start_time": 2729960.0,
+      "end_time": 2732460.0,
+      "text": "problems to tackle as a field."
+    },
+    {
+      "index": 635,
+      "start_time": 2733920.0,
+      "end_time": 2737928.0,
+      "text": "So this is an example from some of my own work"
+    },
+    {
+      "index": 636,
+      "start_time": 2737920.0,
+      "end_time": 2742224.0,
+      "text": "in the vision lab on this dataset called Visual Genome."
+    },
+    {
+      "index": 637,
+      "start_time": 2742230.0,
+      "end_time": 2745428.0,
+      "text": "So here the idea is that we&#39;re trying to capture"
+    },
+    {
+      "index": 638,
+      "start_time": 2745430.0,
+      "end_time": 2747477.0,
+      "text": "some of these intricacies in the real world."
+    },
+    {
+      "index": 639,
+      "start_time": 2747470.0,
+      "end_time": 2749789.0,
+      "text": "Rather than maybe describing just boxes,"
+    },
+    {
+      "index": 640,
+      "start_time": 2749790.0,
+      "end_time": 2752305.0,
+      "text": "maybe we should be describing images"
+    },
+    {
+      "index": 641,
+      "start_time": 2752310.0,
+      "end_time": 2755562.0,
+      "text": "as these whole large graphs of semantically related"
+    },
+    {
+      "index": 642,
+      "start_time": 2755560.0,
+      "end_time": 2757525.0,
+      "text": "concepts that encompass not just object identities"
+    },
+    {
+      "index": 643,
+      "start_time": 2757520.0,
+      "end_time": 2760446.0,
+      "text": "but also object relationships, object attributes,"
+    },
+    {
+      "index": 644,
+      "start_time": 2760450.0,
+      "end_time": 2762589.0,
+      "text": "actions that are occurring in the scene,"
+    },
+    {
+      "index": 645,
+      "start_time": 2762590.0,
+      "end_time": 2766971.0,
+      "text": "and this type of representation might allow us"
+    },
+    {
+      "index": 646,
+      "start_time": 2766970.0,
+      "end_time": 2769526.0,
+      "text": "to capture some of this richness of the visual world"
+    },
+    {
+      "index": 647,
+      "start_time": 2769530.0,
+      "end_time": 2771228.0,
+      "text": "that&#39;s left on the table when we&#39;re using"
+    },
+    {
+      "index": 648,
+      "start_time": 2771230.0,
+      "end_time": 2772894.0,
+      "text": "simple classification."
+    },
+    {
+      "index": 649,
+      "start_time": 2772890.0,
+      "end_time": 2775271.0,
+      "text": "This is by no means a standard approach at this point,"
+    },
+    {
+      "index": 650,
+      "start_time": 2775270.0,
+      "end_time": 2777330.0,
+      "text": "but just kind of giving you this sense"
+    },
+    {
+      "index": 651,
+      "start_time": 2777330.0,
+      "end_time": 2779634.0,
+      "text": "that there&#39;s so much more that your visual system can do"
+    },
+    {
+      "index": 652,
+      "start_time": 2779640.0,
+      "end_time": 2782595.0,
+      "text": "that is maybe not captured in this vanilla"
+    },
+    {
+      "index": 653,
+      "start_time": 2782590.0,
+      "end_time": 2784840.0,
+      "text": "image classification setup."
+    },
+    {
+      "index": 654,
+      "start_time": 2788300.0,
+      "end_time": 2789744.0,
+      "text": "I think another really interesting work"
+    },
+    {
+      "index": 655,
+      "start_time": 2789740.0,
+      "end_time": 2791588.0,
+      "text": "that kind of points in this direction"
+    },
+    {
+      "index": 656,
+      "start_time": 2791590.0,
+      "end_time": 2794143.0,
+      "text": "actually comes from Fei-Fei&#39;s grad school days"
+    },
+    {
+      "index": 657,
+      "start_time": 2794150.0,
+      "end_time": 2796848.0,
+      "text": "when she was doing her PHD at Cal Tech"
+    },
+    {
+      "index": 658,
+      "start_time": 2796840.0,
+      "end_time": 2798949.0,
+      "text": "with her advisors there."
+    },
+    {
+      "index": 659,
+      "start_time": 2798950.0,
+      "end_time": 2801690.0,
+      "text": "In this setup, they had people, they stuck people,"
+    },
+    {
+      "index": 660,
+      "start_time": 2801690.0,
+      "end_time": 2804602.0,
+      "text": "and they showed people this image for just half a second."
+    },
+    {
+      "index": 661,
+      "start_time": 2804600.0,
+      "end_time": 2806297.0,
+      "text": "So they flashed this image in front of them"
+    },
+    {
+      "index": 662,
+      "start_time": 2806300.0,
+      "end_time": 2807894.0,
+      "text": "for just a very short period of time,"
+    },
+    {
+      "index": 663,
+      "start_time": 2807900.0,
+      "end_time": 2810173.0,
+      "text": "and even in this very, very rapid exposure"
+    },
+    {
+      "index": 664,
+      "start_time": 2810170.0,
+      "end_time": 2812108.0,
+      "text": "to an image, people were able to write"
+    },
+    {
+      "index": 665,
+      "start_time": 2812110.0,
+      "end_time": 2814332.0,
+      "text": "these long descriptive paragraphs"
+    },
+    {
+      "index": 666,
+      "start_time": 2814330.0,
+      "end_time": 2816473.0,
+      "text": "giving a whole story of the image."
+    },
+    {
+      "index": 667,
+      "start_time": 2816470.0,
+      "end_time": 2820281.0,
+      "text": "And, this is quite remarkable if you think about it"
+    },
+    {
+      "index": 668,
+      "start_time": 2820280.0,
+      "end_time": 2823688.0,
+      "text": "that after just half a second of looking at this image,"
+    },
+    {
+      "index": 669,
+      "start_time": 2823690.0,
+      "end_time": 2825558.0,
+      "text": "a person was able to say that this is"
+    },
+    {
+      "index": 670,
+      "start_time": 2825560.0,
+      "end_time": 2828481.0,
+      "text": "some kind of a game or fight, two groups of men."
+    },
+    {
+      "index": 671,
+      "start_time": 2828480.0,
+      "end_time": 2830374.0,
+      "text": "The man on the left is throwing something."
+    },
+    {
+      "index": 672,
+      "start_time": 2830380.0,
+      "end_time": 2833139.0,
+      "text": "Outdoors because it seem like I have an impression of grass,"
+    },
+    {
+      "index": 673,
+      "start_time": 2833130.0,
+      "end_time": 2834572.0,
+      "text": "and so on and so on."
+    },
+    {
+      "index": 674,
+      "start_time": 2834580.0,
+      "end_time": 2836164.0,
+      "text": "And, you can imagine that if a person"
+    },
+    {
+      "index": 675,
+      "start_time": 2836160.0,
+      "end_time": 2837617.0,
+      "text": "were to look even longer at this image,"
+    },
+    {
+      "index": 676,
+      "start_time": 2837620.0,
+      "end_time": 2839172.0,
+      "text": "they could write probably a whole novel"
+    },
+    {
+      "index": 677,
+      "start_time": 2839170.0,
+      "end_time": 2840943.0,
+      "text": "about who these people are, and why are they"
+    },
+    {
+      "index": 678,
+      "start_time": 2840940.0,
+      "end_time": 2842305.0,
+      "text": "in this field playing this game."
+    },
+    {
+      "index": 679,
+      "start_time": 2842310.0,
+      "end_time": 2843688.0,
+      "text": "They could go on and on and on"
+    },
+    {
+      "index": 680,
+      "start_time": 2843690.0,
+      "end_time": 2845618.0,
+      "text": "roping in things from their external knowledge"
+    },
+    {
+      "index": 681,
+      "start_time": 2845610.0,
+      "end_time": 2847184.0,
+      "text": "and their prior experience."
+    },
+    {
+      "index": 682,
+      "start_time": 2847190.0,
+      "end_time": 2850300.0,
+      "text": "This is in some sense the holy grail of computer vision."
+    },
+    {
+      "index": 683,
+      "start_time": 2850300.0,
+      "end_time": 2852662.0,
+      "text": "To sort of understand the story of an image"
+    },
+    {
+      "index": 684,
+      "start_time": 2852660.0,
+      "end_time": 2854664.0,
+      "text": "in a very rich and deep way."
+    },
+    {
+      "index": 685,
+      "start_time": 2854660.0,
+      "end_time": 2856929.0,
+      "text": "And, I think that despite the massive progress"
+    },
+    {
+      "index": 686,
+      "start_time": 2856930.0,
+      "end_time": 2859703.0,
+      "text": "in the field that we&#39;ve had over the past several years,"
+    },
+    {
+      "index": 687,
+      "start_time": 2859710.0,
+      "end_time": 2864464.0,
+      "text": "we&#39;re still quite a long way from achieving this holy grail."
+    },
+    {
+      "index": 688,
+      "start_time": 2864460.0,
+      "end_time": 2866563.0,
+      "text": "Another image that I think really exemplifies"
+    },
+    {
+      "index": 689,
+      "start_time": 2866560.0,
+      "end_time": 2870469.0,
+      "text": "this idea actually comes, again, from Andrej Karpathy&#39;s blog"
+    },
+    {
+      "index": 690,
+      "start_time": 2870470.0,
+      "end_time": 2872888.0,
+      "text": "is this amazing image."
+    },
+    {
+      "index": 691,
+      "start_time": 2872890.0,
+      "end_time": 2874391.0,
+      "text": "Many of you smiled, many of you laughed."
+    },
+    {
+      "index": 692,
+      "start_time": 2874390.0,
+      "end_time": 2876211.0,
+      "text": "I think this is a pretty funny image."
+    },
+    {
+      "index": 693,
+      "start_time": 2876210.0,
+      "end_time": 2877694.0,
+      "text": "But, why is it a funny image?"
+    },
+    {
+      "index": 694,
+      "start_time": 2877700.0,
+      "end_time": 2879899.0,
+      "text": "Well we&#39;ve got a man standing on a scale,"
+    },
+    {
+      "index": 695,
+      "start_time": 2879900.0,
+      "end_time": 2881612.0,
+      "text": "and we know that people are kind of self conscious"
+    },
+    {
+      "index": 696,
+      "start_time": 2881610.0,
+      "end_time": 2884383.0,
+      "text": "about their weight sometimes, and scales measure weight."
+    },
+    {
+      "index": 697,
+      "start_time": 2884380.0,
+      "end_time": 2886899.0,
+      "text": "Then we&#39;ve got this other guy behind him"
+    },
+    {
+      "index": 698,
+      "start_time": 2886900.0,
+      "end_time": 2888791.0,
+      "text": "pushing his foot down on the scale,"
+    },
+    {
+      "index": 699,
+      "start_time": 2888790.0,
+      "end_time": 2890899.0,
+      "text": "and we know that because of the way scales work"
+    },
+    {
+      "index": 700,
+      "start_time": 2890900.0,
+      "end_time": 2892958.0,
+      "text": "that will cause him to have an inflated reading"
+    },
+    {
+      "index": 701,
+      "start_time": 2892960.0,
+      "end_time": 2893869.0,
+      "text": "on the scale."
+    },
+    {
+      "index": 702,
+      "start_time": 2893870.0,
+      "end_time": 2894898.0,
+      "text": "But, there&#39;s more."
+    },
+    {
+      "index": 703,
+      "start_time": 2894900.0,
+      "end_time": 2896824.0,
+      "text": "We know that this person is not just any person."
+    },
+    {
+      "index": 704,
+      "start_time": 2896820.0,
+      "end_time": 2899501.0,
+      "text": "This is actually Barack Obama who was at the time"
+    },
+    {
+      "index": 705,
+      "start_time": 2899500.0,
+      "end_time": 2900905.0,
+      "text": "President of the United States,"
+    },
+    {
+      "index": 706,
+      "start_time": 2900910.0,
+      "end_time": 2902546.0,
+      "text": "and we know that Presidents of the United States"
+    },
+    {
+      "index": 707,
+      "start_time": 2902540.0,
+      "end_time": 2904740.0,
+      "text": "are supposed to be respectable politicians that are"
+    },
+    {
+      "index": 708,
+      "start_time": 2904740.0,
+      "end_time": 2907449.0,
+      "text": "[laughing]"
+    },
+    {
+      "index": 709,
+      "start_time": 2907450.0,
+      "end_time": 2909154.0,
+      "text": "probably not supposed to be playing jokes"
+    },
+    {
+      "index": 710,
+      "start_time": 2909150.0,
+      "end_time": 2911300.0,
+      "text": "on their compatriots in this way."
+    },
+    {
+      "index": 711,
+      "start_time": 2911300.0,
+      "end_time": 2912709.0,
+      "text": "We know that there&#39;s these people"
+    },
+    {
+      "index": 712,
+      "start_time": 2912710.0,
+      "end_time": 2914561.0,
+      "text": "in the background that are laughing and smiling,"
+    },
+    {
+      "index": 713,
+      "start_time": 2914560.0,
+      "end_time": 2916656.0,
+      "text": "and we know that that means that they&#39;re"
+    },
+    {
+      "index": 714,
+      "start_time": 2916660.0,
+      "end_time": 2917912.0,
+      "text": "understanding something about the scene."
+    },
+    {
+      "index": 715,
+      "start_time": 2917910.0,
+      "end_time": 2919594.0,
+      "text": "We have some understanding that they know"
+    },
+    {
+      "index": 716,
+      "start_time": 2919600.0,
+      "end_time": 2921578.0,
+      "text": "that President Obama is this respectable guy"
+    },
+    {
+      "index": 717,
+      "start_time": 2921570.0,
+      "end_time": 2922861.0,
+      "text": "who&#39;s looking at this other guy."
+    },
+    {
+      "index": 718,
+      "start_time": 2922870.0,
+      "end_time": 2923771.0,
+      "text": "Like, this is crazy."
+    },
+    {
+      "index": 719,
+      "start_time": 2923770.0,
+      "end_time": 2925833.0,
+      "text": "There&#39;s so much going on in this image."
+    },
+    {
+      "index": 720,
+      "start_time": 2925830.0,
+      "end_time": 2928167.0,
+      "text": "And, our computer vision algorithms today"
+    },
+    {
+      "index": 721,
+      "start_time": 2928170.0,
+      "end_time": 2931110.0,
+      "text": "are actually a long way I think from this true,"
+    },
+    {
+      "index": 722,
+      "start_time": 2931110.0,
+      "end_time": 2933202.0,
+      "text": "deep understanding of images."
+    },
+    {
+      "index": 723,
+      "start_time": 2933200.0,
+      "end_time": 2936320.0,
+      "text": "So I think that sort of despite the massive progress"
+    },
+    {
+      "index": 724,
+      "start_time": 2936320.0,
+      "end_time": 2938777.0,
+      "text": "in the field, we really have a long way to go."
+    },
+    {
+      "index": 725,
+      "start_time": 2938780.0,
+      "end_time": 2941388.0,
+      "text": "To me, that&#39;s really exciting as a researcher"
+    },
+    {
+      "index": 726,
+      "start_time": 2941390.0,
+      "end_time": 2942635.0,
+      "text": "&#39;cause I think that we&#39;ll have"
+    },
+    {
+      "index": 727,
+      "start_time": 2942630.0,
+      "end_time": 2944611.0,
+      "text": "just a lot of really exciting, cool problems"
+    },
+    {
+      "index": 728,
+      "start_time": 2944610.0,
+      "end_time": 2946693.0,
+      "text": "to tackle moving forward."
+    },
+    {
+      "index": 729,
+      "start_time": 2947910.0,
+      "end_time": 2950199.0,
+      "text": "So I hope at this point I&#39;ve done a relatively good job"
+    },
+    {
+      "index": 730,
+      "start_time": 2950200.0,
+      "end_time": 2953538.0,
+      "text": "to convince you that computer vision is really interesting."
+    },
+    {
+      "index": 731,
+      "start_time": 2953540.0,
+      "end_time": 2954208.0,
+      "text": "It&#39;s really exciting."
+    },
+    {
+      "index": 732,
+      "start_time": 2954210.0,
+      "end_time": 2956331.0,
+      "text": "It can be very useful."
+    },
+    {
+      "index": 733,
+      "start_time": 2956330.0,
+      "end_time": 2958316.0,
+      "text": "It can go out and make the world a better place"
+    },
+    {
+      "index": 734,
+      "start_time": 2958310.0,
+      "end_time": 2960425.0,
+      "text": "in various ways."
+    },
+    {
+      "index": 735,
+      "start_time": 2960430.0,
+      "end_time": 2961591.0,
+      "text": "Computer vision could be applied"
+    },
+    {
+      "index": 736,
+      "start_time": 2961590.0,
+      "end_time": 2964557.0,
+      "text": "in places like medical diagnosis and self-driving cars"
+    },
+    {
+      "index": 737,
+      "start_time": 2964560.0,
+      "end_time": 2968135.0,
+      "text": "and robotics and all these different places."
+    },
+    {
+      "index": 738,
+      "start_time": 2968130.0,
+      "end_time": 2970709.0,
+      "text": "In addition to sort of tying back to sort of this core"
+    },
+    {
+      "index": 739,
+      "start_time": 2970710.0,
+      "end_time": 2973117.0,
+      "text": "idea of understanding human intelligence."
+    },
+    {
+      "index": 740,
+      "start_time": 2973120.0,
+      "end_time": 2974848.0,
+      "text": "So to me, I think that computer vision"
+    },
+    {
+      "index": 741,
+      "start_time": 2974850.0,
+      "end_time": 2977142.0,
+      "text": "is this fantastically amazing, interesting field,"
+    },
+    {
+      "index": 742,
+      "start_time": 2977140.0,
+      "end_time": 2978774.0,
+      "text": "and I&#39;m really glad that over the course"
+    },
+    {
+      "index": 743,
+      "start_time": 2978770.0,
+      "end_time": 2980470.0,
+      "text": "of the quarter, we&#39;ll get to really dive in"
+    },
+    {
+      "index": 744,
+      "start_time": 2980480.0,
+      "end_time": 2982342.0,
+      "text": "and dig into all these different details"
+    },
+    {
+      "index": 745,
+      "start_time": 2982340.0,
+      "end_time": 2986237.0,
+      "text": "about how these algorithms are working these days."
+    },
+    {
+      "index": 746,
+      "start_time": 2986230.0,
+      "end_time": 2988945.0,
+      "text": "That&#39;s sort of my pitch about computer vision"
+    },
+    {
+      "index": 747,
+      "start_time": 2988950.0,
+      "end_time": 2990674.0,
+      "text": "and about the history of computer vision."
+    },
+    {
+      "index": 748,
+      "start_time": 2990670.0,
+      "end_time": 2992280.0,
+      "text": "I don&#39;t know if there&#39;s any questions about this"
+    },
+    {
+      "index": 749,
+      "start_time": 2992280.0,
+      "end_time": 2993363.0,
+      "text": "at this time."
+    },
+    {
+      "index": 750,
+      "start_time": 2995710.0,
+      "end_time": 2997553.0,
+      "text": "Okay."
+    },
+    {
+      "index": 751,
+      "start_time": 2997550.0,
+      "end_time": 2998345.0,
+      "text": "So then I want to talk a little bit more"
+    },
+    {
+      "index": 752,
+      "start_time": 2998340.0,
+      "end_time": 3000403.0,
+      "text": "about the logistics of this class"
+    },
+    {
+      "index": 753,
+      "start_time": 3000410.0,
+      "end_time": 3002410.0,
+      "text": "for the rest of the quarter."
+    },
+    {
+      "index": 754,
+      "start_time": 3002410.0,
+      "end_time": 3004384.0,
+      "text": "So you might ask who are we?"
+    },
+    {
+      "index": 755,
+      "start_time": 3004380.0,
+      "end_time": 3006902.0,
+      "text": "So this class is taught by Fei-Fei Li"
+    },
+    {
+      "index": 756,
+      "start_time": 3006900.0,
+      "end_time": 3011267.0,
+      "text": "who is a professor of computer science here at Standford"
+    },
+    {
+      "index": 757,
+      "start_time": 3011270.0,
+      "end_time": 3014515.0,
+      "text": "who&#39;s my advisor and director of the Stanford Vision Lab"
+    },
+    {
+      "index": 758,
+      "start_time": 3014520.0,
+      "end_time": 3016856.0,
+      "text": "and also the Stanford AI Lab."
+    },
+    {
+      "index": 759,
+      "start_time": 3016850.0,
+      "end_time": 3020798.0,
+      "text": "The other two instructors are me, Justin Johnson,"
+    },
+    {
+      "index": 760,
+      "start_time": 3020810.0,
+      "end_time": 3022519.0,
+      "text": "and Serena Yeung who is up here in the front."
+    },
+    {
+      "index": 761,
+      "start_time": 3022520.0,
+      "end_time": 3025219.0,
+      "text": "We&#39;re both PHD students working under Fei-Fei"
+    },
+    {
+      "index": 762,
+      "start_time": 3025220.0,
+      "end_time": 3027380.0,
+      "text": "on various computer vision problems."
+    },
+    {
+      "index": 763,
+      "start_time": 3027380.0,
+      "end_time": 3029997.0,
+      "text": "We have an amazing teaching staff this year"
+    },
+    {
+      "index": 764,
+      "start_time": 3030000.0,
+      "end_time": 3031924.0,
+      "text": "of 18 TAs so far."
+    },
+    {
+      "index": 765,
+      "start_time": 3031920.0,
+      "end_time": 3034179.0,
+      "text": "Many of whom are sitting over here in the front."
+    },
+    {
+      "index": 766,
+      "start_time": 3034180.0,
+      "end_time": 3035922.0,
+      "text": "These guys are really the unsung heroes"
+    },
+    {
+      "index": 767,
+      "start_time": 3035920.0,
+      "end_time": 3038526.0,
+      "text": "behind the scenes making the course run smoothly,"
+    },
+    {
+      "index": 768,
+      "start_time": 3038530.0,
+      "end_time": 3040323.0,
+      "text": "making sure everything happens well."
+    },
+    {
+      "index": 769,
+      "start_time": 3040320.0,
+      "end_time": 3042365.0,
+      "text": "So be nice to them."
+    },
+    {
+      "index": 770,
+      "start_time": 3042360.0,
+      "end_time": 3044191.0,
+      "text": "[laughing]"
+    },
+    {
+      "index": 771,
+      "start_time": 3044200.0,
+      "end_time": 3047157.0,
+      "text": "I think I also should mention this is the third time"
+    },
+    {
+      "index": 772,
+      "start_time": 3047150.0,
+      "end_time": 3049213.0,
+      "text": "we&#39;ve taught this course, and it&#39;s the first time"
+    },
+    {
+      "index": 773,
+      "start_time": 3049220.0,
+      "end_time": 3051656.0,
+      "text": "that Andrej Karpathy has not been an instructor"
+    },
+    {
+      "index": 774,
+      "start_time": 3051650.0,
+      "end_time": 3053498.0,
+      "text": "in this course."
+    },
+    {
+      "index": 775,
+      "start_time": 3053500.0,
+      "end_time": 3056192.0,
+      "text": "He was a very close friend of mine."
+    },
+    {
+      "index": 776,
+      "start_time": 3056190.0,
+      "end_time": 3057928.0,
+      "text": "He&#39;s still alive."
+    },
+    {
+      "index": 777,
+      "start_time": 3057930.0,
+      "end_time": 3058353.0,
+      "text": "He&#39;s okay, don&#39;t worry."
+    },
+    {
+      "index": 778,
+      "start_time": 3058350.0,
+      "end_time": 3059609.0,
+      "text": "[laughing]"
+    },
+    {
+      "index": 779,
+      "start_time": 3059610.0,
+      "end_time": 3062778.0,
+      "text": "But, he graduated, so he&#39;s actually here"
+    },
+    {
+      "index": 780,
+      "start_time": 3062780.0,
+      "end_time": 3065724.0,
+      "text": "I think hanging around in the lecture hall."
+    },
+    {
+      "index": 781,
+      "start_time": 3065720.0,
+      "end_time": 3067658.0,
+      "text": "A lot of the development and the history of this course"
+    },
+    {
+      "index": 782,
+      "start_time": 3067660.0,
+      "end_time": 3069567.0,
+      "text": "is really due to him working on it"
+    },
+    {
+      "index": 783,
+      "start_time": 3069570.0,
+      "end_time": 3071617.0,
+      "text": "with me over the last couple of years."
+    },
+    {
+      "index": 784,
+      "start_time": 3071620.0,
+      "end_time": 3075401.0,
+      "text": "So I think you should be aware of that."
+    },
+    {
+      "index": 785,
+      "start_time": 3075400.0,
+      "end_time": 3078196.0,
+      "text": "Also about logistics, probably the best way"
+    },
+    {
+      "index": 786,
+      "start_time": 3078190.0,
+      "end_time": 3080900.0,
+      "text": "for keeping in touch with the course staff"
+    },
+    {
+      "index": 787,
+      "start_time": 3080900.0,
+      "end_time": 3082205.0,
+      "text": "is through Piazza."
+    },
+    {
+      "index": 788,
+      "start_time": 3082210.0,
+      "end_time": 3085213.0,
+      "text": "You should all go and signup right now."
+    },
+    {
+      "index": 789,
+      "start_time": 3085210.0,
+      "end_time": 3087595.0,
+      "text": "Piazza is really our preferred method of communication"
+    },
+    {
+      "index": 790,
+      "start_time": 3087600.0,
+      "end_time": 3090356.0,
+      "text": "with the class with the teaching staff."
+    },
+    {
+      "index": 791,
+      "start_time": 3090350.0,
+      "end_time": 3092618.0,
+      "text": "If you have questions that you&#39;re afraid"
+    },
+    {
+      "index": 792,
+      "start_time": 3092620.0,
+      "end_time": 3094312.0,
+      "text": "of being embarrassed about asking"
+    },
+    {
+      "index": 793,
+      "start_time": 3094310.0,
+      "end_time": 3096667.0,
+      "text": "in front of your classmates, go ahead"
+    },
+    {
+      "index": 794,
+      "start_time": 3096670.0,
+      "end_time": 3098602.0,
+      "text": "and ask anonymously even post private questions"
+    },
+    {
+      "index": 795,
+      "start_time": 3098600.0,
+      "end_time": 3100569.0,
+      "text": "directly to the teaching staff."
+    },
+    {
+      "index": 796,
+      "start_time": 3100570.0,
+      "end_time": 3102267.0,
+      "text": "So basically anything that you need"
+    },
+    {
+      "index": 797,
+      "start_time": 3102270.0,
+      "end_time": 3104453.0,
+      "text": "should ideally go through Piazza."
+    },
+    {
+      "index": 798,
+      "start_time": 3104450.0,
+      "end_time": 3106443.0,
+      "text": "We also have a staff mailing list,"
+    },
+    {
+      "index": 799,
+      "start_time": 3106450.0,
+      "end_time": 3108427.0,
+      "text": "but we ask that this is mostly"
+    },
+    {
+      "index": 800,
+      "start_time": 3108420.0,
+      "end_time": 3111300.0,
+      "text": "for sort of personal, confidential things"
+    },
+    {
+      "index": 801,
+      "start_time": 3111300.0,
+      "end_time": 3113515.0,
+      "text": "that you don&#39;t want going on Piazza,"
+    },
+    {
+      "index": 802,
+      "start_time": 3113520.0,
+      "end_time": 3115775.0,
+      "text": "or if you have something that&#39;s super confidential,"
+    },
+    {
+      "index": 803,
+      "start_time": 3115770.0,
+      "end_time": 3118362.0,
+      "text": "super personal, then feel free"
+    },
+    {
+      "index": 804,
+      "start_time": 3118360.0,
+      "end_time": 3122120.0,
+      "text": "to directly email me or Fei-Fei or Serena about that."
+    },
+    {
+      "index": 805,
+      "start_time": 3122120.0,
+      "end_time": 3123895.0,
+      "text": "But, for the most part, most of your communication"
+    },
+    {
+      "index": 806,
+      "start_time": 3123900.0,
+      "end_time": 3126960.0,
+      "text": "with the staff should be through Piazza."
+    },
+    {
+      "index": 807,
+      "start_time": 3126960.0,
+      "end_time": 3128660.0,
+      "text": "We also have an optional textbook this year."
+    },
+    {
+      "index": 808,
+      "start_time": 3128660.0,
+      "end_time": 3130401.0,
+      "text": "This is by no means required."
+    },
+    {
+      "index": 809,
+      "start_time": 3130400.0,
+      "end_time": 3132615.0,
+      "text": "You can go through the course totally fine without it."
+    },
+    {
+      "index": 810,
+      "start_time": 3132620.0,
+      "end_time": 3134376.0,
+      "text": "Everything will be self contained."
+    },
+    {
+      "index": 811,
+      "start_time": 3134370.0,
+      "end_time": 3137768.0,
+      "text": "This is sort of exciting because it&#39;s maybe the first"
+    },
+    {
+      "index": 812,
+      "start_time": 3137770.0,
+      "end_time": 3139786.0,
+      "text": "textbook about deep learning that got published"
+    },
+    {
+      "index": 813,
+      "start_time": 3139790.0,
+      "end_time": 3141893.0,
+      "text": "earlier this year by E.N. Goodfellow,"
+    },
+    {
+      "index": 814,
+      "start_time": 3141890.0,
+      "end_time": 3144781.0,
+      "text": "Yoshua Bengio, and Aaron Courville."
+    },
+    {
+      "index": 815,
+      "start_time": 3144780.0,
+      "end_time": 3146684.0,
+      "text": "I put the Amazon link here in the slides."
+    },
+    {
+      "index": 816,
+      "start_time": 3146680.0,
+      "end_time": 3148193.0,
+      "text": "You can get it if you want to,"
+    },
+    {
+      "index": 817,
+      "start_time": 3148200.0,
+      "end_time": 3150793.0,
+      "text": "but also the whole content of the book"
+    },
+    {
+      "index": 818,
+      "start_time": 3150790.0,
+      "end_time": 3151807.0,
+      "text": "is free online, so you don&#39;t even have to buy it"
+    },
+    {
+      "index": 819,
+      "start_time": 3151810.0,
+      "end_time": 3152945.0,
+      "text": "if you don&#39;t want to."
+    },
+    {
+      "index": 820,
+      "start_time": 3152940.0,
+      "end_time": 3154258.0,
+      "text": "So again, this is totally optional,"
+    },
+    {
+      "index": 821,
+      "start_time": 3154260.0,
+      "end_time": 3155777.0,
+      "text": "but we&#39;ll probably be posting some readings"
+    },
+    {
+      "index": 822,
+      "start_time": 3155780.0,
+      "end_time": 3157615.0,
+      "text": "throughout the quarter that give you an additional"
+    },
+    {
+      "index": 823,
+      "start_time": 3157610.0,
+      "end_time": 3160610.0,
+      "text": "perspective on some of the material."
+    },
+    {
+      "index": 824,
+      "start_time": 3161700.0,
+      "end_time": 3163262.0,
+      "text": "So our philosophy about this class"
+    },
+    {
+      "index": 825,
+      "start_time": 3163260.0,
+      "end_time": 3167351.0,
+      "text": "is that you should really understand the deep mechanics"
+    },
+    {
+      "index": 826,
+      "start_time": 3167350.0,
+      "end_time": 3168794.0,
+      "text": "of all of these algorithms."
+    },
+    {
+      "index": 827,
+      "start_time": 3168790.0,
+      "end_time": 3170667.0,
+      "text": "You should understand at a very deep level"
+    },
+    {
+      "index": 828,
+      "start_time": 3170670.0,
+      "end_time": 3172715.0,
+      "text": "exactly how these algorithms are working"
+    },
+    {
+      "index": 829,
+      "start_time": 3172720.0,
+      "end_time": 3174298.0,
+      "text": "like what exactly is going on when you&#39;re"
+    },
+    {
+      "index": 830,
+      "start_time": 3174290.0,
+      "end_time": 3176965.0,
+      "text": "stitching together these neural networks,"
+    },
+    {
+      "index": 831,
+      "start_time": 3176970.0,
+      "end_time": 3178128.0,
+      "text": "how do these architectural decisions"
+    },
+    {
+      "index": 832,
+      "start_time": 3178130.0,
+      "end_time": 3180146.0,
+      "text": "influence how the network is trained"
+    },
+    {
+      "index": 833,
+      "start_time": 3180140.0,
+      "end_time": 3182310.0,
+      "text": "and tested and whatnot and all that."
+    },
+    {
+      "index": 834,
+      "start_time": 3182310.0,
+      "end_time": 3185207.0,
+      "text": "And, throughout the course through the assignments,"
+    },
+    {
+      "index": 835,
+      "start_time": 3185210.0,
+      "end_time": 3187162.0,
+      "text": "you&#39;ll be implementing your own convolutional"
+    },
+    {
+      "index": 836,
+      "start_time": 3187160.0,
+      "end_time": 3188754.0,
+      "text": "neural networks from scratch in Python."
+    },
+    {
+      "index": 837,
+      "start_time": 3188760.0,
+      "end_time": 3191563.0,
+      "text": "You&#39;ll be implementing the full forward and backward"
+    },
+    {
+      "index": 838,
+      "start_time": 3191560.0,
+      "end_time": 3193259.0,
+      "text": "passes through these things, and by the end,"
+    },
+    {
+      "index": 839,
+      "start_time": 3193260.0,
+      "end_time": 3195106.0,
+      "text": "you&#39;ll have implemented a whole convolutional neural network"
+    },
+    {
+      "index": 840,
+      "start_time": 3195110.0,
+      "end_time": 3196324.0,
+      "text": "totally on your own."
+    },
+    {
+      "index": 841,
+      "start_time": 3196320.0,
+      "end_time": 3198320.0,
+      "text": "I think that&#39;s really cool."
+    },
+    {
+      "index": 842,
+      "start_time": 3198320.0,
+      "end_time": 3200569.0,
+      "text": "But, we also kind of practical, and we know"
+    },
+    {
+      "index": 843,
+      "start_time": 3200570.0,
+      "end_time": 3203521.0,
+      "text": "that in most cases people are not writing these things"
+    },
+    {
+      "index": 844,
+      "start_time": 3203520.0,
+      "end_time": 3205613.0,
+      "text": "from scratch, so we also want to give you"
+    },
+    {
+      "index": 845,
+      "start_time": 3205610.0,
+      "end_time": 3207766.0,
+      "text": "a good introduction to some of the state of the art"
+    },
+    {
+      "index": 846,
+      "start_time": 3207770.0,
+      "end_time": 3211326.0,
+      "text": "software tools that are used in practice for these things."
+    },
+    {
+      "index": 847,
+      "start_time": 3211330.0,
+      "end_time": 3213377.0,
+      "text": "So we&#39;re going to talk about some of the state of the art"
+    },
+    {
+      "index": 848,
+      "start_time": 3213370.0,
+      "end_time": 3216389.0,
+      "text": "software packages like Tensor Flow, Torch, [Py]Torch,"
+    },
+    {
+      "index": 849,
+      "start_time": 3216390.0,
+      "end_time": 3217661.0,
+      "text": "all these other things."
+    },
+    {
+      "index": 850,
+      "start_time": 3217660.0,
+      "end_time": 3219887.0,
+      "text": "And, I think you&#39;ll get some exposure"
+    },
+    {
+      "index": 851,
+      "start_time": 3219890.0,
+      "end_time": 3222636.0,
+      "text": "to those on the homeworks and definitely through"
+    },
+    {
+      "index": 852,
+      "start_time": 3222640.0,
+      "end_time": 3224532.0,
+      "text": "the course project as well."
+    },
+    {
+      "index": 853,
+      "start_time": 3224530.0,
+      "end_time": 3226305.0,
+      "text": "Another note about this course"
+    },
+    {
+      "index": 854,
+      "start_time": 3226300.0,
+      "end_time": 3227816.0,
+      "text": "is that it&#39;s very state of the art."
+    },
+    {
+      "index": 855,
+      "start_time": 3227820.0,
+      "end_time": 3229122.0,
+      "text": "I think it&#39;s super exciting."
+    },
+    {
+      "index": 856,
+      "start_time": 3229120.0,
+      "end_time": 3230712.0,
+      "text": "This is a very fast moving field."
+    },
+    {
+      "index": 857,
+      "start_time": 3230720.0,
+      "end_time": 3233342.0,
+      "text": "As you saw, even these plots in the imaging challenge"
+    },
+    {
+      "index": 858,
+      "start_time": 3233340.0,
+      "end_time": 3235614.0,
+      "text": "basically there&#39;s been a ton of progress"
+    },
+    {
+      "index": 859,
+      "start_time": 3235610.0,
+      "end_time": 3238838.0,
+      "text": "since 2012, and like while I&#39;ve been in grad school,"
+    },
+    {
+      "index": 860,
+      "start_time": 3238840.0,
+      "end_time": 3240538.0,
+      "text": "the whole field is sort of transforming ever year."
+    },
+    {
+      "index": 861,
+      "start_time": 3240540.0,
+      "end_time": 3243751.0,
+      "text": "And, that&#39;s super exciting and super encouraging."
+    },
+    {
+      "index": 862,
+      "start_time": 3243750.0,
+      "end_time": 3247177.0,
+      "text": "But, what that means is that there&#39;s probably content"
+    },
+    {
+      "index": 863,
+      "start_time": 3247180.0,
+      "end_time": 3249135.0,
+      "text": "that we&#39;ll cover this year that did not exist"
+    },
+    {
+      "index": 864,
+      "start_time": 3249130.0,
+      "end_time": 3252891.0,
+      "text": "the last time that this course was taught last year."
+    },
+    {
+      "index": 865,
+      "start_time": 3252890.0,
+      "end_time": 3254414.0,
+      "text": "I think that&#39;s super exciting, and that&#39;s one"
+    },
+    {
+      "index": 866,
+      "start_time": 3254420.0,
+      "end_time": 3256632.0,
+      "text": "of my favorite parts about teaching this course"
+    },
+    {
+      "index": 867,
+      "start_time": 3256630.0,
+      "end_time": 3258827.0,
+      "text": "is just roping in all these new scientific,"
+    },
+    {
+      "index": 868,
+      "start_time": 3258830.0,
+      "end_time": 3261414.0,
+      "text": "hot off the presses stuff and being able"
+    },
+    {
+      "index": 869,
+      "start_time": 3261410.0,
+      "end_time": 3264410.0,
+      "text": "to present it to you guys."
+    },
+    {
+      "index": 870,
+      "start_time": 3264410.0,
+      "end_time": 3266710.0,
+      "text": "We&#39;re also sort of about fun."
+    },
+    {
+      "index": 871,
+      "start_time": 3266710.0,
+      "end_time": 3267770.0,
+      "text": "So we&#39;re going to talk about some interesting"
+    },
+    {
+      "index": 872,
+      "start_time": 3267770.0,
+      "end_time": 3270453.0,
+      "text": "maybe not so serious topics as well this quarter"
+    },
+    {
+      "index": 873,
+      "start_time": 3270450.0,
+      "end_time": 3273119.0,
+      "text": "including image captioning is pretty fun"
+    },
+    {
+      "index": 874,
+      "start_time": 3273120.0,
+      "end_time": 3275346.0,
+      "text": "where we can write descriptions about images."
+    },
+    {
+      "index": 875,
+      "start_time": 3275350.0,
+      "end_time": 3277178.0,
+      "text": "But, we&#39;ll also cover some of these more artistic things"
+    },
+    {
+      "index": 876,
+      "start_time": 3277180.0,
+      "end_time": 3279899.0,
+      "text": "like DeepDream here on the left"
+    },
+    {
+      "index": 877,
+      "start_time": 3279900.0,
+      "end_time": 3282265.0,
+      "text": "where we can use neural networks to hallucinate"
+    },
+    {
+      "index": 878,
+      "start_time": 3282260.0,
+      "end_time": 3284276.0,
+      "text": "these crazy, psychedelic images."
+    },
+    {
+      "index": 879,
+      "start_time": 3284280.0,
+      "end_time": 3285978.0,
+      "text": "And, by the end of the course, you&#39;ll know"
+    },
+    {
+      "index": 880,
+      "start_time": 3285980.0,
+      "end_time": 3286882.0,
+      "text": "how that works."
+    },
+    {
+      "index": 881,
+      "start_time": 3286880.0,
+      "end_time": 3288903.0,
+      "text": "Or on the right, this idea of style transfer"
+    },
+    {
+      "index": 882,
+      "start_time": 3288900.0,
+      "end_time": 3290628.0,
+      "text": "where we can take an image and render it"
+    },
+    {
+      "index": 883,
+      "start_time": 3290630.0,
+      "end_time": 3294509.0,
+      "text": "in the style of famous artists like Picasso or Van Gogh"
+    },
+    {
+      "index": 884,
+      "start_time": 3294510.0,
+      "end_time": 3295343.0,
+      "text": "or what not."
+    },
+    {
+      "index": 885,
+      "start_time": 3295340.0,
+      "end_time": 3296654.0,
+      "text": "And again, by the end of the quarter,"
+    },
+    {
+      "index": 886,
+      "start_time": 3296650.0,
+      "end_time": 3299650.0,
+      "text": "you&#39;ll see how this stuff works."
+    },
+    {
+      "index": 887,
+      "start_time": 3299650.0,
+      "end_time": 3302515.0,
+      "text": "So the way the course works is we&#39;re going to have"
+    },
+    {
+      "index": 888,
+      "start_time": 3302520.0,
+      "end_time": 3303795.0,
+      "text": "three problem sets."
+    },
+    {
+      "index": 889,
+      "start_time": 3303790.0,
+      "end_time": 3307376.0,
+      "text": "The first problem set will hopefully be out"
+    },
+    {
+      "index": 890,
+      "start_time": 3307390.0,
+      "end_time": 3308252.0,
+      "text": "by the end of the week."
+    },
+    {
+      "index": 891,
+      "start_time": 3308250.0,
+      "end_time": 3310704.0,
+      "text": "We&#39;ll have an in class, written midterm exam."
+    },
+    {
+      "index": 892,
+      "start_time": 3310710.0,
+      "end_time": 3312515.0,
+      "text": "And, a large portion of your grade"
+    },
+    {
+      "index": 893,
+      "start_time": 3312510.0,
+      "end_time": 3315559.0,
+      "text": "will be the final course project where you&#39;ll work"
+    },
+    {
+      "index": 894,
+      "start_time": 3315560.0,
+      "end_time": 3317407.0,
+      "text": "in teams of one to three and produce"
+    },
+    {
+      "index": 895,
+      "start_time": 3317410.0,
+      "end_time": 3320517.0,
+      "text": "some amazing project that will blow everyone&#39;s minds."
+    },
+    {
+      "index": 896,
+      "start_time": 3320510.0,
+      "end_time": 3323867.0,
+      "text": "We have a late policy, so you have seven late days"
+    },
+    {
+      "index": 897,
+      "start_time": 3323870.0,
+      "end_time": 3326379.0,
+      "text": "that you&#39;re free to allocate among your different homeworks."
+    },
+    {
+      "index": 898,
+      "start_time": 3326380.0,
+      "end_time": 3329549.0,
+      "text": "These are meant to cover things like minor illnesses"
+    },
+    {
+      "index": 899,
+      "start_time": 3329550.0,
+      "end_time": 3334205.0,
+      "text": "or traveling or conferences or anything like that."
+    },
+    {
+      "index": 900,
+      "start_time": 3334200.0,
+      "end_time": 3336184.0,
+      "text": "If you come to us at the end of the quarter"
+    },
+    {
+      "index": 901,
+      "start_time": 3336190.0,
+      "end_time": 3338759.0,
+      "text": "and say that, \"I suddenly have to give a presentation"
+    },
+    {
+      "index": 902,
+      "start_time": 3338760.0,
+      "end_time": 3339974.0,
+      "text": "\"at this conference.\""
+    },
+    {
+      "index": 903,
+      "start_time": 3339970.0,
+      "end_time": 3340879.0,
+      "text": "That&#39;s not going to be okay."
+    },
+    {
+      "index": 904,
+      "start_time": 3340880.0,
+      "end_time": 3342624.0,
+      "text": "That&#39;s what your late days are for."
+    },
+    {
+      "index": 905,
+      "start_time": 3342620.0,
+      "end_time": 3344107.0,
+      "text": "That being said, if you have some"
+    },
+    {
+      "index": 906,
+      "start_time": 3344110.0,
+      "end_time": 3346642.0,
+      "text": "very extenuating circumstances, then do feel free"
+    },
+    {
+      "index": 907,
+      "start_time": 3346640.0,
+      "end_time": 3348702.0,
+      "text": "to email the course staff if you have some extreme"
+    },
+    {
+      "index": 908,
+      "start_time": 3348710.0,
+      "end_time": 3350300.0,
+      "text": "circumstances about that."
+    },
+    {
+      "index": 909,
+      "start_time": 3350290.0,
+      "end_time": 3352399.0,
+      "text": "Finally, I want to make a note"
+    },
+    {
+      "index": 910,
+      "start_time": 3352400.0,
+      "end_time": 3354173.0,
+      "text": "about the collaboration policy."
+    },
+    {
+      "index": 911,
+      "start_time": 3354180.0,
+      "end_time": 3355924.0,
+      "text": "As Stanford students, you should all be aware"
+    },
+    {
+      "index": 912,
+      "start_time": 3355920.0,
+      "end_time": 3358387.0,
+      "text": "of the honor code that governs the way"
+    },
+    {
+      "index": 913,
+      "start_time": 3358390.0,
+      "end_time": 3360786.0,
+      "text": "that you should be collaborating and working together,"
+    },
+    {
+      "index": 914,
+      "start_time": 3360780.0,
+      "end_time": 3363604.0,
+      "text": "and we take this very seriously."
+    },
+    {
+      "index": 915,
+      "start_time": 3363610.0,
+      "end_time": 3365635.0,
+      "text": "We encourage you to think very carefully"
+    },
+    {
+      "index": 916,
+      "start_time": 3365640.0,
+      "end_time": 3367625.0,
+      "text": "about how you&#39;re collaborating and making sure"
+    },
+    {
+      "index": 917,
+      "start_time": 3367620.0,
+      "end_time": 3371370.0,
+      "text": "it&#39;s within the bounds of the honor code."
+    },
+    {
+      "index": 918,
+      "start_time": 3372300.0,
+      "end_time": 3374374.0,
+      "text": "So in terms of prerequisites, I think the most important"
+    },
+    {
+      "index": 919,
+      "start_time": 3374380.0,
+      "end_time": 3377494.0,
+      "text": "is probably a deep familiarity with Python"
+    },
+    {
+      "index": 920,
+      "start_time": 3377490.0,
+      "end_time": 3380808.0,
+      "text": "because all of the programming assignments"
+    },
+    {
+      "index": 921,
+      "start_time": 3380810.0,
+      "end_time": 3382339.0,
+      "text": "will be in Python."
+    },
+    {
+      "index": 922,
+      "start_time": 3382340.0,
+      "end_time": 3386661.0,
+      "text": "Some familiarity with C or C++ would be useful."
+    },
+    {
+      "index": 923,
+      "start_time": 3386660.0,
+      "end_time": 3389354.0,
+      "text": "You will probably not be writing any C or C++"
+    },
+    {
+      "index": 924,
+      "start_time": 3389350.0,
+      "end_time": 3391701.0,
+      "text": "in this course, but as you&#39;re browsing through the source"
+    },
+    {
+      "index": 925,
+      "start_time": 3391710.0,
+      "end_time": 3393681.0,
+      "text": "code of these various software packages,"
+    },
+    {
+      "index": 926,
+      "start_time": 3393680.0,
+      "end_time": 3395926.0,
+      "text": "being able to read C++ code at least"
+    },
+    {
+      "index": 927,
+      "start_time": 3395920.0,
+      "end_time": 3399877.0,
+      "text": "is very useful for understanding how these packages work."
+    },
+    {
+      "index": 928,
+      "start_time": 3399880.0,
+      "end_time": 3402440.0,
+      "text": "We also assume that you know what calculus is,"
+    },
+    {
+      "index": 929,
+      "start_time": 3402440.0,
+      "end_time": 3404972.0,
+      "text": "you know how to take derivatives all that sort of stuff."
+    },
+    {
+      "index": 930,
+      "start_time": 3404970.0,
+      "end_time": 3406532.0,
+      "text": "We assume some linear algebra."
+    },
+    {
+      "index": 931,
+      "start_time": 3406530.0,
+      "end_time": 3407876.0,
+      "text": "That you know what matrices are"
+    },
+    {
+      "index": 932,
+      "start_time": 3407880.0,
+      "end_time": 3412721.0,
+      "text": "and how to multiply them and stuff like that."
+    },
+    {
+      "index": 933,
+      "start_time": 3412720.0,
+      "end_time": 3413660.0,
+      "text": "We can&#39;t be teaching you how to take"
+    },
+    {
+      "index": 934,
+      "start_time": 3413660.0,
+      "end_time": 3415691.0,
+      "text": "like derivatives and stuff."
+    },
+    {
+      "index": 935,
+      "start_time": 3415690.0,
+      "end_time": 3417320.0,
+      "text": "We also assume a little bit of knowledge"
+    },
+    {
+      "index": 936,
+      "start_time": 3417320.0,
+      "end_time": 3419820.0,
+      "text": "coming in of computer vision maybe at the level"
+    },
+    {
+      "index": 937,
+      "start_time": 3419820.0,
+      "end_time": 3421237.0,
+      "text": "of CS131 or 231a."
+    },
+    {
+      "index": 938,
+      "start_time": 3422370.0,
+      "end_time": 3423926.0,
+      "text": "If you have taken those courses before,"
+    },
+    {
+      "index": 939,
+      "start_time": 3423920.0,
+      "end_time": 3425117.0,
+      "text": "you&#39;ll be fine."
+    },
+    {
+      "index": 940,
+      "start_time": 3425120.0,
+      "end_time": 3427346.0,
+      "text": "If you haven&#39;t, I think you&#39;ll be okay in this class,"
+    },
+    {
+      "index": 941,
+      "start_time": 3427350.0,
+      "end_time": 3429856.0,
+      "text": "but you might have a tiny bit of catching up to do."
+    },
+    {
+      "index": 942,
+      "start_time": 3429850.0,
+      "end_time": 3431547.0,
+      "text": "But, I think you&#39;ll probably be okay."
+    },
+    {
+      "index": 943,
+      "start_time": 3431550.0,
+      "end_time": 3433704.0,
+      "text": "Those are not super strict prerequisites."
+    },
+    {
+      "index": 944,
+      "start_time": 3433700.0,
+      "end_time": 3436960.0,
+      "text": "We also assume a little bit of background knowledge"
+    },
+    {
+      "index": 945,
+      "start_time": 3436960.0,
+      "end_time": 3440536.0,
+      "text": "about machine learning maybe at the level of CS229."
+    },
+    {
+      "index": 946,
+      "start_time": 3440540.0,
+      "end_time": 3443556.0,
+      "text": "But again, I think really important, key fundamental"
+    },
+    {
+      "index": 947,
+      "start_time": 3443560.0,
+      "end_time": 3445727.0,
+      "text": "machine learning concepts we&#39;ll reintroduce"
+    },
+    {
+      "index": 948,
+      "start_time": 3445720.0,
+      "end_time": 3447752.0,
+      "text": "as they come up and become important."
+    },
+    {
+      "index": 949,
+      "start_time": 3447750.0,
+      "end_time": 3449911.0,
+      "text": "But, that being said, a familiarity with these things"
+    },
+    {
+      "index": 950,
+      "start_time": 3449920.0,
+      "end_time": 3452420.0,
+      "text": "will be helpful going forward."
+    },
+    {
+      "index": 951,
+      "start_time": 3454770.0,
+      "end_time": 3456456.0,
+      "text": "So we have a course website."
+    },
+    {
+      "index": 952,
+      "start_time": 3456460.0,
+      "end_time": 3456950.0,
+      "text": "Go check it out."
+    },
+    {
+      "index": 953,
+      "start_time": 3456950.0,
+      "end_time": 3458303.0,
+      "text": "There&#39;s a lot of information and links"
+    },
+    {
+      "index": 954,
+      "start_time": 3458300.0,
+      "end_time": 3459738.0,
+      "text": "and syllabus and all that."
+    },
+    {
+      "index": 955,
+      "start_time": 3459740.0,
+      "end_time": 3463654.0,
+      "text": "I think that&#39;s all that I really want to cover today."
+    },
+    {
+      "index": 956,
+      "start_time": 3463660.0,
+      "end_time": 3466161.0,
+      "text": "And, then later this week on Thursday,"
+    },
+    {
+      "index": 957,
+      "start_time": 3466160.0,
+      "end_time": 3468736.0,
+      "text": "we&#39;ll really dive into our first learning algorithm"
+    },
+    {
+      "index": 958,
+      "start_time": 3468730.0,
+      "end_time": 3472897.0,
+      "text": "and start diving into the details of these things."
+    }
+  ]
+}

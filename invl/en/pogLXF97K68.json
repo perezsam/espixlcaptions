@@ -1,0 +1,5286 @@
+{
+  "video_id": "pogLXF97K68",
+  "title": "How to architect a collaborative big data platform (Google Cloud Next '17)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3202.0,
+      "end_time": 4660.0,
+      "text": "SANDEEP PARIKH: Welcome, everybody."
+    },
+    {
+      "index": 2,
+      "start_time": 4660.0,
+      "end_time": 6030.0,
+      "text": "Thanks for coming."
+    },
+    {
+      "index": 3,
+      "start_time": 6030.0,
+      "end_time": 8070.0,
+      "text": "I know the day&#39;s been running a little bit long,"
+    },
+    {
+      "index": 4,
+      "start_time": 8070.0,
+      "end_time": 10550.0,
+      "text": "so I will hopefully not keep you too long."
+    },
+    {
+      "index": 5,
+      "start_time": 10550.0,
+      "end_time": 12890.0,
+      "text": "Welcome to the session between you and happy hour."
+    },
+    {
+      "index": 6,
+      "start_time": 12890.0,
+      "end_time": 14931.0,
+      "text": "Hopefully, we&#39;ll get you out of here just in time"
+    },
+    {
+      "index": 7,
+      "start_time": 14931.0,
+      "end_time": 16820.0,
+      "text": "to get some drinks and get some snacks."
+    },
+    {
+      "index": 8,
+      "start_time": 16820.0,
+      "end_time": 18080.0,
+      "text": "My name is Sandeep Parikh."
+    },
+    {
+      "index": 9,
+      "start_time": 18080.0,
+      "end_time": 19970.0,
+      "text": "I run the cloud solutions architecture"
+    },
+    {
+      "index": 10,
+      "start_time": 19970.0,
+      "end_time": 23300.0,
+      "text": "team for Americas East, for Google Cloud Platform,"
+    },
+    {
+      "index": 11,
+      "start_time": 23300.0,
+      "end_time": 25790.0,
+      "text": "and today, I want to talk to you about building"
+    },
+    {
+      "index": 12,
+      "start_time": 25790.0,
+      "end_time": 28310.0,
+      "text": "a collaborative data platform."
+    },
+    {
+      "index": 13,
+      "start_time": 28310.0,
+      "end_time": 30731.0,
+      "text": "Effectively, you&#39;ve got teams of individuals spread"
+    },
+    {
+      "index": 14,
+      "start_time": 30731.0,
+      "end_time": 32689.0,
+      "text": "across your company, that have to work together"
+    },
+    {
+      "index": 15,
+      "start_time": 32689.0,
+      "end_time": 34670.0,
+      "text": "in some meaningful way, and you need"
+    },
+    {
+      "index": 16,
+      "start_time": 34670.0,
+      "end_time": 37290.0,
+      "text": "them to share data, talk to each other,"
+    },
+    {
+      "index": 17,
+      "start_time": 37290.0,
+      "end_time": 38940.0,
+      "text": "basically build something together."
+    },
+    {
+      "index": 18,
+      "start_time": 38940.0,
+      "end_time": 41340.0,
+      "text": "So, how do you enable that?"
+    },
+    {
+      "index": 19,
+      "start_time": 41340.0,
+      "end_time": 43340.0,
+      "text": "So, we&#39;re going to walk through some of the ways"
+    },
+    {
+      "index": 20,
+      "start_time": 43340.0,
+      "end_time": 46580.0,
+      "text": "that we tell a lot of customers, and developers, and partners"
+    },
+    {
+      "index": 21,
+      "start_time": 46580.0,
+      "end_time": 48800.0,
+      "text": "how to do that stuff in the real world."
+    },
+    {
+      "index": 22,
+      "start_time": 48800.0,
+      "end_time": 51620.0,
+      "text": "First, we&#39;re going to meet our hypothetical team"
+    },
+    {
+      "index": 23,
+      "start_time": 51620.0,
+      "end_time": 53390.0,
+      "text": "of individuals, and we&#39;re going to learn"
+    },
+    {
+      "index": 24,
+      "start_time": 53390.0,
+      "end_time": 55790.0,
+      "text": "about the tasks that have to do, and the tools that they"
+    },
+    {
+      "index": 25,
+      "start_time": 55790.0,
+      "end_time": 57440.0,
+      "text": "typically use."
+    },
+    {
+      "index": 26,
+      "start_time": 57440.0,
+      "end_time": 59330.0,
+      "text": "And then, we&#39;ll jump into mapping"
+    },
+    {
+      "index": 27,
+      "start_time": 59330.0,
+      "end_time": 62240.0,
+      "text": "the tools they use to the tools available in Google Cloud,"
+    },
+    {
+      "index": 28,
+      "start_time": 62240.0,
+      "end_time": 63890.0,
+      "text": "so you can start to see how they might"
+    },
+    {
+      "index": 29,
+      "start_time": 63890.0,
+      "end_time": 66166.0,
+      "text": "get a consistent set of tools and work together."
+    },
+    {
+      "index": 30,
+      "start_time": 66166.0,
+      "end_time": 67790.0,
+      "text": "And then, we&#39;re going to talk about how"
+    },
+    {
+      "index": 31,
+      "start_time": 67790.0,
+      "end_time": 69360.0,
+      "text": "we enable collaboration."
+    },
+    {
+      "index": 32,
+      "start_time": 69360.0,
+      "end_time": 72110.0,
+      "text": "This is how we do things, like set up teams"
+    },
+    {
+      "index": 33,
+      "start_time": 72110.0,
+      "end_time": 76010.0,
+      "text": "to do self-service and easy data discovery."
+    },
+    {
+      "index": 34,
+      "start_time": 76010.0,
+      "end_time": 78260.0,
+      "text": "I&#39;m probably going to trivialize a handful of details,"
+    },
+    {
+      "index": 35,
+      "start_time": 78260.0,
+      "end_time": 81649.0,
+      "text": "but stay with me, it&#39;ll make sense as we get through it."
+    },
+    {
+      "index": 36,
+      "start_time": 81649.0,
+      "end_time": 83690.0,
+      "text": "And then, I want to cover what the new workflow&#39;s"
+    },
+    {
+      "index": 37,
+      "start_time": 83690.0,
+      "end_time": 85970.0,
+      "text": "like once you get all this stuff up and running,"
+    },
+    {
+      "index": 38,
+      "start_time": 85970.0,
+      "end_time": 87636.0,
+      "text": "and then give you a couple little things"
+    },
+    {
+      "index": 39,
+      "start_time": 87636.0,
+      "end_time": 89520.0,
+      "text": "and tips on how to get started."
+    },
+    {
+      "index": 40,
+      "start_time": 89520.0,
+      "end_time": 91550.0,
+      "text": "Does that make sense to everybody?"
+    },
+    {
+      "index": 41,
+      "start_time": 91550.0,
+      "end_time": 92110.0,
+      "text": "Head nods?"
+    },
+    {
+      "index": 42,
+      "start_time": 92110.0,
+      "end_time": 93030.0,
+      "text": "OK, good."
+    },
+    {
+      "index": 43,
+      "start_time": 93030.0,
+      "end_time": 95890.0,
+      "text": "All right, so let&#39;s meet the team."
+    },
+    {
+      "index": 44,
+      "start_time": 95890.0,
+      "end_time": 98380.0,
+      "text": "All right, so first, we&#39;ve got about four individuals."
+    },
+    {
+      "index": 45,
+      "start_time": 98380.0,
+      "end_time": 101530.0,
+      "text": "We&#39;ve got a data scientist, a data engineer, a business"
+    },
+    {
+      "index": 46,
+      "start_time": 101530.0,
+      "end_time": 104050.0,
+      "text": "analyst, and an app developer."
+    },
+    {
+      "index": 47,
+      "start_time": 104050.0,
+      "end_time": 106850.0,
+      "text": "Ultimately, they all have three things in common."
+    },
+    {
+      "index": 48,
+      "start_time": 106850.0,
+      "end_time": 108810.0,
+      "text": "They use different data sets, those data sets"
+    },
+    {
+      "index": 49,
+      "start_time": 108810.0,
+      "end_time": 110560.0,
+      "text": "are all in different formats, and they all"
+    },
+    {
+      "index": 50,
+      "start_time": 110560.0,
+      "end_time": 111730.0,
+      "text": "use different tools, right?"
+    },
+    {
+      "index": 51,
+      "start_time": 111730.0,
+      "end_time": 113620.0,
+      "text": "So, there&#39;s not a ton of overlap here,"
+    },
+    {
+      "index": 52,
+      "start_time": 113620.0,
+      "end_time": 117020.0,
+      "text": "and that&#39;s kind of the challenge."
+    },
+    {
+      "index": 53,
+      "start_time": 117020.0,
+      "end_time": 119700.0,
+      "text": "So, let&#39;s assume for a second, or let&#39;s imagine for a second,"
+    },
+    {
+      "index": 54,
+      "start_time": 119700.0,
+      "end_time": 121520.0,
+      "text": "we&#39;ve got this team, and their job"
+    },
+    {
+      "index": 55,
+      "start_time": 121520.0,
+      "end_time": 124340.0,
+      "text": "is to build a recommendation engine for a retail site."
+    },
+    {
+      "index": 56,
+      "start_time": 124340.0,
+      "end_time": 127765.0,
+      "text": "So, what are the kinds of things that each person on the team"
+    },
+    {
+      "index": 57,
+      "start_time": 127765.0,
+      "end_time": 129139.0,
+      "text": "is going to need to be successful"
+    },
+    {
+      "index": 58,
+      "start_time": 129139.00000000001,
+      "end_time": 130187.00000000001,
+      "text": "in order to do their job?"
+    },
+    {
+      "index": 59,
+      "start_time": 130187.00000000001,
+      "end_time": 132020.0,
+      "text": "So, the first thing we&#39;ll cover is the data,"
+    },
+    {
+      "index": 60,
+      "start_time": 132020.0,
+      "end_time": 133610.0,
+      "text": "and then we&#39;ll talk about the tools."
+    },
+    {
+      "index": 61,
+      "start_time": 133610.0,
+      "end_time": 136940.0,
+      "text": "So, from a data perspective, Alice, the data scientist,"
+    },
+    {
+      "index": 62,
+      "start_time": 136940.0,
+      "end_time": 139880.0,
+      "text": "needs kind of cleansed, normalized data."
+    },
+    {
+      "index": 63,
+      "start_time": 139880.0,
+      "end_time": 142670.0,
+      "text": "Things that have no longer log files, right,"
+    },
+    {
+      "index": 64,
+      "start_time": 142670.0,
+      "end_time": 144620.0,
+      "text": "not just raw rows from a database,"
+    },
+    {
+      "index": 65,
+      "start_time": 144620.0,
+      "end_time": 146150.0,
+      "text": "but things that actually make sense."
+    },
+    {
+      "index": 66,
+      "start_time": 146150.0,
+      "end_time": 148040.0,
+      "text": "And those could be, for example, stuff"
+    },
+    {
+      "index": 67,
+      "start_time": 148040.0,
+      "end_time": 152240.0,
+      "text": "like purchase history, product history, product metadata,"
+    },
+    {
+      "index": 68,
+      "start_time": 152240.0,
+      "end_time": 155030.0,
+      "text": "click streams, product reviews."
+    },
+    {
+      "index": 69,
+      "start_time": 155030.0,
+      "end_time": 158390.0,
+      "text": "All the stuff that it would take to actually craft and model"
+    },
+    {
+      "index": 70,
+      "start_time": 158390.0,
+      "end_time": 161380.0,
+      "text": "a recommendation problem."
+    },
+    {
+      "index": 71,
+      "start_time": 161380.0,
+      "end_time": 164020.0,
+      "text": "Then, we&#39;ve got Bob, the data engineer."
+    },
+    {
+      "index": 72,
+      "start_time": 164020.0,
+      "end_time": 166390.0,
+      "text": "He&#39;s going to have to take all of the raw data"
+    },
+    {
+      "index": 73,
+      "start_time": 166390.0,
+      "end_time": 167827.0,
+      "text": "and turn it into something useful."
+    },
+    {
+      "index": 74,
+      "start_time": 167827.0,
+      "end_time": 169660.0,
+      "text": "So, he&#39;s probably going to need things like,"
+    },
+    {
+      "index": 75,
+      "start_time": 169660.0,
+      "end_time": 172220.0,
+      "text": "logs information, product transactions or purchase"
+    },
+    {
+      "index": 76,
+      "start_time": 172220.0,
+      "end_time": 174820.0,
+      "text": "history, product metadata, as well."
+    },
+    {
+      "index": 77,
+      "start_time": 174820.0,
+      "end_time": 176590.0,
+      "text": "This is all the stuff that&#39;s coming in"
+    },
+    {
+      "index": 78,
+      "start_time": 176590.0,
+      "end_time": 178929.0,
+      "text": "straight off the application, that he&#39;s"
+    },
+    {
+      "index": 79,
+      "start_time": 178929.0,
+      "end_time": 180970.0,
+      "text": "got to turn into something useful for other parts"
+    },
+    {
+      "index": 80,
+      "start_time": 180970.0,
+      "end_time": 183710.0,
+      "text": "of the organization."
+    },
+    {
+      "index": 81,
+      "start_time": 183710.0,
+      "end_time": 184700.0,
+      "text": "Then, there&#39;s Ned."
+    },
+    {
+      "index": 82,
+      "start_time": 184700.0,
+      "end_time": 186320.0,
+      "text": "Ned is the business analyst, and he"
+    },
+    {
+      "index": 83,
+      "start_time": 186320.0,
+      "end_time": 188330.0,
+      "text": "needs a lot of aggregated data, things"
+    },
+    {
+      "index": 84,
+      "start_time": 188330.0,
+      "end_time": 190070.0,
+      "text": "that he can use to generate statistics"
+    },
+    {
+      "index": 85,
+      "start_time": 190070.0,
+      "end_time": 192680.0,
+      "text": "and understanding about how the business is performing."
+    },
+    {
+      "index": 86,
+      "start_time": 192680.0,
+      "end_time": 195290.0,
+      "text": "Not just, again, rows or log files, but again,"
+    },
+    {
+      "index": 87,
+      "start_time": 195290.0,
+      "end_time": 197270.0,
+      "text": "that next level up from, sort of, the basics."
+    },
+    {
+      "index": 88,
+      "start_time": 200850.0,
+      "end_time": 203340.0,
+      "text": "And then, finally, we have Jan, the app developer."
+    },
+    {
+      "index": 89,
+      "start_time": 203340.0,
+      "end_time": 205879.0,
+      "text": "She&#39;s going to need users and product predictions,"
+    },
+    {
+      "index": 90,
+      "start_time": 205879.0,
+      "end_time": 206670.0,
+      "text": "or recommendations."
+    },
+    {
+      "index": 91,
+      "start_time": 206670.0,
+      "end_time": 208211.0,
+      "text": "She&#39;s going to be able to-- she needs"
+    },
+    {
+      "index": 92,
+      "start_time": 208211.0,
+      "end_time": 210390.0,
+      "text": "to be able to build new microservices that"
+    },
+    {
+      "index": 93,
+      "start_time": 210390.0,
+      "end_time": 212580.0,
+      "text": "expose things like this recommendation engine"
+    },
+    {
+      "index": 94,
+      "start_time": 212580.0,
+      "end_time": 213660.0,
+      "text": "to the end user."
+    },
+    {
+      "index": 95,
+      "start_time": 213660.0,
+      "end_time": 216660.0,
+      "text": "So, that can be things like a recommendations API,"
+    },
+    {
+      "index": 96,
+      "start_time": 216660.0,
+      "end_time": 220200.0,
+      "text": "access to wish lists, some knowledge around similar users"
+    },
+    {
+      "index": 97,
+      "start_time": 220200.0,
+      "end_time": 222990.0,
+      "text": "or similar products, how things complement each other."
+    },
+    {
+      "index": 98,
+      "start_time": 222990.0,
+      "end_time": 225480.0,
+      "text": "But, you can see there&#39;s a little bit of overlap here,"
+    },
+    {
+      "index": 99,
+      "start_time": 225480.0,
+      "end_time": 226356.0,
+      "text": "but not a ton, right."
+    },
+    {
+      "index": 100,
+      "start_time": 226356.0,
+      "end_time": 227730.0,
+      "text": "They all need something different"
+    },
+    {
+      "index": 101,
+      "start_time": 227730.0,
+      "end_time": 230980.0,
+      "text": "and they kind of need it in a slightly different format."
+    },
+    {
+      "index": 102,
+      "start_time": 230980.0,
+      "end_time": 232810.0,
+      "text": "Now, if you think about sort of a--"
+    },
+    {
+      "index": 103,
+      "start_time": 232810.0,
+      "end_time": 234100.0,
+      "text": "I tried to draw a sequence diagram here,"
+    },
+    {
+      "index": 104,
+      "start_time": 234100.0,
+      "end_time": 236050.0,
+      "text": "and it got a little complicated, so I simplified it"
+    },
+    {
+      "index": 105,
+      "start_time": 236050.0,
+      "end_time": 236591.0,
+      "text": "a little bit."
+    },
+    {
+      "index": 106,
+      "start_time": 236591.0,
+      "end_time": 239350.0,
+      "text": "But, ultimately, Alice and Bob have to agree and talk"
+    },
+    {
+      "index": 107,
+      "start_time": 239350.0,
+      "end_time": 240050.0,
+      "text": "to each other."
+    },
+    {
+      "index": 108,
+      "start_time": 240050.0,
+      "end_time": 242091.0,
+      "text": "Bob and Ned have to agree and talk to each other."
+    },
+    {
+      "index": 109,
+      "start_time": 242091.0,
+      "end_time": 243730.0,
+      "text": "Ned and Alice have to talk each other,"
+    },
+    {
+      "index": 110,
+      "start_time": 243730.0,
+      "end_time": 245604.0,
+      "text": "and Jan and Alice have to talk to each other."
+    },
+    {
+      "index": 111,
+      "start_time": 245604.0,
+      "end_time": 247750.0,
+      "text": "You know, there&#39;s a lot of communication happening."
+    },
+    {
+      "index": 112,
+      "start_time": 247750.0,
+      "end_time": 250546.0,
+      "text": "And, listen, I love talking to my coworkers just as much"
+    },
+    {
+      "index": 113,
+      "start_time": 250546.0,
+      "end_time": 251920.0,
+      "text": "as the next person, but if you&#39;re"
+    },
+    {
+      "index": 114,
+      "start_time": 251920.0,
+      "end_time": 255670.0,
+      "text": "spending all of your time trying to explain to them what you"
+    },
+    {
+      "index": 115,
+      "start_time": 255670.0,
+      "end_time": 257709.0,
+      "text": "need, when you need it, where it came from,"
+    },
+    {
+      "index": 116,
+      "start_time": 257709.0,
+      "end_time": 260260.0,
+      "text": "what it should look like, it becomes challenging, right."
+    },
+    {
+      "index": 117,
+      "start_time": 260260.0,
+      "end_time": 262060.0,
+      "text": "It slows down the ability for them"
+    },
+    {
+      "index": 118,
+      "start_time": 262060.0,
+      "end_time": 263530.0,
+      "text": "to make progress and work quickly."
+    },
+    {
+      "index": 119,
+      "start_time": 266525.0,
+      "end_time": 268150.0,
+      "text": "Ultimately, this is the problem that we"
+    },
+    {
+      "index": 120,
+      "start_time": 268150.0,
+      "end_time": 271480.0,
+      "text": "see a lot of folks having out in the, world, right?"
+    },
+    {
+      "index": 121,
+      "start_time": 271480.0,
+      "end_time": 272950.0,
+      "text": "They each have to find data sets."
+    },
+    {
+      "index": 122,
+      "start_time": 272950.0,
+      "end_time": 274690.0,
+      "text": "They each have to figure out who owns it."
+    },
+    {
+      "index": 123,
+      "start_time": 274690.0,
+      "end_time": 276280.0,
+      "text": "They have to figure out how things are related"
+    },
+    {
+      "index": 124,
+      "start_time": 276280.0,
+      "end_time": 278863.0,
+      "text": "to each other, and they have to manage all that by themselves,"
+    },
+    {
+      "index": 125,
+      "start_time": 278863.0,
+      "end_time": 282190.0,
+      "text": "which, again, takes time away from their ultimate task."
+    },
+    {
+      "index": 126,
+      "start_time": 282190.0,
+      "end_time": 286240.0,
+      "text": "Just by a show of hands, does this sound familiar to anybody?"
+    },
+    {
+      "index": 127,
+      "start_time": 286240.0,
+      "end_time": 288720.0,
+      "text": "Oh, that&#39;s a scary number, actually."
+    },
+    {
+      "index": 128,
+      "start_time": 288720.0,
+      "end_time": 290514.0,
+      "text": "Maybe I shouldn&#39;t have asked that question."
+    },
+    {
+      "index": 129,
+      "start_time": 290514.0,
+      "end_time": 291930.0,
+      "text": "No, but that this is great, right?"
+    },
+    {
+      "index": 130,
+      "start_time": 291930.0,
+      "end_time": 294330.0,
+      "text": "This is how we have to-- we have to find, understand,"
+    },
+    {
+      "index": 131,
+      "start_time": 294330.0,
+      "end_time": 297320.0,
+      "text": "what the problem is, then try to solve it together."
+    },
+    {
+      "index": 132,
+      "start_time": 297320.0,
+      "end_time": 298990.0,
+      "text": "All right, so let&#39;s talk about tools."
+    },
+    {
+      "index": 133,
+      "start_time": 298990.0,
+      "end_time": 299920.0,
+      "text": "That&#39;s the first step."
+    },
+    {
+      "index": 134,
+      "start_time": 299920.0,
+      "end_time": 301461.0,
+      "text": "We need to understand what everyone&#39;s"
+    },
+    {
+      "index": 135,
+      "start_time": 301461.0,
+      "end_time": 303820.0,
+      "text": "working with in order to kind of make the next jump."
+    },
+    {
+      "index": 136,
+      "start_time": 303820.0,
+      "end_time": 307030.0,
+      "text": "So, Alice is the data scientist, huge fan of Python,"
+    },
+    {
+      "index": 137,
+      "start_time": 307030.0,
+      "end_time": 307849.0,
+      "text": "like myself."
+    },
+    {
+      "index": 138,
+      "start_time": 307849.0,
+      "end_time": 309640.0,
+      "text": "It&#39;s like her Swiss army knife, she uses it"
+    },
+    {
+      "index": 139,
+      "start_time": 309640.0,
+      "end_time": 310960.0,
+      "text": "for just about everything."
+    },
+    {
+      "index": 140,
+      "start_time": 310960.0,
+      "end_time": 312730.0,
+      "text": "Typically, does a lot of her work"
+    },
+    {
+      "index": 141,
+      "start_time": 312730.0,
+      "end_time": 315190.0,
+      "text": "with IPython or Jupyter notebooks,"
+    },
+    {
+      "index": 142,
+      "start_time": 315190.0,
+      "end_time": 318430.0,
+      "text": "pulls data down, does it on her workstation,"
+    },
+    {
+      "index": 143,
+      "start_time": 318430.0,
+      "end_time": 320620.0,
+      "text": "you know, slices dices data, uses"
+    },
+    {
+      "index": 144,
+      "start_time": 320620.0,
+      "end_time": 322720.0,
+      "text": "a lot of pretty common data science frameworks,"
+    },
+    {
+      "index": 145,
+      "start_time": 322720.0,
+      "end_time": 325540.0,
+      "text": "uses things like, NumPy, SciPy, scikit-learn,"
+    },
+    {
+      "index": 146,
+      "start_time": 325540.0,
+      "end_time": 327350.0,
+      "text": "Pandas, because she has a history,"
+    },
+    {
+      "index": 147,
+      "start_time": 327350.0,
+      "end_time": 329500.0,
+      "text": "and/or likes data frames."
+    },
+    {
+      "index": 148,
+      "start_time": 329500.0,
+      "end_time": 333160.0,
+      "text": "That&#39;s a typical approach, from a data science perspective."
+    },
+    {
+      "index": 149,
+      "start_time": 333160.0,
+      "end_time": 335110.0,
+      "text": "Bob is a huge fan of Java, right?"
+    },
+    {
+      "index": 150,
+      "start_time": 335110.0,
+      "end_time": 337960.0,
+      "text": "He does lots of big ETL pipeline work,"
+    },
+    {
+      "index": 151,
+      "start_time": 337960.0,
+      "end_time": 341590.0,
+      "text": "does a lot of orchestrating data from one format to another,"
+    },
+    {
+      "index": 152,
+      "start_time": 341590.0,
+      "end_time": 343960.0,
+      "text": "or multiple sources of data together into something"
+    },
+    {
+      "index": 153,
+      "start_time": 343960.0,
+      "end_time": 345860.0,
+      "text": "that looks cohesive on the other end."
+    },
+    {
+      "index": 154,
+      "start_time": 345860.0,
+      "end_time": 349390.0,
+      "text": "So, he&#39;s typically using tools like MapReduce or Spark."
+    },
+    {
+      "index": 155,
+      "start_time": 349390.0,
+      "end_time": 351880.0,
+      "text": "In some cases, he might be using Apache Beam, which"
+    },
+    {
+      "index": 156,
+      "start_time": 351880.0,
+      "end_time": 354296.0,
+      "text": "you&#39;ll actually hear more about over the next couple days,"
+    },
+    {
+      "index": 157,
+      "start_time": 354296.0,
+      "end_time": 356850.0,
+      "text": "as well."
+    },
+    {
+      "index": 158,
+      "start_time": 356850.0,
+      "end_time": 358770.0,
+      "text": "Ned is like a spreadsheet guy."
+    },
+    {
+      "index": 159,
+      "start_time": 358770.0,
+      "end_time": 360710.0,
+      "text": "He loves SQL and he loves spreadsheets."
+    },
+    {
+      "index": 160,
+      "start_time": 360710.0,
+      "end_time": 362850.0,
+      "text": "So, what he likes to do is build custom reports"
+    },
+    {
+      "index": 161,
+      "start_time": 362850.0,
+      "end_time": 366810.0,
+      "text": "and dashboards, very SQL-driven, got to have some kind of access"
+    },
+    {
+      "index": 162,
+      "start_time": 366810.0,
+      "end_time": 368730.0,
+      "text": "to a data warehouse, so he can do giant--"
+    },
+    {
+      "index": 163,
+      "start_time": 368730.0,
+      "end_time": 371280.0,
+      "text": "you know, kind of cube rotations and understanding."
+    },
+    {
+      "index": 164,
+      "start_time": 371280.0,
+      "end_time": 374040.0,
+      "text": "Basically, he&#39;s got to be able to prove to the business"
+    },
+    {
+      "index": 165,
+      "start_time": 374040.0,
+      "end_time": 377820.0,
+      "text": "how products are performing, why things like a recommendation"
+    },
+    {
+      "index": 166,
+      "start_time": 377820.0,
+      "end_time": 379470.0,
+      "text": "engine is even necessary."
+    },
+    {
+      "index": 167,
+      "start_time": 379470.0,
+      "end_time": 383869.0,
+      "text": "So, it&#39;s his responsibility to kind of facilitate that."
+    },
+    {
+      "index": 168,
+      "start_time": 383869.0,
+      "end_time": 385660.0,
+      "text": "And then, we&#39;ve got Jan, the app developer."
+    },
+    {
+      "index": 169,
+      "start_time": 385660.0,
+      "end_time": 387970.0,
+      "text": "Jan&#39;s a typical kind of polyglot app developer."
+    },
+    {
+      "index": 170,
+      "start_time": 387970.0,
+      "end_time": 390760.0,
+      "text": "Likes writing stuff on microservices, likes delivering"
+    },
+    {
+      "index": 171,
+      "start_time": 390760.0,
+      "end_time": 393850.0,
+      "text": "features very quickly, you know, may have a language preference"
+    },
+    {
+      "index": 172,
+      "start_time": 393850.0,
+      "end_time": 396670.0,
+      "text": "one way or the other, but has to maintain a lot of the existing"
+    },
+    {
+      "index": 173,
+      "start_time": 396670.0,
+      "end_time": 397344.0,
+      "text": "infrastructure."
+    },
+    {
+      "index": 174,
+      "start_time": 397344.0,
+      "end_time": 399010.0,
+      "text": "So, that could be things like node apps."
+    },
+    {
+      "index": 175,
+      "start_time": 399010.0,
+      "end_time": 403030.0,
+      "text": "That could be simple things like Python apps with Flask or Ruby"
+    },
+    {
+      "index": 176,
+      "start_time": 403030.0,
+      "end_time": 404470.0,
+      "text": "apps with Sinatra, all the way up"
+    },
+    {
+      "index": 177,
+      "start_time": 404470.0,
+      "end_time": 407724.0,
+      "text": "to like kitchen sink frameworks, like Django or Rails."
+    },
+    {
+      "index": 178,
+      "start_time": 407724.0,
+      "end_time": 409640.0,
+      "text": "Just depends, right, whatever the use case is."
+    },
+    {
+      "index": 179,
+      "start_time": 412147.0,
+      "end_time": 413230.0,
+      "text": "So, we&#39;ve gotten that far."
+    },
+    {
+      "index": 180,
+      "start_time": 413230.0,
+      "end_time": 415270.0,
+      "text": "So, we understand their task, we know"
+    },
+    {
+      "index": 181,
+      "start_time": 415270.0,
+      "end_time": 417460.0,
+      "text": "who all the key players are, and we know the things"
+    },
+    {
+      "index": 182,
+      "start_time": 417460.0,
+      "end_time": 418760.0,
+      "text": "that they like to use."
+    },
+    {
+      "index": 183,
+      "start_time": 418760.0,
+      "end_time": 420580.0,
+      "text": "So, the next step for us is, how do we"
+    },
+    {
+      "index": 184,
+      "start_time": 420580.0,
+      "end_time": 422080.0,
+      "text": "figure out which tools they should"
+    },
+    {
+      "index": 185,
+      "start_time": 422080.0,
+      "end_time": 425312.0,
+      "text": "be using in Google Cloud?"
+    },
+    {
+      "index": 186,
+      "start_time": 425312.0,
+      "end_time": 427110.0,
+      "text": "All right, we can skip that slide."
+    },
+    {
+      "index": 187,
+      "start_time": 427110.0,
+      "end_time": 429000.0,
+      "text": "So, what we&#39;ll do is let&#39;s lay out"
+    },
+    {
+      "index": 188,
+      "start_time": 429000.0,
+      "end_time": 430751.0,
+      "text": "a handful of the tools that are available."
+    },
+    {
+      "index": 189,
+      "start_time": 430751.0,
+      "end_time": 432666.0,
+      "text": "And we&#39;re not going to cover everything that&#39;s"
+    },
+    {
+      "index": 190,
+      "start_time": 432666.0,
+      "end_time": 434860.0,
+      "text": "in GCP right now, because we don&#39;t have enough time,"
+    },
+    {
+      "index": 191,
+      "start_time": 434860.0,
+      "end_time": 437110.0,
+      "text": "and I want you guys to have snacks at some point soon."
+    },
+    {
+      "index": 192,
+      "start_time": 437110.0,
+      "end_time": 440100.0,
+      "text": "So, what we&#39;ll do is kind of focus on the core set of things"
+    },
+    {
+      "index": 193,
+      "start_time": 440100.0,
+      "end_time": 442470.0,
+      "text": "that are critical for each of those individual roles"
+    },
+    {
+      "index": 194,
+      "start_time": 442470.0,
+      "end_time": 444060.0,
+      "text": "to have access to."
+    },
+    {
+      "index": 195,
+      "start_time": 444060.0,
+      "end_time": 446550.0,
+      "text": "So, the first part, you know, for things like applications,"
+    },
+    {
+      "index": 196,
+      "start_time": 446550.0,
+      "end_time": 447720.0,
+      "text": "we&#39;ve got Compute."
+    },
+    {
+      "index": 197,
+      "start_time": 447720.0,
+      "end_time": 449730.0,
+      "text": "So, with things like virtual machine"
+    },
+    {
+      "index": 198,
+      "start_time": 449730.0,
+      "end_time": 452100.0,
+      "text": "or virtual instances with Compute Engine,"
+    },
+    {
+      "index": 199,
+      "start_time": 452100.0,
+      "end_time": 454590.0,
+      "text": "manage Kubernetes clusters with Container Engine,"
+    },
+    {
+      "index": 200,
+      "start_time": 454590.0,
+      "end_time": 456510.0,
+      "text": "or just kind of manage container deployments,"
+    },
+    {
+      "index": 201,
+      "start_time": 456510.0,
+      "end_time": 459780.0,
+      "text": "or Docker container deployments with App Engine."
+    },
+    {
+      "index": 202,
+      "start_time": 459780.0,
+      "end_time": 460920.0,
+      "text": "It&#39;s a good place to start."
+    },
+    {
+      "index": 203,
+      "start_time": 460920.0,
+      "end_time": 463620.0,
+      "text": "On the storage front, cloud storage for objects,"
+    },
+    {
+      "index": 204,
+      "start_time": 463620.0,
+      "end_time": 467160.0,
+      "text": "Cloud SQL for relational data, Cloud Datastore for, you know,"
+    },
+    {
+      "index": 205,
+      "start_time": 467160.0,
+      "end_time": 469770.0,
+      "text": "NoSQL, or non-relational datasets,"
+    },
+    {
+      "index": 206,
+      "start_time": 469770.0,
+      "end_time": 473900.0,
+      "text": "and Cloud Bigtable for wide column."
+    },
+    {
+      "index": 207,
+      "start_time": 473900.0,
+      "end_time": 475400.0,
+      "text": "And then, on the data and analytics,"
+    },
+    {
+      "index": 208,
+      "start_time": 475400.0,
+      "end_time": 477470.0,
+      "text": "are then the more processing kind of side,"
+    },
+    {
+      "index": 209,
+      "start_time": 477470.0,
+      "end_time": 480140.0,
+      "text": "Dataproc for managed Hadoop and Spark clusters,"
+    },
+    {
+      "index": 210,
+      "start_time": 480140.0,
+      "end_time": 483770.0,
+      "text": "Datalab for IPython notebooks, BigQuery for kind"
+    },
+    {
+      "index": 211,
+      "start_time": 483770.0,
+      "end_time": 487070.0,
+      "text": "of an analytical data warehouse, and data flow for running"
+    },
+    {
+      "index": 212,
+      "start_time": 487070.0,
+      "end_time": 490712.0,
+      "text": "managed Beam, Apache Beam pipelines."
+    },
+    {
+      "index": 213,
+      "start_time": 490712.0,
+      "end_time": 492920.0,
+      "text": "And then, the last column, or the last kind of group,"
+    },
+    {
+      "index": 214,
+      "start_time": 492920.0,
+      "end_time": 494280.0,
+      "text": "is machine learning."
+    },
+    {
+      "index": 215,
+      "start_time": 494280.0,
+      "end_time": 495980.0,
+      "text": "So we&#39;ve got cloud machine learning,"
+    },
+    {
+      "index": 216,
+      "start_time": 495980.0,
+      "end_time": 498020.0,
+      "text": "which is kind of running TensorFlow models,"
+    },
+    {
+      "index": 217,
+      "start_time": 498020.0,
+      "end_time": 499850.0,
+      "text": "and running them at scale, things"
+    },
+    {
+      "index": 218,
+      "start_time": 499850.0,
+      "end_time": 502850.0,
+      "text": "like the natural language API, the speech API, or the vision"
+    },
+    {
+      "index": 219,
+      "start_time": 502850.0,
+      "end_time": 504470.0,
+      "text": "API."
+    },
+    {
+      "index": 220,
+      "start_time": 504470.0,
+      "end_time": 505977.0,
+      "text": "As you start to think about the team"
+    },
+    {
+      "index": 221,
+      "start_time": 505977.0,
+      "end_time": 507560.0,
+      "text": "that we just introduced, and you start"
+    },
+    {
+      "index": 222,
+      "start_time": 507560.0,
+      "end_time": 510500.0,
+      "text": "looking at this sort of bucket of tools, of this set of puzzle"
+    },
+    {
+      "index": 223,
+      "start_time": 510500.0,
+      "end_time": 512330.0,
+      "text": "pieces, you can start to see where things"
+    },
+    {
+      "index": 224,
+      "start_time": 512330.00000000006,
+      "end_time": 513925.00000000006,
+      "text": "are going to kind of fit together"
+    },
+    {
+      "index": 225,
+      "start_time": 513924.99999999994,
+      "end_time": 515298.99999999994,
+      "text": "There&#39;s a consistent set of tools"
+    },
+    {
+      "index": 226,
+      "start_time": 515299.0,
+      "end_time": 517770.0,
+      "text": "here that we can map back on to the team."
+    },
+    {
+      "index": 227,
+      "start_time": 517770.0,
+      "end_time": 519980.0,
+      "text": "So let&#39;s walk through each one of those individually,"
+    },
+    {
+      "index": 228,
+      "start_time": 519980.0,
+      "end_time": 522710.0,
+      "text": "really quickly."
+    },
+    {
+      "index": 229,
+      "start_time": 522710.00000000006,
+      "end_time": 525680.0,
+      "text": "So, for data science workloads, Alice has a couple of options."
+    },
+    {
+      "index": 230,
+      "start_time": 525680.0,
+      "end_time": 528180.0,
+      "text": "We already talked about the fact that she&#39;s a fan of Python,"
+    },
+    {
+      "index": 231,
+      "start_time": 528180.0,
+      "end_time": 529510.0,
+      "text": "so that maps really well."
+    },
+    {
+      "index": 232,
+      "start_time": 529510.0,
+      "end_time": 531070.0,
+      "text": "So, with Python, she has two options."
+    },
+    {
+      "index": 233,
+      "start_time": 531070.0,
+      "end_time": 532930.0,
+      "text": "She can either use Cloud Datalab,"
+    },
+    {
+      "index": 234,
+      "start_time": 532930.0,
+      "end_time": 535330.0,
+      "text": "or she can use Cloud Dataproc with Jupyter."
+    },
+    {
+      "index": 235,
+      "start_time": 535330.0,
+      "end_time": 538180.0,
+      "text": "With Datalab, what she gets is a complete Python dev"
+    },
+    {
+      "index": 236,
+      "start_time": 538180.0,
+      "end_time": 539500.0,
+      "text": "environment."
+    },
+    {
+      "index": 237,
+      "start_time": 539500.0,
+      "end_time": 543010.0,
+      "text": "You know, it&#39;s bundled in with like NumPy, SciPy, Matplotlib,"
+    },
+    {
+      "index": 238,
+      "start_time": 543010.0,
+      "end_time": 545770.0,
+      "text": "so she can kind of kick off her work, and build those charts,"
+    },
+    {
+      "index": 239,
+      "start_time": 545770.0,
+      "end_time": 547395.0,
+      "text": "and build those, kind of understanding,"
+    },
+    {
+      "index": 240,
+      "start_time": 547395.0,
+      "end_time": 548950.0,
+      "text": "or on the data set as she would."
+    },
+    {
+      "index": 241,
+      "start_time": 548950.0,
+      "end_time": 550450.0,
+      "text": "Additionally, on top of that though,"
+    },
+    {
+      "index": 242,
+      "start_time": 550450.0,
+      "end_time": 553330.0,
+      "text": "it&#39;s also got built-in support for TensorFlow and BigQuery."
+    },
+    {
+      "index": 243,
+      "start_time": 553330.0,
+      "end_time": 555940.0,
+      "text": "This means she&#39;s got a complete environment to go and start"
+    },
+    {
+      "index": 244,
+      "start_time": 555940.0,
+      "end_time": 557590.0,
+      "text": "maybe prototyping models that she wants"
+    },
+    {
+      "index": 245,
+      "start_time": 557590.0,
+      "end_time": 558850.0,
+      "text": "to build with TensorFlow, if she&#39;s"
+    },
+    {
+      "index": 246,
+      "start_time": 558850.0,
+      "end_time": 560950.0,
+      "text": "trying to build a very compelling recommendation"
+    },
+    {
+      "index": 247,
+      "start_time": 560950.0,
+      "end_time": 562000.0,
+      "text": "mechanism."
+    },
+    {
+      "index": 248,
+      "start_time": 562000.0,
+      "end_time": 563920.0,
+      "text": "Or, if she needs data that lives in BigQuery,"
+    },
+    {
+      "index": 249,
+      "start_time": 563920.0,
+      "end_time": 566710.0,
+      "text": "she can actually do inline SQL statements there, and pull data"
+    },
+    {
+      "index": 250,
+      "start_time": 566710.0,
+      "end_time": 569690.0,
+      "text": "back out, or offload queries to BigQuery, as well."
+    },
+    {
+      "index": 251,
+      "start_time": 569690.0,
+      "end_time": 571450.0,
+      "text": "So, she&#39;s got a handful of options there."
+    },
+    {
+      "index": 252,
+      "start_time": 571450.0,
+      "end_time": 574540.0,
+      "text": "The nice thing about Datalab is that it&#39;s based on Jupyter, so,"
+    },
+    {
+      "index": 253,
+      "start_time": 574540.0,
+      "end_time": 576040.0,
+      "text": "it&#39;s got a little bit of background."
+    },
+    {
+      "index": 254,
+      "start_time": 576040.0,
+      "end_time": 578290.0,
+      "text": "So, it should look very familiar to her."
+    },
+    {
+      "index": 255,
+      "start_time": 578290.0,
+      "end_time": 582850.0,
+      "text": "But it is somewhat constrained onto just Python."
+    },
+    {
+      "index": 256,
+      "start_time": 582850.0,
+      "end_time": 584890.0,
+      "text": "If she&#39;s got more specific needs,"
+    },
+    {
+      "index": 257,
+      "start_time": 584890.0,
+      "end_time": 587512.0,
+      "text": "or wants to include additional frameworks or kernels,"
+    },
+    {
+      "index": 258,
+      "start_time": 587512.0,
+      "end_time": 589720.0,
+      "text": "then we have to look at something like Cloud Dataproc"
+    },
+    {
+      "index": 259,
+      "start_time": 589720.0,
+      "end_time": 591040.0,
+      "text": "plus Jupyter."
+    },
+    {
+      "index": 260,
+      "start_time": 591040.0,
+      "end_time": 593830.0,
+      "text": "So, what you can do is you can spin up a Cloud Dataproc"
+    },
+    {
+      "index": 261,
+      "start_time": 593830.0,
+      "end_time": 594790.0,
+      "text": "cluster--"
+    },
+    {
+      "index": 262,
+      "start_time": 594790.0,
+      "end_time": 597490.0,
+      "text": "again, a managed YARN cluster, effectively--"
+    },
+    {
+      "index": 263,
+      "start_time": 597490.0,
+      "end_time": 600160.0,
+      "text": "and then have Jupyter pre-installed on there"
+    },
+    {
+      "index": 264,
+      "start_time": 600160.0,
+      "end_time": 601280.0,
+      "text": "and ready to go."
+    },
+    {
+      "index": 265,
+      "start_time": 601280.0,
+      "end_time": 604905.0,
+      "text": "So, it takes about 90 seconds to fire up a Hadoop cluster,"
+    },
+    {
+      "index": 266,
+      "start_time": 604905.0,
+      "end_time": 606280.0,
+      "text": "anywhere from like three, to like"
+    },
+    {
+      "index": 267,
+      "start_time": 606280.0,
+      "end_time": 607750.0,
+      "text": "a couple of thousand nodes."
+    },
+    {
+      "index": 268,
+      "start_time": 607750.0,
+      "end_time": 610291.0,
+      "text": "In this case, for Alice, I think just three nodes is probably"
+    },
+    {
+      "index": 269,
+      "start_time": 610291.0,
+      "end_time": 613000.0,
+      "text": "appropriate, and her goal is to just spin this up and get"
+    },
+    {
+      "index": 270,
+      "start_time": 613000.0,
+      "end_time": 614284.0,
+      "text": "Jupyter pre-installed."
+    },
+    {
+      "index": 271,
+      "start_time": 614284.0,
+      "end_time": 615700.0,
+      "text": "Once she&#39;s got Jupyter, then she&#39;s"
+    },
+    {
+      "index": 272,
+      "start_time": 615700.0,
+      "end_time": 617140.0,
+      "text": "back to the exact same environment"
+    },
+    {
+      "index": 273,
+      "start_time": 617140.0,
+      "end_time": 621310.0,
+      "text": "she had on her laptop, support for over 80 different languages"
+    },
+    {
+      "index": 274,
+      "start_time": 621310.0,
+      "end_time": 623077.0,
+      "text": "and frameworks or kernels."
+    },
+    {
+      "index": 275,
+      "start_time": 623077.0,
+      "end_time": 624910.0,
+      "text": "But, the nice thing also is built-in support"
+    },
+    {
+      "index": 276,
+      "start_time": 624910.0,
+      "end_time": 627370.0,
+      "text": "for PySpark and Spark MLlib."
+    },
+    {
+      "index": 277,
+      "start_time": 627370.0,
+      "end_time": 629350.0,
+      "text": "So, you know, if you&#39;re kind of trying"
+    },
+    {
+      "index": 278,
+      "start_time": 629350.0,
+      "end_time": 633116.0,
+      "text": "to figure out where the machine learning line sort of falls,"
+    },
+    {
+      "index": 279,
+      "start_time": 633116.0,
+      "end_time": 634990.0,
+      "text": "there&#39;s definitely a handful of more sessions"
+    },
+    {
+      "index": 280,
+      "start_time": 634990.0,
+      "end_time": 637990.0,
+      "text": "you can attend around things like TensorFlow or on Dataproc."
+    },
+    {
+      "index": 281,
+      "start_time": 637990.0,
+      "end_time": 639850.0,
+      "text": "What I would urge you to do is, if you&#39;ve"
+    },
+    {
+      "index": 282,
+      "start_time": 639850.0,
+      "end_time": 642250.0,
+      "text": "got kind of an individual like this in your organization,"
+    },
+    {
+      "index": 283,
+      "start_time": 642250.0,
+      "end_time": 644230.0,
+      "text": "is have them explore both."
+    },
+    {
+      "index": 284,
+      "start_time": 644230.0,
+      "end_time": 645930.0,
+      "text": "TensorFlow might be appropriate."
+    },
+    {
+      "index": 285,
+      "start_time": 645930.0,
+      "end_time": 648005.0,
+      "text": "Spark MLlib might be appropriate."
+    },
+    {
+      "index": 286,
+      "start_time": 648005.0,
+      "end_time": 649630.0,
+      "text": "And there should be a clean distinction"
+    },
+    {
+      "index": 287,
+      "start_time": 649630.0,
+      "end_time": 650879.0,
+      "text": "between what they can each do."
+    },
+    {
+      "index": 288,
+      "start_time": 653880.0,
+      "end_time": 656780.0,
+      "text": "All right, on the data processing front, same thing."
+    },
+    {
+      "index": 289,
+      "start_time": 656780.0,
+      "end_time": 658470.0,
+      "text": "Bob&#39;s got a couple of different options."
+    },
+    {
+      "index": 290,
+      "start_time": 658470.0,
+      "end_time": 661590.0,
+      "text": "He can either use Cloud Dataproc or he can use Cloud Dataflow."
+    },
+    {
+      "index": 291,
+      "start_time": 661590.0,
+      "end_time": 663960.0,
+      "text": "With Dataproc, again, we just talked about this briefly,"
+    },
+    {
+      "index": 292,
+      "start_time": 663960.0,
+      "end_time": 666650.0,
+      "text": "but managed Hadoop and Spark clusters,"
+    },
+    {
+      "index": 293,
+      "start_time": 666650.0,
+      "end_time": 668566.0,
+      "text": "the nice thing about Dataproc--"
+    },
+    {
+      "index": 294,
+      "start_time": 668566.0,
+      "end_time": 670440.0,
+      "text": "and I&#39;m only going to spend a minute on this,"
+    },
+    {
+      "index": 295,
+      "start_time": 670440.0,
+      "end_time": 673520.0,
+      "text": "so, by all means, if you&#39;re interested we can do questions"
+    },
+    {
+      "index": 296,
+      "start_time": 673520.0,
+      "end_time": 675980.0,
+      "text": "afterwards-- but the nice thing about Dataproc"
+    },
+    {
+      "index": 297,
+      "start_time": 675980.0,
+      "end_time": 679220.0,
+      "text": "is that it turns that kind of mindset of a Hadoop cluster"
+    },
+    {
+      "index": 298,
+      "start_time": 679220.0,
+      "end_time": 681920.0,
+      "text": "or a YARN cluster, on its head."
+    },
+    {
+      "index": 299,
+      "start_time": 681920.0,
+      "end_time": 685181.0,
+      "text": "You end up going away from having a cluster-centric view"
+    },
+    {
+      "index": 300,
+      "start_time": 685181.0,
+      "end_time": 687680.0,
+      "text": "of the world, and turning it into more of a job-centric view"
+    },
+    {
+      "index": 301,
+      "start_time": 687680.0,
+      "end_time": 688650.0,
+      "text": "of the world."
+    },
+    {
+      "index": 302,
+      "start_time": 688650.0,
+      "end_time": 691490.0,
+      "text": "So instead of firing up a thousand-node cluster"
+    },
+    {
+      "index": 303,
+      "start_time": 691490.0,
+      "end_time": 693800.0,
+      "text": "that everybody shares, you could have"
+    },
+    {
+      "index": 304,
+      "start_time": 693800.0,
+      "end_time": 697530.0,
+      "text": "every individual job have their own thousand-node cluster."
+    },
+    {
+      "index": 305,
+      "start_time": 697530.0,
+      "end_time": 700432.0,
+      "text": "And as long as those jobs can be done in less than 24 hours,"
+    },
+    {
+      "index": 306,
+      "start_time": 700432.0,
+      "end_time": 702140.0,
+      "text": "you can actually take advantage of things"
+    },
+    {
+      "index": 307,
+      "start_time": 702140.0,
+      "end_time": 705560.0,
+      "text": "like preemptible OVMs or preemptible instances."
+    },
+    {
+      "index": 308,
+      "start_time": 705560.0,
+      "end_time": 708860.0,
+      "text": "Those instances are about 80% off list price."
+    },
+    {
+      "index": 309,
+      "start_time": 708860.0,
+      "end_time": 711525.0,
+      "text": "So, you get the ability to do this job dramatically faster"
+    },
+    {
+      "index": 310,
+      "start_time": 711525.0,
+      "end_time": 713900.0,
+      "text": "than ever before, because you have all this extra compute"
+    },
+    {
+      "index": 311,
+      "start_time": 713900.0,
+      "end_time": 716180.0,
+      "text": "sitting around, and you get to do it really cheaply,"
+    },
+    {
+      "index": 312,
+      "start_time": 716180.0,
+      "end_time": 718910.0,
+      "text": "because it only takes a few hours anyway."
+    },
+    {
+      "index": 313,
+      "start_time": 718910.0,
+      "end_time": 720860.0,
+      "text": "So Bob&#39;s got that option."
+    },
+    {
+      "index": 314,
+      "start_time": 720860.0,
+      "end_time": 723470.0,
+      "text": "He can also do things like tune the cluster parameters,"
+    },
+    {
+      "index": 315,
+      "start_time": 723470.0,
+      "end_time": 725540.0,
+      "text": "or if he&#39;s got custom JAR files he needs,"
+    },
+    {
+      "index": 316,
+      "start_time": 725540.0,
+      "end_time": 728660.0,
+      "text": "easily bootstrap those across the cluster, doesn&#39;t matter."
+    },
+    {
+      "index": 317,
+      "start_time": 728660.0,
+      "end_time": 730290.0,
+      "text": "So, h has that option."
+    },
+    {
+      "index": 318,
+      "start_time": 730290.0,
+      "end_time": 732200.0,
+      "text": "The other approach is to use Dataflow."
+    },
+    {
+      "index": 319,
+      "start_time": 732200.0,
+      "end_time": 734300.0,
+      "text": "Dataflow is a managed service that we"
+    },
+    {
+      "index": 320,
+      "start_time": 734300.0,
+      "end_time": 736810.0,
+      "text": "have for running Apache Beam workloads."
+    },
+    {
+      "index": 321,
+      "start_time": 736810.0,
+      "end_time": 740540.0,
+      "text": "Apache Beam is basically a programming model,"
+    },
+    {
+      "index": 322,
+      "start_time": 740540.0,
+      "end_time": 742520.0,
+      "text": "or an approach, that unifies batch and stream"
+    },
+    {
+      "index": 323,
+      "start_time": 742520.0,
+      "end_time": 745440.0,
+      "text": "processing into one."
+    },
+    {
+      "index": 324,
+      "start_time": 745440.0,
+      "end_time": 747450.0,
+      "text": "When you take Beam workloads or Beam pipelines"
+    },
+    {
+      "index": 325,
+      "start_time": 747450.0,
+      "end_time": 750840.0,
+      "text": "and you push them to Cloud Dataflow, we run those for you"
+    },
+    {
+      "index": 326,
+      "start_time": 750840.0,
+      "end_time": 754772.0,
+      "text": "in a totally managed, kind of automatically scalable fashion."
+    },
+    {
+      "index": 327,
+      "start_time": 754772.0,
+      "end_time": 755730.0,
+      "text": "So, that&#39;s pretty nice."
+    },
+    {
+      "index": 328,
+      "start_time": 755730.0,
+      "end_time": 758730.0,
+      "text": "And Apache Beam workload&#39;s on Cloud Dataflow,"
+    },
+    {
+      "index": 329,
+      "start_time": 758730.0,
+      "end_time": 760350.0,
+      "text": "actually support templates for kind"
+    },
+    {
+      "index": 330,
+      "start_time": 760350.0,
+      "end_time": 762780.0,
+      "text": "of like easy parameterization and staging"
+    },
+    {
+      "index": 331,
+      "start_time": 762780.0,
+      "end_time": 764520.0,
+      "text": "and things like that."
+    },
+    {
+      "index": 332,
+      "start_time": 764520.0,
+      "end_time": 767250.0,
+      "text": "The way I kind think about the relationship here of which path"
+    },
+    {
+      "index": 333,
+      "start_time": 767250.0,
+      "end_time": 769440.0,
+      "text": "you go down is really a question of what"
+    },
+    {
+      "index": 334,
+      "start_time": 769440.0,
+      "end_time": 771240.0,
+      "text": "do you have existing already."
+    },
+    {
+      "index": 335,
+      "start_time": 771240.0,
+      "end_time": 774930.0,
+      "text": "If you&#39;ve got a huge investment in Spark or MapReduce jobs,"
+    },
+    {
+      "index": 336,
+      "start_time": 774930.0,
+      "end_time": 777810.0,
+      "text": "or just kind of like oozy workflows around those things,"
+    },
+    {
+      "index": 337,
+      "start_time": 777810.0,
+      "end_time": 779940.0,
+      "text": "by all means, go down to Cloud Dataproc group."
+    },
+    {
+      "index": 338,
+      "start_time": 779940.0,
+      "end_time": 781327.0,
+      "text": "It&#39;s a turnkey solution."
+    },
+    {
+      "index": 339,
+      "start_time": 781327.0,
+      "end_time": 783660.0,
+      "text": "You can take your job and just push it to a new cluster,"
+    },
+    {
+      "index": 340,
+      "start_time": 783660.0,
+      "end_time": 784950.0,
+      "text": "just like that."
+    },
+    {
+      "index": 341,
+      "start_time": 784950.0,
+      "end_time": 787260.0,
+      "text": "If it&#39;s net new and you&#39;re starting from scratch,"
+    },
+    {
+      "index": 342,
+      "start_time": 787260.0,
+      "end_time": 789660.0,
+      "text": "I think Beam is a good approach to look at."
+    },
+    {
+      "index": 343,
+      "start_time": 789660.0,
+      "end_time": 791919.0,
+      "text": "It&#39;s relatively new, so it&#39;s a little bit young."
+    },
+    {
+      "index": 344,
+      "start_time": 791919.0,
+      "end_time": 794460.0,
+      "text": "It&#39;s definitely not as mature as some of the other components"
+    },
+    {
+      "index": 345,
+      "start_time": 794460.0,
+      "end_time": 796120.0,
+      "text": "in the Hadoop ecosystem."
+    },
+    {
+      "index": 346,
+      "start_time": 796120.0,
+      "end_time": 797860.0,
+      "text": "But, it does have this really, really,"
+    },
+    {
+      "index": 347,
+      "start_time": 797860.0,
+      "end_time": 800820.0,
+      "text": "really critical advantage where you can take a batch pipeline"
+    },
+    {
+      "index": 348,
+      "start_time": 800820.0,
+      "end_time": 802380.0,
+      "text": "and turn it into a streaming pipeline"
+    },
+    {
+      "index": 349,
+      "start_time": 802380.0,
+      "end_time": 804787.0,
+      "text": "just by changing a couple of lines of input."
+    },
+    {
+      "index": 350,
+      "start_time": 804787.0,
+      "end_time": 806370.0,
+      "text": "So Bob&#39;s got a couple of options here,"
+    },
+    {
+      "index": 351,
+      "start_time": 806370.0,
+      "end_time": 809400.0,
+      "text": "to kind of match up to what he typically likes to work with."
+    },
+    {
+      "index": 352,
+      "start_time": 809400.0,
+      "end_time": 811710.0,
+      "text": "All right, Ned&#39;s use case is actually really simple."
+    },
+    {
+      "index": 353,
+      "start_time": 811710.0,
+      "end_time": 813000.0,
+      "text": "He needs a data warehouse."
+    },
+    {
+      "index": 354,
+      "start_time": 813000.0,
+      "end_time": 815050.0,
+      "text": "He needs a data warehouse that supports SQL,"
+    },
+    {
+      "index": 355,
+      "start_time": 815050.0,
+      "end_time": 817430.0,
+      "text": "and that can scale with whatever size of data he needs,"
+    },
+    {
+      "index": 356,
+      "start_time": 817430.0,
+      "end_time": 819570.0,
+      "text": "or that he&#39;s got access to, and he&#39;s"
+    },
+    {
+      "index": 357,
+      "start_time": 819570.0,
+      "end_time": 822060.0,
+      "text": "got to be able to plug it into a whole host of tools,"
+    },
+    {
+      "index": 358,
+      "start_time": 822060.0,
+      "end_time": 823410.0,
+      "text": "kind of downstream."
+    },
+    {
+      "index": 359,
+      "start_time": 823410.0,
+      "end_time": 825720.0,
+      "text": "So, BigQuery&#39;s a great fit for him,"
+    },
+    {
+      "index": 360,
+      "start_time": 825720.0,
+      "end_time": 829200.0,
+      "text": "enterprise cloud analytical data warehouse."
+    },
+    {
+      "index": 361,
+      "start_time": 829200.0,
+      "end_time": 830664.0,
+      "text": "It&#39;s a fully managed mechanism."
+    },
+    {
+      "index": 362,
+      "start_time": 830664.0,
+      "end_time": 832080.0,
+      "text": "We often use the word server-less,"
+    },
+    {
+      "index": 363,
+      "start_time": 832080.0,
+      "end_time": 835380.0,
+      "text": "though I hate that term, so I apologize."
+    },
+    {
+      "index": 364,
+      "start_time": 835380.0,
+      "end_time": 837600.0,
+      "text": "It supports standard SQL and it does scale up"
+    },
+    {
+      "index": 365,
+      "start_time": 837600.0,
+      "end_time": 839070.0,
+      "text": "to a kind of petabyte scale."
+    },
+    {
+      "index": 366,
+      "start_time": 839070.0,
+      "end_time": 841260.0,
+      "text": "So, he has the option of running something that&#39;s"
+    },
+    {
+      "index": 367,
+      "start_time": 841260.0,
+      "end_time": 844530.0,
+      "text": "anywhere from data sets that are about gigabytes all the way up"
+    },
+    {
+      "index": 368,
+      "start_time": 844530.0,
+      "end_time": 848604.0,
+      "text": "to petabytes, and still get responses back within seconds."
+    },
+    {
+      "index": 369,
+      "start_time": 848604.0,
+      "end_time": 850020.0,
+      "text": "BigQuery is great, because it does"
+    },
+    {
+      "index": 370,
+      "start_time": 850020.0,
+      "end_time": 853405.0,
+      "text": "support kind of batch loading, or streaming inserts, as well."
+    },
+    {
+      "index": 371,
+      "start_time": 853405.0,
+      "end_time": 855780.0,
+      "text": "And it&#39;s got built in things like security and durability"
+    },
+    {
+      "index": 372,
+      "start_time": 855780.0,
+      "end_time": 858250.0,
+      "text": "and automatic availability, and all the other good stuff."
+    },
+    {
+      "index": 373,
+      "start_time": 858250.0,
+      "end_time": 861880.0,
+      "text": "But, ultimately, the best part is that Ned gets to use SQL,"
+    },
+    {
+      "index": 374,
+      "start_time": 861880.0,
+      "end_time": 864120.0,
+      "text": "gets to query really, really large data sets,"
+    },
+    {
+      "index": 375,
+      "start_time": 864120.0,
+      "end_time": 867020.0,
+      "text": "and visualize and explore the data as he&#39;s used to,"
+    },
+    {
+      "index": 376,
+      "start_time": 867020.0,
+      "end_time": 870210.0,
+      "text": "with the typical tools and expertise he&#39;s got."
+    },
+    {
+      "index": 377,
+      "start_time": 870210.0,
+      "end_time": 872820.0,
+      "text": "When it comes time to create reports and dashboards"
+    },
+    {
+      "index": 378,
+      "start_time": 872820.0,
+      "end_time": 875310.0,
+      "text": "and things like that, there&#39;s a couple of options he has."
+    },
+    {
+      "index": 379,
+      "start_time": 875310.0,
+      "end_time": 876780.0,
+      "text": "One, he can use Data Studio, which"
+    },
+    {
+      "index": 380,
+      "start_time": 876780.0,
+      "end_time": 878380.0,
+      "text": "is built into the platform."
+    },
+    {
+      "index": 381,
+      "start_time": 878380.0,
+      "end_time": 880950.0,
+      "text": "So, it&#39;s kind of like a Google Doc style approach, where"
+    },
+    {
+      "index": 382,
+      "start_time": 880950.0,
+      "end_time": 882777.0,
+      "text": "I can create a new report, and then I"
+    },
+    {
+      "index": 383,
+      "start_time": 882777.0,
+      "end_time": 884610.0,
+      "text": "can share that with everybody in the company"
+    },
+    {
+      "index": 384,
+      "start_time": 884610.0,
+      "end_time": 886694.0,
+      "text": "without actually having to create multiple copies."
+    },
+    {
+      "index": 385,
+      "start_time": 886694.0,
+      "end_time": 888443.0,
+      "text": "And people can edit things like parameters"
+    },
+    {
+      "index": 386,
+      "start_time": 888443.0,
+      "end_time": 890230.0,
+      "text": "and watch the difference in those reports,"
+    },
+    {
+      "index": 387,
+      "start_time": 890230.0,
+      "end_time": 891146.0,
+      "text": "and see how they look."
+    },
+    {
+      "index": 388,
+      "start_time": 891146.0,
+      "end_time": 892680.0,
+      "text": "But effectively, he has the ability"
+    },
+    {
+      "index": 389,
+      "start_time": 892680.0,
+      "end_time": 894864.0,
+      "text": "to create those reports and dashboards."
+    },
+    {
+      "index": 390,
+      "start_time": 894864.0,
+      "end_time": 897280.0,
+      "text": "Alternatively, he could use things like Tableau or Looker,"
+    },
+    {
+      "index": 391,
+      "start_time": 897280.0,
+      "end_time": 898890.0,
+      "text": "or other business intelligence tools"
+    },
+    {
+      "index": 392,
+      "start_time": 898890.0,
+      "end_time": 900300.0,
+      "text": "that he&#39;s that he&#39;s a fan of."
+    },
+    {
+      "index": 393,
+      "start_time": 900300.0,
+      "end_time": 902559.0,
+      "text": "So, he&#39;s got a handful of options there."
+    },
+    {
+      "index": 394,
+      "start_time": 902559.0,
+      "end_time": 905100.0,
+      "text": "And the nice thing also is that because of all this approach,"
+    },
+    {
+      "index": 395,
+      "start_time": 905100.0,
+      "end_time": 907860.0,
+      "text": "like BigQuery also supports other kind of JDBC"
+    },
+    {
+      "index": 396,
+      "start_time": 907860.0,
+      "end_time": 910680.0,
+      "text": "infrastructure, so a lot of the tooling that Ned is typically"
+    },
+    {
+      "index": 397,
+      "start_time": 910680.0,
+      "end_time": 915150.0,
+      "text": "used to can plug right into BigQuery, as well."
+    },
+    {
+      "index": 398,
+      "start_time": 915150.0,
+      "end_time": 916612.0,
+      "text": "So, the last one is Jan."
+    },
+    {
+      "index": 399,
+      "start_time": 916612.0,
+      "end_time": 917820.0,
+      "text": "We talked about this earlier."
+    },
+    {
+      "index": 400,
+      "start_time": 917820.0,
+      "end_time": 920750.0,
+      "text": "Jan likes to deploy and scale microservices,"
+    },
+    {
+      "index": 401,
+      "start_time": 920750.0,
+      "end_time": 922610.0,
+      "text": "so she&#39;s got two easy options there."
+    },
+    {
+      "index": 402,
+      "start_time": 922610.0,
+      "end_time": 925550.0,
+      "text": "If she&#39;s really, really focused on complex container"
+    },
+    {
+      "index": 403,
+      "start_time": 925550.0,
+      "end_time": 926870.0,
+      "text": "orchestration, writes them--"
+    },
+    {
+      "index": 404,
+      "start_time": 926870.0,
+      "end_time": 930020.0,
+      "text": "wants to deploy things that way, Container Engine&#39;s a great fit."
+    },
+    {
+      "index": 405,
+      "start_time": 930020.0,
+      "end_time": 931690.0,
+      "text": "It&#39;s based on open sourced Kubernetes."
+    },
+    {
+      "index": 406,
+      "start_time": 931690.0,
+      "end_time": 934620.0,
+      "text": "We&#39;ve got built-in health checking, monitoring, logging."
+    },
+    {
+      "index": 407,
+      "start_time": 934620.0,
+      "end_time": 936754.0,
+      "text": "We&#39;ve got a private Container Registry,"
+    },
+    {
+      "index": 408,
+      "start_time": 936754.0,
+      "end_time": 938420.0,
+      "text": "or she can go down the app engine route,"
+    },
+    {
+      "index": 409,
+      "start_time": 938420.0,
+      "end_time": 940670.0,
+      "text": "and just take her Docker containers, and push them up,"
+    },
+    {
+      "index": 410,
+      "start_time": 940670.0,
+      "end_time": 942290.0,
+      "text": "and we&#39;ll auto-scale them for her."
+    },
+    {
+      "index": 411,
+      "start_time": 942290.0,
+      "end_time": 945410.0,
+      "text": "The good thing is that along with kind of the same health"
+    },
+    {
+      "index": 412,
+      "start_time": 945410.0,
+      "end_time": 947600.0,
+      "text": "checking, monitoring, and logging,"
+    },
+    {
+      "index": 413,
+      "start_time": 947600.0,
+      "end_time": 950150.0,
+      "text": "App Engine also includes a built-in load balancer"
+    },
+    {
+      "index": 414,
+      "start_time": 950150.0,
+      "end_time": 951830.0,
+      "text": "up front, has things like version"
+    },
+    {
+      "index": 415,
+      "start_time": 951830.0,
+      "end_time": 954530.0,
+      "text": "management, traffic splitting, as well,"
+    },
+    {
+      "index": 416,
+      "start_time": 954530.0,
+      "end_time": 956270.0,
+      "text": "and automatic security scanning."
+    },
+    {
+      "index": 417,
+      "start_time": 956270.0,
+      "end_time": 957920.0,
+      "text": "So, again, a couple of options here"
+    },
+    {
+      "index": 418,
+      "start_time": 957920.0,
+      "end_time": 959253.0,
+      "text": "that kind of make sense for her."
+    },
+    {
+      "index": 419,
+      "start_time": 962200.0,
+      "end_time": 963020.0,
+      "text": "So, that&#39;s right."
+    },
+    {
+      "index": 420,
+      "start_time": 963020.0,
+      "end_time": 963646.0,
+      "text": "We&#39;re all done."
+    },
+    {
+      "index": 421,
+      "start_time": 963646.0,
+      "end_time": 965353.0,
+      "text": "Everybody&#39;s got tools, they can all work,"
+    },
+    {
+      "index": 422,
+      "start_time": 965353.0,
+      "end_time": 966430.0,
+      "text": "and everybody is off--"
+    },
+    {
+      "index": 423,
+      "start_time": 966430.0,
+      "end_time": 968420.0,
+      "text": "off to the races."
+    },
+    {
+      "index": 424,
+      "start_time": 968420.0,
+      "end_time": 969760.0,
+      "text": "That&#39;s not true."
+    },
+    {
+      "index": 425,
+      "start_time": 969760.0,
+      "end_time": 971856.0,
+      "text": "We&#39;ve only just kind of scratched the surface."
+    },
+    {
+      "index": 426,
+      "start_time": 971856.0,
+      "end_time": 974230.0,
+      "text": "So, they all have a consistent set of tools to work with,"
+    },
+    {
+      "index": 427,
+      "start_time": 974230.0,
+      "end_time": 977350.0,
+      "text": "but we actually haven&#39;t enabled any of the collaboration bits"
+    },
+    {
+      "index": 428,
+      "start_time": 977350.0,
+      "end_time": 977980.0,
+      "text": "yet."
+    },
+    {
+      "index": 429,
+      "start_time": 977980.0,
+      "end_time": 980166.0,
+      "text": "So, we still have to figure out how to get them,"
+    },
+    {
+      "index": 430,
+      "start_time": 980166.0,
+      "end_time": 981790.0,
+      "text": "not only to work together, but actually"
+    },
+    {
+      "index": 431,
+      "start_time": 981790.0,
+      "end_time": 984230.0,
+      "text": "to work in a way that makes sense, and scales up."
+    },
+    {
+      "index": 432,
+      "start_time": 984230.0,
+      "end_time": 984730.0,
+      "text": "Right."
+    },
+    {
+      "index": 433,
+      "start_time": 984730.0,
+      "end_time": 986230.0,
+      "text": "Their team is four people today."
+    },
+    {
+      "index": 434,
+      "start_time": 986230.0,
+      "end_time": 989800.0,
+      "text": "It could be eight, 12, 16, you know, in a few weeks."
+    },
+    {
+      "index": 435,
+      "start_time": 989800.0,
+      "end_time": 991900.0,
+      "text": "So, we&#39;ve got to come up with a better"
+    },
+    {
+      "index": 436,
+      "start_time": 991900.0,
+      "end_time": 996820.0,
+      "text": "approach to managing the data that they need access to."
+    },
+    {
+      "index": 437,
+      "start_time": 996820.0,
+      "end_time": 999870.0,
+      "text": "So, if you&#39;re trying to enable collaboration,"
+    },
+    {
+      "index": 438,
+      "start_time": 999870.0,
+      "end_time": 1001700.0,
+      "text": "there are a handful of things you&#39;re really"
+    },
+    {
+      "index": 439,
+      "start_time": 1001700.0,
+      "end_time": 1002820.0,
+      "text": "going to think about."
+    },
+    {
+      "index": 440,
+      "start_time": 1002820.0,
+      "end_time": 1005030.0,
+      "text": "The first is, you&#39;ve got to find consistency."
+    },
+    {
+      "index": 441,
+      "start_time": 1005030.0,
+      "end_time": 1008870.0,
+      "text": "And it&#39;s not just consistency in the tool set, right?"
+    },
+    {
+      "index": 442,
+      "start_time": 1008870.0,
+      "end_time": 1011540.0,
+      "text": "That&#39;s also important, but you also need consistency"
+    },
+    {
+      "index": 443,
+      "start_time": 1011540.0,
+      "end_time": 1014480.0,
+      "text": "in terms of where do you expect data to be coming from,"
+    },
+    {
+      "index": 444,
+      "start_time": 1014480.0,
+      "end_time": 1017020.0,
+      "text": "where do you expect data to be used downstream, right?"
+    },
+    {
+      "index": 445,
+      "start_time": 1017020.0,
+      "end_time": 1018020.0,
+      "text": "That&#39;s really important."
+    },
+    {
+      "index": 446,
+      "start_time": 1018020.0,
+      "end_time": 1019436.0,
+      "text": "If you can&#39;t agree on the sources,"
+    },
+    {
+      "index": 447,
+      "start_time": 1019440.0,
+      "end_time": 1022764.0,
+      "text": "if you can&#39;t agree on what the downstream workloads are,"
+    },
+    {
+      "index": 448,
+      "start_time": 1022760.0,
+      "end_time": 1025099.0,
+      "text": "it&#39;s hard to really understand how"
+    },
+    {
+      "index": 449,
+      "start_time": 1025099.9999999999,
+      "end_time": 1027950.9999999999,
+      "text": "everybody should work together and use the same set of tools."
+    },
+    {
+      "index": 450,
+      "start_time": 1027950.0,
+      "end_time": 1031130.0,
+      "text": "The next thing you want to do, is take a really good hard look"
+    },
+    {
+      "index": 451,
+      "start_time": 1031130.0000000001,
+      "end_time": 1033470.0000000001,
+      "text": "at all the data that you&#39;re trying to get access to."
+    },
+    {
+      "index": 452,
+      "start_time": 1033470.0,
+      "end_time": 1034579.0,
+      "text": "And this isn&#39;t true for every piece"
+    },
+    {
+      "index": 453,
+      "start_time": 1034579.9999999999,
+      "end_time": 1036290.9999999999,
+      "text": "of data that lives in your organization, right?"
+    },
+    {
+      "index": 454,
+      "start_time": 1036290.0,
+      "end_time": 1037748.0,
+      "text": "It might be things that are focused"
+    },
+    {
+      "index": 455,
+      "start_time": 1037750.0,
+      "end_time": 1039892.0,
+      "text": "on certain sets of the company, like certain teams,"
+    },
+    {
+      "index": 456,
+      "start_time": 1039890.0000000001,
+      "end_time": 1042530.0000000001,
+      "text": "or certain tasks, but ultimately, you&#39;ve"
+    },
+    {
+      "index": 457,
+      "start_time": 1042530.0,
+      "end_time": 1045030.0,
+      "text": "got to figure out where all this data lives, and take"
+    },
+    {
+      "index": 458,
+      "start_time": 1045030.0,
+      "end_time": 1046114.0,
+      "text": "an inventory on it, right?"
+    },
+    {
+      "index": 459,
+      "start_time": 1046109.9999999999,
+      "end_time": 1047483.9999999999,
+      "text": "Take an inventory on it, and make"
+    },
+    {
+      "index": 460,
+      "start_time": 1047490.0,
+      "end_time": 1049792.0,
+      "text": "sure it&#39;s in the right storage medium for everyone"
+    },
+    {
+      "index": 461,
+      "start_time": 1049790.0,
+      "end_time": 1052600.0,
+      "text": "to use as time goes on."
+    },
+    {
+      "index": 462,
+      "start_time": 1052600.0,
+      "end_time": 1054640.0,
+      "text": "The next thing you want to do is come up"
+    },
+    {
+      "index": 463,
+      "start_time": 1054640.0,
+      "end_time": 1057190.0,
+      "text": "with an approach around metadata, right?"
+    },
+    {
+      "index": 464,
+      "start_time": 1057190.0,
+      "end_time": 1059110.0,
+      "text": "This is pretty simple, but if you&#39;re"
+    },
+    {
+      "index": 465,
+      "start_time": 1059110.0,
+      "end_time": 1061360.0,
+      "text": "trying to figure out who owns a piece of data"
+    },
+    {
+      "index": 466,
+      "start_time": 1061360.0,
+      "end_time": 1065860.0,
+      "text": "or where it came from, what other data sets it&#39;s related"
+    },
+    {
+      "index": 467,
+      "start_time": 1065860.0,
+      "end_time": 1068650.0,
+      "text": "to, what are some of the types of data that are located"
+    },
+    {
+      "index": 468,
+      "start_time": 1068650.0,
+      "end_time": 1071220.0,
+      "text": "in this data set without actually having to go query it,"
+    },
+    {
+      "index": 469,
+      "start_time": 1071220.0,
+      "end_time": 1072970.0,
+      "text": "that&#39;s a really challenging problem to do,"
+    },
+    {
+      "index": 470,
+      "start_time": 1072970.0,
+      "end_time": 1076390.0,
+      "text": "when you think about having hundreds or thousands"
+    },
+    {
+      "index": 471,
+      "start_time": 1076390.0,
+      "end_time": 1078130.0,
+      "text": "of individual pieces of data spread out"
+    },
+    {
+      "index": 472,
+      "start_time": 1078130.0,
+      "end_time": 1081390.0,
+      "text": "across your infrastructure."
+    },
+    {
+      "index": 473,
+      "start_time": 1081390.0,
+      "end_time": 1083870.0,
+      "text": "Then, you want to enable discovery and self-service."
+    },
+    {
+      "index": 474,
+      "start_time": 1083870.0,
+      "end_time": 1086600.0,
+      "text": "You want people to be able to go find these things by themselves"
+    },
+    {
+      "index": 475,
+      "start_time": 1086600.0,
+      "end_time": 1089450.0,
+      "text": "and pull them down as needed, without having to go,"
+    },
+    {
+      "index": 476,
+      "start_time": 1089450.0,
+      "end_time": 1091190.0,
+      "text": "again, spend all that time arguing"
+    },
+    {
+      "index": 477,
+      "start_time": 1091190.0,
+      "end_time": 1093695.0,
+      "text": "with people about formats, and availability,"
+    },
+    {
+      "index": 478,
+      "start_time": 1093690.0,
+      "end_time": 1096315.0,
+      "text": "and tooling, and worrying about where you&#39;re going to store it,"
+    },
+    {
+      "index": 479,
+      "start_time": 1096320.0,
+      "end_time": 1097740.0,
+      "text": "as well."
+    },
+    {
+      "index": 480,
+      "start_time": 1097740.0,
+      "end_time": 1099320.0,
+      "text": "And then the last thing is security,"
+    },
+    {
+      "index": 481,
+      "start_time": 1099320.0,
+      "end_time": 1100970.0,
+      "text": "right Don&#39;t leave that on the table."
+    },
+    {
+      "index": 482,
+      "start_time": 1100970.0,
+      "end_time": 1103345.0,
+      "text": "It&#39;s certainly important to understand security, and more"
+    },
+    {
+      "index": 483,
+      "start_time": 1103340.0,
+      "end_time": 1105905.0,
+      "text": "broadly, identity, right, to make sure we&#39;re tracking access"
+    },
+    {
+      "index": 484,
+      "start_time": 1105910.0,
+      "end_time": 1108350.0,
+      "text": "to all these things."
+    },
+    {
+      "index": 485,
+      "start_time": 1108350.0,
+      "end_time": 1110270.0,
+      "text": "All right, so how do we start with this?"
+    },
+    {
+      "index": 486,
+      "start_time": 1110270.0,
+      "end_time": 1113230.0,
+      "text": "I throw this in there."
+    },
+    {
+      "index": 487,
+      "start_time": 1113230.0,
+      "end_time": 1115720.0,
+      "text": "You have to kind of embrace the concept of a data lake."
+    },
+    {
+      "index": 488,
+      "start_time": 1115720.0,
+      "end_time": 1117680.0,
+      "text": "I&#39;m not suggesting you have to go build one."
+    },
+    {
+      "index": 489,
+      "start_time": 1117680.0,
+      "end_time": 1120620.0,
+      "text": "I know it&#39;s a totally loaded buzzword and term,"
+    },
+    {
+      "index": 490,
+      "start_time": 1120620.0,
+      "end_time": 1121785.0,
+      "text": "but you have to build--"
+    },
+    {
+      "index": 491,
+      "start_time": 1121790.0,
+      "end_time": 1124165.0,
+      "text": "you have to embrace the idea of it, on some level, right?"
+    },
+    {
+      "index": 492,
+      "start_time": 1124160.0,
+      "end_time": 1125730.0,
+      "text": "And this is kind of what I said earlier--"
+    },
+    {
+      "index": 493,
+      "start_time": 1125730.0,
+      "end_time": 1127580.0,
+      "text": "if you start at the very bottom, you first"
+    },
+    {
+      "index": 494,
+      "start_time": 1127580.0,
+      "end_time": 1130440.0,
+      "text": "have to understand what are all the sources of data I&#39;ve got,"
+    },
+    {
+      "index": 495,
+      "start_time": 1130440.0,
+      "end_time": 1130940.0,
+      "text": "right?"
+    },
+    {
+      "index": 496,
+      "start_time": 1130940.0,
+      "end_time": 1132731.0,
+      "text": "At least get everybody to agree in the room"
+    },
+    {
+      "index": 497,
+      "start_time": 1132730.0,
+      "end_time": 1135169.0,
+      "text": "where data is coming in from, and what it looks like."
+    },
+    {
+      "index": 498,
+      "start_time": 1135170.0,
+      "end_time": 1138470.0,
+      "text": "Once you do that, you want to find some, again, consistency"
+    },
+    {
+      "index": 499,
+      "start_time": 1138470.0,
+      "end_time": 1140645.0,
+      "text": "on which tools are we going to use to store data?"
+    },
+    {
+      "index": 500,
+      "start_time": 1140650.0,
+      "end_time": 1142525.0,
+      "text": "You&#39;re not going to consume every single part"
+    },
+    {
+      "index": 501,
+      "start_time": 1142520.0,
+      "end_time": 1143682.0,
+      "text": "of the platform, right?"
+    },
+    {
+      "index": 502,
+      "start_time": 1143680.0,
+      "end_time": 1145638.0,
+      "text": "It doesn&#39;t make sense to just use every service"
+    },
+    {
+      "index": 503,
+      "start_time": 1145640.0,
+      "end_time": 1146455.0,
+      "text": "because it&#39;s there."
+    },
+    {
+      "index": 504,
+      "start_time": 1146450.0,
+      "end_time": 1148575.0,
+      "text": "Find the ones that make the most sense for the data"
+    },
+    {
+      "index": 505,
+      "start_time": 1148580.0,
+      "end_time": 1149246.0,
+      "text": "that you&#39;ve got."
+    },
+    {
+      "index": 506,
+      "start_time": 1149250.0,
+      "end_time": 1151206.0,
+      "text": "And we&#39;ll go through that a second, as well."
+    },
+    {
+      "index": 507,
+      "start_time": 1151200.0,
+      "end_time": 1153408.0,
+      "text": "And the last thing is, what are the use cases, right?"
+    },
+    {
+      "index": 508,
+      "start_time": 1153410.0,
+      "end_time": 1157690.0,
+      "text": "How is the data going to get used over time, right?"
+    },
+    {
+      "index": 509,
+      "start_time": 1157690.0,
+      "end_time": 1159790.0,
+      "text": "It&#39;s important that you understand what those use"
+    },
+    {
+      "index": 510,
+      "start_time": 1159790.0,
+      "end_time": 1162290.0,
+      "text": "cases are, because they&#39;re going to drive back to the data--"
+    },
+    {
+      "index": 511,
+      "start_time": 1162290.0,
+      "end_time": 1163420.0,
+      "text": "or to the storage mediums."
+    },
+    {
+      "index": 512,
+      "start_time": 1163420.0,
+      "end_time": 1165190.0,
+      "text": "And it&#39;s important to pick the storage mediums,"
+    },
+    {
+      "index": 513,
+      "start_time": 1165190.0,
+      "end_time": 1167064.0,
+      "text": "because that&#39;s going to depend pretty heavily"
+    },
+    {
+      "index": 514,
+      "start_time": 1167060.0,
+      "end_time": 1169026.0,
+      "text": "on how the data comes in, where it comes from,"
+    },
+    {
+      "index": 515,
+      "start_time": 1169030.0,
+      "end_time": 1172280.0,
+      "text": "and what it looks like."
+    },
+    {
+      "index": 516,
+      "start_time": 1172280.0,
+      "end_time": 1174280.0,
+      "text": "All right, so where should data live, right?"
+    },
+    {
+      "index": 517,
+      "start_time": 1174280.0,
+      "end_time": 1175800.0,
+      "text": "We know the sources, we know the workloads,"
+    },
+    {
+      "index": 518,
+      "start_time": 1175800.0,
+      "end_time": 1176970.0,
+      "text": "but what do we do in the middle there?"
+    },
+    {
+      "index": 519,
+      "start_time": 1176970.0,
+      "end_time": 1178930.0,
+      "text": "How do we figure out which places to put data?"
+    },
+    {
+      "index": 520,
+      "start_time": 1178930.0,
+      "end_time": 1180680.0,
+      "text": "So this is kind of a simple decision tree."
+    },
+    {
+      "index": 521,
+      "start_time": 1180680.0,
+      "end_time": 1183240.0,
+      "text": "And I&#39;ll go into a little bit more depth on the next slide"
+    },
+    {
+      "index": 522,
+      "start_time": 1183240.0,
+      "end_time": 1183740.0,
+      "text": "as well."
+    },
+    {
+      "index": 523,
+      "start_time": 1183740.0,
+      "end_time": 1186150.0,
+      "text": "But some of this you can kind of simplify, right?"
+    },
+    {
+      "index": 524,
+      "start_time": 1186150.0,
+      "end_time": 1188940.0,
+      "text": "If it&#39;s really structured data, you&#39;re"
+    },
+    {
+      "index": 525,
+      "start_time": 1188940.0,
+      "end_time": 1190170.0,
+      "text": "kind of down to two options."
+    },
+    {
+      "index": 526,
+      "start_time": 1190170.0,
+      "end_time": 1193440.0,
+      "text": "Is it sort of OLTP data, or is that OLAP data, right?"
+    },
+    {
+      "index": 527,
+      "start_time": 1193440.0,
+      "end_time": 1195580.0,
+      "text": "Is it transactional, or is that analytical?"
+    },
+    {
+      "index": 528,
+      "start_time": 1195580.0,
+      "end_time": 1198930.0,
+      "text": "If it&#39;s transactional, Cloud SQL&#39;s a great fit, right?"
+    },
+    {
+      "index": 529,
+      "start_time": 1198930.0,
+      "end_time": 1201690.0,
+      "text": "It&#39;s a typical relational database, no frills,"
+    },
+    {
+      "index": 530,
+      "start_time": 1201690.0,
+      "end_time": 1203709.0,
+      "text": "does what it does, and it does it really well."
+    },
+    {
+      "index": 531,
+      "start_time": 1203710.0,
+      "end_time": 1205751.0,
+      "text": "On the analytical side, you have BigQuery, right?"
+    },
+    {
+      "index": 532,
+      "start_time": 1205750.0,
+      "end_time": 1207270.0,
+      "text": "So it depends on what the use case"
+    },
+    {
+      "index": 533,
+      "start_time": 1207270.0,
+      "end_time": 1209640.0,
+      "text": "is that&#39;s starting to drive it-- not just the structure,"
+    },
+    {
+      "index": 534,
+      "start_time": 1209640.0,
+      "end_time": 1211770.0,
+      "text": "but with the use cases."
+    },
+    {
+      "index": 535,
+      "start_time": 1211770.0,
+      "end_time": 1213440.0,
+      "text": "The next column is semi-structure."
+    },
+    {
+      "index": 536,
+      "start_time": 1213440.0,
+      "end_time": 1215940.0,
+      "text": "So, you&#39;ve got something that you might know the schema for,"
+    },
+    {
+      "index": 537,
+      "start_time": 1215940.0,
+      "end_time": 1217200.0,
+      "text": "but it could change."
+    },
+    {
+      "index": 538,
+      "start_time": 1217200.0,
+      "end_time": 1218910.0,
+      "text": "It could adapt in flight."
+    },
+    {
+      "index": 539,
+      "start_time": 1218910.0,
+      "end_time": 1221700.0,
+      "text": "People might be deploying new mobile apps"
+    },
+    {
+      "index": 540,
+      "start_time": 1221700.0,
+      "end_time": 1223500.0,
+      "text": "somewhere that customers are going to use."
+    },
+    {
+      "index": 541,
+      "start_time": 1223500.0,
+      "end_time": 1225240.0,
+      "text": "They&#39;re going to start capturing data"
+    },
+    {
+      "index": 542,
+      "start_time": 1225240.0,
+      "end_time": 1226650.0,
+      "text": "they weren&#39;t capturing before."
+    },
+    {
+      "index": 543,
+      "start_time": 1226650.0,
+      "end_time": 1228280.0,
+      "text": "All those things are possible."
+    },
+    {
+      "index": 544,
+      "start_time": 1228280.0,
+      "end_time": 1230564.0,
+      "text": "So, if you&#39;ve got semi-structured data,"
+    },
+    {
+      "index": 545,
+      "start_time": 1230560.0,
+      "end_time": 1232976.0,
+      "text": "then it&#39;s a question of, how do I need to query that data?"
+    },
+    {
+      "index": 546,
+      "start_time": 1232980.0,
+      "end_time": 1235935.0,
+      "text": "Again, we&#39;re back to what is the downstream use case?"
+    },
+    {
+      "index": 547,
+      "start_time": 1235940.0,
+      "end_time": 1238565.0,
+      "text": "If it&#39;s something where you need to query in any possible field"
+    },
+    {
+      "index": 548,
+      "start_time": 1238560.0,
+      "end_time": 1241050.0,
+      "text": "that you write in, data source is a good choice."
+    },
+    {
+      "index": 549,
+      "start_time": 1241050.0,
+      "end_time": 1244170.0,
+      "text": "When you write a piece of JSON to Cloud Datastore,"
+    },
+    {
+      "index": 550,
+      "start_time": 1244170.0,
+      "end_time": 1246780.0,
+      "text": "we automatically index every key by default."
+    },
+    {
+      "index": 551,
+      "start_time": 1246780.0,
+      "end_time": 1247830.0,
+      "text": "That&#39;s part of that JSON."
+    },
+    {
+      "index": 552,
+      "start_time": 1247830.0,
+      "end_time": 1248970.0,
+      "text": "Now, you can turn that off, if you want to,"
+    },
+    {
+      "index": 553,
+      "start_time": 1248970.0,
+      "end_time": 1250950.0,
+      "text": "or you can pick the keys you want, but, ultimately, you"
+    },
+    {
+      "index": 554,
+      "start_time": 1250950.0,
+      "end_time": 1252562.0,
+      "text": "have the ability to query anything"
+    },
+    {
+      "index": 555,
+      "start_time": 1252560.0,
+      "end_time": 1253768.0,
+      "text": "that you&#39;ve written in there."
+    },
+    {
+      "index": 556,
+      "start_time": 1253770.0,
+      "end_time": 1256380.0,
+      "text": "Whereas when you put data in a Bigtable,"
+    },
+    {
+      "index": 557,
+      "start_time": 1256380.0,
+      "end_time": 1258630.0,
+      "text": "you&#39;re basically stuck with trying to have"
+    },
+    {
+      "index": 558,
+      "start_time": 1258630.0,
+      "end_time": 1259680.0,
+      "text": "to query by the row key."
+    },
+    {
+      "index": 559,
+      "start_time": 1259680.0,
+      "end_time": 1261138.0,
+      "text": "And that&#39;s actually pretty powerful"
+    },
+    {
+      "index": 560,
+      "start_time": 1261140.0,
+      "end_time": 1263022.0,
+      "text": "for a lot of really great use cases,"
+    },
+    {
+      "index": 561,
+      "start_time": 1263020.0,
+      "end_time": 1267316.0,
+      "text": "especially like time series data or transactional data."
+    },
+    {
+      "index": 562,
+      "start_time": 1267320.0,
+      "end_time": 1268944.0,
+      "text": "But it&#39;s not a great fit, again, if you"
+    },
+    {
+      "index": 563,
+      "start_time": 1268940.0,
+      "end_time": 1270680.0,
+      "text": "want to try to query some random column,"
+    },
+    {
+      "index": 564,
+      "start_time": 1270680.0,
+      "end_time": 1273520.0,
+      "text": "you know, somewhere buried throughout the dataset."
+    },
+    {
+      "index": 565,
+      "start_time": 1273520.0,
+      "end_time": 1275981.0,
+      "text": "And the last one is object, images media,"
+    },
+    {
+      "index": 566,
+      "start_time": 1275980.0,
+      "end_time": 1278479.0,
+      "text": "that sort of thing, that just go straight into cloud storage"
+    },
+    {
+      "index": 567,
+      "start_time": 1278480.0,
+      "end_time": 1281247.0,
+      "text": "so, it&#39;s a pretty simple approach."
+    },
+    {
+      "index": 568,
+      "start_time": 1281250.0,
+      "end_time": 1282833.0,
+      "text": "So, if you break this out a little bit"
+    },
+    {
+      "index": 569,
+      "start_time": 1282830.0,
+      "end_time": 1284582.0,
+      "text": "and start getting in a few more examples,"
+    },
+    {
+      "index": 570,
+      "start_time": 1284580.0,
+      "end_time": 1286788.0,
+      "text": "you kind of end up with a chart that looks like this."
+    },
+    {
+      "index": 571,
+      "start_time": 1286790.0,
+      "end_time": 1289250.0,
+      "text": "We just covered object storage really quickly a second"
+    },
+    {
+      "index": 572,
+      "start_time": 1289250.0,
+      "end_time": 1292370.0,
+      "text": "ago great for binary data, great for object data,"
+    },
+    {
+      "index": 573,
+      "start_time": 1292370.0,
+      "end_time": 1294870.0,
+      "text": "media, backups, that sort of thing."
+    },
+    {
+      "index": 574,
+      "start_time": 1294870.0,
+      "end_time": 1297500.0,
+      "text": "On the non-relational side for Cloud Datastore,"
+    },
+    {
+      "index": 575,
+      "start_time": 1297500.0,
+      "end_time": 1299510.0,
+      "text": "it&#39;s really good for hierarchical data."
+    },
+    {
+      "index": 576,
+      "start_time": 1299510.0,
+      "end_time": 1301490.0,
+      "text": "Again, think of like JSON as a good example"
+    },
+    {
+      "index": 577,
+      "start_time": 1301490.0,
+      "end_time": 1303824.0,
+      "text": "there, to fit in there, obviously,"
+    },
+    {
+      "index": 578,
+      "start_time": 1303820.0,
+      "end_time": 1305236.0,
+      "text": "great on like mobile applications,"
+    },
+    {
+      "index": 579,
+      "start_time": 1305240.0,
+      "end_time": 1306710.0,
+      "text": "that sort of thing."
+    },
+    {
+      "index": 580,
+      "start_time": 1306710.0,
+      "end_time": 1309410.0,
+      "text": "On the Bigtable side, really, really powerful system"
+    },
+    {
+      "index": 581,
+      "start_time": 1309410.0,
+      "end_time": 1313340.0,
+      "text": "for heavy reads and writes, but you have the row key only,"
+    },
+    {
+      "index": 582,
+      "start_time": 1313340.0,
+      "end_time": 1314174.0,
+      "text": "as your only option."
+    },
+    {
+      "index": 583,
+      "start_time": 1314170.0,
+      "end_time": 1315544.0,
+      "text": "There&#39;s a little bit of filtering"
+    },
+    {
+      "index": 584,
+      "start_time": 1315550.0,
+      "end_time": 1317032.0,
+      "text": "you can apply outbound on a query,"
+    },
+    {
+      "index": 585,
+      "start_time": 1317030.0,
+      "end_time": 1319190.0,
+      "text": "but really, it&#39;s driven by the row key."
+    },
+    {
+      "index": 586,
+      "start_time": 1319190.0,
+      "end_time": 1321050.0,
+      "text": "So you&#39;ve got a very specific workload"
+    },
+    {
+      "index": 587,
+      "start_time": 1321050.0,
+      "end_time": 1324230.0,
+      "text": "you can use at a Bigtable on the relational side you"
+    },
+    {
+      "index": 588,
+      "start_time": 1324230.0,
+      "end_time": 1325190.0,
+      "text": "have two options."
+    },
+    {
+      "index": 589,
+      "start_time": 1325190.0,
+      "end_time": 1326750.0,
+      "text": "And I mentioned-- and I didn&#39;t mention Spanner yet,"
+    },
+    {
+      "index": 590,
+      "start_time": 1326750.0,
+      "end_time": 1328400.0,
+      "text": "and it&#39;s still a little bit early on Spanner,"
+    },
+    {
+      "index": 591,
+      "start_time": 1328400.0,
+      "end_time": 1330483.0,
+      "text": "but I did want to put it into context for kind of,"
+    },
+    {
+      "index": 592,
+      "start_time": 1330480.0,
+      "end_time": 1332717.0,
+      "text": "for everybody in the room."
+    },
+    {
+      "index": 593,
+      "start_time": 1332720.0,
+      "end_time": 1334400.0,
+      "text": "Cloud SQL&#39;s great for web frameworks."
+    },
+    {
+      "index": 594,
+      "start_time": 1334400.0,
+      "end_time": 1336566.0,
+      "text": "Typical web applications that you&#39;re going to build,"
+    },
+    {
+      "index": 595,
+      "start_time": 1336570.0,
+      "end_time": 1338856.0,
+      "text": "typical CRED applications are great."
+    },
+    {
+      "index": 596,
+      "start_time": 1338850.0,
+      "end_time": 1340058.0,
+      "text": "Spanner&#39;s really interesting."
+    },
+    {
+      "index": 597,
+      "start_time": 1340060.0,
+      "end_time": 1341360.0,
+      "text": "It&#39;s new for us."
+    },
+    {
+      "index": 598,
+      "start_time": 1341360.0,
+      "end_time": 1342830.0,
+      "text": "It&#39;s still early."
+    },
+    {
+      "index": 599,
+      "start_time": 1342830.0,
+      "end_time": 1345330.0,
+      "text": "Spanner hasn&#39;t gone into general availability quite yet,"
+    },
+    {
+      "index": 600,
+      "start_time": 1345330.0,
+      "end_time": 1347330.0,
+      "text": "but it&#39;s an interesting thing to keep an eye on,"
+    },
+    {
+      "index": 601,
+      "start_time": 1347330.0,
+      "end_time": 1348913.0,
+      "text": "especially as people are building kind"
+    },
+    {
+      "index": 602,
+      "start_time": 1348910.0,
+      "end_time": 1351737.0,
+      "text": "of global-facing applications, where their customers could be"
+    },
+    {
+      "index": 603,
+      "start_time": 1351740.0,
+      "end_time": 1355250.0,
+      "text": "just about anywhere, and having a mechanism that"
+    },
+    {
+      "index": 604,
+      "start_time": 1355250.0,
+      "end_time": 1358130.0,
+      "text": "has a globally distributed SQL infrastructure is really"
+    },
+    {
+      "index": 605,
+      "start_time": 1358130.0,
+      "end_time": 1358980.0,
+      "text": "powerful."
+    },
+    {
+      "index": 606,
+      "start_time": 1358980.0,
+      "end_time": 1361396.0,
+      "text": "So, it&#39;s something to keep your eye on as you kind of make"
+    },
+    {
+      "index": 607,
+      "start_time": 1361400.0,
+      "end_time": 1363594.0,
+      "text": "more progress with GCP."
+    },
+    {
+      "index": 608,
+      "start_time": 1363590.0,
+      "end_time": 1365469.0,
+      "text": "And the last one is warehouse data."
+    },
+    {
+      "index": 609,
+      "start_time": 1365470.0,
+      "end_time": 1368011.0,
+      "text": "Data warehouse, BigQuery, that&#39;s the right place to put that."
+    },
+    {
+      "index": 610,
+      "start_time": 1371270.0,
+      "end_time": 1373210.0,
+      "text": "So, this is where it gets interesting."
+    },
+    {
+      "index": 611,
+      "start_time": 1373210.0,
+      "end_time": 1376250.0,
+      "text": "You found the tools, you found the sources,"
+    },
+    {
+      "index": 612,
+      "start_time": 1376250.0,
+      "end_time": 1377780.0,
+      "text": "and you found the workloads."
+    },
+    {
+      "index": 613,
+      "start_time": 1377780.0,
+      "end_time": 1381170.0,
+      "text": "How do you continue on this path of enabling self-service"
+    },
+    {
+      "index": 614,
+      "start_time": 1381170.0,
+      "end_time": 1382400.0,
+      "text": "and discovery?"
+    },
+    {
+      "index": 615,
+      "start_time": 1382400.0,
+      "end_time": 1384890.0,
+      "text": "So, you&#39;ve taken all the data sets."
+    },
+    {
+      "index": 616,
+      "start_time": 1384890.0,
+      "end_time": 1386584.0,
+      "text": "We&#39;ve taken inventory of all of them."
+    },
+    {
+      "index": 617,
+      "start_time": 1386580.0,
+      "end_time": 1388246.0,
+      "text": "They&#39;re all located in the right places,"
+    },
+    {
+      "index": 618,
+      "start_time": 1388250.0,
+      "end_time": 1389570.0,
+      "text": "but there might be a lot of it."
+    },
+    {
+      "index": 619,
+      "start_time": 1389570.0,
+      "end_time": 1391430.0,
+      "text": "So how do we enable people to actually find"
+    },
+    {
+      "index": 620,
+      "start_time": 1391430.0,
+      "end_time": 1393180.0,
+      "text": "the things they&#39;re looking for over time?"
+    },
+    {
+      "index": 621,
+      "start_time": 1393180.0,
+      "end_time": 1395300.0,
+      "text": "And this is where metadata is really important,"
+    },
+    {
+      "index": 622,
+      "start_time": 1395300.0,
+      "end_time": 1397990.0,
+      "text": "because I think if you guys can kind of guess where I&#39;m going,"
+    },
+    {
+      "index": 623,
+      "start_time": 1397990.0,
+      "end_time": 1398780.0,
+      "text": "ultimately, what we&#39;re going to do"
+    },
+    {
+      "index": 624,
+      "start_time": 1398780.0,
+      "end_time": 1400320.0,
+      "text": "is we&#39;re going to try to build a catalog,"
+    },
+    {
+      "index": 625,
+      "start_time": 1400320.0,
+      "end_time": 1402736.0,
+      "text": "and that catalog is what&#39;s going to drive everyone&#39;s usage"
+    },
+    {
+      "index": 626,
+      "start_time": 1402740.0,
+      "end_time": 1405838.0,
+      "text": "downstream, and everyone&#39;s ability to work on their own."
+    },
+    {
+      "index": 627,
+      "start_time": 1405830.0,
+      "end_time": 1407246.0,
+      "text": "So, in order to build the catalog,"
+    },
+    {
+      "index": 628,
+      "start_time": 1407250.0,
+      "end_time": 1409310.0,
+      "text": "though, you&#39;ve got to agree on metadata."
+    },
+    {
+      "index": 629,
+      "start_time": 1409310.0,
+      "end_time": 1411410.0,
+      "text": "And actually, as it turns out, fortuitously,"
+    },
+    {
+      "index": 630,
+      "start_time": 1411410.0,
+      "end_time": 1414410.0,
+      "text": "or fortunately I should say, the Google research team actually"
+    },
+    {
+      "index": 631,
+      "start_time": 1414410.0,
+      "end_time": 1416420.0,
+      "text": "just published an interesting blog post"
+    },
+    {
+      "index": 632,
+      "start_time": 1416420.0,
+      "end_time": 1419580.0,
+      "text": "about facilitating discovery of public data sets."
+    },
+    {
+      "index": 633,
+      "start_time": 1419580.0,
+      "end_time": 1423560.0,
+      "text": "And in it they cover things like ownership, provenance,"
+    },
+    {
+      "index": 634,
+      "start_time": 1423560.0,
+      "end_time": 1425000.0,
+      "text": "the type of data that&#39;s located--"
+    },
+    {
+      "index": 635,
+      "start_time": 1425000.0,
+      "end_time": 1427950.0,
+      "text": "that&#39;s contained within the data set."
+    },
+    {
+      "index": 636,
+      "start_time": 1427950.0,
+      "end_time": 1430220.0,
+      "text": "They relationships between various data sets,"
+    },
+    {
+      "index": 637,
+      "start_time": 1430220.0,
+      "end_time": 1433100.0,
+      "text": "can you get consistent representations,"
+    },
+    {
+      "index": 638,
+      "start_time": 1433100.0,
+      "end_time": 1435480.0,
+      "text": "can you standardize some of the descriptive tools"
+    },
+    {
+      "index": 639,
+      "start_time": 1435480.0,
+      "end_time": 1437210.0,
+      "text": "that we use to do it."
+    },
+    {
+      "index": 640,
+      "start_time": 1437210.0,
+      "end_time": 1438626.0,
+      "text": "It&#39;s basically just JSON."
+    },
+    {
+      "index": 641,
+      "start_time": 1438630.0,
+      "end_time": 1440004.0,
+      "text": "There&#39;s nothing fancy about this,"
+    },
+    {
+      "index": 642,
+      "start_time": 1440000.0,
+      "end_time": 1443300.0,
+      "text": "but it forces everyone to come up and say,"
+    },
+    {
+      "index": 643,
+      "start_time": 1443300.0,
+      "end_time": 1445250.0,
+      "text": "I have a consistent representation"
+    },
+    {
+      "index": 644,
+      "start_time": 1445250.0,
+      "end_time": 1446910.0,
+      "text": "of every single data set."
+    },
+    {
+      "index": 645,
+      "start_time": 1446910.0,
+      "end_time": 1449420.0,
+      "text": "So, you start to imagine, if you have 100 data sets strewn"
+    },
+    {
+      "index": 646,
+      "start_time": 1449420.0,
+      "end_time": 1452840.0,
+      "text": "across the company, you&#39;re only saying to everybody,"
+    },
+    {
+      "index": 647,
+      "start_time": 1452840.0,
+      "end_time": 1454610.0,
+      "text": "if you are an owner of a data set,"
+    },
+    {
+      "index": 648,
+      "start_time": 1454610.0,
+      "end_time": 1456914.0,
+      "text": "just publish this small little JSON file,"
+    },
+    {
+      "index": 649,
+      "start_time": 1456910.0,
+      "end_time": 1458326.0,
+      "text": "and hand it over to us, and now we"
+    },
+    {
+      "index": 650,
+      "start_time": 1458330.0,
+      "end_time": 1460520.0,
+      "text": "can start cataloging this data."
+    },
+    {
+      "index": 651,
+      "start_time": 1460520.0,
+      "end_time": 1461630.0,
+      "text": "That&#39;s really powerful."
+    },
+    {
+      "index": 652,
+      "start_time": 1461630.0,
+      "end_time": 1464180.0,
+      "text": "What&#39;s even better is, if you&#39;ve got that JSON data,"
+    },
+    {
+      "index": 653,
+      "start_time": 1464180.0,
+      "end_time": 1465760.0,
+      "text": "we already had a place to put it."
+    },
+    {
+      "index": 654,
+      "start_time": 1465760.0,
+      "end_time": 1467010.0,
+      "text": "So, you have two options here."
+    },
+    {
+      "index": 655,
+      "start_time": 1467010.0,
+      "end_time": 1470210.0,
+      "text": "You can either push that JSON data into Cloud Datastore"
+    },
+    {
+      "index": 656,
+      "start_time": 1470210.0,
+      "end_time": 1472030.0,
+      "text": "or into BigQuery."
+    },
+    {
+      "index": 657,
+      "start_time": 1472030.0,
+      "end_time": 1474320.0,
+      "text": "And I&#39;ll kind of cover the difference here."
+    },
+    {
+      "index": 658,
+      "start_time": 1474320.0,
+      "end_time": 1476450.0,
+      "text": "Cloud Datastores are a great place for this data,"
+    },
+    {
+      "index": 659,
+      "start_time": 1476450.0,
+      "end_time": 1477560.0,
+      "text": "for a variety of reasons."
+    },
+    {
+      "index": 660,
+      "start_time": 1477560.0,
+      "end_time": 1479360.0,
+      "text": "Again, JSON&#39;s really well represented."
+    },
+    {
+      "index": 661,
+      "start_time": 1479360.0,
+      "end_time": 1482019.0,
+      "text": "You can query about any possible field there."
+    },
+    {
+      "index": 662,
+      "start_time": 1482020.0,
+      "end_time": 1484311.0,
+      "text": "But the downside is, that Datastore doesn&#39;t really have"
+    },
+    {
+      "index": 663,
+      "start_time": 1484310.0,
+      "end_time": 1486470.0,
+      "text": "kind of a good user-facing UI."
+    },
+    {
+      "index": 664,
+      "start_time": 1486470.0,
+      "end_time": 1488426.0,
+      "text": "It&#39;s very much application-centric."
+    },
+    {
+      "index": 665,
+      "start_time": 1488430.0,
+      "end_time": 1490554.0,
+      "text": "So, if you want to go ahead and build a little CRED"
+    },
+    {
+      "index": 666,
+      "start_time": 1490550.0,
+      "end_time": 1494150.0,
+      "text": "API on top of this thing, Datastore can be a good fit."
+    },
+    {
+      "index": 667,
+      "start_time": 1494150.0,
+      "end_time": 1496850.0,
+      "text": "The other option is, frankly BigQuery."
+    },
+    {
+      "index": 668,
+      "start_time": 1496850.0,
+      "end_time": 1499187.0,
+      "text": "You know, same idea around Datastore and storing JSON,"
+    },
+    {
+      "index": 669,
+      "start_time": 1499190.0,
+      "end_time": 1501773.0,
+      "text": "in fact, this is an example of-- this screenshot as an example"
+    },
+    {
+      "index": 670,
+      "start_time": 1501770.0,
+      "end_time": 1503720.0,
+      "text": "of what this JSON looks like in BigQuery,"
+    },
+    {
+      "index": 671,
+      "start_time": 1503720.0,
+      "end_time": 1505864.0,
+      "text": "because it does support nested columns."
+    },
+    {
+      "index": 672,
+      "start_time": 1505860.0,
+      "end_time": 1508276.0,
+      "text": "BigQuery is great because, you&#39;ve got a UI attached to it."
+    },
+    {
+      "index": 673,
+      "start_time": 1508280.0,
+      "end_time": 1510363.0,
+      "text": "There&#39;s a console right there, so you can actually"
+    },
+    {
+      "index": 674,
+      "start_time": 1510360.0,
+      "end_time": 1511667.0,
+      "text": "run SQL queries on it."
+    },
+    {
+      "index": 675,
+      "start_time": 1511670.0,
+      "end_time": 1513935.0,
+      "text": "SQL&#39;s relatively universal across a lot of folks."
+    },
+    {
+      "index": 676,
+      "start_time": 1513940.0,
+      "end_time": 1515315.0,
+      "text": "They understand it really easily."
+    },
+    {
+      "index": 677,
+      "start_time": 1515310.0,
+      "end_time": 1518150.0,
+      "text": "So, this might make a little bit more sense."
+    },
+    {
+      "index": 678,
+      "start_time": 1518150.0,
+      "end_time": 1520820.0,
+      "text": "To be totally fair and totally honest with you guys,"
+    },
+    {
+      "index": 679,
+      "start_time": 1520820.0,
+      "end_time": 1522530.0,
+      "text": "when I typically recommend this approach,"
+    },
+    {
+      "index": 680,
+      "start_time": 1522530.0,
+      "end_time": 1524480.0,
+      "text": "I often will push people to BigQuery,"
+    },
+    {
+      "index": 681,
+      "start_time": 1524480.0,
+      "end_time": 1526402.0,
+      "text": "as a place to build this data catalog around,"
+    },
+    {
+      "index": 682,
+      "start_time": 1526400.0,
+      "end_time": 1528108.0,
+      "text": "because it just makes sense, and it plugs"
+    },
+    {
+      "index": 683,
+      "start_time": 1528110.0,
+      "end_time": 1530000.0,
+      "text": "into a lot of downstream tools."
+    },
+    {
+      "index": 684,
+      "start_time": 1530000.0,
+      "end_time": 1531740.0,
+      "text": "Datastore can make sense, but it&#39;s"
+    },
+    {
+      "index": 685,
+      "start_time": 1531740.0,
+      "end_time": 1534260.0,
+      "text": "very, very particularly dependent on how"
+    },
+    {
+      "index": 686,
+      "start_time": 1534260.0,
+      "end_time": 1535807.0,
+      "text": "the team wants to work."
+    },
+    {
+      "index": 687,
+      "start_time": 1535810.0,
+      "end_time": 1537893.0,
+      "text": "For trying to find kind of a good generic solution"
+    },
+    {
+      "index": 688,
+      "start_time": 1537890.0,
+      "end_time": 1539690.0,
+      "text": "to start with, BigQuery&#39;s a great fit."
+    },
+    {
+      "index": 689,
+      "start_time": 1542440.0,
+      "end_time": 1544480.0,
+      "text": "So, once you&#39;ve done that, you&#39;ve pushed--"
+    },
+    {
+      "index": 690,
+      "start_time": 1544480.0,
+      "end_time": 1547320.0,
+      "text": "we&#39;ve inventoried, we&#39;ve cataloged, we&#39;ve got metadata,"
+    },
+    {
+      "index": 691,
+      "start_time": 1547320.0,
+      "end_time": 1549730.0,
+      "text": "and we&#39;ve got everything living inside of BigQuery now."
+    },
+    {
+      "index": 692,
+      "start_time": 1549730.0,
+      "end_time": 1551907.0,
+      "text": "So, how does this change the workflow?"
+    },
+    {
+      "index": 693,
+      "start_time": 1551910.0,
+      "end_time": 1553993.0,
+      "text": "I&#39;m only going to pick on one, because they&#39;re all"
+    },
+    {
+      "index": 694,
+      "start_time": 1553990.0,
+      "end_time": 1556031.0,
+      "text": "going to start looking a little bit similar, if I"
+    },
+    {
+      "index": 695,
+      "start_time": 1556030.0,
+      "end_time": 1557370.0,
+      "text": "keep eating through it."
+    },
+    {
+      "index": 696,
+      "start_time": 1557370.0,
+      "end_time": 1559369.0,
+      "text": "But, let&#39;s talk about the data science workflow."
+    },
+    {
+      "index": 697,
+      "start_time": 1559370.0,
+      "end_time": 1563500.0,
+      "text": "So, for Alice, now instead of having to go talk to Bob,"
+    },
+    {
+      "index": 698,
+      "start_time": 1563500.0,
+      "end_time": 1565240.0,
+      "text": "or go talk to Ned, or go talk to Jan,"
+    },
+    {
+      "index": 699,
+      "start_time": 1565240.0,
+      "end_time": 1566823.0,
+      "text": "or talk to anybody else in the company"
+    },
+    {
+      "index": 700,
+      "start_time": 1566820.0,
+      "end_time": 1569407.0,
+      "text": "about what data is out there that she can use,"
+    },
+    {
+      "index": 701,
+      "start_time": 1569410.0,
+      "end_time": 1572290.0,
+      "text": "the first thing she can do is start to query the catalog."
+    },
+    {
+      "index": 702,
+      "start_time": 1572290.0,
+      "end_time": 1574900.0,
+      "text": "So, she can just drop into the BigQuery UI,"
+    },
+    {
+      "index": 703,
+      "start_time": 1574900.0,
+      "end_time": 1578020.0,
+      "text": "and run a simple SQL query, and explore the data sets"
+    },
+    {
+      "index": 704,
+      "start_time": 1578020.0,
+      "end_time": 1579819.0,
+      "text": "that she has access to."
+    },
+    {
+      "index": 705,
+      "start_time": 1579820.0,
+      "end_time": 1581861.0,
+      "text": "The next thing she can do, because part of what&#39;s"
+    },
+    {
+      "index": 706,
+      "start_time": 1581860.0,
+      "end_time": 1584560.0,
+      "text": "in there, one of the pieces of metadata, is what is the URL,"
+    },
+    {
+      "index": 707,
+      "start_time": 1584560.0,
+      "end_time": 1586460.0,
+      "text": "or what is the download location for this,"
+    },
+    {
+      "index": 708,
+      "start_time": 1586460.0,
+      "end_time": 1589180.0,
+      "text": "she can go ahead and pull that data into her environment."
+    },
+    {
+      "index": 709,
+      "start_time": 1589180.0,
+      "end_time": 1591040.0,
+      "text": "Again, whether she&#39;s running a Cloud Datalab"
+    },
+    {
+      "index": 710,
+      "start_time": 1591040.0,
+      "end_time": 1592870.0,
+      "text": "notebook, or a Jupyter notebook, she"
+    },
+    {
+      "index": 711,
+      "start_time": 1592870.0,
+      "end_time": 1594760.0,
+      "text": "can pull that data into her environment."
+    },
+    {
+      "index": 712,
+      "start_time": 1594760.0,
+      "end_time": 1597970.0,
+      "text": "And then, she can start to prototype a TensorFlow model,"
+    },
+    {
+      "index": 713,
+      "start_time": 1597970.0,
+      "end_time": 1598470.0,
+      "text": "for example."
+    },
+    {
+      "index": 714,
+      "start_time": 1598470.0,
+      "end_time": 1600678.0,
+      "text": "She could start building a little bit of a TensorFlow"
+    },
+    {
+      "index": 715,
+      "start_time": 1600680.0,
+      "end_time": 1602364.0,
+      "text": "model and running some early analysis"
+    },
+    {
+      "index": 716,
+      "start_time": 1602360.0,
+      "end_time": 1604568.0,
+      "text": "of measuring how well her recommendation engine might"
+    },
+    {
+      "index": 717,
+      "start_time": 1604570.0,
+      "end_time": 1605830.0,
+      "text": "be working."
+    },
+    {
+      "index": 718,
+      "start_time": 1605830.0,
+      "end_time": 1608920.0,
+      "text": "Once she does that, she might have created some new datasets."
+    },
+    {
+      "index": 719,
+      "start_time": 1608920.0,
+      "end_time": 1611350.0,
+      "text": "She might have actually taken something and said,"
+    },
+    {
+      "index": 720,
+      "start_time": 1611350.0,
+      "end_time": 1613180.0,
+      "text": "now I actually have training data and test"
+    },
+    {
+      "index": 721,
+      "start_time": 1613180.0,
+      "end_time": 1614720.0,
+      "text": "data to work against."
+    },
+    {
+      "index": 722,
+      "start_time": 1614720.0,
+      "end_time": 1616570.0,
+      "text": "So, now that she&#39;s created two new datasets,"
+    },
+    {
+      "index": 723,
+      "start_time": 1616570.0,
+      "end_time": 1619470.0,
+      "text": "the next thing she&#39;s going to do is upload those to the catalog."
+    },
+    {
+      "index": 724,
+      "start_time": 1619470.0,
+      "end_time": 1621379.0,
+      "text": "Write the metadata, push that in,"
+    },
+    {
+      "index": 725,
+      "start_time": 1621380.0,
+      "end_time": 1623921.0,
+      "text": "so now other people that might want to build this stuff later"
+    },
+    {
+      "index": 726,
+      "start_time": 1623920.0,
+      "end_time": 1626200.0,
+      "text": "on, have access to the same training and testing"
+    },
+    {
+      "index": 727,
+      "start_time": 1626200.0,
+      "end_time": 1627440.0,
+      "text": "that she used."
+    },
+    {
+      "index": 728,
+      "start_time": 1627440.0,
+      "end_time": 1631450.0,
+      "text": "So, we&#39;re starting to create this kind of lifecycle around."
+    },
+    {
+      "index": 729,
+      "start_time": 1631450.0,
+      "end_time": 1633820.0,
+      "text": "Making sure that if you create something new, make sure"
+    },
+    {
+      "index": 730,
+      "start_time": 1633820.0,
+      "end_time": 1636235.0,
+      "text": "it gets shared with everybody as quickly as possible."
+    },
+    {
+      "index": 731,
+      "start_time": 1636230.0,
+      "end_time": 1638105.0,
+      "text": "And then, she&#39;s going to continue on her work"
+    },
+    {
+      "index": 732,
+      "start_time": 1638110.0,
+      "end_time": 1639130.0,
+      "text": "like she normally does."
+    },
+    {
+      "index": 733,
+      "start_time": 1639130.0,
+      "end_time": 1640900.0,
+      "text": "She&#39;ll train her machine-learning models."
+    },
+    {
+      "index": 734,
+      "start_time": 1640900.0,
+      "end_time": 1642430.0,
+      "text": "She might push that TensorFlow model"
+    },
+    {
+      "index": 735,
+      "start_time": 1642430.0,
+      "end_time": 1643990.0,
+      "text": "to, like, the cloud ML service."
+    },
+    {
+      "index": 736,
+      "start_time": 1643990.0,
+      "end_time": 1647170.0,
+      "text": "And then, because the cloud ML service that she created"
+    },
+    {
+      "index": 737,
+      "start_time": 1647170.0,
+      "end_time": 1649810.0,
+      "text": "is actually a data kind of a resource,"
+    },
+    {
+      "index": 738,
+      "start_time": 1649810.0,
+      "end_time": 1653780.0,
+      "text": "she can actually create a catalog entry for that service."
+    },
+    {
+      "index": 739,
+      "start_time": 1653780.0,
+      "end_time": 1656470.0,
+      "text": "So, now if someone says, I want to find a recommendation"
+    },
+    {
+      "index": 740,
+      "start_time": 1656470.0,
+      "end_time": 1659137.0,
+      "text": "service within the catalog, as long as she&#39;s"
+    },
+    {
+      "index": 741,
+      "start_time": 1659140.0,
+      "end_time": 1660973.0,
+      "text": "tagged and labeled everything appropriately,"
+    },
+    {
+      "index": 742,
+      "start_time": 1660970.0,
+      "end_time": 1664370.0,
+      "text": "they could find the URL for that service immediately."
+    },
+    {
+      "index": 743,
+      "start_time": 1664370.0,
+      "end_time": 1666137.0,
+      "text": "And this is a bit of a simplification,"
+    },
+    {
+      "index": 744,
+      "start_time": 1666140.0,
+      "end_time": 1667973.0,
+      "text": "or oversimplification, of the amount of work"
+    },
+    {
+      "index": 745,
+      "start_time": 1667970.0,
+      "end_time": 1669320.0,
+      "text": "it takes to do all this."
+    },
+    {
+      "index": 746,
+      "start_time": 1669320.0,
+      "end_time": 1672150.0,
+      "text": "But, if you start to extrapolate these steps out,"
+    },
+    {
+      "index": 747,
+      "start_time": 1672150.0,
+      "end_time": 1674720.0,
+      "text": "she&#39;s been able to work at her own pace"
+    },
+    {
+      "index": 748,
+      "start_time": 1674720.0,
+      "end_time": 1677690.0,
+      "text": "without having to worry about trying to find who owns what,"
+    },
+    {
+      "index": 749,
+      "start_time": 1677690.0,
+      "end_time": 1680930.0,
+      "text": "who has access to what she has access to, because we&#39;ve"
+    },
+    {
+      "index": 750,
+      "start_time": 1680930.0,
+      "end_time": 1682000.0,
+      "text": "built this data catalog."
+    },
+    {
+      "index": 751,
+      "start_time": 1682000.0,
+      "end_time": 1686180.0,
+      "text": "We&#39;ve built this approach to metadata."
+    },
+    {
+      "index": 752,
+      "start_time": 1686180.0,
+      "end_time": 1688880.0,
+      "text": "Over time, we&#39;re kind of getting to this point where"
+    },
+    {
+      "index": 753,
+      "start_time": 1688880.0,
+      "end_time": 1691280.0,
+      "text": "we can start building again toward self-service."
+    },
+    {
+      "index": 754,
+      "start_time": 1691280.0,
+      "end_time": 1694160.0,
+      "text": "So, just like we have a SQL-- a great SQL interface"
+    },
+    {
+      "index": 755,
+      "start_time": 1694160.0,
+      "end_time": 1696440.0,
+      "text": "for querying that data catalog, you"
+    },
+    {
+      "index": 756,
+      "start_time": 1696440.0,
+      "end_time": 1699450.0,
+      "text": "might want to continue down the self-service path and say,"
+    },
+    {
+      "index": 757,
+      "start_time": 1699450.0,
+      "end_time": 1701450.0,
+      "text": "can we make these things even more discoverable?"
+    },
+    {
+      "index": 758,
+      "start_time": 1701450.0,
+      "end_time": 1703730.0,
+      "text": "Can we put like a CRED API on top of this?"
+    },
+    {
+      "index": 759,
+      "start_time": 1703730.0,
+      "end_time": 1707860.0,
+      "text": "So, one option is to take a small application or small CRED"
+    },
+    {
+      "index": 760,
+      "start_time": 1707860.0,
+      "end_time": 1711140.0,
+      "text": "API that sits in front of this BigQuery metadata catalog"
+    },
+    {
+      "index": 761,
+      "start_time": 1711140.0,
+      "end_time": 1713240.0,
+      "text": "and deploy that in, like, Compute Engine, or App"
+    },
+    {
+      "index": 762,
+      "start_time": 1713240.0,
+      "end_time": 1715030.0,
+      "text": "Engine, or Container Engine, and front"
+    },
+    {
+      "index": 763,
+      "start_time": 1715030.0,
+      "end_time": 1716927.0,
+      "text": "it with, like, cloud endpoints."
+    },
+    {
+      "index": 764,
+      "start_time": 1716930.0,
+      "end_time": 1718513.0,
+      "text": "The reason you might go down this road"
+    },
+    {
+      "index": 765,
+      "start_time": 1718510.0,
+      "end_time": 1721390.0,
+      "text": "is particularly around good API management,"
+    },
+    {
+      "index": 766,
+      "start_time": 1721390.0,
+      "end_time": 1724750.0,
+      "text": "and building-- again, consistent and clear access."
+    },
+    {
+      "index": 767,
+      "start_time": 1724750.0,
+      "end_time": 1727510.0,
+      "text": "Because the best way you can enable sort of self-service"
+    },
+    {
+      "index": 768,
+      "start_time": 1727510.0,
+      "end_time": 1729760.0,
+      "text": "is, obviously, giving everybody access to it,"
+    },
+    {
+      "index": 769,
+      "start_time": 1729760.0,
+      "end_time": 1731300.0,
+      "text": "but also giving everybody access to"
+    },
+    {
+      "index": 770,
+      "start_time": 1731300.0,
+      "end_time": 1734050.0,
+      "text": "in a way that is most beneficial to them."
+    },
+    {
+      "index": 771,
+      "start_time": 1734050.0,
+      "end_time": 1736510.0,
+      "text": "So, if you&#39;ve got a lot of folks who are very API-driven,"
+    },
+    {
+      "index": 772,
+      "start_time": 1736510.0,
+      "end_time": 1738051.0,
+      "text": "or want to build new applications all"
+    },
+    {
+      "index": 773,
+      "start_time": 1738050.0,
+      "end_time": 1740799.0,
+      "text": "the time, having an API endpoint that they can"
+    },
+    {
+      "index": 774,
+      "start_time": 1740800.0,
+      "end_time": 1743080.0,
+      "text": "hit to learn more about the data catalog"
+    },
+    {
+      "index": 775,
+      "start_time": 1743080.0,
+      "end_time": 1747089.0,
+      "text": "is very, very beneficial."
+    },
+    {
+      "index": 776,
+      "start_time": 1747090.0,
+      "end_time": 1748631.0,
+      "text": "And over time, you can actually start"
+    },
+    {
+      "index": 777,
+      "start_time": 1748630.0,
+      "end_time": 1750340.0,
+      "text": "to extrapolate this step even further,"
+    },
+    {
+      "index": 778,
+      "start_time": 1750340.0,
+      "end_time": 1753430.0,
+      "text": "and start fronting all of the data sources you&#39;ve got."
+    },
+    {
+      "index": 779,
+      "start_time": 1753430.0,
+      "end_time": 1756564.0,
+      "text": "So, not only do you have a CRED API in front of the catalog,"
+    },
+    {
+      "index": 780,
+      "start_time": 1756560.0,
+      "end_time": 1758226.0,
+      "text": "but you might actually have one in front"
+    },
+    {
+      "index": 781,
+      "start_time": 1758230.0,
+      "end_time": 1760210.0,
+      "text": "of every single dataset."
+    },
+    {
+      "index": 782,
+      "start_time": 1760210.0,
+      "end_time": 1763060.0,
+      "text": "So now, again, you&#39;re enabling this further, you know,"
+    },
+    {
+      "index": 783,
+      "start_time": 1763060.0,
+      "end_time": 1765140.0,
+      "text": "deeper level of access to data."
+    },
+    {
+      "index": 784,
+      "start_time": 1765140.0,
+      "end_time": 1766900.0,
+      "text": "And this might be a little bit overkill"
+    },
+    {
+      "index": 785,
+      "start_time": 1766900.0,
+      "end_time": 1768820.0,
+      "text": "for the team of four people, but imagine"
+    },
+    {
+      "index": 786,
+      "start_time": 1768820.0,
+      "end_time": 1772120.0,
+      "text": "if that was a team of 400 or 500 people."
+    },
+    {
+      "index": 787,
+      "start_time": 1772120.0,
+      "end_time": 1774220.0,
+      "text": "As you think about this kind of approach"
+    },
+    {
+      "index": 788,
+      "start_time": 1774220.0,
+      "end_time": 1777370.0,
+      "text": "permeating the entire organization,"
+    },
+    {
+      "index": 789,
+      "start_time": 1777370.0,
+      "end_time": 1779130.0,
+      "text": "everyone wants to have access, and you&#39;ve"
+    },
+    {
+      "index": 790,
+      "start_time": 1779130.0,
+      "end_time": 1781480.0,
+      "text": "got to start building these things for scale over time."
+    },
+    {
+      "index": 791,
+      "start_time": 1781480.0,
+      "end_time": 1784780.0,
+      "text": "So, picking the right tools up front lets you adopt that,"
+    },
+    {
+      "index": 792,
+      "start_time": 1784780.0,
+      "end_time": 1787390.0,
+      "text": "and again, lets new teams pick this approach up, as well."
+    },
+    {
+      "index": 793,
+      "start_time": 1790820.0,
+      "end_time": 1792710.0,
+      "text": "Before we finish this, I do want to talk"
+    },
+    {
+      "index": 794,
+      "start_time": 1792710.0,
+      "end_time": 1795680.0,
+      "text": "a little bit about security, early security and identity,"
+    },
+    {
+      "index": 795,
+      "start_time": 1795680.0,
+      "end_time": 1798010.0,
+      "text": "in kind of a broad sense."
+    },
+    {
+      "index": 796,
+      "start_time": 1798010.0,
+      "end_time": 1800360.0,
+      "text": "We&#39;ve got a great set of identity and access management"
+    },
+    {
+      "index": 797,
+      "start_time": 1800360.0,
+      "end_time": 1802520.0,
+      "text": "tools called Cloud IAM."
+    },
+    {
+      "index": 798,
+      "start_time": 1802520.0,
+      "end_time": 1803990.0,
+      "text": "There&#39;s a ton of sessions about it"
+    },
+    {
+      "index": 799,
+      "start_time": 1803990.0,
+      "end_time": 1805050.0,
+      "text": "throughout the next couple of days,"
+    },
+    {
+      "index": 800,
+      "start_time": 1805050.0,
+      "end_time": 1807380.0,
+      "text": "so I urge you guys, if you&#39;re interested to go dig into it."
+    },
+    {
+      "index": 801,
+      "start_time": 1807380.0,
+      "end_time": 1809046.0,
+      "text": "What I really want to cover here though,"
+    },
+    {
+      "index": 802,
+      "start_time": 1809050.0,
+      "end_time": 1812031.0,
+      "text": "is this idea that there&#39;s policy inheritance that"
+    },
+    {
+      "index": 803,
+      "start_time": 1812030.0,
+      "end_time": 1813863.0,
+      "text": "goes from the top all the way to the bottom."
+    },
+    {
+      "index": 804,
+      "start_time": 1813860.0,
+      "end_time": 1817400.0,
+      "text": "That means, at any level, if you set a policy on data access"
+    },
+    {
+      "index": 805,
+      "start_time": 1817400.0,
+      "end_time": 1819716.0,
+      "text": "or control, it does filter all the way down."
+    },
+    {
+      "index": 806,
+      "start_time": 1819720.0,
+      "end_time": 1821094.0,
+      "text": "So, if you&#39;ve got an organization"
+    },
+    {
+      "index": 807,
+      "start_time": 1821090.0,
+      "end_time": 1823040.0,
+      "text": "or a single project that&#39;s kind of the host"
+    },
+    {
+      "index": 808,
+      "start_time": 1823040.0,
+      "end_time": 1826490.0,
+      "text": "project in your project account with GCP,"
+    },
+    {
+      "index": 809,
+      "start_time": 1826490.0,
+      "end_time": 1828650.0,
+      "text": "and you&#39;ve got individual projects for maybe dev"
+    },
+    {
+      "index": 810,
+      "start_time": 1828650.0,
+      "end_time": 1832640.0,
+      "text": "staging, Q&amp;A, that sort of thing, or production,"
+    },
+    {
+      "index": 811,
+      "start_time": 1832640.0,
+      "end_time": 1834380.0,
+      "text": "and then you have individual resources"
+    },
+    {
+      "index": 812,
+      "start_time": 1834380.0,
+      "end_time": 1836210.0,
+      "text": "underneath those projects, you can actually"
+    },
+    {
+      "index": 813,
+      "start_time": 1836210.0,
+      "end_time": 1838610.0,
+      "text": "control who has access to what, as long as you&#39;ve set"
+    },
+    {
+      "index": 814,
+      "start_time": 1838610.0,
+      "end_time": 1839902.0,
+      "text": "your organization up correctly."
+    },
+    {
+      "index": 815,
+      "start_time": 1839900.0,
+      "end_time": 1841316.0,
+      "text": "I&#39;m not going to go too deep here,"
+    },
+    {
+      "index": 816,
+      "start_time": 1841320.0,
+      "end_time": 1843142.0,
+      "text": "but, basically, the idea is to walk away"
+    },
+    {
+      "index": 817,
+      "start_time": 1843140.0,
+      "end_time": 1846552.0,
+      "text": "with is, we have the ability to control who can see what,"
+    },
+    {
+      "index": 818,
+      "start_time": 1846550.0,
+      "end_time": 1848508.0,
+      "text": "and who can pull things down, and that&#39;s really"
+    },
+    {
+      "index": 819,
+      "start_time": 1848510.0,
+      "end_time": 1851210.0,
+      "text": "what you want to control."
+    },
+    {
+      "index": 820,
+      "start_time": 1851210.0,
+      "end_time": 1853580.0,
+      "text": "And, for example, if you dig into BigQuery a little bit,"
+    },
+    {
+      "index": 821,
+      "start_time": 1853580.0,
+      "end_time": 1856220.0,
+      "text": "you&#39;ve got a handful of roles and different responsibilities,"
+    },
+    {
+      "index": 822,
+      "start_time": 1856220.0,
+      "end_time": 1857660.0,
+      "text": "or different access controls that they&#39;ve"
+    },
+    {
+      "index": 823,
+      "start_time": 1857660.0,
+      "end_time": 1858680.0,
+      "text": "got based on that stuff."
+    },
+    {
+      "index": 824,
+      "start_time": 1864780.0,
+      "end_time": 1866364.0,
+      "text": "So, as you look at what kind of what--"
+    },
+    {
+      "index": 825,
+      "start_time": 1866360.0,
+      "end_time": 1868026.0,
+      "text": "if you look at and think about what it&#39;s"
+    },
+    {
+      "index": 826,
+      "start_time": 1868030.0,
+      "end_time": 1869940.0,
+      "text": "going to take to build for the future,"
+    },
+    {
+      "index": 827,
+      "start_time": 1869940.0,
+      "end_time": 1873060.0,
+      "text": "I put the site up again, because it&#39;s really important, if you"
+    },
+    {
+      "index": 828,
+      "start_time": 1873060.0,
+      "end_time": 1875400.0,
+      "text": "do nothing else, if you build nothing else,"
+    },
+    {
+      "index": 829,
+      "start_time": 1875400.0,
+      "end_time": 1876930.0,
+      "text": "you have to get agreement."
+    },
+    {
+      "index": 830,
+      "start_time": 1876930.0,
+      "end_time": 1878490.0,
+      "text": "That&#39;s the most important thing."
+    },
+    {
+      "index": 831,
+      "start_time": 1878490.0,
+      "end_time": 1880620.0,
+      "text": "If you can&#39;t adopt this idea that we"
+    },
+    {
+      "index": 832,
+      "start_time": 1880620.0,
+      "end_time": 1883740.0,
+      "text": "have to have consistency around data sources, data"
+    },
+    {
+      "index": 833,
+      "start_time": 1883740.0,
+      "end_time": 1885330.0,
+      "text": "workloads, and then the tools we&#39;re"
+    },
+    {
+      "index": 834,
+      "start_time": 1885330.0,
+      "end_time": 1887070.0,
+      "text": "going to use to work with that data,"
+    },
+    {
+      "index": 835,
+      "start_time": 1887070.0,
+      "end_time": 1889380.0,
+      "text": "this is going to be a long road."
+    },
+    {
+      "index": 836,
+      "start_time": 1889380.0,
+      "end_time": 1892040.0,
+      "text": "As much as I talk about the products and the blue hexagons"
+    },
+    {
+      "index": 837,
+      "start_time": 1892040.0,
+      "end_time": 1894660.0,
+      "text": "and stuff, a lot of this is a cultural shift"
+    },
+    {
+      "index": 838,
+      "start_time": 1894660.0,
+      "end_time": 1895667.0,
+      "text": "in an organization."
+    },
+    {
+      "index": 839,
+      "start_time": 1895670.0,
+      "end_time": 1897003.0,
+      "text": "It&#39;s kind of a lifestyle change."
+    },
+    {
+      "index": 840,
+      "start_time": 1897000.0,
+      "end_time": 1898890.0,
+      "text": "You have to get everybody on the same page."
+    },
+    {
+      "index": 841,
+      "start_time": 1898890.0,
+      "end_time": 1901560.0,
+      "text": "And part of doing that is saying, can we add consistency?"
+    },
+    {
+      "index": 842,
+      "start_time": 1901560.0,
+      "end_time": 1904050.0,
+      "text": "Or can we make this a consistent view of the world"
+    },
+    {
+      "index": 843,
+      "start_time": 1904050.0,
+      "end_time": 1905400.0,
+      "text": "that we can all agree upon?"
+    },
+    {
+      "index": 844,
+      "start_time": 1905400.0,
+      "end_time": 1907980.0,
+      "text": "And this might be a small subset of what you end up with."
+    },
+    {
+      "index": 845,
+      "start_time": 1907980.0,
+      "end_time": 1910890.0,
+      "text": "It could be a much, much larger picture with a lot more pieces"
+    },
+    {
+      "index": 846,
+      "start_time": 1910890.0,
+      "end_time": 1913830.0,
+      "text": "to it, but it&#39;s important that everybody agrees, again,"
+    },
+    {
+      "index": 847,
+      "start_time": 1913830.0,
+      "end_time": 1916310.0,
+      "text": "what the data is going to look like coming in,"
+    },
+    {
+      "index": 848,
+      "start_time": 1916310.0,
+      "end_time": 1918330.0,
+      "text": "what it&#39;s going to get use for on the way out,"
+    },
+    {
+      "index": 849,
+      "start_time": 1918330.0,
+      "end_time": 1919955.0,
+      "text": "and where it&#39;s going to live while it&#39;s"
+    },
+    {
+      "index": 850,
+      "start_time": 1919950.0,
+      "end_time": 1923255.0,
+      "text": "sitting in your infrastructure."
+    },
+    {
+      "index": 851,
+      "start_time": 1923260.0,
+      "end_time": 1924106.0,
+      "text": "As you think about--"
+    },
+    {
+      "index": 852,
+      "start_time": 1924110.0,
+      "end_time": 1926234.0,
+      "text": "as you kind of get through that consistency piece--"
+    },
+    {
+      "index": 853,
+      "start_time": 1926230.0,
+      "end_time": 1927789.0,
+      "text": "and, you know, that&#39;s a tough road,"
+    },
+    {
+      "index": 854,
+      "start_time": 1927790.0,
+      "end_time": 1929831.0,
+      "text": "but once you get through that, then the next step"
+    },
+    {
+      "index": 855,
+      "start_time": 1929830.0,
+      "end_time": 1932320.0,
+      "text": "is really getting around to some building the catalog."
+    },
+    {
+      "index": 856,
+      "start_time": 1932320.0,
+      "end_time": 1934240.0,
+      "text": "Can you catalog all the data sets?"
+    },
+    {
+      "index": 857,
+      "start_time": 1934240.0,
+      "end_time": 1937210.0,
+      "text": "Do you know exactly what lives throughout the organization?"
+    },
+    {
+      "index": 858,
+      "start_time": 1937210.0,
+      "end_time": 1939557.0,
+      "text": "Can you get everyone to kind of pony up"
+    },
+    {
+      "index": 859,
+      "start_time": 1939560.0,
+      "end_time": 1941893.0,
+      "text": "and say, all you have to do is write this little snippet"
+    },
+    {
+      "index": 860,
+      "start_time": 1941890.0,
+      "end_time": 1944110.0,
+      "text": "of JSON, and we&#39;ll be able to leave you alone"
+    },
+    {
+      "index": 861,
+      "start_time": 1944110.0,
+      "end_time": 1945460.0,
+      "text": "for the next few days."
+    },
+    {
+      "index": 862,
+      "start_time": 1945460.0,
+      "end_time": 1948100.0,
+      "text": "If you can build the catalog, that&#39;s a great first step."
+    },
+    {
+      "index": 863,
+      "start_time": 1948100.0,
+      "end_time": 1949030.0,
+      "text": "Then the next thing you want to do, is"
+    },
+    {
+      "index": 864,
+      "start_time": 1949030.0,
+      "end_time": 1951113.0,
+      "text": "make sure your teams have access to the tools they"
+    },
+    {
+      "index": 865,
+      "start_time": 1951110.0,
+      "end_time": 1953167.0,
+      "text": "need to do this work."
+    },
+    {
+      "index": 866,
+      "start_time": 1953170.0,
+      "end_time": 1955270.0,
+      "text": "And this is not just the tools that are in GCP,"
+    },
+    {
+      "index": 867,
+      "start_time": 1955270.0,
+      "end_time": 1957700.0,
+      "text": "but it&#39;s also, like, the API access, or the SQL"
+    },
+    {
+      "index": 868,
+      "start_time": 1957700.0,
+      "end_time": 1958897.0,
+      "text": "access to the datasets."
+    },
+    {
+      "index": 869,
+      "start_time": 1958900.0,
+      "end_time": 1959983.0,
+      "text": "Can they get those things?"
+    },
+    {
+      "index": 870,
+      "start_time": 1959980.0,
+      "end_time": 1963070.0,
+      "text": "Have you set up identity and understanding security"
+    },
+    {
+      "index": 871,
+      "start_time": 1963070.0,
+      "end_time": 1965036.0,
+      "text": "correctly, so that everybody has access?"
+    },
+    {
+      "index": 872,
+      "start_time": 1965040.0,
+      "end_time": 1966914.0,
+      "text": "Because what you want people to be able to do"
+    },
+    {
+      "index": 873,
+      "start_time": 1966910.0,
+      "end_time": 1969370.0,
+      "text": "is work on their own, without having to go"
+    },
+    {
+      "index": 874,
+      "start_time": 1969370.0,
+      "end_time": 1970522.0,
+      "text": "bother anyone else."
+    },
+    {
+      "index": 875,
+      "start_time": 1970520.0,
+      "end_time": 1971978.0,
+      "text": "If they can do everything they need"
+    },
+    {
+      "index": 876,
+      "start_time": 1971980.0,
+      "end_time": 1974140.0,
+      "text": "to do without interacting with somebody else,"
+    },
+    {
+      "index": 877,
+      "start_time": 1974140.0,
+      "end_time": 1976710.0,
+      "text": "then when they do interact, and they go have lunch together,"
+    },
+    {
+      "index": 878,
+      "start_time": 1976710.0,
+      "end_time": 1978670.0,
+      "text": "it&#39;s a lot friendlier conversation, as"
+    },
+    {
+      "index": 879,
+      "start_time": 1978670.0,
+      "end_time": 1981040.0,
+      "text": "opposed to arguing about who has access to data."
+    },
+    {
+      "index": 880,
+      "start_time": 1981040.0,
+      "end_time": 1984090.0,
+      "text": "[MUSIC PLAYING]"
+    }
+  ]
+}

@@ -1,0 +1,936 @@
+{
+  "video_id": "k7RM-ot2NWY",
+  "title": "Linear combinations, span, and basis vectors | Essence of linear algebra, chapter 2",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 12330.0,
+      "end_time": 15910.0,
+      "text": "In the last video, along with the ideas of\nvector addition and scalar multiplication,"
+    },
+    {
+      "index": 2,
+      "start_time": 15910.0,
+      "end_time": 17770.0,
+      "text": "I described vector coordinates,"
+    },
+    {
+      "index": 3,
+      "start_time": 17770.0,
+      "end_time": 23240.0,
+      "text": "where's this back and forth between, for example,\npairs of numbers and two-dimensional vectors."
+    },
+    {
+      "index": 4,
+      "start_time": 23240.0,
+      "end_time": 27500.0,
+      "text": "Now, I imagine that vector coordinates were\nalready familiar to a lot of you,"
+    },
+    {
+      "index": 5,
+      "start_time": 27500.0,
+      "end_time": 30520.0,
+      "text": "but there's another kind of interesting way\nto think about these coordinates,"
+    },
+    {
+      "index": 6,
+      "start_time": 30520.0,
+      "end_time": 32950.0,
+      "text": "which is pretty central to linear algebra."
+    },
+    {
+      "index": 7,
+      "start_time": 32950.0,
+      "end_time": 37080.0,
+      "text": "When you have a pair of numbers that's meant\nto describe a vector, like [3, -2],"
+    },
+    {
+      "index": 8,
+      "start_time": 37080.0,
+      "end_time": 40770.0,
+      "text": "I want you to think about each coordinate\nas a scalar,"
+    },
+    {
+      "index": 9,
+      "start_time": 40770.0,
+      "end_time": 44690.0,
+      "text": "meaning, think about how each one stretches\nor squishes vectors,"
+    },
+    {
+      "index": 10,
+      "start_time": 44690.0,
+      "end_time": 48979.0,
+      "text": "In the xy-coordinate system, there are two\nvery special vectors:"
+    },
+    {
+      "index": 11,
+      "start_time": 48979.0,
+      "end_time": 53730.0,
+      "text": "the one pointing to the right with length\n1, commonly called \"i-hat\", or the unit vector"
+    },
+    {
+      "index": 12,
+      "start_time": 53730.0,
+      "end_time": 55299.0,
+      "text": "in the x-direction,"
+    },
+    {
+      "index": 13,
+      "start_time": 55299.0,
+      "end_time": 59280.0,
+      "text": "and the one pointing straight up, with length\n1, commonly called \"j-hat\","
+    },
+    {
+      "index": 14,
+      "start_time": 59280.0,
+      "end_time": 60820.0,
+      "text": "or the unit vector in the y-direction."
+    },
+    {
+      "index": 15,
+      "start_time": 60820.0,
+      "end_time": 67350.0,
+      "text": "Now, think of the x-coordinate of our vector\nas a scalar that scales i-hat, stretching"
+    },
+    {
+      "index": 16,
+      "start_time": 67350.0,
+      "end_time": 69080.0,
+      "text": "it by a factor of 3,"
+    },
+    {
+      "index": 17,
+      "start_time": 69080.0,
+      "end_time": 73390.0,
+      "text": "and the y-coordinate as a scalar that scales\nj-hat, flipping it and stretching it by a"
+    },
+    {
+      "index": 18,
+      "start_time": 73390.0,
+      "end_time": 74970.0,
+      "text": "factor of 2."
+    },
+    {
+      "index": 19,
+      "start_time": 74970.0,
+      "end_time": 81140.0,
+      "text": "In this sense, the vectors that these coordinates\ndescribe is the sum of two scaled vectors."
+    },
+    {
+      "index": 20,
+      "start_time": 81140.0,
+      "end_time": 87460.0,
+      "text": "That's a surprisingly important concept, this\nidea of adding together two scaled vectors."
+    },
+    {
+      "index": 21,
+      "start_time": 87460.0,
+      "end_time": 90840.0,
+      "text": "Those two vectors, i-hat and j-hat, have a\nspecial name, by the way."
+    },
+    {
+      "index": 22,
+      "start_time": 90840.0,
+      "end_time": 94170.0,
+      "text": "Together, they're called the basis of a coordinate\nsystem"
+    },
+    {
+      "index": 23,
+      "start_time": 94170.0,
+      "end_time": 98170.0,
+      "text": "What this means, basically, is that when you\nthink about coordinates as scalars,"
+    },
+    {
+      "index": 24,
+      "start_time": 98170.0,
+      "end_time": 102499.0,
+      "text": "the basis vectors are what those scalars actually,\nyou know, scale."
+    },
+    {
+      "index": 25,
+      "start_time": 102499.0,
+      "end_time": 107640.0,
+      "text": "There's also a more technical definition,\nbut I'll get to that later."
+    },
+    {
+      "index": 26,
+      "start_time": 107640.0,
+      "end_time": 111810.0,
+      "text": "By framing our coordinate system in terms\nof these two special basis vectors,"
+    },
+    {
+      "index": 27,
+      "start_time": 111810.0,
+      "end_time": 114480.0,
+      "text": "it raises a pretty interesting, and subtle,\npoint:"
+    },
+    {
+      "index": 28,
+      "start_time": 114480.0,
+      "end_time": 120060.0,
+      "text": "We could've chosen different basis vectors,\nand gotten a completely reasonable, new coordinate"
+    },
+    {
+      "index": 29,
+      "start_time": 120060.0,
+      "end_time": 121140.0,
+      "text": "system."
+    },
+    {
+      "index": 30,
+      "start_time": 121140.0,
+      "end_time": 124570.0,
+      "text": "For example, take some vector pointing up\nand to the right, along with"
+    },
+    {
+      "index": 31,
+      "start_time": 124570.0,
+      "end_time": 127150.0,
+      "text": "some other vector pointing down and to the\nright, in some way."
+    },
+    {
+      "index": 32,
+      "start_time": 127150.0,
+      "end_time": 133030.0,
+      "text": "Take a moment to think about all the different\nvectors that you can get by choosing two scalars,"
+    },
+    {
+      "index": 33,
+      "start_time": 133030.0,
+      "end_time": 138010.0,
+      "text": "using each one to scale one of the vectors,\nthen adding together what you get."
+    },
+    {
+      "index": 34,
+      "start_time": 138010.0,
+      "end_time": 144770.0,
+      "text": "Which two-dimensional vectors can you reach\nby altering the choices of scalars?"
+    },
+    {
+      "index": 35,
+      "start_time": 144770.0,
+      "end_time": 148620.0,
+      "text": "The answer is that you can reach every possible\ntwo-dimensional vector,"
+    },
+    {
+      "index": 36,
+      "start_time": 148620.0,
+      "end_time": 151380.0,
+      "text": "and I think it's a good puzzle to contemplate\nwhy."
+    },
+    {
+      "index": 37,
+      "start_time": 151380.0,
+      "end_time": 156690.0,
+      "text": "A new pair of basis vectors like this still\ngives us a valid way to go back and forth"
+    },
+    {
+      "index": 38,
+      "start_time": 156690.0,
+      "end_time": 157690.0,
+      "text": "between"
+    },
+    {
+      "index": 39,
+      "start_time": 157690.0,
+      "end_time": 159970.0,
+      "text": "pairs of numbers and two-dimensional vectors,"
+    },
+    {
+      "index": 40,
+      "start_time": 159970.0,
+      "end_time": 162910.0,
+      "text": "but the association is definitely different\nfrom the one that you get"
+    },
+    {
+      "index": 41,
+      "start_time": 162910.0,
+      "end_time": 166690.0,
+      "text": "using the more standard basis of i-hat and\nj-hat."
+    },
+    {
+      "index": 42,
+      "start_time": 166690.0,
+      "end_time": 170670.0,
+      "text": "This is something I'll go into much more detail\non later, describing the exact relationship"
+    },
+    {
+      "index": 43,
+      "start_time": 170670.0,
+      "end_time": 171670.0,
+      "text": "between"
+    },
+    {
+      "index": 44,
+      "start_time": 171670.0,
+      "end_time": 175200.0,
+      "text": "different coordinate systems, but for right\nnow, I just want you to appreciate the fact"
+    },
+    {
+      "index": 45,
+      "start_time": 175200.0,
+      "end_time": 176200.0,
+      "text": "that"
+    },
+    {
+      "index": 46,
+      "start_time": 176200.0,
+      "end_time": 180450.0,
+      "text": "any time we describe vectors numerically,\nit depends on an implicit choice of what basis"
+    },
+    {
+      "index": 47,
+      "start_time": 180450.0,
+      "end_time": 182410.0,
+      "text": "vectors we're using."
+    },
+    {
+      "index": 48,
+      "start_time": 182410.0,
+      "end_time": 185870.0,
+      "text": "So any time that you're scaling two vectors\nand adding them like this,"
+    },
+    {
+      "index": 49,
+      "start_time": 185870.0,
+      "end_time": 189400.0,
+      "text": "it's called a linear combination of those\ntwo vectors."
+    },
+    {
+      "index": 50,
+      "start_time": 189400.0,
+      "end_time": 192870.0,
+      "text": "Where does this word \"linear\" come from?"
+    },
+    {
+      "index": 51,
+      "start_time": 192870.0,
+      "end_time": 194530.0,
+      "text": "Why does this have anything to do with lines?"
+    },
+    {
+      "index": 52,
+      "start_time": 194530.0,
+      "end_time": 198260.0,
+      "text": "Well, this isn't the etymology, but one way\nI like to think about it is that"
+    },
+    {
+      "index": 53,
+      "start_time": 198260.0,
+      "end_time": 202459.0,
+      "text": "if you fix one of those scalars, and let the\nother one change its value freely,"
+    },
+    {
+      "index": 54,
+      "start_time": 202459.0,
+      "end_time": 207370.0,
+      "text": "the tip of the resulting vector draws a straight\nline."
+    },
+    {
+      "index": 55,
+      "start_time": 207370.0,
+      "end_time": 213450.0,
+      "text": "Now, if you let both scalars range freely,\nand consider every possible vector that you"
+    },
+    {
+      "index": 56,
+      "start_time": 213450.0,
+      "end_time": 214450.0,
+      "text": "can get,"
+    },
+    {
+      "index": 57,
+      "start_time": 214450.0,
+      "end_time": 216510.0,
+      "text": "there are two things that can happen:"
+    },
+    {
+      "index": 58,
+      "start_time": 216510.0,
+      "end_time": 220510.0,
+      "text": "For most pairs of vectors, you'll be able\nto reach every possible point in the plane;"
+    },
+    {
+      "index": 59,
+      "start_time": 220510.0,
+      "end_time": 223319.0,
+      "text": "every two-dimensional vector is within your\ngrasp."
+    },
+    {
+      "index": 60,
+      "start_time": 223319.0,
+      "end_time": 227540.0,
+      "text": "However, in the unlucky case where your two\noriginal vectors happen to line up,"
+    },
+    {
+      "index": 61,
+      "start_time": 227540.0,
+      "end_time": 231900.0,
+      "text": "the tip of the resulting vector is limited\nto just this single line passing through the"
+    },
+    {
+      "index": 62,
+      "start_time": 231900.0,
+      "end_time": 233250.0,
+      "text": "origin."
+    },
+    {
+      "index": 63,
+      "start_time": 233250.0,
+      "end_time": 236440.0,
+      "text": "Actually, technically there's a third possibility\ntoo:"
+    },
+    {
+      "index": 64,
+      "start_time": 236440.0,
+      "end_time": 241380.0,
+      "text": "both your vectors could be zero, in which\ncase you'd just be stuck at the origin."
+    },
+    {
+      "index": 65,
+      "start_time": 241380.0,
+      "end_time": 242980.0,
+      "text": "Here's some more terminology:"
+    },
+    {
+      "index": 66,
+      "start_time": 242980.0,
+      "end_time": 247209.0,
+      "text": "The set of all possible vectors that you can\nreach with a linear combination of a given"
+    },
+    {
+      "index": 67,
+      "start_time": 247209.0,
+      "end_time": 248410.0,
+      "text": "pair of vectors"
+    },
+    {
+      "index": 68,
+      "start_time": 248410.0,
+      "end_time": 252680.0,
+      "text": "is called the span of those two vectors."
+    },
+    {
+      "index": 69,
+      "start_time": 252680.0,
+      "end_time": 257050.0,
+      "text": "So, restating what we just saw in this lingo,"
+    },
+    {
+      "index": 70,
+      "start_time": 257050.0,
+      "end_time": 261289.0,
+      "text": "the span of most pairs of 2-D vectors is all\nvectors of 2-D space,"
+    },
+    {
+      "index": 71,
+      "start_time": 261289.0,
+      "end_time": 267190.0,
+      "text": "but when they line up, their span is all vectors\nwhose tip sits on a certain line."
+    },
+    {
+      "index": 72,
+      "start_time": 267190.0,
+      "end_time": 271759.0,
+      "text": "Remember how I said that linear algebra revolves\naround vector addition and scalar multiplication?"
+    },
+    {
+      "index": 73,
+      "start_time": 271759.0,
+      "end_time": 275490.0,
+      "text": "Well, the span of two vectors is basically\na way of asking,"
+    },
+    {
+      "index": 74,
+      "start_time": 275490.0,
+      "end_time": 281009.0,
+      "text": "\"What are all the possible vectors you can\nreach using only these two fundamental operations,"
+    },
+    {
+      "index": 75,
+      "start_time": 281009.0,
+      "end_time": 283669.0,
+      "text": "vector addition and scalar multiplication?\""
+    },
+    {
+      "index": 76,
+      "start_time": 283669.0,
+      "end_time": 287949.0,
+      "text": "This is a good time to talk about how people\ncommonly think about vectors as points."
+    },
+    {
+      "index": 77,
+      "start_time": 287949.0,
+      "end_time": 292340.0,
+      "text": "It gets really crowded to think about a whole\ncollection of vectors sitting on a line,"
+    },
+    {
+      "index": 78,
+      "start_time": 292340.0,
+      "end_time": 295900.0,
+      "text": "and more crowded still to think about all\ntwo-dimensional vectors all at once, filling"
+    },
+    {
+      "index": 79,
+      "start_time": 295900.0,
+      "end_time": 297169.0,
+      "text": "up the plane."
+    },
+    {
+      "index": 80,
+      "start_time": 297169.0,
+      "end_time": 300080.0,
+      "text": "So when dealing with collections of vectors\nlike this,"
+    },
+    {
+      "index": 81,
+      "start_time": 300080.0,
+      "end_time": 303840.0,
+      "text": "it's common to represent each one with just\na point in space."
+    },
+    {
+      "index": 82,
+      "start_time": 303840.0,
+      "end_time": 308080.0,
+      "text": "The point at the tip of that vector, where,\nas usual, I want you thinking about that vector"
+    },
+    {
+      "index": 83,
+      "start_time": 308080.0,
+      "end_time": 310749.0,
+      "text": "with its tail on the origin."
+    },
+    {
+      "index": 84,
+      "start_time": 310749.0,
+      "end_time": 314869.0,
+      "text": "That way, if you want to think about every\npossible vector whose tip sits on a certain"
+    },
+    {
+      "index": 85,
+      "start_time": 314869.0,
+      "end_time": 315869.0,
+      "text": "line,"
+    },
+    {
+      "index": 86,
+      "start_time": 315869.0,
+      "end_time": 318880.0,
+      "text": "just think about the line itself."
+    },
+    {
+      "index": 87,
+      "start_time": 318880.0,
+      "end_time": 324270.0,
+      "text": "Likewise, to think about all possible two-dimensional\nvectors all at once,"
+    },
+    {
+      "index": 88,
+      "start_time": 324270.0,
+      "end_time": 327500.0,
+      "text": "conceptualize each one as the point where\nits tip sits."
+    },
+    {
+      "index": 89,
+      "start_time": 327500.0,
+      "end_time": 331930.0,
+      "text": "So, in effect, what you'll be thinking about\nis the infinite, flat sheet of two-dimensional"
+    },
+    {
+      "index": 90,
+      "start_time": 331930.0,
+      "end_time": 333090.0,
+      "text": "space itself,"
+    },
+    {
+      "index": 91,
+      "start_time": 333090.0,
+      "end_time": 336199.0,
+      "text": "leaving the arrows out of it."
+    },
+    {
+      "index": 92,
+      "start_time": 336199.0,
+      "end_time": 340539.0,
+      "text": "In general, if you're thinking about a vector\non its own, think of it as an arrow,"
+    },
+    {
+      "index": 93,
+      "start_time": 340539.0,
+      "end_time": 343619.0,
+      "text": "and if you're dealing with a collection of\nvectors, it's convenient to think of them"
+    },
+    {
+      "index": 94,
+      "start_time": 343619.0,
+      "end_time": 344960.0,
+      "text": "all as points."
+    },
+    {
+      "index": 95,
+      "start_time": 344960.0,
+      "end_time": 349389.0,
+      "text": "So, for our span example, the span of most\npairs of vectors ends up being"
+    },
+    {
+      "index": 96,
+      "start_time": 349389.0,
+      "end_time": 352370.0,
+      "text": "the entire infinite sheet of two-dimensional\nspace,"
+    },
+    {
+      "index": 97,
+      "start_time": 352370.0,
+      "end_time": 358659.0,
+      "text": "but if they line up, their span is just a\nline."
+    },
+    {
+      "index": 98,
+      "start_time": 358659.0,
+      "end_time": 363009.0,
+      "text": "The idea of span gets a lot more interesting\nif we start thinking about vectors in three-dimensional"
+    },
+    {
+      "index": 99,
+      "start_time": 363009.0,
+      "end_time": 364059.0,
+      "text": "space."
+    },
+    {
+      "index": 100,
+      "start_time": 364059.0,
+      "end_time": 369419.0,
+      "text": "For example, if you take two vectors, in 3-D\nspace, that are not pointing in the same direction,"
+    },
+    {
+      "index": 101,
+      "start_time": 369419.0,
+      "end_time": 372099.0,
+      "text": "what does it mean to take their span?"
+    },
+    {
+      "index": 102,
+      "start_time": 372099.0,
+      "end_time": 378280.0,
+      "text": "Well, their span is the collection of all\npossible linear combinations of those two"
+    },
+    {
+      "index": 103,
+      "start_time": 378280.0,
+      "end_time": 379490.0,
+      "text": "vectors, meaning"
+    },
+    {
+      "index": 104,
+      "start_time": 379490.0,
+      "end_time": 384479.0,
+      "text": "all possible vectors you get by scaling each\nof the two of them in some way, and then adding"
+    },
+    {
+      "index": 105,
+      "start_time": 384479.0,
+      "end_time": 386029.0,
+      "text": "them together."
+    },
+    {
+      "index": 106,
+      "start_time": 386029.0,
+      "end_time": 390629.0,
+      "text": "You can kind of imagine turning two different\nknobs to change the two scalars defining the"
+    },
+    {
+      "index": 107,
+      "start_time": 390629.0,
+      "end_time": 392139.0,
+      "text": "linear combination,"
+    },
+    {
+      "index": 108,
+      "start_time": 392139.0,
+      "end_time": 396159.0,
+      "text": "adding the scaled vectors and following the\ntip of the resulting vector."
+    },
+    {
+      "index": 109,
+      "start_time": 396159.0,
+      "end_time": 400759.0,
+      "text": "That tip will trace out some kind of flat\nsheet, cutting through the origin of three-dimensional"
+    },
+    {
+      "index": 110,
+      "start_time": 400759.0,
+      "end_time": 402039.0,
+      "text": "space."
+    },
+    {
+      "index": 111,
+      "start_time": 402039.0,
+      "end_time": 405210.0,
+      "text": "This flat sheet is the span of the two vectors,"
+    },
+    {
+      "index": 112,
+      "start_time": 405210.0,
+      "end_time": 409779.0,
+      "text": "or more precisely, the set of all possible\nvectors whose tips sit on that flat sheet"
+    },
+    {
+      "index": 113,
+      "start_time": 409779.0,
+      "end_time": 412039.0,
+      "text": "is the span of your two vectors."
+    },
+    {
+      "index": 114,
+      "start_time": 412039.0,
+      "end_time": 414849.0,
+      "text": "Isn't that a beautiful mental image?"
+    },
+    {
+      "index": 115,
+      "start_time": 414849.0,
+      "end_time": 420680.0,
+      "text": "So what happens if we add a third vector and\nconsider the span of all three of those guys?"
+    },
+    {
+      "index": 116,
+      "start_time": 420680.0,
+      "end_time": 425419.0,
+      "text": "A linear combination of three vectors is defined\npretty much the same way as it is for two;"
+    },
+    {
+      "index": 117,
+      "start_time": 425419.0,
+      "end_time": 429900.0,
+      "text": "you'll choose three different scalars, scale\neach of those vectors, and then add them all"
+    },
+    {
+      "index": 118,
+      "start_time": 429900.0,
+      "end_time": 432309.0,
+      "text": "together."
+    },
+    {
+      "index": 119,
+      "start_time": 432309.0,
+      "end_time": 444689.0,
+      "text": "And again, the span of these vectors is the\nset of all possible linear combinations."
+    },
+    {
+      "index": 120,
+      "start_time": 444689.0,
+      "end_time": 446469.0,
+      "text": "Two different things could happen here:"
+    },
+    {
+      "index": 121,
+      "start_time": 446469.0,
+      "end_time": 450169.0,
+      "text": "If your third vector happens to be sitting\non the span of the first two,"
+    },
+    {
+      "index": 122,
+      "start_time": 450169.0,
+      "end_time": 454559.0,
+      "text": "then the span doesn't change; you're sort\nof trapped on that same flat sheet."
+    },
+    {
+      "index": 123,
+      "start_time": 454559.0,
+      "end_time": 458729.0,
+      "text": "In other words, adding a scaled version of\nthat third vector to the linear combination"
+    },
+    {
+      "index": 124,
+      "start_time": 458729.0,
+      "end_time": 462889.0,
+      "text": "doesn't really give you access to any new\nvectors."
+    },
+    {
+      "index": 125,
+      "start_time": 462889.0,
+      "end_time": 467199.0,
+      "text": "But if you just randomly choose a third vector,\nit's almost certainly not sitting on the span"
+    },
+    {
+      "index": 126,
+      "start_time": 467199.0,
+      "end_time": 468580.0,
+      "text": "of those first two."
+    },
+    {
+      "index": 127,
+      "start_time": 468580.0,
+      "end_time": 471250.0,
+      "text": "Then, since it's pointing in a separate direction,"
+    },
+    {
+      "index": 128,
+      "start_time": 471250.0,
+      "end_time": 475610.0,
+      "text": "it unlocks access to every possible three-dimensional\nvector."
+    },
+    {
+      "index": 129,
+      "start_time": 475610.0,
+      "end_time": 479749.0,
+      "text": "One way I like to think about this is that\nas you scale that new third vector,"
+    },
+    {
+      "index": 130,
+      "start_time": 479749.0,
+      "end_time": 486120.0,
+      "text": "it moves around that span sheet of the first\ntwo, sweeping it through all of space."
+    },
+    {
+      "index": 131,
+      "start_time": 486120.0,
+      "end_time": 489819.0,
+      "text": "Another way to think about it is that you're\nmaking full use of the three, freely-changing"
+    },
+    {
+      "index": 132,
+      "start_time": 489819.0,
+      "end_time": 490819.0,
+      "text": "scalars that"
+    },
+    {
+      "index": 133,
+      "start_time": 490819.0,
+      "end_time": 495639.0,
+      "text": "you have at your disposal to access the full\nthree dimensions of space."
+    },
+    {
+      "index": 134,
+      "start_time": 495639.0,
+      "end_time": 501459.0,
+      "text": "Now, in the case where the third vector was\nalready sitting on the span of the first two,"
+    },
+    {
+      "index": 135,
+      "start_time": 501459.0,
+      "end_time": 503639.0,
+      "text": "or the case where two vectors happen to line\nup,"
+    },
+    {
+      "index": 136,
+      "start_time": 503639.0,
+      "end_time": 505819.0,
+      "text": "we want some terminology to describe the fact\nthat"
+    },
+    {
+      "index": 137,
+      "start_time": 505819.0,
+      "end_time": 507169.0,
+      "text": "at least one of these vectors"
+    },
+    {
+      "index": 138,
+      "start_time": 507169.0,
+      "end_time": 510930.0,
+      "text": "is redundant—not adding anything to our\nspan."
+    },
+    {
+      "index": 139,
+      "start_time": 510930.0,
+      "end_time": 514820.0,
+      "text": "Whenever this happens, where you have multiple\nvectors and you could remove one without reducing"
+    },
+    {
+      "index": 140,
+      "start_time": 514820.00000000006,
+      "end_time": 515820.00000000006,
+      "text": "the span,"
+    },
+    {
+      "index": 141,
+      "start_time": 515820.00000000006,
+      "end_time": 518490.00000000006,
+      "text": "the relevant terminology is to say that they\nare"
+    },
+    {
+      "index": 142,
+      "start_time": 518490.0,
+      "end_time": 520630.0,
+      "text": "\"linearly dependent\"."
+    },
+    {
+      "index": 143,
+      "start_time": 520630.0,
+      "end_time": 524340.0,
+      "text": "Another way of phrasing that would be to say\nthat one of the vectors can be expressed as"
+    },
+    {
+      "index": 144,
+      "start_time": 524340.0,
+      "end_time": 533030.0,
+      "text": "a linear combination of the others since it's\nalready in the span of the others."
+    },
+    {
+      "index": 145,
+      "start_time": 533030.0,
+      "end_time": 537500.0,
+      "text": "On the other hand, if each vector really does\nadd another dimension to the span,"
+    },
+    {
+      "index": 146,
+      "start_time": 537500.0,
+      "end_time": 546450.0,
+      "text": "they're said to be \"linearly independent\"."
+    },
+    {
+      "index": 147,
+      "start_time": 546450.0,
+      "end_time": 550580.0,
+      "text": "So with all of that terminology, and hopefully\nwith some good mental images to go with it,"
+    },
+    {
+      "index": 148,
+      "start_time": 550580.0,
+      "end_time": 552890.0,
+      "text": "let me leave you with puzzle before we go."
+    },
+    {
+      "index": 149,
+      "start_time": 552890.0,
+      "end_time": 558850.0,
+      "text": "The technical definition of a basis of a space\nis a set of linearly independent vectors that"
+    },
+    {
+      "index": 150,
+      "start_time": 558850.0,
+      "end_time": 561120.0,
+      "text": "span that space."
+    },
+    {
+      "index": 151,
+      "start_time": 561120.0,
+      "end_time": 564910.0,
+      "text": "Now, given how I described a basis earlier,"
+    },
+    {
+      "index": 152,
+      "start_time": 564910.0,
+      "end_time": 569180.0,
+      "text": "and given your current understanding of the\nwords \"span\" and \"linearly independent\","
+    },
+    {
+      "index": 153,
+      "start_time": 569180.0,
+      "end_time": 574140.0,
+      "text": "think about why this definition would make\nsense."
+    },
+    {
+      "index": 154,
+      "start_time": 574140.0,
+      "end_time": 582180.0,
+      "text": "In the next video, I'll get into matrices\nand transforming space."
+    },
+    {
+      "index": 155,
+      "start_time": 582180.0,
+      "end_time": 597880.0,
+      "text": "See you then!"
+    }
+  ]
+}

@@ -1,0 +1,5088 @@
+{
+  "video_id": "pK7W5npkhho",
+  "title": "Test-driven development on Android with the Android Testing Support Library (Google I/O '17)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 976.0,
+      "end_time": 4391.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 2,
+      "start_time": 5860.0,
+      "end_time": 7280.0,
+      "text": "JONATHAN GERRISH: Hello, everyone."
+    },
+    {
+      "index": 3,
+      "start_time": 7280.0,
+      "end_time": 9880.0,
+      "text": "Welcome to this morning session on test-driven development"
+    },
+    {
+      "index": 4,
+      "start_time": 9880.0,
+      "end_time": 11690.0,
+      "text": "for the Android platform."
+    },
+    {
+      "index": 5,
+      "start_time": 11690.0,
+      "end_time": 15610.0,
+      "text": "My name is Jonathan Gerrish and I&#39;m part of the Mobile Ninjas."
+    },
+    {
+      "index": 6,
+      "start_time": 15610.0,
+      "end_time": 17110.0,
+      "text": "We&#39;re a small team within Google who"
+    },
+    {
+      "index": 7,
+      "start_time": 17110.0,
+      "end_time": 20130.0,
+      "text": "are passionate about software testing."
+    },
+    {
+      "index": 8,
+      "start_time": 20130.0,
+      "end_time": 22130.0,
+      "text": "Can I get a quick show of hands in the audience?"
+    },
+    {
+      "index": 9,
+      "start_time": 22130.0,
+      "end_time": 23878.0,
+      "text": "How many of you are actually writing tests"
+    },
+    {
+      "index": 10,
+      "start_time": 23879.0,
+      "end_time": 26470.0,
+      "text": "as part of your normal software development practice?"
+    },
+    {
+      "index": 11,
+      "start_time": 26470.0,
+      "end_time": 28390.0,
+      "text": "That&#39;s fantastic."
+    },
+    {
+      "index": 12,
+      "start_time": 28390.0,
+      "end_time": 30824.0,
+      "text": "OK."
+    },
+    {
+      "index": 13,
+      "start_time": 30824.0,
+      "end_time": 32740.0,
+      "text": "So if you&#39;ve written tests for Android before,"
+    },
+    {
+      "index": 14,
+      "start_time": 32740.000000000004,
+      "end_time": 35320.0,
+      "text": "you&#39;ve probably used some of our tools."
+    },
+    {
+      "index": 15,
+      "start_time": 35320.0,
+      "end_time": 38690.0,
+      "text": "We developed the Android testing support library,"
+    },
+    {
+      "index": 16,
+      "start_time": 38690.0,
+      "end_time": 40519.0,
+      "text": "which includes the JUnit for test runner"
+    },
+    {
+      "index": 17,
+      "start_time": 40520.0,
+      "end_time": 44250.0,
+      "text": "and rules, the Espresso UI testing framework,"
+    },
+    {
+      "index": 18,
+      "start_time": 44250.0,
+      "end_time": 45910.0,
+      "text": "and we&#39;re also active contributors"
+    },
+    {
+      "index": 19,
+      "start_time": 45910.0,
+      "end_time": 51440.0,
+      "text": "to Roboelectric, the open source Android unit testing framework."
+    },
+    {
+      "index": 20,
+      "start_time": 51440.0,
+      "end_time": 53190.0,
+      "text": "So everyone is telling you to write tests,"
+    },
+    {
+      "index": 21,
+      "start_time": 53190.0,
+      "end_time": 55320.0,
+      "text": "but why should you really do it?"
+    },
+    {
+      "index": 22,
+      "start_time": 55320.0,
+      "end_time": 57847.0,
+      "text": "It&#39;s true that tests take time to write."
+    },
+    {
+      "index": 23,
+      "start_time": 57847.0,
+      "end_time": 59430.0,
+      "text": "They&#39;re adding code to your code base."
+    },
+    {
+      "index": 24,
+      "start_time": 59430.0,
+      "end_time": 61138.0,
+      "text": "And perhaps you&#39;ve been in this situation"
+    },
+    {
+      "index": 25,
+      "start_time": 61138.0,
+      "end_time": 64410.0,
+      "text": "before, where your manager or client has been telling you"
+    },
+    {
+      "index": 26,
+      "start_time": 64410.0,
+      "end_time": 66330.0,
+      "text": "that they&#39;re slowing you down."
+    },
+    {
+      "index": 27,
+      "start_time": 66330.0,
+      "end_time": 69590.0,
+      "text": "But there&#39;s so many compelling reasons to write tests."
+    },
+    {
+      "index": 28,
+      "start_time": 69590.0,
+      "end_time": 72390.0,
+      "text": "Tests give you rapid feedback on failures."
+    },
+    {
+      "index": 29,
+      "start_time": 72390.0,
+      "end_time": 76800.0,
+      "text": "So failures that are spotted earlier on in the development"
+    },
+    {
+      "index": 30,
+      "start_time": 76800.0,
+      "end_time": 80280.0,
+      "text": "cycle are far easier to fix than ones that have gone live."
+    },
+    {
+      "index": 31,
+      "start_time": 80280.0,
+      "end_time": 83904.0,
+      "text": "Secondly, tests give you a safety net."
+    },
+    {
+      "index": 32,
+      "start_time": 83904.0,
+      "end_time": 85320.0,
+      "text": "With a good suite of tests, you&#39;re"
+    },
+    {
+      "index": 33,
+      "start_time": 85320.0,
+      "end_time": 87779.0,
+      "text": "free to refactor, clean up, and optimize"
+    },
+    {
+      "index": 34,
+      "start_time": 87780.0,
+      "end_time": 90300.0,
+      "text": "your code, safe in the knowledge that you&#39;re not going"
+    },
+    {
+      "index": 35,
+      "start_time": 90300.0,
+      "end_time": 92790.0,
+      "text": "to break existing behavior."
+    },
+    {
+      "index": 36,
+      "start_time": 92790.0,
+      "end_time": 95490.0,
+      "text": "Tests are really the backbone of sustainable software"
+    },
+    {
+      "index": 37,
+      "start_time": 95490.0,
+      "end_time": 96660.0,
+      "text": "development."
+    },
+    {
+      "index": 38,
+      "start_time": 96660.0,
+      "end_time": 98580.0,
+      "text": "You&#39;ll be able to maintain a stable velocity"
+    },
+    {
+      "index": 39,
+      "start_time": 98580.0,
+      "end_time": 100890.0,
+      "text": "throughout the lifetime of your project,"
+    },
+    {
+      "index": 40,
+      "start_time": 100890.0,
+      "end_time": 104850.0,
+      "text": "and you&#39;re going to avoid the boom-bust cycles of crunch"
+    },
+    {
+      "index": 41,
+      "start_time": 104850.0,
+      "end_time": 108500.0,
+      "text": "feature time and the aggregation of technical debt."
+    },
+    {
+      "index": 42,
+      "start_time": 111100.0,
+      "end_time": 114190.0,
+      "text": "So in software testing, there exists the concept"
+    },
+    {
+      "index": 43,
+      "start_time": 114190.0,
+      "end_time": 116300.0,
+      "text": "of the testing pyramid."
+    },
+    {
+      "index": 44,
+      "start_time": 116300.0,
+      "end_time": 118270.0,
+      "text": "And this is made up of a number of layers."
+    },
+    {
+      "index": 45,
+      "start_time": 118270.0,
+      "end_time": 120961.0,
+      "text": "And each layer brings with it its own trade-offs that you&#39;re"
+    },
+    {
+      "index": 46,
+      "start_time": 120962.0,
+      "end_time": 121920.0,
+      "text": "going to have to weigh."
+    },
+    {
+      "index": 47,
+      "start_time": 124630.0,
+      "end_time": 128168.0,
+      "text": "At the lowest layer is the small tests, or the unit tests."
+    },
+    {
+      "index": 48,
+      "start_time": 128169.00000000001,
+      "end_time": 131470.0,
+      "text": "And these need to be very fast and highly focused."
+    },
+    {
+      "index": 49,
+      "start_time": 131470.0,
+      "end_time": 134290.0,
+      "text": "That&#39;s why we recommend you run these kind of tests, what"
+    },
+    {
+      "index": 50,
+      "start_time": 134290.0,
+      "end_time": 136480.0,
+      "text": "is known as local unit tests."
+    },
+    {
+      "index": 51,
+      "start_time": 136480.0,
+      "end_time": 140140.0,
+      "text": "And these are going to run on your local desktop machine."
+    },
+    {
+      "index": 52,
+      "start_time": 140140.0,
+      "end_time": 142390.0,
+      "text": "The trade-off you&#39;re making with these kind of tests"
+    },
+    {
+      "index": 53,
+      "start_time": 142390.0,
+      "end_time": 144730.0,
+      "text": "is infidelity because you&#39;re not running"
+    },
+    {
+      "index": 54,
+      "start_time": 144730.0,
+      "end_time": 147640.0,
+      "text": "on a realistic environment and you&#39;re probably substituting"
+    },
+    {
+      "index": 55,
+      "start_time": 147640.0,
+      "end_time": 149500.0,
+      "text": "in a bunch of mocks and fakes."
+    },
+    {
+      "index": 56,
+      "start_time": 152840.0,
+      "end_time": 154340.0,
+      "text": "As we move up the pyramid, we&#39;re now"
+    },
+    {
+      "index": 57,
+      "start_time": 154340.0,
+      "end_time": 157440.0,
+      "text": "into the realms of integration testing and end-to-end testing."
+    },
+    {
+      "index": 58,
+      "start_time": 157440.0,
+      "end_time": 161300.0,
+      "text": "And the key with these kind of tests is to bring in fidelity."
+    },
+    {
+      "index": 59,
+      "start_time": 161300.0,
+      "end_time": 162560.0,
+      "text": "That&#39;s why we recommend that you run"
+    },
+    {
+      "index": 60,
+      "start_time": 162560.0,
+      "end_time": 166631.0,
+      "text": "these kinds of tests on a real device or an emulator."
+    },
+    {
+      "index": 61,
+      "start_time": 166631.0,
+      "end_time": 168500.0,
+      "text": "These are the kinds of tests that"
+    },
+    {
+      "index": 62,
+      "start_time": 168500.0,
+      "end_time": 171850.0,
+      "text": "are going to tell you that your software actually works."
+    },
+    {
+      "index": 63,
+      "start_time": 171850.0,
+      "end_time": 174560.0,
+      "text": "However, they are less focused, so a failure"
+    },
+    {
+      "index": 64,
+      "start_time": 174560.0,
+      "end_time": 177590.0,
+      "text": "in one of these kind of tests might take a little longer"
+    },
+    {
+      "index": 65,
+      "start_time": 177590.0,
+      "end_time": 180110.0,
+      "text": "to track down than it would in a unit test."
+    },
+    {
+      "index": 66,
+      "start_time": 180110.0,
+      "end_time": 182270.0,
+      "text": "And one of the big trade-offs you&#39;re making"
+    },
+    {
+      "index": 67,
+      "start_time": 182270.0,
+      "end_time": 184700.0,
+      "text": "is in test execution speed."
+    },
+    {
+      "index": 68,
+      "start_time": 184700.0,
+      "end_time": 186869.0,
+      "text": "Because you&#39;re assembling multiple components,"
+    },
+    {
+      "index": 69,
+      "start_time": 186870.0,
+      "end_time": 189270.0,
+      "text": "they all have to be built and then packaged,"
+    },
+    {
+      "index": 70,
+      "start_time": 189270.0,
+      "end_time": 191180.0,
+      "text": "shipped to a device where the tests are run,"
+    },
+    {
+      "index": 71,
+      "start_time": 191180.0,
+      "end_time": 193400.0,
+      "text": "and the results are collected back."
+    },
+    {
+      "index": 72,
+      "start_time": 193400.0,
+      "end_time": 196250.0,
+      "text": "That&#39;s going to take extra time."
+    },
+    {
+      "index": 73,
+      "start_time": 196250.0,
+      "end_time": 198370.0,
+      "text": "There&#39;s no single layer in this testing pyramid"
+    },
+    {
+      "index": 74,
+      "start_time": 198370.0,
+      "end_time": 201590.0,
+      "text": "that can suffice, so what you need to do"
+    },
+    {
+      "index": 75,
+      "start_time": 201590.0,
+      "end_time": 204590.0,
+      "text": "is to blend in tests at each different tier,"
+    },
+    {
+      "index": 76,
+      "start_time": 204590.0,
+      "end_time": 207290.0,
+      "text": "leveraging the strengths of one category"
+    },
+    {
+      "index": 77,
+      "start_time": 207290.0,
+      "end_time": 210290.0,
+      "text": "to weigh off the trade-offs in another."
+    },
+    {
+      "index": 78,
+      "start_time": 210290.0,
+      "end_time": 213200.0,
+      "text": "There&#39;s no real hard and fast rule here,"
+    },
+    {
+      "index": 79,
+      "start_time": 213200.0,
+      "end_time": 215540.0,
+      "text": "but Google&#39;s own internal testing experts"
+    },
+    {
+      "index": 80,
+      "start_time": 215540.0,
+      "end_time": 218590.0,
+      "text": "recommend the 70-20-10 rule of thumb"
+    },
+    {
+      "index": 81,
+      "start_time": 218590.0,
+      "end_time": 222990.0,
+      "text": "as the ratio between small, medium, and large tests."
+    },
+    {
+      "index": 82,
+      "start_time": 222990.0,
+      "end_time": 226470.0,
+      "text": "Let&#39;s take a look at our workflow."
+    },
+    {
+      "index": 83,
+      "start_time": 226470.0,
+      "end_time": 229109.0,
+      "text": "So with test-driven development, the idea"
+    },
+    {
+      "index": 84,
+      "start_time": 229110.0,
+      "end_time": 231220.0,
+      "text": "is that you start by writing your tests,"
+    },
+    {
+      "index": 85,
+      "start_time": 231220.0,
+      "end_time": 233590.0,
+      "text": "then you implement the code to make those tests pass."
+    },
+    {
+      "index": 86,
+      "start_time": 233590.0,
+      "end_time": 235890.0,
+      "text": "And then when your tests are green, you can submit."
+    },
+    {
+      "index": 87,
+      "start_time": 235890.0,
+      "end_time": 237899.0,
+      "text": "Again, a quick show of hands."
+    },
+    {
+      "index": 88,
+      "start_time": 237900.0,
+      "end_time": 241130.0,
+      "text": "Who out there has test-driven their code,"
+    },
+    {
+      "index": 89,
+      "start_time": 241130.0,
+      "end_time": 244480.0,
+      "text": "tried test-driven development in the past?"
+    },
+    {
+      "index": 90,
+      "start_time": 244480.0,
+      "end_time": 244980.0,
+      "text": "OK."
+    },
+    {
+      "index": 91,
+      "start_time": 244980.0,
+      "end_time": 246390.0,
+      "text": "Cool."
+    },
+    {
+      "index": 92,
+      "start_time": 246390.0,
+      "end_time": 248609.0,
+      "text": "We like test-driven development because it"
+    },
+    {
+      "index": 93,
+      "start_time": 248610.0,
+      "end_time": 252390.0,
+      "text": "makes you think about the design of your application up front."
+    },
+    {
+      "index": 94,
+      "start_time": 252390.0,
+      "end_time": 254730.0,
+      "text": "It gives due consideration to APIs"
+    },
+    {
+      "index": 95,
+      "start_time": 254730.0,
+      "end_time": 256980.0,
+      "text": "and the structure of your code."
+    },
+    {
+      "index": 96,
+      "start_time": 256980.00000000003,
+      "end_time": 258510.00000000003,
+      "text": "With test-driven development, you&#39;re"
+    },
+    {
+      "index": 97,
+      "start_time": 258510.0,
+      "end_time": 261450.0,
+      "text": "also going to be writing less code because you only"
+    },
+    {
+      "index": 98,
+      "start_time": 261450.0,
+      "end_time": 265229.0,
+      "text": "write the code necessary to satisfy your tests."
+    },
+    {
+      "index": 99,
+      "start_time": 265230.0,
+      "end_time": 267684.0,
+      "text": "This will enable you to release early and often."
+    },
+    {
+      "index": 100,
+      "start_time": 267684.0,
+      "end_time": 269100.0,
+      "text": "As you&#39;re constantly green, you&#39;ll"
+    },
+    {
+      "index": 101,
+      "start_time": 269100.0,
+      "end_time": 271530.0,
+      "text": "be able to deploy a working application at a moment&#39;s"
+    },
+    {
+      "index": 102,
+      "start_time": 271530.0,
+      "end_time": 273789.0,
+      "text": "notice."
+    },
+    {
+      "index": 103,
+      "start_time": 273790.0,
+      "end_time": 275960.0,
+      "text": "If you&#39;re following the test pyramid,"
+    },
+    {
+      "index": 104,
+      "start_time": 275960.0,
+      "end_time": 280200.0,
+      "text": "the workflow is going to look something like this."
+    },
+    {
+      "index": 105,
+      "start_time": 280200.0,
+      "end_time": 282890.0,
+      "text": "First of all, we have a larger outer iteration"
+    },
+    {
+      "index": 106,
+      "start_time": 282890.0,
+      "end_time": 286990.0,
+      "text": "that&#39;s concerned with feature development."
+    },
+    {
+      "index": 107,
+      "start_time": 286100.0,
+      "end_time": 290600.0,
+      "text": "Here, it&#39;s driven by a UI test, and the mantra"
+    },
+    {
+      "index": 108,
+      "start_time": 290600.0,
+      "end_time": 294230.0,
+      "text": "with test-driven development is Red, Green, Refactor."
+    },
+    {
+      "index": 109,
+      "start_time": 294230.0,
+      "end_time": 295910.0,
+      "text": "We start off with a failing test,"
+    },
+    {
+      "index": 110,
+      "start_time": 295910.0,
+      "end_time": 297950.0,
+      "text": "we implement the code to make that test pass,"
+    },
+    {
+      "index": 111,
+      "start_time": 297950.0,
+      "end_time": 298825.0,
+      "text": "and then we refactor."
+    },
+    {
+      "index": 112,
+      "start_time": 301930.0,
+      "end_time": 304270.0,
+      "text": "Inside the larger iteration are a series"
+    },
+    {
+      "index": 113,
+      "start_time": 304270.0,
+      "end_time": 305830.0,
+      "text": "of smaller iterations and these are"
+    },
+    {
+      "index": 114,
+      "start_time": 305830.0,
+      "end_time": 307870.0,
+      "text": "concerned with the unit tests."
+    },
+    {
+      "index": 115,
+      "start_time": 307870.0,
+      "end_time": 310690.0,
+      "text": "Here, you&#39;re building the units required"
+    },
+    {
+      "index": 116,
+      "start_time": 310690.0,
+      "end_time": 312310.0,
+      "text": "to make the feature pass."
+    },
+    {
+      "index": 117,
+      "start_time": 312310.0,
+      "end_time": 315400.0,
+      "text": "And again, you use the same mantra here."
+    },
+    {
+      "index": 118,
+      "start_time": 315400.0,
+      "end_time": 316480.0,
+      "text": "Red, Green, Refactor."
+    },
+    {
+      "index": 119,
+      "start_time": 316480.0,
+      "end_time": 318310.0,
+      "text": "Red, Green, Refactor."
+    },
+    {
+      "index": 120,
+      "start_time": 318310.0,
+      "end_time": 323151.0,
+      "text": "Let&#39;s take a look at an example application."
+    },
+    {
+      "index": 121,
+      "start_time": 323151.0,
+      "end_time": 324900.0,
+      "text": "The feature we&#39;re going to implement today"
+    },
+    {
+      "index": 122,
+      "start_time": 324900.0,
+      "end_time": 328570.0,
+      "text": "is the Add Notes flow to a sample note-taking application."
+    },
+    {
+      "index": 123,
+      "start_time": 328570.0,
+      "end_time": 330900.0,
+      "text": "If we take a look at our mock-ups,"
+    },
+    {
+      "index": 124,
+      "start_time": 330900.0,
+      "end_time": 333200.0,
+      "text": "we can see that we start on a notes list screen"
+    },
+    {
+      "index": 125,
+      "start_time": 333200.0,
+      "end_time": 334770.0,
+      "text": "full of some existing notes."
+    },
+    {
+      "index": 126,
+      "start_time": 334770.0,
+      "end_time": 337469.0,
+      "text": "There&#39;s a floating action button down at the bottom."
+    },
+    {
+      "index": 127,
+      "start_time": 337470.0,
+      "end_time": 339270.0,
+      "text": "And the user will click this, taking them"
+    },
+    {
+      "index": 128,
+      "start_time": 339270.0,
+      "end_time": 341700.0,
+      "text": "onto the new add notes screen."
+    },
+    {
+      "index": 129,
+      "start_time": 341700.0,
+      "end_time": 344460.0,
+      "text": "Here, they can enter a title and a description for their note"
+    },
+    {
+      "index": 130,
+      "start_time": 344460.0,
+      "end_time": 345969.0,
+      "text": "before clicking Save."
+    },
+    {
+      "index": 131,
+      "start_time": 345970.0,
+      "end_time": 347460.0,
+      "text": "The note will be persisted and then"
+    },
+    {
+      "index": 132,
+      "start_time": 347460.0,
+      "end_time": 349611.0,
+      "text": "they&#39;ll return back to their notes list screen,"
+    },
+    {
+      "index": 133,
+      "start_time": 349611.0,
+      "end_time": 351360.0,
+      "text": "where they can see their newly added note,"
+    },
+    {
+      "index": 134,
+      "start_time": 351360.0,
+      "end_time": 353484.0,
+      "text": "along with any other notes that previously existed."
+    },
+    {
+      "index": 135,
+      "start_time": 356400.0,
+      "end_time": 358420.0,
+      "text": "Coming back to our workflow for a moment,"
+    },
+    {
+      "index": 136,
+      "start_time": 358420.0,
+      "end_time": 361360.0,
+      "text": "remember that we start with a failing UI test."
+    },
+    {
+      "index": 137,
+      "start_time": 361360.0,
+      "end_time": 365340.0,
+      "text": "So let&#39;s take a look at how this test would look using Espresso,"
+    },
+    {
+      "index": 138,
+      "start_time": 365340.0,
+      "end_time": 369289.0,
+      "text": "the UI testing framework."
+    },
+    {
+      "index": 139,
+      "start_time": 369290.0,
+      "end_time": 374120.0,
+      "text": "The first step is to click on the Add Note button."
+    },
+    {
+      "index": 140,
+      "start_time": 374120.0,
+      "end_time": 378500.0,
+      "text": "Then we enter the title and description and click Save"
+    },
+    {
+      "index": 141,
+      "start_time": 378500.0,
+      "end_time": 380344.0,
+      "text": "before returning to the notes list screen."
+    },
+    {
+      "index": 142,
+      "start_time": 380344.0,
+      "end_time": 382760.0,
+      "text": "And here, we&#39;re going to verify that the note that we just"
+    },
+    {
+      "index": 143,
+      "start_time": 382760.0,
+      "end_time": 386430.0,
+      "text": "added actually shows up."
+    },
+    {
+      "index": 144,
+      "start_time": 386430.0,
+      "end_time": 388370.0,
+      "text": "Now remember, with test-driven development,"
+    },
+    {
+      "index": 145,
+      "start_time": 388370.0,
+      "end_time": 391220.0,
+      "text": "we&#39;ll not implemented code just yet."
+    },
+    {
+      "index": 146,
+      "start_time": 391220.0,
+      "end_time": 392900.0,
+      "text": "All we have to do is implement enough"
+    },
+    {
+      "index": 147,
+      "start_time": 392900.0,
+      "end_time": 396140.0,
+      "text": "of the application to satisfy the specification of our tests."
+    },
+    {
+      "index": 148,
+      "start_time": 396140.0,
+      "end_time": 399770.0,
+      "text": "So an empty activity, and just the resources that we need,"
+    },
+    {
+      "index": 149,
+      "start_time": 399770.0,
+      "end_time": 401539.0,
+      "text": "will suffice."
+    },
+    {
+      "index": 150,
+      "start_time": 401540.0,
+      "end_time": 403640.0,
+      "text": "Once we have that, we can run our test"
+    },
+    {
+      "index": 151,
+      "start_time": 403640.0,
+      "end_time": 405157.0,
+      "text": "and we&#39;ll see it&#39;ll fail."
+    },
+    {
+      "index": 152,
+      "start_time": 405157.0,
+      "end_time": 406740.0,
+      "text": "Now we have to implement this feature."
+    },
+    {
+      "index": 153,
+      "start_time": 409910.0,
+      "end_time": 413470.0,
+      "text": "So applications are built up of many small units."
+    },
+    {
+      "index": 154,
+      "start_time": 413470.0,
+      "end_time": 417430.0,
+      "text": "These are small, highly focused, specialized components"
+    },
+    {
+      "index": 155,
+      "start_time": 417430.0,
+      "end_time": 420132.0,
+      "text": "that do one thing and they do it well."
+    },
+    {
+      "index": 156,
+      "start_time": 420132.0,
+      "end_time": 421840.0,
+      "text": "Collections of these small units are then"
+    },
+    {
+      "index": 157,
+      "start_time": 421840.0,
+      "end_time": 424390.0,
+      "text": "assembled together so that their collaborations will"
+    },
+    {
+      "index": 158,
+      "start_time": 424390.0,
+      "end_time": 425550.0,
+      "text": "satisfy our feature."
+    },
+    {
+      "index": 159,
+      "start_time": 429750.0,
+      "end_time": 432370.0,
+      "text": "Let&#39;s take a moment to summarize the key characteristics that"
+    },
+    {
+      "index": 160,
+      "start_time": 432370.0,
+      "end_time": 433530.0,
+      "text": "make up a good unit test."
+    },
+    {
+      "index": 161,
+      "start_time": 436320.0,
+      "end_time": 438710.0,
+      "text": "As well as the normal conditions,"
+    },
+    {
+      "index": 162,
+      "start_time": 438710.0,
+      "end_time": 442620.0,
+      "text": "you&#39;re wanting to test your failure conditions, invalid"
+    },
+    {
+      "index": 163,
+      "start_time": 442620.0,
+      "end_time": 444710.0,
+      "text": "inputs, and boundary conditions."
+    },
+    {
+      "index": 164,
+      "start_time": 444710.0,
+      "end_time": 446835.0,
+      "text": "You&#39;re going to end up writing a lot of unit tests."
+    },
+    {
+      "index": 165,
+      "start_time": 450160.0,
+      "end_time": 453100.0,
+      "text": "Unit tests must always give you the same result every time."
+    },
+    {
+      "index": 166,
+      "start_time": 453100.0,
+      "end_time": 455860.0,
+      "text": "So avoid depending on things that might change--"
+    },
+    {
+      "index": 167,
+      "start_time": 455860.0,
+      "end_time": 459760.0,
+      "text": "For example, an external server or the current time of day--"
+    },
+    {
+      "index": 168,
+      "start_time": 459760.0,
+      "end_time": 462409.0,
+      "text": "because this is going to bring flakiness into your unit tests."
+    },
+    {
+      "index": 169,
+      "start_time": 465480.0,
+      "end_time": 469500.0,
+      "text": "Unit tests should exercise one specific aspect of your code"
+    },
+    {
+      "index": 170,
+      "start_time": 469500.0,
+      "end_time": 470946.0,
+      "text": "at a time."
+    },
+    {
+      "index": 171,
+      "start_time": 470946.0,
+      "end_time": 473700.0,
+      "text": "You&#39;re wanting to see that a failure in a unit test"
+    },
+    {
+      "index": 172,
+      "start_time": 473700.0,
+      "end_time": 477969.0,
+      "text": "will lead you, very quickly, to a natural bug in your code."
+    },
+    {
+      "index": 173,
+      "start_time": 477970.0,
+      "end_time": 479777.0,
+      "text": "And when you write unit tests, avoid"
+    },
+    {
+      "index": 174,
+      "start_time": 479777.0,
+      "end_time": 482110.0,
+      "text": "making too many assumptions on the actual implementation"
+    },
+    {
+      "index": 175,
+      "start_time": 482110.0,
+      "end_time": 483600.0,
+      "text": "of your code."
+    },
+    {
+      "index": 176,
+      "start_time": 483600.0,
+      "end_time": 485530.0,
+      "text": "You want your unit test to test behavior."
+    },
+    {
+      "index": 177,
+      "start_time": 485530.0,
+      "end_time": 487409.0,
+      "text": "That way, you avoid rewriting your test"
+    },
+    {
+      "index": 178,
+      "start_time": 487409.0,
+      "end_time": 488950.0,
+      "text": "when your implementation is changing."
+    },
+    {
+      "index": 179,
+      "start_time": 492406.0,
+      "end_time": 494530.0,
+      "text": "And one of the most important aspects of unit tests"
+    },
+    {
+      "index": 180,
+      "start_time": 494530.0,
+      "end_time": 496840.0,
+      "text": "is they&#39;ve got to be fast, especially because you&#39;re"
+    },
+    {
+      "index": 181,
+      "start_time": 496840.0,
+      "end_time": 500469.0,
+      "text": "writing so many of them and, during TDD workflow, running"
+    },
+    {
+      "index": 182,
+      "start_time": 500470.0,
+      "end_time": 502975.0,
+      "text": "them rapidly."
+    },
+    {
+      "index": 183,
+      "start_time": 502975.0,
+      "end_time": 506800.0,
+      "text": "It would be terrible if you were discouraged"
+    },
+    {
+      "index": 184,
+      "start_time": 506800.0,
+      "end_time": 509419.0,
+      "text": "from writing tests or refactoring your code because"
+    },
+    {
+      "index": 185,
+      "start_time": 509420.0,
+      "end_time": 515210.0,
+      "text": "of the pain in the execution time of those tests."
+    },
+    {
+      "index": 186,
+      "start_time": 515210.00000000006,
+      "end_time": 517429.00000000006,
+      "text": "And finally, unit tests are an excellent source"
+    },
+    {
+      "index": 187,
+      "start_time": 517429.0,
+      "end_time": 519740.0,
+      "text": "of documentation and the way it&#39;s constantly"
+    },
+    {
+      "index": 188,
+      "start_time": 519740.0,
+      "end_time": 521690.0,
+      "text": "evolving with the code as it changes,"
+    },
+    {
+      "index": 189,
+      "start_time": 521690.00000000006,
+      "end_time": 524990.0,
+      "text": "unlike static documents that will stagnate over time."
+    },
+    {
+      "index": 190,
+      "start_time": 529240.0,
+      "end_time": 532430.0,
+      "text": "Let&#39;s try a unit test for our Add Notes activity."
+    },
+    {
+      "index": 191,
+      "start_time": 532430.0,
+      "end_time": 534263.0,
+      "text": "This activity is going to take in user input"
+    },
+    {
+      "index": 192,
+      "start_time": 534264.0,
+      "end_time": 535680.0,
+      "text": "and then we&#39;re going to persist it"
+    },
+    {
+      "index": 193,
+      "start_time": 535680.0,
+      "end_time": 537200.0,
+      "text": "to local storage on the device."
+    },
+    {
+      "index": 194,
+      "start_time": 539640.0,
+      "end_time": 540140.0,
+      "text": "OK."
+    },
+    {
+      "index": 195,
+      "start_time": 540140.0,
+      "end_time": 542630.0,
+      "text": "So we&#39;re going to create the Add Note activity class,"
+    },
+    {
+      "index": 196,
+      "start_time": 542630.0,
+      "end_time": 545450.0,
+      "text": "and this will extend Activity, which is an Android framework"
+    },
+    {
+      "index": 197,
+      "start_time": 545450.0,
+      "end_time": 546710.0,
+      "text": "class."
+    },
+    {
+      "index": 198,
+      "start_time": 546710.0,
+      "end_time": 550160.0,
+      "text": "It has a view which is going to be inflated with a layout."
+    },
+    {
+      "index": 199,
+      "start_time": 550160.0,
+      "end_time": 551660.0,
+      "text": "The user will enter their data here."
+    },
+    {
+      "index": 200,
+      "start_time": 551660.0,
+      "end_time": 554329.0,
+      "text": "And then we&#39;re going to persist that note into Android"
+    },
+    {
+      "index": 201,
+      "start_time": 554330.0,
+      "end_time": 556397.0,
+      "text": "SharedPreferences mechanism."
+    },
+    {
+      "index": 202,
+      "start_time": 560370.0,
+      "end_time": 562120.0,
+      "text": "It&#39;s conceivable that, as our application evolves,"
+    },
+    {
+      "index": 203,
+      "start_time": 562120.0,
+      "end_time": 563410.0,
+      "text": "so did our requirement."
+    },
+    {
+      "index": 204,
+      "start_time": 563410.0,
+      "end_time": 565600.0,
+      "text": "And perhaps our storage requirements"
+    },
+    {
+      "index": 205,
+      "start_time": 565600.0,
+      "end_time": 569170.0,
+      "text": "evolve to persist the notes onto cloud storage"
+    },
+    {
+      "index": 206,
+      "start_time": 569170.0,
+      "end_time": 572979.0,
+      "text": "and we have to build some kind of a synchronization mechanism"
+    },
+    {
+      "index": 207,
+      "start_time": 572980.0,
+      "end_time": 576610.0,
+      "text": "for local storage for the offline use case."
+    },
+    {
+      "index": 208,
+      "start_time": 576610.0,
+      "end_time": 579730.0,
+      "text": "And in these cases, we see opportunities for abstraction."
+    },
+    {
+      "index": 209,
+      "start_time": 579730.0,
+      "end_time": 582220.0,
+      "text": "We might, in this example, see that we"
+    },
+    {
+      "index": 210,
+      "start_time": 582220.0,
+      "end_time": 584680.0,
+      "text": "can extract a notes repository."
+    },
+    {
+      "index": 211,
+      "start_time": 584680.0,
+      "end_time": 588219.0,
+      "text": "However, one of the key aspects of test-driven development"
+    },
+    {
+      "index": 212,
+      "start_time": 588220.0,
+      "end_time": 591370.0,
+      "text": "is that we only start by writing the simplest case first,"
+    },
+    {
+      "index": 213,
+      "start_time": 591370.0,
+      "end_time": 592690.0,
+      "text": "and then we iterate."
+    },
+    {
+      "index": 214,
+      "start_time": 592690.0,
+      "end_time": 597250.0,
+      "text": "So we&#39;re going to resist the temptation to do this early."
+    },
+    {
+      "index": 215,
+      "start_time": 597250.0,
+      "end_time": 601750.0,
+      "text": "Let&#39;s take a look at a sample of what an idealized unit"
+    },
+    {
+      "index": 216,
+      "start_time": 601750.0,
+      "end_time": 603310.0,
+      "text": "test would look like."
+    },
+    {
+      "index": 217,
+      "start_time": 603310.0,
+      "end_time": 607569.0,
+      "text": "They&#39;re generally built up into three stages."
+    },
+    {
+      "index": 218,
+      "start_time": 607570.0,
+      "end_time": 609190.0,
+      "text": "The first stage is you&#39;re setting"
+    },
+    {
+      "index": 219,
+      "start_time": 609190.0,
+      "end_time": 611800.0,
+      "text": "the conditions for the test, and this"
+    },
+    {
+      "index": 220,
+      "start_time": 611800.0,
+      "end_time": 613420.0,
+      "text": "includes preparing the environment,"
+    },
+    {
+      "index": 221,
+      "start_time": 613420.0,
+      "end_time": 617199.0,
+      "text": "setting up your dependencies with their required state,"
+    },
+    {
+      "index": 222,
+      "start_time": 617200.0,
+      "end_time": 620500.0,
+      "text": "and preparing any input data."
+    },
+    {
+      "index": 223,
+      "start_time": 620500.0,
+      "end_time": 623620.0,
+      "text": "Next, we&#39;ll exercise the code under test, before finally,"
+    },
+    {
+      "index": 224,
+      "start_time": 623620.0,
+      "end_time": 627700.0,
+      "text": "making assertions on the results or the state."
+    },
+    {
+      "index": 225,
+      "start_time": 627700.0,
+      "end_time": 630430.0,
+      "text": "I like to clearly separate each of these three"
+    },
+    {
+      "index": 226,
+      "start_time": 630430.0,
+      "end_time": 635170.0,
+      "text": "stages of the test and bring the pertinent aspects of each test"
+    },
+    {
+      "index": 227,
+      "start_time": 635170.0,
+      "end_time": 637610.0,
+      "text": "front and center to make for a really readable test."
+    },
+    {
+      "index": 228,
+      "start_time": 641560.0,
+      "end_time": 643869.0,
+      "text": "Up until now with the Android platform,"
+    },
+    {
+      "index": 229,
+      "start_time": 643870.0,
+      "end_time": 646210.0,
+      "text": "you&#39;re writing your unit tests using"
+    },
+    {
+      "index": 230,
+      "start_time": 646210.0,
+      "end_time": 648190.0,
+      "text": "the mockable jarring conjunction with a mocking"
+    },
+    {
+      "index": 231,
+      "start_time": 648190.0,
+      "end_time": 650640.0,
+      "text": "library, such as Marketo."
+    },
+    {
+      "index": 232,
+      "start_time": 650640.0,
+      "end_time": 652660.0,
+      "text": "And let&#39;s take a look at an example"
+    },
+    {
+      "index": 233,
+      "start_time": 652660.0,
+      "end_time": 656610.0,
+      "text": "of a test written with Marketo."
+    },
+    {
+      "index": 234,
+      "start_time": 656610.0,
+      "end_time": 657940.0,
+      "text": "OK."
+    },
+    {
+      "index": 235,
+      "start_time": 657940.0,
+      "end_time": 658840.0,
+      "text": "Wow."
+    },
+    {
+      "index": 236,
+      "start_time": 658840.0,
+      "end_time": 660950.0,
+      "text": "That&#39;s a lot of code."
+    },
+    {
+      "index": 237,
+      "start_time": 660950.0,
+      "end_time": 661450.0,
+      "text": "OK."
+    },
+    {
+      "index": 238,
+      "start_time": 661450.0,
+      "end_time": 664570.0,
+      "text": "So because we have so many interactions with the Android"
+    },
+    {
+      "index": 239,
+      "start_time": 664570.0,
+      "end_time": 667270.0,
+      "text": "framework, we&#39;re going to need to provide"
+    },
+    {
+      "index": 240,
+      "start_time": 667270.0,
+      "end_time": 671110.0,
+      "text": "stubbing behavior for all of them in order just to make--"
+    },
+    {
+      "index": 241,
+      "start_time": 671110.0,
+      "end_time": 674560.0,
+      "text": "just to satisfy the execution paths of our test."
+    },
+    {
+      "index": 242,
+      "start_time": 674560.0,
+      "end_time": 678520.0,
+      "text": "And furthermore, because Android uses a lot of static methods,"
+    },
+    {
+      "index": 243,
+      "start_time": 678520.0,
+      "end_time": 680680.0,
+      "text": "we&#39;re forced to introduce a second mocking"
+    },
+    {
+      "index": 244,
+      "start_time": 680680.0,
+      "end_time": 682510.0,
+      "text": "library, PowerMock, that will handle"
+    },
+    {
+      "index": 245,
+      "start_time": 682510.0,
+      "end_time": 685210.0,
+      "text": "this special case for us."
+    },
+    {
+      "index": 246,
+      "start_time": 685210.0,
+      "end_time": 688500.0,
+      "text": "And there are also some pretty bad code [INAUDIBLE] here."
+    },
+    {
+      "index": 247,
+      "start_time": 688500.0,
+      "end_time": 690729.0,
+      "text": "Let&#39;s take a look."
+    },
+    {
+      "index": 248,
+      "start_time": 690730.0,
+      "end_time": 694930.0,
+      "text": "You see, we&#39;re forced to spy on the activity on the test"
+    },
+    {
+      "index": 249,
+      "start_time": 694930.0,
+      "end_time": 697660.0,
+      "text": "and we&#39;re needing to do this to modify its behavior."
+    },
+    {
+      "index": 250,
+      "start_time": 697660.0,
+      "end_time": 700329.0,
+      "text": "And stubbing it out and providing some no ops."
+    },
+    {
+      "index": 251,
+      "start_time": 700330.0,
+      "end_time": 702970.0,
+      "text": "So we&#39;re moving out of the realms of black box testing"
+    },
+    {
+      "index": 252,
+      "start_time": 702970.0,
+      "end_time": 705130.0,
+      "text": "here."
+    },
+    {
+      "index": 253,
+      "start_time": 705130.0,
+      "end_time": 707410.0,
+      "text": "And finally, at the end, we&#39;re making"
+    },
+    {
+      "index": 254,
+      "start_time": 707410.0,
+      "end_time": 710779.0,
+      "text": "assertions about the implementation details."
+    },
+    {
+      "index": 255,
+      "start_time": 710779.0,
+      "end_time": 713700.0,
+      "text": "And if these change, our test will need to change, too."
+    },
+    {
+      "index": 256,
+      "start_time": 715610.0,
+      "end_time": 718550.0,
+      "text": "So remembering the characteristics of a good unit"
+    },
+    {
+      "index": 257,
+      "start_time": 718550.0,
+      "end_time": 722449.0,
+      "text": "test, let&#39;s take a moment to score this particular test."
+    },
+    {
+      "index": 258,
+      "start_time": 722450.0,
+      "end_time": 724490.0,
+      "text": "While it is very focused, we&#39;re just"
+    },
+    {
+      "index": 259,
+      "start_time": 724490.0,
+      "end_time": 727670.0,
+      "text": "testing the happy path of our Add Notes flow,"
+    },
+    {
+      "index": 260,
+      "start_time": 727670.0,
+      "end_time": 732560.0,
+      "text": "and it&#39;s certainly fast because it&#39;s running on the local JVM."
+    },
+    {
+      "index": 261,
+      "start_time": 732560.0,
+      "end_time": 734510.0,
+      "text": "However, we were making rather a lot"
+    },
+    {
+      "index": 262,
+      "start_time": 734510.0,
+      "end_time": 738350.0,
+      "text": "of assumptions about the implementation in that test."
+    },
+    {
+      "index": 263,
+      "start_time": 738350.0,
+      "end_time": 742130.0,
+      "text": "And with this, if any of our implementation changes,"
+    },
+    {
+      "index": 264,
+      "start_time": 742130.0,
+      "end_time": 743840.0,
+      "text": "it&#39;s likely we&#39;ll need to rewrite"
+    },
+    {
+      "index": 265,
+      "start_time": 743840.0,
+      "end_time": 746600.0,
+      "text": "that test substantially."
+    },
+    {
+      "index": 266,
+      "start_time": 746600.0,
+      "end_time": 749990.0,
+      "text": "And finally, all that excess boilerplate stubbing"
+    },
+    {
+      "index": 267,
+      "start_time": 749990.0,
+      "end_time": 751430.0,
+      "text": "is really distracting."
+    },
+    {
+      "index": 268,
+      "start_time": 751430.0,
+      "end_time": 753974.0,
+      "text": "It&#39;s distracting away from the key aspects"
+    },
+    {
+      "index": 269,
+      "start_time": 753975.0,
+      "end_time": 755600.0,
+      "text": "of the test, the conditions of the test"
+    },
+    {
+      "index": 270,
+      "start_time": 755600.0,
+      "end_time": 757250.0,
+      "text": "that you&#39;re trying to document."
+    },
+    {
+      "index": 271,
+      "start_time": 760860.0,
+      "end_time": 762570.0,
+      "text": "Well luckily, there&#39;s a tool that helps"
+    },
+    {
+      "index": 272,
+      "start_time": 762570.0,
+      "end_time": 764640.0,
+      "text": "address some of these issues."
+    },
+    {
+      "index": 273,
+      "start_time": 764640.0,
+      "end_time": 767850.0,
+      "text": "So introducing Roboelectric."
+    },
+    {
+      "index": 274,
+      "start_time": 767850.0,
+      "end_time": 770340.0,
+      "text": "Roboelectric is an Android unit testing"
+    },
+    {
+      "index": 275,
+      "start_time": 770340.0,
+      "end_time": 775500.0,
+      "text": "tool that&#39;s open sourced that we are actively contributing to."
+    },
+    {
+      "index": 276,
+      "start_time": 775500.0,
+      "end_time": 776760.0,
+      "text": "And to tell you more about how you"
+    },
+    {
+      "index": 277,
+      "start_time": 776760.0,
+      "end_time": 778680.0,
+      "text": "can write great tests with Roboelectric,"
+    },
+    {
+      "index": 278,
+      "start_time": 778680.0,
+      "end_time": 780810.0,
+      "text": "I&#39;m going to hand you over to Christian Williams,"
+    },
+    {
+      "index": 279,
+      "start_time": 780810.0,
+      "end_time": 783145.0,
+      "text": "the original author of Roboelectric."
+    },
+    {
+      "index": 280,
+      "start_time": 783145.0,
+      "end_time": 785569.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 281,
+      "start_time": 788480.0,
+      "end_time": 790600.0,
+      "text": "CHRISTIAN WILLIAMS: Thanks, Jonathan."
+    },
+    {
+      "index": 282,
+      "start_time": 790600.0,
+      "end_time": 792160.0,
+      "text": "It&#39;s awesome to see so many people who are"
+    },
+    {
+      "index": 283,
+      "start_time": 792160.0,
+      "end_time": 795980.0,
+      "text": "into Android testing and TDD."
+    },
+    {
+      "index": 284,
+      "start_time": 795980.0,
+      "end_time": 798850.0,
+      "text": "Yeah, Roboelectric is this scrappy little open source"
+    },
+    {
+      "index": 285,
+      "start_time": 798850.0,
+      "end_time": 801340.0,
+      "text": "project that I started hacking on back"
+    },
+    {
+      "index": 286,
+      "start_time": 801340.0,
+      "end_time": 802990.0,
+      "text": "in the early days of Android Testing"
+    },
+    {
+      "index": 287,
+      "start_time": 802990.0,
+      "end_time": 807190.0,
+      "text": "because I was just super annoyed at how long it took to deploy"
+    },
+    {
+      "index": 288,
+      "start_time": 807190.0,
+      "end_time": 810490.0,
+      "text": "and run tests on an emulator."
+    },
+    {
+      "index": 289,
+      "start_time": 810490.0,
+      "end_time": 812500.0,
+      "text": "And it&#39;s kind of been a side project"
+    },
+    {
+      "index": 290,
+      "start_time": 812500.0,
+      "end_time": 814359.0,
+      "text": "of a bunch of different people until last year, when"
+    },
+    {
+      "index": 291,
+      "start_time": 814360.0,
+      "end_time": 817640.0,
+      "text": "I had the privilege of joining my friend Jonathan at Google,"
+    },
+    {
+      "index": 292,
+      "start_time": 817640.0,
+      "end_time": 820900.0,
+      "text": "where he was already working, on improving Roboelectric"
+    },
+    {
+      "index": 293,
+      "start_time": 820900.0,
+      "end_time": 822910.0,
+      "text": "for Google&#39;s own internal test suites."
+    },
+    {
+      "index": 294,
+      "start_time": 822910.0,
+      "end_time": 826149.0,
+      "text": "And since then, we&#39;ve been really beefing up Roboelectric"
+    },
+    {
+      "index": 295,
+      "start_time": 826149.0,
+      "end_time": 828190.0,
+      "text": "and contributing back to the open source project."
+    },
+    {
+      "index": 296,
+      "start_time": 830890.0,
+      "end_time": 833170.0,
+      "text": "Today, Roboelectric isn&#39;t an officially supported part"
+    },
+    {
+      "index": 297,
+      "start_time": 833170.0,
+      "end_time": 837980.0,
+      "text": "of the Android testing platform, but we"
+    },
+    {
+      "index": 298,
+      "start_time": 837990.0,
+      "end_time": 838640.0,
+      "text": "found that, when it&#39;s used correctly,"
+    },
+    {
+      "index": 299,
+      "start_time": 838640.0,
+      "end_time": 841100.0,
+      "text": "it can be a really useful part of your testing strategy."
+    },
+    {
+      "index": 300,
+      "start_time": 841100.0,
+      "end_time": 843900.0,
+      "text": "And I&#39;m going to show you a little bit about how"
+    },
+    {
+      "index": 301,
+      "start_time": 843900.0,
+      "end_time": 844180.0,
+      "text": "you can do that, too."
+    },
+    {
+      "index": 302,
+      "start_time": 844180.0,
+      "end_time": 845943.0,
+      "text": "Let&#39;s go back to our notes unit test"
+    },
+    {
+      "index": 303,
+      "start_time": 845943.0,
+      "end_time": 848680.0,
+      "text": "and see how we might approach it with Roboelectric."
+    },
+    {
+      "index": 304,
+      "start_time": 851200.0,
+      "end_time": 853659.0,
+      "text": "Since Roboelectric runs as a local unit test,"
+    },
+    {
+      "index": 305,
+      "start_time": 853659.0,
+      "end_time": 855450.0,
+      "text": "it&#39;ll still be running on your workstation,"
+    },
+    {
+      "index": 306,
+      "start_time": 855450.0,
+      "end_time": 857200.0,
+      "text": "not on an emulator."
+    },
+    {
+      "index": 307,
+      "start_time": 857200.0,
+      "end_time": 860500.0,
+      "text": "But Roboelectric provides a little Android sandbox"
+    },
+    {
+      "index": 308,
+      "start_time": 860500.0,
+      "end_time": 865100.0,
+      "text": "next to your test, where the actual SDK code is running."
+    },
+    {
+      "index": 309,
+      "start_time": 865100.0,
+      "end_time": 867370.0,
+      "text": "You&#39;ll have access to your activities, your layouts,"
+    },
+    {
+      "index": 310,
+      "start_time": 867370.0,
+      "end_time": 868900.0,
+      "text": "and views, and resources."
+    },
+    {
+      "index": 311,
+      "start_time": 868900.0,
+      "end_time": 871569.0,
+      "text": "And you can generally just call most Android methods"
+    },
+    {
+      "index": 312,
+      "start_time": 871570.0,
+      "end_time": 874224.0,
+      "text": "and they&#39;ll kind of work like you&#39;d expect."
+    },
+    {
+      "index": 313,
+      "start_time": 874224.0,
+      "end_time": 875890.0,
+      "text": "There are parts of the Android framework"
+    },
+    {
+      "index": 314,
+      "start_time": 875890.0,
+      "end_time": 881530.0,
+      "text": "that rely on native code or collective hardware or interact"
+    },
+    {
+      "index": 315,
+      "start_time": 881530.0,
+      "end_time": 883270.0,
+      "text": "with external system services."
+    },
+    {
+      "index": 316,
+      "start_time": 883270.0,
+      "end_time": 885850.0,
+      "text": "So for that, Roboelectric provides a sort of test stubble"
+    },
+    {
+      "index": 317,
+      "start_time": 885850.0,
+      "end_time": 888310.0,
+      "text": "that we call Shadows."
+    },
+    {
+      "index": 318,
+      "start_time": 888310.0,
+      "end_time": 890770.0,
+      "text": "And those provide alternative limitations"
+    },
+    {
+      "index": 319,
+      "start_time": 890770.0,
+      "end_time": 895100.0,
+      "text": "of that code that&#39;s appropriate for unit testing."
+    },
+    {
+      "index": 320,
+      "start_time": 895100.0,
+      "end_time": 899190.0,
+      "text": "Remember that test that we just saw that had 20 lines of code,"
+    },
+    {
+      "index": 321,
+      "start_time": 899190.0,
+      "end_time": 901460.0,
+      "text": "of mock set-up code?"
+    },
+    {
+      "index": 322,
+      "start_time": 901460.0,
+      "end_time": 904630.0,
+      "text": "Let&#39;s see how that looks in Roboelectric."
+    },
+    {
+      "index": 323,
+      "start_time": 904630.0,
+      "end_time": 905500.0,
+      "text": "That&#39;s a lot less."
+    },
+    {
+      "index": 324,
+      "start_time": 905500.0,
+      "end_time": 908700.0,
+      "text": "We&#39;ve gotten rid of all the boilerplate."
+    },
+    {
+      "index": 325,
+      "start_time": 908700.0,
+      "end_time": 911274.0,
+      "text": "The test is about half the size and much more concise."
+    },
+    {
+      "index": 326,
+      "start_time": 911274.0,
+      "end_time": 913690.0,
+      "text": "We&#39;re not forced to think about the implementation details"
+    },
+    {
+      "index": 327,
+      "start_time": 913690.0,
+      "end_time": 917120.0,
+      "text": "as we&#39;re writing the test, which is quite nice."
+    },
+    {
+      "index": 328,
+      "start_time": 917120.0,
+      "end_time": 918969.0,
+      "text": "Roboelectric is going to set up the application"
+    },
+    {
+      "index": 329,
+      "start_time": 918970.0,
+      "end_time": 920530.0,
+      "text": "according to your manifest."
+    },
+    {
+      "index": 330,
+      "start_time": 920530.0,
+      "end_time": 923140.0,
+      "text": "And if we were asking it to set up our activity,"
+    },
+    {
+      "index": 331,
+      "start_time": 923140.0,
+      "end_time": 925540.0,
+      "text": "it runs it through the appropriate life cycle"
+    },
+    {
+      "index": 332,
+      "start_time": 925540.0,
+      "end_time": 927250.0,
+      "text": "to get it into the right state."
+    },
+    {
+      "index": 333,
+      "start_time": 927250.0,
+      "end_time": 932570.0,
+      "text": "Inflates views, all that stuff that we expect on a device."
+    },
+    {
+      "index": 334,
+      "start_time": 932570.0,
+      "end_time": 936410.0,
+      "text": "So we can just interact with it as if you&#39;re on a device."
+    },
+    {
+      "index": 335,
+      "start_time": 936410.0,
+      "end_time": 940300.0,
+      "text": "So we add some text to some fields, click on it,"
+    },
+    {
+      "index": 336,
+      "start_time": 940300.0,
+      "end_time": 943410.0,
+      "text": "and assert that it adds a note to the repository."
+    },
+    {
+      "index": 337,
+      "start_time": 943420.0,
+      "end_time": 944500.0,
+      "text": "Now, notice that we&#39;re not actually"
+    },
+    {
+      "index": 338,
+      "start_time": 944500.0,
+      "end_time": 949480.0,
+      "text": "going as far as the UI test that we wrote at the very beginning."
+    },
+    {
+      "index": 339,
+      "start_time": 949480.0,
+      "end_time": 951700.0,
+      "text": "We&#39;re not asserting that the new note"
+    },
+    {
+      "index": 340,
+      "start_time": 951700.0,
+      "end_time": 953680.0,
+      "text": "appears on the view screen."
+    },
+    {
+      "index": 341,
+      "start_time": 953680.0,
+      "end_time": 955540.0,
+      "text": "That would be the job of another unit test."
+    },
+    {
+      "index": 342,
+      "start_time": 958930.0,
+      "end_time": 961540.0,
+      "text": "Now, I mentioned Roboelectric&#39;s shadows."
+    },
+    {
+      "index": 343,
+      "start_time": 961540.0,
+      "end_time": 964319.0,
+      "text": "They actually give extended testing"
+    },
+    {
+      "index": 344,
+      "start_time": 964320.0,
+      "end_time": 966280.0,
+      "text": "APIs to some Android classes that"
+    },
+    {
+      "index": 345,
+      "start_time": 966280.0,
+      "end_time": 970890.0,
+      "text": "let us query internal state and sometimes change"
+    },
+    {
+      "index": 346,
+      "start_time": 970900.0,
+      "end_time": 971170.0,
+      "text": "their behavior."
+    },
+    {
+      "index": 347,
+      "start_time": 971170.0,
+      "end_time": 974199.0,
+      "text": "In this example, we were asking the application"
+    },
+    {
+      "index": 348,
+      "start_time": 974200.0,
+      "end_time": 977800.0,
+      "text": "if any of our activities requested that an intent be"
+    },
+    {
+      "index": 349,
+      "start_time": 977800.0,
+      "end_time": 979329.0,
+      "text": "launched during the test."
+    },
+    {
+      "index": 350,
+      "start_time": 979330.0,
+      "end_time": 981520.0,
+      "text": "We could use that to assert that, after saving"
+    },
+    {
+      "index": 351,
+      "start_time": 981520.0,
+      "end_time": 984220.0,
+      "text": "the note to the repository, we&#39;re"
+    },
+    {
+      "index": 352,
+      "start_time": 984220.0,
+      "end_time": 988300.0,
+      "text": "going to go to the View Notes activity."
+    },
+    {
+      "index": 353,
+      "start_time": 988300.0,
+      "end_time": 993640.0,
+      "text": "Similar testing APIs exist for simulating hardware responses"
+    },
+    {
+      "index": 354,
+      "start_time": 993640.0,
+      "end_time": 995900.0,
+      "text": "or external services, things like that."
+    },
+    {
+      "index": 355,
+      "start_time": 998590.0,
+      "end_time": 1001290.0,
+      "text": "At this point, we have a failing unit test."
+    },
+    {
+      "index": 356,
+      "start_time": 1001290.0,
+      "end_time": 1002380.0,
+      "text": "And now we get to--"
+    },
+    {
+      "index": 357,
+      "start_time": 1002380.0,
+      "end_time": 1004860.0,
+      "text": "we&#39;re ready for the easy part, writing the production code."
+    },
+    {
+      "index": 358,
+      "start_time": 1008400.0,
+      "end_time": 1010439.0,
+      "text": "In the spirit of TDD, we&#39;re only going"
+    },
+    {
+      "index": 359,
+      "start_time": 1010440.0,
+      "end_time": 1014820.0,
+      "text": "to write exactly as much as is needed to make the test pass."
+    },
+    {
+      "index": 360,
+      "start_time": 1014820.0,
+      "end_time": 1016890.0,
+      "text": "No more, no speculative coding."
+    },
+    {
+      "index": 361,
+      "start_time": 1016890.0,
+      "end_time": 1020880.0,
+      "text": "So we inflate a layout, attach a click handler,"
+    },
+    {
+      "index": 362,
+      "start_time": 1020880.0,
+      "end_time": 1023800.0,
+      "text": "and when the click happens, we fade a note"
+    },
+    {
+      "index": 363,
+      "start_time": 1023800.0,
+      "end_time": 1024533.0,
+      "text": "and add it to the repository."
+    },
+    {
+      "index": 364,
+      "start_time": 1028420.0000000001,
+      "end_time": 1030974.0000000001,
+      "text": "Now we can run the test, see it pass."
+    },
+    {
+      "index": 365,
+      "start_time": 1030970.0,
+      "end_time": 1033136.0,
+      "text": "If there&#39;s some improvement we can make to the code,"
+    },
+    {
+      "index": 366,
+      "start_time": 1033140.0000000001,
+      "end_time": 1035416.0000000001,
+      "text": "we&#39;ll go back and refactor, and then we repeat."
+    },
+    {
+      "index": 367,
+      "start_time": 1035420.0000000001,
+      "end_time": 1037405.0000000001,
+      "text": "This is where you get the thoroughness."
+    },
+    {
+      "index": 368,
+      "start_time": 1037400.0000000001,
+      "end_time": 1038810.0000000001,
+      "text": "And Roboelectric is super handy for this"
+    },
+    {
+      "index": 369,
+      "start_time": 1038810.0,
+      "end_time": 1041118.0,
+      "text": "because it gives you nice, fast test runs."
+    },
+    {
+      "index": 370,
+      "start_time": 1041119.9999999999,
+      "end_time": 1042880.9999999999,
+      "text": "You can get into a comfy cycle."
+    },
+    {
+      "index": 371,
+      "start_time": 1047640.0000000001,
+      "end_time": 1050370.0,
+      "text": "We want to not just test the happy path here."
+    },
+    {
+      "index": 372,
+      "start_time": 1050370.0,
+      "end_time": 1053100.0,
+      "text": "We&#39;re going to test all the different cases that our code"
+    },
+    {
+      "index": 373,
+      "start_time": 1053100.0,
+      "end_time": 1054689.0,
+      "text": "is likely to encounter."
+    },
+    {
+      "index": 374,
+      "start_time": 1054690.0,
+      "end_time": 1058451.0,
+      "text": "So for example, input validation and external conditions"
+    },
+    {
+      "index": 375,
+      "start_time": 1058450.0,
+      "end_time": 1060449.0,
+      "text": "like the network being down and stuff like that."
+    },
+    {
+      "index": 376,
+      "start_time": 1063720.0,
+      "end_time": 1068200.0,
+      "text": "Roboelectric can also help with simulating device conditions"
+    },
+    {
+      "index": 377,
+      "start_time": 1068200.0,
+      "end_time": 1069380.0,
+      "text": "that you&#39;ll encounter."
+    },
+    {
+      "index": 378,
+      "start_time": 1069380.0,
+      "end_time": 1072760.0,
+      "text": "For example, you can specify qualifiers"
+    },
+    {
+      "index": 379,
+      "start_time": 1072760.0,
+      "end_time": 1074860.0,
+      "text": "that the test should run with."
+    },
+    {
+      "index": 380,
+      "start_time": 1074860.0,
+      "end_time": 1077679.0,
+      "text": "Here, we&#39;re saying a certain screen size and orientation,"
+    },
+    {
+      "index": 381,
+      "start_time": 1077680.0,
+      "end_time": 1080230.0,
+      "text": "which might change the layout a bit."
+    },
+    {
+      "index": 382,
+      "start_time": 1080230.0,
+      "end_time": 1084490.0,
+      "text": "You can ask Roboelectric to run your test under a specific SDK."
+    },
+    {
+      "index": 383,
+      "start_time": 1084490.0,
+      "end_time": 1087600.0,
+      "text": "So we&#39;ll say Jelly Bean here."
+    },
+    {
+      "index": 384,
+      "start_time": 1087600.0,
+      "end_time": 1091480.0,
+      "text": "And it actually uses of the SDK code from that version."
+    },
+    {
+      "index": 385,
+      "start_time": 1091480.0,
+      "end_time": 1094270.0,
+      "text": "And you can also tell Roboelectric,"
+    },
+    {
+      "index": 386,
+      "start_time": 1094270.0,
+      "end_time": 1096129.0,
+      "text": "I want to run this test under every SDK"
+    },
+    {
+      "index": 387,
+      "start_time": 1096130.0,
+      "end_time": 1098980.0,
+      "text": "that you support, or some range of them"
+    },
+    {
+      "index": 388,
+      "start_time": 1098980.0,
+      "end_time": 1100360.0,
+      "text": "that you&#39;re interested in."
+    },
+    {
+      "index": 389,
+      "start_time": 1100360.0,
+      "end_time": 1103540.0,
+      "text": "And we support Jelly Bean through O right now."
+    },
+    {
+      "index": 390,
+      "start_time": 1106890.0,
+      "end_time": 1109460.0,
+      "text": "At Google, we rely really heavily on Roboelectric"
+    },
+    {
+      "index": 391,
+      "start_time": 1109460.0,
+      "end_time": 1111410.0,
+      "text": "and we&#39;re investing in making it better."
+    },
+    {
+      "index": 392,
+      "start_time": 1111410.0,
+      "end_time": 1112868.0,
+      "text": "We&#39;ve got dozens of apps, including"
+    },
+    {
+      "index": 393,
+      "start_time": 1112870.0,
+      "end_time": 1114651.0,
+      "text": "these, that have hundreds of thousands"
+    },
+    {
+      "index": 394,
+      "start_time": 1114650.0,
+      "end_time": 1116510.0,
+      "text": "of unit tests running internally."
+    },
+    {
+      "index": 395,
+      "start_time": 1116510.0,
+      "end_time": 1119600.0,
+      "text": "So it&#39;s well battle-tested."
+    },
+    {
+      "index": 396,
+      "start_time": 1119600.0,
+      "end_time": 1122290.0,
+      "text": "And we&#39;ve also recently started running the Android CTS, which"
+    },
+    {
+      "index": 397,
+      "start_time": 1122290.0,
+      "end_time": 1126290.0,
+      "text": "is the official Android test suite against Roboelectric."
+    },
+    {
+      "index": 398,
+      "start_time": 1126290.0,
+      "end_time": 1128540.0,
+      "text": "And we&#39;re about 70% passing right now, getting better"
+    },
+    {
+      "index": 399,
+      "start_time": 1128540.0,
+      "end_time": 1130950.0,
+      "text": "with every release."
+    },
+    {
+      "index": 400,
+      "start_time": 1130950.0,
+      "end_time": 1132770.0,
+      "text": "So if you used Roboelectric in the past"
+    },
+    {
+      "index": 401,
+      "start_time": 1132770.0,
+      "end_time": 1134720.0,
+      "text": "and found that it&#39;s come up short,"
+    },
+    {
+      "index": 402,
+      "start_time": 1134720.0,
+      "end_time": 1136430.0,
+      "text": "or if you&#39;re stuck in an old version,"
+    },
+    {
+      "index": 403,
+      "start_time": 1136430.0,
+      "end_time": 1139850.0,
+      "text": "I definitely recommend that you get up to the latest"
+    },
+    {
+      "index": 404,
+      "start_time": 1139850.0,
+      "end_time": 1141149.0,
+      "text": "because it&#39;s come a long way."
+    },
+    {
+      "index": 405,
+      "start_time": 1144530.0,
+      "end_time": 1147237.0,
+      "text": "We&#39;ve been working on reducing friction"
+    },
+    {
+      "index": 406,
+      "start_time": 1147240.0,
+      "end_time": 1149573.0,
+      "text": "in integrating Roboelectric with the Android tool chain."
+    },
+    {
+      "index": 407,
+      "start_time": 1149570.0,
+      "end_time": 1153770.0,
+      "text": "It works now very well with Android Studio, with Gradle."
+    },
+    {
+      "index": 408,
+      "start_time": 1153770.0,
+      "end_time": 1158310.0,
+      "text": "And we&#39;ve got support for Bazel, Google&#39;s own open source"
+    },
+    {
+      "index": 409,
+      "start_time": 1158310.0,
+      "end_time": 1159409.0,
+      "text": "build system coming soon."
+    },
+    {
+      "index": 410,
+      "start_time": 1162410.0,
+      "end_time": 1166100.0,
+      "text": "Roboelectric isn&#39;t a one-size-fits-all testing tool."
+    },
+    {
+      "index": 411,
+      "start_time": 1166100.0,
+      "end_time": 1168770.0,
+      "text": "It&#39;s fast, but it&#39;s not 100% identical to Android"
+    },
+    {
+      "index": 412,
+      "start_time": 1168770.0,
+      "end_time": 1173150.0,
+      "text": "in every way, so you want to use it judiciously."
+    },
+    {
+      "index": 413,
+      "start_time": 1173150.0,
+      "end_time": 1176180.0,
+      "text": "As I said before, avoid writing unit tests that link"
+    },
+    {
+      "index": 414,
+      "start_time": 1176180.0,
+      "end_time": 1177650.0,
+      "text": "multiple activities together."
+    },
+    {
+      "index": 415,
+      "start_time": 1177650.0,
+      "end_time": 1179210.0,
+      "text": "That&#39;s not so much a unit test."
+    },
+    {
+      "index": 416,
+      "start_time": 1179210.0,
+      "end_time": 1181255.0,
+      "text": "That&#39;s much better for Espresso."
+    },
+    {
+      "index": 417,
+      "start_time": 1181260.0,
+      "end_time": 1183385.0,
+      "text": "If you find yourself dealing with multiple threads,"
+    },
+    {
+      "index": 418,
+      "start_time": 1183380.0,
+      "end_time": 1185120.0,
+      "text": "synchronization issues, stuff like"
+    },
+    {
+      "index": 419,
+      "start_time": 1185120.0,
+      "end_time": 1188780.0,
+      "text": "that, you&#39;re also probably not writing a unit tests, so not"
+    },
+    {
+      "index": 420,
+      "start_time": 1188780.0,
+      "end_time": 1190879.0,
+      "text": "good for electric."
+    },
+    {
+      "index": 421,
+      "start_time": 1190880.0,
+      "end_time": 1193310.0,
+      "text": "And particularly, avoid using Roboelectric"
+    },
+    {
+      "index": 422,
+      "start_time": 1193310.0,
+      "end_time": 1199190.0,
+      "text": "to test your integration with Android APIs and things"
+    },
+    {
+      "index": 423,
+      "start_time": 1199190.0,
+      "end_time": 1201130.0,
+      "text": "like Google Play services."
+    },
+    {
+      "index": 424,
+      "start_time": 1201130.0,
+      "end_time": 1203680.0,
+      "text": "You really need to have higher-level tests to give you"
+    },
+    {
+      "index": 425,
+      "start_time": 1203680.0,
+      "end_time": 1206810.0,
+      "text": "confidence that that&#39;s working."
+    },
+    {
+      "index": 426,
+      "start_time": 1206810.0,
+      "end_time": 1208940.0,
+      "text": "So now that we&#39;ve got some passing unit tests,"
+    },
+    {
+      "index": 427,
+      "start_time": 1208940.0,
+      "end_time": 1211250.0,
+      "text": "I&#39;m going to hand you over to my colleague, Stefan"
+    },
+    {
+      "index": 428,
+      "start_time": 1211250.0,
+      "end_time": 1214870.0,
+      "text": "to talk about higher level testing."
+    },
+    {
+      "index": 429,
+      "start_time": 1214870.0,
+      "end_time": 1218264.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 430,
+      "start_time": 1220700.0,
+      "end_time": 1223520.0,
+      "text": "STEFAN: Thank you, Christian."
+    },
+    {
+      "index": 431,
+      "start_time": 1223520.0,
+      "end_time": 1227210.0,
+      "text": "Let&#39;s go back to our developer workflow diagram."
+    },
+    {
+      "index": 432,
+      "start_time": 1227210.0,
+      "end_time": 1230600.0,
+      "text": "At this point, we hopefully have a ton of unit tests"
+    },
+    {
+      "index": 433,
+      "start_time": 1230600.0,
+      "end_time": 1233220.0,
+      "text": "and they thoroughly test all our business logic."
+    },
+    {
+      "index": 434,
+      "start_time": 1233220.0,
+      "end_time": 1236300.0,
+      "text": "But let&#39;s switch gears and try to see how we can actually"
+    },
+    {
+      "index": 435,
+      "start_time": 1236300.0,
+      "end_time": 1240200.0,
+      "text": "write some integration tests to see how these units integrate,"
+    },
+    {
+      "index": 436,
+      "start_time": 1240200.0,
+      "end_time": 1241910.0,
+      "text": "and how they actually integrate with Android"
+    },
+    {
+      "index": 437,
+      "start_time": 1241910.0,
+      "end_time": 1245810.0,
+      "text": "and how they run in a real environment."
+    },
+    {
+      "index": 438,
+      "start_time": 1245810.0,
+      "end_time": 1248540.0,
+      "text": "On Android, these tests are usually referred to"
+    },
+    {
+      "index": 439,
+      "start_time": 1248540.0,
+      "end_time": 1250325.0,
+      "text": "as instrumentation tests."
+    },
+    {
+      "index": 440,
+      "start_time": 1250320.0,
+      "end_time": 1252945.0,
+      "text": "And I&#39;m pretty sure most of you have written an instrumentation"
+    },
+    {
+      "index": 441,
+      "start_time": 1252950.0,
+      "end_time": 1254390.0,
+      "text": "test before."
+    },
+    {
+      "index": 442,
+      "start_time": 1254390.0,
+      "end_time": 1257960.0,
+      "text": "And even though they look super simple on the surface,"
+    },
+    {
+      "index": 443,
+      "start_time": 1257960.0,
+      "end_time": 1260600.0,
+      "text": "there&#39;s actually a lot going on under the hood,"
+    },
+    {
+      "index": 444,
+      "start_time": 1260600.0,
+      "end_time": 1262159.0,
+      "text": "if you think about it."
+    },
+    {
+      "index": 445,
+      "start_time": 1262160.0,
+      "end_time": 1263600.0,
+      "text": "You have to compile the code, you"
+    },
+    {
+      "index": 446,
+      "start_time": 1263600.0,
+      "end_time": 1265280.0,
+      "text": "have to process your resources, you"
+    },
+    {
+      "index": 447,
+      "start_time": 1265280.0,
+      "end_time": 1269899.0,
+      "text": "have to bring up a full system image and then run your test."
+    },
+    {
+      "index": 448,
+      "start_time": 1269900.0,
+      "end_time": 1273500.0,
+      "text": "And there&#39;s a lot of things that go on on various levels"
+    },
+    {
+      "index": 449,
+      "start_time": 1273500.0,
+      "end_time": 1275210.0,
+      "text": "of the Android stack."
+    },
+    {
+      "index": 450,
+      "start_time": 1275210.0,
+      "end_time": 1279390.0,
+      "text": "So these tests give you high fidelity,"
+    },
+    {
+      "index": 451,
+      "start_time": 1279390.0,
+      "end_time": 1280580.0,
+      "text": "but as John was mentioning, they come"
+    },
+    {
+      "index": 452,
+      "start_time": 1280580.0,
+      "end_time": 1284149.0,
+      "text": "at a cost, which is they are slower"
+    },
+    {
+      "index": 453,
+      "start_time": 1284150.0,
+      "end_time": 1289320.0,
+      "text": "and sometimes, they&#39;re more flaky than unit tests."
+    },
+    {
+      "index": 454,
+      "start_time": 1289320.0,
+      "end_time": 1291110.0,
+      "text": "So let&#39;s actually see how this works"
+    },
+    {
+      "index": 455,
+      "start_time": 1291110.0,
+      "end_time": 1293449.0,
+      "text": "in your day-to-day development flow."
+    },
+    {
+      "index": 456,
+      "start_time": 1293450.0,
+      "end_time": 1296000.0,
+      "text": "Let&#39;s say you&#39;re an Android Studio."
+    },
+    {
+      "index": 457,
+      "start_time": 1296000.0,
+      "end_time": 1299210.0,
+      "text": "You&#39;ve just written your new Espresso test"
+    },
+    {
+      "index": 458,
+      "start_time": 1299210.0,
+      "end_time": 1302252.0,
+      "text": "and you hit the Run button to run the test."
+    },
+    {
+      "index": 459,
+      "start_time": 1302250.0,
+      "end_time": 1304458.0,
+      "text": "So the first thing that Android Studio is going to do"
+    },
+    {
+      "index": 460,
+      "start_time": 1304460.0,
+      "end_time": 1307430.0,
+      "text": "is it&#39;s going to install two APKs for you, the test"
+    },
+    {
+      "index": 461,
+      "start_time": 1307430.0,
+      "end_time": 1311300.0,
+      "text": "APK and the app on your test."
+    },
+    {
+      "index": 462,
+      "start_time": 1311300.0,
+      "end_time": 1313970.0,
+      "text": "Now, the test APK contains Android JUnit Runner,"
+    },
+    {
+      "index": 463,
+      "start_time": 1313970.0,
+      "end_time": 1318300.0,
+      "text": "it contains the test cases, and your test manifest."
+    },
+    {
+      "index": 464,
+      "start_time": 1318300.0,
+      "end_time": 1320149.0,
+      "text": "And then, in order to run the test,"
+    },
+    {
+      "index": 465,
+      "start_time": 1320150.0,
+      "end_time": 1324110.0,
+      "text": "Android Studio calls, under the hood, ADB Shell AM Instrument."
+    },
+    {
+      "index": 466,
+      "start_time": 1324110.0,
+      "end_time": 1327320.0,
+      "text": "And then Android JUnit Runner will use instrumentation"
+    },
+    {
+      "index": 467,
+      "start_time": 1327320.0,
+      "end_time": 1329900.0,
+      "text": "to control your app on your test."
+    },
+    {
+      "index": 468,
+      "start_time": 1332270.0,
+      "end_time": 1334790.0,
+      "text": "What is instrumentation?"
+    },
+    {
+      "index": 469,
+      "start_time": 1334790.0,
+      "end_time": 1337980.0,
+      "text": "I think you guys may have noticed this."
+    },
+    {
+      "index": 470,
+      "start_time": 1337980.0,
+      "end_time": 1341900.0,
+      "text": "It&#39;s a top-level tag in your manifest, and why is that?"
+    },
+    {
+      "index": 471,
+      "start_time": 1341900.0,
+      "end_time": 1344210.0,
+      "text": "Instrumentation is actually something"
+    },
+    {
+      "index": 472,
+      "start_time": 1344210.0,
+      "end_time": 1347840.0,
+      "text": "that&#39;s used deeply inside the Android framework,"
+    },
+    {
+      "index": 473,
+      "start_time": 1347840.0,
+      "end_time": 1351709.0,
+      "text": "and it&#39;s used to control the lifecycle of your activities,"
+    },
+    {
+      "index": 474,
+      "start_time": 1351710.0,
+      "end_time": 1353130.0,
+      "text": "for instance."
+    },
+    {
+      "index": 475,
+      "start_time": 1353130.0,
+      "end_time": 1357200.0,
+      "text": "So if you think about it, it&#39;s a perfect interception point"
+    },
+    {
+      "index": 476,
+      "start_time": 1357200.0,
+      "end_time": 1359990.0,
+      "text": "that we can use to inject the test runner."
+    },
+    {
+      "index": 477,
+      "start_time": 1359990.0,
+      "end_time": 1363410.0,
+      "text": "And that&#39;s why Android JUnit Runner is nothing more or less"
+    },
+    {
+      "index": 478,
+      "start_time": 1363410.0,
+      "end_time": 1366970.0,
+      "text": "than instrumentation."
+    },
+    {
+      "index": 479,
+      "start_time": 1366970.0,
+      "end_time": 1369280.0,
+      "text": "Let&#39;s go a little bit deeper and see"
+    },
+    {
+      "index": 480,
+      "start_time": 1369280.0,
+      "end_time": 1373270.0,
+      "text": "what happens when Android Studio actually runs your test."
+    },
+    {
+      "index": 481,
+      "start_time": 1373270.0,
+      "end_time": 1375639.0,
+      "text": "It runs ADB Shell AM Instrument, which"
+    },
+    {
+      "index": 482,
+      "start_time": 1375640.0,
+      "end_time": 1378640.0,
+      "text": "will end up calling out to Activity Manager."
+    },
+    {
+      "index": 483,
+      "start_time": 1378640.0,
+      "end_time": 1381150.0,
+      "text": "Activity manager will then call, at one point,"
+    },
+    {
+      "index": 484,
+      "start_time": 1381150.0,
+      "end_time": 1385600.0,
+      "text": "onCreate on your instrumentation."
+    },
+    {
+      "index": 485,
+      "start_time": 1385600.0,
+      "end_time": 1387159.0,
+      "text": "Now that we know that Android JUnit Runner is"
+    },
+    {
+      "index": 486,
+      "start_time": 1387160.0,
+      "end_time": 1391240.0,
+      "text": "our instrumentation, at this point,"
+    },
+    {
+      "index": 487,
+      "start_time": 1391240.0,
+      "end_time": 1394630.0,
+      "text": "it will call onCreate on the runner."
+    },
+    {
+      "index": 488,
+      "start_time": 1394630.0,
+      "end_time": 1397760.0,
+      "text": "And then the runner is going to do a few things for you."
+    },
+    {
+      "index": 489,
+      "start_time": 1397760.0,
+      "end_time": 1400000.0,
+      "text": "It&#39;s going to collect all your tests."
+    },
+    {
+      "index": 490,
+      "start_time": 1400000.0,
+      "end_time": 1403150.0,
+      "text": "Then it&#39;s going to run all these tests sequentially"
+    },
+    {
+      "index": 491,
+      "start_time": 1403150.0,
+      "end_time": 1406190.0,
+      "text": "and then it&#39;s reporting back the results."
+    },
+    {
+      "index": 492,
+      "start_time": 1406190.0,
+      "end_time": 1408670.0,
+      "text": "One thing to note here is that Android JUnit runner--"
+    },
+    {
+      "index": 493,
+      "start_time": 1408670.0,
+      "end_time": 1410110.0,
+      "text": "and you may have noticed this--"
+    },
+    {
+      "index": 494,
+      "start_time": 1410110.0,
+      "end_time": 1413919.0,
+      "text": "runs in the same process than your application."
+    },
+    {
+      "index": 495,
+      "start_time": 1413920.0,
+      "end_time": 1415780.0,
+      "text": "And more importantly, if you usually"
+    },
+    {
+      "index": 496,
+      "start_time": 1415780.0,
+      "end_time": 1418720.0,
+      "text": "use Android JUnit Runner, it runs all the tests"
+    },
+    {
+      "index": 497,
+      "start_time": 1418720.0,
+      "end_time": 1422200.0,
+      "text": "in one single instrumentation invocation."
+    },
+    {
+      "index": 498,
+      "start_time": 1422200.0,
+      "end_time": 1426320.0,
+      "text": "Android JUnit runner is heavily used inside Google."
+    },
+    {
+      "index": 499,
+      "start_time": 1426320.0,
+      "end_time": 1428710.0,
+      "text": "We run billions of tests each month"
+    },
+    {
+      "index": 500,
+      "start_time": 1428710.0,
+      "end_time": 1430360.0,
+      "text": "using Android JUnit runner."
+    },
+    {
+      "index": 501,
+      "start_time": 1430360.0,
+      "end_time": 1435600.0,
+      "text": "And while doing so, we saw some challenges that we faced"
+    },
+    {
+      "index": 502,
+      "start_time": 1435600.0,
+      "end_time": 1438220.0,
+      "text": "and that we had to solve."
+    },
+    {
+      "index": 503,
+      "start_time": 1438220.0,
+      "end_time": 1442750.0,
+      "text": "One thing that we see a lot is Shared State."
+    },
+    {
+      "index": 504,
+      "start_time": 1442750.0,
+      "end_time": 1445600.0,
+      "text": "And I&#39;m not talking about the kind of shared state"
+    },
+    {
+      "index": 505,
+      "start_time": 1445600.0,
+      "end_time": 1447730.0,
+      "text": "that you control and that you code in your app."
+    },
+    {
+      "index": 506,
+      "start_time": 1447730.0,
+      "end_time": 1451240.0,
+      "text": "I&#39;m talking about the shared state that builds up on memory,"
+    },
+    {
+      "index": 507,
+      "start_time": 1451240.0,
+      "end_time": 1454330.0,
+      "text": "builds up on disk, and makes your tests fail"
+    },
+    {
+      "index": 508,
+      "start_time": 1454330.0,
+      "end_time": 1458500.0,
+      "text": "for no reason or unpredictable conditions."
+    },
+    {
+      "index": 509,
+      "start_time": 1458500.0,
+      "end_time": 1461500.0,
+      "text": "And this, among other things, will, at one point,"
+    },
+    {
+      "index": 510,
+      "start_time": 1461500.0,
+      "end_time": 1463170.0,
+      "text": "lead to crashes."
+    },
+    {
+      "index": 511,
+      "start_time": 1463170.0,
+      "end_time": 1466900.0,
+      "text": "But in the previous module that I just showed you,"
+    },
+    {
+      "index": 512,
+      "start_time": 1466900.0,
+      "end_time": 1469390.0,
+      "text": "if one of your tests crashes your instrumentation,"
+    },
+    {
+      "index": 513,
+      "start_time": 1469390.0,
+      "end_time": 1473560.0,
+      "text": "it will take the whole app process with it"
+    },
+    {
+      "index": 514,
+      "start_time": 1473560.0,
+      "end_time": 1476679.0,
+      "text": "and all the subsequent tests will not run anymore."
+    },
+    {
+      "index": 515,
+      "start_time": 1476680.0,
+      "end_time": 1479740.0,
+      "text": "And this is obviously a problem for large test suites."
+    },
+    {
+      "index": 516,
+      "start_time": 1479740.0,
+      "end_time": 1482110.0,
+      "text": "Similarly, if you think about debugging,"
+    },
+    {
+      "index": 517,
+      "start_time": 1482110.0,
+      "end_time": 1485320.0,
+      "text": "if you run a couple of thousand tests in one invocation,"
+    },
+    {
+      "index": 518,
+      "start_time": 1485320.0,
+      "end_time": 1486850.0,
+      "text": "just think about what your lock head"
+    },
+    {
+      "index": 519,
+      "start_time": 1486850.0,
+      "end_time": 1491919.0,
+      "text": "will look like when you have to go through it for debugging."
+    },
+    {
+      "index": 520,
+      "start_time": 1491920.0,
+      "end_time": 1494410.0,
+      "text": "So that&#39;s why inside of Google, we have"
+    },
+    {
+      "index": 521,
+      "start_time": 1494410.0,
+      "end_time": 1496420.0,
+      "text": "taken a different approach."
+    },
+    {
+      "index": 522,
+      "start_time": 1496420.0,
+      "end_time": 1500560.0,
+      "text": "Inside of Google, every test method"
+    },
+    {
+      "index": 523,
+      "start_time": 1500560.0,
+      "end_time": 1505600.0,
+      "text": "runs in its own instrumentation and location."
+    },
+    {
+      "index": 524,
+      "start_time": 1505600.0,
+      "end_time": 1507129.0,
+      "text": "Now, you can do this today, right?"
+    },
+    {
+      "index": 525,
+      "start_time": 1507130.0,
+      "end_time": 1509520.0,
+      "text": "You can make multiple ADB calls."
+    },
+    {
+      "index": 526,
+      "start_time": 1509520.0,
+      "end_time": 1512690.0,
+      "text": "You can use a runner arc and maintain your custom script."
+    },
+    {
+      "index": 527,
+      "start_time": 1512690.0,
+      "end_time": 1514450.0,
+      "text": "But the problem is it might not really"
+    },
+    {
+      "index": 528,
+      "start_time": 1514450.0,
+      "end_time": 1519430.0,
+      "text": "integrate well with your development environment."
+    },
+    {
+      "index": 529,
+      "start_time": 1519430.0,
+      "end_time": 1522430.0,
+      "text": "That&#39;s why, today, I&#39;m happy to announce the Android Test"
+    },
+    {
+      "index": 530,
+      "start_time": 1522430.0,
+      "end_time": 1523900.0,
+      "text": "Orchestrator."
+    },
+    {
+      "index": 531,
+      "start_time": 1523900.0,
+      "end_time": 1525290.0,
+      "text": "And the Android Test Orchestrator"
+    },
+    {
+      "index": 532,
+      "start_time": 1525290.0,
+      "end_time": 1529270.0,
+      "text": "is a way that allows you to run tests like we do in Google."
+    },
+    {
+      "index": 533,
+      "start_time": 1529270.0,
+      "end_time": 1532330.0,
+      "text": "It&#39;s a service APK that runs in the background"
+    },
+    {
+      "index": 534,
+      "start_time": 1532330.0,
+      "end_time": 1538689.0,
+      "text": "and runs its test in a single instrumentation invocation."
+    },
+    {
+      "index": 535,
+      "start_time": 1538690.0,
+      "end_time": 1542560.0,
+      "text": "And this, obviously, has benefits, right?"
+    },
+    {
+      "index": 536,
+      "start_time": 1542560.0,
+      "end_time": 1544639.0,
+      "text": "There&#39;s no shared state anymore."
+    },
+    {
+      "index": 537,
+      "start_time": 1544640.0,
+      "end_time": 1546520.0,
+      "text": "And in fact, the Android Test Orchestrator"
+    },
+    {
+      "index": 538,
+      "start_time": 1546520.0,
+      "end_time": 1550990.0,
+      "text": "runs PM clear before it runs its tests."
+    },
+    {
+      "index": 539,
+      "start_time": 1550990.0,
+      "end_time": 1555400.0,
+      "text": "More so, crashes are now completely isolated"
+    },
+    {
+      "index": 540,
+      "start_time": 1555400.0,
+      "end_time": 1559600.0,
+      "text": "because we have single instrumentation invocations."
+    },
+    {
+      "index": 541,
+      "start_time": 1559600.0,
+      "end_time": 1562330.0,
+      "text": "If a crash happens, all the subsequent tests"
+    },
+    {
+      "index": 542,
+      "start_time": 1562330.0,
+      "end_time": 1564129.0,
+      "text": "will still run."
+    },
+    {
+      "index": 543,
+      "start_time": 1564130.0,
+      "end_time": 1567700.0,
+      "text": "And similarly, for debugging, all the debugging information"
+    },
+    {
+      "index": 544,
+      "start_time": 1567700.0,
+      "end_time": 1569440.0,
+      "text": "that you collect and pull off the device"
+    },
+    {
+      "index": 545,
+      "start_time": 1569440.0,
+      "end_time": 1571330.0,
+      "text": "is now scoped to a particular test."
+    },
+    {
+      "index": 546,
+      "start_time": 1574360.0,
+      "end_time": 1579100.0,
+      "text": "This is great and we benefit a lot from it inside of Google."
+    },
+    {
+      "index": 547,
+      "start_time": 1579100.0,
+      "end_time": 1581709.0,
+      "text": "Let&#39;s see how it actually works."
+    },
+    {
+      "index": 548,
+      "start_time": 1581710.0,
+      "end_time": 1585310.0,
+      "text": "On top of installing the test APK and on our tests,"
+    },
+    {
+      "index": 549,
+      "start_time": 1585310.0,
+      "end_time": 1589720.0,
+      "text": "what we do now is we install a third APK on our device,"
+    },
+    {
+      "index": 550,
+      "start_time": 1589720.0,
+      "end_time": 1592870.0,
+      "text": "and it&#39;s a service APK running in the background containing"
+    },
+    {
+      "index": 551,
+      "start_time": 1592870.0,
+      "end_time": 1594699.0,
+      "text": "the orchestrator."
+    },
+    {
+      "index": 552,
+      "start_time": 1594700.0,
+      "end_time": 1597580.0,
+      "text": "And then, instead of running multiple ATB commands,"
+    },
+    {
+      "index": 553,
+      "start_time": 1597580.0,
+      "end_time": 1599679.0,
+      "text": "we run a single ATB command."
+    },
+    {
+      "index": 554,
+      "start_time": 1599680.0,
+      "end_time": 1601840.0,
+      "text": "But we don&#39;t instrument the app under test."
+    },
+    {
+      "index": 555,
+      "start_time": 1601840.0,
+      "end_time": 1604533.0,
+      "text": "We instrument the orchestrator directly."
+    },
+    {
+      "index": 556,
+      "start_time": 1604530.0,
+      "end_time": 1605946.0,
+      "text": "And then the orchestrator is going"
+    },
+    {
+      "index": 557,
+      "start_time": 1605950.0,
+      "end_time": 1608810.0,
+      "text": "to do all its work on the device."
+    },
+    {
+      "index": 558,
+      "start_time": 1608810.0,
+      "end_time": 1611620.0,
+      "text": "So it&#39;s going to use Android JUnit Runner to collect"
+    },
+    {
+      "index": 559,
+      "start_time": 1611620.0,
+      "end_time": 1613360.0,
+      "text": "your tests, but then it&#39;s going to run"
+    },
+    {
+      "index": 560,
+      "start_time": 1613360.0,
+      "end_time": 1617560.0,
+      "text": "each of those tests in its own invocation."
+    },
+    {
+      "index": 561,
+      "start_time": 1617560.0,
+      "end_time": 1623800.0,
+      "text": "And it&#39;s amazing and I&#39;m pretty sure you will like this a lot."
+    },
+    {
+      "index": 562,
+      "start_time": 1623800.0,
+      "end_time": 1625659.0,
+      "text": "And it will be available in the next Android Testing Support"
+    },
+    {
+      "index": 563,
+      "start_time": 1625660.0,
+      "end_time": 1626950.0,
+      "text": "library release."
+    },
+    {
+      "index": 564,
+      "start_time": 1626950.0,
+      "end_time": 1629380.0,
+      "text": "And more importantly, we will have integration"
+    },
+    {
+      "index": 565,
+      "start_time": 1629380.0,
+      "end_time": 1631210.0,
+      "text": "with Android Studio."
+    },
+    {
+      "index": 566,
+      "start_time": 1631210.0,
+      "end_time": 1633610.0,
+      "text": "It will be available in Gradle and we will also"
+    },
+    {
+      "index": 567,
+      "start_time": 1633610.0,
+      "end_time": 1635409.0,
+      "text": "have integration with Firebase Test"
+    },
+    {
+      "index": 568,
+      "start_time": 1635410.0,
+      "end_time": 1638860.0,
+      "text": "Lab coming later this year."
+    },
+    {
+      "index": 569,
+      "start_time": 1638860.0,
+      "end_time": 1642400.0,
+      "text": "Now that we know how to run our test,"
+    },
+    {
+      "index": 570,
+      "start_time": 1642400.0,
+      "end_time": 1645310.0,
+      "text": "let&#39;s actually look at how we can write these integration"
+    },
+    {
+      "index": 571,
+      "start_time": 1645310.0,
+      "end_time": 1646179.0,
+      "text": "tests."
+    },
+    {
+      "index": 572,
+      "start_time": 1646180.0,
+      "end_time": 1649570.0,
+      "text": "And usually, if you write a [INAUDIBLE] test on Android,"
+    },
+    {
+      "index": 573,
+      "start_time": 1649570.0,
+      "end_time": 1652900.0,
+      "text": "you&#39;re using the Espresso testing framework."
+    },
+    {
+      "index": 574,
+      "start_time": 1652900.0,
+      "end_time": 1656110.0,
+      "text": "And as you can see, espresso has this nice and simple API."
+    },
+    {
+      "index": 575,
+      "start_time": 1656110.0,
+      "end_time": 1658389.0,
+      "text": "And it actually works pretty simple."
+    },
+    {
+      "index": 576,
+      "start_time": 1658390.0,
+      "end_time": 1661420.0,
+      "text": "What it does is you give us a view matcher"
+    },
+    {
+      "index": 577,
+      "start_time": 1661420.0,
+      "end_time": 1663430.0,
+      "text": "and we find a view in the hierarchy that"
+    },
+    {
+      "index": 578,
+      "start_time": 1663430.0,
+      "end_time": 1664570.0,
+      "text": "matches that matcher."
+    },
+    {
+      "index": 579,
+      "start_time": 1664570.0,
+      "end_time": 1666679.0,
+      "text": "And then, we either perform a view action"
+    },
+    {
+      "index": 580,
+      "start_time": 1666680.0,
+      "end_time": 1669150.0,
+      "text": "or check a view assertion."
+    },
+    {
+      "index": 581,
+      "start_time": 1669150.0,
+      "end_time": 1671900.0,
+      "text": "And because this API is so simple,"
+    },
+    {
+      "index": 582,
+      "start_time": 1671900.0,
+      "end_time": 1675520.0,
+      "text": "it&#39;s the perfect tool, too, for fast TDD prototyping"
+    },
+    {
+      "index": 583,
+      "start_time": 1675520.0,
+      "end_time": 1678160.0,
+      "text": "of UI tests."
+    },
+    {
+      "index": 584,
+      "start_time": 1678160.0,
+      "end_time": 1680920.0,
+      "text": "But in order to provide you such a simple API,"
+    },
+    {
+      "index": 585,
+      "start_time": 1680920.0,
+      "end_time": 1685370.0,
+      "text": "there&#39;s a lot of things that need to go on under the hood."
+    },
+    {
+      "index": 586,
+      "start_time": 1685370.0,
+      "end_time": 1689530.0,
+      "text": "So let&#39;s actually look at how Espresso works."
+    },
+    {
+      "index": 587,
+      "start_time": 1689530.0,
+      "end_time": 1692206.0,
+      "text": "So when you call onView and give us your matcher,"
+    },
+    {
+      "index": 588,
+      "start_time": 1692210.0,
+      "end_time": 1693793.0,
+      "text": "the first thing that we&#39;re going to do"
+    },
+    {
+      "index": 589,
+      "start_time": 1693790.0,
+      "end_time": 1698200.0,
+      "text": "is we&#39;re going to create a view interaction for you."
+    },
+    {
+      "index": 590,
+      "start_time": 1698200.0,
+      "end_time": 1700420.0,
+      "text": "And then the next thing is we make sure"
+    },
+    {
+      "index": 591,
+      "start_time": 1700420.0,
+      "end_time": 1703000.0,
+      "text": "that your app is in an idling, sane state"
+    },
+    {
+      "index": 592,
+      "start_time": 1703000.0,
+      "end_time": 1705160.0,
+      "text": "before we are ready to interact with it."
+    },
+    {
+      "index": 593,
+      "start_time": 1705160.0,
+      "end_time": 1708550.0,
+      "text": "And you can think of it, this is at the core of Espresso."
+    },
+    {
+      "index": 594,
+      "start_time": 1708550.0,
+      "end_time": 1712180.0,
+      "text": "And Espresso is well-known for its synchronization guarantees."
+    },
+    {
+      "index": 595,
+      "start_time": 1712180.0,
+      "end_time": 1714460.0,
+      "text": "And the way we do it is we loop the message"
+    },
+    {
+      "index": 596,
+      "start_time": 1714460.0,
+      "end_time": 1716830.0,
+      "text": "queue until there are no messages"
+    },
+    {
+      "index": 597,
+      "start_time": 1716830.0,
+      "end_time": 1719110.0,
+      "text": "for a reasonable amount of time."
+    },
+    {
+      "index": 598,
+      "start_time": 1719110.0,
+      "end_time": 1720969.0,
+      "text": "We look at all your idling resources"
+    },
+    {
+      "index": 599,
+      "start_time": 1720970.0,
+      "end_time": 1722890.0,
+      "text": "and make sure they&#39;re idle."
+    },
+    {
+      "index": 600,
+      "start_time": 1722890.0,
+      "end_time": 1726370.0,
+      "text": "And we also look at Async Tasks to make sure there&#39;s"
+    },
+    {
+      "index": 601,
+      "start_time": 1726370.0,
+      "end_time": 1728200.0,
+      "text": "no background work running."
+    },
+    {
+      "index": 602,
+      "start_time": 1728200.0,
+      "end_time": 1729970.0,
+      "text": "And only if we know that your app is"
+    },
+    {
+      "index": 603,
+      "start_time": 1729970.0,
+      "end_time": 1733240.0,
+      "text": "in a sane and stable state and we&#39;re ready to interact,"
+    },
+    {
+      "index": 604,
+      "start_time": 1733240.0,
+      "end_time": 1734776.0,
+      "text": "we&#39;re going to move on."
+    },
+    {
+      "index": 605,
+      "start_time": 1734780.0,
+      "end_time": 1736904.0,
+      "text": "And then we&#39;re going to traverse the view hierarchy"
+    },
+    {
+      "index": 606,
+      "start_time": 1736900.0,
+      "end_time": 1740189.0,
+      "text": "and find the view that matches your matcher."
+    },
+    {
+      "index": 607,
+      "start_time": 1740190.0,
+      "end_time": 1741731.0,
+      "text": "And once we have the view, we&#39;re then"
+    },
+    {
+      "index": 608,
+      "start_time": 1741730.0,
+      "end_time": 1747330.0,
+      "text": "going to perform a view action or a view assertion."
+    },
+    {
+      "index": 609,
+      "start_time": 1747330.0,
+      "end_time": 1748600.0,
+      "text": "And this is great."
+    },
+    {
+      "index": 610,
+      "start_time": 1748600.0,
+      "end_time": 1751330.0,
+      "text": "So now let&#39;s circle back to the test"
+    },
+    {
+      "index": 611,
+      "start_time": 1751330.0,
+      "end_time": 1753730.0,
+      "text": "that we showed you in the beginning"
+    },
+    {
+      "index": 612,
+      "start_time": 1753730.0,
+      "end_time": 1756980.0,
+      "text": "and have a closer look now that we know how Espresso works."
+    },
+    {
+      "index": 613,
+      "start_time": 1756980.0,
+      "end_time": 1759910.0,
+      "text": "So in the first line, as you may remember,"
+    },
+    {
+      "index": 614,
+      "start_time": 1759910.0,
+      "end_time": 1761990.0,
+      "text": "we tried to click on the Add Note button."
+    },
+    {
+      "index": 615,
+      "start_time": 1761990.0,
+      "end_time": 1765280.0,
+      "text": "And here, we&#39;re just going to use a with ID matcher, which"
+    },
+    {
+      "index": 616,
+      "start_time": 1765280.0,
+      "end_time": 1768100.0,
+      "text": "is a simple matcher that is matching a view in the view"
+    },
+    {
+      "index": 617,
+      "start_time": 1768100.0,
+      "end_time": 1770919.0,
+      "text": "hierarchy according to its ID."
+    },
+    {
+      "index": 618,
+      "start_time": 1770920.0,
+      "end_time": 1773720.0,
+      "text": "The next thing we want to do is we want to click on the View"
+    },
+    {
+      "index": 619,
+      "start_time": 1773720.0,
+      "end_time": 1777580.0,
+      "text": "and we use a Click View action for this."
+    },
+    {
+      "index": 620,
+      "start_time": 1777580.0,
+      "end_time": 1781840.0,
+      "text": "Now, where it gets interesting is the next line."
+    },
+    {
+      "index": 621,
+      "start_time": 1781840.0,
+      "end_time": 1784959.0,
+      "text": "Because on this line, we want to type the title and description."
+    },
+    {
+      "index": 622,
+      "start_time": 1784960.0,
+      "end_time": 1788320.0,
+      "text": "And we want to use a type text action for that."
+    },
+    {
+      "index": 623,
+      "start_time": 1788320.0,
+      "end_time": 1791169.0,
+      "text": "But here, all the espresso synchronization guarantees"
+    },
+    {
+      "index": 624,
+      "start_time": 1791170.0,
+      "end_time": 1793510.0,
+      "text": "will kick in and only if we know that we"
+    },
+    {
+      "index": 625,
+      "start_time": 1793510.0,
+      "end_time": 1797379.0,
+      "text": "are ready to interact with your application,"
+    },
+    {
+      "index": 626,
+      "start_time": 1797380.0,
+      "end_time": 1801400.0,
+      "text": "we&#39;re going to invoke the type test action."
+    },
+    {
+      "index": 627,
+      "start_time": 1801400.0,
+      "end_time": 1803230.0,
+      "text": "And this is great because it frees you"
+    },
+    {
+      "index": 628,
+      "start_time": 1803230.0,
+      "end_time": 1804940.0,
+      "text": "from adding additional boilerplate"
+    },
+    {
+      "index": 629,
+      "start_time": 1804940.0,
+      "end_time": 1808150.0,
+      "text": "code and additional slipping code to your test."
+    },
+    {
+      "index": 630,
+      "start_time": 1808150.0,
+      "end_time": 1811150.0,
+      "text": "So similarly, we&#39;re going to save the note"
+    },
+    {
+      "index": 631,
+      "start_time": 1811150.0,
+      "end_time": 1814780.0,
+      "text": "and then we&#39;re going to verify that it&#39;s displayed on screen."
+    },
+    {
+      "index": 632,
+      "start_time": 1814780.0,
+      "end_time": 1815560.0,
+      "text": "And this is great."
+    },
+    {
+      "index": 633,
+      "start_time": 1815560.0,
+      "end_time": 1818800.0,
+      "text": "Now we know how Espresso works and we"
+    },
+    {
+      "index": 634,
+      "start_time": 1818800.0,
+      "end_time": 1822881.0,
+      "text": "know how it&#39;s a great tool to do test-driven development."
+    },
+    {
+      "index": 635,
+      "start_time": 1822880.0,
+      "end_time": 1824588.0,
+      "text": "And now I&#39;m going to hand it over to Nick"
+    },
+    {
+      "index": 636,
+      "start_time": 1824590.0,
+      "end_time": 1829240.0,
+      "text": "to talk a little bit more on how you can improve your UI tests"
+    },
+    {
+      "index": 637,
+      "start_time": 1829240.0,
+      "end_time": 1832466.0,
+      "text": "and how to improve your large and medium testing strategy."
+    },
+    {
+      "index": 638,
+      "start_time": 1832470.0,
+      "end_time": 1835218.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 639,
+      "start_time": 1836590.0,
+      "end_time": 1838540.0,
+      "text": "NICK KOROSTELEV: Thank you, Stephan."
+    },
+    {
+      "index": 640,
+      "start_time": 1838540.0,
+      "end_time": 1840970.0,
+      "text": "So One good attribute of a UI test"
+    },
+    {
+      "index": 641,
+      "start_time": 1840970.0,
+      "end_time": 1843560.0,
+      "text": "is a test that never sleeps."
+    },
+    {
+      "index": 642,
+      "start_time": 1843560.0,
+      "end_time": 1844930.0,
+      "text": "So let&#39;s go back to our example to illustrate"
+    },
+    {
+      "index": 643,
+      "start_time": 1844930.0,
+      "end_time": 1847132.0,
+      "text": "this point a little bit further."
+    },
+    {
+      "index": 644,
+      "start_time": 1847130.0,
+      "end_time": 1848588.0,
+      "text": "In our example, as you remember, we"
+    },
+    {
+      "index": 645,
+      "start_time": 1848590.0,
+      "end_time": 1851330.0,
+      "text": "have a note that we save into memory,"
+    },
+    {
+      "index": 646,
+      "start_time": 1851330.0,
+      "end_time": 1853820.0,
+      "text": "which is pretty fast and pretty reliable."
+    },
+    {
+      "index": 647,
+      "start_time": 1853820.0,
+      "end_time": 1857379.0,
+      "text": "However, in reality, as your app grows,"
+    },
+    {
+      "index": 648,
+      "start_time": 1857380.0,
+      "end_time": 1859750.0,
+      "text": "you probably want extend this functionality"
+    },
+    {
+      "index": 649,
+      "start_time": 1859750.0,
+      "end_time": 1863530.0,
+      "text": "and save your note to the cloud or Google Drive, for example."
+    },
+    {
+      "index": 650,
+      "start_time": 1863530.0,
+      "end_time": 1866110.0,
+      "text": "So when running our large end-to-end test,"
+    },
+    {
+      "index": 651,
+      "start_time": 1866110.0,
+      "end_time": 1867639.0,
+      "text": "we want to use a real environment"
+    },
+    {
+      "index": 652,
+      "start_time": 1867640.0,
+      "end_time": 1869650.0,
+      "text": "where we hit the real server."
+    },
+    {
+      "index": 653,
+      "start_time": 1869650.0,
+      "end_time": 1871510.0,
+      "text": "And depending on your network connection,"
+    },
+    {
+      "index": 654,
+      "start_time": 1871510.0,
+      "end_time": 1873820.0,
+      "text": "this may take a long time, so you probably"
+    },
+    {
+      "index": 655,
+      "start_time": 1873820.0,
+      "end_time": 1875530.0,
+      "text": "want to do is in the background."
+    },
+    {
+      "index": 656,
+      "start_time": 1875530.0,
+      "end_time": 1878440.0,
+      "text": "Now the problem is that Espresso synchronization is not"
+    },
+    {
+      "index": 657,
+      "start_time": 1878440.0,
+      "end_time": 1882400.0,
+      "text": "aware of any of your long-running tasks."
+    },
+    {
+      "index": 658,
+      "start_time": 1882400.0,
+      "end_time": 1885340.0,
+      "text": "This is somewhere where developers would probably"
+    },
+    {
+      "index": 659,
+      "start_time": 1885340.0,
+      "end_time": 1888220.0,
+      "text": "do something as ugly as putting a thread sleep in their code."
+    },
+    {
+      "index": 660,
+      "start_time": 1888220.0,
+      "end_time": 1890350.0,
+      "text": "But with Espresso, it is not actually required"
+    },
+    {
+      "index": 661,
+      "start_time": 1890350.0,
+      "end_time": 1893340.0,
+      "text": "because you can write an Idling Resource, where"
+    },
+    {
+      "index": 662,
+      "start_time": 1893350.0,
+      "end_time": 1896110.0,
+      "text": "an idling resource is a simple interface for you"
+    },
+    {
+      "index": 663,
+      "start_time": 1896110.0,
+      "end_time": 1898330.0,
+      "text": "as a developer to implement to teach Espresso"
+    },
+    {
+      "index": 664,
+      "start_time": 1898330.0,
+      "end_time": 1902939.0,
+      "text": "synchronization of any of your custom, long-running tasks"
+    },
+    {
+      "index": 665,
+      "start_time": 1902940.0,
+      "end_time": 1904490.0,
+      "text": "of your app."
+    },
+    {
+      "index": 666,
+      "start_time": 1904490.0,
+      "end_time": 1908710.0,
+      "text": "So with this Idling Resource, we made our large end-to-end test"
+    },
+    {
+      "index": 667,
+      "start_time": 1908710.0,
+      "end_time": 1910310.0,
+      "text": "more reliable."
+    },
+    {
+      "index": 668,
+      "start_time": 1910310.0,
+      "end_time": 1913240.0,
+      "text": "So let&#39;s see how we can add some more medium-sized tests"
+    },
+    {
+      "index": 669,
+      "start_time": 1913240.0,
+      "end_time": 1915320.0,
+      "text": "to your test suite."
+    },
+    {
+      "index": 670,
+      "start_time": 1915320.0,
+      "end_time": 1916870.0,
+      "text": "So for a medium-sized test, we want"
+    },
+    {
+      "index": 671,
+      "start_time": 1916870.0,
+      "end_time": 1920334.0,
+      "text": "to keep them small and focused on a single UI component, where"
+    },
+    {
+      "index": 672,
+      "start_time": 1920330.0,
+      "end_time": 1924125.0,
+      "text": "a single UI component may be a specific view, fragment,"
+    },
+    {
+      "index": 673,
+      "start_time": 1924130.0,
+      "end_time": 1926270.0,
+      "text": "or an activity."
+    },
+    {
+      "index": 674,
+      "start_time": 1926270.0,
+      "end_time": 1927610.0,
+      "text": "So let&#39;s go back to our example to see"
+    },
+    {
+      "index": 675,
+      "start_time": 1927610.0,
+      "end_time": 1931360.0,
+      "text": "how we can isolate our large end-to-end to more"
+    },
+    {
+      "index": 676,
+      "start_time": 1931360.0,
+      "end_time": 1933429.0,
+      "text": "isolated components."
+    },
+    {
+      "index": 677,
+      "start_time": 1933430.0,
+      "end_time": 1936400.0,
+      "text": "Here in this example, again, you may have noticed"
+    },
+    {
+      "index": 678,
+      "start_time": 1936400.0,
+      "end_time": 1937850.0,
+      "text": "that there are two activities."
+    },
+    {
+      "index": 679,
+      "start_time": 1937850.0,
+      "end_time": 1940449.0,
+      "text": "The List activity on the left and the Add"
+    },
+    {
+      "index": 680,
+      "start_time": 1940450.0,
+      "end_time": 1942340.0,
+      "text": "Note activity on the right."
+    },
+    {
+      "index": 681,
+      "start_time": 1942340.0,
+      "end_time": 1944716.0,
+      "text": "So until now, we wrote a large end-to-end test"
+    },
+    {
+      "index": 682,
+      "start_time": 1944720.0,
+      "end_time": 1946904.0,
+      "text": "that gives us a lot of confidence"
+    },
+    {
+      "index": 683,
+      "start_time": 1946900.0,
+      "end_time": 1948760.0,
+      "text": "because it touches upon a lot of your code"
+    },
+    {
+      "index": 684,
+      "start_time": 1948760.0,
+      "end_time": 1951700.0,
+      "text": "in your app, which is great for large end-to-end tests,"
+    },
+    {
+      "index": 685,
+      "start_time": 1951700.0,
+      "end_time": 1954310.0,
+      "text": "but it&#39;s not so great for an iterative test-driven"
+    },
+    {
+      "index": 686,
+      "start_time": 1954310.0,
+      "end_time": 1955120.0,
+      "text": "development cycle."
+    },
+    {
+      "index": 687,
+      "start_time": 1959800.0,
+      "end_time": 1961600.0,
+      "text": "So let&#39;s see how we can isolate these"
+    },
+    {
+      "index": 688,
+      "start_time": 1961600.0,
+      "end_time": 1966159.0,
+      "text": "and have isolated tests for each activity in isolation."
+    },
+    {
+      "index": 689,
+      "start_time": 1966160.0,
+      "end_time": 1968980.0,
+      "text": "To isolate the left-hand side, the List activity,"
+    },
+    {
+      "index": 690,
+      "start_time": 1968980.0,
+      "end_time": 1972850.0,
+      "text": "we can use Espresso Intent, where Espresso Intent is"
+    },
+    {
+      "index": 691,
+      "start_time": 1972850.0,
+      "end_time": 1975400.0,
+      "text": "a simple API that allows you to intercept"
+    },
+    {
+      "index": 692,
+      "start_time": 1975400.0,
+      "end_time": 1978430.0,
+      "text": "any of your ongoing intents, verify their content,"
+    },
+    {
+      "index": 693,
+      "start_time": 1978430.0,
+      "end_time": 1983440.0,
+      "text": "and provide back a mock activity result."
+    },
+    {
+      "index": 694,
+      "start_time": 1983440.0,
+      "end_time": 1984100.0,
+      "text": "Great."
+    },
+    {
+      "index": 695,
+      "start_time": 1984100.0,
+      "end_time": 1986855.0,
+      "text": "Let&#39;s see how that API actually looks like."
+    },
+    {
+      "index": 696,
+      "start_time": 1986850.0,
+      "end_time": 1988725.0,
+      "text": "So as you can see, it&#39;s very straightforward."
+    },
+    {
+      "index": 697,
+      "start_time": 1988730.0,
+      "end_time": 1992980.0,
+      "text": "You have an intent matcher that will match your growing intent,"
+    },
+    {
+      "index": 698,
+      "start_time": 1992980.0,
+      "end_time": 1995730.0,
+      "text": "and you can provide a version of your activity result"
+    },
+    {
+      "index": 699,
+      "start_time": 1995730.0,
+      "end_time": 1997730.0,
+      "text": "back to the caller."
+    },
+    {
+      "index": 700,
+      "start_time": 1997730.0,
+      "end_time": 1998230.0,
+      "text": "OK."
+    },
+    {
+      "index": 701,
+      "start_time": 1998230.0,
+      "end_time": 2002970.0,
+      "text": "Let&#39;s use this API to write our first isolated test."
+    },
+    {
+      "index": 702,
+      "start_time": 2002970.0,
+      "end_time": 2005700.0,
+      "text": "In this test, you can see, on the first line,"
+    },
+    {
+      "index": 703,
+      "start_time": 2005700.0,
+      "end_time": 2007540.0,
+      "text": "we do exactly that."
+    },
+    {
+      "index": 704,
+      "start_time": 2007540.0,
+      "end_time": 2010350.0,
+      "text": "We intercept our content and we provide"
+    },
+    {
+      "index": 705,
+      "start_time": 2010350.0,
+      "end_time": 2012629.0,
+      "text": "a stub version of our activity result."
+    },
+    {
+      "index": 706,
+      "start_time": 2012630.0,
+      "end_time": 2014880.0,
+      "text": "Now, on the second line, when we perform"
+    },
+    {
+      "index": 707,
+      "start_time": 2014880.0,
+      "end_time": 2017550.0,
+      "text": "Click, instead of starting a new activity,"
+    },
+    {
+      "index": 708,
+      "start_time": 2017550.0,
+      "end_time": 2019980.0,
+      "text": "Espresso will intercept this intent"
+    },
+    {
+      "index": 709,
+      "start_time": 2019980.0,
+      "end_time": 2022740.0,
+      "text": "and provide a Stub Activity result, which we can then"
+    },
+    {
+      "index": 710,
+      "start_time": 2022740.0,
+      "end_time": 2028800.0,
+      "text": "use on the last line to verify that our UI was updated"
+    },
+    {
+      "index": 711,
+      "start_time": 2028800.0,
+      "end_time": 2030669.0,
+      "text": "accordingly."
+    },
+    {
+      "index": 712,
+      "start_time": 2030670.0,
+      "end_time": 2032501.0,
+      "text": "Now we have an isolated test."
+    },
+    {
+      "index": 713,
+      "start_time": 2032500.0,
+      "end_time": 2032999.0,
+      "text": "OK."
+    },
+    {
+      "index": 714,
+      "start_time": 2033000.0,
+      "end_time": 2035490.0,
+      "text": "So let&#39;s go back to our example and see"
+    },
+    {
+      "index": 715,
+      "start_time": 2035490.0,
+      "end_time": 2037920.0,
+      "text": "how we can isolate the second part, right?"
+    },
+    {
+      "index": 716,
+      "start_time": 2037920.0,
+      "end_time": 2040770.0,
+      "text": "So when you usually write tests, you"
+    },
+    {
+      "index": 717,
+      "start_time": 2040770.0,
+      "end_time": 2042720.0,
+      "text": "end up in a position where you may"
+    },
+    {
+      "index": 718,
+      "start_time": 2042720.0,
+      "end_time": 2046630.0,
+      "text": "have some external dependencies in play that"
+    },
+    {
+      "index": 719,
+      "start_time": 2046630.0,
+      "end_time": 2049200.0,
+      "text": "are outside of your control."
+    },
+    {
+      "index": 720,
+      "start_time": 2049199.9999999998,
+      "end_time": 2051749.9999999998,
+      "text": "In our example, as I showed before,"
+    },
+    {
+      "index": 721,
+      "start_time": 2051750.0,
+      "end_time": 2056219.0,
+      "text": "we have a note that we save and it hits the real server."
+    },
+    {
+      "index": 722,
+      "start_time": 2056219.9999999998,
+      "end_time": 2058170.9999999998,
+      "text": "Now even though we have another resource now"
+    },
+    {
+      "index": 723,
+      "start_time": 2058170.0,
+      "end_time": 2060360.0,
+      "text": "that makes it more reliable, your test"
+    },
+    {
+      "index": 724,
+      "start_time": 2060360.0000000002,
+      "end_time": 2061860.0000000002,
+      "text": "can still fail because your server"
+    },
+    {
+      "index": 725,
+      "start_time": 2061860.0000000002,
+      "end_time": 2063929.0000000002,
+      "text": "may crash for some reason."
+    },
+    {
+      "index": 726,
+      "start_time": 2063929.9999999998,
+      "end_time": 2065909.9999999998,
+      "text": "So your task will fail."
+    },
+    {
+      "index": 727,
+      "start_time": 2065909.9999999998,
+      "end_time": 2068699.9999999998,
+      "text": "So wouldn&#39;t it be better if we completely isolate ourselves"
+    },
+    {
+      "index": 728,
+      "start_time": 2068699.9999999998,
+      "end_time": 2071159.9999999998,
+      "text": "from these conditions and run our tests"
+    },
+    {
+      "index": 729,
+      "start_time": 2071159.9999999998,
+      "end_time": 2073260.9999999998,
+      "text": "in a hermetic environment?"
+    },
+    {
+      "index": 730,
+      "start_time": 2073260.0000000002,
+      "end_time": 2076800.0000000002,
+      "text": "This will not only make your test run much faster,"
+    },
+    {
+      "index": 731,
+      "start_time": 2076800.0000000002,
+      "end_time": 2078810.0000000002,
+      "text": "but it will also eliminate any flakiness."
+    },
+    {
+      "index": 732,
+      "start_time": 2078810.0,
+      "end_time": 2080969.0,
+      "text": "And beyond this specific example,"
+    },
+    {
+      "index": 733,
+      "start_time": 2080969.9999999998,
+      "end_time": 2082679.9999999998,
+      "text": "you further want to isolate yourself"
+    },
+    {
+      "index": 734,
+      "start_time": 2082679.9999999998,
+      "end_time": 2085150.9999999998,
+      "text": "from any external dependencies."
+    },
+    {
+      "index": 735,
+      "start_time": 2085150.0,
+      "end_time": 2088120.0,
+      "text": "So for example, you don&#39;t want to test any Android system"
+    },
+    {
+      "index": 736,
+      "start_time": 2088120.0,
+      "end_time": 2090810.0,
+      "text": "UI or any other UI components that you"
+    },
+    {
+      "index": 737,
+      "start_time": 2090810.0,
+      "end_time": 2094154.0,
+      "text": "don&#39;t own because they probably already tested"
+    },
+    {
+      "index": 738,
+      "start_time": 2094159.9999999998,
+      "end_time": 2096304.9999999998,
+      "text": "and they can also change without your knowing"
+    },
+    {
+      "index": 739,
+      "start_time": 2096300.0000000002,
+      "end_time": 2099390.0,
+      "text": "so your test will actually fail."
+    },
+    {
+      "index": 740,
+      "start_time": 2099390.0,
+      "end_time": 2101400.0,
+      "text": "Let&#39;s see how our second isolated"
+    },
+    {
+      "index": 741,
+      "start_time": 2101400.0,
+      "end_time": 2103330.0,
+      "text": "test will look in code."
+    },
+    {
+      "index": 742,
+      "start_time": 2103330.0,
+      "end_time": 2107400.0,
+      "text": "So the main point here is that we no longer use"
+    },
+    {
+      "index": 743,
+      "start_time": 2107400.0,
+      "end_time": 2109170.0,
+      "text": "the real server."
+    },
+    {
+      "index": 744,
+      "start_time": 2109170.0,
+      "end_time": 2113160.0,
+      "text": "Instead, we set up a hermetic repository."
+    },
+    {
+      "index": 745,
+      "start_time": 2113160.0,
+      "end_time": 2115799.0,
+      "text": "Now, there&#39;s many different ways of you to do this"
+    },
+    {
+      "index": 746,
+      "start_time": 2115800.0,
+      "end_time": 2117300.0,
+      "text": "and this is just one way."
+    },
+    {
+      "index": 747,
+      "start_time": 2117300.0,
+      "end_time": 2119910.0,
+      "text": "So then you can use this hermetic repository"
+    },
+    {
+      "index": 748,
+      "start_time": 2119910.0,
+      "end_time": 2121859.0,
+      "text": "in order to verify that your note is actually"
+    },
+    {
+      "index": 749,
+      "start_time": 2121860.0,
+      "end_time": 2124740.0,
+      "text": "saved without ever leaving the context of your app"
+    },
+    {
+      "index": 750,
+      "start_time": 2124740.0,
+      "end_time": 2127379.0,
+      "text": "or hitting the network."
+    },
+    {
+      "index": 751,
+      "start_time": 2127380.0,
+      "end_time": 2129540.0,
+      "text": "So at this point, if you think about it,"
+    },
+    {
+      "index": 752,
+      "start_time": 2129540.0,
+      "end_time": 2136450.0,
+      "text": "you have two smaller tests that are way more reliable"
+    },
+    {
+      "index": 753,
+      "start_time": 2136450.0,
+      "end_time": 2138900.0,
+      "text": "and run much faster."
+    },
+    {
+      "index": 754,
+      "start_time": 2138100.0,
+      "end_time": 2140560.0,
+      "text": "But at the same time, you maintain the same amount"
+    },
+    {
+      "index": 755,
+      "start_time": 2140560.0,
+      "end_time": 2143350.0,
+      "text": "of test coverage as your large end-to-end test."
+    },
+    {
+      "index": 756,
+      "start_time": 2143350.0,
+      "end_time": 2146770.0,
+      "text": "And this is why we want to have more of these smaller"
+    },
+    {
+      "index": 757,
+      "start_time": 2146770.0,
+      "end_time": 2150460.0,
+      "text": "isolated tests compared to the large end-to-end tests we"
+    },
+    {
+      "index": 758,
+      "start_time": 2150460.0,
+      "end_time": 2152510.0,
+      "text": "showed before."
+    },
+    {
+      "index": 759,
+      "start_time": 2152510.0,
+      "end_time": 2153100.0,
+      "text": "OK."
+    },
+    {
+      "index": 760,
+      "start_time": 2153100.0,
+      "end_time": 2157180.0,
+      "text": "So at this point, we iterated through our developer cycle"
+    },
+    {
+      "index": 761,
+      "start_time": 2157180.0,
+      "end_time": 2160299.0,
+      "text": "a few times and we should see all of our tests"
+    },
+    {
+      "index": 762,
+      "start_time": 2160300.0,
+      "end_time": 2163270.0,
+      "text": "start turning green and we should be confident to release"
+    },
+    {
+      "index": 763,
+      "start_time": 2163270.0,
+      "end_time": 2164530.0,
+      "text": "our feature."
+    },
+    {
+      "index": 764,
+      "start_time": 2164530.0,
+      "end_time": 2167500.0,
+      "text": "However, before we conclude, let&#39;s"
+    },
+    {
+      "index": 765,
+      "start_time": 2167500.0,
+      "end_time": 2170800.0,
+      "text": "jump into the future for a second."
+    },
+    {
+      "index": 766,
+      "start_time": 2170800.0,
+      "end_time": 2173490.0,
+      "text": "As your app grows and your team grows,"
+    },
+    {
+      "index": 767,
+      "start_time": 2173500.0,
+      "end_time": 2175776.0,
+      "text": "you continue adding more and more features to your app."
+    },
+    {
+      "index": 768,
+      "start_time": 2175780.0,
+      "end_time": 2177403.0,
+      "text": "And you may find yourself in a position"
+    },
+    {
+      "index": 769,
+      "start_time": 2177400.0,
+      "end_time": 2181750.0,
+      "text": "where you may have UI running in multiple processes, which"
+    },
+    {
+      "index": 770,
+      "start_time": 2181750.0,
+      "end_time": 2183890.0,
+      "text": "is exactly what happened at Google."
+    },
+    {
+      "index": 771,
+      "start_time": 2183890.0,
+      "end_time": 2185799.0,
+      "text": "So if you go to our Add Notes example,"
+    },
+    {
+      "index": 772,
+      "start_time": 2185800.0,
+      "end_time": 2187700.0,
+      "text": "this may look something like this."
+    },
+    {
+      "index": 773,
+      "start_time": 2187700.0,
+      "end_time": 2190240.0,
+      "text": "You have a first activity that runs in your main process"
+    },
+    {
+      "index": 774,
+      "start_time": 2190240.0,
+      "end_time": 2191839.0,
+      "text": "on the left-hand side."
+    },
+    {
+      "index": 775,
+      "start_time": 2191840.0,
+      "end_time": 2196690.0,
+      "text": "And now the second activity will run in a private process."
+    },
+    {
+      "index": 776,
+      "start_time": 2196690.0,
+      "end_time": 2199190.0,
+      "text": "And in this case, we&#39;re going to call it Add Notes."
+    },
+    {
+      "index": 777,
+      "start_time": 2199190.0,
+      "end_time": 2200780.0,
+      "text": "So how do we test that?"
+    },
+    {
+      "index": 778,
+      "start_time": 2200780.0,
+      "end_time": 2205720.0,
+      "text": "Well, before Android O, it wasn&#39;t possible to test."
+    },
+    {
+      "index": 779,
+      "start_time": 2205720.0,
+      "end_time": 2208870.0,
+      "text": "But with Android O, there is a new instrumentation"
+    },
+    {
+      "index": 780,
+      "start_time": 2208870.0,
+      "end_time": 2211900.0,
+      "text": "attribute that you can use in order to define which"
+    },
+    {
+      "index": 781,
+      "start_time": 2211900.0,
+      "end_time": 2214300.0,
+      "text": "process you want to instrument."
+    },
+    {
+      "index": 782,
+      "start_time": 2214300.0,
+      "end_time": 2216670.0,
+      "text": "While instrumenting and running tests, I guess,"
+    },
+    {
+      "index": 783,
+      "start_time": 2216670.0,
+      "end_time": 2218650.0,
+      "text": "each process, in isolation, is a great idea"
+    },
+    {
+      "index": 784,
+      "start_time": 2218650.0,
+      "end_time": 2221650.0,
+      "text": "and you should do it, you may find yourself in a position"
+    },
+    {
+      "index": 785,
+      "start_time": 2221650.0,
+      "end_time": 2225730.0,
+      "text": "where you want to cross-process boundaries within one test."
+    },
+    {
+      "index": 786,
+      "start_time": 2225730.0,
+      "end_time": 2228160.0,
+      "text": "So you would probably want to write an Espresso"
+    },
+    {
+      "index": 787,
+      "start_time": 2228160.0,
+      "end_time": 2230980.0,
+      "text": "test that looks like this."
+    },
+    {
+      "index": 788,
+      "start_time": 2230980.0,
+      "end_time": 2233770.0,
+      "text": "While this was not only impossible on a framework level"
+    },
+    {
+      "index": 789,
+      "start_time": 2233770.0,
+      "end_time": 2237250.0,
+      "text": "before Android O, this was also impossible on Espresso level."
+    },
+    {
+      "index": 790,
+      "start_time": 2237250.0,
+      "end_time": 2239770.0,
+      "text": "Because in this specific example,"
+    },
+    {
+      "index": 791,
+      "start_time": 2239770.0,
+      "end_time": 2242560.0,
+      "text": "Espresso is not even aware of your secondary process,"
+    },
+    {
+      "index": 792,
+      "start_time": 2242560.0,
+      "end_time": 2245560.0,
+      "text": "nor can it maintain any of the synchronization guarantees"
+    },
+    {
+      "index": 793,
+      "start_time": 2245560.0,
+      "end_time": 2247750.0,
+      "text": "we all know and love."
+    },
+    {
+      "index": 794,
+      "start_time": 2247750.0,
+      "end_time": 2253300.0,
+      "text": "Today, I&#39;m happy to announce Multiprocess Espresso support."
+    },
+    {
+      "index": 795,
+      "start_time": 2253300.0,
+      "end_time": 2255730.0,
+      "text": "Without changing any of your test code or your app code"
+    },
+    {
+      "index": 796,
+      "start_time": 2255730.0,
+      "end_time": 2257950.0,
+      "text": "this will allow you to seamlessly interact with UI"
+    },
+    {
+      "index": 797,
+      "start_time": 2257950.0,
+      "end_time": 2260589.0,
+      "text": "across processes, while maintaining all of us"
+    },
+    {
+      "index": 798,
+      "start_time": 2260590.0,
+      "end_time": 2264250.0,
+      "text": "Espresso synchronization guarantees."
+    },
+    {
+      "index": 799,
+      "start_time": 2264250.0,
+      "end_time": 2267550.0,
+      "text": "And it will be available in the next version of Android Test"
+    },
+    {
+      "index": 800,
+      "start_time": 2267550.0,
+      "end_time": 2269200.0,
+      "text": "Support Library release."
+    },
+    {
+      "index": 801,
+      "start_time": 2269200.0,
+      "end_time": 2273399.0,
+      "text": "So let&#39;s have a quick overview of how it actually works."
+    },
+    {
+      "index": 802,
+      "start_time": 2273400.0,
+      "end_time": 2275980.0,
+      "text": "Traditionally, as you know, in our example,"
+    },
+    {
+      "index": 803,
+      "start_time": 2275980.0,
+      "end_time": 2280120.0,
+      "text": "we start in one process, where we"
+    },
+    {
+      "index": 804,
+      "start_time": 2280120.0,
+      "end_time": 2282910.0,
+      "text": "have an instance of Android JUnit Runner and Espresso,"
+    },
+    {
+      "index": 805,
+      "start_time": 2282910.0,
+      "end_time": 2284116.0,
+      "text": "in this case."
+    },
+    {
+      "index": 806,
+      "start_time": 2284120.0,
+      "end_time": 2285703.0,
+      "text": "Now, if you remember from our example,"
+    },
+    {
+      "index": 807,
+      "start_time": 2285700.0,
+      "end_time": 2288129.0,
+      "text": "when we click the Add Note button,"
+    },
+    {
+      "index": 808,
+      "start_time": 2288130.0,
+      "end_time": 2291640.0,
+      "text": "there will be a new activity and now we have a new process."
+    },
+    {
+      "index": 809,
+      "start_time": 2291640.0,
+      "end_time": 2295290.0,
+      "text": "So the problem now is that we have"
+    },
+    {
+      "index": 810,
+      "start_time": 2295300.0,
+      "end_time": 2298900.0,
+      "text": "two processes with two different instances of Android JUnit"
+    },
+    {
+      "index": 811,
+      "start_time": 2298900.0,
+      "end_time": 2301360.0,
+      "text": "Runner and Espresso, and they&#39;re not aware of each other."
+    },
+    {
+      "index": 812,
+      "start_time": 2301360.0,
+      "end_time": 2303160.0,
+      "text": "So the first thing that we want to do"
+    },
+    {
+      "index": 813,
+      "start_time": 2303160.0,
+      "end_time": 2306129.0,
+      "text": "is we want to establish communication between the two"
+    },
+    {
+      "index": 814,
+      "start_time": 2306130.0,
+      "end_time": 2308140.0,
+      "text": "Android JUnit Runners."
+    },
+    {
+      "index": 815,
+      "start_time": 2308140.0,
+      "end_time": 2311800.0,
+      "text": "And now that we have this communication,"
+    },
+    {
+      "index": 816,
+      "start_time": 2311800.0,
+      "end_time": 2314440.0,
+      "text": "we can use it to establish the communication"
+    },
+    {
+      "index": 817,
+      "start_time": 2314440.0,
+      "end_time": 2315940.0,
+      "text": "to Espresso instances."
+    },
+    {
+      "index": 818,
+      "start_time": 2315940.0,
+      "end_time": 2318700.0,
+      "text": "And the way we do that is by having"
+    },
+    {
+      "index": 819,
+      "start_time": 2318700.0,
+      "end_time": 2322210.0,
+      "text": "an ability in the Android JUnit Runner to register any testing"
+    },
+    {
+      "index": 820,
+      "start_time": 2322210.0,
+      "end_time": 2325570.0,
+      "text": "frameworks, like Espresso, with Android JUnit Runner."
+    },
+    {
+      "index": 821,
+      "start_time": 2325570.0,
+      "end_time": 2329140.0,
+      "text": "And then the runner will then facilitate all the handshaking"
+    },
+    {
+      "index": 822,
+      "start_time": 2329140.0,
+      "end_time": 2331930.0,
+      "text": "required in order to establish communication between the two"
+    },
+    {
+      "index": 823,
+      "start_time": 2331930.0,
+      "end_time": 2334290.0,
+      "text": "Espresso instances."
+    },
+    {
+      "index": 824,
+      "start_time": 2334300.0,
+      "end_time": 2335920.0,
+      "text": "Now that the two Espresso instances"
+    },
+    {
+      "index": 825,
+      "start_time": 2335920.0,
+      "end_time": 2338320.0,
+      "text": "can talk to each other, it can then"
+    },
+    {
+      "index": 826,
+      "start_time": 2338320.0,
+      "end_time": 2341200.0,
+      "text": "use it in order to enable cross-process testing"
+    },
+    {
+      "index": 827,
+      "start_time": 2341200.0,
+      "end_time": 2344140.0,
+      "text": "and maintain all the synchronization guarantees"
+    },
+    {
+      "index": 828,
+      "start_time": 2344140.0,
+      "end_time": 2346190.0,
+      "text": "that we had before."
+    },
+    {
+      "index": 829,
+      "start_time": 2346190.0,
+      "end_time": 2348610.0,
+      "text": "OK."
+    },
+    {
+      "index": 830,
+      "start_time": 2348610.0,
+      "end_time": 2351354.0,
+      "text": "With that, we&#39;re reaching the end of our developer workflow"
+    },
+    {
+      "index": 831,
+      "start_time": 2351350.0,
+      "end_time": 2353196.0,
+      "text": "and we showed you all the tools that you"
+    },
+    {
+      "index": 832,
+      "start_time": 2353200.0,
+      "end_time": 2355210.0,
+      "text": "can use across each step of the way"
+    },
+    {
+      "index": 833,
+      "start_time": 2355210.0,
+      "end_time": 2358600.0,
+      "text": "in order to make TDD happen on Android."
+    },
+    {
+      "index": 834,
+      "start_time": 2358600.0,
+      "end_time": 2362560.0,
+      "text": "And with that said, even if you don&#39;t follow this flow exactly,"
+    },
+    {
+      "index": 835,
+      "start_time": 2362560.0,
+      "end_time": 2365200.0,
+      "text": "hopefully, you know how to use every single tool"
+    },
+    {
+      "index": 836,
+      "start_time": 2365200.0,
+      "end_time": 2367930.0,
+      "text": "and how to write good tests in order to bring your app"
+    },
+    {
+      "index": 837,
+      "start_time": 2367930.0,
+      "end_time": 2371290.0,
+      "text": "quality to the next level."
+    },
+    {
+      "index": 838,
+      "start_time": 2371300.0,
+      "end_time": 2374925.0,
+      "text": "So if you like to write tests and you want to write and run"
+    },
+    {
+      "index": 839,
+      "start_time": 2374930.0,
+      "end_time": 2377505.0,
+      "text": "tests like we do at Google, here are some resources"
+    },
+    {
+      "index": 840,
+      "start_time": 2377500.0,
+      "end_time": 2380000.0,
+      "text": "to get you started."
+    },
+    {
+      "index": 841,
+      "start_time": 2380000.0,
+      "end_time": 2381550.0,
+      "text": "I want to thank you and I think we"
+    },
+    {
+      "index": 842,
+      "start_time": 2381550.0,
+      "end_time": 2383800.0,
+      "text": "have some time for questions."
+    },
+    {
+      "index": 843,
+      "start_time": 2383800.0,
+      "end_time": 2390580.0,
+      "text": "And if not, we have office hours at 3:30 today."
+    },
+    {
+      "index": 844,
+      "start_time": 2390580.0,
+      "end_time": 2392290.0,
+      "text": "So hopefully, we&#39;ll see you there."
+    },
+    {
+      "index": 845,
+      "start_time": 2392300.0,
+      "end_time": 2392530.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 846,
+      "start_time": 2392530.0,
+      "end_time": 2394490.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 847,
+      "start_time": 2396450.0,
+      "end_time": 2400200.0,
+      "text": "[MUSIC PLAYING]"
+    }
+  ]
+}

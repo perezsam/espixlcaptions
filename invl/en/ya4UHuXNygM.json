@@ -1,0 +1,4320 @@
+{
+  "video_id": "ya4UHuXNygM",
+  "title": "Crockford on JavaScript - Act III: Function the Ultimate",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 6550.0,
+      "end_time": 11440.0,
+      "text": "Tonight is Act III: Function the Ultimate. We&#39;re going to be talking about functions"
+    },
+    {
+      "index": 2,
+      "start_time": 11440.0,
+      "end_time": 16810.0,
+      "text": "tonight. Functions are the very best part of JavaScript. It&#39;s where most of the power"
+    },
+    {
+      "index": 3,
+      "start_time": 16810.0,
+      "end_time": 23750.0,
+      "text": "is, it&#39;s where the beauty is. Like everything else in JavaScript, they&#39;re not quite right,"
+    },
+    {
+      "index": 4,
+      "start_time": 23750.0,
+      "end_time": 27060.0,
+      "text": "but you can work around that, and there&#39;s a lot of good stuff here."
+    },
+    {
+      "index": 5,
+      "start_time": 27060.0,
+      "end_time": 32300.0,
+      "text": "Tonight, unlike the previous two nights, I&#39;m going to be showing you quite a lot of code."
+    },
+    {
+      "index": 6,
+      "start_time": 32299.999999999996,
+      "end_time": 37710.0,
+      "text": "Because we&#39;re talking about functions, you need to see how they work. I personally tend"
+    },
+    {
+      "index": 7,
+      "start_time": 37710.0,
+      "end_time": 41829.0,
+      "text": "to fall asleep in presentations that put a lot of code on the screen; it&#39;s just kind"
+    },
+    {
+      "index": 8,
+      "start_time": 41829.0,
+      "end_time": 48829.0,
+      "text": "of not a good time, so I have a lot of examples and I tried to make them all fit on one screen"
+    },
+    {
+      "index": 9,
+      "start_time": 48829.0,
+      "end_time": 57940.0,
+      "text": "in big type. They&#39;re all going to be simple, but they should be interesting and useful."
+    },
+    {
+      "index": 10,
+      "start_time": 57940.0,
+      "end_time": 60420.0,
+      "text": "Let&#39;s begin."
+    },
+    {
+      "index": 11,
+      "start_time": 60420.0,
+      "end_time": 65110.0,
+      "text": "Function is the key idea in JavaScript. It&#39;s what makes it so good and so powerful. In"
+    },
+    {
+      "index": 12,
+      "start_time": 65110.0,
+      "end_time": 69300.0,
+      "text": "other languages you&#39;ve got lots of things: you&#39;ve got methods, classes, constructors,"
+    },
+    {
+      "index": 13,
+      "start_time": 69300.0,
+      "end_time": 74830.0,
+      "text": "modules, and more. In JavaScript there&#39;s just function, and function does all of those things"
+    },
+    {
+      "index": 14,
+      "start_time": 74830.0,
+      "end_time": 80110.0,
+      "text": "and more. That&#39;s not a deficiency, that&#39;s actually a wonderful thing — having one"
+    },
+    {
+      "index": 15,
+      "start_time": 80110.0,
+      "end_time": 86670.0,
+      "text": "thing that can do a lot, and can do it brilliantly, at scale, that&#39;s what functions do in this"
+    },
+    {
+      "index": 16,
+      "start_time": 86670.0,
+      "end_time": 89530.0,
+      "text": "language."
+    },
+    {
+      "index": 17,
+      "start_time": 89530.0,
+      "end_time": 94780.0,
+      "text": "Here&#39;s what a function is. A function is the word &#39;function&#39;. It optionally has a name,"
+    },
+    {
+      "index": 18,
+      "start_time": 94780.0,
+      "end_time": 99540.0,
+      "text": "which can be used to allow it to call itself. It can have a set of parameters, which are"
+    },
+    {
+      "index": 19,
+      "start_time": 99540.0,
+      "end_time": 105200.0,
+      "text": "wrapped in parens, containing zero or more names which are separated by commas. It can"
+    },
+    {
+      "index": 20,
+      "start_time": 105200.0,
+      "end_time": 113700.0,
+      "text": "have a body which is wrapped in curly braces, containing zero or more statements. A function"
+    },
+    {
+      "index": 21,
+      "start_time": 113700.0,
+      "end_time": 118890.0,
+      "text": "expression like that produces an instance of a function object. Function objects in"
+    },
+    {
+      "index": 22,
+      "start_time": 118890.0,
+      "end_time": 122780.0,
+      "text": "this language are first class, which means that they can be passed as an argument to"
+    },
+    {
+      "index": 23,
+      "start_time": 122780.0,
+      "end_time": 128190.0,
+      "text": "another function, they may be returned as a return value from a function, they can be"
+    },
+    {
+      "index": 24,
+      "start_time": 128190.0,
+      "end_time": 132810.0,
+      "text": "assigned to a variable, and they can be stored in an object or an array."
+    },
+    {
+      "index": 25,
+      "start_time": 132810.0,
+      "end_time": 136530.0,
+      "text": "Anything you can do with any other kind of value in this language, you can do with a"
+    },
+    {
+      "index": 26,
+      "start_time": 136530.0,
+      "end_time": 141610.0,
+      "text": "function. A function expression is like an object literal in that it produces a value,"
+    },
+    {
+      "index": 27,
+      "start_time": 141610.0,
+      "end_time": 146000.0,
+      "text": "except in this case it produces something that inherits from Function.prototype. It"
+    },
+    {
+      "index": 28,
+      "start_time": 146000.0,
+      "end_time": 152750.0,
+      "text": "may seem kind of strange that a function can inherit methods from something else, but it"
+    },
+    {
+      "index": 29,
+      "start_time": 152750.0,
+      "end_time": 159860.0,
+      "text": "can. So in this language, functions have methods. That may sound odd, but we&#39;ve got that. I&#39;ll"
+    },
+    {
+      "index": 30,
+      "start_time": 159860.0,
+      "end_time": 163390.0,
+      "text": "show you some examples of that."
+    },
+    {
+      "index": 31,
+      "start_time": 163390.0,
+      "end_time": 169010.0,
+      "text": "We have a var statement which allows us to declare and initialize variables within a"
+    },
+    {
+      "index": 32,
+      "start_time": 169010.0,
+      "end_time": 174530.0,
+      "text": "function. Because JavaScript is not a strongly typed language you don&#39;t specify types in"
+    },
+    {
+      "index": 33,
+      "start_time": 174530.0,
+      "end_time": 179670.0,
+      "text": "the var statement, you just give a name for the variable. Any variable can contain any"
+    },
+    {
+      "index": 34,
+      "start_time": 179670.0,
+      "end_time": 187370.0,
+      "text": "value that&#39;s expressible in the language. A variable that&#39;s declared anywhere within"
+    },
+    {
+      "index": 35,
+      "start_time": 187370.0,
+      "end_time": 193350.0,
+      "text": "a function is visible everywhere within the function; we don&#39;t respect block scope."
+    },
+    {
+      "index": 36,
+      "start_time": 193350.0,
+      "end_time": 200900.0,
+      "text": "The way var statements work is the var statement gets split into two pieces. The declaration"
+    },
+    {
+      "index": 37,
+      "start_time": 200900.0,
+      "end_time": 207200.0,
+      "text": "part gets hoisted to the top of the function and is initialized with undefined. Back at"
+    },
+    {
+      "index": 38,
+      "start_time": 207200.0,
+      "end_time": 211100.0,
+      "text": "the place where the original var statement was, it gets turned into an assignment statement"
+    },
+    {
+      "index": 39,
+      "start_time": 211100.0,
+      "end_time": 219959.0,
+      "text": "so that the var gets removed. Here we have an example. I&#39;ve got myVar = 0 and myOtherVar."
+    },
+    {
+      "index": 40,
+      "start_time": 219959.0,
+      "end_time": 225060.0,
+      "text": "What that does is, at the top of the function it defines myVar and myOtherVar and sets them"
+    },
+    {
+      "index": 41,
+      "start_time": 225060.0,
+      "end_time": 229349.0,
+      "text": "both to undefined. Then at the point in the function where the original var statement"
+    },
+    {
+      "index": 42,
+      "start_time": 229349.0,
+      "end_time": 241680.0,
+      "text": "was, we have an assignment statement. The separation and the hoisting operation changes"
+    },
+    {
+      "index": 43,
+      "start_time": 241680.0,
+      "end_time": 245340.0,
+      "text": "the way you might think of the scoping of variable names."
+    },
+    {
+      "index": 44,
+      "start_time": 245340.0,
+      "end_time": 252410.0,
+      "text": "We also have a function statement. Unfortunately, the function statement looks exactly like"
+    },
+    {
+      "index": 45,
+      "start_time": 252410.0,
+      "end_time": 258019.0,
+      "text": "a function expression. The only difference is that the name, instead of being optional,"
+    },
+    {
+      "index": 46,
+      "start_time": 258019.0,
+      "end_time": 264279.0,
+      "text": "is now mandatory. But in all other respects it looks exactly the same, and it is confusing"
+    },
+    {
+      "index": 47,
+      "start_time": 264279.0,
+      "end_time": 275559.0,
+      "text": "to have both.  Why do we have both? Well, the function statement was the older thing, and the function expression,"
+    },
+    {
+      "index": 48,
+      "start_time": 275559.0,
+      "end_time": 280860.0,
+      "text": "which is really the more useful form, was added to the language later. What the function"
+    },
+    {
+      "index": 49,
+      "start_time": 280860.0,
+      "end_time": 286759.0,
+      "text": "statement does is it expands into a var statement which creates a variable and assigns a function"
+    },
+    {
+      "index": 50,
+      "start_time": 286759.0,
+      "end_time": 295249.0,
+      "text": "value to it. That expansion, because it&#39;s actually a var statement, splits into two"
+    },
+    {
+      "index": 51,
+      "start_time": 295249.0,
+      "end_time": 301169.0,
+      "text": "things. Except unlike the ordinary var statement that we saw earlier, both pieces of it are"
+    },
+    {
+      "index": 52,
+      "start_time": 301169.0,
+      "end_time": 306550.0,
+      "text": "hoisted to the top of the function, so things are not necessarily declared in the order"
+    },
+    {
+      "index": 53,
+      "start_time": 306550.0,
+      "end_time": 311460.0,
+      "text": "that you think they are."
+    },
+    {
+      "index": 54,
+      "start_time": 311460.0,
+      "end_time": 317900.0,
+      "text": "It&#39;s confusing having both function expressions and function statements, so how do you know"
+    },
+    {
+      "index": 55,
+      "start_time": 317900.0,
+      "end_time": 322189.0,
+      "text": "which is which when you&#39;re looking at it? The rule is, if the first token of a statement"
+    },
+    {
+      "index": 56,
+      "start_time": 322189.0,
+      "end_time": 327599.0,
+      "text": "is function, then it&#39;s a function statement. Otherwise, it&#39;s a function expression. Generally,"
+    },
+    {
+      "index": 57,
+      "start_time": 327599.0,
+      "end_time": 333960.0,
+      "text": "function expressions are easier to reason about. For example, you can&#39;t put a function"
+    },
+    {
+      "index": 58,
+      "start_time": 333960.0,
+      "end_time": 339749.0,
+      "text": "statement inside of an if statement because of the hoisting stuff. You might want to have"
+    },
+    {
+      "index": 59,
+      "start_time": 339749.0,
+      "end_time": 345270.0,
+      "text": "a different function being defined if you take the else branch or the then branch, but"
+    },
+    {
+      "index": 60,
+      "start_time": 345270.0,
+      "end_time": 350199.0,
+      "text": "hoisting doesn&#39;t look at branching, and it happens before we know the result of the if,"
+    },
+    {
+      "index": 61,
+      "start_time": 350199.0,
+      "end_time": 356339.0,
+      "text": "so the language definition says that you can&#39;t do that. It turns out every browser lets you"
+    },
+    {
+      "index": 62,
+      "start_time": 356339.0,
+      "end_time": 362139.0,
+      "text": "do that anyway, but because the language definition doesn&#39;t tell you what it&#39;s supposed to do,"
+    },
+    {
+      "index": 63,
+      "start_time": 362139.0,
+      "end_time": 366119.0,
+      "text": "they all do something different. That&#39;s one of those edge cases that you want to stay"
+    },
+    {
+      "index": 64,
+      "start_time": 366119.0,
+      "end_time": 371119.0,
+      "text": "away from."
+    },
+    {
+      "index": 65,
+      "start_time": 371119.0,
+      "end_time": 375039.0,
+      "text": "In this language we have function scope. In most other languages that have C syntax we"
+    },
+    {
+      "index": 66,
+      "start_time": 375039.0,
+      "end_time": 382059.0,
+      "text": "have block scope, but because of the way vars get hoisted, block scope doesn&#39;t work in this"
+    },
+    {
+      "index": 67,
+      "start_time": 382059.0,
+      "end_time": 390819.0,
+      "text": "language. In JavaScript, blocks do not have scope. Scope means that, in another language"
+    },
+    {
+      "index": 68,
+      "start_time": 390819.0,
+      "end_time": 396439.0,
+      "text": "such as Java, if you declare a variable inside of curly braces, it&#39;s visible only inside"
+    },
+    {
+      "index": 69,
+      "start_time": 396439.0,
+      "end_time": 401180.0,
+      "text": "of the curly braces and not outside. But that doesn&#39;t happen in JavaScript because of hoisting."
+    },
+    {
+      "index": 70,
+      "start_time": 401180.0,
+      "end_time": 405879.0,
+      "text": "The variable declaration gets pulled out of the if statement and moved to the top of the"
+    },
+    {
+      "index": 71,
+      "start_time": 405879.0,
+      "end_time": 410619.0,
+      "text": "function, so the variables will be visible everywhere within the function. Only functions,"
+    },
+    {
+      "index": 72,
+      "start_time": 410619.0,
+      "end_time": 414650.0,
+      "text": "in this language, have scope. If you declare a variable in a function, that variable is"
+    },
+    {
+      "index": 73,
+      "start_time": 414650.0,
+      "end_time": 420409.0,
+      "text": "not visible outside of the function, but it&#39;s still visible everywhere within the function."
+    },
+    {
+      "index": 74,
+      "start_time": 420409.0,
+      "end_time": 425449.0,
+      "text": "If you&#39;re coming from other languages, this can be confusing. For example, a function"
+    },
+    {
+      "index": 75,
+      "start_time": 425449.0,
+      "end_time": 430699.0,
+      "text": "like this will work in most other languages and will fail in JavaScript without an error."
+    },
+    {
+      "index": 76,
+      "start_time": 430699.0,
+      "end_time": 436309.0,
+      "text": "What you&#39;ll find is that it will run forever, and that&#39;s because the programmer thinks he&#39;s"
+    },
+    {
+      "index": 77,
+      "start_time": 436309.0,
+      "end_time": 442349.0,
+      "text": "created two i variables, but in fact there&#39;s only one i variable. So the inner loop is"
+    },
+    {
+      "index": 78,
+      "start_time": 442349.0,
+      "end_time": 448680.0,
+      "text": "constantly resetting the i value so that the outer loop will never finish. That&#39;s something"
+    },
+    {
+      "index": 79,
+      "start_time": 448680.0,
+      "end_time": 456189.0,
+      "text": "to be aware of: in JavaScript, you can&#39;t be depending on block scope."
+    },
+    {
+      "index": 80,
+      "start_time": 456189.0,
+      "end_time": 460139.0,
+      "text": "Because of hoisting, because of the way that variable statements and function statements"
+    },
+    {
+      "index": 81,
+      "start_time": 460139.0,
+      "end_time": 466270.0,
+      "text": "work, I recommend that you declare all variables at the top of the function and declare all"
+    },
+    {
+      "index": 82,
+      "start_time": 466270.0,
+      "end_time": 472649.0,
+      "text": "functions before you call them. In other languages the prevailing style is to declare variables"
+    },
+    {
+      "index": 83,
+      "start_time": 472649.0,
+      "end_time": 478939.0,
+      "text": "near the site of their first use, and in languages which have block scope that&#39;s good advice,"
+    },
+    {
+      "index": 84,
+      "start_time": 478939.0,
+      "end_time": 482779.0,
+      "text": "but I don&#39;t recommend it in this language."
+    },
+    {
+      "index": 85,
+      "start_time": 482779.0,
+      "end_time": 487059.0,
+      "text": "We have a return statement. A return statement allows a function to return early, and also"
+    },
+    {
+      "index": 86,
+      "start_time": 487059.0,
+      "end_time": 493080.0,
+      "text": "indicates what value the function should be returning. There are two forms of it: there&#39;s"
+    },
+    {
+      "index": 87,
+      "start_time": 493080.0,
+      "end_time": 499270.0,
+      "text": "one that takes an expression, and one that does not. If there&#39;s no expression, then the"
+    },
+    {
+      "index": 88,
+      "start_time": 499270.0,
+      "end_time": 504129.0,
+      "text": "value that gets returned is undefined. It turns out, every function in JavaScript returns"
+    },
+    {
+      "index": 89,
+      "start_time": 504129.0,
+      "end_time": 508559.0,
+      "text": "a value, and if you don&#39;t explicitly say what the value is, it will return the undefined"
+    },
+    {
+      "index": 90,
+      "start_time": 508559.0,
+      "end_time": 513300.0,
+      "text": "value. Unless it was called as a constructor, in which case it will return the new object"
+    },
+    {
+      "index": 91,
+      "start_time": 513299.99999999994,
+      "end_time": 519948.99999999994,
+      "text": "that you&#39;re constructing. One other note: you cannot put a line break between the word"
+    },
+    {
+      "index": 92,
+      "start_time": 519948.99999999994,
+      "end_time": 528540.0,
+      "text": "return and the expression. Semi-colon insertion will go in and turn it into a statement that"
+    },
+    {
+      "index": 93,
+      "start_time": 528540.0,
+      "end_time": 535870.0,
+      "text": "returns undefined, which is tragically awful."
+    },
+    {
+      "index": 94,
+      "start_time": 535870.0,
+      "end_time": 540370.0,
+      "text": "There are two pseudo parameters that every function can receive. One is called arguments,"
+    },
+    {
+      "index": 95,
+      "start_time": 540370.0,
+      "end_time": 551630.0,
+      "text": "and the other has the unfortunate name of this.  Let&#39;s look at arguments first. When a function"
+    },
+    {
+      "index": 96,
+      "start_time": 551630.0,
+      "end_time": 556829.0,
+      "text": "is invoked, in addition to the parameters that it declares, it also gets a special parameter"
+    },
+    {
+      "index": 97,
+      "start_time": 556829.0,
+      "end_time": 563329.0,
+      "text": "called arguments. It contains all of the arguments that were actually specified in the invocation."
+    },
+    {
+      "index": 98,
+      "start_time": 563329.0,
+      "end_time": 569940.0,
+      "text": "It is an array-like object, but it is not an array, which is unfortunate. I&#39;ll show"
+    },
+    {
+      "index": 99,
+      "start_time": 569940.0,
+      "end_time": 577000.0,
+      "text": "you some examples of why that&#39;s unfortunate. It&#39;s array-like in that it has a length property,"
+    },
+    {
+      "index": 100,
+      "start_time": 577000.0,
+      "end_time": 584630.0,
+      "text": "so you can ask arguments how many arguments were actually passed to this function, which"
+    },
+    {
+      "index": 101,
+      "start_time": 584630.0,
+      "end_time": 587209.0,
+      "text": "might be different than the number of parameters that you specify."
+    },
+    {
+      "index": 102,
+      "start_time": 587209.0,
+      "end_time": 598970.0,
+      "text": "It also has very weird interaction with parameters. If you change one of the elements of the arguments"
+    },
+    {
+      "index": 103,
+      "start_time": 598970.0,
+      "end_time": 604339.0,
+      "text": "array, you may change one of the parameters that it&#39;s associated with. If you do something"
+    },
+    {
+      "index": 104,
+      "start_time": 604339.0,
+      "end_time": 610550.0,
+      "text": "really scary like splicing on the arguments array, you may scramble and reassign all of"
+    },
+    {
+      "index": 105,
+      "start_time": 610550.0,
+      "end_time": 616399.0,
+      "text": "your parameters. Generally, you don&#39;t want to mess with the arguments array. While the"
+    },
+    {
+      "index": 106,
+      "start_time": 616399.0,
+      "end_time": 620569.0,
+      "text": "language doesn&#39;t require you to treat it as a read-only structure, I highly recommend"
+    },
+    {
+      "index": 107,
+      "start_time": 620569.0,
+      "end_time": 624040.0,
+      "text": "that you treat it as a read-only structure."
+    },
+    {
+      "index": 108,
+      "start_time": 624040.0,
+      "end_time": 630449.0,
+      "text": "OK, let&#39;s look at an example. I want to have a function in which I can pass it some number"
+    },
+    {
+      "index": 109,
+      "start_time": 630449.0,
+      "end_time": 637970.0,
+      "text": "of numbers and it will then add them all and return the result. The way I do that is I"
+    },
+    {
+      "index": 110,
+      "start_time": 637970.0,
+      "end_time": 642930.0,
+      "text": "first look at arguments.length to find out how many numbers I&#39;m going to be adding. Then"
+    },
+    {
+      "index": 111,
+      "start_time": 642930.0,
+      "end_time": 647839.0,
+      "text": "I will have a loop which will go through each of those members of the arguments&#39; pseudo"
+    },
+    {
+      "index": 112,
+      "start_time": 647839.0,
+      "end_time": 654490.0,
+      "text": "array and figure out the total, and then when it&#39;s done it returns the total. This is how"
+    },
+    {
+      "index": 113,
+      "start_time": 654490.0,
+      "end_time": 660720.0,
+      "text": "you would write that in ES3, or in the third edition of the ECMAScript Standard. This gets"
+    },
+    {
+      "index": 114,
+      "start_time": 660720.0,
+      "end_time": 666910.0,
+      "text": "a little bit nicer in the fifth edition. In the fifth edition, arguments is more array-like"
+    },
+    {
+      "index": 115,
+      "start_time": 666910.0,
+      "end_time": 673540.0,
+      "text": "than before. It&#39;s more array-like in that it actually inherits, now, from array.prototype,"
+    },
+    {
+      "index": 116,
+      "start_time": 673540.0,
+      "end_time": 682620.0,
+      "text": "and array.prototype now contains some interesting functions like reduce. I can call arguments.reduce"
+    },
+    {
+      "index": 117,
+      "start_time": 682620.0,
+      "end_time": 688790.0,
+      "text": "and pass it a function that does adding, and the result of that will be to add up all the"
+    },
+    {
+      "index": 118,
+      "start_time": 688790.0,
+      "end_time": 695019.0,
+      "text": "members of that array and return it. I think it&#39;s a more elegant way of expressing the"
+    },
+    {
+      "index": 119,
+      "start_time": 695019.0,
+      "end_time": 697720.0,
+      "text": "same program."
+    },
+    {
+      "index": 120,
+      "start_time": 697720.0,
+      "end_time": 703019.0,
+      "text": "Then we have the this parameter. I&#39;m discovering that I don&#39;t like the name &#39;this&#39; because"
+    },
+    {
+      "index": 121,
+      "start_time": 703019.0,
+      "end_time": 711690.0,
+      "text": "it makes it really difficult to talk about it. My first sentence: &#39;the this parameterâ€¦&#39;"
+    },
+    {
+      "index": 122,
+      "start_time": 711690.0,
+      "end_time": 717759.0,
+      "text": "Already you&#39;re in trouble. I mean, it&#39;s just hard to talk about it in doing code reviews:"
+    },
+    {
+      "index": 123,
+      "start_time": 717759.0,
+      "end_time": 720579.0,
+      "text": "&#39;oh, I see your problem, this is wrong.&#39;"
+    },
+    {
+      "index": 124,
+      "start_time": 720579.0,
+      "end_time": 721399.0,
+      "text": "[laughter]"
+    },
+    {
+      "index": 125,
+      "start_time": 721399.0,
+      "end_time": 727329.0,
+      "text": "Well, you might be right."
+    },
+    {
+      "index": 126,
+      "start_time": 727329.0,
+      "end_time": 732720.0,
+      "text": "So what is this? The this parameter contains a reference to the object of invocation. This"
+    },
+    {
+      "index": 127,
+      "start_time": 732720.0,
+      "end_time": 739079.0,
+      "text": "allows a method to know what object it is concerned with. It allows a single instance"
+    },
+    {
+      "index": 128,
+      "start_time": 739079.0,
+      "end_time": 744120.0,
+      "text": "of a function object to serve as many functions. You can take a single function object and"
+    },
+    {
+      "index": 129,
+      "start_time": 744120.0,
+      "end_time": 748149.0,
+      "text": "store it in lots of different objects, or put it in lots of prototypes, and allow it"
+    },
+    {
+      "index": 130,
+      "start_time": 748149.0,
+      "end_time": 753920.0,
+      "text": "to be inherited by even more objects. There&#39;s just one instance of the function in the system,"
+    },
+    {
+      "index": 131,
+      "start_time": 753920.0,
+      "end_time": 758699.0,
+      "text": "but all of those objects think that they have that method, and they will do the right thing"
+    },
+    {
+      "index": 132,
+      "start_time": 758699.0,
+      "end_time": 765079.0,
+      "text": "with it because they use this to figure out what object they should actually be manipulating."
+    },
+    {
+      "index": 133,
+      "start_time": 765079.0,
+      "end_time": 770110.0,
+      "text": "So this is the key to prototypal inheritance. Prototypal inheritance works in this language"
+    },
+    {
+      "index": 134,
+      "start_time": 770110.0,
+      "end_time": 773889.0,
+      "text": "because of this."
+    },
+    {
+      "index": 135,
+      "start_time": 773889.0,
+      "end_time": 779959.0,
+      "text": "We have the parens suffix operator, which is used for invoking, or calling, or executing"
+    },
+    {
+      "index": 136,
+      "start_time": 779959.0,
+      "end_time": 786600.0,
+      "text": "the function. It surrounds zero or more comma separated expressions which will become the"
+    },
+    {
+      "index": 137,
+      "start_time": 786600.0,
+      "end_time": 797600.0,
+      "text": "arguments of the function, and those arguments will be bound to the parameters of the function."
+    },
+    {
+      "index": 138,
+      "start_time": 797600.0,
+      "end_time": 801879.0,
+      "text": "If a function is called with too many arguments, the extra arguments are ignored. You don&#39;t"
+    },
+    {
+      "index": 139,
+      "start_time": 801879.0,
+      "end_time": 806980.0,
+      "text": "get an error for that, they&#39;re just ignored. But they&#39;ll still go into the arguments array,"
+    },
+    {
+      "index": 140,
+      "start_time": 806980.0,
+      "end_time": 811709.0,
+      "text": "so if you want to find out about them they&#39;re still accessible to you. If a function is"
+    },
+    {
+      "index": 141,
+      "start_time": 811709.0,
+      "end_time": 817300.0,
+      "text": "called with too few arguments, that&#39;s not an error either. It will fill in undefined"
+    },
+    {
+      "index": 142,
+      "start_time": 817300.0,
+      "end_time": 823329.0,
+      "text": "for any things that you did not include. There&#39;s no implicit type checking at all, so if the"
+    },
+    {
+      "index": 143,
+      "start_time": 823329.0,
+      "end_time": 826910.0,
+      "text": "types of the parameters are important to you then you need to check them yourself within"
+    },
+    {
+      "index": 144,
+      "start_time": 826910.0,
+      "end_time": 827399.0,
+      "text": "your function."
+    },
+    {
+      "index": 145,
+      "start_time": 827399.0,
+      "end_time": 833769.0,
+      "text": "There are four ways to call a function. There&#39;s the function form, the method form, the constructor"
+    },
+    {
+      "index": 146,
+      "start_time": 833769.0,
+      "end_time": 843019.0,
+      "text": "form, and the apply form. They differ in what they do with this. In the method form, we"
+    },
+    {
+      "index": 147,
+      "start_time": 843019.0,
+      "end_time": 850790.0,
+      "text": "have an object, and then we say dot function name or subscript, some method name, and then"
+    },
+    {
+      "index": 148,
+      "start_time": 850790.0,
+      "end_time": 857249.0,
+      "text": "pass them arguments that will call the function and it will associate this with whatever that"
+    },
+    {
+      "index": 149,
+      "start_time": 857249.0,
+      "end_time": 864889.0,
+      "text": "object was. That will allow the function, then, to manipulate this."
+    },
+    {
+      "index": 150,
+      "start_time": 864889.0,
+      "end_time": 869610.0,
+      "text": "Then there&#39;s the function form, in which we simply take a function value and call it immediately."
+    },
+    {
+      "index": 151,
+      "start_time": 869610.0,
+      "end_time": 878639.0,
+      "text": "In this case there&#39;s no object to associate this to, so in ES3 this was set to the global"
+    },
+    {
+      "index": 152,
+      "start_time": 878639.0,
+      "end_time": 887139.0,
+      "text": "object, which was just awful. In ES5/Strict we improve that a little bit: we now bind"
+    },
+    {
+      "index": 153,
+      "start_time": 887139.0,
+      "end_time": 895610.0,
+      "text": "this to undefined, which is less awful. But one problem with this form is that sometimes"
+    },
+    {
+      "index": 154,
+      "start_time": 895610.0,
+      "end_time": 901970.0,
+      "text": "if you have an inner function inside of an outer method, and that method wants the inner"
+    },
+    {
+      "index": 155,
+      "start_time": 901970.0,
+      "end_time": 907319.0,
+      "text": "function to have access to this, but it doesn&#39;t have access to it because it has its own this"
+    },
+    {
+      "index": 156,
+      "start_time": 907319.0,
+      "end_time": 913819.0,
+      "text": "which is different than the outer this. So in order to make this visible to the inner"
+    },
+    {
+      "index": 157,
+      "start_time": 913819.0,
+      "end_time": 918970.0,
+      "text": "function, the outer function can declare a variable, perhaps called that, assign this"
+    },
+    {
+      "index": 158,
+      "start_time": 918970.0,
+      "end_time": 924990.0,
+      "text": "to it, and then the inner function will have access to that."
+    },
+    {
+      "index": 159,
+      "start_time": 924990.0,
+      "end_time": 932329.0,
+      "text": "We have a constructor form, which looks like the function form except we have the new prefix."
+    },
+    {
+      "index": 160,
+      "start_time": 932329.0,
+      "end_time": 939300.0,
+      "text": "Now when the function is called, this is bound to a new object that inherits from the function&#39;s"
+    },
+    {
+      "index": 161,
+      "start_time": 939300.0,
+      "end_time": 947339.0,
+      "text": "prototype number. Then if the function does not explicitly return a value, that new object"
+    },
+    {
+      "index": 162,
+      "start_time": 947339.0,
+      "end_time": 951629.0,
+      "text": "will be returned. This is used very much in the pseudo classical style which we&#39;ll look"
+    },
+    {
+      "index": 163,
+      "start_time": 951629.0,
+      "end_time": 952449.0,
+      "text": "at a little bit later."
+    },
+    {
+      "index": 164,
+      "start_time": 952449.0,
+      "end_time": 960100.0,
+      "text": "Then finally there&#39;s the apply form in which we use either the function&#39;s apply method"
+    },
+    {
+      "index": 165,
+      "start_time": 960100.0,
+      "end_time": 967329.0,
+      "text": "or its call method. What they have in common is they both allow us to specify what this"
+    },
+    {
+      "index": 166,
+      "start_time": 967329.0,
+      "end_time": 975100.0,
+      "text": "is. The value that this should have will be the first parameter. The difference between"
+    },
+    {
+      "index": 167,
+      "start_time": 975100.0,
+      "end_time": 983559.0,
+      "text": "them is that apply takes an array of arguments and call takes zero or more individual parameters,"
+    },
+    {
+      "index": 168,
+      "start_time": 983559.0,
+      "end_time": 989610.0,
+      "text": "which will become the arguments."
+    },
+    {
+      "index": 169,
+      "start_time": 989610.0,
+      "end_time": 996540.0,
+      "text": "I showed how to define call in terms of apply, and also show a little bit of the ugliness"
+    },
+    {
+      "index": 170,
+      "start_time": 996540.0,
+      "end_time": 1004079.0,
+      "text": "that&#39;s caused by the fact that arguments is not a real array. What I want to do to implement"
+    },
+    {
+      "index": 171,
+      "start_time": 1004080.0,
+      "end_time": 1008690.0,
+      "text": "a call is I want to take all of the parameters that were passed except for the first one,"
+    },
+    {
+      "index": 172,
+      "start_time": 1008690.0,
+      "end_time": 1016431.0,
+      "text": "and I do that by using the splice method — except arguments doesn&#39;t have a splice method in"
+    },
+    {
+      "index": 173,
+      "start_time": 1016430.0,
+      "end_time": 1022249.0,
+      "text": "ES3, so instead I have to go out and find it. I know that I can find it at array.prototype,"
+    },
+    {
+      "index": 174,
+      "start_time": 1022250.0,
+      "end_time": 1032001.0,
+      "text": "so I go array.prototype.slice.apply, and then I can take that piece of arguments. Really"
+    },
+    {
+      "index": 175,
+      "start_time": 1032000.0,
+      "end_time": 1037460.0,
+      "text": "awful. Again, we fix that in ES5 a little bit."
+    },
+    {
+      "index": 176,
+      "start_time": 1037460.0,
+      "end_time": 1042720.0,
+      "text": "To summarize, this is a bonus parameter, and its value depends on the calling form. If"
+    },
+    {
+      "index": 177,
+      "start_time": 1042720.0,
+      "end_time": 1049320.0,
+      "text": "its call is a function, it&#39;s bound to either the global object in ES3, or to undefined"
+    },
+    {
+      "index": 178,
+      "start_time": 1049320.0,
+      "end_time": 1056050.0,
+      "text": "in ES5/Strict. If it&#39;s called as a method it&#39;s bound to the object containing the method."
+    },
+    {
+      "index": 179,
+      "start_time": 1056050.0,
+      "end_time": 1061570.0,
+      "text": "If it&#39;s called as a constructor, it&#39;s bound to the new object being constructed. And if"
+    },
+    {
+      "index": 180,
+      "start_time": 1061570.0,
+      "end_time": 1067310.0,
+      "text": "it&#39;s called in the apply form, then we explicitly pass in an argument that determines what this"
+    },
+    {
+      "index": 181,
+      "start_time": 1067310.0,
+      "end_time": 1071510.0,
+      "text": "is going to be."
+    },
+    {
+      "index": 182,
+      "start_time": 1071510.0,
+      "end_time": 1076640.0,
+      "text": "We call these things functions, but they don&#39;t behave exactly like mathematical functions."
+    },
+    {
+      "index": 183,
+      "start_time": 1076640.0,
+      "end_time": 1082810.0,
+      "text": "In a mathematical function you would expect that every time you use a function with a"
+    },
+    {
+      "index": 184,
+      "start_time": 1082810.0,
+      "end_time": 1088900.0,
+      "text": "particular set of inputs, you should get exactly the same outputs. There are some programming"
+    },
+    {
+      "index": 185,
+      "start_time": 1088900.0,
+      "end_time": 1092840.0,
+      "text": "languages in which people are trying to match that ideal and there is some attractiveness"
+    },
+    {
+      "index": 186,
+      "start_time": 1092840.0,
+      "end_time": 1097390.0,
+      "text": "in doing that, because the behavior programs write is more predictable, it&#39;s easier to"
+    },
+    {
+      "index": 187,
+      "start_time": 1097390.0,
+      "end_time": 1102500.0,
+      "text": "reason about them, and they&#39;re also a lot harder to write. Because it turns out that"
+    },
+    {
+      "index": 188,
+      "start_time": 1102500.0,
+      "end_time": 1107290.0,
+      "text": "programs, in order to be interesting, are interacting with the world, and the world"
+    },
+    {
+      "index": 189,
+      "start_time": 1107290.0,
+      "end_time": 1114140.0,
+      "text": "is always different. The functions are always going to be dealing with different things,"
+    },
+    {
+      "index": 190,
+      "start_time": 1114140.0,
+      "end_time": 1121650.0,
+      "text": "so they&#39;ll tend to want to keep state, and to manipulate that state and to mutate things."
+    },
+    {
+      "index": 191,
+      "start_time": 1121650.0,
+      "end_time": 1127740.0,
+      "text": "So functions will tend to have side effects. In JavaScript you can program in the pure"
+    },
+    {
+      "index": 192,
+      "start_time": 1127740.0,
+      "end_time": 1135490.0,
+      "text": "functional sense, in that you can assume: OK, I&#39;m never going to assign to a variable,"
+    },
+    {
+      "index": 193,
+      "start_time": 1135490.0,
+      "end_time": 1140160.0,
+      "text": "and I&#39;m never going to change any object once it&#39;s created. And the language will let you"
+    },
+    {
+      "index": 194,
+      "start_time": 1140160.0,
+      "end_time": 1145590.0,
+      "text": "do that, but you&#39;re going to find it&#39;s really hard. We tend to change things a lot, because"
+    },
+    {
+      "index": 195,
+      "start_time": 1145590.0,
+      "end_time": 1151710.0,
+      "text": "it&#39;s just an easier style of programming."
+    },
+    {
+      "index": 196,
+      "start_time": 1151710.0,
+      "end_time": 1155700.0,
+      "text": "Where did functions come from? Originally, there was something called the subroutine."
+    },
+    {
+      "index": 197,
+      "start_time": 1155700.0,
+      "end_time": 1163850.0,
+      "text": "The subroutine began life back in the assembly language era, where you&#39;d want to be able"
+    },
+    {
+      "index": 198,
+      "start_time": 1163850.0,
+      "end_time": 1169250.0,
+      "text": "to define your own op codes, and you could take a bunch of instructions that you used"
+    },
+    {
+      "index": 199,
+      "start_time": 1169250.0,
+      "end_time": 1178100.0,
+      "text": "frequently and create a pseudo op and call it. Subroutines were born. They introduced"
+    },
+    {
+      "index": 200,
+      "start_time": 1178100.0,
+      "end_time": 1181950.0,
+      "text": "the idea of call and return, where we call the thing and when it&#39;s finished it comes"
+    },
+    {
+      "index": 201,
+      "start_time": 1181950.0,
+      "end_time": 1187360.0,
+      "text": "back and we resume from where we were. That idea has been in virtually every language"
+    },
+    {
+      "index": 202,
+      "start_time": 1187360.0,
+      "end_time": 1193570.0,
+      "text": "since then. In different languages they&#39;ve been called subs, procedures, procs, funcs,"
+    },
+    {
+      "index": 203,
+      "start_time": 1193570.0,
+      "end_time": 1199720.0,
+      "text": "functions, lambdas, but it&#39;s all the same idea of taking some specification of computation"
+    },
+    {
+      "index": 204,
+      "start_time": 1199720.0,
+      "end_time": 1204390.0,
+      "text": "and packaging it so that it can be re-used conveniently."
+    },
+    {
+      "index": 205,
+      "start_time": 1204390.0,
+      "end_time": 1211120.0,
+      "text": "The first motivation for sub-routines was code reuse. The first generations of computers"
+    },
+    {
+      "index": 206,
+      "start_time": 1211120.0,
+      "end_time": 1216500.0,
+      "text": "had really small memories, so in order to get programs to fit you&#39;d want to take pieces"
+    },
+    {
+      "index": 207,
+      "start_time": 1216500.0,
+      "end_time": 1222280.0,
+      "text": "of the program that were recurring and factor them out so that they were only there once,"
+    },
+    {
+      "index": 208,
+      "start_time": 1222280.0,
+      "end_time": 1227280.0,
+      "text": "and then call them. That was the only way you could hope to get it to fit. It turned"
+    },
+    {
+      "index": 209,
+      "start_time": 1227280.0,
+      "end_time": 1232740.0,
+      "text": "out that was such a good idea that was then used in the design of programs. Treating a"
+    },
+    {
+      "index": 210,
+      "start_time": 1232740.0,
+      "end_time": 1238190.0,
+      "text": "program as a single, monolithic list of instructions was too difficult to reason about, so if we&#39;d"
+    },
+    {
+      "index": 211,
+      "start_time": 1238190.0,
+      "end_time": 1244900.0,
+      "text": "divide and conquer that program into smaller components then we can think about those components"
+    },
+    {
+      "index": 212,
+      "start_time": 1244900.0,
+      "end_time": 1251080.0,
+      "text": "more easily. A subroutine or function was a natural form for doing that."
+    },
+    {
+      "index": 213,
+      "start_time": 1251080.0,
+      "end_time": 1257680.0,
+      "text": "The next step was using them to do modular things — for example, to create libraries"
+    },
+    {
+      "index": 214,
+      "start_time": 1257680.0,
+      "end_time": 1262480.0,
+      "text": "of routines that could be loaded with any program so that you could have stuff that"
+    },
+    {
+      "index": 215,
+      "start_time": 1262480.0,
+      "end_time": 1271900.0,
+      "text": "could be reused from one program to another. That led to a sense of expressiveness where,"
+    },
+    {
+      "index": 216,
+      "start_time": 1271900.0,
+      "end_time": 1277560.0,
+      "text": "in thinking about how to design an application, you would first think of what set of subroutines"
+    },
+    {
+      "index": 217,
+      "start_time": 1277560.0,
+      "end_time": 1283070.0,
+      "text": "would make it really easy to write this application, essentially designing a programming language"
+    },
+    {
+      "index": 218,
+      "start_time": 1283070.0,
+      "end_time": 1288250.0,
+      "text": "expressed as subroutine calls, which are ideal for implementing this application, and then"
+    },
+    {
+      "index": 219,
+      "start_time": 1288250.0,
+      "end_time": 1292900.0,
+      "text": "write those subroutines. The next step up was higher order functions, in which we&#39;re"
+    },
+    {
+      "index": 220,
+      "start_time": 1292900.0,
+      "end_time": 1299570.0,
+      "text": "going to do things with functions which couldn&#39;t be done otherwise. That&#39;s when some of the"
+    },
+    {
+      "index": 221,
+      "start_time": 1299570.0,
+      "end_time": 1303780.0,
+      "text": "power of the language really starts to work for you."
+    },
+    {
+      "index": 222,
+      "start_time": 1303780.0,
+      "end_time": 1308770.0,
+      "text": "One of the cases where that occurs is in recursion. Recursion is when a function calls itself,"
+    },
+    {
+      "index": 223,
+      "start_time": 1308770.0,
+      "end_time": 1317880.0,
+      "text": "or is defined in terms of itself. Now, at first this didn&#39;t make sense to some programmers."
+    },
+    {
+      "index": 224,
+      "start_time": 1317880.0,
+      "end_time": 1322750.0,
+      "text": "For example, if you were working in FORTRAN, FORTRAN couldn&#39;t do this. It was not possible"
+    },
+    {
+      "index": 225,
+      "start_time": 1322750.0,
+      "end_time": 1329470.0,
+      "text": "for a function to call itself in FORTRAN. A lot of very good programmers looked at the"
+    },
+    {
+      "index": 226,
+      "start_time": 1329470.0,
+      "end_time": 1336090.0,
+      "text": "idea of recursion, and reasoned: well, I&#39;ve never used it, and I don&#39;t understand the"
+    },
+    {
+      "index": 227,
+      "start_time": 1336090.0,
+      "end_time": 1341440.0,
+      "text": "need for it, therefore it could not be very important. It turns out it&#39;s actually really"
+    },
+    {
+      "index": 228,
+      "start_time": 1341440.0,
+      "end_time": 1347770.0,
+      "text": "important, and when you learn to think recursively you become a much stronger programmer."
+    },
+    {
+      "index": 229,
+      "start_time": 1347770.0,
+      "end_time": 1355820.0,
+      "text": "One of the classic algorithms for a recursive solution is the Quicksort, which was invented"
+    },
+    {
+      "index": 230,
+      "start_time": 1355820.0,
+      "end_time": 1365660.0,
+      "text": "basically because ALGOL was invented. Expressing this in a recursive programming language turned"
+    },
+    {
+      "index": 231,
+      "start_time": 1365660.0,
+      "end_time": 1372800.0,
+      "text": "out to be really easy. There are basically two steps in Quicksort. The first is you divide"
+    },
+    {
+      "index": 232,
+      "start_time": 1372800.0,
+      "end_time": 1377650.0,
+      "text": "an array into two groups: all the big values and all the small values. One way you could"
+    },
+    {
+      "index": 233,
+      "start_time": 1377650.0,
+      "end_time": 1382530.0,
+      "text": "do that is you could have two pointers that are going through the array, and one starts"
+    },
+    {
+      "index": 234,
+      "start_time": 1382530.0,
+      "end_time": 1388000.0,
+      "text": "on the small end and one starts on the big end, and when either finds something that&#39;s"
+    },
+    {
+      "index": 235,
+      "start_time": 1388000.0,
+      "end_time": 1393160.0,
+      "text": "in the wrong group they swap them, and then continue scanning in until they meet. When"
+    },
+    {
+      "index": 236,
+      "start_time": 1393160.0,
+      "end_time": 1394320.0,
+      "text": "they meet, you&#39;re done."
+    },
+    {
+      "index": 237,
+      "start_time": 1394320.0,
+      "end_time": 1401120.0,
+      "text": "Then you go to step two, where you take each of those groups and call Quicksort on those"
+    },
+    {
+      "index": 238,
+      "start_time": 1401120.0,
+      "end_time": 1406630.0,
+      "text": "groups, and you&#39;re done. That&#39;s the whole sort, and it&#39;s really fast. There are more"
+    },
+    {
+      "index": 239,
+      "start_time": 1406630.0,
+      "end_time": 1411050.0,
+      "text": "optimizations you can do to it that make it even faster, but just doing what I was describing"
+    },
+    {
+      "index": 240,
+      "start_time": 1411050.0,
+      "end_time": 1417730.0,
+      "text": "in the average case is n log n, which is really good for a sort, and you hardly do anything."
+    },
+    {
+      "index": 241,
+      "start_time": 1417730.0,
+      "end_time": 1422780.0,
+      "text": "It&#39;s just really, really simple. So once you can learn to think recursively, a lot of really"
+    },
+    {
+      "index": 242,
+      "start_time": 1422780.0,
+      "end_time": 1425760.0,
+      "text": "interesting things fall out."
+    },
+    {
+      "index": 243,
+      "start_time": 1425760.0,
+      "end_time": 1433480.0,
+      "text": "Here&#39;s another kind of recursion. You might recognize these from the JSON language. We&#39;ve"
+    },
+    {
+      "index": 244,
+      "start_time": 1433480.0,
+      "end_time": 1441210.0,
+      "text": "got the syntax diagrams for values and arrays, and you might notice that there&#39;s a dependence"
+    },
+    {
+      "index": 245,
+      "start_time": 1441210.0,
+      "end_time": 1449040.0,
+      "text": "issue going on here where a value can be an array, but an array can contain a value. A"
+    },
+    {
+      "index": 246,
+      "start_time": 1449040.0,
+      "end_time": 1453940.0,
+      "text": "naÃ¯ve programmer might struggle, thinking how do I organize my functions in order to"
+    },
+    {
+      "index": 247,
+      "start_time": 1453940.0,
+      "end_time": 1459370.0,
+      "text": "parse something like this? I&#39;ve got this circular dependency and that&#39;s really hard, but it"
+    },
+    {
+      "index": 248,
+      "start_time": 1459370.0,
+      "end_time": 1465590.0,
+      "text": "turns out if you have recursion working for you, there&#39;s a trivial solution to this."
+    },
+    {
+      "index": 249,
+      "start_time": 1465590.0,
+      "end_time": 1472230.0,
+      "text": "Here I have two functions. Each exactly implements one of those syntax diagrams. I&#39;ve got the"
+    },
+    {
+      "index": 250,
+      "start_time": 1472230.0,
+      "end_time": 1480390.0,
+      "text": "value which, when it sees a square bracket, will call the array method and array function,"
+    },
+    {
+      "index": 251,
+      "start_time": 1480390.0,
+      "end_time": 1488030.0,
+      "text": "and return whatever it returns. Then I&#39;ve got my array function, and for each of the"
+    },
+    {
+      "index": 252,
+      "start_time": 1488030.0,
+      "end_time": 1494050.0,
+      "text": "things that it finds it calls value to find out what it is. Here I&#39;ve got mutual recursion"
+    },
+    {
+      "index": 253,
+      "start_time": 1494050.0,
+      "end_time": 1500310.0,
+      "text": "going on, and it all works out. You don&#39;t have to think about how to manage the transition"
+    },
+    {
+      "index": 254,
+      "start_time": 1500310.0,
+      "end_time": 1504980.0,
+      "text": "from one to another, just the ordinary function plumbing does all of that work for you. You"
+    },
+    {
+      "index": 255,
+      "start_time": 1504980.0,
+      "end_time": 1508240.0,
+      "text": "don&#39;t even have to think about it."
+    },
+    {
+      "index": 256,
+      "start_time": 1508240.0,
+      "end_time": 1520010.0,
+      "text": "Lisp had this stuff going on in 1958, ALGOL had it in &#39;60, but it took awhile to get into"
+    },
+    {
+      "index": 257,
+      "start_time": 1520010.0,
+      "end_time": 1526970.0,
+      "text": "the mainstream languages, partly because people couldn&#39;t think about how to implement it efficiently."
+    },
+    {
+      "index": 258,
+      "start_time": 1526970.0,
+      "end_time": 1533760.0,
+      "text": "That time, the way subroutine calls worked, on most machines you had self modifying instructions,"
+    },
+    {
+      "index": 259,
+      "start_time": 1533760.0,
+      "end_time": 1540420.0,
+      "text": "so when you called a function it would destroy whatever is in the first word of the function"
+    },
+    {
+      "index": 260,
+      "start_time": 1540420.0,
+      "end_time": 1546410.0,
+      "text": "and replace it with a jump back to the place that it was called from, and you couldn&#39;t"
+    },
+    {
+      "index": 261,
+      "start_time": 1546410.0,
+      "end_time": 1552020.0,
+      "text": "do that recursively because once you&#39;ve clobbered that address there&#39;s no getting back. So you"
+    },
+    {
+      "index": 262,
+      "start_time": 1552020.0,
+      "end_time": 1556470.0,
+      "text": "needed some other place to keep the return values, and eventually that turned out to"
+    },
+    {
+      "index": 263,
+      "start_time": 1556470.0,
+      "end_time": 1559730.0,
+      "text": "be a stack."
+    },
+    {
+      "index": 264,
+      "start_time": 1559730.0,
+      "end_time": 1567420.0,
+      "text": "All modern CPUs now have support for that, usually in the form of auto incrementing or"
+    },
+    {
+      "index": 265,
+      "start_time": 1567420.0,
+      "end_time": 1574870.0,
+      "text": "auto decrementing pointer instructions. These assembly language notions eventually found"
+    },
+    {
+      "index": 266,
+      "start_time": 1574870.0,
+      "end_time": 1581290.0,
+      "text": "their way into programming languages, so these things come straight out of assembly language"
+    },
+    {
+      "index": 267,
+      "start_time": 1581290.0,
+      "end_time": 1587800.0,
+      "text": "but found their way into C and then into Java, and everything else. I don&#39;t like them. They"
+    },
+    {
+      "index": 268,
+      "start_time": 1587800.0,
+      "end_time": 1593420.0,
+      "text": "look way too primitive and fish brained to me, if you know what I mean. I think we can"
+    },
+    {
+      "index": 269,
+      "start_time": 1593420.0,
+      "end_time": 1597170.0,
+      "text": "do better than that."
+    },
+    {
+      "index": 270,
+      "start_time": 1597170.0,
+      "end_time": 1605360.0,
+      "text": "One of the other key ideas which was, again, alien to people who&#39;d never used it, was closure."
+    },
+    {
+      "index": 271,
+      "start_time": 1605360.0,
+      "end_time": 1609680.0,
+      "text": "People who were working in languages in which closure was not an option were like &#39;I&#39;ve"
+    },
+    {
+      "index": 272,
+      "start_time": 1609680.0,
+      "end_time": 1615290.0,
+      "text": "been programming for years without it, I don&#39;t understand why you&#39;d ever want it.&#39; But it"
+    },
+    {
+      "index": 273,
+      "start_time": 1615290.0,
+      "end_time": 1619630.0,
+      "text": "turns out JavaScript&#39;s got it, and it&#39;s really, really good. That&#39;s where we&#39;re going to spending"
+    },
+    {
+      "index": 274,
+      "start_time": 1619630.0,
+      "end_time": 1625630.0,
+      "text": "most of out time tonight. It&#39;s sometimes called lexical scoping, sometimes called static scoping."
+    },
+    {
+      "index": 275,
+      "start_time": 1625630.0,
+      "end_time": 1635150.0,
+      "text": "It has to do with how variable names are resolved in nested functions. The context of an inner"
+    },
+    {
+      "index": 276,
+      "start_time": 1635150.0,
+      "end_time": 1640770.0,
+      "text": "function includes the scope of the outer functions, so all of the variables that are in the outer"
+    },
+    {
+      "index": 277,
+      "start_time": 1640770.0,
+      "end_time": 1646000.0,
+      "text": "function are available to the inner function, and this continues even after the parent function"
+    },
+    {
+      "index": 278,
+      "start_time": 1646000.0,
+      "end_time": 1653040.0,
+      "text": "has returned. That sounds kind of weird, so I&#39;ve got a lot of examples to show you what"
+    },
+    {
+      "index": 279,
+      "start_time": 1653040.0,
+      "end_time": 1653420.0,
+      "text": "this means."
+    },
+    {
+      "index": 280,
+      "start_time": 1653420.0,
+      "end_time": 1660970.0,
+      "text": "I&#39;ll start with a simple one. I&#39;ve got a function called digit_name, and digit_name will take"
+    },
+    {
+      "index": 281,
+      "start_time": 1660970.0,
+      "end_time": 1668790.0,
+      "text": "a number as an argument, and will return the name of that number in English. It will take"
+    },
+    {
+      "index": 282,
+      "start_time": 1668790.0,
+      "end_time": 1675720.0,
+      "text": "advantage of an array of strings it stored in names. As you can see, it&#39;s a really simple"
+    },
+    {
+      "index": 283,
+      "start_time": 1675720.0,
+      "end_time": 1683110.0,
+      "text": "function. Unfortunately, the way I&#39;ve defined it here, names is a global variable. The problem"
+    },
+    {
+      "index": 284,
+      "start_time": 1683110.0,
+      "end_time": 1688480.0,
+      "text": "with that is, if there&#39;s anything else in the environment that is also a global variable"
+    },
+    {
+      "index": 285,
+      "start_time": 1688480.0,
+      "end_time": 1693340.0,
+      "text": "that has that name, they&#39;re going to interfere with each other and will probably cause this"
+    },
+    {
+      "index": 286,
+      "start_time": 1693340.0,
+      "end_time": 1699510.0,
+      "text": "to fail. That&#39;s something you cannot test for, because it&#39;s impossible to test with"
+    },
+    {
+      "index": 287,
+      "start_time": 1699510.0,
+      "end_time": 1704290.0,
+      "text": "everything that might be loaded on a page. For example, it might be that a third party"
+    },
+    {
+      "index": 288,
+      "start_time": 1704290.0,
+      "end_time": 1709150.0,
+      "text": "ad gets loaded one day that happens to have a global variable called name, and now your"
+    },
+    {
+      "index": 289,
+      "start_time": 1709150.0,
+      "end_time": 1716810.0,
+      "text": "page died. That&#39;s intolerable, so we want to, as much as possible, reduce our dependence"
+    },
+    {
+      "index": 290,
+      "start_time": 1716810.0,
+      "end_time": 1719090.0,
+      "text": "on global variables."
+    },
+    {
+      "index": 291,
+      "start_time": 1719090.0,
+      "end_time": 1725300.0,
+      "text": "One way we could do that is to rewrite this program so that names is now a local variable"
+    },
+    {
+      "index": 292,
+      "start_time": 1725300.0,
+      "end_time": 1730730.0,
+      "text": "of the digit_name function. And that works. It&#39;s a local variable, we have function scope,"
+    },
+    {
+      "index": 293,
+      "start_time": 1730730.0,
+      "end_time": 1737590.0,
+      "text": "names is not visible on the outside, so even if an evil ad comes in and has a names variable"
+    },
+    {
+      "index": 294,
+      "start_time": 1737590.0,
+      "end_time": 1741520.0,
+      "text": "it will not interfere with this one, so that&#39;s good. This is a much more reliable version"
+    },
+    {
+      "index": 295,
+      "start_time": 1741520.0,
+      "end_time": 1747400.0,
+      "text": "of the function. Unfortunately, every time we call the function, we&#39;re going to allocate"
+    },
+    {
+      "index": 296,
+      "start_time": 1747400.0,
+      "end_time": 1754870.0,
+      "text": "a new array and stuff ten things into it, which is going to take some time. We don&#39;t"
+    },
+    {
+      "index": 297,
+      "start_time": 1754870.0,
+      "end_time": 1759240.0,
+      "text": "want to do that; that&#39;s a terrible waste. In this case it&#39;s a fairly trivial thing,"
+    },
+    {
+      "index": 298,
+      "start_time": 1759240.0,
+      "end_time": 1763910.0,
+      "text": "but we might have a more complicated function with a more complicated initialization, so"
+    },
+    {
+      "index": 299,
+      "start_time": 1763910.0,
+      "end_time": 1769370.0,
+      "text": "we want to be able to factor that out. Closure provides a really nice way to do that."
+    },
+    {
+      "index": 300,
+      "start_time": 1769370.0,
+      "end_time": 1778710.0,
+      "text": "Now I have a function and it has a private names variable, and it returns a function."
+    },
+    {
+      "index": 301,
+      "start_time": 1778710.0,
+      "end_time": 1785480.0,
+      "text": "The function it returns is assigned to digit_name. The important thing is, notice at the bottom,"
+    },
+    {
+      "index": 302,
+      "start_time": 1785480.0,
+      "end_time": 1790960.0,
+      "text": "we&#39;re invoking the function now. We&#39;re invoking the function immediately, so what I&#39;m storing"
+    },
+    {
+      "index": 303,
+      "start_time": 1790960.0,
+      "end_time": 1798110.0,
+      "text": "in digit_name is not the whole function, it is the function that it returns. OK? This"
+    },
+    {
+      "index": 304,
+      "start_time": 1798110.0,
+      "end_time": 1804390.0,
+      "text": "is really important. In order to give the reader a clue that there&#39;s something interesting"
+    },
+    {
+      "index": 305,
+      "start_time": 1804390.0,
+      "end_time": 1811810.0,
+      "text": "going on here — because assigning a function looks almost the same as assigning a function"
+    },
+    {
+      "index": 306,
+      "start_time": 1811810.0,
+      "end_time": 1817060.0,
+      "text": "that&#39;s immediately invoked — I wrapped it in parens. The whole thing is wrapped in the"
+    },
+    {
+      "index": 307,
+      "start_time": 1817060.0,
+      "end_time": 1822410.0,
+      "text": "golden parens. That&#39;s a clue to the reader; it&#39;s not required by the language, but I think"
+    },
+    {
+      "index": 308,
+      "start_time": 1822410.0,
+      "end_time": 1827520.0,
+      "text": "it is required by humans. It gives us a clue that there&#39;s something really interesting"
+    },
+    {
+      "index": 309,
+      "start_time": 1827520.0,
+      "end_time": 1833060.0,
+      "text": "going on here."
+    },
+    {
+      "index": 310,
+      "start_time": 1833060.0,
+      "end_time": 1840120.0,
+      "text": "We assign the return value of the outer function to digit_name. The outer function has now"
+    },
+    {
+      "index": 311,
+      "start_time": 1840120.0,
+      "end_time": 1847100.0,
+      "text": "returned, digit_name now contains a function, which is the green function. That green function"
+    },
+    {
+      "index": 312,
+      "start_time": 1847100.0,
+      "end_time": 1852260.0,
+      "text": "still has access to names, even though names is a private variable of a function that&#39;s"
+    },
+    {
+      "index": 313,
+      "start_time": 1852260.0,
+      "end_time": 1859550.0,
+      "text": "already returned. That&#39;s closure: one function closes over the variables of another function."
+    },
+    {
+      "index": 314,
+      "start_time": 1859550.0,
+      "end_time": 1864750.0,
+      "text": "This turns out to be one of the most important features in JavaScript; this is the thing"
+    },
+    {
+      "index": 315,
+      "start_time": 1864750.0,
+      "end_time": 1870380.0,
+      "text": "that it got amazingly right. This is the thing that makes JavaScript one of the world&#39;s brilliant"
+    },
+    {
+      "index": 316,
+      "start_time": 1870380.0,
+      "end_time": 1874550.0,
+      "text": "programming languages."
+    },
+    {
+      "index": 317,
+      "start_time": 1874550.0,
+      "end_time": 1880820.0,
+      "text": "There&#39;s another pattern going around called lazy function definition. I show you think"
+    },
+    {
+      "index": 318,
+      "start_time": 1880820.0,
+      "end_time": 1893850.0,
+      "text": "as a warning. Don&#39;t do this. The idea here is that, in this form, I unconditionally initialize"
+    },
+    {
+      "index": 319,
+      "start_time": 1893850.0,
+      "end_time": 1898230.0,
+      "text": "the function before we&#39;re going to start calling it. But what if the initialization is really"
+    },
+    {
+      "index": 320,
+      "start_time": 1898230.0,
+      "end_time": 1903560.0,
+      "text": "expensive, so we don&#39;t want to do it unless we know the function is going to end up getting"
+    },
+    {
+      "index": 321,
+      "start_time": 1903560.0,
+      "end_time": 1909730.0,
+      "text": "called at least once? This lazy pattern attempts to do that. What it does is it assigns to"
+    },
+    {
+      "index": 322,
+      "start_time": 1909730.0,
+      "end_time": 1920230.0,
+      "text": "digit_name a function, and when that function is called it will then store another function"
+    },
+    {
+      "index": 323,
+      "start_time": 1920230.0,
+      "end_time": 1928620.0,
+      "text": "into the same variable. So it&#39;ll replace itself, it&#39;ll modify itself. The idea here is that"
+    },
+    {
+      "index": 324,
+      "start_time": 1928620.0,
+      "end_time": 1934020.0,
+      "text": "that allows us to avoid having to initialize the thing, if we don&#39;t need to do it."
+    },
+    {
+      "index": 325,
+      "start_time": 1934020.0,
+      "end_time": 1944870.0,
+      "text": "But it comes at a cost, and the cost is confusion. Digit_name is no longer first class in that"
+    },
+    {
+      "index": 326,
+      "start_time": 1944870.0,
+      "end_time": 1950810.0,
+      "text": "if I were to pass it to a function and let that function call it, or if I were to assign"
+    },
+    {
+      "index": 327,
+      "start_time": 1950810.0,
+      "end_time": 1959570.0,
+      "text": "it to an object and let someone call it as a method, every time it gets called from that"
+    },
+    {
+      "index": 328,
+      "start_time": 1959570.0,
+      "end_time": 1966870.0,
+      "text": "point on it will do the initialization and stuff a new function into digit_name. Instead"
+    },
+    {
+      "index": 329,
+      "start_time": 1966870.0,
+      "end_time": 1971130.0,
+      "text": "of making it faster we&#39;ve actually made it slower. It&#39;s slower than the slow case we"
+    },
+    {
+      "index": 330,
+      "start_time": 1971130.0,
+      "end_time": 1977080.0,
+      "text": "started off with. Now, the counter-argument is, OK, you&#39;ve got to be really careful to"
+    },
+    {
+      "index": 331,
+      "start_time": 1977080.0,
+      "end_time": 1982880.0,
+      "text": "not do that, so one of the rules we&#39;ll put in the documentation is that this can only"
+    },
+    {
+      "index": 332,
+      "start_time": 1982880.0,
+      "end_time": 1987590.0,
+      "text": "be called from the global variable, you can&#39;t use the function value as a function value"
+    },
+    {
+      "index": 333,
+      "start_time": 1987590.0,
+      "end_time": 1994600.0,
+      "text": "except to call it immediately, and that it&#39;s worth it because we&#39;re saving the initialization"
+    },
+    {
+      "index": 334,
+      "start_time": 1994600.0,
+      "end_time": 2001640.0,
+      "text": "cost. It turns out that analysis is wrong. All we&#39;re saving is the cost of an if per"
+    },
+    {
+      "index": 335,
+      "start_time": 2001640.0,
+      "end_time": 2005760.0,
+      "text": "iteration, and let me show you why that&#39;s the case."
+    },
+    {
+      "index": 336,
+      "start_time": 2005760.0,
+      "end_time": 2010300.0,
+      "text": "Here we&#39;re going back to the closure form, except I put an if statement in it, so that"
+    },
+    {
+      "index": 337,
+      "start_time": 2010300.0,
+      "end_time": 2018500.0,
+      "text": "if names hasn&#39;t been initialized yet, we&#39;ll initialize it now, and then we&#39;ll do what"
+    },
+    {
+      "index": 338,
+      "start_time": 2018500.0,
+      "end_time": 2024420.0,
+      "text": "we always do. The cost of this compared to the previous one was one if statement per"
+    },
+    {
+      "index": 339,
+      "start_time": 2024420.0,
+      "end_time": 2030880.0,
+      "text": "invocation, which is in the noise, it&#39;s not even measurable. The optimization that we"
+    },
+    {
+      "index": 340,
+      "start_time": 2030880.0,
+      "end_time": 2039480.0,
+      "text": "were hoping to get in the lazy form just doesn&#39;t pay off, and we get weirdness instead. Now,"
+    },
+    {
+      "index": 341,
+      "start_time": 2039480.0,
+      "end_time": 2044330.0,
+      "text": "an argument about that might be: well, suppose we call this function a million times, or"
+    },
+    {
+      "index": 342,
+      "start_time": 2044330.0,
+      "end_time": 2049829.0,
+      "text": "a gazillion times. A gazillion if statements, that starts to add up to something. You can"
+    },
+    {
+      "index": 343,
+      "start_time": 2049830.0,
+      "end_time": 2054070.0,
+      "text": "go yeah, maybe that&#39;s true. But if you think you&#39;re really going to call this a gazillion"
+    },
+    {
+      "index": 344,
+      "start_time": 2054070.0000000002,
+      "end_time": 2056721.0000000002,
+      "text": "times, we shouldn&#39;t be optimizing the case where we&#39;re not going to call it at all."
+    },
+    {
+      "index": 345,
+      "start_time": 2056719.9999999998,
+      "end_time": 2060709.9999999998,
+      "text": "[laughter]"
+    },
+    {
+      "index": 346,
+      "start_time": 2060710.0,
+      "end_time": 2065480.0,
+      "text": "I thought I heard some applause there. Maybe not."
+    },
+    {
+      "index": 347,
+      "start_time": 2065480.0,
+      "end_time": 2067159.0,
+      "text": "[laughter]"
+    },
+    {
+      "index": 348,
+      "start_time": 2067159.9999999998,
+      "end_time": 2073060.9999999998,
+      "text": "OK, here&#39;s another example. A fade function. This is something you might do in an Ajax"
+    },
+    {
+      "index": 349,
+      "start_time": 2073060.0,
+      "end_time": 2079600.0,
+      "text": "application. I want to take some object — maybe a div or something — and have it fade from"
+    },
+    {
+      "index": 350,
+      "start_time": 2079600.0,
+      "end_time": 2085840.0,
+      "text": "yellow to white, maybe as an indication to the user that something changed and they should"
+    },
+    {
+      "index": 351,
+      "start_time": 2085840.0000000002,
+      "end_time": 2094120.0000000002,
+      "text": "pay attention to it. I&#39;ve got my fade function. First thing I do is find a DOM element and"
+    },
+    {
+      "index": 352,
+      "start_time": 2094120.0,
+      "end_time": 2100270.0,
+      "text": "create a variable called level, which I&#39;ll set initially to 1. Then I&#39;ll define a step"
+    },
+    {
+      "index": 353,
+      "start_time": 2100270.0,
+      "end_time": 2106530.0,
+      "text": "function, and then I will call setTimeOut, passing that step function with a time, so"
+    },
+    {
+      "index": 354,
+      "start_time": 2106530.0,
+      "end_time": 2114490.0,
+      "text": "it&#39;ll fire in a tenth of a second. And then it returns. Done. That&#39;s the end of fade."
+    },
+    {
+      "index": 355,
+      "start_time": 2114490.0,
+      "end_time": 2123980.0,
+      "text": "Then suddenly, a tenth of a second later approximately, the step function executes. It will first"
+    },
+    {
+      "index": 356,
+      "start_time": 2123980.0,
+      "end_time": 2127710.0,
+      "text": "define a variable H, and initialize it with level."
+    },
+    {
+      "index": 357,
+      "start_time": 2127710.0,
+      "end_time": 2135900.0,
+      "text": "What is level? Level is the variable of fade. It&#39;s not the value of fade when it was created,"
+    },
+    {
+      "index": 358,
+      "start_time": 2135900.0,
+      "end_time": 2141010.0,
+      "text": "it is the current value, it is the current variable. It does the same thing with DOM"
+    },
+    {
+      "index": 359,
+      "start_time": 2141010.0,
+      "end_time": 2148150.0,
+      "text": "— it gets access to the DOM variable and uses that to change the background color of"
+    },
+    {
+      "index": 360,
+      "start_time": 2148150.0,
+      "end_time": 2153860.0,
+      "text": "that DOM node. It then looks at level, and if it&#39;s less than 15 — which it will be,"
+    },
+    {
+      "index": 361,
+      "start_time": 2153860.0,
+      "end_time": 2160500.0,
+      "text": "at this point — it will add 1 to it. It&#39;s adding 1 to the level variable of the fade"
+    },
+    {
+      "index": 362,
+      "start_time": 2160500.0,
+      "end_time": 2166160.0,
+      "text": "function that&#39;s already returned, and then it will call setTimeOut, and in a tenth of"
+    },
+    {
+      "index": 363,
+      "start_time": 2166160.0,
+      "end_time": 2171630.0,
+      "text": "a second will do this again. It will keep doing it until eventually we reach 15, and"
+    },
+    {
+      "index": 364,
+      "start_time": 2171630.0,
+      "end_time": 2174500.0,
+      "text": "then we stop."
+    },
+    {
+      "index": 365,
+      "start_time": 2174500.0,
+      "end_time": 2180350.0,
+      "text": "Now, suppose we had three things on the page and we wanted them all to fade simultaneously."
+    },
+    {
+      "index": 366,
+      "start_time": 2180350.0,
+      "end_time": 2187870.0,
+      "text": "We call fade 1, 2, 3, with three different IDs at the same time — are those three executions"
+    },
+    {
+      "index": 367,
+      "start_time": 2187870.0,
+      "end_time": 2193870.0,
+      "text": "going to interfere with each other? No, not at all. Because each invocation of fade has"
+    },
+    {
+      "index": 368,
+      "start_time": 2193870.0,
+      "end_time": 2200620.0,
+      "text": "its own unique set of variables: its own DOM, its own level, creates its own step functions,"
+    },
+    {
+      "index": 369,
+      "start_time": 2200620.0,
+      "end_time": 2205920.0,
+      "text": "and they do not interfere with each other at all. So this works, again, because of closure."
+    },
+    {
+      "index": 370,
+      "start_time": 2205920.0,
+      "end_time": 2212380.0,
+      "text": "Because step is able to close over the DOM and level variables, it just works. Everybody"
+    },
+    {
+      "index": 371,
+      "start_time": 2212380.0,
+      "end_time": 2212840.0,
+      "text": "still with me?"
+    },
+    {
+      "index": 372,
+      "start_time": 2212840.0,
+      "end_time": 2222470.0,
+      "text": "OK, one more example along these lines. I want to make a later method. It&#39;s like setTimeOut"
+    },
+    {
+      "index": 373,
+      "start_time": 2222470.0,
+      "end_time": 2228000.0,
+      "text": "except more object oriented, so I want it to be a method of all objects. I can take"
+    },
+    {
+      "index": 374,
+      "start_time": 2228000.0,
+      "end_time": 2235140.0,
+      "text": "for any object, call later, give it the number of milliseconds in which to wait. It doesn&#39;t"
+    },
+    {
+      "index": 375,
+      "start_time": 2235140.0,
+      "end_time": 2239580.0,
+      "text": "actually wait, it puts it on timer queue, and eventually it&#39;ll get around to dispatching"
+    },
+    {
+      "index": 376,
+      "start_time": 2239580.0,
+      "end_time": 2246140.0,
+      "text": "it. Give it the name of a method, or perhaps pass in a function which will be treated as"
+    },
+    {
+      "index": 377,
+      "start_time": 2246140.0,
+      "end_time": 2253420.0,
+      "text": "a method, and then the other parameters of that method would need. On the next screen"
+    },
+    {
+      "index": 378,
+      "start_time": 2253420.0,
+      "end_time": 2255270.0,
+      "text": "I&#39;ll show you what it looks like."
+    },
+    {
+      "index": 379,
+      "start_time": 2255270.0,
+      "end_time": 2260250.0,
+      "text": "But again, I&#39;ll point out the problem with arguments. What I&#39;m going to want to be able"
+    },
+    {
+      "index": 380,
+      "start_time": 2260250.0,
+      "end_time": 2266530.0,
+      "text": "to say is: arguments.slice(2), so that I can take all of the parameters that were passed"
+    },
+    {
+      "index": 381,
+      "start_time": 2266530.0,
+      "end_time": 2271930.0,
+      "text": "except for the first two and make a nice little array out of it. I can&#39;t do that in ES3, instead"
+    },
+    {
+      "index": 382,
+      "start_time": 2271930.0,
+      "end_time": 2280460.0,
+      "text": "I have to write array.prototype.slice.apply(arguments, [2]), which is pretty nasty. So when you see"
+    },
+    {
+      "index": 383,
+      "start_time": 2280460.0,
+      "end_time": 2288530.0,
+      "text": "that on the next screen, you&#39;ll know why that is. In ES5, you can do the simpler thing."
+    },
+    {
+      "index": 384,
+      "start_time": 2288530.0,
+      "end_time": 2295750.0,
+      "text": "I&#39;m going to add this to object.prototype. I could add it to any of the ancestors of"
+    },
+    {
+      "index": 385,
+      "start_time": 2295750.0,
+      "end_time": 2304170.0,
+      "text": "my application. This is one place to put it. Object.prototype is a global object and all"
+    },
+    {
+      "index": 386,
+      "start_time": 2304170.0,
+      "end_time": 2308220.0,
+      "text": "of the problems you have with global variables you have with global prototypes as well, so"
+    },
+    {
+      "index": 387,
+      "start_time": 2308220.0,
+      "end_time": 2313780.0,
+      "text": "this is something you want to do really cautiously. You want to do it conditionally, just in case"
+    },
+    {
+      "index": 388,
+      "start_time": 2313780.0,
+      "end_time": 2318640.0,
+      "text": "the language ever actually adds later as standard equipment, so that you&#39;re not going to be"
+    },
+    {
+      "index": 389,
+      "start_time": 2318640.0,
+      "end_time": 2323880.0,
+      "text": "replacing the official version with your version. Generally you don&#39;t want to be doing this"
+    },
+    {
+      "index": 390,
+      "start_time": 2323880.0,
+      "end_time": 2328510.0,
+      "text": "in applications, although it&#39;s sometimes a reasonable thing to be doing in Ajax libraries."
+    },
+    {
+      "index": 391,
+      "start_time": 2328510.0,
+      "end_time": 2334590.0,
+      "text": "In this case, if we don&#39;t already have an object.prototype.later method, we&#39;re going"
+    },
+    {
+      "index": 392,
+      "start_time": 2334590.0,
+      "end_time": 2342720.0,
+      "text": "to define one. We&#39;re going to pass in the number of milliseconds in the method, and"
+    },
+    {
+      "index": 393,
+      "start_time": 2342720.0,
+      "end_time": 2349560.0,
+      "text": "then we&#39;ll create an array of the additional arguments. We&#39;re binding that to this; it&#39;s"
+    },
+    {
+      "index": 394,
+      "start_time": 2349560.0,
+      "end_time": 2356450.0,
+      "text": "doing the thing I showed you before, because in the green function we&#39;re going to want"
+    },
+    {
+      "index": 395,
+      "start_time": 2356450.0,
+      "end_time": 2364620.0,
+      "text": "access to this, but this doesn&#39;t work. This is not captured in closure. But that is, and"
+    },
+    {
+      "index": 396,
+      "start_time": 2364620.0,
+      "end_time": 2377250.0,
+      "text": "so that&#39;s how we get that into it. That will call setTimeOut, and will cause that function&#39;s"
+    },
+    {
+      "index": 397,
+      "start_time": 2377250.0,
+      "end_time": 2380200.0,
+      "text": "method to get invoked at that time."
+    },
+    {
+      "index": 398,
+      "start_time": 2380200.0,
+      "end_time": 2387530.0,
+      "text": "One other thing I&#39;m doing here is when later is finished, which happens immediately, it"
+    },
+    {
+      "index": 399,
+      "start_time": 2387530.0,
+      "end_time": 2398460.0,
+      "text": "returns the value of that, which is also this. The advantage of doing that is it allows us"
+    },
+    {
+      "index": 400,
+      "start_time": 2398460.0,
+      "end_time": 2403560.0,
+      "text": "to then cascade on that. So if I had several things that I wanted to have happen later"
+    },
+    {
+      "index": 401,
+      "start_time": 2403560.0,
+      "end_time": 2415010.0,
+      "text": "but at different times, I could say myObject.later5.later10.later20, and so on. I could just cascade all these"
+    },
+    {
+      "index": 402,
+      "start_time": 2415010.0,
+      "end_time": 2420600.0,
+      "text": "things one after another because each returns its own object, so we can then go right on"
+    },
+    {
+      "index": 403,
+      "start_time": 2420600.0,
+      "end_time": 2425900.0,
+      "text": "and invoke the next one. There are a lot of Ajax libraries that carry this idea to excess,"
+    },
+    {
+      "index": 404,
+      "start_time": 2425900.0,
+      "end_time": 2433619.0,
+      "text": "but it&#39;s a really nice pattern, and I think it works really nicely in this language."
+    },
+    {
+      "index": 405,
+      "start_time": 2433620.0,
+      "end_time": 2438971.0,
+      "text": "Another example: partial application. We&#39;re starting to get a little theoretical now."
+    },
+    {
+      "index": 406,
+      "start_time": 2438970.0,
+      "end_time": 2445800.0,
+      "text": "Partial application says I&#39;ll take a function and a parameter and return another function"
+    },
+    {
+      "index": 407,
+      "start_time": 2445800.0,
+      "end_time": 2450420.0,
+      "text": "which doesn&#39;t execute that yet, but will when it&#39;s supplied with additional parameters."
+    },
+    {
+      "index": 408,
+      "start_time": 2450420.0,
+      "end_time": 2457980.0,
+      "text": "Let&#39;s start with the example first."
+    },
+    {
+      "index": 409,
+      "start_time": 2457980.0,
+      "end_time": 2462640.0,
+      "text": "Using a function called curry, I&#39;m going to pass it an add function — which takes two"
+    },
+    {
+      "index": 410,
+      "start_time": 2462640.0,
+      "end_time": 2469510.0,
+      "text": "arguments and adds them together — and I&#39;m going to pass it 1. It will return a function"
+    },
+    {
+      "index": 411,
+      "start_time": 2469510.0,
+      "end_time": 2474730.0,
+      "text": "which will add 1 to whatever gets passed to it. I&#39;m going to store it in increment, because"
+    },
+    {
+      "index": 412,
+      "start_time": 2474730.0,
+      "end_time": 2481680.0,
+      "text": "that&#39;s a good name for that, and then I can call it. So if I now pass a 6 to inc, I get"
+    },
+    {
+      "index": 413,
+      "start_time": 2481680.0,
+      "end_time": 2491000.0,
+      "text": "7. This is called partial application. The implementation of it is, I&#39;ll first get an"
+    },
+    {
+      "index": 414,
+      "start_time": 2491000.0,
+      "end_time": 2495400.0,
+      "text": "array of arguments, except for the first one, because the first one is the function and"
+    },
+    {
+      "index": 415,
+      "start_time": 2495400.0,
+      "end_time": 2502580.0,
+      "text": "I don&#39;t need that one. In this case I&#39;m assuming I&#39;m on ES5, so I&#39;m not doing the awful array.prototype.apply"
+    },
+    {
+      "index": 416,
+      "start_time": 2502580.0,
+      "end_time": 2514690.0,
+      "text": "trick. Then curry returns a function, and that function will apply the arguments to"
+    },
+    {
+      "index": 417,
+      "start_time": 2514690.0,
+      "end_time": 2516510.0,
+      "text": "the function."
+    },
+    {
+      "index": 418,
+      "start_time": 2516510.0,
+      "end_time": 2523520.0,
+      "text": "One bit of weirdness that&#39;s left over from arguments not being a real array is that if"
+    },
+    {
+      "index": 419,
+      "start_time": 2523520.0,
+      "end_time": 2529960.0,
+      "text": "I pass arguments as a parameter to concat, it doesn&#39;t recognize that it&#39;s an array and"
+    },
+    {
+      "index": 420,
+      "start_time": 2529960.0,
+      "end_time": 2534560.0,
+      "text": "then take all the members of it and concatenate them to the other thing. It will concatenate"
+    },
+    {
+      "index": 421,
+      "start_time": 2534560.0,
+      "end_time": 2541369.0,
+      "text": "them as a single array, which is not what we want, in this case. We need to turn it"
+    },
+    {
+      "index": 422,
+      "start_time": 2541370.0,
+      "end_time": 2546041.0,
+      "text": "into a real array so that concat will do the right thing to it, and we do that by calling"
+    },
+    {
+      "index": 423,
+      "start_time": 2546040.0,
+      "end_time": 2552180.0,
+      "text": "its slice method. ES5 has the slice method, so slice returns an array, and that will work."
+    },
+    {
+      "index": 424,
+      "start_time": 2552180.0,
+      "end_time": 2559680.0,
+      "text": "But we shouldn&#39;t have had to do that; there&#39;s still some things left to get fixed in future"
+    },
+    {
+      "index": 425,
+      "start_time": 2559680.0,
+      "end_time": 2562310.0,
+      "text": "editions. Everybody still with me?"
+    },
+    {
+      "index": 426,
+      "start_time": 2562310.0,
+      "end_time": 2574390.0,
+      "text": "OK, here&#39;s one other. Suppose we&#39;ve got a process which cannot be resolved immediately."
+    },
+    {
+      "index": 427,
+      "start_time": 2574390.0,
+      "end_time": 2579110.0,
+      "text": "Maybe it&#39;s going to require a lot of computation, maybe it has to go out to a worker pool and"
+    },
+    {
+      "index": 428,
+      "start_time": 2579110.0,
+      "end_time": 2583600.0,
+      "text": "do something, maybe it has to go back to the server and get some stuff. But we&#39;d like to"
+    },
+    {
+      "index": 429,
+      "start_time": 2583600.0,
+      "end_time": 2588800.0,
+      "text": "be able to return something immediately that we can start acting on, even though it&#39;s not"
+    },
+    {
+      "index": 430,
+      "start_time": 2588800.0,
+      "end_time": 2595750.0,
+      "text": "going to be real for awhile; we don&#39;t know when that while is yet. A service that&#39;s doing"
+    },
+    {
+      "index": 431,
+      "start_time": 2595750.0,
+      "end_time": 2601000.0,
+      "text": "something like that could return something that&#39;s called a promise, and the promise is"
+    },
+    {
+      "index": 432,
+      "start_time": 2601000.0,
+      "end_time": 2608369.0,
+      "text": "an object which allows us to call methods on the thing. If we know what the thing is"
+    },
+    {
+      "index": 433,
+      "start_time": 2608370.0,
+      "end_time": 2612171.0,
+      "text": "then it will immediately get executed. But if we don&#39;t know what the thing is yet, it&#39;ll"
+    },
+    {
+      "index": 434,
+      "start_time": 2612170.0,
+      "end_time": 2620060.0,
+      "text": "get cued up. It will finally get executed when we know what the thing is. That turns"
+    },
+    {
+      "index": 435,
+      "start_time": 2620060.0,
+      "end_time": 2626670.0,
+      "text": "out to be a really useful pattern for doing a lot of things, particularly when you&#39;re"
+    },
+    {
+      "index": 436,
+      "start_time": 2626670.0,
+      "end_time": 2631090.0,
+      "text": "doing a lot of communications."
+    },
+    {
+      "index": 437,
+      "start_time": 2631090.0,
+      "end_time": 2638420.0,
+      "text": "Here we&#39;re going to implement a promise maker, and the promise maker will return a set of"
+    },
+    {
+      "index": 438,
+      "start_time": 2638420.0,
+      "end_time": 2652430.0,
+      "text": "five functions: when, fail, fulfill, smash, and status.  You could pass any one, or any fraction of"
+    },
+    {
+      "index": 439,
+      "start_time": 2652430.0,
+      "end_time": 2659110.0,
+      "text": "these functions to someone else. For example, you might have a service, and I want to return"
+    },
+    {
+      "index": 440,
+      "start_time": 2659110.0,
+      "end_time": 2664680.0,
+      "text": "something to you immediately. I give you back an object containing a when and a fail method."
+    },
+    {
+      "index": 441,
+      "start_time": 2664680.0,
+      "end_time": 2674250.0,
+      "text": "You can then pass to when functions that you want called when the thing is fulfilled. You"
+    },
+    {
+      "index": 442,
+      "start_time": 2674250.0,
+      "end_time": 2681460.0,
+      "text": "can also pass functions to fail for the case where a failure comes back. It&#39;ll just sit"
+    },
+    {
+      "index": 443,
+      "start_time": 2681460.0,
+      "end_time": 2685710.0,
+      "text": "on all those things until it knows what the disposition is."
+    },
+    {
+      "index": 444,
+      "start_time": 2685710.0,
+      "end_time": 2691230.0,
+      "text": "And then the creator of the service might hang on to the fulfill and smash methods."
+    },
+    {
+      "index": 445,
+      "start_time": 2691230.0,
+      "end_time": 2698010.0,
+      "text": "Fulfill he&#39;ll call and pass a value in when he knows what the value finally is, and that&#39;s"
+    },
+    {
+      "index": 446,
+      "start_time": 2698010.0,
+      "end_time": 2703810.0,
+      "text": "the thing that will get delivered to the functions. If it turns out that it&#39;s going to be an error,"
+    },
+    {
+      "index": 447,
+      "start_time": 2703810.0,
+      "end_time": 2708619.0,
+      "text": "at this point it turns out it&#39;s too late to throw an exception because that was a long"
+    },
+    {
+      "index": 448,
+      "start_time": 2708620.0,
+      "end_time": 2713741.0,
+      "text": "time ago, and the other guy&#39;s not in your call stack anymore, so instead you smash the"
+    },
+    {
+      "index": 449,
+      "start_time": 2713740.0,
+      "end_time": 2722350.0,
+      "text": "promise, you break the promise, and that will cause all of his fail methods, now, to run."
+    },
+    {
+      "index": 450,
+      "start_time": 2722350.0,
+      "end_time": 2728119.0,
+      "text": "The way these things work is they depend on the vouch and resolve methods, which are private"
+    },
+    {
+      "index": 451,
+      "start_time": 2728120.0,
+      "end_time": 2737301.0,
+      "text": "to the promise maker. But again, it closes over, so it&#39;ll always have access to those"
+    },
+    {
+      "index": 452,
+      "start_time": 2737300.0,
+      "end_time": 2744280.0,
+      "text": "functions and the state that they refer to. Let me show you implementations of vouch and"
+    },
+    {
+      "index": 453,
+      "start_time": 2744280.0,
+      "end_time": 2746100.0,
+      "text": "resolve."
+    },
+    {
+      "index": 454,
+      "start_time": 2746100.0,
+      "end_time": 2752560.0,
+      "text": "First we&#39;ve got a few more variables. We&#39;ve got status, which initially is unresolved,"
+    },
+    {
+      "index": 455,
+      "start_time": 2752560.0,
+      "end_time": 2761350.0,
+      "text": "and eventually could be fulfilled or failed. We&#39;ve got the outcome, so when we know what"
+    },
+    {
+      "index": 456,
+      "start_time": 2761350.0,
+      "end_time": 2766510.0,
+      "text": "the value is we&#39;ll stick it in there. We&#39;ve got the waiting list of functions that were"
+    },
+    {
+      "index": 457,
+      "start_time": 2766510.0,
+      "end_time": 2772200.0,
+      "text": "registered with when. And we&#39;ve got the dreading list for the functions that were registered"
+    },
+    {
+      "index": 458,
+      "start_time": 2772200.0,
+      "end_time": 2781730.0,
+      "text": "with fail. Then vouch will take a deed and a function and then it&#39;ll look at the status."
+    },
+    {
+      "index": 459,
+      "start_time": 2781730.0,
+      "end_time": 2787890.0,
+      "text": "If the status is still unresolved, then it will put it onto one of those lists. Which"
+    },
+    {
+      "index": 460,
+      "start_time": 2787890.0,
+      "end_time": 2796430.0,
+      "text": "list it will put it on will depend on what the deed is. But if the current state of the"
+    },
+    {
+      "index": 461,
+      "start_time": 2796430.0,
+      "end_time": 2805970.0,
+      "text": "promise matches the deed, then we can execute it immediately."
+    },
+    {
+      "index": 462,
+      "start_time": 2805970.0,
+      "end_time": 2814460.0,
+      "text": "Then the other piece of this is resolve. If the status has already been resolved then"
+    },
+    {
+      "index": 463,
+      "start_time": 2814460.0,
+      "end_time": 2822110.0,
+      "text": "we throw an error, because we can only do it once. Otherwise, we&#39;ll go through and use"
+    },
+    {
+      "index": 464,
+      "start_time": 2822110.0,
+      "end_time": 2827030.0,
+      "text": "one of the nice thing in ES5 now: we&#39;ve got a forEach method. We&#39;ll figure out which of"
+    },
+    {
+      "index": 465,
+      "start_time": 2827030.0,
+      "end_time": 2833050.0,
+      "text": "those two arrays of a function we&#39;ve got, and we&#39;ll say for each one of those functions,"
+    },
+    {
+      "index": 466,
+      "start_time": 2833050.0,
+      "end_time": 2841270.0,
+      "text": "&#39;call this function&#39;. This function will then go and call each of those with the value."
+    },
+    {
+      "index": 467,
+      "start_time": 2841270.0,
+      "end_time": 2846000.0,
+      "text": "We had to wrap it in a try catch, because if any of those functions should throw, we"
+    },
+    {
+      "index": 468,
+      "start_time": 2846000.0,
+      "end_time": 2850770.0,
+      "text": "don&#39;t want that to interfere with the other functions getting a chance to run. OK, everybody"
+    },
+    {
+      "index": 469,
+      "start_time": 2850770.0,
+      "end_time": 2855000.0,
+      "text": "still with me?"
+    },
+    {
+      "index": 470,
+      "start_time": 2855000.0,
+      "end_time": 2862359.0,
+      "text": "We&#39;ll look at one more: sealers and unsealers. Sometimes we&#39;d like to be able to pass secret"
+    },
+    {
+      "index": 471,
+      "start_time": 2862360.0,
+      "end_time": 2871860.0,
+      "text": "information around through the application. Say that I give to you a secret envelope and"
+    },
+    {
+      "index": 472,
+      "start_time": 2871860.0,
+      "end_time": 2877120.0,
+      "text": "tell you to give it to the cashier, and the cashier will take care of you. I want you"
+    },
+    {
+      "index": 473,
+      "start_time": 2877120.0,
+      "end_time": 2883061.0,
+      "text": "to be able to take that envelope to the cashier and get reimbursed, and I&#39;d like you to be"
+    },
+    {
+      "index": 474,
+      "start_time": 2883060.0,
+      "end_time": 2888150.0,
+      "text": "able to give that envelope to someone else and allow them to be reimbursed. But I don&#39;t"
+    },
+    {
+      "index": 475,
+      "start_time": 2888150.0,
+      "end_time": 2891630.0,
+      "text": "want you to be able to open it yourself, I don&#39;t want you to be able to tamper with it,"
+    },
+    {
+      "index": 476,
+      "start_time": 2891630.0,
+      "end_time": 2896960.0,
+      "text": "and I want the cashier to be able to verify that it is, in fact, the original un-tampered-with"
+    },
+    {
+      "index": 477,
+      "start_time": 2896960.0,
+      "end_time": 2903050.0,
+      "text": "thing. We can do that really easily in JavaScript, it turns out. It sounds like something you&#39;d"
+    },
+    {
+      "index": 478,
+      "start_time": 2903050.0,
+      "end_time": 2908220.0,
+      "text": "need cryptography to be able to do, but that doesn&#39;t really work inside of an application."
+    },
+    {
+      "index": 479,
+      "start_time": 2908220.0,
+      "end_time": 2910930.0,
+      "text": "But it turns out there is a much simpler solution."
+    },
+    {
+      "index": 480,
+      "start_time": 2910930.0,
+      "end_time": 2920790.0,
+      "text": "The way is works is I&#39;ve got a sealer maker which will return a pair of functions, a sealer"
+    },
+    {
+      "index": 481,
+      "start_time": 2920790.0,
+      "end_time": 2925280.0,
+      "text": "and unsealer, and they have to be used in the pairs. I will keep the sealer, and I will"
+    },
+    {
+      "index": 482,
+      "start_time": 2925280.0,
+      "end_time": 2933000.0,
+      "text": "give the unsealer to the cashier, and then I can call the sealer with the value that"
+    },
+    {
+      "index": 483,
+      "start_time": 2933000.0,
+      "end_time": 2938630.0,
+      "text": "I want to give to you, and it will return to me a box which I can then give to you."
+    },
+    {
+      "index": 484,
+      "start_time": 2938630.0,
+      "end_time": 2942990.0,
+      "text": "The box is useless to you, except that if you can give it to someone who&#39;s got an unsealer,"
+    },
+    {
+      "index": 485,
+      "start_time": 2942990.0,
+      "end_time": 2951630.0,
+      "text": "they can reclaim the original object. This function is a tiny bit harder to write than"
+    },
+    {
+      "index": 486,
+      "start_time": 2951630.0,
+      "end_time": 2958900.0,
+      "text": "it should be, because in JavaScript object keys have to be strings, they can&#39;t be objects."
+    },
+    {
+      "index": 487,
+      "start_time": 2958900.0,
+      "end_time": 2964740.0,
+      "text": "If they could be objects, this function would be totally trivial. As it is, it&#39;s just slightly"
+    },
+    {
+      "index": 488,
+      "start_time": 2964740.0,
+      "end_time": 2965119.0,
+      "text": "trivial."
+    },
+    {
+      "index": 489,
+      "start_time": 2965120.0,
+      "end_time": 2972011.0,
+      "text": "What I will do is I&#39;ll create the box, the secret container, which is just an empty object."
+    },
+    {
+      "index": 490,
+      "start_time": 2972010.0,
+      "end_time": 2977480.0,
+      "text": "It&#39;s really just a token; I&#39;m not actually giving you a real box, but it acts like a"
+    },
+    {
+      "index": 491,
+      "start_time": 2977480.0,
+      "end_time": 2983369.0,
+      "text": "box. I&#39;ll store it in my box&#39;s array, and right next to it I will store in my value&#39;s"
+    },
+    {
+      "index": 492,
+      "start_time": 2983370.0,
+      "end_time": 2991541.0,
+      "text": "array the value that it represents, and then return the box to you. That was really easy."
+    },
+    {
+      "index": 493,
+      "start_time": 2991540.0,
+      "end_time": 3003000.0,
+      "text": "Then the unsealer uses the new indexOf method that we have in arrays, and goes looking for"
+    },
+    {
+      "index": 494,
+      "start_time": 3003000.0,
+      "end_time": 3010000.0,
+      "text": "that box in the list of boxes. If it finds it then it returns the corresponding value,"
+    },
+    {
+      "index": 495,
+      "start_time": 3010000.0,
+      "end_time": 3016109.0,
+      "text": "and then we&#39;ve got it. If something goes wrong, if you pulled a substitution, gave an object"
+    },
+    {
+      "index": 496,
+      "start_time": 3016110.0,
+      "end_time": 3022081.0,
+      "text": "that was not sealed, you get undefined back, which is how it should be."
+    },
+    {
+      "index": 497,
+      "start_time": 3022080.0,
+      "end_time": 3030280.0,
+      "text": "We&#39;re going to shift slightly and start looking at inheritance, but we&#39;re still going to reflect"
+    },
+    {
+      "index": 498,
+      "start_time": 3030280.0,
+      "end_time": 3035770.0,
+      "text": "it back onto what we can do with closure. Here&#39;s an example of how you can do things"
+    },
+    {
+      "index": 499,
+      "start_time": 3035770.0,
+      "end_time": 3041050.0,
+      "text": "with what I call pseudoclassical inheritance. This was the inheritance scheme that was designed"
+    },
+    {
+      "index": 500,
+      "start_time": 3041050.0,
+      "end_time": 3046240.0,
+      "text": "for the language, and I really don&#39;t care for it at all. I don&#39;t think it looks very"
+    },
+    {
+      "index": 501,
+      "start_time": 3046240.0,
+      "end_time": 3047690.0,
+      "text": "good."
+    },
+    {
+      "index": 502,
+      "start_time": 3047690.0,
+      "end_time": 3053210.0,
+      "text": "Here we&#39;re defining a gizmo, and you can see the gizmo&#39;s constructor. Then we add to the"
+    },
+    {
+      "index": 503,
+      "start_time": 3053210.0,
+      "end_time": 3060090.0,
+      "text": "gizmo&#39;s prototype the methods that we want the instances to inherit. This just looks"
+    },
+    {
+      "index": 504,
+      "start_time": 3060090.0,
+      "end_time": 3067869.0,
+      "text": "really weird. We&#39;re sort of used to the idea of a class containing all of its stuff, and"
+    },
+    {
+      "index": 505,
+      "start_time": 3067870.0,
+      "end_time": 3074231.0,
+      "text": "in this case it&#39;s kind of hanging on the end of it in a haphazard way. It also induces"
+    },
+    {
+      "index": 506,
+      "start_time": 3074230.0,
+      "end_time": 3079570.0,
+      "text": "people to do things incorrectly. For example, I&#39;ve seen people trying to assign functions"
+    },
+    {
+      "index": 507,
+      "start_time": 3079570.0,
+      "end_time": 3083609.0,
+      "text": "to prototypes inside of the constructor because it just seems like that&#39;s where you should"
+    },
+    {
+      "index": 508,
+      "start_time": 3083610.0,
+      "end_time": 3087751.0,
+      "text": "do it, and doing it on the outside just feels wrong even though that&#39;s how you&#39;re supposed"
+    },
+    {
+      "index": 509,
+      "start_time": 3087750.0,
+      "end_time": 3088480.0,
+      "text": "to do it."
+    },
+    {
+      "index": 510,
+      "start_time": 3088480.0,
+      "end_time": 3093670.0,
+      "text": "It gets even worse in the case of the hoozit where I want the hoozit to inherit from the"
+    },
+    {
+      "index": 511,
+      "start_time": 3093670.0,
+      "end_time": 3101250.0,
+      "text": "gizmo. The way I specify that in the language is I replace hoozit&#39;s prototype with a new"
+    },
+    {
+      "index": 512,
+      "start_time": 3101250.0,
+      "end_time": 3107780.0,
+      "text": "instance of gizmo, and that just looks crazy. And it&#39;s potentially dangerous. It turns out"
+    },
+    {
+      "index": 513,
+      "start_time": 3107780.0,
+      "end_time": 3112790.0,
+      "text": "that the gizmo constructor would throw if there were no parameters, then it would actually"
+    },
+    {
+      "index": 514,
+      "start_time": 3112790.0,
+      "end_time": 3119730.0,
+      "text": "fail. But this is the way the language was intended to be used, and it&#39;s because the"
+    },
+    {
+      "index": 515,
+      "start_time": 3119730.0,
+      "end_time": 3125950.0,
+      "text": "language itself is confused about its prototypal nature. I think there&#39;s a better way to do"
+    },
+    {
+      "index": 516,
+      "start_time": 3125950.0,
+      "end_time": 3139660.0,
+      "text": "this. So let me suggest another formulation of exactly these same objects."
+    },
+    {
+      "index": 517,
+      "start_time": 3139660.0,
+      "end_time": 3145550.0,
+      "text": "Here I&#39;m going to make a gizmo, and to make it for me I&#39;m going to call my new constructor"
+    },
+    {
+      "index": 518,
+      "start_time": 3145550.0,
+      "end_time": 3153369.0,
+      "text": "function. It will make the new instance of gizmo, or the new definer of gizmo. I will"
+    },
+    {
+      "index": 519,
+      "start_time": 3153370.0,
+      "end_time": 3160491.0,
+      "text": "pass to it object because I want gizmo to inherit from object. I&#39;m going to pass to"
+    },
+    {
+      "index": 520,
+      "start_time": 3160490.0,
+      "end_time": 3166320.0,
+      "text": "it the constructor function, and I&#39;m going to pass to it an object containing the methods"
+    },
+    {
+      "index": 521,
+      "start_time": 3166320.0,
+      "end_time": 3171330.0,
+      "text": "that it should add to its own prototype. This does exactly the same thing that we saw on"
+    },
+    {
+      "index": 522,
+      "start_time": 3171330.0,
+      "end_time": 3175550.0,
+      "text": "the other screen, but I think it&#39;s just more pleasant looking."
+    },
+    {
+      "index": 523,
+      "start_time": 3175550.0,
+      "end_time": 3180480.0,
+      "text": "Then it gets even better with the hoozit. With the hoozit I call new constructor, pass"
+    },
+    {
+      "index": 524,
+      "start_time": 3180480.0,
+      "end_time": 3186609.0,
+      "text": "in the gizmo that says I want hoozit to inherit from gizmo, and I also pass it a constructor."
+    },
+    {
+      "index": 525,
+      "start_time": 3186610.0,
+      "end_time": 3194481.0,
+      "text": "I&#39;ll also pass it an object containing additional methods that I want it to add to its prototype."
+    },
+    {
+      "index": 526,
+      "start_time": 3194480.0,
+      "end_time": 3200970.0,
+      "text": "To my eye, this looks a whole lot more rational than that did, with all the stuff hanging"
+    },
+    {
+      "index": 527,
+      "start_time": 3200970.0,
+      "end_time": 3208580.0,
+      "text": "out and the weird replacement. The language doesn&#39;t provide the new constructor function"
+    },
+    {
+      "index": 528,
+      "start_time": 3208580.0,
+      "end_time": 3213640.0,
+      "text": "that you need to do this, but it turns out it&#39;s a really easy function to write. So let&#39;s"
+    },
+    {
+      "index": 529,
+      "start_time": 3213640.0,
+      "end_time": 3217859.0,
+      "text": "write that function."
+    },
+    {
+      "index": 530,
+      "start_time": 3217860.0,
+      "end_time": 3224151.0,
+      "text": "Function new_constructor takes three parameters: extend, initializer, and methods. The first"
+    },
+    {
+      "index": 531,
+      "start_time": 3224150.0,
+      "end_time": 3231800.0,
+      "text": "thing it does is it creates the prototype object, which it makes by calling object.create."
+    },
+    {
+      "index": 532,
+      "start_time": 3231800.0,
+      "end_time": 3239869.0,
+      "text": "Then if there are methods available it will call the keys method — this is a new thing"
+    },
+    {
+      "index": 533,
+      "start_time": 3239870.0,
+      "end_time": 3247241.0,
+      "text": "in ES5 — which will return an array of all of the own keys of that object, which is really"
+    },
+    {
+      "index": 534,
+      "start_time": 3247240.0,
+      "end_time": 3254780.0,
+      "text": "nice because an array has a forEach method, so it will then call that. That will allow"
+    },
+    {
+      "index": 535,
+      "start_time": 3254780.0,
+      "end_time": 3262720.0,
+      "text": "us to easily copy all of the methods into the prototype. It&#39;s a really nice construction."
+    },
+    {
+      "index": 536,
+      "start_time": 3262720.0,
+      "end_time": 3269920.0,
+      "text": "Then we&#39;ll create the function itself, which we&#39;ll use to make our hoozits or whatever,"
+    },
+    {
+      "index": 537,
+      "start_time": 3269920.0,
+      "end_time": 3274460.0,
+      "text": "and you can see that closure&#39;s working in there because it has access to prototype,"
+    },
+    {
+      "index": 538,
+      "start_time": 3274460.0,
+      "end_time": 3277380.0,
+      "text": "and it has access to the initializer."
+    },
+    {
+      "index": 539,
+      "start_time": 3277380.0,
+      "end_time": 3282670.0,
+      "text": "So it will create a new instance of the prototype using object.create, which makes a new object"
+    },
+    {
+      "index": 540,
+      "start_time": 3282670.0,
+      "end_time": 3291380.0,
+      "text": "that inherits from the object that you pass in. It will then call the initializer, passing"
+    },
+    {
+      "index": 541,
+      "start_time": 3291380.0,
+      "end_time": 3296760.0,
+      "text": "that same object in, and when it&#39;s done it will return the object that we just created."
+    },
+    {
+      "index": 542,
+      "start_time": 3296760.0,
+      "end_time": 3303250.0,
+      "text": "So this does the same thing as new, except we don&#39;t use new. Then a little bit of extra"
+    },
+    {
+      "index": 543,
+      "start_time": 3303250.0,
+      "end_time": 3308170.0,
+      "text": "plumbing — we don&#39;t really need to this, but just to be nice we&#39;ll set the function&#39;s"
+    },
+    {
+      "index": 544,
+      "start_time": 3308170.0,
+      "end_time": 3318599.0,
+      "text": "prototype property to the prototype, because in the case of the hoozit, the prototype got"
+    },
+    {
+      "index": 545,
+      "start_time": 3318600.0,
+      "end_time": 3324431.0,
+      "text": "replaced, so we lost the constructor value. We&#39;ll fix that there, as well. Again, we&#39;re"
+    },
+    {
+      "index": 546,
+      "start_time": 3324430.0,
+      "end_time": 3331940.0,
+      "text": "using closure in order to implement a classical pattern, and I think this works really nicely"
+    },
+    {
+      "index": 547,
+      "start_time": 3331940.0,
+      "end_time": 3335640.0,
+      "text": "in the language."
+    },
+    {
+      "index": 548,
+      "start_time": 3335640.0,
+      "end_time": 3344060.0,
+      "text": "Another thing we can do with functions is to create modules. We&#39;d like to be able to"
+    },
+    {
+      "index": 549,
+      "start_time": 3344060.0,
+      "end_time": 3349800.0,
+      "text": "minimize using global variables because of the conflicts that they can create, and functions"
+    },
+    {
+      "index": 550,
+      "start_time": 3349800.0,
+      "end_time": 3354099.0,
+      "text": "provide a very nice way of doing that. Here I want to create a singleton object — there&#39;ll"
+    },
+    {
+      "index": 551,
+      "start_time": 3354100.0,
+      "end_time": 3359421.0,
+      "text": "just be one instance of it — so you don&#39;t want to have to create a class to define something"
+    },
+    {
+      "index": 552,
+      "start_time": 3359420.0,
+      "end_time": 3364760.0,
+      "text": "there&#39;s just going to be one instance of; that&#39;d be silly. So I&#39;m going to assign to"
+    },
+    {
+      "index": 553,
+      "start_time": 3364760.0,
+      "end_time": 3370560.0,
+      "text": "singleton not that function, but the consequence of calling that function. Again, I&#39;m wrapping"
+    },
+    {
+      "index": 554,
+      "start_time": 3370560.0,
+      "end_time": 3377170.0,
+      "text": "the whole function and the invocation in parens as a sign to the reader that there&#39;s something"
+    },
+    {
+      "index": 555,
+      "start_time": 3377170.0,
+      "end_time": 3379650.0,
+      "text": "bigger going on than just assignment of a function."
+    },
+    {
+      "index": 556,
+      "start_time": 3379650.0,
+      "end_time": 3386940.0,
+      "text": "There are some people who would put the golden paren around the function, and not around"
+    },
+    {
+      "index": 557,
+      "start_time": 3386940.0,
+      "end_time": 3390980.0,
+      "text": "the whole invocation. That doesn&#39;t make sense to me, because what we&#39;re trying to tell the"
+    },
+    {
+      "index": 558,
+      "start_time": 3390980.0,
+      "end_time": 3396970.0,
+      "text": "user is: look at the whole thing. Putting parentheses around just part of it is, I think,"
+    },
+    {
+      "index": 559,
+      "start_time": 3396970.0,
+      "end_time": 3404880.0,
+      "text": "counter productive. I think the whole thing needs to be wrapped in parens. The outer function"
+    },
+    {
+      "index": 560,
+      "start_time": 3404880.0,
+      "end_time": 3410740.0,
+      "text": "has variables and functions, and they will return an object using an object literal,"
+    },
+    {
+      "index": 561,
+      "start_time": 3410740.0,
+      "end_time": 3416670.0,
+      "text": "and the object will contain some methods. Those methods will be closed over the private"
+    },
+    {
+      "index": 562,
+      "start_time": 3416670.0,
+      "end_time": 3422330.0,
+      "text": "stuff. We&#39;re returning, in this case, two functions. In the earlier cases we returned"
+    },
+    {
+      "index": 563,
+      "start_time": 3422330.0,
+      "end_time": 3427150.0,
+      "text": "one function, but this time we&#39;re returning two. We could return as many as we want. And"
+    },
+    {
+      "index": 564,
+      "start_time": 3427150.0,
+      "end_time": 3432680.0,
+      "text": "they share their access; they&#39;re both closed over the variables of the parent function."
+    },
+    {
+      "index": 565,
+      "start_time": 3432680.0,
+      "end_time": 3439430.0,
+      "text": "So they can communicate through that shared state without corrupting the global space."
+    },
+    {
+      "index": 566,
+      "start_time": 3439430.0,
+      "end_time": 3448760.0,
+      "text": "A related pattern to this is if we want to have a common global object where we&#39;ll keep"
+    },
+    {
+      "index": 567,
+      "start_time": 3448760.0,
+      "end_time": 3454300.0,
+      "text": "our whole application. At Yahoo! we keep a lot of stuff in a global Yahoo! object, so"
+    },
+    {
+      "index": 568,
+      "start_time": 3454300.0,
+      "end_time": 3459470.0,
+      "text": "everything that&#39;s ours we keep in one common namespace. I want to add a new thing to my"
+    },
+    {
+      "index": 569,
+      "start_time": 3459470.0,
+      "end_time": 3465390.0,
+      "text": "global object called methodical, which will have my two methods in it. Just as before,"
+    },
+    {
+      "index": 570,
+      "start_time": 3465390.0,
+      "end_time": 3471300.0,
+      "text": "I&#39;m going to be assigning the result of my function into that object."
+    },
+    {
+      "index": 571,
+      "start_time": 3471300.0,
+      "end_time": 3478280.0,
+      "text": "Now, sometimes I want to be adding not a new object but just a couple of methods to that"
+    },
+    {
+      "index": 572,
+      "start_time": 3478280.0,
+      "end_time": 3487480.0,
+      "text": "structure. I can do that as well. Here&#39;s another variation on the same pattern. I&#39;ve got a"
+    },
+    {
+      "index": 573,
+      "start_time": 3487480.0,
+      "end_time": 3492910.0,
+      "text": "function, and it&#39;s got the private stuff, and then I&#39;m going to assign to GLOBAL.firstMethod"
+    },
+    {
+      "index": 574,
+      "start_time": 3492910.0,
+      "end_time": 3499910.0,
+      "text": "my first method, and to GLOBAL.secondMethod my second method, the other one. Again, the"
+    },
+    {
+      "index": 575,
+      "start_time": 3499910.0,
+      "end_time": 3505630.0,
+      "text": "whole thing is wrapped in the golden parentheses. In this case, the parentheses are syntactically"
+    },
+    {
+      "index": 576,
+      "start_time": 3505630.0,
+      "end_time": 3512150.0,
+      "text": "required, and that&#39;s because I want this to be a function expression and not a function"
+    },
+    {
+      "index": 577,
+      "start_time": 3512150.0,
+      "end_time": 3516950.0,
+      "text": "statement. If it were a function statement, I couldn&#39;t immediately execute it, and I want"
+    },
+    {
+      "index": 578,
+      "start_time": 3516950.0,
+      "end_time": 3523400.0,
+      "text": "to immediately execute it. Everybody still with me?"
+    },
+    {
+      "index": 579,
+      "start_time": 3523400.0,
+      "end_time": 3531250.0,
+      "text": "I can take this module pattern and very easily turn it into a constructor pattern. It&#39;s the"
+    },
+    {
+      "index": 580,
+      "start_time": 3531250.0,
+      "end_time": 3537630.0,
+      "text": "same basic idea, I&#39;m just going to make lots of instances, not just one instance. Here&#39;s"
+    },
+    {
+      "index": 581,
+      "start_time": 3537630.0,
+      "end_time": 3544099.0,
+      "text": "the recipe. Step one: make an object using any of the techniques available in the language."
+    },
+    {
+      "index": 582,
+      "start_time": 3544100.0,
+      "end_time": 3549591.0,
+      "text": "I can use an object literal, I can use new, I can use object.create, I can call another"
+    },
+    {
+      "index": 583,
+      "start_time": 3549590.0,
+      "end_time": 3557300.0,
+      "text": "of these power constructors and use the thing that it returns. Then step two: I define some"
+    },
+    {
+      "index": 584,
+      "start_time": 3557300.0,
+      "end_time": 3561609.0,
+      "text": "variables and functions, and these will be the private members of the object that I&#39;m"
+    },
+    {
+      "index": 585,
+      "start_time": 3561610.0,
+      "end_time": 3568541.0,
+      "text": "about to make. Step three: I augment the object with privileged methods. A privileged method"
+    },
+    {
+      "index": 586,
+      "start_time": 3568540.0,
+      "end_time": 3575099.0,
+      "text": "is a method which has access to that private state, that closes over the private state."
+    },
+    {
+      "index": 587,
+      "start_time": 3575100.0,
+      "end_time": 3580131.0,
+      "text": "And step four, I return the object. Really simple recipe, but it&#39;s a little abstract,"
+    },
+    {
+      "index": 588,
+      "start_time": 3580130.0,
+      "end_time": 3585220.0,
+      "text": "so let me turn it into a template that&#39;s a little easier to follow."
+    },
+    {
+      "index": 589,
+      "start_time": 3585220.0,
+      "end_time": 3591349.0,
+      "text": "Step one. This is going to be my new power constructor, and I&#39;m going to create a variable"
+    },
+    {
+      "index": 590,
+      "start_time": 3591350.0,
+      "end_time": 3597291.0,
+      "text": "called &#39;that&#39;. I can&#39;t call it &#39;this&#39;, because &#39;this&#39; is a reserved word. I will initialize"
+    },
+    {
+      "index": 591,
+      "start_time": 3597290.0,
+      "end_time": 3604630.0,
+      "text": "it somehow; somehow I&#39;ll turn it into an object. Then step two, I declare secrets, the secret"
+    },
+    {
+      "index": 592,
+      "start_time": 3604630.0,
+      "end_time": 3609960.0,
+      "text": "variable, stuff that&#39;s going to be available to my privileged method. Step three, I create"
+    },
+    {
+      "index": 593,
+      "start_time": 3609960.0,
+      "end_time": 3623230.0,
+      "text": "my privileged methods and assign them to that. Step four, I return that. So it&#39;s really simple."
+    },
+    {
+      "index": 594,
+      "start_time": 3623230.0,
+      "end_time": 3628090.0,
+      "text": "Here&#39;s gizmo and hoozit again. This is how we would write it, again, in the classical"
+    },
+    {
+      "index": 595,
+      "start_time": 3628090.0,
+      "end_time": 3636650.0,
+      "text": "style, pseudoclassical style. It so bothers me how all this stuff&#39;s hanging out. Also,"
+    },
+    {
+      "index": 596,
+      "start_time": 3636650.0,
+      "end_time": 3641119.0,
+      "text": "gizmo&#39;s got a constructor, and hoozit&#39;s got a constructor, and they both do the same thing."
+    },
+    {
+      "index": 597,
+      "start_time": 3641120.0,
+      "end_time": 3646120.0,
+      "text": "So even though one inherits from the other, we don&#39;t get the advantage of that code reuse."
+    },
+    {
+      "index": 598,
+      "start_time": 3646120.0,
+      "end_time": 3654241.0,
+      "text": "There&#39;s some redundant waste going on there. I want to apply this functional system instead"
+    },
+    {
+      "index": 599,
+      "start_time": 3654240.0,
+      "end_time": 3661859.0,
+      "text": "of doing this. This is how we&#39;d write it. I&#39;ve got my gizmo, it returns an object literal,"
+    },
+    {
+      "index": 600,
+      "start_time": 3661860.0,
+      "end_time": 3675031.0,
+      "text": "done. That was really easy. Then my hoozit calls gizmo to create an instance, it augments"
+    },
+    {
+      "index": 601,
+      "start_time": 3675030.0,
+      "end_time": 3680770.0,
+      "text": "that, adding its test method, and returns that. Done. So it&#39;s really simple."
+    },
+    {
+      "index": 602,
+      "start_time": 3680770.0,
+      "end_time": 3684770.0,
+      "text": "But there are some other benefits that come from writing in this style. One is that we&#39;ve"
+    },
+    {
+      "index": 603,
+      "start_time": 3684770.0,
+      "end_time": 3693970.0,
+      "text": "got privacy. Right now, with the way it&#39;s written, the ID is a global property of the"
+    },
+    {
+      "index": 604,
+      "start_time": 3693970.0,
+      "end_time": 3698500.0,
+      "text": "object, so anybody could go in and get the ID directly or modify it. Maybe I don&#39;t want"
+    },
+    {
+      "index": 605,
+      "start_time": 3698500.0,
+      "end_time": 3703580.0,
+      "text": "them to be able to do that, maybe the integrity of my object depends on nobody being able"
+    },
+    {
+      "index": 606,
+      "start_time": 3703580.0,
+      "end_time": 3710470.0,
+      "text": "to mess with the ID. Writing this in the functional style, we can do that — not only can we"
+    },
+    {
+      "index": 607,
+      "start_time": 3710470.0,
+      "end_time": 3719480.0,
+      "text": "do that, the code gets simpler. We just don&#39;t have the ID property in the object. We&#39;re"
+    },
+    {
+      "index": 608,
+      "start_time": 3719480.0,
+      "end_time": 3728440.0,
+      "text": "referring now to the ID parameter, and because of closure, our two string method always has"
+    },
+    {
+      "index": 609,
+      "start_time": 3728440.0,
+      "end_time": 3736040.0,
+      "text": "access to that parameter. So we just took the &#39;this&#39;s out, and it&#39;s done. We do a similar"
+    },
+    {
+      "index": 610,
+      "start_time": 3736040.0,
+      "end_time": 3742859.0,
+      "text": "thing with hoozit. So again, it just became simpler."
+    },
+    {
+      "index": 611,
+      "start_time": 3742860.0,
+      "end_time": 3747561.0,
+      "text": "There are other things we could do, too. We could have a shared secret which we pass between"
+    },
+    {
+      "index": 612,
+      "start_time": 3747560.0,
+      "end_time": 3755070.0,
+      "text": "all of the constructors, which could be used to simulate something like a package relationship,"
+    },
+    {
+      "index": 613,
+      "start_time": 3755070.0,
+      "end_time": 3759450.0,
+      "text": "where they all contain something that they know. You can get arbitrarily complicated"
+    },
+    {
+      "index": 614,
+      "start_time": 3759450.0,
+      "end_time": 3763530.0,
+      "text": "with this stuff; you usually don&#39;t need to get anywhere near this fancy, but it&#39;s nice"
+    },
+    {
+      "index": 615,
+      "start_time": 3763530.0,
+      "end_time": 3767780.0,
+      "text": "knowing that you can, if the need should ever arise."
+    },
+    {
+      "index": 616,
+      "start_time": 3767780.0,
+      "end_time": 3771940.0,
+      "text": "When I started working with this language, I spent a lot of time thinking about how to"
+    },
+    {
+      "index": 617,
+      "start_time": 3771940.0,
+      "end_time": 3778599.0,
+      "text": "simulate things that we did in the classical languages, like how do we get super functions?"
+    },
+    {
+      "index": 618,
+      "start_time": 3778600.0,
+      "end_time": 3785831.0,
+      "text": "In the pseudoclassical model there&#39;s no easy way to write super functions, but in the functional"
+    },
+    {
+      "index": 619,
+      "start_time": 3785830.0,
+      "end_time": 3793460.0,
+      "text": "style it&#39;s really easy. Just capture a super function from the thing that I&#39;m inheriting"
+    },
+    {
+      "index": 620,
+      "start_time": 3793460.0,
+      "end_time": 3801580.0,
+      "text": "from, keep that in the closure, and then I can call it at any time I want. It turns out,"
+    },
+    {
+      "index": 621,
+      "start_time": 3801580.0,
+      "end_time": 3808020.0,
+      "text": "though, in my career with this language I&#39;ve never once written a super function. I just"
+    },
+    {
+      "index": 622,
+      "start_time": 3808020.0,
+      "end_time": 3812130.0,
+      "text": "think about things in a different way so that that style of dependency that I&#39;ve come from,"
+    },
+    {
+      "index": 623,
+      "start_time": 3812130.0,
+      "end_time": 3819339.0,
+      "text": "I just haven&#39;t found the need for it. So if you find yourself wanting to have super functions,"
+    },
+    {
+      "index": 624,
+      "start_time": 3819340.0,
+      "end_time": 3824071.0,
+      "text": "you might step back and figure out: why do I think I need that? Maybe there&#39;s a simpler"
+    },
+    {
+      "index": 625,
+      "start_time": 3824070.0,
+      "end_time": 3828310.0,
+      "text": "way to think about this."
+    },
+    {
+      "index": 626,
+      "start_time": 3828310.0,
+      "end_time": 3836510.0,
+      "text": "Here&#39;s another thing we can do. I want to have a memoizer, which will remember the result"
+    },
+    {
+      "index": 627,
+      "start_time": 3836510.0,
+      "end_time": 3844310.0,
+      "text": "of previous callings of a function — particularly recursive functions — so that we can avoid"
+    },
+    {
+      "index": 628,
+      "start_time": 3844310.0,
+      "end_time": 3852359.0,
+      "text": "doing some work. For example, factorial can be given a recursive definition in which it&#39;s"
+    },
+    {
+      "index": 629,
+      "start_time": 3852360.0,
+      "end_time": 3866161.0,
+      "text": "the product of the value and of calling factorial on the value diminished by 1. If you&#39;re computing"
+    },
+    {
+      "index": 630,
+      "start_time": 3866160.0,
+      "end_time": 3871420.0,
+      "text": "a table of factorials, you could spend a lot of time going over the same ground over and"
+    },
+    {
+      "index": 631,
+      "start_time": 3871420.0,
+      "end_time": 3874900.0,
+      "text": "over and over again, and this function will prevent that."
+    },
+    {
+      "index": 632,
+      "start_time": 3874900.0,
+      "end_time": 3882380.0,
+      "text": "What I&#39;m going to pass to the memoizer is an array containing some of the values that"
+    },
+    {
+      "index": 633,
+      "start_time": 3882380.0,
+      "end_time": 3890480.0,
+      "text": "we&#39;re going to remember. The results for factorial of 0 and factorial of 1 will be 1 and 1, so"
+    },
+    {
+      "index": 634,
+      "start_time": 3890480.0,
+      "end_time": 3896970.0,
+      "text": "we&#39;ll pass that in to get it started, and then we&#39;ll also pass in a function that defines"
+    },
+    {
+      "index": 635,
+      "start_time": 3896970.0,
+      "end_time": 3905880.0,
+      "text": "what a factorial step is. In this case, it&#39;s multiplying n times the recurrence minus 1."
+    },
+    {
+      "index": 636,
+      "start_time": 3905880.0,
+      "end_time": 3910980.0,
+      "text": "When we go up to the memoizer it takes that memo array and it takes the formula we just"
+    },
+    {
+      "index": 637,
+      "start_time": 3910980.0,
+      "end_time": 3917330.0,
+      "text": "passed in, and it will create a recurrence function, which is the thing that will call"
+    },
+    {
+      "index": 638,
+      "start_time": 3917330.0,
+      "end_time": 3922180.0,
+      "text": "for each iteration, which will first look to see if we already have the result that"
+    },
+    {
+      "index": 639,
+      "start_time": 3922180.0,
+      "end_time": 3930619.0,
+      "text": "we need in the memo array. If it does, then we&#39;re done. If not, then we will call a formula"
+    },
+    {
+      "index": 640,
+      "start_time": 3930620.0,
+      "end_time": 3938870.0,
+      "text": "passing in itself, its own recurrence function, so that it can do the next step."
+    },
+    {
+      "index": 641,
+      "start_time": 3938870.0,
+      "end_time": 3946941.0,
+      "text": "Where this is a big win is in computing Fibonacci, because Fibonacci recurs on two legs at the"
+    },
+    {
+      "index": 642,
+      "start_time": 3946940.0,
+      "end_time": 3953619.0,
+      "text": "same time, so it gets explosive. If you do a Fibonacci of 40, say, it&#39;s in the trillions"
+    },
+    {
+      "index": 643,
+      "start_time": 3953620.0,
+      "end_time": 3960641.0,
+      "text": "of iterations, and this gets it down into the tens. So even though the program looks"
+    },
+    {
+      "index": 644,
+      "start_time": 3960640.0,
+      "end_time": 3965820.0,
+      "text": "a little bit more complicated, it&#39;s hugely more efficient. Again, this is happening because"
+    },
+    {
+      "index": 645,
+      "start_time": 3965820.0,
+      "end_time": 3972150.0,
+      "text": "of closure, because the recur function closes over the memo array and over the formula that"
+    },
+    {
+      "index": 646,
+      "start_time": 3972150.0,
+      "end_time": 3976080.0,
+      "text": "we&#39;re recurring on."
+    },
+    {
+      "index": 647,
+      "start_time": 3976080.0,
+      "end_time": 3982570.0,
+      "text": "One bit of warning about functions: don&#39;t declare functions in a loop. Don&#39;t make functions"
+    },
+    {
+      "index": 648,
+      "start_time": 3982570.0,
+      "end_time": 3988320.0,
+      "text": "in a loop, for two reasons. One is it can be wasteful, because a new function object"
+    },
+    {
+      "index": 649,
+      "start_time": 3988320.0,
+      "end_time": 3998440.0,
+      "text": "is created for each iteration. It&#39;s just wasteful. JavaScript compilers tend not to do any kind"
+    },
+    {
+      "index": 650,
+      "start_time": 3998440.0,
+      "end_time": 4007270.0,
+      "text": "of loop and variant analysis, so anything you&#39;re doing in a loop that doesn&#39;t change"
+    },
+    {
+      "index": 651,
+      "start_time": 4007270.0,
+      "end_time": 4011750.0,
+      "text": "over each iteration, you probably want to move it out of the loop anyway just to make"
+    },
+    {
+      "index": 652,
+      "start_time": 4011750.0,
+      "end_time": 4018020.0,
+      "text": "it go a little faster. But the bigger reason is that it gets really confusing, because"
+    },
+    {
+      "index": 653,
+      "start_time": 4018020.0,
+      "end_time": 4023589.0,
+      "text": "you think that you&#39;re closing over the current value of the loop variables but you&#39;re actually"
+    },
+    {
+      "index": 654,
+      "start_time": 4023590.0,
+      "end_time": 4031511.0,
+      "text": "closing over their final values, or their current values, and that&#39;s almost always not"
+    },
+    {
+      "index": 655,
+      "start_time": 4031510.0,
+      "end_time": 4032450.0,
+      "text": "what you want."
+    },
+    {
+      "index": 656,
+      "start_time": 4032450.0,
+      "end_time": 4038820.0,
+      "text": "Let me show you an example of a really common error. Say you&#39;ve got an array of divs and"
+    },
+    {
+      "index": 657,
+      "start_time": 4038820.0,
+      "end_time": 4046640.0,
+      "text": "you want to attach an event handler to each one. You go through the array in a loop and"
+    },
+    {
+      "index": 658,
+      "start_time": 4046640.0,
+      "end_time": 4053280.0,
+      "text": "for each one you want to add an onClick handler which will display its ID number when it&#39;s"
+    },
+    {
+      "index": 659,
+      "start_time": 4053280.0,
+      "end_time": 4058750.0,
+      "text": "clicked on. What you find is that they all come up with the same number, and it&#39;s the"
+    },
+    {
+      "index": 660,
+      "start_time": 4058750.0,
+      "end_time": 4067339.0,
+      "text": "wrong number. You wonder, how did that happen? It&#39;s because when you add the function to"
+    },
+    {
+      "index": 661,
+      "start_time": 4067340.0,
+      "end_time": 4073961.0,
+      "text": "onClick it&#39;s closing over div ID, which is constantly changing. By the time you finally"
+    },
+    {
+      "index": 662,
+      "start_time": 4073960.0,
+      "end_time": 4078430.0,
+      "text": "get around to clicking on them you&#39;re going to be getting the final value, which was the"
+    },
+    {
+      "index": 663,
+      "start_time": 4078430.0,
+      "end_time": 4081420.0,
+      "text": "value that kicked you out of the loop."
+    },
+    {
+      "index": 664,
+      "start_time": 4081420.0,
+      "end_time": 4085950.0,
+      "text": "The way you get around that is by creating a separate function which you&#39;re going to"
+    },
+    {
+      "index": 665,
+      "start_time": 4085950.0,
+      "end_time": 4093520.0,
+      "text": "use to assign the functions to the event handler. Here I have a function called make_handler"
+    },
+    {
+      "index": 666,
+      "start_time": 4093520.0,
+      "end_time": 4102000.0,
+      "text": "which will take the div ID and return the event handler function. Then within the loop"
+    },
+    {
+      "index": 667,
+      "start_time": 4102000.0,
+      "end_time": 4111509.0,
+      "text": "we call make_handler and take its result and stuff it into onClick. By doing that, we avoided"
+    },
+    {
+      "index": 668,
+      "start_time": 4111510.0,
+      "end_time": 4117210.0,
+      "text": "creating any functions inside of the loop, and that way we avoided the confusion that"
+    },
+    {
+      "index": 669,
+      "start_time": 4117210.0,
+      "end_time": 4127040.0,
+      "text": "came from that problem with closure."
+    },
+    {
+      "index": 670,
+      "start_time": 4127040.0,
+      "end_time": 4132410.0,
+      "text": "Here I have two versions of the factorial function that do exactly the same thing. The"
+    },
+    {
+      "index": 671,
+      "start_time": 4132410.0,
+      "end_time": 4137070.0,
+      "text": "only difference is that one of them uses a variable, and the other uses a parameter to"
+    },
+    {
+      "index": 672,
+      "start_time": 4137069.9999999995,
+      "end_time": 4141559.9999999995,
+      "text": "represent result. Otherwise, they&#39;re exactly the same. R. D. Tennent wrote a book called"
+    },
+    {
+      "index": 673,
+      "start_time": 4141560.0000000005,
+      "end_time": 4146360.0000000005,
+      "text": "&#39;The Principles of Programming Languages&#39; in which he demonstrated the Principle of"
+    },
+    {
+      "index": 674,
+      "start_time": 4146359.9999999995,
+      "end_time": 4150659.9999999995,
+      "text": "Correspondence, which was a correspondence between variables and parameters. JavaScript"
+    },
+    {
+      "index": 675,
+      "start_time": 4150660.0,
+      "end_time": 4159700.0,
+      "text": "demonstrates it really well. This shows that you could imagine a subset of JavaScript which"
+    },
+    {
+      "index": 676,
+      "start_time": 4159700.0,
+      "end_time": 4163840.0,
+      "text": "didn&#39;t have variables — would that still be a useful language? It turns out yes, and"
+    },
+    {
+      "index": 677,
+      "start_time": 4163840.0,
+      "end_time": 4169410.0,
+      "text": "this is the proof that anything you can write with variables you can write without variables."
+    },
+    {
+      "index": 678,
+      "start_time": 4169410.0,
+      "end_time": 4175360.0,
+      "text": "You can use a function closure instead to do the same thing."
+    },
+    {
+      "index": 679,
+      "start_time": 4175359.9999999995,
+      "end_time": 4181940.9999999995,
+      "text": "We can take that thought experiment one crazy step-off-the-edge farther. Suppose we had"
+    },
+    {
+      "index": 680,
+      "start_time": 4181939.9999999995,
+      "end_time": 4187638.9999999995,
+      "text": "a language in which we didn&#39;t have variables and in which we didn&#39;t have assignment, and"
+    },
+    {
+      "index": 681,
+      "start_time": 4187640.0000000005,
+      "end_time": 4193490.0000000005,
+      "text": "we didn&#39;t have named functions. Could we still do recursion? It turns out you can. I&#39;m not"
+    },
+    {
+      "index": 682,
+      "start_time": 4193490.0,
+      "end_time": 4200511.0,
+      "text": "sure you&#39;d want to, but you can. Here is the strangest artifact in computer science: it&#39;s"
+    },
+    {
+      "index": 683,
+      "start_time": 4200510.0,
+      "end_time": 4206519.0,
+      "text": "called the Y Combinator. It&#39;s a function. It&#39;s a really complicated function, although"
+    },
+    {
+      "index": 684,
+      "start_time": 4206520.0,
+      "end_time": 4211901.0,
+      "text": "it&#39;s not very big. It&#39;s incredibly nested; functions within functions, calling themselves,"
+    },
+    {
+      "index": 685,
+      "start_time": 4211900.0,
+      "end_time": 4223459.0,
+      "text": "passing themselves as parameters to themselves. I call Y passing in a factorial formula. It"
+    },
+    {
+      "index": 686,
+      "start_time": 4223460.0,
+      "end_time": 4229100.0,
+      "text": "returns a function, and the function it returns is the recursive factorial function."
+    },
+    {
+      "index": 687,
+      "start_time": 4229100.0,
+      "end_time": 4235611.0,
+      "text": "This is really wild stuff. If you can figure this out, you can call yourself a computer"
+    },
+    {
+      "index": 688,
+      "start_time": 4235610.0,
+      "end_time": 4241290.0,
+      "text": "scientist, because this is the really good stuff. You can express this stuff in JavaScript"
+    },
+    {
+      "index": 689,
+      "start_time": 4241290.0,
+      "end_time": 4245769.0,
+      "text": "— I mean, JavaScript is right up there with Lisp and Scheme. It is a functional language."
+    },
+    {
+      "index": 690,
+      "start_time": 4245770.0,
+      "end_time": 4253781.0,
+      "text": "You can do this stuff. While this may have little practical value, in terms of increasing"
+    },
+    {
+      "index": 691,
+      "start_time": 4253780.0,
+      "end_time": 4257940.0,
+      "text": "your powers as a programmer, this is the stuff to be playing with. You can get really, really"
+    },
+    {
+      "index": 692,
+      "start_time": 4257940.0,
+      "end_time": 4262219.0,
+      "text": "deep. I see a lot of people playing with their Ajax stuff, or wanting to show off — look"
+    },
+    {
+      "index": 693,
+      "start_time": 4262220.0,
+      "end_time": 4268941.0,
+      "text": "at all the stuff I can do — and sometimes doing things which are probably reckless and"
+    },
+    {
+      "index": 694,
+      "start_time": 4268940.0,
+      "end_time": 4273209.0,
+      "text": "ultimately not very smart. If you want to show that you&#39;re really smart, you ought to"
+    },
+    {
+      "index": 695,
+      "start_time": 4273210.0,
+      "end_time": 4280901.0,
+      "text": "be doing this stuff. You know, off to the side, where you&#39;re not going to hurt anybody."
+    },
+    {
+      "index": 696,
+      "start_time": 4280900.0,
+      "end_time": 4281909.0,
+      "text": "[laughter]"
+    },
+    {
+      "index": 697,
+      "start_time": 4281910.0,
+      "end_time": 4286631.0,
+      "text": "JavaScript has good parts. It has really good parts. And these, I think, are the best of"
+    },
+    {
+      "index": 698,
+      "start_time": 4286630.0,
+      "end_time": 4292559.0,
+      "text": "the parts. Again, this comes as a big surprise, because when JavaScript was introduced nobody"
+    },
+    {
+      "index": 699,
+      "start_time": 4292560.0,
+      "end_time": 4297281.0,
+      "text": "expected there was anything good about it at all. The stuff that is good about this"
+    },
+    {
+      "index": 700,
+      "start_time": 4297280.0,
+      "end_time": 4302690.0,
+      "text": "language is in there intentionally, by design, it wasn&#39;t accidental. You don&#39;t get stuff"
+    },
+    {
+      "index": 701,
+      "start_time": 4302690.0,
+      "end_time": 4308360.0,
+      "text": "this good by accident. This is an amazingly good language. And that&#39;s why Ajax happened"
+    },
+    {
+      "index": 702,
+      "start_time": 4308360.0,
+      "end_time": 4310840.0,
+      "text": "— we&#39;ll be talking a lot more about Ajax next week."
+    },
+    {
+      "index": 703,
+      "start_time": 4310840.0,
+      "end_time": 4317280.0,
+      "text": "The reason I was able to discover that JavaScript had good parts was because I knew something"
+    },
+    {
+      "index": 704,
+      "start_time": 4317280.0,
+      "end_time": 4323630.0,
+      "text": "about functions. The place where I first learned about functions was in a little book called"
+    },
+    {
+      "index": 705,
+      "start_time": 4323630.0,
+      "end_time": 4329459.0,
+      "text": "&#39;The Little LISper&#39;, which I highly recommend to you. The current edition of it is called"
+    },
+    {
+      "index": 706,
+      "start_time": 4329460.0,
+      "end_time": 4334810.0,
+      "text": "&#39;The Little Schemer&#39; — it was updated to be about Scheme. It&#39;s not really about Scheme;"
+    },
+    {
+      "index": 707,
+      "start_time": 4334810.0,
+      "end_time": 4341460.0,
+      "text": "there isn&#39;t very much Scheme in the book. It&#39;s mostly about functions, and it&#39;s really,"
+    },
+    {
+      "index": 708,
+      "start_time": 4341460.0,
+      "end_time": 4342450.0,
+      "text": "really good."
+    },
+    {
+      "index": 709,
+      "start_time": 4342450.0,
+      "end_time": 4347941.0,
+      "text": "It turns out that everything in the book can be written in JavaScript. Although Scheme"
+    },
+    {
+      "index": 710,
+      "start_time": 4347940.0,
+      "end_time": 4353280.0,
+      "text": "and JavaScript couldn&#39;t be more different syntactically, at their roots they&#39;re surprisingly"
+    },
+    {
+      "index": 711,
+      "start_time": 4353280.0,
+      "end_time": 4358989.0,
+      "text": "similar. There&#39;s a simple transformation from one language to the other; it&#39;s surprisingly"
+    },
+    {
+      "index": 712,
+      "start_time": 4358990.0,
+      "end_time": 4365580.0,
+      "text": "simple. If you go to this web page, it&#39;ll show you exactly what they are, and that&#39;ll"
+    },
+    {
+      "index": 713,
+      "start_time": 4365580.0,
+      "end_time": 4370180.0,
+      "text": "give you enough to be able to read and write the examples in the book. I highly, highly"
+    },
+    {
+      "index": 714,
+      "start_time": 4370180.0,
+      "end_time": 4377000.0,
+      "text": "recommend that you go out and get this book. It will change the way you think, and there"
+    },
+    {
+      "index": 715,
+      "start_time": 4377000.0,
+      "end_time": 4382770.0,
+      "text": "are very few books that do that. This is one of those books."
+    },
+    {
+      "index": 716,
+      "start_time": 4382770.0,
+      "end_time": 4387620.0,
+      "text": "Next time we meet: The Metamorphosis of Ajax. It&#39;ll be awful."
+    },
+    {
+      "index": 717,
+      "start_time": 4387620.0,
+      "end_time": 4390381.0,
+      "text": "[laughter]"
+    },
+    {
+      "index": 718,
+      "start_time": 4390380.0,
+      "end_time": 4392199.0,
+      "text": "See you here. Thank you, and good night."
+    },
+    {
+      "index": 719,
+      "start_time": 4392200.0,
+      "end_time": 4402200.0,
+      "text": "[applause]"
+    }
+  ]
+}

@@ -1,0 +1,3306 @@
+{
+  "video_id": "zgOGZgAPUjQ",
+  "title": "Using WebAssembly and Threads (Chrome Dev Summit 2018)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 500.0,
+      "end_time": 3776.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 2,
+      "start_time": 6450.0,
+      "end_time": 7950.0,
+      "text": "THOMAS NATTESTAD: My name is Thomas,"
+    },
+    {
+      "index": 3,
+      "start_time": 7950.0,
+      "end_time": 9784.0,
+      "text": "and I&#39;m the product manager for WebAssembly."
+    },
+    {
+      "index": 4,
+      "start_time": 9784.0,
+      "end_time": 12158.0,
+      "text": "ALEX DANILO: My name is Alex, and I&#39;m a software engineer"
+    },
+    {
+      "index": 5,
+      "start_time": 12158.0,
+      "end_time": 12990.0,
+      "text": "on Chrome OS."
+    },
+    {
+      "index": 6,
+      "start_time": 12990.0,
+      "end_time": 13440.0,
+      "text": "THOMAS NATTESTAD: And today we&#39;re"
+    },
+    {
+      "index": 7,
+      "start_time": 13440.0,
+      "end_time": 15640.0,
+      "text": "going to talk to you about WebAssembly."
+    },
+    {
+      "index": 8,
+      "start_time": 15640.0,
+      "end_time": 17100.0,
+      "text": "We&#39;re going to start off by briefly"
+    },
+    {
+      "index": 9,
+      "start_time": 17100.0,
+      "end_time": 19867.0,
+      "text": "describing what WebAssembly is and what you can use it for."
+    },
+    {
+      "index": 10,
+      "start_time": 19867.0,
+      "end_time": 22200.0,
+      "text": "Then I want to show off some of the amazing new features"
+    },
+    {
+      "index": 11,
+      "start_time": 22200.0,
+      "end_time": 24990.0,
+      "text": "that the WebAssembly team has been working on to deliver"
+    },
+    {
+      "index": 12,
+      "start_time": 24990.0,
+      "end_time": 26729.0,
+      "text": "to you in this last year."
+    },
+    {
+      "index": 13,
+      "start_time": 26730.0,
+      "end_time": 29517.0,
+      "text": "Then I&#39;ll showcase some of the amazing applications"
+    },
+    {
+      "index": 14,
+      "start_time": 29517.0,
+      "end_time": 31349.0,
+      "text": "that have managed to build with WebAssembly,"
+    },
+    {
+      "index": 15,
+      "start_time": 31350.0,
+      "end_time": 33791.0,
+      "text": "and our shipping and production."
+    },
+    {
+      "index": 16,
+      "start_time": 33791.0,
+      "end_time": 34290.0,
+      "text": "All right."
+    },
+    {
+      "index": 17,
+      "start_time": 34290.0,
+      "end_time": 37830.0,
+      "text": "So first off, what is WebAssembly, actually?"
+    },
+    {
+      "index": 18,
+      "start_time": 37830.0,
+      "end_time": 40680.0,
+      "text": "WebAssembly is a new language for the web,"
+    },
+    {
+      "index": 19,
+      "start_time": 40680.0,
+      "end_time": 43560.0,
+      "text": "and offers an alternative to JavaScript for expressing logic"
+    },
+    {
+      "index": 20,
+      "start_time": 43560.0,
+      "end_time": 45300.0,
+      "text": "on the web platform."
+    },
+    {
+      "index": 21,
+      "start_time": 45300.0,
+      "end_time": 48960.0,
+      "text": "It&#39;s important to note, though, that WebAssembly is in no way"
+    },
+    {
+      "index": 22,
+      "start_time": 48960.0,
+      "end_time": 51300.0,
+      "text": "a replacement for JavaScript."
+    },
+    {
+      "index": 23,
+      "start_time": 51300.0,
+      "end_time": 54720.0,
+      "text": "Rather, it&#39;s designed to fill the gaps that"
+    },
+    {
+      "index": 24,
+      "start_time": 54720.0,
+      "end_time": 56519.0,
+      "text": "exist in JavaScript today."
+    },
+    {
+      "index": 25,
+      "start_time": 56520.0,
+      "end_time": 59790.0,
+      "text": "Specifically, WebAssembly is designed as a compilation"
+    },
+    {
+      "index": 26,
+      "start_time": 59790.0,
+      "end_time": 62519.0,
+      "text": "target, meaning that you write in higher level languages,"
+    },
+    {
+      "index": 27,
+      "start_time": 62520.0,
+      "end_time": 66720.0,
+      "text": "such as C++, and then compile into WebAssembly."
+    },
+    {
+      "index": 28,
+      "start_time": 66720.0,
+      "end_time": 69100.0,
+      "text": "WebAssembly is also designed to deliver"
+    },
+    {
+      "index": 29,
+      "start_time": 69100.0,
+      "end_time": 71400.0,
+      "text": "reliable and maximized performance, which"
+    },
+    {
+      "index": 30,
+      "start_time": 71400.0,
+      "end_time": 73500.0,
+      "text": "is something that can be difficult to get out"
+    },
+    {
+      "index": 31,
+      "start_time": 73500.0,
+      "end_time": 75784.0,
+      "text": "of JavaScript."
+    },
+    {
+      "index": 32,
+      "start_time": 75784.0,
+      "end_time": 77200.0,
+      "text": "Most exciting, though, is the fact"
+    },
+    {
+      "index": 33,
+      "start_time": 77200.0,
+      "end_time": 80260.0,
+      "text": "that WebAssembly is now shipping in all four major browsers,"
+    },
+    {
+      "index": 34,
+      "start_time": 80260.0,
+      "end_time": 83140.0,
+      "text": "making it the first new language to be fully supported"
+    },
+    {
+      "index": 35,
+      "start_time": 83140.0,
+      "end_time": 85240.0,
+      "text": "in every major browser since JavaScript was"
+    },
+    {
+      "index": 36,
+      "start_time": 85240.0,
+      "end_time": 88160.0,
+      "text": "created more than 20 years ago."
+    },
+    {
+      "index": 37,
+      "start_time": 88160.0,
+      "end_time": 88660.0,
+      "text": "All right."
+    },
+    {
+      "index": 38,
+      "start_time": 88660.0,
+      "end_time": 90243.0,
+      "text": "So what can you actually do with this?"
+    },
+    {
+      "index": 39,
+      "start_time": 90243.0,
+      "end_time": 92679.0,
+      "text": "Well, as I already mentioned, because WebAssembly offers"
+    },
+    {
+      "index": 40,
+      "start_time": 92680.0,
+      "end_time": 94810.0,
+      "text": "maximized and reliable performance,"
+    },
+    {
+      "index": 41,
+      "start_time": 94810.0,
+      "end_time": 96520.0,
+      "text": "you can now expand the set of things"
+    },
+    {
+      "index": 42,
+      "start_time": 96520.0,
+      "end_time": 98530.0,
+      "text": "that you can feasibly do in the browser."
+    },
+    {
+      "index": 43,
+      "start_time": 98530.0,
+      "end_time": 102370.0,
+      "text": "Things like video editing, complex application, codecs,"
+    },
+    {
+      "index": 44,
+      "start_time": 102370.0,
+      "end_time": 104620.0,
+      "text": "digital signal processing, and many, many more"
+    },
+    {
+      "index": 45,
+      "start_time": 104620.0,
+      "end_time": 107320.0,
+      "text": "performance-demanding use cases can now"
+    },
+    {
+      "index": 46,
+      "start_time": 107320.0,
+      "end_time": 109800.0,
+      "text": "be supported on the web."
+    },
+    {
+      "index": 47,
+      "start_time": 109800.0,
+      "end_time": 112740.0,
+      "text": "Secondly, WebAssembly offers amazing portability."
+    },
+    {
+      "index": 48,
+      "start_time": 112740.0,
+      "end_time": 114690.0,
+      "text": "Because you can compile from other languages,"
+    },
+    {
+      "index": 49,
+      "start_time": 114690.0,
+      "end_time": 117690.0,
+      "text": "you can port not only your own applications and libraries"
+    },
+    {
+      "index": 50,
+      "start_time": 117690.0,
+      "end_time": 121200.0,
+      "text": "but also the wealth of open-source C++ libraries"
+    },
+    {
+      "index": 51,
+      "start_time": 121200.0,
+      "end_time": 124290.0,
+      "text": "and applications that have been written."
+    },
+    {
+      "index": 52,
+      "start_time": 124290.0,
+      "end_time": 126600.0,
+      "text": "Lastly, and potentially most exciting to many of you,"
+    },
+    {
+      "index": 53,
+      "start_time": 126600.0,
+      "end_time": 128430.0,
+      "text": "is the promise for more flexibility"
+    },
+    {
+      "index": 54,
+      "start_time": 128430.0,
+      "end_time": 129870.0,
+      "text": "when writing for the web."
+    },
+    {
+      "index": 55,
+      "start_time": 129870.0,
+      "end_time": 131790.0,
+      "text": "Since the web&#39;s inception, JavaScript"
+    },
+    {
+      "index": 56,
+      "start_time": 131790.0,
+      "end_time": 135450.0,
+      "text": "has been the only fully supported way"
+    },
+    {
+      "index": 57,
+      "start_time": 135450.0,
+      "end_time": 138149.0,
+      "text": "to execute code on the web, and now with WebAssembly you"
+    },
+    {
+      "index": 58,
+      "start_time": 138150.0,
+      "end_time": 140619.0,
+      "text": "have more choice."
+    },
+    {
+      "index": 59,
+      "start_time": 140619.0,
+      "end_time": 142910.0,
+      "text": "All right, so now that we all know what WebAssembly is,"
+    },
+    {
+      "index": 60,
+      "start_time": 142910.0,
+      "end_time": 145201.0,
+      "text": "I want to jump in and show off some of the new features"
+    },
+    {
+      "index": 61,
+      "start_time": 145201.0,
+      "end_time": 147350.0,
+      "text": "that we&#39;ve been adding in just the last year."
+    },
+    {
+      "index": 62,
+      "start_time": 147350.0,
+      "end_time": 149400.0,
+      "text": "First off is source maps."
+    },
+    {
+      "index": 63,
+      "start_time": 149400.0,
+      "end_time": 151867.0,
+      "text": "You likely all know how important source maps are"
+    },
+    {
+      "index": 64,
+      "start_time": 151867.0,
+      "end_time": 153950.0,
+      "text": "when you&#39;re working with something like TypeScript"
+    },
+    {
+      "index": 65,
+      "start_time": 153950.0,
+      "end_time": 156230.0,
+      "text": "or Babel, but it&#39;s even more important"
+    },
+    {
+      "index": 66,
+      "start_time": 156230.0,
+      "end_time": 158959.0,
+      "text": "when you&#39;re trying to debug your WebAssembly code."
+    },
+    {
+      "index": 67,
+      "start_time": 158960.0,
+      "end_time": 160820.0,
+      "text": "Source maps let you turn something"
+    },
+    {
+      "index": 68,
+      "start_time": 160820.0,
+      "end_time": 163880.0,
+      "text": "that looks like this into something just slightly more"
+    },
+    {
+      "index": 69,
+      "start_time": 163880.0,
+      "end_time": 166400.0,
+      "text": "friendly, like this."
+    },
+    {
+      "index": 70,
+      "start_time": 166400.0,
+      "end_time": 168709.0,
+      "text": "With source maps you can see the specific line of code"
+    },
+    {
+      "index": 71,
+      "start_time": 168710.0,
+      "end_time": 170900.0,
+      "text": "where an error has occurred and you can also"
+    },
+    {
+      "index": 72,
+      "start_time": 170900.0,
+      "end_time": 173390.0,
+      "text": "set breakpoints and have the program actually pause"
+    },
+    {
+      "index": 73,
+      "start_time": 173390.0,
+      "end_time": 176149.0,
+      "text": "at the appropriate moment."
+    },
+    {
+      "index": 74,
+      "start_time": 176150.0,
+      "end_time": 178880.0,
+      "text": "One of the big feature requests that we&#39;ve heard from users"
+    },
+    {
+      "index": 75,
+      "start_time": 178880.0,
+      "end_time": 182150.0,
+      "text": "is for better performance when you&#39;re starting up"
+    },
+    {
+      "index": 76,
+      "start_time": 182150.0,
+      "end_time": 184400.0,
+      "text": "your application so that your module can actually"
+    },
+    {
+      "index": 77,
+      "start_time": 184400.0,
+      "end_time": 185600.0,
+      "text": "get going faster."
+    },
+    {
+      "index": 78,
+      "start_time": 185600.0,
+      "end_time": 188480.0,
+      "text": "And for that we&#39;ve created streaming compilation."
+    },
+    {
+      "index": 79,
+      "start_time": 188480.0,
+      "end_time": 190519.0,
+      "text": "In the past, when you wanted to compile a module"
+    },
+    {
+      "index": 80,
+      "start_time": 190520.0,
+      "end_time": 192610.0,
+      "text": "you had to wait for the entire module"
+    },
+    {
+      "index": 81,
+      "start_time": 192610.0,
+      "end_time": 194450.0,
+      "text": "to be loaded off of the network, and only then could"
+    },
+    {
+      "index": 82,
+      "start_time": 194450.0,
+      "end_time": 196850.0,
+      "text": "you move on and actually compile it."
+    },
+    {
+      "index": 83,
+      "start_time": 196850.0,
+      "end_time": 198470.0,
+      "text": "Now with streaming compilation, you"
+    },
+    {
+      "index": 84,
+      "start_time": 198470.0,
+      "end_time": 200930.0,
+      "text": "can start compiling each piece of your module"
+    },
+    {
+      "index": 85,
+      "start_time": 200930.0,
+      "end_time": 202970.0,
+      "text": "immediately, even before the other parts have"
+    },
+    {
+      "index": 86,
+      "start_time": 202970.0,
+      "end_time": 205390.0,
+      "text": "finished downloading."
+    },
+    {
+      "index": 87,
+      "start_time": 205390.0,
+      "end_time": 207140.0,
+      "text": "To show you what that actually looks like,"
+    },
+    {
+      "index": 88,
+      "start_time": 207140.0,
+      "end_time": 210510.0,
+      "text": "here&#39;s a simple example where we called a fetch function--"
+    },
+    {
+      "index": 89,
+      "start_time": 210510.0,
+      "end_time": 213940.0,
+      "text": "or fetch for a WebAssembly Fibonacci module,"
+    },
+    {
+      "index": 90,
+      "start_time": 213940.0,
+      "end_time": 216430.0,
+      "text": "and then we just passed that fetch promise directly"
+    },
+    {
+      "index": 91,
+      "start_time": 216430.0,
+      "end_time": 219100.0,
+      "text": "into WebAssembly.inst antiateStreaming,"
+    },
+    {
+      "index": 92,
+      "start_time": 219100.0,
+      "end_time": 222340.0,
+      "text": "and it takes care of all of this underlying bits"
+    },
+    {
+      "index": 93,
+      "start_time": 222340.0,
+      "end_time": 226440.0,
+      "text": "and pieces for you to deliver this experience."
+    },
+    {
+      "index": 94,
+      "start_time": 226440.0,
+      "end_time": 229200.0,
+      "text": "We did some profiling at different network speeds"
+    },
+    {
+      "index": 95,
+      "start_time": 229200.0,
+      "end_time": 230760.0,
+      "text": "to see the impact of this."
+    },
+    {
+      "index": 96,
+      "start_time": 230760.0,
+      "end_time": 233160.0,
+      "text": "We found that all the way up until 50 megabits"
+    },
+    {
+      "index": 97,
+      "start_time": 233160.0,
+      "end_time": 235290.0,
+      "text": "per second network speed, the network"
+    },
+    {
+      "index": 98,
+      "start_time": 235290.0,
+      "end_time": 237209.0,
+      "text": "was actually the primary bottleneck,"
+    },
+    {
+      "index": 99,
+      "start_time": 237210.0,
+      "end_time": 240300.0,
+      "text": "and that the compilation was done as soon as the module was"
+    },
+    {
+      "index": 100,
+      "start_time": 240300.0,
+      "end_time": 240990.0,
+      "text": "loaded."
+    },
+    {
+      "index": 101,
+      "start_time": 240990.0,
+      "end_time": 244800.0,
+      "text": "It wasn&#39;t until you hit the 100 megabits per second speeds"
+    },
+    {
+      "index": 102,
+      "start_time": 244800.0,
+      "end_time": 246750.0,
+      "text": "that you actually needed additional time past the time"
+    },
+    {
+      "index": 103,
+      "start_time": 246750.0,
+      "end_time": 248760.0,
+      "text": "it took to download the module in order to fully"
+    },
+    {
+      "index": 104,
+      "start_time": 248760.0,
+      "end_time": 251510.0,
+      "text": "compile and get it going."
+    },
+    {
+      "index": 105,
+      "start_time": 251510.0,
+      "end_time": 253470.0,
+      "text": "To make startup time even faster,"
+    },
+    {
+      "index": 106,
+      "start_time": 253470.0,
+      "end_time": 256519.0,
+      "text": "the team built and launched an entire new compiler"
+    },
+    {
+      "index": 107,
+      "start_time": 256519.0,
+      "end_time": 259160.0,
+      "text": "that we called the Liftoff compiler."
+    },
+    {
+      "index": 108,
+      "start_time": 259160.00000000003,
+      "end_time": 262310.0,
+      "text": "This Liftoff compiler takes the WebAssembly byte code"
+    },
+    {
+      "index": 109,
+      "start_time": 262310.0,
+      "end_time": 265370.0,
+      "text": "that comes down off of the wire and then starts executing it"
+    },
+    {
+      "index": 110,
+      "start_time": 265370.0,
+      "end_time": 266660.0,
+      "text": "immediately."
+    },
+    {
+      "index": 111,
+      "start_time": 266660.0,
+      "end_time": 269750.0,
+      "text": "The WebAssembly module is then taken off the main thread"
+    },
+    {
+      "index": 112,
+      "start_time": 269750.0,
+      "end_time": 273560.0,
+      "text": "and optimized further by the TurboFan optimizing compiler."
+    },
+    {
+      "index": 113,
+      "start_time": 273560.0,
+      "end_time": 276350.0,
+      "text": "When TurboFan is done optimizing the WebAssembly code,"
+    },
+    {
+      "index": 114,
+      "start_time": 276350.0,
+      "end_time": 277910.0,
+      "text": "it&#39;s then hot swapped in directly"
+    },
+    {
+      "index": 115,
+      "start_time": 277910.0,
+      "end_time": 282260.0,
+      "text": "without any need for explicit developer action."
+    },
+    {
+      "index": 116,
+      "start_time": 282260.0,
+      "end_time": 286280.0,
+      "text": "Unity did some benchmarking on the effects that Liftoff had."
+    },
+    {
+      "index": 117,
+      "start_time": 286280.0,
+      "end_time": 289200.0,
+      "text": "On a benchmark where they tried to load a very large game,"
+    },
+    {
+      "index": 118,
+      "start_time": 289200.0,
+      "end_time": 292340.0,
+      "text": "they found that it went from taking seven seconds to load"
+    },
+    {
+      "index": 119,
+      "start_time": 292340.0,
+      "end_time": 294229.0,
+      "text": "the game to less than one second, which"
+    },
+    {
+      "index": 120,
+      "start_time": 294230.0,
+      "end_time": 296240.0,
+      "text": "makes all of the difference when you&#39;re waiting"
+    },
+    {
+      "index": 121,
+      "start_time": 296240.0,
+      "end_time": 298977.0,
+      "text": "to get into a game experience."
+    },
+    {
+      "index": 122,
+      "start_time": 298977.0,
+      "end_time": 300810.0,
+      "text": "Probably the biggest feature that the team&#39;s"
+    },
+    {
+      "index": 123,
+      "start_time": 300810.0,
+      "end_time": 303620.0,
+      "text": "been working on this year is WebAssembly threads."
+    },
+    {
+      "index": 124,
+      "start_time": 303620.0,
+      "end_time": 307220.0,
+      "text": "WebAssembly threads lets you run fast, highly paralyzed code"
+    },
+    {
+      "index": 125,
+      "start_time": 307220.0,
+      "end_time": 309650.0,
+      "text": "for the first time across multiple browsers."
+    },
+    {
+      "index": 126,
+      "start_time": 309650.0,
+      "end_time": 312679.0,
+      "text": "It also lets you bring existing libraries and applications"
+    },
+    {
+      "index": 127,
+      "start_time": 312680.0,
+      "end_time": 316127.0,
+      "text": "that use threaded code such as Pthreads to the web."
+    },
+    {
+      "index": 128,
+      "start_time": 316127.0,
+      "end_time": 317960.0,
+      "text": "This is such a big feature that I&#39;m actually"
+    },
+    {
+      "index": 129,
+      "start_time": 317960.0,
+      "end_time": 322244.0,
+      "text": "going to leave most of the explanation to Alex later on."
+    },
+    {
+      "index": 130,
+      "start_time": 322244.0,
+      "end_time": 323660.0,
+      "text": "But before I get into that, I want"
+    },
+    {
+      "index": 131,
+      "start_time": 323660.0,
+      "end_time": 325877.0,
+      "text": "to show off some of the cool new applications"
+    },
+    {
+      "index": 132,
+      "start_time": 325877.0,
+      "end_time": 328460.0,
+      "text": "that have already been building and launching with WebAssembly"
+    },
+    {
+      "index": 133,
+      "start_time": 328460.0,
+      "end_time": 330320.0,
+      "text": "this last year."
+    },
+    {
+      "index": 134,
+      "start_time": 330320.0,
+      "end_time": 332360.0,
+      "text": "First off is SketchUp."
+    },
+    {
+      "index": 135,
+      "start_time": 332360.0,
+      "end_time": 334310.0,
+      "text": "SketchUp is a 3D modeling software"
+    },
+    {
+      "index": 136,
+      "start_time": 334310.0,
+      "end_time": 336710.0,
+      "text": "that you can learn and start using really quickly."
+    },
+    {
+      "index": 137,
+      "start_time": 336710.0,
+      "end_time": 338659.0,
+      "text": "Unlike traditional computer-aided design,"
+    },
+    {
+      "index": 138,
+      "start_time": 338660.0,
+      "end_time": 341780.0,
+      "text": "most people can learn SketchUp almost right away."
+    },
+    {
+      "index": 139,
+      "start_time": 341780.0,
+      "end_time": 343969.0,
+      "text": "SketchUp lets people draw in perspective and then"
+    },
+    {
+      "index": 140,
+      "start_time": 343970.0,
+      "end_time": 346310.0,
+      "text": "push-pull things into 3D."
+    },
+    {
+      "index": 141,
+      "start_time": 346310.0,
+      "end_time": 348890.0,
+      "text": "In no time, people can draw and redesign a living room,"
+    },
+    {
+      "index": 142,
+      "start_time": 348890.0,
+      "end_time": 350659.0,
+      "text": "plan out a do-it-yourself project,"
+    },
+    {
+      "index": 143,
+      "start_time": 350660.0,
+      "end_time": 353326.0,
+      "text": "or create and export a model for 3D printing."
+    },
+    {
+      "index": 144,
+      "start_time": 353326.0,
+      "end_time": 355700.0,
+      "text": "This app is a lot of fun and you should all check it out,"
+    },
+    {
+      "index": 145,
+      "start_time": 355700.0,
+      "end_time": 357770.0,
+      "text": "which you can do right now instantly, just"
+    },
+    {
+      "index": 146,
+      "start_time": 357770.0,
+      "end_time": 360390.0,
+      "text": "by going to app.sketchup.com."
+    },
+    {
+      "index": 147,
+      "start_time": 360390.0,
+      "end_time": 362750.0,
+      "text": "SketchUp has been around for a desktop application,"
+    },
+    {
+      "index": 148,
+      "start_time": 362750.0,
+      "end_time": 364520.0,
+      "text": "but the team&#39;s strategy has always"
+    },
+    {
+      "index": 149,
+      "start_time": 364520.0,
+      "end_time": 366710.0,
+      "text": "been to expand and broaden the market"
+    },
+    {
+      "index": 150,
+      "start_time": 366710.0,
+      "end_time": 368599.0,
+      "text": "of people who can use 3D modeling,"
+    },
+    {
+      "index": 151,
+      "start_time": 368600.0,
+      "end_time": 371120.0,
+      "text": "and by making it simple and easy to use"
+    },
+    {
+      "index": 152,
+      "start_time": 371120.0,
+      "end_time": 373900.0,
+      "text": "and accessible to everyone."
+    },
+    {
+      "index": 153,
+      "start_time": 373900.0,
+      "end_time": 376510.0,
+      "text": "Delivering the app over the web was a critical step"
+    },
+    {
+      "index": 154,
+      "start_time": 376510.0,
+      "end_time": 378569.0,
+      "text": "in that strategy, and the team knew"
+    },
+    {
+      "index": 155,
+      "start_time": 378569.0,
+      "end_time": 380110.0,
+      "text": "that they wanted to use the same code"
+    },
+    {
+      "index": 156,
+      "start_time": 380110.0,
+      "end_time": 382810.0,
+      "text": "base as their desktop applications,"
+    },
+    {
+      "index": 157,
+      "start_time": 382810.0,
+      "end_time": 385270.0,
+      "text": "because rewriting their entire application in JavaScript"
+    },
+    {
+      "index": 158,
+      "start_time": 385270.0,
+      "end_time": 387400.0,
+      "text": "was just simply not an option."
+    },
+    {
+      "index": 159,
+      "start_time": 387400.0,
+      "end_time": 391630.0,
+      "text": "The team&#39;s approach was to use the WebAssembly and Emscripten"
+    },
+    {
+      "index": 160,
+      "start_time": 391630.0,
+      "end_time": 394990.0,
+      "text": "compiler to compile their core 3D modeler"
+    },
+    {
+      "index": 161,
+      "start_time": 394990.0,
+      "end_time": 397600.0,
+      "text": "and bring it to the web."
+    },
+    {
+      "index": 162,
+      "start_time": 397600.0,
+      "end_time": 400270.0,
+      "text": "The initial port took two engineers only three months"
+    },
+    {
+      "index": 163,
+      "start_time": 400270.0,
+      "end_time": 403120.0,
+      "text": "to bring to the web, which is pretty phenomenal when"
+    },
+    {
+      "index": 164,
+      "start_time": 403120.0,
+      "end_time": 405100.0,
+      "text": "you realize just how drastically it expanded"
+    },
+    {
+      "index": 165,
+      "start_time": 405100.0,
+      "end_time": 408960.0,
+      "text": "the reach of their application."
+    },
+    {
+      "index": 166,
+      "start_time": 408960.0,
+      "end_time": 409720.0,
+      "text": "The early focus for SketchUp has always"
+    },
+    {
+      "index": 167,
+      "start_time": 409720.0,
+      "end_time": 412180.0,
+      "text": "been on the next generation of 3D modelers,"
+    },
+    {
+      "index": 168,
+      "start_time": 412180.0,
+      "end_time": 413560.0,
+      "text": "and today SketchUp is already one"
+    },
+    {
+      "index": 169,
+      "start_time": 413560.0,
+      "end_time": 416200.0,
+      "text": "of the most popular apps on the G Suite for education"
+    },
+    {
+      "index": 170,
+      "start_time": 416200.0,
+      "end_time": 417121.0,
+      "text": "marketplace."
+    },
+    {
+      "index": 171,
+      "start_time": 417121.0,
+      "end_time": 419620.0,
+      "text": "At the same time, the app has opened up a subscription model"
+    },
+    {
+      "index": 172,
+      "start_time": 419620.0,
+      "end_time": 421940.0,
+      "text": "for SketchUp, and in just over six months,"
+    },
+    {
+      "index": 173,
+      "start_time": 421940.0,
+      "end_time": 425320.0,
+      "text": "the team has increased its paying customer base by 10%."
+    },
+    {
+      "index": 174,
+      "start_time": 425320.0,
+      "end_time": 427270.0,
+      "text": "SketchUp has also seen consistent growth"
+    },
+    {
+      "index": 175,
+      "start_time": 427270.0,
+      "end_time": 429669.0,
+      "text": "in session time, returning visitor percentage,"
+    },
+    {
+      "index": 176,
+      "start_time": 429670.0,
+      "end_time": 432620.0,
+      "text": "and active users."
+    },
+    {
+      "index": 177,
+      "start_time": 432620.0,
+      "end_time": 435170.0,
+      "text": "Moving on, the next application that I want to mention"
+    },
+    {
+      "index": 178,
+      "start_time": 435170.0,
+      "end_time": 436316.0,
+      "text": "is Google Earth."
+    },
+    {
+      "index": 179,
+      "start_time": 436316.0,
+      "end_time": 438440.0,
+      "text": "I&#39;m happy to say that Google Earth has successfully"
+    },
+    {
+      "index": 180,
+      "start_time": 438440.0,
+      "end_time": 442160.0,
+      "text": "gotten their application ported to WebAssembly, including"
+    },
+    {
+      "index": 181,
+      "start_time": 442160.0,
+      "end_time": 444722.0,
+      "text": "the newly added support for WebAssembly threads."
+    },
+    {
+      "index": 182,
+      "start_time": 444722.0,
+      "end_time": 446180.0,
+      "text": "The best part is that they actually"
+    },
+    {
+      "index": 183,
+      "start_time": 446180.0,
+      "end_time": 449660.0,
+      "text": "got this threaded build working in both Chrome and Firefox,"
+    },
+    {
+      "index": 184,
+      "start_time": 449660.0,
+      "end_time": 452180.0,
+      "text": "making Google Earth the first WebAssembly"
+    },
+    {
+      "index": 185,
+      "start_time": 452180.0,
+      "end_time": 456970.0,
+      "text": "multi-threaded application to be running in multiple browsers."
+    },
+    {
+      "index": 186,
+      "start_time": 456970.0,
+      "end_time": 458500.0,
+      "text": "Google Earth did some benchmarking,"
+    },
+    {
+      "index": 187,
+      "start_time": 458500.0,
+      "end_time": 460510.0,
+      "text": "comparing their single threaded version"
+    },
+    {
+      "index": 188,
+      "start_time": 460510.0,
+      "end_time": 462400.0,
+      "text": "to their multi-threaded version."
+    },
+    {
+      "index": 189,
+      "start_time": 462400.0,
+      "end_time": 464349.0,
+      "text": "They found that the frame rate almost"
+    },
+    {
+      "index": 190,
+      "start_time": 464350.0,
+      "end_time": 466630.0,
+      "text": "doubled when they went to their threaded version,"
+    },
+    {
+      "index": 191,
+      "start_time": 466630.0,
+      "end_time": 473250.0,
+      "text": "and the amount of jank/dropped also reduced by more than half."
+    },
+    {
+      "index": 192,
+      "start_time": 473250.0,
+      "end_time": 475320.0,
+      "text": "All right, so the last big company"
+    },
+    {
+      "index": 193,
+      "start_time": 475320.0,
+      "end_time": 478500.0,
+      "text": "and launch that I want to mention is Soundation."
+    },
+    {
+      "index": 194,
+      "start_time": 478500.0,
+      "end_time": 480390.0,
+      "text": "Soundation is a web-based music studio"
+    },
+    {
+      "index": 195,
+      "start_time": 480390.0,
+      "end_time": 482700.0,
+      "text": "that enables anyone to make music"
+    },
+    {
+      "index": 196,
+      "start_time": 482700.0,
+      "end_time": 485790.0,
+      "text": "online with a wide selection of instruments, loops, samples,"
+    },
+    {
+      "index": 197,
+      "start_time": 485790.0,
+      "end_time": 487500.0,
+      "text": "and effects."
+    },
+    {
+      "index": 198,
+      "start_time": 487500.0,
+      "end_time": 489660.0,
+      "text": "No additional hardware or installation or storage"
+    },
+    {
+      "index": 199,
+      "start_time": 489660.0,
+      "end_time": 490530.0,
+      "text": "is required."
+    },
+    {
+      "index": 200,
+      "start_time": 490530.0,
+      "end_time": 493559.0,
+      "text": "Everything is accessible instantly and everywhere."
+    },
+    {
+      "index": 201,
+      "start_time": 493560.0,
+      "end_time": 496710.0,
+      "text": "Soundation&#39;s mission is to facilitate musical creativity"
+    },
+    {
+      "index": 202,
+      "start_time": 496710.0,
+      "end_time": 499380.0,
+      "text": "in the world, and they do this by offering"
+    },
+    {
+      "index": 203,
+      "start_time": 499380.0,
+      "end_time": 501990.0,
+      "text": "a powerful, accessible, and affordable service"
+    },
+    {
+      "index": 204,
+      "start_time": 501990.0,
+      "end_time": 504870.0,
+      "text": "to the growing demographic of casual producers."
+    },
+    {
+      "index": 205,
+      "start_time": 504870.0,
+      "end_time": 507300.0,
+      "text": "As an online web app, Soundation streamlines"
+    },
+    {
+      "index": 206,
+      "start_time": 507300.0,
+      "end_time": 509760.0,
+      "text": "the ability for producers to connect with peers,"
+    },
+    {
+      "index": 207,
+      "start_time": 509760.0,
+      "end_time": 511950.0,
+      "text": "get feedback, enter competitions, and even get"
+    },
+    {
+      "index": 208,
+      "start_time": 511950.0,
+      "end_time": 514110.0,
+      "text": "record deals."
+    },
+    {
+      "index": 209,
+      "start_time": 514110.0,
+      "end_time": 516900.0,
+      "text": "Soundation is using a wide variety"
+    },
+    {
+      "index": 210,
+      "start_time": 516900.0,
+      "end_time": 520449.0,
+      "text": "of advanced web features to deliver this smooth experience."
+    },
+    {
+      "index": 211,
+      "start_time": 520450.00000000006,
+      "end_time": 522860.00000000006,
+      "text": "And the first of these is audio worklets."
+    },
+    {
+      "index": 212,
+      "start_time": 522860.0,
+      "end_time": 525450.0,
+      "text": "Launched in Chrome 66, the audio worklet"
+    },
+    {
+      "index": 213,
+      "start_time": 525450.0,
+      "end_time": 528450.0,
+      "text": "brings fast performance and extensible audio processing"
+    },
+    {
+      "index": 214,
+      "start_time": 528450.0,
+      "end_time": 529862.0,
+      "text": "to the web platform."
+    },
+    {
+      "index": 215,
+      "start_time": 529862.0,
+      "end_time": 532319.0,
+      "text": "It could be used in conjunction with other cutting edge web"
+    },
+    {
+      "index": 216,
+      "start_time": 532320.0,
+      "end_time": 536810.0,
+      "text": "technologies such as WebAssembly and SharedArrayBuffer."
+    },
+    {
+      "index": 217,
+      "start_time": 536810.0,
+      "end_time": 539150.0,
+      "text": "Soundation is also one of the world&#39;s first adopters"
+    },
+    {
+      "index": 218,
+      "start_time": 539150.0,
+      "end_time": 541550.0,
+      "text": "of WebAssembly threads, and they use these threads"
+    },
+    {
+      "index": 219,
+      "start_time": 541550.0,
+      "end_time": 545600.0,
+      "text": "to achieve fast parellelized processing to seamlessly mix"
+    },
+    {
+      "index": 220,
+      "start_time": 545600.0,
+      "end_time": 546661.0,
+      "text": "songs."
+    },
+    {
+      "index": 221,
+      "start_time": 546661.0,
+      "end_time": 548410.0,
+      "text": "So let&#39;s have a look at their architecture"
+    },
+    {
+      "index": 222,
+      "start_time": 548410.0,
+      "end_time": 550600.0,
+      "text": "and see if we can learn anything."
+    },
+    {
+      "index": 223,
+      "start_time": 550600.0,
+      "end_time": 551560.0,
+      "text": "On the JavaScript side of the world,"
+    },
+    {
+      "index": 224,
+      "start_time": 551560.0,
+      "end_time": 553420.0,
+      "text": "they have their application UI."
+    },
+    {
+      "index": 225,
+      "start_time": 553420.0,
+      "end_time": 557680.0,
+      "text": "That application UI then talks to an audio mixing engine."
+    },
+    {
+      "index": 226,
+      "start_time": 557680.0,
+      "end_time": 559599.0,
+      "text": "This audio mixing engine then spawns off"
+    },
+    {
+      "index": 227,
+      "start_time": 559600.0,
+      "end_time": 562120.0,
+      "text": "multiple different worker threads in WebAssembly,"
+    },
+    {
+      "index": 228,
+      "start_time": 562120.0,
+      "end_time": 563620.0,
+      "text": "and each of these worker threads can"
+    },
+    {
+      "index": 229,
+      "start_time": 563620.0,
+      "end_time": 566530.0,
+      "text": "talk to the same piece of SharedArrayBuffer memory."
+    },
+    {
+      "index": 230,
+      "start_time": 566530.0,
+      "end_time": 568360.0,
+      "text": "This SharedArrayBuffer memory is then"
+    },
+    {
+      "index": 231,
+      "start_time": 568360.0,
+      "end_time": 571180.0,
+      "text": "passed on to the mixing threads, which further passes it"
+    },
+    {
+      "index": 232,
+      "start_time": 571180.0,
+      "end_time": 575229.0,
+      "text": "to the audio worklet, which produces the final result."
+    },
+    {
+      "index": 233,
+      "start_time": 575230.0,
+      "end_time": 578100.0,
+      "text": "Here&#39;s a visualization showing the performance improvements"
+    },
+    {
+      "index": 234,
+      "start_time": 578100.0,
+      "end_time": 580830.0,
+      "text": "on rendering a song as they added multiple threads."
+    },
+    {
+      "index": 235,
+      "start_time": 580830.0,
+      "end_time": 583164.0,
+      "text": "Adding just a single additional thread doubled"
+    },
+    {
+      "index": 236,
+      "start_time": 583164.0,
+      "end_time": 584580.0,
+      "text": "their performance, and by the time"
+    },
+    {
+      "index": 237,
+      "start_time": 584580.0,
+      "end_time": 586496.0,
+      "text": "they&#39;ve added five threads, they had more than"
+    },
+    {
+      "index": 238,
+      "start_time": 586496.0,
+      "end_time": 590290.0,
+      "text": "tripled the performance of their application."
+    },
+    {
+      "index": 239,
+      "start_time": 590290.0,
+      "end_time": 593339.0,
+      "text": "So that&#39;s a great visualization showing the performance"
+    },
+    {
+      "index": 240,
+      "start_time": 593340.0,
+      "end_time": 594810.0,
+      "text": "improvements that thread can bring,"
+    },
+    {
+      "index": 241,
+      "start_time": 594810.0,
+      "end_time": 597142.0,
+      "text": "but since this is Soundation, I thought we would instead"
+    },
+    {
+      "index": 242,
+      "start_time": 597143.0,
+      "end_time": 598360.0,
+      "text": "try and listen to it."
+    },
+    {
+      "index": 243,
+      "start_time": 598360.0,
+      "end_time": 601380.0,
+      "text": "So here is us trying to render a song in Soundation"
+    },
+    {
+      "index": 244,
+      "start_time": 601380.0,
+      "end_time": 603530.0,
+      "text": "in the single threaded version of WebAssembly."
+    },
+    {
+      "index": 245,
+      "start_time": 603530.0,
+      "end_time": 605310.0,
+      "text": "And fair warning, this is not going"
+    },
+    {
+      "index": 246,
+      "start_time": 605310.0,
+      "end_time": 607196.0,
+      "text": "to be an entirely pleasant experience."
+    },
+    {
+      "index": 247,
+      "start_time": 607197.0,
+      "end_time": 610536.0,
+      "text": "[STATICY MUSIC]"
+    },
+    {
+      "index": 248,
+      "start_time": 611970.0,
+      "end_time": 614390.0,
+      "text": "So as you can imagine, this is not the experience"
+    },
+    {
+      "index": 249,
+      "start_time": 614390.0,
+      "end_time": 617900.0,
+      "text": "that you want when you&#39;re trying to create beautiful music."
+    },
+    {
+      "index": 250,
+      "start_time": 617900.0,
+      "end_time": 620360.0,
+      "text": "But luckily Soundation succeeded in launching with WebAssembly"
+    },
+    {
+      "index": 251,
+      "start_time": 620360.0,
+      "end_time": 622340.0,
+      "text": "threads, and now they&#39;re able to deliver"
+    },
+    {
+      "index": 252,
+      "start_time": 622340.0,
+      "end_time": 626642.0,
+      "text": "an experience that sounds just a little bit better."
+    },
+    {
+      "index": 253,
+      "start_time": 626642.0,
+      "end_time": 630500.0,
+      "text": "[SMOOTH MUSIC]"
+    },
+    {
+      "index": 254,
+      "start_time": 630500.0,
+      "end_time": 632479.0,
+      "text": "So as you can see, not only is this a much more"
+    },
+    {
+      "index": 255,
+      "start_time": 632480.0,
+      "end_time": 635210.0,
+      "text": "pleasant experience, but the CPU also"
+    },
+    {
+      "index": 256,
+      "start_time": 635210.0,
+      "end_time": 636800.0,
+      "text": "has additional cycle for other work."
+    },
+    {
+      "index": 257,
+      "start_time": 639300.0,
+      "end_time": 641800.0,
+      "text": "All right, so I want to close off my segment by just talking"
+    },
+    {
+      "index": 258,
+      "start_time": 641800.0,
+      "end_time": 643630.0,
+      "text": "about some of the amazing community"
+    },
+    {
+      "index": 259,
+      "start_time": 643630.0,
+      "end_time": 647125.0,
+      "text": "projects that we&#39;ve seen people working on out there."
+    },
+    {
+      "index": 260,
+      "start_time": 647125.0,
+      "end_time": 649000.0,
+      "text": "And the first of these that I want to mention"
+    },
+    {
+      "index": 261,
+      "start_time": 649000.0,
+      "end_time": 651125.0,
+      "text": "is the awesome work that&#39;s been done by the Mozilla"
+    },
+    {
+      "index": 262,
+      "start_time": 651125.0,
+      "end_time": 654700.0,
+      "text": "team and the Rust community to bring Rust to the web"
+    },
+    {
+      "index": 263,
+      "start_time": 654700.0,
+      "end_time": 655510.0,
+      "text": "through WebAssembly."
+    },
+    {
+      "index": 264,
+      "start_time": 655510.0,
+      "end_time": 657819.0,
+      "text": "They have an awesome set of tools and materials"
+    },
+    {
+      "index": 265,
+      "start_time": 657820.0,
+      "end_time": 660400.0,
+      "text": "to help you get started, and you can check those out"
+    },
+    {
+      "index": 266,
+      "start_time": 660400.0,
+      "end_time": 663286.0,
+      "text": "at rustwasm.github.io."
+    },
+    {
+      "index": 267,
+      "start_time": 663286.0,
+      "end_time": 664660.0,
+      "text": "Speaking of languages, we&#39;ve also"
+    },
+    {
+      "index": 268,
+      "start_time": 664660.0,
+      "end_time": 666829.0,
+      "text": "seen more than 30 different projects"
+    },
+    {
+      "index": 269,
+      "start_time": 666830.0,
+      "end_time": 670270.0,
+      "text": "trying to bring other languages to the web through WebAssembly."
+    },
+    {
+      "index": 270,
+      "start_time": 670270.0,
+      "end_time": 673210.0,
+      "text": "These languages include ones like Perl, Python, Ruby,"
+    },
+    {
+      "index": 271,
+      "start_time": 673210.0,
+      "end_time": 677900.0,
+      "text": "Kotlin, OCaml, Go, PHP, and the .NET framework."
+    },
+    {
+      "index": 272,
+      "start_time": 677900.0,
+      "end_time": 680117.0,
+      "text": "Many of these languages require garbage collection,"
+    },
+    {
+      "index": 273,
+      "start_time": 680117.0,
+      "end_time": 681699.0,
+      "text": "which isn&#39;t currently something that&#39;s"
+    },
+    {
+      "index": 274,
+      "start_time": 681700.0,
+      "end_time": 684790.0,
+      "text": "supported in WebAssembly, though we are working on it."
+    },
+    {
+      "index": 275,
+      "start_time": 684790.0,
+      "end_time": 687400.0,
+      "text": "These languages come to the web by actually taking"
+    },
+    {
+      "index": 276,
+      "start_time": 687400.0,
+      "end_time": 689589.0,
+      "text": "their garbage collection system and other runtime bits"
+    },
+    {
+      "index": 277,
+      "start_time": 689590.0,
+      "end_time": 692410.0,
+      "text": "and compiling that itself down to WebAssembly,"
+    },
+    {
+      "index": 278,
+      "start_time": 692410.0,
+      "end_time": 696700.0,
+      "text": "and then shipping everything down to the application page."
+    },
+    {
+      "index": 279,
+      "start_time": 696700.0,
+      "end_time": 697839.0,
+      "text": "This is a great strategy for getting started"
+    },
+    {
+      "index": 280,
+      "start_time": 697840.0,
+      "end_time": 700270.0,
+      "text": "and experimenting with some of these languages on the web,"
+    },
+    {
+      "index": 281,
+      "start_time": 700270.0,
+      "end_time": 702395.0,
+      "text": "but because of some of their performance and memory"
+    },
+    {
+      "index": 282,
+      "start_time": 702395.0,
+      "end_time": 704560.0,
+      "text": "characteristics, these aren&#39;t currently suited"
+    },
+    {
+      "index": 283,
+      "start_time": 704560.0,
+      "end_time": 706479.0,
+      "text": "for production applications."
+    },
+    {
+      "index": 284,
+      "start_time": 706480.0,
+      "end_time": 710110.0,
+      "text": "The fully supported languages today are C, C++, and Rust,"
+    },
+    {
+      "index": 285,
+      "start_time": 710110.0,
+      "end_time": 713780.0,
+      "text": "but everything else should still be considered experimental."
+    },
+    {
+      "index": 286,
+      "start_time": 713780.0,
+      "end_time": 716300.0,
+      "text": "And there are so many more amazing community projects"
+    },
+    {
+      "index": 287,
+      "start_time": 716300.0,
+      "end_time": 718199.0,
+      "text": "that I don&#39;t have time to do justice."
+    },
+    {
+      "index": 288,
+      "start_time": 718200.0,
+      "end_time": 721430.0,
+      "text": "We&#39;ve seen people porting Gameboy emulators, GNU"
+    },
+    {
+      "index": 289,
+      "start_time": 721430.0,
+      "end_time": 724400.0,
+      "text": "libraries, digital signal processing, and even"
+    },
+    {
+      "index": 290,
+      "start_time": 724400.0,
+      "end_time": 728720.0,
+      "text": "entire operating system like Microsoft Windows 2000 now"
+    },
+    {
+      "index": 291,
+      "start_time": 728720.0,
+      "end_time": 730520.0,
+      "text": "available in a browser tab, which"
+    },
+    {
+      "index": 292,
+      "start_time": 730520.0,
+      "end_time": 734180.0,
+      "text": "is, if not a exactly pleasant experience,"
+    },
+    {
+      "index": 293,
+      "start_time": 734180.0,
+      "end_time": 735560.0,
+      "text": "definitely interesting."
+    },
+    {
+      "index": 294,
+      "start_time": 735560.0,
+      "end_time": 737119.0,
+      "text": "You can check out all of these demos"
+    },
+    {
+      "index": 295,
+      "start_time": 737120.0,
+      "end_time": 740660.0,
+      "text": "and much more at the forum where we have multiple demos"
+    },
+    {
+      "index": 296,
+      "start_time": 740660.0,
+      "end_time": 742469.0,
+      "text": "set up for you to check out."
+    },
+    {
+      "index": 297,
+      "start_time": 742470.0,
+      "end_time": 744846.0,
+      "text": "And with that, I want to hand it back off to Alex"
+    },
+    {
+      "index": 298,
+      "start_time": 744846.0,
+      "end_time": 746720.0,
+      "text": "to talk to you more about WebAssembly threads"
+    },
+    {
+      "index": 299,
+      "start_time": 746720.0,
+      "end_time": 749400.0,
+      "text": "and how to use some of these features."
+    },
+    {
+      "index": 300,
+      "start_time": 749400.0,
+      "end_time": 753350.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 301,
+      "start_time": 753350.0,
+      "end_time": 754770.0,
+      "text": "ALEX DANILO: Thank you, Thomas."
+    },
+    {
+      "index": 302,
+      "start_time": 754770.0,
+      "end_time": 756889.0,
+      "text": "One of the kind of big things at the conference"
+    },
+    {
+      "index": 303,
+      "start_time": 756889.0,
+      "end_time": 758430.0,
+      "text": "here, when we talk about the browser,"
+    },
+    {
+      "index": 304,
+      "start_time": 758430.0,
+      "end_time": 760229.0,
+      "text": "we talk about using the platform."
+    },
+    {
+      "index": 305,
+      "start_time": 760230.0,
+      "end_time": 763380.0,
+      "text": "And quite often people think of the platform as the software"
+    },
+    {
+      "index": 306,
+      "start_time": 763380.0,
+      "end_time": 765540.0,
+      "text": "stack that&#39;s inside the browser, but I"
+    },
+    {
+      "index": 307,
+      "start_time": 765540.0,
+      "end_time": 767520.0,
+      "text": "like to think of it a little bit different."
+    },
+    {
+      "index": 308,
+      "start_time": 767520.0,
+      "end_time": 769811.0,
+      "text": "I like to think about the hardware, the platform that&#39;s"
+    },
+    {
+      "index": 309,
+      "start_time": 769811.0,
+      "end_time": 771550.0,
+      "text": "actually in your machine."
+    },
+    {
+      "index": 310,
+      "start_time": 771550.0,
+      "end_time": 774719.0,
+      "text": "So here is an artist&#39;s rendition of the inside"
+    },
+    {
+      "index": 311,
+      "start_time": 774720.0,
+      "end_time": 776300.0,
+      "text": "of a desktop microprocessor."
+    },
+    {
+      "index": 312,
+      "start_time": 776300.0,
+      "end_time": 777689.0,
+      "text": "This is what you see today if you"
+    },
+    {
+      "index": 313,
+      "start_time": 777690.0,
+      "end_time": 779200.0,
+      "text": "take the plastic off the top."
+    },
+    {
+      "index": 314,
+      "start_time": 779200.0,
+      "end_time": 780780.0,
+      "text": "So at the top, we have the green bit,"
+    },
+    {
+      "index": 315,
+      "start_time": 780780.0,
+      "end_time": 783209.0,
+      "text": "which interfaces to the PCI bus, used"
+    },
+    {
+      "index": 316,
+      "start_time": 783210.0,
+      "end_time": 784740.0,
+      "text": "to be called the northbridge."
+    },
+    {
+      "index": 317,
+      "start_time": 784740.0,
+      "end_time": 786870.0,
+      "text": "The left and right, you have memory interfaces."
+    },
+    {
+      "index": 318,
+      "start_time": 786870.0,
+      "end_time": 790100.0,
+      "text": "These little yellow boxes are integrated memory controllers."
+    },
+    {
+      "index": 319,
+      "start_time": 790100.0,
+      "end_time": 792700.0,
+      "text": "And you see all these blue tiles here."
+    },
+    {
+      "index": 320,
+      "start_time": 792700.0,
+      "end_time": 794790.0,
+      "text": "And what they are is cores."
+    },
+    {
+      "index": 321,
+      "start_time": 794790.0,
+      "end_time": 797549.0,
+      "text": "So each of those is a CPU core in its own right."
+    },
+    {
+      "index": 322,
+      "start_time": 797549.0,
+      "end_time": 799590.0,
+      "text": "So this may be a desktop microprocessor, but even"
+    },
+    {
+      "index": 323,
+      "start_time": 799590.0,
+      "end_time": 802440.0,
+      "text": "in your pocket, if you have an iPhone or an advanced Android"
+    },
+    {
+      "index": 324,
+      "start_time": 802440.0,
+      "end_time": 804151.0,
+      "text": "phone, you&#39;ll have something like six"
+    },
+    {
+      "index": 325,
+      "start_time": 804151.0,
+      "end_time": 805650.0,
+      "text": "to eight cores in there, ready to be"
+    },
+    {
+      "index": 326,
+      "start_time": 805650.0,
+      "end_time": 808199.0,
+      "text": "used to do good computing work."
+    },
+    {
+      "index": 327,
+      "start_time": 808200.0,
+      "end_time": 810460.0,
+      "text": "So when you write a normal web application,"
+    },
+    {
+      "index": 328,
+      "start_time": 810460.0,
+      "end_time": 812572.0,
+      "text": "you&#39;re looking at something like this."
+    },
+    {
+      "index": 329,
+      "start_time": 812572.0,
+      "end_time": 814280.0,
+      "text": "You have one core running and so you have"
+    },
+    {
+      "index": 330,
+      "start_time": 814280.0,
+      "end_time": 815571.0,
+      "text": "all this silicon doing nothing."
+    },
+    {
+      "index": 331,
+      "start_time": 815571.0,
+      "end_time": 817649.0,
+      "text": "So you&#39;re not really using the platform."
+    },
+    {
+      "index": 332,
+      "start_time": 817649.0,
+      "end_time": 819690.0,
+      "text": "Now we&#39;ve seen people come along and do something"
+    },
+    {
+      "index": 333,
+      "start_time": 819690.0,
+      "end_time": 822150.0,
+      "text": "like spawn a web worker to do the hard work,"
+    },
+    {
+      "index": 334,
+      "start_time": 822150.0,
+      "end_time": 823860.0,
+      "text": "and have the main thread for UI."
+    },
+    {
+      "index": 335,
+      "start_time": 823860.0,
+      "end_time": 826940.0,
+      "text": "In that case, you&#39;re running a double threaded application."
+    },
+    {
+      "index": 336,
+      "start_time": 826940.0,
+      "end_time": 829380.0,
+      "text": "And so you&#39;re using the platform a bit better,"
+    },
+    {
+      "index": 337,
+      "start_time": 829380.0,
+      "end_time": 832200.0,
+      "text": "but you&#39;re not really doing everything you could."
+    },
+    {
+      "index": 338,
+      "start_time": 832200.0,
+      "end_time": 834630.0,
+      "text": "Now since we have introduced WebAssembly threads,"
+    },
+    {
+      "index": 339,
+      "start_time": 834630.0,
+      "end_time": 835990.0,
+      "text": "you can do stuff like this."
+    },
+    {
+      "index": 340,
+      "start_time": 835990.0,
+      "end_time": 839290.0,
+      "text": "You could actually use many cores for your application."
+    },
+    {
+      "index": 341,
+      "start_time": 839290.0,
+      "end_time": 841300.0,
+      "text": "And as we saw with the Soundation demo,"
+    },
+    {
+      "index": 342,
+      "start_time": 841300.0,
+      "end_time": 844209.0,
+      "text": "there&#39;s visible improvement in the user experience."
+    },
+    {
+      "index": 343,
+      "start_time": 844210.0,
+      "end_time": 846210.0,
+      "text": "So I&#39;d really like you to start thinking"
+    },
+    {
+      "index": 344,
+      "start_time": 846210.0,
+      "end_time": 848300.0,
+      "text": "about how you can adapt your application"
+    },
+    {
+      "index": 345,
+      "start_time": 848300.0,
+      "end_time": 850900.0,
+      "text": "to use all these cores."
+    },
+    {
+      "index": 346,
+      "start_time": 850900.0,
+      "end_time": 852370.0,
+      "text": "Now when you create a web worker,"
+    },
+    {
+      "index": 347,
+      "start_time": 852370.0,
+      "end_time": 854820.0,
+      "text": "you have to understand that that is a threading primitive"
+    },
+    {
+      "index": 348,
+      "start_time": 854820.0,
+      "end_time": 855930.0,
+      "text": "and they run concurrently."
+    },
+    {
+      "index": 349,
+      "start_time": 855930.0,
+      "end_time": 858380.0,
+      "text": "So you can do compute in parallel."
+    },
+    {
+      "index": 350,
+      "start_time": 858380.0,
+      "end_time": 861140.0,
+      "text": "And this is a primitive that we all know pretty well."
+    },
+    {
+      "index": 351,
+      "start_time": 861140.0,
+      "end_time": 863410.0,
+      "text": "But one of the things about when we do something"
+    },
+    {
+      "index": 352,
+      "start_time": 863410.0,
+      "end_time": 865370.0,
+      "text": "like this, if we have an app, on the left,"
+    },
+    {
+      "index": 353,
+      "start_time": 865370.0,
+      "end_time": 867220.0,
+      "text": "we have what we call the main thread--"
+    },
+    {
+      "index": 354,
+      "start_time": 867220.0,
+      "end_time": 868960.0,
+      "text": "we&#39;re all familiar with the main thread--"
+    },
+    {
+      "index": 355,
+      "start_time": 868960.0,
+      "end_time": 872290.0,
+      "text": "that interacts and talks to the DOM."
+    },
+    {
+      "index": 356,
+      "start_time": 872290.0,
+      "end_time": 874219.0,
+      "text": "The worker that we generate is what"
+    },
+    {
+      "index": 357,
+      "start_time": 874220.0,
+      "end_time": 875470.0,
+      "text": "we call the background thread."
+    },
+    {
+      "index": 358,
+      "start_time": 875470.0,
+      "end_time": 877600.0,
+      "text": "So it&#39;s running in parallel but it doesn&#39;t actually"
+    },
+    {
+      "index": 359,
+      "start_time": 877600.0,
+      "end_time": 879490.0,
+      "text": "have the ability to call web APIs"
+    },
+    {
+      "index": 360,
+      "start_time": 879490.0,
+      "end_time": 882560.0,
+      "text": "and interact with the DOM and stuff like that."
+    },
+    {
+      "index": 361,
+      "start_time": 882560.0,
+      "end_time": 885400.0,
+      "text": "But when you create workers, and you create them"
+    },
+    {
+      "index": 362,
+      "start_time": 885400.0,
+      "end_time": 889900.0,
+      "text": "normally with a JavaScript thing, it creates an instance."
+    },
+    {
+      "index": 363,
+      "start_time": 889900.0,
+      "end_time": 893260.0,
+      "text": "So these instances kind of sit on their own on the side,"
+    },
+    {
+      "index": 364,
+      "start_time": 893260.0,
+      "end_time": 895154.0,
+      "text": "they&#39;re running parallel, they don&#39;t get"
+    },
+    {
+      "index": 365,
+      "start_time": 895154.0,
+      "end_time": 896320.0,
+      "text": "to do anything with the DOM."
+    },
+    {
+      "index": 366,
+      "start_time": 896320.0,
+      "end_time": 897820.0,
+      "text": "So they kind of run on the side."
+    },
+    {
+      "index": 367,
+      "start_time": 897820.0,
+      "end_time": 901420.0,
+      "text": "So if you create one, you get V8 hanging off"
+    },
+    {
+      "index": 368,
+      "start_time": 901420.0,
+      "end_time": 904180.0,
+      "text": "the top of your main thread, and you get an instance hanging off"
+    },
+    {
+      "index": 369,
+      "start_time": 904180.0,
+      "end_time": 905140.0,
+      "text": "your worker."
+    },
+    {
+      "index": 370,
+      "start_time": 905140.0,
+      "end_time": 907480.0,
+      "text": "So then if you go and create a bunch of workers,"
+    },
+    {
+      "index": 371,
+      "start_time": 907480.0,
+      "end_time": 910150.0,
+      "text": "you get a bunch more V8 instances."
+    },
+    {
+      "index": 372,
+      "start_time": 910150.0,
+      "end_time": 913151.0,
+      "text": "Now each of these instances consumes memory."
+    },
+    {
+      "index": 373,
+      "start_time": 913152.0,
+      "end_time": 915610.0,
+      "text": "So that means that if you start spawning lots of JavaScript"
+    },
+    {
+      "index": 374,
+      "start_time": 915610.0,
+      "end_time": 919525.0,
+      "text": "workers to make your application do stuff more complex,"
+    },
+    {
+      "index": 375,
+      "start_time": 919525.0,
+      "end_time": 921400.0,
+      "text": "it will actually consume more and more memory"
+    },
+    {
+      "index": 376,
+      "start_time": 921400.0,
+      "end_time": 924350.0,
+      "text": "and you might run out on a phone, or something like that."
+    },
+    {
+      "index": 377,
+      "start_time": 924350.0,
+      "end_time": 926860.0,
+      "text": "But I&#39;ll let you in on a little secret."
+    },
+    {
+      "index": 378,
+      "start_time": 926860.0,
+      "end_time": 929420.0,
+      "text": "They don&#39;t talk to each other."
+    },
+    {
+      "index": 379,
+      "start_time": 929420.0,
+      "end_time": 931209.0,
+      "text": "So you&#39;ve got separate bits of JavaScript"
+    },
+    {
+      "index": 380,
+      "start_time": 931210.0,
+      "end_time": 933700.0,
+      "text": "running in all these parallel threads,"
+    },
+    {
+      "index": 381,
+      "start_time": 933700.0,
+      "end_time": 934420.0,
+      "text": "but they don&#39;t communicate."
+    },
+    {
+      "index": 382,
+      "start_time": 934420.0,
+      "end_time": 936400.0,
+      "text": "They don&#39;t have any shared state."
+    },
+    {
+      "index": 383,
+      "start_time": 936400.0,
+      "end_time": 939367.0,
+      "text": "They&#39;re literally another copy of V8 sitting in memory."
+    },
+    {
+      "index": 384,
+      "start_time": 939367.0,
+      "end_time": 941199.0,
+      "text": "The way these things can talk to each other,"
+    },
+    {
+      "index": 385,
+      "start_time": 941200.0,
+      "end_time": 942592.0,
+      "text": "though, is with postMessage."
+    },
+    {
+      "index": 386,
+      "start_time": 942592.0,
+      "end_time": 945500.0,
+      "text": "And postMessage is kind of like sending a paper plane over."
+    },
+    {
+      "index": 387,
+      "start_time": 945500.0,
+      "end_time": 947260.0,
+      "text": "I&#39;ll send it from this worker to that one,"
+    },
+    {
+      "index": 388,
+      "start_time": 947260.0,
+      "end_time": 949900.0,
+      "text": "I&#39;ll sit around and wait for it to arrive,"
+    },
+    {
+      "index": 389,
+      "start_time": 949900.0,
+      "end_time": 950756.0,
+      "text": "and there&#39;s no predictability about when"
+    },
+    {
+      "index": 390,
+      "start_time": 950756.0,
+      "end_time": 952300.0,
+      "text": "that will be delivered."
+    },
+    {
+      "index": 391,
+      "start_time": 952300.0,
+      "end_time": 954370.0,
+      "text": "So it&#39;s not a great experience for a true multi-threaded"
+    },
+    {
+      "index": 392,
+      "start_time": 954370.0,
+      "end_time": 956426.0,
+      "text": "application."
+    },
+    {
+      "index": 393,
+      "start_time": 956426.0,
+      "end_time": 958300.0,
+      "text": "Now, when the team built WebAssembly threads,"
+    },
+    {
+      "index": 394,
+      "start_time": 958300.0,
+      "end_time": 961620.0,
+      "text": "they implemented something that looks a lot more like this."
+    },
+    {
+      "index": 395,
+      "start_time": 961620.0,
+      "end_time": 963790.0,
+      "text": "So what happens is, this is an example of, say,"
+    },
+    {
+      "index": 396,
+      "start_time": 963790.0,
+      "end_time": 965380.0,
+      "text": "having three threads."
+    },
+    {
+      "index": 397,
+      "start_time": 965380.0,
+      "end_time": 969310.0,
+      "text": "So under the hood, we actually spin up the three web workers"
+    },
+    {
+      "index": 398,
+      "start_time": 969310.0,
+      "end_time": 972310.0,
+      "text": "but the difference here is that the WebAssembly module"
+    },
+    {
+      "index": 399,
+      "start_time": 972310.0,
+      "end_time": 973699.0,
+      "text": "is shared between the workers."
+    },
+    {
+      "index": 400,
+      "start_time": 973700.0,
+      "end_time": 975310.0,
+      "text": "So there is one copy of the code,"
+    },
+    {
+      "index": 401,
+      "start_time": 975310.0,
+      "end_time": 977650.0,
+      "text": "so you&#39;re not consuming nearly as much memory."
+    },
+    {
+      "index": 402,
+      "start_time": 977650.0,
+      "end_time": 979562.0,
+      "text": "But more importantly, they share state,"
+    },
+    {
+      "index": 403,
+      "start_time": 979562.0,
+      "end_time": 981520.0,
+      "text": "and the way they share state is through a thing"
+    },
+    {
+      "index": 404,
+      "start_time": 981520.0,
+      "end_time": 983281.0,
+      "text": "called SharedArrayBuffer."
+    },
+    {
+      "index": 405,
+      "start_time": 983282.0,
+      "end_time": 984740.0,
+      "text": "So if you&#39;re a JavaScript engineer,"
+    },
+    {
+      "index": 406,
+      "start_time": 984740.0,
+      "end_time": 987281.0,
+      "text": "you probably know what a typed array is, because you use them"
+    },
+    {
+      "index": 407,
+      "start_time": 987281.0,
+      "end_time": 988300.0,
+      "text": "day to day."
+    },
+    {
+      "index": 408,
+      "start_time": 988300.0,
+      "end_time": 990829.0,
+      "text": "So SharedArrayBuffer is basically the exact same thing,"
+    },
+    {
+      "index": 409,
+      "start_time": 990830.0,
+      "end_time": 993250.0,
+      "text": "except that it can be shared across workers."
+    },
+    {
+      "index": 410,
+      "start_time": 993250.0,
+      "end_time": 995710.0,
+      "text": "And so what that means is the state"
+    },
+    {
+      "index": 411,
+      "start_time": 995710.0,
+      "end_time": 998530.0,
+      "text": "of the execution of the application is visible to any"
+    },
+    {
+      "index": 412,
+      "start_time": 998530.0,
+      "end_time": 1000910.0,
+      "text": "of the workers in parallel."
+    },
+    {
+      "index": 413,
+      "start_time": 1000910.0,
+      "end_time": 1003890.0,
+      "text": "Now if you farm off something into a pool of workers"
+    },
+    {
+      "index": 414,
+      "start_time": 1003890.0,
+      "end_time": 1005640.0,
+      "text": "and you have it hanging off your main app,"
+    },
+    {
+      "index": 415,
+      "start_time": 1005640.0,
+      "end_time": 1007112.0,
+      "text": "it will look something like this."
+    },
+    {
+      "index": 416,
+      "start_time": 1007110.0,
+      "end_time": 1009567.0,
+      "text": "You&#39;ll have your main thread for your main application that"
+    },
+    {
+      "index": 417,
+      "start_time": 1009570.0,
+      "end_time": 1012720.0,
+      "text": "can talk to the DOM, it can use all the web APIs,"
+    },
+    {
+      "index": 418,
+      "start_time": 1012720.0,
+      "end_time": 1014670.0,
+      "text": "and it can see the SharedArrayBuffer,"
+    },
+    {
+      "index": 419,
+      "start_time": 1014670.0,
+      "end_time": 1016589.0,
+      "text": "and that SharedArrayBuffer is being"
+    },
+    {
+      "index": 420,
+      "start_time": 1016590.0,
+      "end_time": 1019290.0,
+      "text": "manipulated by all the parallel threads in the WebAssembly"
+    },
+    {
+      "index": 421,
+      "start_time": 1019290.0,
+      "end_time": 1021709.0,
+      "text": "module."
+    },
+    {
+      "index": 422,
+      "start_time": 1021710.0,
+      "end_time": 1024390.0,
+      "text": "OK, but by now you&#39;re probably thinking,"
+    },
+    {
+      "index": 423,
+      "start_time": 1024390.0000000001,
+      "end_time": 1026400.0000000001,
+      "text": "this is all well and good, but how"
+    },
+    {
+      "index": 424,
+      "start_time": 1026400.0000000001,
+      "end_time": 1028270.0000000001,
+      "text": "do I use this stuff in my actual application?"
+    },
+    {
+      "index": 425,
+      "start_time": 1028270.0,
+      "end_time": 1030480.0,
+      "text": "So I&#39;ll start with a very simple example."
+    },
+    {
+      "index": 426,
+      "start_time": 1030480.0,
+      "end_time": 1033839.0,
+      "text": "We&#39;ll do an example which is just a little Fibonacci program"
+    },
+    {
+      "index": 427,
+      "start_time": 1033839.9999999999,
+      "end_time": 1035690.9999999999,
+      "text": "that runs in two threads."
+    },
+    {
+      "index": 428,
+      "start_time": 1035690.0,
+      "end_time": 1036780.0,
+      "text": "So it will look a bit like this."
+    },
+    {
+      "index": 429,
+      "start_time": 1036780.0,
+      "end_time": 1038952.0,
+      "text": "There&#39;ll be the main thread, the background thread,"
+    },
+    {
+      "index": 430,
+      "start_time": 1038950.0,
+      "end_time": 1040408.0,
+      "text": "the WebAssembly module, all talking"
+    },
+    {
+      "index": 431,
+      "start_time": 1040410.0000000001,
+      "end_time": 1041609.0000000001,
+      "text": "to the SharedArrayBuffer."
+    },
+    {
+      "index": 432,
+      "start_time": 1041609.9999999999,
+      "end_time": 1043504.9999999999,
+      "text": "So we just take some source code,"
+    },
+    {
+      "index": 433,
+      "start_time": 1043500.0,
+      "end_time": 1044916.0,
+      "text": "which will be something like this,"
+    },
+    {
+      "index": 434,
+      "start_time": 1044920.0000000001,
+      "end_time": 1046545.0000000001,
+      "text": "which is just a bit of C code."
+    },
+    {
+      "index": 435,
+      "start_time": 1046550.0,
+      "end_time": 1047925.0,
+      "text": "And what we want to do is we want"
+    },
+    {
+      "index": 436,
+      "start_time": 1047920.0000000001,
+      "end_time": 1052290.0,
+      "text": "to compile that into a form that we can use in parallel threads."
+    },
+    {
+      "index": 437,
+      "start_time": 1052290.0,
+      "end_time": 1055260.0,
+      "text": "And the way we do that is with the Emscripten tool chain."
+    },
+    {
+      "index": 438,
+      "start_time": 1055260.0,
+      "end_time": 1057529.0,
+      "text": "So it has a compiler called EMCC,"
+    },
+    {
+      "index": 439,
+      "start_time": 1057530.0,
+      "end_time": 1059701.0,
+      "text": "and there are a couple of flags here,"
+    },
+    {
+      "index": 440,
+      "start_time": 1059700.0,
+      "end_time": 1060490.0,
+      "text": "though, I want to point out."
+    },
+    {
+      "index": 441,
+      "start_time": 1060490.0,
+      "end_time": 1063930.0,
+      "text": "The first one is -s USE_PTHREADS=1."
+    },
+    {
+      "index": 442,
+      "start_time": 1063930.0,
+      "end_time": 1066870.0,
+      "text": "What that does is turn on the multi-threading support"
+    },
+    {
+      "index": 443,
+      "start_time": 1066870.0,
+      "end_time": 1069540.0,
+      "text": "when you&#39;re compiling your WebAssembly module."
+    },
+    {
+      "index": 444,
+      "start_time": 1069540.0,
+      "end_time": 1071550.0,
+      "text": "The second flag that&#39;s interesting is -s"
+    },
+    {
+      "index": 445,
+      "start_time": 1071550.0,
+      "end_time": 1073710.0,
+      "text": "PTHREAD_POOL_SIZE=2."
+    },
+    {
+      "index": 446,
+      "start_time": 1073710.0,
+      "end_time": 1075510.0,
+      "text": "What this does is tells the compiler"
+    },
+    {
+      "index": 447,
+      "start_time": 1075510.0,
+      "end_time": 1078960.0,
+      "text": "that I want to pre-allocate two threads for my application."
+    },
+    {
+      "index": 448,
+      "start_time": 1078960.0,
+      "end_time": 1081660.0,
+      "text": "So when I actually start the WebAssembly module"
+    },
+    {
+      "index": 449,
+      "start_time": 1081660.0,
+      "end_time": 1085440.0,
+      "text": "it will pre-create two threads and get going with that."
+    },
+    {
+      "index": 450,
+      "start_time": 1085440.0,
+      "end_time": 1087300.0,
+      "text": "Now this is kind of visualization"
+    },
+    {
+      "index": 451,
+      "start_time": 1087300.0,
+      "end_time": 1088500.0,
+      "text": "what would happen."
+    },
+    {
+      "index": 452,
+      "start_time": 1088500.0,
+      "end_time": 1090210.0,
+      "text": "If you set PTHREAD pool size to two,"
+    },
+    {
+      "index": 453,
+      "start_time": 1090210.0,
+      "end_time": 1093120.0,
+      "text": "you get the picture on the left, you get two workers,"
+    },
+    {
+      "index": 454,
+      "start_time": 1093120.0,
+      "end_time": 1095219.0,
+      "text": "and if you set it to eight you get eight workers."
+    },
+    {
+      "index": 455,
+      "start_time": 1095220.0,
+      "end_time": 1098280.0,
+      "text": "And that happens at startup time of your web app."
+    },
+    {
+      "index": 456,
+      "start_time": 1098280.0,
+      "end_time": 1100649.0,
+      "text": "Now you may be wondering why you care about the number."
+    },
+    {
+      "index": 457,
+      "start_time": 1100650.0,
+      "end_time": 1104100.0,
+      "text": "Well, the thing is that you should really try and set it"
+    },
+    {
+      "index": 458,
+      "start_time": 1104100.0,
+      "end_time": 1105929.0,
+      "text": "to the maximum number of threads."
+    },
+    {
+      "index": 459,
+      "start_time": 1105930.0,
+      "end_time": 1107700.0,
+      "text": "If you say I only want two threads,"
+    },
+    {
+      "index": 460,
+      "start_time": 1107700.0,
+      "end_time": 1109366.0,
+      "text": "and then suddenly your application needs"
+    },
+    {
+      "index": 461,
+      "start_time": 1109370.0,
+      "end_time": 1111314.0,
+      "text": "three or four, it&#39;s a bit of a problem."
+    },
+    {
+      "index": 462,
+      "start_time": 1111310.0,
+      "end_time": 1113669.0,
+      "text": "So what happens is that the WebAssembly module"
+    },
+    {
+      "index": 463,
+      "start_time": 1113670.0,
+      "end_time": 1115560.0,
+      "text": "has to yield to the main thread before it"
+    },
+    {
+      "index": 464,
+      "start_time": 1115560.0,
+      "end_time": 1116649.0,
+      "text": "can create that worker."
+    },
+    {
+      "index": 465,
+      "start_time": 1116650.0,
+      "end_time": 1119400.0,
+      "text": "So if you&#39;re relying on all the threads being"
+    },
+    {
+      "index": 466,
+      "start_time": 1119400.0,
+      "end_time": 1121882.0,
+      "text": "there at the startup, you need to set the number high enough."
+    },
+    {
+      "index": 467,
+      "start_time": 1121880.0,
+      "end_time": 1123838.0,
+      "text": "But of course, if you set that number too high,"
+    },
+    {
+      "index": 468,
+      "start_time": 1123840.0,
+      "end_time": 1124755.0,
+      "text": "you&#39;re wasting memory."
+    },
+    {
+      "index": 469,
+      "start_time": 1124760.0,
+      "end_time": 1126194.0,
+      "text": "So this is something to tune."
+    },
+    {
+      "index": 470,
+      "start_time": 1126190.0,
+      "end_time": 1128494.0,
+      "text": "So in Soundation&#39;s case they used five threads"
+    },
+    {
+      "index": 471,
+      "start_time": 1128490.0,
+      "end_time": 1129905.0,
+      "text": "and it works really well for them."
+    },
+    {
+      "index": 472,
+      "start_time": 1129910.0,
+      "end_time": 1133364.0,
+      "text": "So when you&#39;re tuning your apps you need to think about it."
+    },
+    {
+      "index": 473,
+      "start_time": 1133360.0,
+      "end_time": 1135526.0,
+      "text": "OK, so if you want to get out there and actually try"
+    },
+    {
+      "index": 474,
+      "start_time": 1135530.0,
+      "end_time": 1137710.0,
+      "text": "this stuff, which I&#39;m sure you&#39;re all"
+    },
+    {
+      "index": 475,
+      "start_time": 1137710.0,
+      "end_time": 1139760.0,
+      "text": "dying to, if you fire up Chrome 70"
+    },
+    {
+      "index": 476,
+      "start_time": 1139760.0,
+      "end_time": 1142700.0,
+      "text": "and navigate to Chrome flags and search for WebAssembly thread"
+    },
+    {
+      "index": 477,
+      "start_time": 1142700.0,
+      "end_time": 1145880.0,
+      "text": "support, change the setting here from default"
+    },
+    {
+      "index": 478,
+      "start_time": 1145880.0,
+      "end_time": 1147680.0,
+      "text": "to enabled, and at that point, you&#39;ll"
+    },
+    {
+      "index": 479,
+      "start_time": 1147680.0,
+      "end_time": 1149200.0,
+      "text": "have to restart your browser."
+    },
+    {
+      "index": 480,
+      "start_time": 1149200.0,
+      "end_time": 1152570.0,
+      "text": "And then you can start building stuff and testing it locally."
+    },
+    {
+      "index": 481,
+      "start_time": 1152570.0,
+      "end_time": 1155269.0,
+      "text": "Now once you&#39;ve built a working WebAssembly thread app,"
+    },
+    {
+      "index": 482,
+      "start_time": 1155270.0,
+      "end_time": 1157311.0,
+      "text": "you probably want to deploy it out to the public."
+    },
+    {
+      "index": 483,
+      "start_time": 1157310.0,
+      "end_time": 1160980.0,
+      "text": "And the way you do that is by getting an origin trial token."
+    },
+    {
+      "index": 484,
+      "start_time": 1160980.0,
+      "end_time": 1163460.0,
+      "text": "So an origin trial token is tied to your domain"
+    },
+    {
+      "index": 485,
+      "start_time": 1163460.0,
+      "end_time": 1164884.0,
+      "text": "and you get it from us."
+    },
+    {
+      "index": 486,
+      "start_time": 1164880.0,
+      "end_time": 1166546.0,
+      "text": "And you basically-- it&#39;s just a meta tag"
+    },
+    {
+      "index": 487,
+      "start_time": 1166550.0,
+      "end_time": 1167591.0,
+      "text": "that you put on the page."
+    },
+    {
+      "index": 488,
+      "start_time": 1167590.0,
+      "end_time": 1169849.0,
+      "text": "And that tells the browser, hey, these people"
+    },
+    {
+      "index": 489,
+      "start_time": 1169850.0,
+      "end_time": 1172156.0,
+      "text": "are trying WebAssembly threads and let&#39;s use it."
+    },
+    {
+      "index": 490,
+      "start_time": 1172160.0,
+      "end_time": 1173784.0,
+      "text": "So if you want to go ahead and do that,"
+    },
+    {
+      "index": 491,
+      "start_time": 1173780.0,
+      "end_time": 1176881.0,
+      "text": "and I encourage you all to do so, just go to this short link,"
+    },
+    {
+      "index": 492,
+      "start_time": 1176880.0,
+      "end_time": 1178504.0,
+      "text": "and there&#39;s a form you can fill in, put"
+    },
+    {
+      "index": 493,
+      "start_time": 1178510.0,
+      "end_time": 1182905.0,
+      "text": "in your URL, the reason you want to use this stuff,"
+    },
+    {
+      "index": 494,
+      "start_time": 1182900.0,
+      "end_time": 1185929.0,
+      "text": "and go start building something really cool."
+    },
+    {
+      "index": 495,
+      "start_time": 1185930.0,
+      "end_time": 1189100.0,
+      "text": "Now of course, as developers, we spend most of our times"
+    },
+    {
+      "index": 496,
+      "start_time": 1189100.0,
+      "end_time": 1192459.0,
+      "text": "in DevTools trying to debug things, which is how it is."
+    },
+    {
+      "index": 497,
+      "start_time": 1192460.0,
+      "end_time": 1195640.0,
+      "text": "So in Chrome 70 at the moment, which is released to stable,"
+    },
+    {
+      "index": 498,
+      "start_time": 1195640.0,
+      "end_time": 1197406.0,
+      "text": "you can single step instructions."
+    },
+    {
+      "index": 499,
+      "start_time": 1197410.0,
+      "end_time": 1199304.0,
+      "text": "And that is a WebAssembly instructions."
+    },
+    {
+      "index": 500,
+      "start_time": 1199300.0,
+      "end_time": 1200950.0,
+      "text": "So it looks a little bit like this,"
+    },
+    {
+      "index": 501,
+      "start_time": 1200950.0,
+      "end_time": 1203560.0,
+      "text": "like not friendly, as Thomas pointed out."
+    },
+    {
+      "index": 502,
+      "start_time": 1203560.0,
+      "end_time": 1205376.0,
+      "text": "So you can see this little box up here,"
+    },
+    {
+      "index": 503,
+      "start_time": 1205380.0,
+      "end_time": 1206754.0,
+      "text": "which is showing you the threads."
+    },
+    {
+      "index": 504,
+      "start_time": 1206750.0,
+      "end_time": 1209650.0,
+      "text": "So this is a two thread application running."
+    },
+    {
+      "index": 505,
+      "start_time": 1209650.0,
+      "end_time": 1213100.0,
+      "text": "And this box is the actual WebAssembly disassembled code."
+    },
+    {
+      "index": 506,
+      "start_time": 1213100.0,
+      "end_time": 1216340.0,
+      "text": "So it&#39;s not the binary, it&#39;s a text form of the instructions"
+    },
+    {
+      "index": 507,
+      "start_time": 1216340.0,
+      "end_time": 1217620.0,
+      "text": "that are in the module."
+    },
+    {
+      "index": 508,
+      "start_time": 1217620.0,
+      "end_time": 1219369.0,
+      "text": "And you can single step those and it&#39;s all"
+    },
+    {
+      "index": 509,
+      "start_time": 1219370.0,
+      "end_time": 1222550.0,
+      "text": "very well and good, but realistically, we don&#39;t really"
+    },
+    {
+      "index": 510,
+      "start_time": 1222550.0,
+      "end_time": 1224379.0,
+      "text": "like that debugging experience."
+    },
+    {
+      "index": 511,
+      "start_time": 1224380.0,
+      "end_time": 1226900.0,
+      "text": "So Chrome 71 brings source map support,"
+    },
+    {
+      "index": 512,
+      "start_time": 1226900.0,
+      "end_time": 1228680.0,
+      "text": "as Thomas mentioned earlier."
+    },
+    {
+      "index": 513,
+      "start_time": 1228680.0,
+      "end_time": 1231520.0,
+      "text": "So source maps lets you change what you saw before"
+    },
+    {
+      "index": 514,
+      "start_time": 1231520.0,
+      "end_time": 1233950.0,
+      "text": "into something-- oop, next slide--"
+    },
+    {
+      "index": 515,
+      "start_time": 1233950.0,
+      "end_time": 1236600.0,
+      "text": "something that looks like this."
+    },
+    {
+      "index": 516,
+      "start_time": 1236600.0,
+      "end_time": 1241900.0,
+      "text": "So this is the source code of the Fibonacci function sitting"
+    },
+    {
+      "index": 517,
+      "start_time": 1241900.0,
+      "end_time": 1244270.0,
+      "text": "in Dev Tools, and you can single step over instructions,"
+    },
+    {
+      "index": 518,
+      "start_time": 1244270.0,
+      "end_time": 1247910.0,
+      "text": "you can set breakpoints, you can do all stuff like that."
+    },
+    {
+      "index": 519,
+      "start_time": 1247910.0,
+      "end_time": 1250300.0,
+      "text": "Now, if you want to actually do this yourself"
+    },
+    {
+      "index": 520,
+      "start_time": 1250300.0,
+      "end_time": 1251770.0,
+      "text": "and you want to generate the source map,"
+    },
+    {
+      "index": 521,
+      "start_time": 1251770.0,
+      "end_time": 1255340.0,
+      "text": "you just need to set two flags on the EMCC compiler command"
+    },
+    {
+      "index": 522,
+      "start_time": 1255340.0,
+      "end_time": 1255879.0,
+      "text": "line."
+    },
+    {
+      "index": 523,
+      "start_time": 1255880.0,
+      "end_time": 1259290.0,
+      "text": "The first is -g, which says generate debug symbols,"
+    },
+    {
+      "index": 524,
+      "start_time": 1259290.0,
+      "end_time": 1261950.0,
+      "text": "and the second is --source-map-base,"
+    },
+    {
+      "index": 525,
+      "start_time": 1261950.0,
+      "end_time": 1264580.0,
+      "text": "and that points to a URL where it will actually"
+    },
+    {
+      "index": 526,
+      "start_time": 1264580.0,
+      "end_time": 1266302.0,
+      "text": "find the source map file."
+    },
+    {
+      "index": 527,
+      "start_time": 1266300.0,
+      "end_time": 1267758.0,
+      "text": "In this case, I&#39;m using local host,"
+    },
+    {
+      "index": 528,
+      "start_time": 1267760.0,
+      "end_time": 1272900.0,
+      "text": "so I&#39;ll be using it on my own workstation."
+    },
+    {
+      "index": 529,
+      "start_time": 1272900.0,
+      "end_time": 1274600.0,
+      "text": "OK, so I&#39;ll just recap on what we&#39;ve talked about today,"
+    },
+    {
+      "index": 530,
+      "start_time": 1274600.0,
+      "end_time": 1276939.0,
+      "text": "just so you can remember what we talked about."
+    },
+    {
+      "index": 531,
+      "start_time": 1276940.0,
+      "end_time": 1278860.0,
+      "text": "The first thing is it&#39;s streaming compilation,"
+    },
+    {
+      "index": 532,
+      "start_time": 1278860.0,
+      "end_time": 1281169.0,
+      "text": "which lets the browser compile the WebAssembly"
+    },
+    {
+      "index": 533,
+      "start_time": 1281170.0,
+      "end_time": 1283690.0,
+      "text": "module as it comes over the wire, which is launched now."
+    },
+    {
+      "index": 534,
+      "start_time": 1283690.0,
+      "end_time": 1286450.0,
+      "text": "It&#39;s in Chrome 70, which speeds things up."
+    },
+    {
+      "index": 535,
+      "start_time": 1286450.0,
+      "end_time": 1289100.0,
+      "text": "The second is Liftoff, which is the tiered compiler,"
+    },
+    {
+      "index": 536,
+      "start_time": 1289100.0,
+      "end_time": 1291970.0,
+      "text": "so you get the first compile really fast so your app starts,"
+    },
+    {
+      "index": 537,
+      "start_time": 1291970.0,
+      "end_time": 1295190.0,
+      "text": "and then hot swaps in the better code a bit later on."
+    },
+    {
+      "index": 538,
+      "start_time": 1295190.0,
+      "end_time": 1297520.0,
+      "text": "Then we have, of course, WebAssembly threads shipping"
+    },
+    {
+      "index": 539,
+      "start_time": 1297520.0,
+      "end_time": 1300730.0,
+      "text": "now in Chrome 70, and you can use it with an origin trial,"
+    },
+    {
+      "index": 540,
+      "start_time": 1300730.0,
+      "end_time": 1302230.0,
+      "text": "so you can ship it to your customers"
+    },
+    {
+      "index": 541,
+      "start_time": 1302230.0,
+      "end_time": 1304570.0,
+      "text": "and they can use it and play with it."
+    },
+    {
+      "index": 542,
+      "start_time": 1304570.0,
+      "end_time": 1307900.0,
+      "text": "And of course, Chrome 71, which will be out really soon,"
+    },
+    {
+      "index": 543,
+      "start_time": 1307900.0,
+      "end_time": 1309400.0,
+      "text": "contains source maps, which means"
+    },
+    {
+      "index": 544,
+      "start_time": 1309400.0,
+      "end_time": 1311290.0,
+      "text": "that it&#39;s a lot easier to debug your code."
+    },
+    {
+      "index": 545,
+      "start_time": 1311290.0,
+      "end_time": 1312879.0,
+      "text": "And so I&#39;d encourage all of you people"
+    },
+    {
+      "index": 546,
+      "start_time": 1312880.0,
+      "end_time": 1316370.0,
+      "text": "out there to start writing using WebAssembly threads,"
+    },
+    {
+      "index": 547,
+      "start_time": 1316370.0,
+      "end_time": 1318370.0,
+      "text": "because it unlocks the power of the supercomputer that&#39;s"
+    },
+    {
+      "index": 548,
+      "start_time": 1318370.0,
+      "end_time": 1321400.0,
+      "text": "sitting in your pocket right now."
+    },
+    {
+      "index": 549,
+      "start_time": 1321400.0,
+      "end_time": 1322120.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 550,
+      "start_time": 1322120.0,
+      "end_time": 1325469.0,
+      "text": "[MUSIC PLAYING]"
+    }
+  ]
+}

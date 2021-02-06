@@ -1,0 +1,4410 @@
+{
+  "video_id": "wf9hZcqQI7A",
+  "title": "Google I/O 2015 - Developing Extraordinary Apps with Firebase",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 8640.0,
+      "end_time": 11120.0,
+      "text": "JAMES TAMPLIN: Hi everyone, and welcome to Developing"
+    },
+    {
+      "index": 2,
+      "start_time": 11120.0,
+      "end_time": 13840.0,
+      "text": "Extraordinary Apps with Firebase."
+    },
+    {
+      "index": 3,
+      "start_time": 13840.0,
+      "end_time": 14710.0,
+      "text": "I&#39;m James."
+    },
+    {
+      "index": 4,
+      "start_time": 14710.0,
+      "end_time": 16705.0,
+      "text": "I&#39;m the co-founder, and was the CEO,"
+    },
+    {
+      "index": 5,
+      "start_time": 16705.0,
+      "end_time": 22280.0,
+      "text": "of Firebase until we joined Google about six months ago."
+    },
+    {
+      "index": 6,
+      "start_time": 22280.0,
+      "end_time": 24780.0,
+      "text": "I want to start on a little bit of a personal note."
+    },
+    {
+      "index": 7,
+      "start_time": 24780.0,
+      "end_time": 27340.0,
+      "text": "Six years ago today, I moved to the Bay Area."
+    },
+    {
+      "index": 8,
+      "start_time": 27340.0,
+      "end_time": 31780.0,
+      "text": "And the very first thing I did was come to I/O 2009."
+    },
+    {
+      "index": 9,
+      "start_time": 31780.0,
+      "end_time": 34560.0,
+      "text": "A lot has changed in six years, and it&#39;s really great"
+    },
+    {
+      "index": 10,
+      "start_time": 34560.0,
+      "end_time": 37380.0,
+      "text": "to be back here for my second I/O, and this time,"
+    },
+    {
+      "index": 11,
+      "start_time": 37380.0,
+      "end_time": 39915.0,
+      "text": "speaking to all of you."
+    },
+    {
+      "index": 12,
+      "start_time": 39915.0,
+      "end_time": 42040.0,
+      "text": "So we&#39;re going to have a brief overview of Firebase"
+    },
+    {
+      "index": 13,
+      "start_time": 42040.0,
+      "end_time": 44960.0,
+      "text": "and how we think about application development."
+    },
+    {
+      "index": 14,
+      "start_time": 44960.0,
+      "end_time": 49280.0,
+      "text": "But before we go deep, I want to go broad."
+    },
+    {
+      "index": 15,
+      "start_time": 49280.0,
+      "end_time": 51280.0,
+      "text": "So 10 years ago, if you were starting a startup,"
+    },
+    {
+      "index": 16,
+      "start_time": 51280.0,
+      "end_time": 54660.0,
+      "text": "you had to buy physical servers."
+    },
+    {
+      "index": 17,
+      "start_time": 54660.0,
+      "end_time": 56750.0,
+      "text": "You&#39;d call up Dell or HP and you&#39;d say,"
+    },
+    {
+      "index": 18,
+      "start_time": 56750.0,
+      "end_time": 59020.0,
+      "text": "hello, I&#39;d like a box with the Xeon processor"
+    },
+    {
+      "index": 19,
+      "start_time": 59020.0,
+      "end_time": 60060.0,
+      "text": "and a terabyte of RAM."
+    },
+    {
+      "index": 20,
+      "start_time": 60060.0,
+      "end_time": 63615.0,
+      "text": "And they would ship you a physical server."
+    },
+    {
+      "index": 21,
+      "start_time": 63615.0,
+      "end_time": 66240.0,
+      "text": "You had to find a colo facility and maybe, every now and again,"
+    },
+    {
+      "index": 22,
+      "start_time": 66240.0,
+      "end_time": 68050.0,
+      "text": "call the nice people at the colo facility"
+    },
+    {
+      "index": 23,
+      "start_time": 68050.0,
+      "end_time": 71340.0,
+      "text": "and ask them to reset your physical server."
+    },
+    {
+      "index": 24,
+      "start_time": 71340.0,
+      "end_time": 74850.0,
+      "text": "And all of this seems unimaginable today."
+    },
+    {
+      "index": 25,
+      "start_time": 74850.0,
+      "end_time": 77830.0,
+      "text": "The cost of these made them inaccessible to most."
+    },
+    {
+      "index": 26,
+      "start_time": 77830.0,
+      "end_time": 80870.0,
+      "text": "And the time to set up, operate, manage, and maintain"
+    },
+    {
+      "index": 27,
+      "start_time": 80870.0,
+      "end_time": 83050.0,
+      "text": "seemed stunning, as well."
+    },
+    {
+      "index": 28,
+      "start_time": 83050.0,
+      "end_time": 85730.0,
+      "text": "So it begs the question, if this looks crazy,"
+    },
+    {
+      "index": 29,
+      "start_time": 85730.0,
+      "end_time": 88340.0,
+      "text": "what are we going to look like-- today-- to software engineers"
+    },
+    {
+      "index": 30,
+      "start_time": 88340.0,
+      "end_time": 90430.0,
+      "text": "10 years from now?"
+    },
+    {
+      "index": 31,
+      "start_time": 90430.0,
+      "end_time": 93830.0,
+      "text": "If history is any guide, we&#39;re going to look antiquated."
+    },
+    {
+      "index": 32,
+      "start_time": 96464.0,
+      "end_time": 98380.0,
+      "text": "Even though we&#39;ve made huge strides, the tools"
+    },
+    {
+      "index": 33,
+      "start_time": 98380.0,
+      "end_time": 101060.0,
+      "text": "and the processes that we use to build software today"
+    },
+    {
+      "index": 34,
+      "start_time": 101060.0,
+      "end_time": 103250.0,
+      "text": "are going to feel clunky."
+    },
+    {
+      "index": 35,
+      "start_time": 103250.0,
+      "end_time": 105427.0,
+      "text": "So where is software development going?"
+    },
+    {
+      "index": 36,
+      "start_time": 105427.0,
+      "end_time": 108010.0,
+      "text": "We think the developer&#39;s going to have more and more leverage."
+    },
+    {
+      "index": 37,
+      "start_time": 108010.0,
+      "end_time": 109800.0,
+      "text": "You&#39;ll be able to do more with less."
+    },
+    {
+      "index": 38,
+      "start_time": 109800.0,
+      "end_time": 112760.0,
+      "text": "Specifically, you&#39;ll focus on high level concepts,"
+    },
+    {
+      "index": 39,
+      "start_time": 112760.0,
+      "end_time": 117160.0,
+      "text": "like users, data, and tasks."
+    },
+    {
+      "index": 40,
+      "start_time": 117160.0,
+      "end_time": 120542.0,
+      "text": "So how is Google going to help you do this?"
+    },
+    {
+      "index": 41,
+      "start_time": 120542.0,
+      "end_time": 122250.0,
+      "text": "Today, we&#39;ll be looking at some offerings"
+    },
+    {
+      "index": 42,
+      "start_time": 122250.0,
+      "end_time": 124060.0,
+      "text": "from Google Cloud Platform."
+    },
+    {
+      "index": 43,
+      "start_time": 124060.0,
+      "end_time": 126120.0,
+      "text": "We&#39;ll be looking at an overview of Firebase,"
+    },
+    {
+      "index": 44,
+      "start_time": 126120.0,
+      "end_time": 128289.0,
+      "text": "going into a feature deep dive, and then we&#39;ve"
+    },
+    {
+      "index": 45,
+      "start_time": 128288.99999999999,
+      "end_time": 131940.0,
+      "text": "got some exciting announcements for you, as well."
+    },
+    {
+      "index": 46,
+      "start_time": 131940.0,
+      "end_time": 133880.0,
+      "text": "So let&#39;s start with Google Cloud Platform."
+    },
+    {
+      "index": 47,
+      "start_time": 133880.0,
+      "end_time": 135380.0,
+      "text": "Remember all those physical servers?"
+    },
+    {
+      "index": 48,
+      "start_time": 135380.0,
+      "end_time": 137680.0,
+      "text": "With GCP, you do not need them."
+    },
+    {
+      "index": 49,
+      "start_time": 137680.0,
+      "end_time": 140350.0,
+      "text": "GCP provides compute storage, data analytics,"
+    },
+    {
+      "index": 50,
+      "start_time": 140350.0,
+      "end_time": 143120.0,
+      "text": "and several other services that help today&#39;s developers be"
+    },
+    {
+      "index": 51,
+      "start_time": 143120.0,
+      "end_time": 144330.0,
+      "text": "more productive."
+    },
+    {
+      "index": 52,
+      "start_time": 144330.0,
+      "end_time": 146530.0,
+      "text": "I&#39;m going to highlight a few of them."
+    },
+    {
+      "index": 53,
+      "start_time": 146530.0,
+      "end_time": 150410.0,
+      "text": "First, is Google Compute Engine, or GCE."
+    },
+    {
+      "index": 54,
+      "start_time": 150410.0,
+      "end_time": 152025.0,
+      "text": "GCE abstracts the physical machine"
+    },
+    {
+      "index": 55,
+      "start_time": 152025.0,
+      "end_time": 153750.0,
+      "text": "and gives you a virtual one."
+    },
+    {
+      "index": 56,
+      "start_time": 153750.0,
+      "end_time": 156110.0,
+      "text": "This is also known as Infrastructure as a Service."
+    },
+    {
+      "index": 57,
+      "start_time": 156110.0,
+      "end_time": 159460.0,
+      "text": "You pay nothing for the hardware and then you pay as you go."
+    },
+    {
+      "index": 58,
+      "start_time": 159460.0,
+      "end_time": 161350.0,
+      "text": "With GCP, this is in one-minute increments,"
+    },
+    {
+      "index": 59,
+      "start_time": 161350.0,
+      "end_time": 163710.0,
+      "text": "which is pretty awesome."
+    },
+    {
+      "index": 60,
+      "start_time": 163710.0,
+      "end_time": 166634.0,
+      "text": "An abstraction above that is containers."
+    },
+    {
+      "index": 61,
+      "start_time": 166634.0,
+      "end_time": 168050.0,
+      "text": "So with containers, you don&#39;t have"
+    },
+    {
+      "index": 62,
+      "start_time": 168050.0,
+      "end_time": 172769.0,
+      "text": "to think about the operational concerns of a virtual machine."
+    },
+    {
+      "index": 63,
+      "start_time": 172769.0,
+      "end_time": 174060.0,
+      "text": "Can we go forward in the notes?"
+    },
+    {
+      "index": 64,
+      "start_time": 177340.0,
+      "end_time": 179436.0,
+      "text": "Containers, basically, mean that you"
+    },
+    {
+      "index": 65,
+      "start_time": 179436.0,
+      "end_time": 180810.0,
+      "text": "can run software without thinking"
+    },
+    {
+      "index": 66,
+      "start_time": 180810.0,
+      "end_time": 182280.0,
+      "text": "about underlying hardware."
+    },
+    {
+      "index": 67,
+      "start_time": 182280.0,
+      "end_time": 184210.0,
+      "text": "And with Google Container Engine,"
+    },
+    {
+      "index": 68,
+      "start_time": 184210.0,
+      "end_time": 187200.0,
+      "text": "you can run your code on a cluster of machines."
+    },
+    {
+      "index": 69,
+      "start_time": 187200.0,
+      "end_time": 189780.0,
+      "text": "And that&#39;s done with the open source project, Kubernetes,"
+    },
+    {
+      "index": 70,
+      "start_time": 189780.0,
+      "end_time": 193260.0,
+      "text": "which Google released last June."
+    },
+    {
+      "index": 71,
+      "start_time": 193260.0,
+      "end_time": 196070.0,
+      "text": "One level of abstraction above that, is Platform as a Service,"
+    },
+    {
+      "index": 72,
+      "start_time": 196070.0,
+      "end_time": 197690.0,
+      "text": "with App Engine."
+    },
+    {
+      "index": 73,
+      "start_time": 197690.0,
+      "end_time": 199410.0,
+      "text": "With App Engine, you further don&#39;t"
+    },
+    {
+      "index": 74,
+      "start_time": 199410.0,
+      "end_time": 204480.0,
+      "text": "need to think about memory or CPU, OS upgrades."
+    },
+    {
+      "index": 75,
+      "start_time": 204480.0,
+      "end_time": 206640.0,
+      "text": "You just give it your back end code,"
+    },
+    {
+      "index": 76,
+      "start_time": 206640.0,
+      "end_time": 210840.0,
+      "text": "and App Engine takes it, deploys it, runs it, and scales it."
+    },
+    {
+      "index": 77,
+      "start_time": 210840.0,
+      "end_time": 214890.0,
+      "text": "And this makes developers significantly more productive."
+    },
+    {
+      "index": 78,
+      "start_time": 214890.0,
+      "end_time": 218300.0,
+      "text": "And so GCP has some awesome offerings for service side back"
+    },
+    {
+      "index": 79,
+      "start_time": 218300.0,
+      "end_time": 219860.0,
+      "text": "end developers."
+    },
+    {
+      "index": 80,
+      "start_time": 219860.0,
+      "end_time": 222000.0,
+      "text": "But what if you&#39;re a mobile developer or a web"
+    },
+    {
+      "index": 81,
+      "start_time": 222000.0,
+      "end_time": 226460.0,
+      "text": "developer working on the client side of your application?"
+    },
+    {
+      "index": 82,
+      "start_time": 226460.0,
+      "end_time": 230751.0,
+      "text": "Well, it turns out that Google has a service for you."
+    },
+    {
+      "index": 83,
+      "start_time": 230751.0,
+      "end_time": 234334.0,
+      "text": "And that brings us to Firebase."
+    },
+    {
+      "index": 84,
+      "start_time": 234334.0,
+      "end_time": 235750.0,
+      "text": "For those of you who aren&#39;t aware,"
+    },
+    {
+      "index": 85,
+      "start_time": 235750.0,
+      "end_time": 238300.0,
+      "text": "let&#39;s do a quick overview."
+    },
+    {
+      "index": 86,
+      "start_time": 238300.0,
+      "end_time": 241500.0,
+      "text": "Firebase is a platform to help you rapidly"
+    },
+    {
+      "index": 87,
+      "start_time": 241500.0,
+      "end_time": 245624.0,
+      "text": "build really great mobile and web applications."
+    },
+    {
+      "index": 88,
+      "start_time": 245624.0,
+      "end_time": 248040.0,
+      "text": "One of the first things you do when building an app is you"
+    },
+    {
+      "index": 89,
+      "start_time": 248040.0,
+      "end_time": 250750.0,
+      "text": "choose how to build its back end."
+    },
+    {
+      "index": 90,
+      "start_time": 250750.0,
+      "end_time": 254390.0,
+      "text": "Firebase has three services-- user authentication,"
+    },
+    {
+      "index": 91,
+      "start_time": 254390.0,
+      "end_time": 259040.0,
+      "text": "a real time database, and static hosting--"
+    },
+    {
+      "index": 92,
+      "start_time": 259040.00000000003,
+      "end_time": 261640.00000000003,
+      "text": "to help you build your application without needing"
+    },
+    {
+      "index": 93,
+      "start_time": 261640.0,
+      "end_time": 264290.0,
+      "text": "to spin up servers and without needing to manage"
+    },
+    {
+      "index": 94,
+      "start_time": 264290.0,
+      "end_time": 266810.0,
+      "text": "complex infrastructure."
+    },
+    {
+      "index": 95,
+      "start_time": 266810.0,
+      "end_time": 268920.0,
+      "text": "This saves you an immense amount of time."
+    },
+    {
+      "index": 96,
+      "start_time": 268920.0,
+      "end_time": 270350.0,
+      "text": "But more importantly, it lets you"
+    },
+    {
+      "index": 97,
+      "start_time": 270350.0,
+      "end_time": 273810.0,
+      "text": "focus on creating a great user experience."
+    },
+    {
+      "index": 98,
+      "start_time": 273810.0,
+      "end_time": 276625.0,
+      "text": "Your users do not care if the code to shard your database"
+    },
+    {
+      "index": 99,
+      "start_time": 276625.0,
+      "end_time": 277910.0,
+      "text": "is elegant."
+    },
+    {
+      "index": 100,
+      "start_time": 277910.0,
+      "end_time": 280820.0,
+      "text": "They care if you&#39;re elegantly solving their problem."
+    },
+    {
+      "index": 101,
+      "start_time": 284020.0,
+      "end_time": 288990.0,
+      "text": "Firebase has SDKs for iOS, Android, and the web."
+    },
+    {
+      "index": 102,
+      "start_time": 288990.0,
+      "end_time": 290870.0,
+      "text": "This allows you to access Firebase directly"
+    },
+    {
+      "index": 103,
+      "start_time": 290870.0,
+      "end_time": 292724.0,
+      "text": "from your client."
+    },
+    {
+      "index": 104,
+      "start_time": 292724.0,
+      "end_time": 294390.0,
+      "text": "With client side code, though, you often"
+    },
+    {
+      "index": 105,
+      "start_time": 294390.0,
+      "end_time": 296170.0,
+      "text": "need to structure and maintain it."
+    },
+    {
+      "index": 106,
+      "start_time": 296170.0,
+      "end_time": 298110.0,
+      "text": "And this is why we&#39;ve built deep integrations"
+    },
+    {
+      "index": 107,
+      "start_time": 298110.0,
+      "end_time": 300865.0,
+      "text": "with these great front end web frameworks."
+    },
+    {
+      "index": 108,
+      "start_time": 300865.0,
+      "end_time": 302740.0,
+      "text": "If you want to access Firebase from a server,"
+    },
+    {
+      "index": 109,
+      "start_time": 302740.0,
+      "end_time": 304970.0,
+      "text": "you can use our server site libraries or wrappers"
+    },
+    {
+      "index": 110,
+      "start_time": 304970.0,
+      "end_time": 307710.0,
+      "text": "around our REST API in these languages."
+    },
+    {
+      "index": 111,
+      "start_time": 307710.0,
+      "end_time": 310420.0,
+      "text": "And with our REST API, you can access Firebase from anywhere"
+    },
+    {
+      "index": 112,
+      "start_time": 310420.0,
+      "end_time": 311285.0,
+      "text": "you can do HTTP."
+    },
+    {
+      "index": 113,
+      "start_time": 315400.0,
+      "end_time": 317700.0,
+      "text": "So how did Firebase start?"
+    },
+    {
+      "index": 114,
+      "start_time": 317700.0,
+      "end_time": 321400.0,
+      "text": "Well, 3 and 1/2 years ago, we saw some game developers"
+    },
+    {
+      "index": 115,
+      "start_time": 321400.0,
+      "end_time": 324570.0,
+      "text": "having some trouble setting up their back end infrastructure."
+    },
+    {
+      "index": 116,
+      "start_time": 324570.0,
+      "end_time": 326890.0,
+      "text": "All they wanted to do was build a really cool game."
+    },
+    {
+      "index": 117,
+      "start_time": 326890.0,
+      "end_time": 329170.0,
+      "text": "They wanted to make awesome artwork."
+    },
+    {
+      "index": 118,
+      "start_time": 329170.0,
+      "end_time": 330890.0,
+      "text": "They wanted to grow their MAUs."
+    },
+    {
+      "index": 119,
+      "start_time": 330890.0,
+      "end_time": 332530.0,
+      "text": "And they didn&#39;t want to think about the intricacies"
+    },
+    {
+      "index": 120,
+      "start_time": 332530.0,
+      "end_time": 333970.0,
+      "text": "of a distributed real time system."
+    },
+    {
+      "index": 121,
+      "start_time": 337310.0,
+      "end_time": 338570.0,
+      "text": "So we started Firebase."
+    },
+    {
+      "index": 122,
+      "start_time": 338570.0,
+      "end_time": 341240.0,
+      "text": "And today, this is one of our customers-- Roll20-- who&#39;s"
+    },
+    {
+      "index": 123,
+      "start_time": 341240.0,
+      "end_time": 342710.0,
+      "text": "built their entire game on us."
+    },
+    {
+      "index": 124,
+      "start_time": 342710.0,
+      "end_time": 347265.0,
+      "text": "They are just one of 190,000 developers who are building"
+    },
+    {
+      "index": 125,
+      "start_time": 347265.0,
+      "end_time": 349530.0,
+      "text": "their applications on Firebase."
+    },
+    {
+      "index": 126,
+      "start_time": 349530.0,
+      "end_time": 353450.0,
+      "text": "And Firebase has 1 and 1/2 million end user devices"
+    },
+    {
+      "index": 127,
+      "start_time": 353450.0,
+      "end_time": 358060.0,
+      "text": "sending data through us at any given time."
+    },
+    {
+      "index": 128,
+      "start_time": 358060.0,
+      "end_time": 360220.0,
+      "text": "These are some of the customers that use us."
+    },
+    {
+      "index": 129,
+      "start_time": 360220.0,
+      "end_time": 362490.0,
+      "text": "They range from ambitious startups"
+    },
+    {
+      "index": 130,
+      "start_time": 362490.0,
+      "end_time": 366270.0,
+      "text": "all the way up to large enterprises."
+    },
+    {
+      "index": 131,
+      "start_time": 366270.0,
+      "end_time": 368230.0,
+      "text": "So that&#39;s a quick overview of Firebase."
+    },
+    {
+      "index": 132,
+      "start_time": 368230.0,
+      "end_time": 371940.0,
+      "text": "Now let&#39;s look at our features-- authentication, database,"
+    },
+    {
+      "index": 133,
+      "start_time": 371940.0,
+      "end_time": 374230.0,
+      "text": "and hosting."
+    },
+    {
+      "index": 134,
+      "start_time": 374230.0,
+      "end_time": 376850.0,
+      "text": "Data is the lifeblood of any application."
+    },
+    {
+      "index": 135,
+      "start_time": 376850.0,
+      "end_time": 379370.0,
+      "text": "So we&#39;ll start off with the real time database."
+    },
+    {
+      "index": 136,
+      "start_time": 379370.0,
+      "end_time": 382080.0,
+      "text": "Firebase has a NoSQL JSON database."
+    },
+    {
+      "index": 137,
+      "start_time": 382080.0,
+      "end_time": 385020.0,
+      "text": "One of the most exciting features about this"
+    },
+    {
+      "index": 138,
+      "start_time": 385020.0,
+      "end_time": 387624.0,
+      "text": "is it does data synchronization."
+    },
+    {
+      "index": 139,
+      "start_time": 387624.0,
+      "end_time": 389540.0,
+      "text": "Whenever the client device writes to Firebase,"
+    },
+    {
+      "index": 140,
+      "start_time": 389540.0,
+      "end_time": 391920.0,
+      "text": "we synchronize that data with the Firebase servers,"
+    },
+    {
+      "index": 141,
+      "start_time": 391920.0,
+      "end_time": 394810.0,
+      "text": "and then push it down to every other device who cares."
+    },
+    {
+      "index": 142,
+      "start_time": 394810.0,
+      "end_time": 396865.0,
+      "text": "This is fantastic for this multi-device world"
+    },
+    {
+      "index": 143,
+      "start_time": 396865.0,
+      "end_time": 400240.0,
+      "text": "that we live in, where you pick up your smartphone"
+    },
+    {
+      "index": 144,
+      "start_time": 400240.0,
+      "end_time": 401970.0,
+      "text": "and put down your tablet and expect"
+    },
+    {
+      "index": 145,
+      "start_time": 401970.0,
+      "end_time": 404270.0,
+      "text": "to pick up where you left off."
+    },
+    {
+      "index": 146,
+      "start_time": 404270.0,
+      "end_time": 406760.0,
+      "text": "It&#39;s also fantastic for this world of intermittent internet"
+    },
+    {
+      "index": 147,
+      "start_time": 406760.0,
+      "end_time": 407560.0,
+      "text": "connectivity."
+    },
+    {
+      "index": 148,
+      "start_time": 407560.0,
+      "end_time": 410990.0,
+      "text": "When you go into an elevator or go through a tunnel,"
+    },
+    {
+      "index": 149,
+      "start_time": 410990.0,
+      "end_time": 413360.0,
+      "text": "you expect your application to still work."
+    },
+    {
+      "index": 150,
+      "start_time": 413360.0,
+      "end_time": 414950.0,
+      "text": "And since, with Firebase, your SDKs"
+    },
+    {
+      "index": 151,
+      "start_time": 414950.0,
+      "end_time": 417750.0,
+      "text": "have a local view of the data-- a local copy of the data--"
+    },
+    {
+      "index": 152,
+      "start_time": 417750.0,
+      "end_time": 420080.0,
+      "text": "in memory on the device, it means your application"
+    },
+    {
+      "index": 153,
+      "start_time": 420080.0,
+      "end_time": 421050.0,
+      "text": "does exactly this."
+    },
+    {
+      "index": 154,
+      "start_time": 424720.0,
+      "end_time": 426590.0,
+      "text": "But it&#39;s not just synchronization."
+    },
+    {
+      "index": 155,
+      "start_time": 426590.0,
+      "end_time": 428890.0,
+      "text": "It&#39;s real time synchronization."
+    },
+    {
+      "index": 156,
+      "start_time": 428890.0,
+      "end_time": 431800.0,
+      "text": "We push those updates to other devices in milliseconds."
+    },
+    {
+      "index": 157,
+      "start_time": 431800.0,
+      "end_time": 434450.0,
+      "text": "And this allows you to build great, real time, collaborative"
+    },
+    {
+      "index": 158,
+      "start_time": 434450.0,
+      "end_time": 436390.0,
+      "text": "applications with Firebase."
+    },
+    {
+      "index": 159,
+      "start_time": 436390.0,
+      "end_time": 439270.0,
+      "text": "Google Docs has set the standard for what you can do"
+    },
+    {
+      "index": 160,
+      "start_time": 439270.0,
+      "end_time": 440990.0,
+      "text": "with real time collaboration."
+    },
+    {
+      "index": 161,
+      "start_time": 440990.0,
+      "end_time": 443750.0,
+      "text": "And now, with Firebase, you can build these great experiences"
+    },
+    {
+      "index": 162,
+      "start_time": 443750.0,
+      "end_time": 446700.0,
+      "text": "without needing a huge engineering team."
+    },
+    {
+      "index": 163,
+      "start_time": 446700.0,
+      "end_time": 450090.0,
+      "text": "But instead of telling you, why don&#39;t I show you?"
+    },
+    {
+      "index": 164,
+      "start_time": 450090.0,
+      "end_time": 452030.0,
+      "text": "So we&#39;ll switch over to the camera."
+    },
+    {
+      "index": 165,
+      "start_time": 452030.0,
+      "end_time": 454620.0,
+      "text": "And we&#39;re going to show an application called Talkboard."
+    },
+    {
+      "index": 166,
+      "start_time": 454620.0,
+      "end_time": 456740.0,
+      "text": "Talkboard is built by Citrix, and it&#39;s"
+    },
+    {
+      "index": 167,
+      "start_time": 456740.0,
+      "end_time": 460890.0,
+      "text": "used in schools and companies with over hundreds of thousands"
+    },
+    {
+      "index": 168,
+      "start_time": 460890.0,
+      "end_time": 462970.0,
+      "text": "of users around the world."
+    },
+    {
+      "index": 169,
+      "start_time": 462970.0,
+      "end_time": 464580.0,
+      "text": "So here I can select multiple boards,"
+    },
+    {
+      "index": 170,
+      "start_time": 464580.0,
+      "end_time": 466329.0,
+      "text": "and I&#39;m going to jump into this one called"
+    },
+    {
+      "index": 171,
+      "start_time": 466329.0,
+      "end_time": 469812.0,
+      "text": "I/O. Now, with Firebase, these two devices"
+    },
+    {
+      "index": 172,
+      "start_time": 469812.0,
+      "end_time": 471610.0,
+      "text": "are connected over Wi-Fi."
+    },
+    {
+      "index": 173,
+      "start_time": 471610.0,
+      "end_time": 474560.0,
+      "text": "When I write on one, it&#39;ll sync the data up to Firebase"
+    },
+    {
+      "index": 174,
+      "start_time": 474560.0,
+      "end_time": 477610.0,
+      "text": "and push it down to the other device in milliseconds."
+    },
+    {
+      "index": 175,
+      "start_time": 477610.0,
+      "end_time": 480220.0,
+      "text": "So I can say, hi I/O. And I&#39;ll flip that around,"
+    },
+    {
+      "index": 176,
+      "start_time": 480220.0,
+      "end_time": 483090.0,
+      "text": "so we&#39;re all looking at the same thing."
+    },
+    {
+      "index": 177,
+      "start_time": 483090.0,
+      "end_time": 485760.0,
+      "text": "I&#39;ll find the appropriate shade of blue."
+    },
+    {
+      "index": 178,
+      "start_time": 485760.0,
+      "end_time": 487905.0,
+      "text": "Let&#39;s get a bit of a fatter stencil"
+    },
+    {
+      "index": 179,
+      "start_time": 487905.0,
+      "end_time": 493890.0,
+      "text": "there, go hi, I/O. I&#39;ll find a nice yellow,"
+    },
+    {
+      "index": 180,
+      "start_time": 493890.0,
+      "end_time": 496620.0,
+      "text": "draw a little sun up here."
+    },
+    {
+      "index": 181,
+      "start_time": 496620.0,
+      "end_time": 498910.0,
+      "text": "So you can-- this is all vector data,"
+    },
+    {
+      "index": 182,
+      "start_time": 498910.0,
+      "end_time": 500950.0,
+      "text": "and it&#39;s all stored as JSON inside Firebase."
+    },
+    {
+      "index": 183,
+      "start_time": 500950.0,
+      "end_time": 505460.0,
+      "text": "And you can see just how quickly those updates propagate."
+    },
+    {
+      "index": 184,
+      "start_time": 505460.0,
+      "end_time": 509659.0,
+      "text": "And just how easy it is to build those collaborative features."
+    },
+    {
+      "index": 185,
+      "start_time": 509659.0,
+      "end_time": 510700.0,
+      "text": "So go back to the slides."
+    },
+    {
+      "index": 186,
+      "start_time": 515318.99999999994,
+      "end_time": 515818.99999999994,
+      "text": "Thank you."
+    },
+    {
+      "index": 187,
+      "start_time": 515818.99999999994,
+      "end_time": 518384.99999999994,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 188,
+      "start_time": 520083.99999999994,
+      "end_time": 521499.99999999994,
+      "text": "There are a couple of great things"
+    },
+    {
+      "index": 189,
+      "start_time": 521500.0,
+      "end_time": 523660.0,
+      "text": "we should note about Firebase database."
+    },
+    {
+      "index": 190,
+      "start_time": 523659.99999999994,
+      "end_time": 526134.0,
+      "text": "The first is that it&#39;s accessible directly"
+    },
+    {
+      "index": 191,
+      "start_time": 526134.0,
+      "end_time": 526800.0,
+      "text": "from the client."
+    },
+    {
+      "index": 192,
+      "start_time": 526800.0,
+      "end_time": 529330.0,
+      "text": "So you don&#39;t need to talk to a server."
+    },
+    {
+      "index": 193,
+      "start_time": 529330.0,
+      "end_time": 532330.0,
+      "text": "The client can just go directly to the database."
+    },
+    {
+      "index": 194,
+      "start_time": 532330.0,
+      "end_time": 535120.0,
+      "text": "Second-- and this is how easy it is to do so."
+    },
+    {
+      "index": 195,
+      "start_time": 535120.0,
+      "end_time": 537480.0,
+      "text": "So this is actually some Android code."
+    },
+    {
+      "index": 196,
+      "start_time": 537480.0,
+      "end_time": 539320.0,
+      "text": "First of all, we create a reference"
+    },
+    {
+      "index": 197,
+      "start_time": 539320.0,
+      "end_time": 541330.0,
+      "text": "to a location inside Firebase."
+    },
+    {
+      "index": 198,
+      "start_time": 541330.0,
+      "end_time": 542580.0,
+      "text": "I&#39;m doing that up top."
+    },
+    {
+      "index": 199,
+      "start_time": 542580.0,
+      "end_time": 545105.0,
+      "text": "And then I can just call ref.setValue."
+    },
+    {
+      "index": 200,
+      "start_time": 545105.0,
+      "end_time": 546480.0,
+      "text": "And I&#39;m passing in a string there"
+    },
+    {
+      "index": 201,
+      "start_time": 546480.0,
+      "end_time": 548840.0,
+      "text": "that says, hi, I/O. This is all the code you"
+    },
+    {
+      "index": 202,
+      "start_time": 548840.0,
+      "end_time": 552670.0,
+      "text": "need to write to Firebase."
+    },
+    {
+      "index": 203,
+      "start_time": 552670.0,
+      "end_time": 555354.0,
+      "text": "The Firebase database is just one JSON object."
+    },
+    {
+      "index": 204,
+      "start_time": 555354.0,
+      "end_time": 557270.0,
+      "text": "So it&#39;s in a format that you&#39;re familiar with."
+    },
+    {
+      "index": 205,
+      "start_time": 557270.0,
+      "end_time": 560050.0,
+      "text": "And it&#39;s in a format that all of the client side devices"
+    },
+    {
+      "index": 206,
+      "start_time": 560050.0,
+      "end_time": 562920.0,
+      "text": "that you work with already use."
+    },
+    {
+      "index": 207,
+      "start_time": 562920.0,
+      "end_time": 563700.0,
+      "text": "It&#39;s schemaless."
+    },
+    {
+      "index": 208,
+      "start_time": 563700.0,
+      "end_time": 565908.0,
+      "text": "And so it&#39;s super flexible, so you can structure data"
+    },
+    {
+      "index": 209,
+      "start_time": 565908.0,
+      "end_time": 566760.0,
+      "text": "how you like."
+    },
+    {
+      "index": 210,
+      "start_time": 566760.0,
+      "end_time": 569490.0,
+      "text": "If you&#39;ve already used Mongo, if you&#39;ve already used Couchbase,"
+    },
+    {
+      "index": 211,
+      "start_time": 569490.0,
+      "end_time": 571990.0,
+      "text": "Firebase&#39;s database is going to feel really familiar to you."
+    },
+    {
+      "index": 212,
+      "start_time": 574520.0,
+      "end_time": 577280.0,
+      "text": "And finally, every piece of data has its own URL."
+    },
+    {
+      "index": 213,
+      "start_time": 577280.0,
+      "end_time": 578440.0,
+      "text": "JSON is a tree structure."
+    },
+    {
+      "index": 214,
+      "start_time": 578440.0,
+      "end_time": 580220.0,
+      "text": "URLs are a tree structure."
+    },
+    {
+      "index": 215,
+      "start_time": 580220.0,
+      "end_time": 581820.0,
+      "text": "So we&#39;ve mapped every piece of data."
+    },
+    {
+      "index": 216,
+      "start_time": 581820.0,
+      "end_time": 586520.0,
+      "text": "Every number, every Boolean, every string, to its own URL."
+    },
+    {
+      "index": 217,
+      "start_time": 586520.0,
+      "end_time": 588170.0,
+      "text": "This gives you several great benefits."
+    },
+    {
+      "index": 218,
+      "start_time": 588170.0,
+      "end_time": 590160.0,
+      "text": "First of all, it&#39;s intuitive."
+    },
+    {
+      "index": 219,
+      "start_time": 590160.0,
+      "end_time": 593020.0,
+      "text": "So you can reference data with an absolute path"
+    },
+    {
+      "index": 220,
+      "start_time": 593020.0,
+      "end_time": 594690.0,
+      "text": "or with a relative path."
+    },
+    {
+      "index": 221,
+      "start_time": 594690.0,
+      "end_time": 597730.0,
+      "text": "And it&#39;s all in a format that you know and understand."
+    },
+    {
+      "index": 222,
+      "start_time": 597730.0,
+      "end_time": 600699.0,
+      "text": "Second of all, you can use those URLs as REST endpoints,"
+    },
+    {
+      "index": 223,
+      "start_time": 600699.0,
+      "end_time": 602990.0,
+      "text": "so you can manage and manipulate from REST, in addition"
+    },
+    {
+      "index": 224,
+      "start_time": 602990.0,
+      "end_time": 604400.0,
+      "text": "to the client libraries."
+    },
+    {
+      "index": 225,
+      "start_time": 604400.0,
+      "end_time": 605970.0,
+      "text": "And finally, it&#39;s browser compatible."
+    },
+    {
+      "index": 226,
+      "start_time": 605970.0,
+      "end_time": 609010.0,
+      "text": "So you can actually punch those URLs into a web browser"
+    },
+    {
+      "index": 227,
+      "start_time": 609010.0,
+      "end_time": 611440.0,
+      "text": "and you see a graphical view of your data."
+    },
+    {
+      "index": 228,
+      "start_time": 611440.0,
+      "end_time": 613190.0,
+      "text": "And this is fantastic if you&#39;re debugging."
+    },
+    {
+      "index": 229,
+      "start_time": 615604.0,
+      "end_time": 617770.0,
+      "text": "I want to talk a little bit about accessing Firebase"
+    },
+    {
+      "index": 230,
+      "start_time": 617770.0,
+      "end_time": 619120.0,
+      "text": "from the client."
+    },
+    {
+      "index": 231,
+      "start_time": 619120.0,
+      "end_time": 620870.0,
+      "text": "Typically, when you build applications,"
+    },
+    {
+      "index": 232,
+      "start_time": 620870.0,
+      "end_time": 623920.0,
+      "text": "you&#39;re building them in a three-tier architecture."
+    },
+    {
+      "index": 233,
+      "start_time": 623920.0,
+      "end_time": 626110.0,
+      "text": "So your device talks to an application server,"
+    },
+    {
+      "index": 234,
+      "start_time": 626110.0,
+      "end_time": 628020.0,
+      "text": "and that, in turn, then talks to a database."
+    },
+    {
+      "index": 235,
+      "start_time": 628020.0,
+      "end_time": 631060.0,
+      "text": "As I mentioned, this isn&#39;t the case with Firebase."
+    },
+    {
+      "index": 236,
+      "start_time": 631060.0,
+      "end_time": 633230.0,
+      "text": "We view application development as moving"
+    },
+    {
+      "index": 237,
+      "start_time": 633230.0,
+      "end_time": 636460.0,
+      "text": "to a two-tier model, where the device speaks directly"
+    },
+    {
+      "index": 238,
+      "start_time": 636460.0,
+      "end_time": 638350.0,
+      "text": "to the Firebase database."
+    },
+    {
+      "index": 239,
+      "start_time": 638350.0,
+      "end_time": 640170.0,
+      "text": "And this gives you a couple of benefits."
+    },
+    {
+      "index": 240,
+      "start_time": 640170.0,
+      "end_time": 643000.0,
+      "text": "First, it allows you to do the real time in the offline mode"
+    },
+    {
+      "index": 241,
+      "start_time": 643000.0,
+      "end_time": 644000.0,
+      "text": "that I mentioned."
+    },
+    {
+      "index": 242,
+      "start_time": 644000.0,
+      "end_time": 645870.0,
+      "text": "But it also speeds up development."
+    },
+    {
+      "index": 243,
+      "start_time": 645870.0,
+      "end_time": 647560.0,
+      "text": "There&#39;s no server boilerplate code"
+    },
+    {
+      "index": 244,
+      "start_time": 647560.0,
+      "end_time": 650130.0,
+      "text": "that&#39;s shuffling data between your database"
+    },
+    {
+      "index": 245,
+      "start_time": 650130.0,
+      "end_time": 652366.0,
+      "text": "and your application server."
+    },
+    {
+      "index": 246,
+      "start_time": 652366.0,
+      "end_time": 653740.0,
+      "text": "When you add a feature, you don&#39;t"
+    },
+    {
+      "index": 247,
+      "start_time": 653740.0,
+      "end_time": 655790.0,
+      "text": "need to go and add new server code,"
+    },
+    {
+      "index": 248,
+      "start_time": 655790.0,
+      "end_time": 657320.0,
+      "text": "or add new tests to that code."
+    },
+    {
+      "index": 249,
+      "start_time": 657320.0,
+      "end_time": 659770.0,
+      "text": "So it really does speed up development."
+    },
+    {
+      "index": 250,
+      "start_time": 659770.0,
+      "end_time": 663740.0,
+      "text": "And then you&#39;re also offloading scaling to Firebase."
+    },
+    {
+      "index": 251,
+      "start_time": 663740.0,
+      "end_time": 666087.0,
+      "text": "So you don&#39;t need to re-architect your server"
+    },
+    {
+      "index": 252,
+      "start_time": 666087.0,
+      "end_time": 666670.0,
+      "text": "code to scale."
+    },
+    {
+      "index": 253,
+      "start_time": 666670.0,
+      "end_time": 670100.0,
+      "text": "Firebase already guides you into a pattern"
+    },
+    {
+      "index": 254,
+      "start_time": 670100.0,
+      "end_time": 672870.0,
+      "text": "where your operations on your data scale linearly"
+    },
+    {
+      "index": 255,
+      "start_time": 672870.0,
+      "end_time": 674290.0,
+      "text": "with the size of your data set."
+    },
+    {
+      "index": 256,
+      "start_time": 674290.0,
+      "end_time": 677070.0,
+      "text": "This is how most high scale production"
+    },
+    {
+      "index": 257,
+      "start_time": 677070.0,
+      "end_time": 678250.0,
+      "text": "apps are written, anyway."
+    },
+    {
+      "index": 258,
+      "start_time": 678250.0,
+      "end_time": 681210.0,
+      "text": "And you&#39;re doing it from the very beginning."
+    },
+    {
+      "index": 259,
+      "start_time": 681210.0,
+      "end_time": 683770.0,
+      "text": "With a two-tier architecture, you"
+    },
+    {
+      "index": 260,
+      "start_time": 683770.0,
+      "end_time": 686130.0,
+      "text": "may be asking, how do I run server code,"
+    },
+    {
+      "index": 261,
+      "start_time": 686130.0,
+      "end_time": 687690.0,
+      "text": "if I want to run some trusted code?"
+    },
+    {
+      "index": 262,
+      "start_time": 687690.0,
+      "end_time": 690440.0,
+      "text": "Or if I want to do some heavy lifting that I don&#39;t"
+    },
+    {
+      "index": 263,
+      "start_time": 690440.0,
+      "end_time": 692306.0,
+      "text": "want the edge phone to do?"
+    },
+    {
+      "index": 264,
+      "start_time": 692306.0,
+      "end_time": 694680.0,
+      "text": "Well, you can just hook a server up the Firebase database"
+    },
+    {
+      "index": 265,
+      "start_time": 694680.0,
+      "end_time": 695420.0,
+      "text": "directly."
+    },
+    {
+      "index": 266,
+      "start_time": 695420.0,
+      "end_time": 698795.0,
+      "text": "And you can also connected with third party APIs."
+    },
+    {
+      "index": 267,
+      "start_time": 698795.0,
+      "end_time": 700420.0,
+      "text": "And you may be thinking to yourself out"
+    },
+    {
+      "index": 268,
+      "start_time": 700420.0,
+      "end_time": 702520.0,
+      "text": "in the audience, OK, that&#39;s great."
+    },
+    {
+      "index": 269,
+      "start_time": 702520.0,
+      "end_time": 704830.0,
+      "text": "But if my device is talking directly to my Firebase"
+    },
+    {
+      "index": 270,
+      "start_time": 704830.0,
+      "end_time": 707150.0,
+      "text": "database, how do I secure it?"
+    },
+    {
+      "index": 271,
+      "start_time": 707150.0,
+      "end_time": 710980.0,
+      "text": "And the answer is with our flexible rules language."
+    },
+    {
+      "index": 272,
+      "start_time": 710980.0,
+      "end_time": 713790.0,
+      "text": "So this language lets you define how your data can be structured"
+    },
+    {
+      "index": 273,
+      "start_time": 713790.0,
+      "end_time": 715800.0,
+      "text": "and who can access it."
+    },
+    {
+      "index": 274,
+      "start_time": 715800.0,
+      "end_time": 719101.0,
+      "text": "These live on our server, and here&#39;s an example of them."
+    },
+    {
+      "index": 275,
+      "start_time": 719101.0,
+      "end_time": 720350.0,
+      "text": "So here are my rules language."
+    },
+    {
+      "index": 276,
+      "start_time": 720350.0,
+      "end_time": 723170.0,
+      "text": "I&#39;m saying the foo node can be read by anyone,"
+    },
+    {
+      "index": 277,
+      "start_time": 723170.0,
+      "end_time": 725210.0,
+      "text": "it can be written by anyone."
+    },
+    {
+      "index": 278,
+      "start_time": 725210.0,
+      "end_time": 728560.0,
+      "text": "And then I have a validate rule that enforces the schema."
+    },
+    {
+      "index": 279,
+      "start_time": 728560.0,
+      "end_time": 730070.0,
+      "text": "So it&#39;s got to be a string and it&#39;s"
+    },
+    {
+      "index": 280,
+      "start_time": 730070.0,
+      "end_time": 732270.0,
+      "text": "got to be less than 100 characters."
+    },
+    {
+      "index": 281,
+      "start_time": 732270.0,
+      "end_time": 733770.0,
+      "text": "These are all in one place."
+    },
+    {
+      "index": 282,
+      "start_time": 733770.0,
+      "end_time": 737740.0,
+      "text": "They&#39;re stored in the Firebase servers, and they&#39;re all JSON."
+    },
+    {
+      "index": 283,
+      "start_time": 737740.0,
+      "end_time": 741462.0,
+      "text": "Again, you can upload them with our CLI"
+    },
+    {
+      "index": 284,
+      "start_time": 741462.0,
+      "end_time": 743045.0,
+      "text": "or edit them directly at Firebase.com."
+    },
+    {
+      "index": 285,
+      "start_time": 745862.0,
+      "end_time": 747820.0,
+      "text": "So we&#39;ve taken a look at the Firebase database."
+    },
+    {
+      "index": 286,
+      "start_time": 747820.0,
+      "end_time": 750420.0,
+      "text": "Now let&#39;s move to Firebase authentication."
+    },
+    {
+      "index": 287,
+      "start_time": 750420.0,
+      "end_time": 752304.0,
+      "text": "Most every app has the concept of a user."
+    },
+    {
+      "index": 288,
+      "start_time": 752304.0,
+      "end_time": 753720.0,
+      "text": "Unfortunately, the first thing you"
+    },
+    {
+      "index": 289,
+      "start_time": 753720.0,
+      "end_time": 756840.0,
+      "text": "do when you set up set up an app is"
+    },
+    {
+      "index": 290,
+      "start_time": 756840.0,
+      "end_time": 759060.0,
+      "text": "have to write a user authenication system"
+    },
+    {
+      "index": 291,
+      "start_time": 759060.0,
+      "end_time": 761460.0,
+      "text": "or fight with OAuth."
+    },
+    {
+      "index": 292,
+      "start_time": 761460.0,
+      "end_time": 764640.0,
+      "text": "With Firebase, we enable you to easily implement"
+    },
+    {
+      "index": 293,
+      "start_time": 764640.0,
+      "end_time": 767800.0,
+      "text": "email and password and then connect with third party"
+    },
+    {
+      "index": 294,
+      "start_time": 767800.0,
+      "end_time": 771490.0,
+      "text": "providers, like Google, Facebook, Twitter, and GitHub."
+    },
+    {
+      "index": 295,
+      "start_time": 771490.0,
+      "end_time": 773380.0,
+      "text": "And you can do this really easily."
+    },
+    {
+      "index": 296,
+      "start_time": 773380.0,
+      "end_time": 777620.0,
+      "text": "This is the code in JavaScript implement Facebook login"
+    },
+    {
+      "index": 297,
+      "start_time": 777620.0,
+      "end_time": 779310.0,
+      "text": "with Firebase authentication."
+    },
+    {
+      "index": 298,
+      "start_time": 779310.0,
+      "end_time": 781700.0,
+      "text": "I create a reference, as we saw earlier,"
+    },
+    {
+      "index": 299,
+      "start_time": 781700.0,
+      "end_time": 784850.0,
+      "text": "and I call ref.authWithOAuthPopup"
+    },
+    {
+      "index": 300,
+      "start_time": 784850.0,
+      "end_time": 787950.0,
+      "text": "and I pass it to string Facebook, give it a callback."
+    },
+    {
+      "index": 301,
+      "start_time": 787950.0,
+      "end_time": 788512.0,
+      "text": "That&#39;s it."
+    },
+    {
+      "index": 302,
+      "start_time": 788512.0,
+      "end_time": 789720.0,
+      "text": "I can change that to Twitter."
+    },
+    {
+      "index": 303,
+      "start_time": 789720.0,
+      "end_time": 791310.0,
+      "text": "I can change that to Google."
+    },
+    {
+      "index": 304,
+      "start_time": 791310.0,
+      "end_time": 794380.0,
+      "text": "And that&#39;s all I need to do to implement log"
+    },
+    {
+      "index": 305,
+      "start_time": 794380.0,
+      "end_time": 796020.0,
+      "text": "in with a third party provider."
+    },
+    {
+      "index": 306,
+      "start_time": 796020.0,
+      "end_time": 799410.0,
+      "text": "Really is that simple."
+    },
+    {
+      "index": 307,
+      "start_time": 799410.0,
+      "end_time": 802102.0,
+      "text": "So what if you&#39;re asking, how do I actually integrate it"
+    },
+    {
+      "index": 308,
+      "start_time": 802102.0,
+      "end_time": 803310.0,
+      "text": "with my existing user system?"
+    },
+    {
+      "index": 309,
+      "start_time": 803310.0,
+      "end_time": 804580.0,
+      "text": "I already built one."
+    },
+    {
+      "index": 310,
+      "start_time": 804580.0,
+      "end_time": 806130.0,
+      "text": "And the answer is, you can easily"
+    },
+    {
+      "index": 311,
+      "start_time": 806130.0,
+      "end_time": 808940.0,
+      "text": "use one of our eight server side libraries to integrate."
+    },
+    {
+      "index": 312,
+      "start_time": 808940.0,
+      "end_time": 811960.0,
+      "text": "You just generate a JSON web token, another open standard,"
+    },
+    {
+      "index": 313,
+      "start_time": 811960.0,
+      "end_time": 816350.0,
+      "text": "and that&#39;ll tell Firebase who your user is."
+    },
+    {
+      "index": 314,
+      "start_time": 816350.0,
+      "end_time": 818030.0,
+      "text": "But our Firebase authentication also"
+    },
+    {
+      "index": 315,
+      "start_time": 818030.0,
+      "end_time": 821390.0,
+      "text": "works with our security rules that I just mentioned."
+    },
+    {
+      "index": 316,
+      "start_time": 821390.0,
+      "end_time": 826150.0,
+      "text": "This enables you to build secure applications with a user"
+    },
+    {
+      "index": 317,
+      "start_time": 826150.0,
+      "end_time": 827180.0,
+      "text": "authentication system."
+    },
+    {
+      "index": 318,
+      "start_time": 827180.0,
+      "end_time": 830800.0,
+      "text": "So let&#39;s say we have a users node."
+    },
+    {
+      "index": 319,
+      "start_time": 830800.0,
+      "end_time": 835320.0,
+      "text": "$uid basically specifies that we can interact with any user"
+    },
+    {
+      "index": 320,
+      "start_time": 835320.0,
+      "end_time": 836940.0,
+      "text": "entry in the user&#39;s node."
+    },
+    {
+      "index": 321,
+      "start_time": 836940.0,
+      "end_time": 839460.0,
+      "text": "It&#39;s saying that anyone can read a user&#39;s profile,"
+    },
+    {
+      "index": 322,
+      "start_time": 839460.0,
+      "end_time": 843690.0,
+      "text": "but only the person logged in can modify their own profile."
+    },
+    {
+      "index": 323,
+      "start_time": 843690.0,
+      "end_time": 847230.0,
+      "text": "It&#39;s that easy with just a few lines of code."
+    },
+    {
+      "index": 324,
+      "start_time": 847230.0,
+      "end_time": 849250.0,
+      "text": "Finally, let&#39;s look at Firebase hosting."
+    },
+    {
+      "index": 325,
+      "start_time": 849250.0,
+      "end_time": 851752.0,
+      "text": "It&#39;s production-grade hosting for developers."
+    },
+    {
+      "index": 326,
+      "start_time": 851752.0,
+      "end_time": 854210.0,
+      "text": "So Firebase hosting was designed for mission-critical sites"
+    },
+    {
+      "index": 327,
+      "start_time": 854210.0,
+      "end_time": 857110.0,
+      "text": "and apps, and we built it for reliability and scale."
+    },
+    {
+      "index": 328,
+      "start_time": 857110.0,
+      "end_time": 860640.0,
+      "text": "It runs some great sites, like Firebase.com, Angular,"
+    },
+    {
+      "index": 329,
+      "start_time": 860640.0,
+      "end_time": 863410.0,
+      "text": "and the Polymer team user, as well."
+    },
+    {
+      "index": 330,
+      "start_time": 863410.0,
+      "end_time": 867660.0,
+      "text": "It&#39;s backed by global CDN, so you get pops around the world."
+    },
+    {
+      "index": 331,
+      "start_time": 867660.0,
+      "end_time": 871670.0,
+      "text": "It&#39;s SSL by default. We even provision SSL cert for you."
+    },
+    {
+      "index": 332,
+      "start_time": 871670.0,
+      "end_time": 875851.0,
+      "text": "So you don&#39;t have to go off and buy the $150 cert."
+    },
+    {
+      "index": 333,
+      "start_time": 875851.0,
+      "end_time": 878100.0,
+      "text": "And it has custom domain support so you can hook it up"
+    },
+    {
+      "index": 334,
+      "start_time": 878100.0,
+      "end_time": 881350.0,
+      "text": "to your own custom domain."
+    },
+    {
+      "index": 335,
+      "start_time": 881350.0,
+      "end_time": 884260.0,
+      "text": "You just go into your terminal, go to the directory you want,"
+    },
+    {
+      "index": 336,
+      "start_time": 884260.0,
+      "end_time": 885779.0,
+      "text": "call firebase imit."
+    },
+    {
+      "index": 337,
+      "start_time": 885779.0,
+      "end_time": 887320.0,
+      "text": "And then you can call firebase deploy"
+    },
+    {
+      "index": 338,
+      "start_time": 887320.0,
+      "end_time": 890090.0,
+      "text": "and it&#39;ll push that content up to your own Firebaseapp.com"
+    },
+    {
+      "index": 339,
+      "start_time": 890090.0,
+      "end_time": 893900.0,
+      "text": "URL or your own custom URL."
+    },
+    {
+      "index": 340,
+      "start_time": 893900.0,
+      "end_time": 896900.0,
+      "text": "So we&#39;ve seen Firebase authentication real time"
+    },
+    {
+      "index": 341,
+      "start_time": 896900.0,
+      "end_time": 899810.0,
+      "text": "database and Firebase hosting."
+    },
+    {
+      "index": 342,
+      "start_time": 899810.0,
+      "end_time": 903530.0,
+      "text": "Now let&#39;s take a look at some of the customers who use Firebase."
+    },
+    {
+      "index": 343,
+      "start_time": 903530.0,
+      "end_time": 906610.0,
+      "text": "Instacart is one of the rising stars in Silicon Valley."
+    },
+    {
+      "index": 344,
+      "start_time": 906610.0,
+      "end_time": 909310.0,
+      "text": "They let you do grocery delivery from your mobile app"
+    },
+    {
+      "index": 345,
+      "start_time": 909310.0,
+      "end_time": 910864.0,
+      "text": "to your door in hours."
+    },
+    {
+      "index": 346,
+      "start_time": 910864.0,
+      "end_time": 913030.0,
+      "text": "And they&#39;ve been using Firebase since the beginning."
+    },
+    {
+      "index": 347,
+      "start_time": 913030.0,
+      "end_time": 917580.0,
+      "text": "They&#39;ve raised over $300 million from top-tier VCs"
+    },
+    {
+      "index": 348,
+      "start_time": 917580.0,
+      "end_time": 919960.0,
+      "text": "and they use Firebase for a number of things."
+    },
+    {
+      "index": 349,
+      "start_time": 919960.0,
+      "end_time": 922730.0,
+      "text": "You can collaboratively edit your shopping cart"
+    },
+    {
+      "index": 350,
+      "start_time": 922730.0,
+      "end_time": 924660.0,
+      "text": "with your roommate or spouse."
+    },
+    {
+      "index": 351,
+      "start_time": 924660.0,
+      "end_time": 927960.0,
+      "text": "You can talk to your shopper while they&#39;re in the store."
+    },
+    {
+      "index": 352,
+      "start_time": 927960.0,
+      "end_time": 932480.0,
+      "text": "And you can also see where your order is with their live order"
+    },
+    {
+      "index": 353,
+      "start_time": 932480.0,
+      "end_time": 934500.0,
+      "text": "location tracking."
+    },
+    {
+      "index": 354,
+      "start_time": 934500.0,
+      "end_time": 938100.0,
+      "text": "The next customer&#39;s a little bit of a different profile."
+    },
+    {
+      "index": 355,
+      "start_time": 938100.0,
+      "end_time": 942850.0,
+      "text": "So Sky News was the UK&#39;S first 24-hour news network."
+    },
+    {
+      "index": 356,
+      "start_time": 942850.0,
+      "end_time": 943850.0,
+      "text": "They&#39;re based in London."
+    },
+    {
+      "index": 357,
+      "start_time": 943850.0,
+      "end_time": 946490.0,
+      "text": "They have new bureaus around the globe."
+    },
+    {
+      "index": 358,
+      "start_time": 946490.0,
+      "end_time": 949860.0,
+      "text": "And on May the seventh, the UK held general election."
+    },
+    {
+      "index": 359,
+      "start_time": 949860.0,
+      "end_time": 952140.0,
+      "text": "For those of you unfamiliar with British parliamentary"
+    },
+    {
+      "index": 360,
+      "start_time": 952140.0,
+      "end_time": 955670.0,
+      "text": "procedure, until this year, an election"
+    },
+    {
+      "index": 361,
+      "start_time": 955670.0,
+      "end_time": 957420.0,
+      "text": "would be called within a five-year window."
+    },
+    {
+      "index": 362,
+      "start_time": 957420.0,
+      "end_time": 961120.0,
+      "text": "And as soon as it was called, then six weeks later,"
+    },
+    {
+      "index": 363,
+      "start_time": 961120.0,
+      "end_time": 963610.0,
+      "text": "the election happened."
+    },
+    {
+      "index": 364,
+      "start_time": 963610.0,
+      "end_time": 966640.0,
+      "text": "So this six-weeks election cycle makes some democracies,"
+    },
+    {
+      "index": 365,
+      "start_time": 966640.0,
+      "end_time": 969954.0,
+      "text": "I know, feel like a walk in the park."
+    },
+    {
+      "index": 366,
+      "start_time": 969954.0,
+      "end_time": 974310.0,
+      "text": "Sky News used Firebase to synchronize election data"
+    },
+    {
+      "index": 367,
+      "start_time": 974310.0,
+      "end_time": 978064.0,
+      "text": "from their iOS app, their Android app, and their web app."
+    },
+    {
+      "index": 368,
+      "start_time": 978064.0,
+      "end_time": 979730.0,
+      "text": "So that on the night of May the seventh,"
+    },
+    {
+      "index": 369,
+      "start_time": 979730.0,
+      "end_time": 981200.0,
+      "text": "and the morning of May the eighth,"
+    },
+    {
+      "index": 370,
+      "start_time": 981200.0,
+      "end_time": 984070.0,
+      "text": "the millions of people from around the world who tuned in"
+    },
+    {
+      "index": 371,
+      "start_time": 984070.0,
+      "end_time": 988270.0,
+      "text": "to watch the most-watched election in UK history"
+    },
+    {
+      "index": 372,
+      "start_time": 988270.0,
+      "end_time": 992120.0,
+      "text": "got the updates with Firebase."
+    },
+    {
+      "index": 373,
+      "start_time": 992120.0,
+      "end_time": 993990.0,
+      "text": "We&#39;re really excited that this software was"
+    },
+    {
+      "index": 374,
+      "start_time": 993990.0,
+      "end_time": 996390.0,
+      "text": "built in a matter of weeks by their team"
+    },
+    {
+      "index": 375,
+      "start_time": 996390.0,
+      "end_time": 999580.0,
+      "text": "and achieved this scale."
+    },
+    {
+      "index": 376,
+      "start_time": 999580.0,
+      "end_time": 1001070.0,
+      "text": "Next up, we have Citrix."
+    },
+    {
+      "index": 377,
+      "start_time": 1001070.0,
+      "end_time": 1003690.0,
+      "text": "So Citrix uses us in some of their flagship applications"
+    },
+    {
+      "index": 378,
+      "start_time": 1003690.0,
+      "end_time": 1006710.0,
+      "text": "like GoToMeeting and GoToAssist."
+    },
+    {
+      "index": 379,
+      "start_time": 1006710.0,
+      "end_time": 1010040.0,
+      "text": "Well one of their newest applications uses us, too."
+    },
+    {
+      "index": 380,
+      "start_time": 1010040.0,
+      "end_time": 1012060.0,
+      "text": "Today, I&#39;m excited to welcome onto the stage"
+    },
+    {
+      "index": 381,
+      "start_time": 1012060.0,
+      "end_time": 1014420.0,
+      "text": "Gus Pinto, senior director at Citrix,"
+    },
+    {
+      "index": 382,
+      "start_time": 1014420.0,
+      "end_time": 1016900.0,
+      "text": "who&#39;s going to tell us a little bit about how Citrix"
+    },
+    {
+      "index": 383,
+      "start_time": 1016900.0,
+      "end_time": 1018215.0,
+      "text": "is using us in Concierge."
+    },
+    {
+      "index": 384,
+      "start_time": 1026180.0000000001,
+      "end_time": 1030188.0000000001,
+      "text": "So we&#39;ll switch over to the--"
+    },
+    {
+      "index": 385,
+      "start_time": 1030190.0,
+      "end_time": 1032080.0,
+      "text": "GUS PINTO: Good morning, everyone."
+    },
+    {
+      "index": 386,
+      "start_time": 1032079.9999999999,
+      "end_time": 1036169.9999999999,
+      "text": "I&#39;m really jazzed to be joining the Firebase team and James"
+    },
+    {
+      "index": 387,
+      "start_time": 1036170.0000000001,
+      "end_time": 1037130.0000000001,
+      "text": "here."
+    },
+    {
+      "index": 388,
+      "start_time": 1037130.0000000001,
+      "end_time": 1039584.0000000001,
+      "text": "We built a wonderful relationship"
+    },
+    {
+      "index": 389,
+      "start_time": 1039579.9999999999,
+      "end_time": 1041495.9999999999,
+      "text": "that expands on the original relationship we&#39;d"
+    },
+    {
+      "index": 390,
+      "start_time": 1041500.0,
+      "end_time": 1043000.0,
+      "text": "had with Google."
+    },
+    {
+      "index": 391,
+      "start_time": 1043000.0,
+      "end_time": 1049400.0,
+      "text": "You see, Citrix-- we have a pretty mission-critical task"
+    },
+    {
+      "index": 392,
+      "start_time": 1049400.0,
+      "end_time": 1049910.0,
+      "text": "at hand."
+    },
+    {
+      "index": 393,
+      "start_time": 1049910.0,
+      "end_time": 1050410.0,
+      "text": "OK?"
+    },
+    {
+      "index": 394,
+      "start_time": 1050410.0,
+      "end_time": 1054300.0,
+      "text": "We power over 400 million workspace users"
+    },
+    {
+      "index": 395,
+      "start_time": 1054300.0,
+      "end_time": 1056110.0,
+      "text": "every single day."
+    },
+    {
+      "index": 396,
+      "start_time": 1056110.0,
+      "end_time": 1058170.0,
+      "text": "And one thing that we did notice is"
+    },
+    {
+      "index": 397,
+      "start_time": 1058170.0,
+      "end_time": 1062110.0,
+      "text": "that the vast majority of our mobile users are going mobile--"
+    },
+    {
+      "index": 398,
+      "start_time": 1062110.0,
+      "end_time": 1066010.0,
+      "text": "are getting the work done on a mobile workspace."
+    },
+    {
+      "index": 399,
+      "start_time": 1066010.0,
+      "end_time": 1071710.0,
+      "text": "And it really dawned upon us that the vehicles in which we"
+    },
+    {
+      "index": 400,
+      "start_time": 1071710.0,
+      "end_time": 1076220.0,
+      "text": "support customers today on mobile devices is antiquated"
+    },
+    {
+      "index": 401,
+      "start_time": 1076220.0,
+      "end_time": 1078180.0,
+      "text": "and it&#39;s really, really bad."
+    },
+    {
+      "index": 402,
+      "start_time": 1078180.0,
+      "end_time": 1082959.0,
+      "text": "I mean, to the point of being frustrating to the most part."
+    },
+    {
+      "index": 403,
+      "start_time": 1082960.0,
+      "end_time": 1085001.0,
+      "text": "Things like-- the best things that we can come up"
+    },
+    {
+      "index": 404,
+      "start_time": 1085000.0,
+      "end_time": 1088150.0,
+      "text": "with sometimes was just putting a button in our apps"
+    },
+    {
+      "index": 405,
+      "start_time": 1088150.0,
+      "end_time": 1091020.0,
+      "text": "that sends an email form to somebody,"
+    },
+    {
+      "index": 406,
+      "start_time": 1091020.0,
+      "end_time": 1095392.0,
+      "text": "when the problems that we have are happening right now."
+    },
+    {
+      "index": 407,
+      "start_time": 1095390.0,
+      "end_time": 1096848.0,
+      "text": "That&#39;s why we&#39;ve created Concierge."
+    },
+    {
+      "index": 408,
+      "start_time": 1096850.0,
+      "end_time": 1101360.0,
+      "text": "We really just re-imagined the communication flow and the way"
+    },
+    {
+      "index": 409,
+      "start_time": 1101360.0,
+      "end_time": 1107240.0,
+      "text": "companies connect with their customers and employees."
+    },
+    {
+      "index": 410,
+      "start_time": 1107240.0,
+      "end_time": 1110540.0,
+      "text": "And we launched it two weeks ago."
+    },
+    {
+      "index": 411,
+      "start_time": 1110540.0,
+      "end_time": 1113240.0,
+      "text": "And beyond our wildest expectations,"
+    },
+    {
+      "index": 412,
+      "start_time": 1113240.0,
+      "end_time": 1117910.0,
+      "text": "we sold out our tech preview in the very first day."
+    },
+    {
+      "index": 413,
+      "start_time": 1117910.0,
+      "end_time": 1121940.0,
+      "text": "And quite honestly, we couldn&#39;t have done that without Google."
+    },
+    {
+      "index": 414,
+      "start_time": 1121940.0,
+      "end_time": 1125640.0,
+      "text": "Now we do leverage a lot of components of Google"
+    },
+    {
+      "index": 415,
+      "start_time": 1125640.0,
+      "end_time": 1128190.0,
+      "text": "across our technologies."
+    },
+    {
+      "index": 416,
+      "start_time": 1128190.0,
+      "end_time": 1133390.0,
+      "text": "In the case of Concierge, we use WebRTC and Chrome."
+    },
+    {
+      "index": 417,
+      "start_time": 1133390.0,
+      "end_time": 1137110.0,
+      "text": "We have an SDK for Android, we leverage Cast."
+    },
+    {
+      "index": 418,
+      "start_time": 1137110.0,
+      "end_time": 1140210.0,
+      "text": "But at the very heart of Concierge--"
+    },
+    {
+      "index": 419,
+      "start_time": 1140210.0,
+      "end_time": 1143820.0,
+      "text": "and really what enabled us to get here-- was Firebase."
+    },
+    {
+      "index": 420,
+      "start_time": 1146600.0,
+      "end_time": 1148183.0,
+      "text": "I say it&#39;s in the heart of our product"
+    },
+    {
+      "index": 421,
+      "start_time": 1148180.0,
+      "end_time": 1151840.0,
+      "text": "because it&#39;s the ticking component that makes everything"
+    },
+    {
+      "index": 422,
+      "start_time": 1151840.0,
+      "end_time": 1153480.0,
+      "text": "flow within our product."
+    },
+    {
+      "index": 423,
+      "start_time": 1153480.0,
+      "end_time": 1155450.0,
+      "text": "From user authentication, as James"
+    },
+    {
+      "index": 424,
+      "start_time": 1155450.0,
+      "end_time": 1158430.0,
+      "text": "alluded, to the real time data from end to end."
+    },
+    {
+      "index": 425,
+      "start_time": 1158430.0,
+      "end_time": 1163320.0,
+      "text": "We had to reinvent the inbox for agents-- our chat"
+    },
+    {
+      "index": 426,
+      "start_time": 1163320.0,
+      "end_time": 1166200.0,
+      "text": "communication-- and so many other components all the way"
+    },
+    {
+      "index": 427,
+      "start_time": 1166200.0,
+      "end_time": 1169230.0,
+      "text": "to signaling for WebRTC."
+    },
+    {
+      "index": 428,
+      "start_time": 1169230.0,
+      "end_time": 1171910.0,
+      "text": "We really rely heavily on Firebase."
+    },
+    {
+      "index": 429,
+      "start_time": 1171910.0,
+      "end_time": 1175170.0,
+      "text": "And I could just spend the time here telling you about this."
+    },
+    {
+      "index": 430,
+      "start_time": 1175170.0,
+      "end_time": 1177151.0,
+      "text": "I&#39;d rather show you what this looks like"
+    },
+    {
+      "index": 431,
+      "start_time": 1177150.0,
+      "end_time": 1178649.0,
+      "text": "and what we&#39;ve managed to accomplish"
+    },
+    {
+      "index": 432,
+      "start_time": 1178650.0,
+      "end_time": 1180020.0,
+      "text": "with our partnership."
+    },
+    {
+      "index": 433,
+      "start_time": 1180020.0,
+      "end_time": 1185950.0,
+      "text": "So I think there&#39;s nothing better than to truly show"
+    },
+    {
+      "index": 434,
+      "start_time": 1185950.0,
+      "end_time": 1186940.0,
+      "text": "a live product."
+    },
+    {
+      "index": 435,
+      "start_time": 1186940.0,
+      "end_time": 1189294.0,
+      "text": "Nothing more dangerous and better"
+    },
+    {
+      "index": 436,
+      "start_time": 1189290.0,
+      "end_time": 1190456.0,
+      "text": "than to show a live product."
+    },
+    {
+      "index": 437,
+      "start_time": 1190460.0,
+      "end_time": 1194550.0,
+      "text": "So we brought a customer product to show you guys."
+    },
+    {
+      "index": 438,
+      "start_time": 1194550.0,
+      "end_time": 1197760.0,
+      "text": "And it&#39;s from a company called Modernizing Medicine."
+    },
+    {
+      "index": 439,
+      "start_time": 1197760.0,
+      "end_time": 1200630.0,
+      "text": "And what those guys are doing in their own environment,"
+    },
+    {
+      "index": 440,
+      "start_time": 1200630.0,
+      "end_time": 1203700.0,
+      "text": "in the medical space, is reinventing and reimagining"
+    },
+    {
+      "index": 441,
+      "start_time": 1203700.0,
+      "end_time": 1207130.0,
+      "text": "how physicians interact with patients."
+    },
+    {
+      "index": 442,
+      "start_time": 1207130.0,
+      "end_time": 1208610.0,
+      "text": "And they&#39;re doing it from anywhere"
+    },
+    {
+      "index": 443,
+      "start_time": 1208610.0,
+      "end_time": 1211060.0,
+      "text": "and bringing the power of electronic medical record"
+    },
+    {
+      "index": 444,
+      "start_time": 1211060.0,
+      "end_time": 1212830.0,
+      "text": "systems to mobile."
+    },
+    {
+      "index": 445,
+      "start_time": 1212830.0,
+      "end_time": 1215984.0,
+      "text": "Now what I want to do is fire it up here."
+    },
+    {
+      "index": 446,
+      "start_time": 1215980.0,
+      "end_time": 1217646.0,
+      "text": "And hopefully, you guys can see it good."
+    },
+    {
+      "index": 447,
+      "start_time": 1217650.0,
+      "end_time": 1220290.0,
+      "text": "I&#39;ll log in."
+    },
+    {
+      "index": 448,
+      "start_time": 1220290.0,
+      "end_time": 1222450.0,
+      "text": "Now with Concierge, what we&#39;ve done"
+    },
+    {
+      "index": 449,
+      "start_time": 1222450.0,
+      "end_time": 1226290.0,
+      "text": "was-- as part of reimagining how we would support customers"
+    },
+    {
+      "index": 450,
+      "start_time": 1226290.0,
+      "end_time": 1228040.0,
+      "text": "on the go-- was, first, something"
+    },
+    {
+      "index": 451,
+      "start_time": 1228040.0,
+      "end_time": 1230445.0,
+      "text": "that actually Google&#39;s very keen on, which is contacts."
+    },
+    {
+      "index": 452,
+      "start_time": 1233960.0,
+      "end_time": 1235680.0,
+      "text": "Trying to get support in today&#39;s apps--"
+    },
+    {
+      "index": 453,
+      "start_time": 1235680.0,
+      "end_time": 1238390.0,
+      "text": "whether it&#39;s the email form, or going out of your app,"
+    },
+    {
+      "index": 454,
+      "start_time": 1238390.0,
+      "end_time": 1240350.0,
+      "text": "scrambling, finding a 1-800 number,"
+    },
+    {
+      "index": 455,
+      "start_time": 1240350.0,
+      "end_time": 1243390.0,
+      "text": "calling somebody, and eventually being frustrated,"
+    },
+    {
+      "index": 456,
+      "start_time": 1243390.0,
+      "end_time": 1245710.0,
+      "text": "giving up, and going and bashing them on Twitter--"
+    },
+    {
+      "index": 457,
+      "start_time": 1245710.0,
+      "end_time": 1246747.0,
+      "text": "it&#39;s rather frustrating."
+    },
+    {
+      "index": 458,
+      "start_time": 1246750.0,
+      "end_time": 1248583.0,
+      "text": "So we figured that the place to start-- it&#39;s"
+    },
+    {
+      "index": 459,
+      "start_time": 1248580.0,
+      "end_time": 1252530.0,
+      "text": "what makes our product really smart, which are the apps."
+    },
+    {
+      "index": 460,
+      "start_time": 1252530.0,
+      "end_time": 1256420.0,
+      "text": "In the case of Modernizing Medicine, what they&#39;ve done"
+    },
+    {
+      "index": 461,
+      "start_time": 1256420.0,
+      "end_time": 1258080.0,
+      "text": "is they&#39;ve integrated Concierge, which"
+    },
+    {
+      "index": 462,
+      "start_time": 1258080.0,
+      "end_time": 1261260.0,
+      "text": "is a simple SDK you plug into your app."
+    },
+    {
+      "index": 463,
+      "start_time": 1261260.0,
+      "end_time": 1265060.0,
+      "text": "And with one line of code, just fire up"
+    },
+    {
+      "index": 464,
+      "start_time": 1265060.0,
+      "end_time": 1269090.0,
+      "text": "an entire suite of technologies that allows you to communicate"
+    },
+    {
+      "index": 465,
+      "start_time": 1269090.0,
+      "end_time": 1270570.0,
+      "text": "real time with your customers."
+    },
+    {
+      "index": 466,
+      "start_time": 1270570.0,
+      "end_time": 1274000.0,
+      "text": "And in the case of real time, we mean with the push of a button,"
+    },
+    {
+      "index": 467,
+      "start_time": 1274000.0,
+      "end_time": 1277940.0,
+      "text": "you can get audio-- like a normal internet call"
+    },
+    {
+      "index": 468,
+      "start_time": 1277940.0,
+      "end_time": 1279324.0,
+      "text": "right within your app-- a video--"
+    },
+    {
+      "index": 469,
+      "start_time": 1279320.0,
+      "end_time": 1280986.0,
+      "text": "so you can see the representative that&#39;s"
+    },
+    {
+      "index": 470,
+      "start_time": 1280990.0,
+      "end_time": 1283860.0,
+      "text": "helping you in real time, or just a simple chat,"
+    },
+    {
+      "index": 471,
+      "start_time": 1283860.0,
+      "end_time": 1286970.0,
+      "text": "if you&#39;re not fond of having a conversation through audio"
+    },
+    {
+      "index": 472,
+      "start_time": 1286970.0,
+      "end_time": 1287850.0,
+      "text": "and video."
+    },
+    {
+      "index": 473,
+      "start_time": 1287850.0,
+      "end_time": 1292260.0,
+      "text": "So what I&#39;m going to do here is go ahead and start a new visit."
+    },
+    {
+      "index": 474,
+      "start_time": 1292260.0,
+      "end_time": 1294920.0,
+      "text": "And simple things-- like, say, I&#39;m a physician,"
+    },
+    {
+      "index": 475,
+      "start_time": 1294920.0,
+      "end_time": 1296606.0,
+      "text": "the application has been updated,"
+    },
+    {
+      "index": 476,
+      "start_time": 1296610.0,
+      "end_time": 1298984.0,
+      "text": "something moved and changed, and I don&#39;t know what it is."
+    },
+    {
+      "index": 477,
+      "start_time": 1298980.0,
+      "end_time": 1300563.0,
+      "text": "And I&#39;m a doctor and I&#39;m kind of lost."
+    },
+    {
+      "index": 478,
+      "start_time": 1300560.0,
+      "end_time": 1304247.0,
+      "text": "And I don&#39;t want to go to a consultation with my patient"
+    },
+    {
+      "index": 479,
+      "start_time": 1304250.0,
+      "end_time": 1306134.0,
+      "text": "and be like, I don&#39;t know what&#39;s going on."
+    },
+    {
+      "index": 480,
+      "start_time": 1306130.0,
+      "end_time": 1308296.0,
+      "text": "JAMES TAMPLIN: I didn&#39;t know you were a doctor, Gus."
+    },
+    {
+      "index": 481,
+      "start_time": 1308300.0,
+      "end_time": 1310060.0,
+      "text": "GUS PINTO: I am a doctor to make believe."
+    },
+    {
+      "index": 482,
+      "start_time": 1310060.0,
+      "end_time": 1310680.0,
+      "text": "JAMES TAMPLIN: OK."
+    },
+    {
+      "index": 483,
+      "start_time": 1310680.0,
+      "end_time": 1311763.0,
+      "text": "You&#39;re like Doogie Howser."
+    },
+    {
+      "index": 484,
+      "start_time": 1313480.0,
+      "end_time": 1315105.0,
+      "text": "GUS PINTO: So what I&#39;m going to do here"
+    },
+    {
+      "index": 485,
+      "start_time": 1315110.0,
+      "end_time": 1316540.0,
+      "text": "is I started a new constultation,"
+    },
+    {
+      "index": 486,
+      "start_time": 1316540.0,
+      "end_time": 1320610.0,
+      "text": "but I forgot, with this new UI, how to properly document"
+    },
+    {
+      "index": 487,
+      "start_time": 1320610.0,
+      "end_time": 1321570.0,
+      "text": "this visit."
+    },
+    {
+      "index": 488,
+      "start_time": 1321570.0,
+      "end_time": 1324010.0,
+      "text": "So what the guys from ModMed have done"
+    },
+    {
+      "index": 489,
+      "start_time": 1324010.0,
+      "end_time": 1326760.0,
+      "text": "is they embedded our SDK into their product."
+    },
+    {
+      "index": 490,
+      "start_time": 1326760.0,
+      "end_time": 1328580.0,
+      "text": "It took them less than 20 minutes."
+    },
+    {
+      "index": 491,
+      "start_time": 1328580.0,
+      "end_time": 1331300.0,
+      "text": "Trust me, the developer of the product is here in the audience"
+    },
+    {
+      "index": 492,
+      "start_time": 1331300.0,
+      "end_time": 1333290.0,
+      "text": "and he can hold me up to it."
+    },
+    {
+      "index": 493,
+      "start_time": 1333290.0,
+      "end_time": 1334880.0,
+      "text": "And with the push of a button, it"
+    },
+    {
+      "index": 494,
+      "start_time": 1334880.0,
+      "end_time": 1338820.0,
+      "text": "comes up on their own UI that confirms that you actually"
+    },
+    {
+      "index": 495,
+      "start_time": 1338820.0,
+      "end_time": 1339930.0,
+      "text": "want to get support."
+    },
+    {
+      "index": 496,
+      "start_time": 1339930.0,
+      "end_time": 1342150.0,
+      "text": "And what that does-- when I press this button,"
+    },
+    {
+      "index": 497,
+      "start_time": 1342150.0,
+      "end_time": 1344150.0,
+      "text": "it goes out there and establishes a connection"
+    },
+    {
+      "index": 498,
+      "start_time": 1344150.0,
+      "end_time": 1346960.0,
+      "text": "on Concierge."
+    },
+    {
+      "index": 499,
+      "start_time": 1346960.0,
+      "end_time": 1349660.0,
+      "text": "And as you can see-- can we switch back to the Notebook?"
+    },
+    {
+      "index": 500,
+      "start_time": 1352340.0,
+      "end_time": 1353480.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 501,
+      "start_time": 1353480.0,
+      "end_time": 1356350.0,
+      "text": "That puts, instantly, a new session"
+    },
+    {
+      "index": 502,
+      "start_time": 1356350.0,
+      "end_time": 1361290.0,
+      "text": "within our inbox, where the ticketing system happens."
+    },
+    {
+      "index": 503,
+      "start_time": 1361290.0,
+      "end_time": 1363840.0,
+      "text": "And James will be my support agent."
+    },
+    {
+      "index": 504,
+      "start_time": 1363840.0,
+      "end_time": 1365860.0,
+      "text": "JAMES TAMPLIN: I&#39;d be happy to."
+    },
+    {
+      "index": 505,
+      "start_time": 1365860.0,
+      "end_time": 1368520.0,
+      "text": "So I&#39;ll go ahead and answer the call here."
+    },
+    {
+      "index": 506,
+      "start_time": 1368520.0,
+      "end_time": 1371730.0,
+      "text": "And I&#39;ve got an incoming call."
+    },
+    {
+      "index": 507,
+      "start_time": 1371730.0,
+      "end_time": 1373597.0,
+      "text": "So I&#39;ll accept."
+    },
+    {
+      "index": 508,
+      "start_time": 1373600.0,
+      "end_time": 1374433.0,
+      "text": "GUS PINTO: So voila."
+    },
+    {
+      "index": 509,
+      "start_time": 1374430.0,
+      "end_time": 1379300.0,
+      "text": "So right within our app, we have a live support agent."
+    },
+    {
+      "index": 510,
+      "start_time": 1379300.0,
+      "end_time": 1384800.0,
+      "text": "Now can we switch back, real quick, to the [? Wolf ?]."
+    },
+    {
+      "index": 511,
+      "start_time": 1384800.0,
+      "end_time": 1389084.0,
+      "text": "Now you see that we can-- let me hit OK here to confirm."
+    },
+    {
+      "index": 512,
+      "start_time": 1389080.0,
+      "end_time": 1390246.0,
+      "text": "Now we&#39;re sharing my screen."
+    },
+    {
+      "index": 513,
+      "start_time": 1390250.0,
+      "end_time": 1392497.0,
+      "text": "So you can see that James-- I can just"
+    },
+    {
+      "index": 514,
+      "start_time": 1392500.0,
+      "end_time": 1394583.0,
+      "text": "move him around the screen, and it&#39;s really swift."
+    },
+    {
+      "index": 515,
+      "start_time": 1394580.0,
+      "end_time": 1396470.0,
+      "text": "And he can hear me and I can hear him."
+    },
+    {
+      "index": 516,
+      "start_time": 1396470.0,
+      "end_time": 1399580.0,
+      "text": "But one thing that happened here was just"
+    },
+    {
+      "index": 517,
+      "start_time": 1399580.0,
+      "end_time": 1402560.0,
+      "text": "getting the communication flow between the customer"
+    },
+    {
+      "index": 518,
+      "start_time": 1402560.0,
+      "end_time": 1405720.0,
+      "text": "and the company was not enough."
+    },
+    {
+      "index": 519,
+      "start_time": 1405720.0,
+      "end_time": 1408437.0,
+      "text": "Tools to get proper support for mobile customers"
+    },
+    {
+      "index": 520,
+      "start_time": 1408440.0,
+      "end_time": 1409273.0,
+      "text": "really didn&#39;t exist."
+    },
+    {
+      "index": 521,
+      "start_time": 1409270.0,
+      "end_time": 1410820.0,
+      "text": "So we had to create something new."
+    },
+    {
+      "index": 522,
+      "start_time": 1410820.0,
+      "end_time": 1413460.0,
+      "text": "And we call that Copilot, which is the ability for you"
+    },
+    {
+      "index": 523,
+      "start_time": 1413460.0,
+      "end_time": 1416940.0,
+      "text": "to share everything that&#39;s in the screen of the customer&#39;s"
+    },
+    {
+      "index": 524,
+      "start_time": 1416940.0,
+      "end_time": 1419360.0,
+      "text": "computer in real time, whether it&#39;s"
+    },
+    {
+      "index": 525,
+      "start_time": 1419360.0,
+      "end_time": 1422334.0,
+      "text": "an iOS device or an Android device or a web app."
+    },
+    {
+      "index": 526,
+      "start_time": 1422330.0,
+      "end_time": 1424496.0,
+      "text": "As well as the camera, because most of these devices"
+    },
+    {
+      "index": 527,
+      "start_time": 1424500.0,
+      "end_time": 1425090.0,
+      "text": "have a camera."
+    },
+    {
+      "index": 528,
+      "start_time": 1425090.0,
+      "end_time": 1428032.0,
+      "text": "And sometimes the problem&#39;s not necessarily in the app itself,"
+    },
+    {
+      "index": 529,
+      "start_time": 1428030.0,
+      "end_time": 1429488.0,
+      "text": "but in the real world and something"
+    },
+    {
+      "index": 530,
+      "start_time": 1429490.0,
+      "end_time": 1430840.0,
+      "text": "you want to interact with."
+    },
+    {
+      "index": 531,
+      "start_time": 1430840.0,
+      "end_time": 1434710.0,
+      "text": "As well as information, like what the device version is"
+    },
+    {
+      "index": 532,
+      "start_time": 1434710.0,
+      "end_time": 1438420.0,
+      "text": "and what the battery level, what the Wi-Fi, and things"
+    },
+    {
+      "index": 533,
+      "start_time": 1438420.0,
+      "end_time": 1440269.0,
+      "text": "of such nature."
+    },
+    {
+      "index": 534,
+      "start_time": 1440270.0,
+      "end_time": 1442061.0,
+      "text": "JAMES TAMPLIN: So how can I help you today?"
+    },
+    {
+      "index": 535,
+      "start_time": 1442060.0,
+      "end_time": 1443268.0,
+      "text": "What seems to be the problem?"
+    },
+    {
+      "index": 536,
+      "start_time": 1443270.0,
+      "end_time": 1448112.0,
+      "text": "GUS PINTO: So I forgot how to document"
+    },
+    {
+      "index": 537,
+      "start_time": 1448110.0,
+      "end_time": 1449900.0,
+      "text": "a session with this patient."
+    },
+    {
+      "index": 538,
+      "start_time": 1449900.0,
+      "end_time": 1452750.0,
+      "text": "And since the UI changed, I really don&#39;t know how it is."
+    },
+    {
+      "index": 539,
+      "start_time": 1452750.0,
+      "end_time": 1454485.0,
+      "text": "JAMES TAMPLIN: You&#39;re a terrible doctor."
+    },
+    {
+      "index": 540,
+      "start_time": 1454480.0,
+      "end_time": 1455095.0,
+      "text": "GUS PINTO: I&#39;m a horrible doctor."
+    },
+    {
+      "index": 541,
+      "start_time": 1455100.0,
+      "end_time": 1456820.0,
+      "text": "JAMES TAMPLIN: So if you want to start an exam,"
+    },
+    {
+      "index": 542,
+      "start_time": 1456820.0,
+      "end_time": 1459370.0,
+      "text": "what you&#39;re going to want to do is click this exam button here"
+    },
+    {
+      "index": 543,
+      "start_time": 1459370.0,
+      "end_time": 1460120.0,
+      "text": "in the upper left."
+    },
+    {
+      "index": 544,
+      "start_time": 1460120.0,
+      "end_time": 1461390.0,
+      "text": "And I&#39;ll just highlight that for you."
+    },
+    {
+      "index": 545,
+      "start_time": 1461390.0,
+      "end_time": 1462056.0,
+      "text": "GUS PINTO: Cool."
+    },
+    {
+      "index": 546,
+      "start_time": 1462060.0,
+      "end_time": 1465214.0,
+      "text": "So you see that right on the iPad, whatever he did,"
+    },
+    {
+      "index": 547,
+      "start_time": 1465210.0,
+      "end_time": 1467610.0,
+      "text": "he could draw on my screen and guide me to completion."
+    },
+    {
+      "index": 548,
+      "start_time": 1467610.0,
+      "end_time": 1470110.0,
+      "text": "And we call that feature Touch Assist."
+    },
+    {
+      "index": 549,
+      "start_time": 1470110.0,
+      "end_time": 1473850.0,
+      "text": "He can actually see where I tap on the screen in real time."
+    },
+    {
+      "index": 550,
+      "start_time": 1473850.0,
+      "end_time": 1477132.0,
+      "text": "So if we switch back to Notebook,"
+    },
+    {
+      "index": 551,
+      "start_time": 1477130.0,
+      "end_time": 1478088.0,
+      "text": "he can see the drawing."
+    },
+    {
+      "index": 552,
+      "start_time": 1478090.0,
+      "end_time": 1479960.0,
+      "text": "You can see he can simply clear the drawing."
+    },
+    {
+      "index": 553,
+      "start_time": 1479960.0,
+      "end_time": 1480230.0,
+      "text": "JAMES TAMPLIN: Cool."
+    },
+    {
+      "index": 554,
+      "start_time": 1480230.0,
+      "end_time": 1481770.0,
+      "text": "So I&#39;ll clear that with the eraser."
+    },
+    {
+      "index": 555,
+      "start_time": 1481770.0,
+      "end_time": 1483620.0,
+      "text": "GUS PINTO: Once I touch where I need to touch-- and all"
+    },
+    {
+      "index": 556,
+      "start_time": 1483620.0,
+      "end_time": 1485700.0,
+      "text": "the touches that I do-- I perform-- they show up"
+    },
+    {
+      "index": 557,
+      "start_time": 1485700.0,
+      "end_time": 1486380.0,
+      "text": "in real time."
+    },
+    {
+      "index": 558,
+      "start_time": 1486380.0,
+      "end_time": 1489620.0,
+      "text": "Including any updates I make to the application."
+    },
+    {
+      "index": 559,
+      "start_time": 1489620.0,
+      "end_time": 1492250.0,
+      "text": "JAMES TAMPLIN: Just going to give her a little hair."
+    },
+    {
+      "index": 560,
+      "start_time": 1494820.0,
+      "end_time": 1496194.0,
+      "text": "I could totally be a doctor, too."
+    },
+    {
+      "index": 561,
+      "start_time": 1499210.0,
+      "end_time": 1501810.0,
+      "text": "GUS PINTO: And then from here, we"
+    },
+    {
+      "index": 562,
+      "start_time": 1501810.0,
+      "end_time": 1505520.0,
+      "text": "expect to be able to drive problem solutions much faster"
+    },
+    {
+      "index": 563,
+      "start_time": 1505520.0,
+      "end_time": 1507331.0,
+      "text": "than ever before."
+    },
+    {
+      "index": 564,
+      "start_time": 1507330.0,
+      "end_time": 1507829.0,
+      "text": "You know?"
+    },
+    {
+      "index": 565,
+      "start_time": 1507830.0,
+      "end_time": 1509880.0,
+      "text": "So this is Concierge."
+    },
+    {
+      "index": 566,
+      "start_time": 1509880.0,
+      "end_time": 1511170.0,
+      "text": "It&#39;s in the market today."
+    },
+    {
+      "index": 567,
+      "start_time": 1511170.0,
+      "end_time": 1513910.0,
+      "text": "You can go to concierge.call.com."
+    },
+    {
+      "index": 568,
+      "start_time": 1513910.0,
+      "end_time": 1516609.0,
+      "text": "It&#39;s available for both Android and iOS."
+    },
+    {
+      "index": 569,
+      "start_time": 1516610.0,
+      "end_time": 1518151.0,
+      "text": "And we believe that it&#39;s really going"
+    },
+    {
+      "index": 570,
+      "start_time": 1518150.0,
+      "end_time": 1521630.0,
+      "text": "to transform the way companies connect with their customers"
+    },
+    {
+      "index": 571,
+      "start_time": 1521630.0,
+      "end_time": 1523320.0,
+      "text": "and employees."
+    },
+    {
+      "index": 572,
+      "start_time": 1523320.0,
+      "end_time": 1525010.0,
+      "text": "And we really couldn&#39;t have built this"
+    },
+    {
+      "index": 573,
+      "start_time": 1525010.0,
+      "end_time": 1528760.0,
+      "text": "without the help of Firebase because we really"
+    },
+    {
+      "index": 574,
+      "start_time": 1528760.0,
+      "end_time": 1531530.0,
+      "text": "had a hard set of problems to tackle."
+    },
+    {
+      "index": 575,
+      "start_time": 1531530.0,
+      "end_time": 1535310.0,
+      "text": "And instead of trying to reinvent the wheel,"
+    },
+    {
+      "index": 576,
+      "start_time": 1535310.0,
+      "end_time": 1539395.0,
+      "text": "we made a commitment to build this on a solid platform that"
+    },
+    {
+      "index": 577,
+      "start_time": 1539400.0,
+      "end_time": 1542005.0,
+      "text": "would scale for us at the enterprise-grade levels"
+    },
+    {
+      "index": 578,
+      "start_time": 1542000.0,
+      "end_time": 1543510.0,
+      "text": "that we really needed to."
+    },
+    {
+      "index": 579,
+      "start_time": 1543510.0,
+      "end_time": 1544382.0,
+      "text": "So that&#39;s Concierge."
+    },
+    {
+      "index": 580,
+      "start_time": 1544380.0,
+      "end_time": 1545338.0,
+      "text": "JAMES TAMPLIN: Awesome."
+    },
+    {
+      "index": 581,
+      "start_time": 1545340.0,
+      "end_time": 1547220.0,
+      "text": "GUS PINTO: And take Firebase for a spin."
+    },
+    {
+      "index": 582,
+      "start_time": 1547220.0,
+      "end_time": 1548662.0,
+      "text": "You will absolutely love it."
+    },
+    {
+      "index": 583,
+      "start_time": 1548660.0,
+      "end_time": 1549368.0,
+      "text": "Thank you, James."
+    },
+    {
+      "index": 584,
+      "start_time": 1549370.0,
+      "end_time": 1550080.0,
+      "text": "JAMES TAMPLIN: Thanks for your time, Gus."
+    },
+    {
+      "index": 585,
+      "start_time": 1550080.0,
+      "end_time": 1550410.0,
+      "text": "Really appreciate it."
+    },
+    {
+      "index": 586,
+      "start_time": 1550410.0,
+      "end_time": 1550898.0,
+      "text": "GUS PINTO: Absolutely."
+    },
+    {
+      "index": 587,
+      "start_time": 1550900.0,
+      "end_time": 1551400.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 588,
+      "start_time": 1551400.0,
+      "end_time": 1553340.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 589,
+      "start_time": 1558220.0,
+      "end_time": 1559320.0,
+      "text": "JAMES TAMPLIN: Cool."
+    },
+    {
+      "index": 590,
+      "start_time": 1559320.0,
+      "end_time": 1562870.0,
+      "text": "So we&#39;ve seen how Instacart, Sky News, and Citrix"
+    },
+    {
+      "index": 591,
+      "start_time": 1562870.0,
+      "end_time": 1566150.0,
+      "text": "use Firebase to power some of their applications."
+    },
+    {
+      "index": 592,
+      "start_time": 1566150.0,
+      "end_time": 1570450.0,
+      "text": "Now let&#39;s get to some of the really exciting bits."
+    },
+    {
+      "index": 593,
+      "start_time": 1570450.0,
+      "end_time": 1572625.0,
+      "text": "We&#39;ve got a couple of great announcements today."
+    },
+    {
+      "index": 594,
+      "start_time": 1572620.0,
+      "end_time": 1578747.0,
+      "text": "And the first is a new feature for our real time database."
+    },
+    {
+      "index": 595,
+      "start_time": 1578750.0,
+      "end_time": 1580958.0,
+      "text": "Typically, when you&#39;re building a mobile application,"
+    },
+    {
+      "index": 596,
+      "start_time": 1580960.0,
+      "end_time": 1584460.0,
+      "text": "it&#39;s just consuming a REST API from a server."
+    },
+    {
+      "index": 597,
+      "start_time": 1584460.0,
+      "end_time": 1585990.0,
+      "text": "And in this architecture, when you"
+    },
+    {
+      "index": 598,
+      "start_time": 1585990.0,
+      "end_time": 1589760.0,
+      "text": "lose your internet connection, the app just stops working."
+    },
+    {
+      "index": 599,
+      "start_time": 1589760.0,
+      "end_time": 1591890.0,
+      "text": "And this is a terrible user experience."
+    },
+    {
+      "index": 600,
+      "start_time": 1591890.0,
+      "end_time": 1594580.0,
+      "text": "We learned earlier that the Firebase client"
+    },
+    {
+      "index": 601,
+      "start_time": 1594580.0,
+      "end_time": 1600160.0,
+      "text": "SDKs keep a local copy of your data in memory on your phone."
+    },
+    {
+      "index": 602,
+      "start_time": 1600160.0,
+      "end_time": 1603360.0,
+      "text": "And so this allows your app to stay responsive"
+    },
+    {
+      "index": 603,
+      "start_time": 1603360.0,
+      "end_time": 1606520.0,
+      "text": "when you lose your connection temporarily."
+    },
+    {
+      "index": 604,
+      "start_time": 1606520.0,
+      "end_time": 1609040.0,
+      "text": "But today, we&#39;re improving on that."
+    },
+    {
+      "index": 605,
+      "start_time": 1609040.0,
+      "end_time": 1612360.0,
+      "text": "And we&#39;re improving on that by announcing full mobile offline"
+    },
+    {
+      "index": 606,
+      "start_time": 1612360.0,
+      "end_time": 1613760.0,
+      "text": "support."
+    },
+    {
+      "index": 607,
+      "start_time": 1613760.0,
+      "end_time": 1615720.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 608,
+      "start_time": 1618940.0,
+      "end_time": 1620170.0,
+      "text": "This comes in two flavors."
+    },
+    {
+      "index": 609,
+      "start_time": 1620170.0,
+      "end_time": 1623210.0,
+      "text": "The first is disk persistence."
+    },
+    {
+      "index": 610,
+      "start_time": 1623210.0,
+      "end_time": 1625990.0,
+      "text": "So when you go offline, your SDKs now"
+    },
+    {
+      "index": 611,
+      "start_time": 1625990.0,
+      "end_time": 1631090.0,
+      "text": "not only store into memory, but they also persist to disk."
+    },
+    {
+      "index": 612,
+      "start_time": 1631090.0,
+      "end_time": 1634190.0,
+      "text": "This means you can completely quit your application"
+    },
+    {
+      "index": 613,
+      "start_time": 1634190.0,
+      "end_time": 1638570.0,
+      "text": "and when you restart it, your data is still available."
+    },
+    {
+      "index": 614,
+      "start_time": 1638570.0,
+      "end_time": 1641120.0,
+      "text": "When you come back online, it resyncs"
+    },
+    {
+      "index": 615,
+      "start_time": 1641120.0,
+      "end_time": 1643880.0,
+      "text": "and the entire application brings you back up"
+    },
+    {
+      "index": 616,
+      "start_time": 1643880.0,
+      "end_time": 1646191.0,
+      "text": "to speed and back up to the current state of the world."
+    },
+    {
+      "index": 617,
+      "start_time": 1646190.0,
+      "end_time": 1647939.0,
+      "text": "Let&#39;s hop over to the [? Wolf ?] and let&#39;s"
+    },
+    {
+      "index": 618,
+      "start_time": 1647940.0,
+      "end_time": 1648950.0,
+      "text": "show you this in action."
+    },
+    {
+      "index": 619,
+      "start_time": 1651640.0,
+      "end_time": 1656780.0,
+      "text": "So this has actually already been implemented on Talkboard."
+    },
+    {
+      "index": 620,
+      "start_time": 1656780.0,
+      "end_time": 1662196.0,
+      "text": "So this time, let&#39;s play a little game of tic-tac-toe."
+    },
+    {
+      "index": 621,
+      "start_time": 1662200.0,
+      "end_time": 1664324.0,
+      "text": "But all of a sudden, I lose my internet connection."
+    },
+    {
+      "index": 622,
+      "start_time": 1666850.0,
+      "end_time": 1669266.0,
+      "text": "So I&#39;m going to come in here and turn off the Wi-Fi."
+    },
+    {
+      "index": 623,
+      "start_time": 1669270.0,
+      "end_time": 1670644.0,
+      "text": "And I&#39;m going to go to the Wi-Fi."
+    },
+    {
+      "index": 624,
+      "start_time": 1674010.0,
+      "end_time": 1675260.0,
+      "text": "And I&#39;ll go back to Talkboard."
+    },
+    {
+      "index": 625,
+      "start_time": 1679090.0,
+      "end_time": 1680839.0,
+      "text": "So now we&#39;ve lost the internet connection."
+    },
+    {
+      "index": 626,
+      "start_time": 1680840.0,
+      "end_time": 1683619.0,
+      "text": "So the first thing I&#39;ll do is I&#39;ll start playing again."
+    },
+    {
+      "index": 627,
+      "start_time": 1683620.0,
+      "end_time": 1685661.0,
+      "text": "And I realize the other player&#39;s isn&#39;t connected,"
+    },
+    {
+      "index": 628,
+      "start_time": 1685660.0,
+      "end_time": 1688030.0,
+      "text": "so I&#39;m just going to go ahead and win the game"
+    },
+    {
+      "index": 629,
+      "start_time": 1688030.0,
+      "end_time": 1691700.0,
+      "text": "because they&#39;re not there."
+    },
+    {
+      "index": 630,
+      "start_time": 1691700.0,
+      "end_time": 1695180.0,
+      "text": "And then I&#39;ll go ahead and quit my application entirely and say"
+    },
+    {
+      "index": 631,
+      "start_time": 1695180.0,
+      "end_time": 1698410.0,
+      "text": "I&#39;m off climbing a mountain."
+    },
+    {
+      "index": 632,
+      "start_time": 1698410.0,
+      "end_time": 1701782.0,
+      "text": "Meanwhile, the other player is like, what actually happened?"
+    },
+    {
+      "index": 633,
+      "start_time": 1701780.0,
+      "end_time": 1702488.0,
+      "text": "Where did you go?"
+    },
+    {
+      "index": 634,
+      "start_time": 1702490.0,
+      "end_time": 1705090.0,
+      "text": "And draws a question mark."
+    },
+    {
+      "index": 635,
+      "start_time": 1705090.0,
+      "end_time": 1707890.0,
+      "text": "A while later, I spin the application back up, I go out."
+    },
+    {
+      "index": 636,
+      "start_time": 1710640.0,
+      "end_time": 1712160.0,
+      "text": "Fire it up again."
+    },
+    {
+      "index": 637,
+      "start_time": 1712160.0,
+      "end_time": 1712910.0,
+      "text": "Go into Talkboard."
+    },
+    {
+      "index": 638,
+      "start_time": 1715490.0,
+      "end_time": 1717410.0,
+      "text": "Here&#39;s my game of tic-tac-toe."
+    },
+    {
+      "index": 639,
+      "start_time": 1717410.0,
+      "end_time": 1719140.0,
+      "text": "And then I turn the Wi-Fi back on."
+    },
+    {
+      "index": 640,
+      "start_time": 1719140.0,
+      "end_time": 1722390.0,
+      "text": "First of all, you&#39;ve seen that I quit the application,"
+    },
+    {
+      "index": 641,
+      "start_time": 1722390.0,
+      "end_time": 1725410.0,
+      "text": "the data was persisted to disk, I restarted the application,"
+    },
+    {
+      "index": 642,
+      "start_time": 1725410.0,
+      "end_time": 1727080.0,
+      "text": "everything is still there."
+    },
+    {
+      "index": 643,
+      "start_time": 1727080.0,
+      "end_time": 1733812.0,
+      "text": "Then, when I reconnect to Wi-Fi, turn it back on."
+    },
+    {
+      "index": 644,
+      "start_time": 1733810.0,
+      "end_time": 1735768.0,
+      "text": "This, by the way, is the only demo of my career"
+    },
+    {
+      "index": 645,
+      "start_time": 1735770.0,
+      "end_time": 1740620.0,
+      "text": "that if the Wi-Fi actually drops out, it would be a good thing."
+    },
+    {
+      "index": 646,
+      "start_time": 1740620.0,
+      "end_time": 1743142.0,
+      "text": "And as we regain Wi-Fi, everything syncs back"
+    },
+    {
+      "index": 647,
+      "start_time": 1743140.0,
+      "end_time": 1745098.0,
+      "text": "and we&#39;re up to the current state of the world."
+    },
+    {
+      "index": 648,
+      "start_time": 1745100.0,
+      "end_time": 1747480.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 649,
+      "start_time": 1752250.0,
+      "end_time": 1754500.0,
+      "text": "We really need to focus on mobile as developers,"
+    },
+    {
+      "index": 650,
+      "start_time": 1754500.0,
+      "end_time": 1757044.0,
+      "text": "and features like this let you do exactly that."
+    },
+    {
+      "index": 651,
+      "start_time": 1757040.0,
+      "end_time": 1758206.0,
+      "text": "We&#39;ll go back to the slides."
+    },
+    {
+      "index": 652,
+      "start_time": 1760910.0,
+      "end_time": 1763390.0,
+      "text": "Another great thing is that this feature"
+    },
+    {
+      "index": 653,
+      "start_time": 1763390.0,
+      "end_time": 1766320.0,
+      "text": "is available with just one line of code."
+    },
+    {
+      "index": 654,
+      "start_time": 1766320.0,
+      "end_time": 1768760.0,
+      "text": "This is the Android, the Objective-C, and the Swift code"
+    },
+    {
+      "index": 655,
+      "start_time": 1768760.0,
+      "end_time": 1771080.0,
+      "text": "that you need to enable this persistence."
+    },
+    {
+      "index": 656,
+      "start_time": 1771080.0,
+      "end_time": 1773420.0,
+      "text": "Because Firebase database is built on a synchronization"
+    },
+    {
+      "index": 657,
+      "start_time": 1773420.0,
+      "end_time": 1776700.0,
+      "text": "approach, we&#39;ve really built it-- from the beginning--"
+    },
+    {
+      "index": 658,
+      "start_time": 1776700.0,
+      "end_time": 1778000.0,
+      "text": "to be able to do this."
+    },
+    {
+      "index": 659,
+      "start_time": 1778000.0,
+      "end_time": 1781200.0,
+      "text": "And we&#39;re excited that there&#39;s GA today."
+    },
+    {
+      "index": 660,
+      "start_time": 1781200.0,
+      "end_time": 1785150.0,
+      "text": "The next peeks of full mobile offline support is Keep Synced."
+    },
+    {
+      "index": 661,
+      "start_time": 1785150.0,
+      "end_time": 1786950.0,
+      "text": "Keep Synced is the ability for you"
+    },
+    {
+      "index": 662,
+      "start_time": 1786950.0,
+      "end_time": 1790060.0,
+      "text": "to specify data that should be prefetched"
+    },
+    {
+      "index": 663,
+      "start_time": 1790060.0,
+      "end_time": 1793207.0,
+      "text": "and kept up to date in case you go offline."
+    },
+    {
+      "index": 664,
+      "start_time": 1793210.0,
+      "end_time": 1794793.0,
+      "text": "So a good example of this is if you&#39;re"
+    },
+    {
+      "index": 665,
+      "start_time": 1794790.0,
+      "end_time": 1796460.0,
+      "text": "building a social network and you"
+    },
+    {
+      "index": 666,
+      "start_time": 1796460.0,
+      "end_time": 1799670.0,
+      "text": "want to keep the profiles of your closest friends up to date"
+    },
+    {
+      "index": 667,
+      "start_time": 1799670.0,
+      "end_time": 1801899.0,
+      "text": "so that you can get at them if you&#39;re offline."
+    },
+    {
+      "index": 668,
+      "start_time": 1801900.0,
+      "end_time": 1803441.0,
+      "text": "Keep Synced is the feature that would"
+    },
+    {
+      "index": 669,
+      "start_time": 1803440.0,
+      "end_time": 1805064.0,
+      "text": "allow you to do this and see their wall"
+    },
+    {
+      "index": 670,
+      "start_time": 1805060.0,
+      "end_time": 1808816.0,
+      "text": "posts from the last time you had an internet connection."
+    },
+    {
+      "index": 671,
+      "start_time": 1808820.0,
+      "end_time": 1812029.0,
+      "text": "This is, again, just one line of code to implement."
+    },
+    {
+      "index": 672,
+      "start_time": 1812030.0,
+      "end_time": 1814321.0,
+      "text": "Here&#39;s the Android, the Objective-C, and the Swift code"
+    },
+    {
+      "index": 673,
+      "start_time": 1814320.0,
+      "end_time": 1817150.0,
+      "text": "to do it again."
+    },
+    {
+      "index": 674,
+      "start_time": 1817150.0,
+      "end_time": 1820660.0,
+      "text": "With both disk persistence and with Keep Synced,"
+    },
+    {
+      "index": 675,
+      "start_time": 1820660.0,
+      "end_time": 1824280.0,
+      "text": "if your users go through tunnels, climb a mountain,"
+    },
+    {
+      "index": 676,
+      "start_time": 1824280.0,
+      "end_time": 1826220.0,
+      "text": "or get on a plane, your applications"
+    },
+    {
+      "index": 677,
+      "start_time": 1826220.0,
+      "end_time": 1828310.0,
+      "text": "continue to work seamlessly."
+    },
+    {
+      "index": 678,
+      "start_time": 1828310.0,
+      "end_time": 1830560.0,
+      "text": "And since this is just one line of code,"
+    },
+    {
+      "index": 679,
+      "start_time": 1830560.0,
+      "end_time": 1833700.0,
+      "text": "this continues to be a hallmark of Firebase-- our simplicity"
+    },
+    {
+      "index": 680,
+      "start_time": 1833700.0,
+      "end_time": 1835260.0,
+      "text": "and our ease of use."
+    },
+    {
+      "index": 681,
+      "start_time": 1835260.0,
+      "end_time": 1836970.0,
+      "text": "And you can now deliver these features"
+    },
+    {
+      "index": 682,
+      "start_time": 1836970.0,
+      "end_time": 1840389.0,
+      "text": "that your users are coming to expect."
+    },
+    {
+      "index": 683,
+      "start_time": 1840390.0,
+      "end_time": 1841931.0,
+      "text": "The second announcement we have today"
+    },
+    {
+      "index": 684,
+      "start_time": 1841930.0,
+      "end_time": 1844230.0,
+      "text": "is around making Firebase compatible with"
+    },
+    {
+      "index": 685,
+      "start_time": 1844230.0,
+      "end_time": 1846380.0,
+      "text": "an exciting new technology."
+    },
+    {
+      "index": 686,
+      "start_time": 1846380.0,
+      "end_time": 1849385.0,
+      "text": "Firebase is just one piece of a complete application."
+    },
+    {
+      "index": 687,
+      "start_time": 1849390.0,
+      "end_time": 1851357.0,
+      "text": "As I mentioned earlier, client side code"
+    },
+    {
+      "index": 688,
+      "start_time": 1851350.0,
+      "end_time": 1853058.0,
+      "text": "often needs to be structured and managed."
+    },
+    {
+      "index": 689,
+      "start_time": 1853060.0,
+      "end_time": 1854685.0,
+      "text": "And that&#39;s why we&#39;ve built integrations"
+    },
+    {
+      "index": 690,
+      "start_time": 1854690.0,
+      "end_time": 1857755.0,
+      "text": "with Angular, Ember, React."
+    },
+    {
+      "index": 691,
+      "start_time": 1857750.0,
+      "end_time": 1861070.0,
+      "text": "But an exciting new technology, called React Native,"
+    },
+    {
+      "index": 692,
+      "start_time": 1861070.0,
+      "end_time": 1863460.0,
+      "text": "was announced a couple of months ago."
+    },
+    {
+      "index": 693,
+      "start_time": 1863460.0,
+      "end_time": 1865720.0,
+      "text": "And today, we&#39;re excited to announce that Firebase"
+    },
+    {
+      "index": 694,
+      "start_time": 1865720.0,
+      "end_time": 1867700.0,
+      "text": "works with React Native and can be"
+    },
+    {
+      "index": 695,
+      "start_time": 1867700.0,
+      "end_time": 1872052.0,
+      "text": "the back end for your React Native-powered app."
+    },
+    {
+      "index": 696,
+      "start_time": 1872050.0,
+      "end_time": 1874258.0,
+      "text": "React Native is an open source library from Facebook."
+    },
+    {
+      "index": 697,
+      "start_time": 1874260.0,
+      "end_time": 1875968.0,
+      "text": "There&#39;s a huge community going around it."
+    },
+    {
+      "index": 698,
+      "start_time": 1875970.0,
+      "end_time": 1879142.0,
+      "text": "It already has 14,000 stars on GitHub"
+    },
+    {
+      "index": 699,
+      "start_time": 1879140.0,
+      "end_time": 1881940.0,
+      "text": "and it&#39;s used by Facebook in their Groups product."
+    },
+    {
+      "index": 700,
+      "start_time": 1881940.0,
+      "end_time": 1885080.0,
+      "text": "Firebase and React work really well with each other."
+    },
+    {
+      "index": 701,
+      "start_time": 1885080.0,
+      "end_time": 1887570.0,
+      "text": "React updates your UI when there&#39;s"
+    },
+    {
+      "index": 702,
+      "start_time": 1887570.0,
+      "end_time": 1889520.0,
+      "text": "a change in your data model."
+    },
+    {
+      "index": 703,
+      "start_time": 1889520.0,
+      "end_time": 1893160.0,
+      "text": "Firebase delivers real time updates to your data model."
+    },
+    {
+      "index": 704,
+      "start_time": 1893160.0,
+      "end_time": 1894510.0,
+      "text": "The pairing is quite elegant."
+    },
+    {
+      "index": 705,
+      "start_time": 1897510.0,
+      "end_time": 1900010.0,
+      "text": "You can get started by npm installing Firebase,"
+    },
+    {
+      "index": 706,
+      "start_time": 1900010.0,
+      "end_time": 1901730.0,
+      "text": "and then, inside your React Native code,"
+    },
+    {
+      "index": 707,
+      "start_time": 1901730.0,
+      "end_time": 1904920.0,
+      "text": "just require Firebase and you&#39;re off to the races."
+    },
+    {
+      "index": 708,
+      "start_time": 1904920.0,
+      "end_time": 1907312.0,
+      "text": "We really can&#39;t wait to see what you build."
+    },
+    {
+      "index": 709,
+      "start_time": 1907310.0,
+      "end_time": 1909018.0,
+      "text": "So you&#39;ve seen our mobile offline support"
+    },
+    {
+      "index": 710,
+      "start_time": 1909020.0,
+      "end_time": 1912032.0,
+      "text": "and our React announcements."
+    },
+    {
+      "index": 711,
+      "start_time": 1912030.0,
+      "end_time": 1913738.0,
+      "text": "We&#39;ve seen what Google Cloud Platform can"
+    },
+    {
+      "index": 712,
+      "start_time": 1913740.0,
+      "end_time": 1915720.0,
+      "text": "do to help you be more productive, an overview"
+    },
+    {
+      "index": 713,
+      "start_time": 1915720.0,
+      "end_time": 1918539.0,
+      "text": "of Firebase and a feature deep dive, heard from Citrix,"
+    },
+    {
+      "index": 714,
+      "start_time": 1918540.0,
+      "end_time": 1919706.0,
+      "text": "and seen some announcements."
+    },
+    {
+      "index": 715,
+      "start_time": 1923680.0,
+      "end_time": 1927347.0,
+      "text": "Really focusing on user experience, not infrastructure,"
+    },
+    {
+      "index": 716,
+      "start_time": 1927350.0,
+      "end_time": 1929183.0,
+      "text": "is going to be the way developers build apps"
+    },
+    {
+      "index": 717,
+      "start_time": 1929180.0,
+      "end_time": 1929820.0,
+      "text": "in the future."
+    },
+    {
+      "index": 718,
+      "start_time": 1929820.0,
+      "end_time": 1933570.0,
+      "text": "Focusing on tasks, users, and data."
+    },
+    {
+      "index": 719,
+      "start_time": 1933570.0,
+      "end_time": 1936770.0,
+      "text": "Firebase is enabling developers to deliver extraordinary apps,"
+    },
+    {
+      "index": 720,
+      "start_time": 1936770.0,
+      "end_time": 1940310.0,
+      "text": "with features that end users expect right out of the box."
+    },
+    {
+      "index": 721,
+      "start_time": 1940310.0,
+      "end_time": 1944720.0,
+      "text": "With Firebase, what used to take months now takes hours."
+    },
+    {
+      "index": 722,
+      "start_time": 1944720.0,
+      "end_time": 1947100.0,
+      "text": "We live in pretty exciting times."
+    },
+    {
+      "index": 723,
+      "start_time": 1947100.0,
+      "end_time": 1950090.0,
+      "text": "And we&#39;re excited that individual developers"
+    },
+    {
+      "index": 724,
+      "start_time": 1950090.0,
+      "end_time": 1953529.0,
+      "text": "and small teams can make a massive difference."
+    },
+    {
+      "index": 725,
+      "start_time": 1953530.0,
+      "end_time": 1955071.0,
+      "text": "If you build something with Firebase,"
+    },
+    {
+      "index": 726,
+      "start_time": 1955070.0,
+      "end_time": 1957580.0,
+      "text": "please do tell us about it."
+    },
+    {
+      "index": 727,
+      "start_time": 1957580.0,
+      "end_time": 1960030.0,
+      "text": "We&#39;d love to hear what you build."
+    },
+    {
+      "index": 728,
+      "start_time": 1960030.0,
+      "end_time": 1961630.0,
+      "text": "We&#39;ll be around all day."
+    },
+    {
+      "index": 729,
+      "start_time": 1961630.0,
+      "end_time": 1963520.0,
+      "text": "We have office hours at 4:00 PM."
+    },
+    {
+      "index": 730,
+      "start_time": 1963520.0,
+      "end_time": 1965430.0,
+      "text": "There&#39;s some schwag over on these tables."
+    },
+    {
+      "index": 731,
+      "start_time": 1965430.0,
+      "end_time": 1967170.0,
+      "text": "We&#39;re here in the yellow shirts."
+    },
+    {
+      "index": 732,
+      "start_time": 1967170.0,
+      "end_time": 1969050.0,
+      "text": "Please come and find us and say hello."
+    },
+    {
+      "index": 733,
+      "start_time": 1969050.0,
+      "end_time": 1971720.0,
+      "text": "And enjoy the rest of your I/O. Thank you."
+    },
+    {
+      "index": 734,
+      "start_time": 1971720.0,
+      "end_time": 1973270.0,
+      "text": "[APPLAUSE]"
+    }
+  ]
+}

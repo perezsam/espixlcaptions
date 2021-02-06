@@ -1,0 +1,2436 @@
+{
+  "video_id": "I8LbkfSSR58",
+  "title": "Category Theory 1.1: Motivation and Philosophy",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 9680.0,
+      "end_time": 19380.0,
+      "text": "Alright, welcome to category theory lectures"
+    },
+    {
+      "index": 2,
+      "start_time": 19380.0,
+      "end_time": 23040.0,
+      "text": "So, are we all programmers here?"
+    },
+    {
+      "index": 3,
+      "start_time": 23040.0,
+      "end_time": 26760.0,
+      "text": "Is everyone a programmer, or are there people who are not programmers?"
+    },
+    {
+      "index": 4,
+      "start_time": 26760.0,
+      "end_time": 31680.0,
+      "text": "If you&#39;re not a programmer, please raise your hand"
+    },
+    {
+      "index": 5,
+      "start_time": 31680.0,
+      "end_time": 39240.0,
+      "text": "Okay, thats means, like, you don&#39;t write any programs? &gt; I kind of learn as a hobby"
+    },
+    {
+      "index": 6,
+      "start_time": 39240.0,
+      "end_time": 41309.0,
+      "text": "Okay well that&#39;s good enough"
+    },
+    {
+      "index": 7,
+      "start_time": 41309.0,
+      "end_time": 50760.0,
+      "text": "okay and how many people here have some little bit of knowledge of Haskell, okay"
+    },
+    {
+      "index": 8,
+      "start_time": 50760.0,
+      "end_time": 56760.0,
+      "text": "Oh Lots, that&#39;s, that&#39;s, excellent because I might be giving some examples mostly"
+    },
+    {
+      "index": 9,
+      "start_time": 56760.0,
+      "end_time": 64559.0,
+      "text": "just like you know, declarations, functions or something like that"
+    },
+    {
+      "index": 10,
+      "start_time": 64559.0,
+      "end_time": 68130.0,
+      "text": "I&#39;ll explain everything but it&#39;s it&#39;s good to have a little bit of"
+    },
+    {
+      "index": 11,
+      "start_time": 68130.0,
+      "end_time": 80250.0,
+      "text": "understanding. So I&#39;m not really teaching a programming language, it will be about"
+    },
+    {
+      "index": 12,
+      "start_time": 80250.0,
+      "end_time": 88860.0,
+      "text": "category theory and category theory is like this most abstract, or well maybe"
+    },
+    {
+      "index": 13,
+      "start_time": 88860.0,
+      "end_time": 91680.0,
+      "text": "almost the most abstract part of mathematics, right"
+    },
+    {
+      "index": 14,
+      "start_time": 91680.0,
+      "end_time": 96270.0,
+      "text": "so the question is why are we here?"
+    },
+    {
+      "index": 15,
+      "start_time": 96270.0,
+      "end_time": 101450.0,
+      "text": "what does it have to do with programming, right?"
+    },
+    {
+      "index": 16,
+      "start_time": 101450.0,
+      "end_time": 105620.0,
+      "text": "and a lot of programmers they hate math"
+    },
+    {
+      "index": 17,
+      "start_time": 105620.0,
+      "end_time": 110310.0,
+      "text": "they finished learning math at college and now they"
+    },
+    {
+      "index": 18,
+      "start_time": 110310.0,
+      "end_time": 114989.0,
+      "text": "are really happy now &quot;for the rest of my life I will not have to touch it&quot;"
+    },
+    {
+      "index": 19,
+      "start_time": 114989.0,
+      "end_time": 123180.0,
+      "text": "&quot;I hate math&quot; and so on, and you guys here come for, I dunno, punishment?"
+    },
+    {
+      "index": 20,
+      "start_time": 123180.0,
+      "end_time": 130369.0,
+      "text": "Why do you think category theory might be important?"
+    },
+    {
+      "index": 21,
+      "start_time": 130369.0,
+      "end_time": 139410.0,
+      "text": "What do you think, do we do functional programming?"
+    },
+    {
+      "index": 22,
+      "start_time": 139410.0,
+      "end_time": 144870.0,
+      "text": "Is category theory only relevant to functional programming or other branches"
+    },
+    {
+      "index": 23,
+      "start_time": 144870.0,
+      "end_time": 150650.0,
+      "text": "of programming would maybe profit from it too?"
+    },
+    {
+      "index": 24,
+      "start_time": 150650.0,
+      "end_time": 153660.0,
+      "text": "is there something more to offer?"
+    },
+    {
+      "index": 25,
+      "start_time": 153660.0,
+      "end_time": 157290.0,
+      "text": "Have you heard of functors, who&#39;s heard of functors?"
+    },
+    {
+      "index": 26,
+      "start_time": 157290.0,
+      "end_time": 162040.0,
+      "text": "yeah, and who knows what functors are?"
+    },
+    {
+      "index": 27,
+      "start_time": 162040.0,
+      "end_time": 171160.0,
+      "text": "Uh huh, a few. That&#39;s good, that means i can actually explain stuff and you won&#39;t be totally"
+    },
+    {
+      "index": 28,
+      "start_time": 171160.0,
+      "end_time": 178350.0,
+      "text": "repeating what you already know"
+    },
+    {
+      "index": 29,
+      "start_time": 178350.0,
+      "end_time": 184200.0,
+      "text": "so I came to category theory through a long long twisted road"
+    },
+    {
+      "index": 30,
+      "start_time": 184200.0,
+      "end_time": 191490.0,
+      "text": "ok when I started programming I started programming in assembly language"
+    },
+    {
+      "index": 31,
+      "start_time": 191490.0,
+      "end_time": 199080.0,
+      "text": "the lowest possible level, right, where you actually tell the computer exactly what to do"
+    },
+    {
+      "index": 32,
+      "start_time": 199080.0,
+      "end_time": 207480.0,
+      "text": "right down to &quot;grab this thing from memory, put it into the register, use it as an"
+    },
+    {
+      "index": 33,
+      "start_time": 207480.0,
+      "end_time": 214410.0,
+      "text": "&quot;address and then jump&quot; and so on so this is very precisely telling the computer"
+    },
+    {
+      "index": 34,
+      "start_time": 214410.0,
+      "end_time": 221400.0,
+      "text": "what to do right this is this is a very imperative way of programming we start"
+    },
+    {
+      "index": 35,
+      "start_time": 221400.0,
+      "end_time": 227190.0,
+      "text": "with this most imperative approach to programming and then sort of we drag"
+    },
+    {
+      "index": 36,
+      "start_time": 227190.0,
+      "end_time": 232920.0,
+      "text": "this this approach to programming throughout our lives right and like we"
+    },
+    {
+      "index": 37,
+      "start_time": 232920.0,
+      "end_time": 240090.0,
+      "text": "have to unlearn at some point. And this approach to programming sort of in"
+    },
+    {
+      "index": 38,
+      "start_time": 240090.0,
+      "end_time": 246540.0,
+      "text": "computer science is related to Turing machines. A Turing machine is this kind of"
+    },
+    {
+      "index": 39,
+      "start_time": 246540.0,
+      "end_time": 254280.0,
+      "text": "very primitive machine, it just stamps stuff on a paper tape, right"
+    },
+    {
+      "index": 40,
+      "start_time": 254280.0,
+      "end_time": 258630.0,
+      "text": "there is no high-level programming there it&#39;s just like this is"
+    },
+    {
+      "index": 41,
+      "start_time": 258630.0,
+      "end_time": 264780.0,
+      "text": "the assembly language &quot;read this number, put it back on tape, erase something from"
+    },
+    {
+      "index": 42,
+      "start_time": 264780.0,
+      "end_time": 269900.0,
+      "text": "the tape&quot; and so on so this is this one approach towards programming"
+    },
+    {
+      "index": 43,
+      "start_time": 269900.0,
+      "end_time": 274320.0,
+      "text": "by the way, all these approaches to programming were invented before there were even"
+    },
+    {
+      "index": 44,
+      "start_time": 274320.0,
+      "end_time": 281460.0,
+      "text": "computers, right and then there&#39;s the other approach to programming this came"
+    },
+    {
+      "index": 45,
+      "start_time": 281460.0,
+      "end_time": 288270.0,
+      "text": "from mathematics the lambda calculus right, Alonzo Church and these guys"
+    },
+    {
+      "index": 46,
+      "start_time": 288270.0,
+      "end_time": 295420.0,
+      "text": "and that was like &quot;what is possible to compute, right,"
+    },
+    {
+      "index": 47,
+      "start_time": 295420.0,
+      "end_time": 299390.0,
+      "text": "&quot;thinking about mathematics in terms of"
+    },
+    {
+      "index": 48,
+      "start_time": 299390.0,
+      "end_time": 310520.0,
+      "text": "&quot;how things can be actually executed in some way, transforming things&quot;, right"
+    },
+    {
+      "index": 49,
+      "start_time": 310520.0,
+      "end_time": 316280.0,
+      "text": "so these approaches to programming are not very practical"
+    },
+    {
+      "index": 50,
+      "start_time": 316280.0,
+      "end_time": 321080.0,
+      "text": "although people write programs in assembly language and it&#39;s possible but"
+    },
+    {
+      "index": 51,
+      "start_time": 321080.0,
+      "end_time": 332280.0,
+      "text": "they don&#39;t really scale, so this is why we came out with languages that offer higher levels of abstraction,"
+    },
+    {
+      "index": 52,
+      "start_time": 332280.0,
+      "end_time": 338360.0,
+      "text": "and so the next level abstraction was procedural programming"
+    },
+    {
+      "index": 53,
+      "start_time": 338360.0,
+      "end_time": 343730.0,
+      "text": "what&#39;s characteristic of procedural programming is that you divide a big"
+    },
+    {
+      "index": 54,
+      "start_time": 343730.0,
+      "end_time": 351650.0,
+      "text": "problem into procedures and each procedure has its name, has a"
+    },
+    {
+      "index": 55,
+      "start_time": 351650.0,
+      "end_time": 354080.0,
+      "text": "certain number of arguments"
+    },
+    {
+      "index": 56,
+      "start_time": 354080.0,
+      "end_time": 358700.0,
+      "text": "maybe it returns a value sometimes right"
+    },
+    {
+      "index": 57,
+      "start_time": 358700.0,
+      "end_time": 364970.0,
+      "text": "not necessarily, maybe it&#39;s just for side effects and so on, but because you"
+    },
+    {
+      "index": 58,
+      "start_time": 364970.0,
+      "end_time": 372110.0,
+      "text": "chop up your work into smaller pieces and you can like deal with bigger"
+    },
+    {
+      "index": 59,
+      "start_time": 372110.0,
+      "end_time": 380660.0,
+      "text": "problems right so this this kind of abstracting of things really helped in"
+    },
+    {
+      "index": 60,
+      "start_time": 380660.0,
+      "end_time": 386780.0,
+      "text": "in programming, right and then next people came up with this"
+    },
+    {
+      "index": 61,
+      "start_time": 386780.0,
+      "end_time": 394250.0,
+      "text": "idea of object-oriented programming right and that&#39;s even more abstract now you"
+    },
+    {
+      "index": 62,
+      "start_time": 394250.0,
+      "end_time": 399650.0,
+      "text": "have stuff that you are hiding inside objects and then you can compose these"
+    },
+    {
+      "index": 63,
+      "start_time": 399650.0,
+      "end_time": 406520.0,
+      "text": "objects right and once you program an object you don&#39;t have to look"
+    },
+    {
+      "index": 64,
+      "start_time": 406520.0,
+      "end_time": 415610.0,
+      "text": "inside the object you can forget about the implementation right and and and"
+    },
+    {
+      "index": 65,
+      "start_time": 415610.0,
+      "end_time": 419840.0,
+      "text": "just look at the surface of the object which is the interface and then you can"
+    },
+    {
+      "index": 66,
+      "start_time": 419840.0,
+      "end_time": 425870.0,
+      "text": "combine these objects without looking inside and you know you have the bigger picture"
+    },
+    {
+      "index": 67,
+      "start_time": 425870.0,
+      "end_time": 432650.0,
+      "text": "and then you combine them into bigger objects and so you can see that there is"
+    },
+    {
+      "index": 68,
+      "start_time": 432650.0,
+      "end_time": 441950.0,
+      "text": "a a certain idea there, right? and so it&#39;s a very important idea that if you"
+    },
+    {
+      "index": 69,
+      "start_time": 441950.0,
+      "end_time": 449060.0,
+      "text": "want to deal with more complex problems you have to be able to"
+    },
+    {
+      "index": 70,
+      "start_time": 449060.0,
+      "end_time": 453610.0,
+      "text": "chop the bigger problem into smaller problems, right,"
+    },
+    {
+      "index": 71,
+      "start_time": 453610.0,
+      "end_time": 461720.0,
+      "text": "solve them separately and then combine the solutions together"
+    },
+    {
+      "index": 72,
+      "start_time": 461720.0,
+      "end_time": 466100.0,
+      "text": "And there is a name for this, this is called composability, right."
+    },
+    {
+      "index": 73,
+      "start_time": 466100.0,
+      "end_time": 472260.0,
+      "text": "So composability is something that really helps us in programming."
+    },
+    {
+      "index": 74,
+      "start_time": 472260.0,
+      "end_time": 477470.0,
+      "text": "What else helps us in programming? Abstraction, &quot;abstraction&quot; that comes from"
+    },
+    {
+      "index": 75,
+      "start_time": 477470.0,
+      "end_time": 483050.0,
+      "text": "from a Greek word that means more or less the same as &quot;subtraction&quot;, right which"
+    },
+    {
+      "index": 76,
+      "start_time": 483050.0,
+      "end_time": 489960.0,
+      "text": "means &quot;getting rid of details&quot;. If you want to hide details, you don&#39;t want them or you wanna say"
+    },
+    {
+      "index": 77,
+      "start_time": 489960.0,
+      "end_time": 496910.0,
+      "text": "&quot;these things, they differ in some small details but for me they are the same&quot;"
+    },
+    {
+      "index": 78,
+      "start_time": 496910.0,
+      "end_time": 504020.0,
+      "text": "&quot;I don&#39;t care about the details&quot; so, an object is in object-oriented programming"
+    },
+    {
+      "index": 79,
+      "start_time": 504020.0,
+      "end_time": 509870.0,
+      "text": "is something that hides the details, abstracts over some details right, and there are even these"
+    },
+    {
+      "index": 80,
+      "start_time": 509870.0,
+      "end_time": 517010.0,
+      "text": "abstract data types that just expose the interface and you&#39;re not supposed to"
+    },
+    {
+      "index": 81,
+      "start_time": 517010.0,
+      "end_time": 523820.0,
+      "text": "know how they are implemented right?"
+    },
+    {
+      "index": 82,
+      "start_time": 523820.00000000006,
+      "end_time": 529320.0,
+      "text": "so when I first learned object-oriented programming I thought &quot;this is like the best thing since sliced bread&quot;"
+    },
+    {
+      "index": 83,
+      "start_time": 529320.0,
+      "end_time": 538670.0,
+      "text": "and I was a big proponent of object-oriented programming and together with this idea"
+    },
+    {
+      "index": 84,
+      "start_time": 538670.0,
+      "end_time": 547880.0,
+      "text": "of abstracting things and and and composing things comes the idea of"
+    },
+    {
+      "index": 85,
+      "start_time": 547880.0,
+      "end_time": 554330.0,
+      "text": "reusabillity right so if i have these blocks that I have chopped up and"
+    },
+    {
+      "index": 86,
+      "start_time": 554330.0,
+      "end_time": 559400.0,
+      "text": "implemented, right, maybe I can rearrange them in different ways so once I"
+    },
+    {
+      "index": 87,
+      "start_time": 559400.0,
+      "end_time": 563810.0,
+      "text": "implemented something maybe I will use it in another problem to solve"
+    },
+    {
+      "index": 88,
+      "start_time": 563810.0,
+      "end_time": 567950.0,
+      "text": "another problem I will have these building blocks, I will have lots of building"
+    },
+    {
+      "index": 89,
+      "start_time": 567950.0,
+      "end_time": 573740.0,
+      "text": "blocks that hide their complexity and I will just juggle them and put them"
+    },
+    {
+      "index": 90,
+      "start_time": 573740.0,
+      "end_time": 579920.0,
+      "text": "in new constellations, right? so it seemed to me like this is really the promise of"
+    },
+    {
+      "index": 91,
+      "start_time": 579920.0,
+      "end_time": 585500.0,
+      "text": "object-oriented programming, I&#39;m buying it! and I started programming object-oriented way"
+    },
+    {
+      "index": 92,
+      "start_time": 585500.0,
+      "end_time": 592610.0,
+      "text": "using C++ and I became pretty good at C++ I think, you know, I wrote a lot of C++ code"
+    },
+    {
+      "index": 93,
+      "start_time": 592610.0,
+      "end_time": 601770.0,
+      "text": "and well it turns out that there is something wrong with this"
+    },
+    {
+      "index": 94,
+      "start_time": 601770.0,
+      "end_time": 611750.0,
+      "text": "object-oriented approach and it became more and more painfully obvious when people started"
+    },
+    {
+      "index": 95,
+      "start_time": 611750.0,
+      "end_time": 622550.0,
+      "text": "writing concurrent code and parallel code, ok, so concurrency does not mix very well with"
+    },
+    {
+      "index": 96,
+      "start_time": 622550.0,
+      "end_time": 630440.0,
+      "text": "object-oriented programming. Why doesn&#39;t it? Because objects hide implementation"
+    },
+    {
+      "index": 97,
+      "start_time": 630440.0,
+      "end_time": 642620.0,
+      "text": "and they hide exactly the wrong thing, which makes them not composable, ok?"
+    },
+    {
+      "index": 98,
+      "start_time": 642620.0,
+      "end_time": 648200.0,
+      "text": "They hide two things that are very important:"
+    },
+    {
+      "index": 99,
+      "start_time": 648200.0,
+      "end_time": 657400.0,
+      "text": "They hide mutation – they mutate some state inside, right? And we don&#39;t know about it, they hide it"
+    },
+    {
+      "index": 100,
+      "start_time": 657400.0,
+      "end_time": 661620.0,
+      "text": "They don&#39;t say &quot;I&#39;m mutating something&quot;."
+    },
+    {
+      "index": 101,
+      "start_time": 661620.0,
+      "end_time": 670380.0,
+      "text": "And sharing these pointers right – they share data and they often share data between"
+    },
+    {
+      "index": 102,
+      "start_time": 670380.0,
+      "end_time": 676120.0,
+      "text": "each other you know between themselves they share data"
+    },
+    {
+      "index": 103,
+      "start_time": 676120.0,
+      "end_time": 684020.0,
+      "text": "And mixing, sharing and mutation has a name"
+    },
+    {
+      "index": 104,
+      "start_time": 684020.0,
+      "end_time": 688060.0,
+      "text": "It&#39;s called a data race, ok?"
+    },
+    {
+      "index": 105,
+      "start_time": 688060.0,
+      "end_time": 696400.0,
+      "text": "So what the objects in object-oriented programming are abstracting over is the data races"
+    },
+    {
+      "index": 106,
+      "start_time": 696400.0,
+      "end_time": 699520.0,
+      "text": "and you are not supposed to abstract over data races"
+    },
+    {
+      "index": 107,
+      "start_time": 699520.0,
+      "end_time": 707500.0,
+      "text": "because then when you start combining these objects you get data races for free, right."
+    },
+    {
+      "index": 108,
+      "start_time": 707500.0,
+      "end_time": 717300.0,
+      "text": "and it turns out that for some reason we don&#39;t like data races, ok?"
+    },
+    {
+      "index": 109,
+      "start_time": 717300.0,
+      "end_time": 719520.0,
+      "text": "and so once you realize that you think"
+    },
+    {
+      "index": 110,
+      "start_time": 719520.0,
+      "end_time": 725160.0,
+      "text": "&quot;okay, I know how to avoid data races, right, I&#39;m going I&#39;m going to use locks"
+    },
+    {
+      "index": 111,
+      "start_time": 725160.0,
+      "end_time": 728760.0,
+      "text": "&quot;and I&#39;m going to hide locks too because I want to abstract over it&quot;"
+    },
+    {
+      "index": 112,
+      "start_time": 728760.0,
+      "end_time": 736820.0,
+      "text": "so like in java where every object has its own lock, right?"
+    },
+    {
+      "index": 113,
+      "start_time": 736820.0,
+      "end_time": 741180.0,
+      "text": "and unfortunately locks don&#39;t compose either, right."
+    },
+    {
+      "index": 114,
+      "start_time": 741180.0,
+      "end_time": 746430.0,
+      "text": "That&#39;s the problem with locks. I&#39;m not going to talk about this too much"
+    },
+    {
+      "index": 115,
+      "start_time": 746430.0,
+      "end_time": 753150.0,
+      "text": "because that is like a different course about concurrent programming but I&#39;m"
+    },
+    {
+      "index": 116,
+      "start_time": 753150.0,
+      "end_time": 760920.0,
+      "text": "just mentioning it that this kind of raising the levels of abstraction"
+    },
+    {
+      "index": 117,
+      "start_time": 760920.0,
+      "end_time": 764620.0,
+      "text": "you have to be careful what you&#39;re abstracting over"
+    },
+    {
+      "index": 118,
+      "start_time": 764620.0,
+      "end_time": 771810.0,
+      "text": "what are the things that you are subtracting, throwing away and not exposing, right?"
+    },
+    {
+      "index": 119,
+      "start_time": 771810.0,
+      "end_time": 776730.0,
+      "text": "So the next level of abstraction that came after that, well actually it came before"
+    },
+    {
+      "index": 120,
+      "start_time": 776730.0,
+      "end_time": 780930.0,
+      "text": "that but people realised that, &quot;Hey, maybe we have to dig it out"
+    },
+    {
+      "index": 121,
+      "start_time": 780930.0,
+      "end_time": 787350.0,
+      "text": "&quot;and start using this functional programming&quot; when you abstract things into functions"
+    },
+    {
+      "index": 122,
+      "start_time": 787350.0,
+      "end_time": 793970.0,
+      "text": "and especially in Haskell when, you know,"
+    },
+    {
+      "index": 123,
+      "start_time": 793970.0,
+      "end_time": 797610.0,
+      "text": "in a functional language you don&#39;t have mutations so you don&#39;t have this problem"
+    },
+    {
+      "index": 124,
+      "start_time": 797610.0,
+      "end_time": 807410.0,
+      "text": "of hiding data races, and then you also have ways of composing"
+    },
+    {
+      "index": 125,
+      "start_time": 807410.0,
+      "end_time": 813240.0,
+      "text": "data structures into bigger data structures and that&#39;s also because everything is"
+    },
+    {
+      "index": 126,
+      "start_time": 813240.0,
+      "end_time": 821520.0,
+      "text": "immutable so you can safely compose and decompose things."
+    },
+    {
+      "index": 127,
+      "start_time": 821520.0,
+      "end_time": 829440.0,
+      "text": "Now every time I learned a new language I wanted to find where the boundaries of this language are"
+    },
+    {
+      "index": 128,
+      "start_time": 829440.0,
+      "end_time": 835240.0,
+      "text": "like, &quot;what are the hardest things to do in this language?&quot;, right?"
+    },
+    {
+      "index": 129,
+      "start_time": 835240.0,
+      "end_time": 845580.0,
+      "text": "So for instance in C++, right, what are the highest levels of abstraction that you can get?"
+    },
+    {
+      "index": 130,
+      "start_time": 845580.0,
+      "end_time": 851920.0,
+      "text": "Template metaprogramming, right? So I was really fascinated by template metaprogramming"
+    },
+    {
+      "index": 131,
+      "start_time": 851920.0,
+      "end_time": 855340.0,
+      "text": "and I started reading these books about template metaprogramming"
+    },
+    {
+      "index": 132,
+      "start_time": 855340.0,
+      "end_time": 864420.0,
+      "text": "and was like &quot;Wow, I would have never come up with these ideas, they are so complex&quot;, right?"
+    },
+    {
+      "index": 133,
+      "start_time": 864420.0,
+      "end_time": 871470.0,
+      "text": "So it turns out that these are very simple ideas"
+    },
+    {
+      "index": 134,
+      "start_time": 871470.0,
+      "end_time": 878270.0,
+      "text": "it&#39;s just that the language is so awkward in expressing them"
+    },
+    {
+      "index": 135,
+      "start_time": 878270.0,
+      "end_time": 886560.0,
+      "text": "So I learned a little bit of Haskell and I said &quot;Ok this huge template that was so complicated,"
+    },
+    {
+      "index": 136,
+      "start_time": 886560.0,
+      "end_time": 892440.0,
+      "text": "that&#39;s one line of code in Haskell&quot;, right? So there are languages in which"
+    },
+    {
+      "index": 137,
+      "start_time": 892440.0,
+      "end_time": 898860.0,
+      "text": "there was like a jump in the level of abstraction and made it much easier to"
+    },
+    {
+      "index": 138,
+      "start_time": 898860.0,
+      "end_time": 902740.0,
+      "text": "program at a higher level of abstraction, right."
+    },
+    {
+      "index": 139,
+      "start_time": 902740.0,
+      "end_time": 907870.0,
+      "text": "And in every language you know there is this group of people who are writing"
+    },
+    {
+      "index": 140,
+      "start_time": 907870.0,
+      "end_time": 913029.0,
+      "text": "libraries right and they always stretch the language they always go to the highest"
+    },
+    {
+      "index": 141,
+      "start_time": 913029.0,
+      "end_time": 919990.0,
+      "text": "possible abstraction level and they and they hack, right? They hack at it"
+    },
+    {
+      "index": 142,
+      "start_time": 919990.0,
+      "end_time": 927190.0,
+      "text": "as much as possible. So I thought &quot;Okay I don&#39;t like hacking, I just wanted to"
+    },
+    {
+      "index": 143,
+      "start_time": 927190.0,
+      "end_time": 933670.0,
+      "text": "&quot;use a language that allows me to express myself at a high level of"
+    },
+    {
+      "index": 144,
+      "start_time": 933670.0,
+      "end_time": 942760.0,
+      "text": "&quot;abstraction and that lets me express new ideas that are much more interesting&quot;"
+    },
+    {
+      "index": 145,
+      "start_time": 942760.0,
+      "end_time": 947200.0,
+      "text": "you know, like, with template metaprogramming right you express this"
+    },
+    {
+      "index": 146,
+      "start_time": 947200.0,
+      "end_time": 955990.0,
+      "text": "idea that you might have lots of data structures that only differ by the type"
+    },
+    {
+      "index": 147,
+      "start_time": 955990.0,
+      "end_time": 960430.0,
+      "text": "that they hide. Like you can a vector of integers and vector of"
+    },
+    {
+      "index": 148,
+      "start_time": 960430.0,
+      "end_time": 967450.0,
+      "text": "booleans right? And there&#39;s just so much code to share, so if you abstract over the"
+    },
+    {
+      "index": 149,
+      "start_time": 967450.0,
+      "end_time": 971410.0,
+      "text": "data type that you are storing there, if you forget about it,"
+    },
+    {
+      "index": 150,
+      "start_time": 971410.0,
+      "end_time": 978550.0,
+      "text": "hide it, abstract over it, you can write code, abstract code, and in"
+    },
+    {
+      "index": 151,
+      "start_time": 978550.0,
+      "end_time": 984610.0,
+      "text": "C++ you do this with templates right. And  you get something new, you"
+    },
+    {
+      "index": 152,
+      "start_time": 984610.0,
+      "end_time": 989920.0,
+      "text": "program at a higher level – a higher abstraction level because you"
+    },
+    {
+      "index": 153,
+      "start_time": 989920.0,
+      "end_time": 994420.0,
+      "text": "disregard some of the details, so that was great."
+    },
+    {
+      "index": 154,
+      "start_time": 994420.0,
+      "end_time": 999960.0,
+      "text": "Now it turns out that once I learned Haskell"
+    },
+    {
+      "index": 155,
+      "start_time": 999960.0,
+      "end_time": 1005080.0,
+      "text": "(I&#39;m still learning Haskell to some extent)"
+    },
+    {
+      "index": 156,
+      "start_time": 1005080.0,
+      "end_time": 1015720.0,
+      "text": "I found out there are things in Haskell that are at these boundaries of abstraction"
+    },
+    {
+      "index": 157,
+      "start_time": 1015720.0,
+      "end_time": 1026780.0,
+      "text": "that, like, there are people who are working on this frontier of Haskell, right?"
+    },
+    {
+      "index": 158,
+      "start_time": 1026780.0,
+      "end_time": 1039000.0,
+      "text": "There are certain very abstract things that are unfortunately a little bit awkward to express in Haskell"
+    },
+    {
+      "index": 159,
+      "start_time": 1039000.0,
+      "end_time": 1047900.0,
+      "text": "and then there is this barrier to abstraction even in Haskell right?"
+    },
+    {
+      "index": 160,
+      "start_time": 1047900.0000000001,
+      "end_time": 1053740.0,
+      "text": "I mean if you&#39;ve seen some libraries that were written by Edward Kmett"
+    },
+    {
+      "index": 161,
+      "start_time": 1053740.0,
+      "end_time": 1066440.0,
+      "text": "you realise that they are extremely hard to understand what was the thought process, right?"
+    },
+    {
+      "index": 162,
+      "start_time": 1066440.0,
+      "end_time": 1072440.0,
+      "text": "And the secret is very simple – Category Theory."
+    },
+    {
+      "index": 163,
+      "start_time": 1072440.0,
+      "end_time": 1079910.0,
+      "text": "Edward Kmett knows Category Theory, and he just takes this stuff from"
+    },
+    {
+      "index": 164,
+      "start_time": 1079910.0,
+      "end_time": 1084500.0,
+      "text": "Category Theory, he reads these  mathematical papers and he just"
+    },
+    {
+      "index": 165,
+      "start_time": 1084500.0,
+      "end_time": 1087860.0,
+      "text": "translates them into Haskell and when you translate stuff from Category"
+    },
+    {
+      "index": 166,
+      "start_time": 1087860.0,
+      "end_time": 1094980.0,
+      "text": "theory to Haskell you lose a lot of abstraction, you make it more concrete"
+    },
+    {
+      "index": 167,
+      "start_time": 1094980.0,
+      "end_time": 1103100.0,
+      "text": "Haskell has one category built-in and you are"
+    },
+    {
+      "index": 168,
+      "start_time": 1103100.0,
+      "end_time": 1108260.0,
+      "text": "restricting yourself to this particular category."
+    },
+    {
+      "index": 169,
+      "start_time": 1108260.0,
+      "end_time": 1114050.0,
+      "text": "You can create other categories in Haskell and model them, but that becomes"
+    },
+    {
+      "index": 170,
+      "start_time": 1114050.0,
+      "end_time": 1119450.0,
+      "text": "awkward and that becomes sort of like template metaprogramming you know within"
+    },
+    {
+      "index": 171,
+      "start_time": 1119450.0,
+      "end_time": 1126020.0,
+      "text": "Haskell – not exactly the same mechanism but the the level of"
+    },
+    {
+      "index": 172,
+      "start_time": 1126020.0,
+      "end_time": 1134240.0,
+      "text": "difficulty in expressing these ideas in Haskell is as big as template"
+    },
+    {
+      "index": 173,
+      "start_time": 1134240.0,
+      "end_time": 1137510.0,
+      "text": "metaprogramming in C++."
+    },
+    {
+      "index": 174,
+      "start_time": 1137510.0,
+      "end_time": 1150140.0,
+      "text": "So Category Theory is this higher-level language above Haskell, above"
+    },
+    {
+      "index": 175,
+      "start_time": 1150140.0,
+      "end_time": 1154820.0,
+      "text": "functional programming, above ML,"
+    },
+    {
+      "index": 176,
+      "start_time": 1154820.0,
+      "end_time": 1158660.0,
+      "text": "Haskell, Scala, and so on"
+    },
+    {
+      "index": 177,
+      "start_time": 1158660.0,
+      "end_time": 1166010.0,
+      "text": "C++, assembly, it&#39;s a higher-level language, okay? It&#39;s not a practical"
+    },
+    {
+      "index": 178,
+      "start_time": 1166010.0,
+      "end_time": 1177580.0,
+      "text": "language that we can write code in, but it&#39;s a language."
+    },
+    {
+      "index": 179,
+      "start_time": 1177580.0,
+      "end_time": 1188300.0,
+      "text": "So just like people who write these horrible metaprogramming template libraries in C++"
+    },
+    {
+      "index": 180,
+      "start_time": 1188300.0,
+      "end_time": 1194360.0,
+      "text": "they can only do this because they learned a little bit of Haskell."
+    },
+    {
+      "index": 181,
+      "start_time": 1194360.0,
+      "end_time": 1199340.0,
+      "text": "and they know what some constructs in Haskell are and how to do"
+    },
+    {
+      "index": 182,
+      "start_time": 1199340.0,
+      "end_time": 1206200.0,
+      "text": "things – how to implement algorithms on immutable data structures right"
+    },
+    {
+      "index": 183,
+      "start_time": 1206200.0,
+      "end_time": 1210410.0,
+      "text": "they know how to do this because they learned it from Haskell"
+    },
+    {
+      "index": 184,
+      "start_time": 1210410.0,
+      "end_time": 1216230.0,
+      "text": "and they just translated into this horrible template programming language."
+    },
+    {
+      "index": 185,
+      "start_time": 1216230.0,
+      "end_time": 1225890.0,
+      "text": "Fine right? And it works and people are using it, the same way that if you&#39;re"
+    },
+    {
+      "index": 186,
+      "start_time": 1225890.0,
+      "end_time": 1231650.0,
+      "text": "a functional programmer you can take these ideas from category theory,"
+    },
+    {
+      "index": 187,
+      "start_time": 1231650.0,
+      "end_time": 1239240.0,
+      "text": "these very very abstract ideas and translate it into this kind of awkward language called"
+    },
+    {
+      "index": 188,
+      "start_time": 1239240.0,
+      "end_time": 1245660.0,
+      "text": "Haskell, right? Now from looking from from categorical perspective Haskell"
+    },
+    {
+      "index": 189,
+      "start_time": 1245660.0,
+      "end_time": 1249860.0,
+      "text": "becomes this ugly language just like looking from Haskell C++ becomes this"
+    },
+    {
+      "index": 190,
+      "start_time": 1249860.0,
+      "end_time": 1254179.0,
+      "text": "ugly language, right? But at least you know it&#39;s an executable language, its a"
+    },
+    {
+      "index": 191,
+      "start_time": 1254180.0,
+      "end_time": 1259761.0,
+      "text": "language in which we can write programs. And of course these ideas when they"
+    },
+    {
+      "index": 192,
+      "start_time": 1259760.0,
+      "end_time": 1265220.0,
+      "text": "percolate from category theory down to Haskell they can also percolate then"
+    },
+    {
+      "index": 193,
+      "start_time": 1265220.0,
+      "end_time": 1274130.0,
+      "text": "down to C++ and even to assembly, PHP or whatever, JavaScript if you want to"
+    },
+    {
+      "index": 194,
+      "start_time": 1274130.0,
+      "end_time": 1280870.0,
+      "text": "because these are very general ideas"
+    },
+    {
+      "index": 195,
+      "start_time": 1280870.0,
+      "end_time": 1292130.0,
+      "text": "So we want to get to this highest possible level of abstraction to help us express ideas that later can be"
+    },
+    {
+      "index": 196,
+      "start_time": 1292130.0,
+      "end_time": 1298700.0,
+      "text": "translated into programs. So that for me is the main practical motivation"
+    },
+    {
+      "index": 197,
+      "start_time": 1298700.0,
+      "end_time": 1307820.0,
+      "text": "ok? But then I started also thinking about the theoretical motivation or more"
+    },
+    {
+      "index": 198,
+      "start_time": 1307820.0,
+      "end_time": 1313700.0,
+      "text": "philosophical motivation because once you start learning Category Theory you"
+    },
+    {
+      "index": 199,
+      "start_time": 1313700.0,
+      "end_time": 1320020.0,
+      "text": "say &quot;Okay, Category Theory unifies lots of things&quot;."
+    },
+    {
+      "index": 200,
+      "start_time": 1320020.0,
+      "end_time": 1326870.0,
+      "text": "I mean if you abstract enough, if you chop up all the unnecessary stuff and you are"
+    },
+    {
+      "index": 201,
+      "start_time": 1326870.0,
+      "end_time": 1333820.0,
+      "text": "you know, top of Mount Everest and  you&#39;re looking down and suddenly"
+    },
+    {
+      "index": 202,
+      "start_time": 1333820.0,
+      "end_time": 1343940.0,
+      "text": "all these things start looking similar, like from that high-level all these"
+    },
+    {
+      "index": 203,
+      "start_time": 1343940.0,
+      "end_time": 1349790.0,
+      "text": "little programming languages look like little ants and they behave same way"
+    },
+    {
+      "index": 204,
+      "start_time": 1349790.0,
+      "end_time": 1354710.0,
+      "text": "and its like &quot;Ok, they&#39;re all the same&quot;. At that level of abstraction all this"
+    },
+    {
+      "index": 205,
+      "start_time": 1354710.0,
+      "end_time": 1361190.0,
+      "text": "programming stuff, it&#39;s all the same, it looks the same."
+    },
+    {
+      "index": 206,
+      "start_time": 1361190.0,
+      "end_time": 1371220.0,
+      "text": "But that&#39;s not all – suddenly at this high, high level other things look the same"
+    },
+    {
+      "index": 207,
+      "start_time": 1371220.0,
+      "end_time": 1377330.0,
+      "text": "and then mathematicians discovered this, that they&#39;ve been developing separate"
+    },
+    {
+      "index": 208,
+      "start_time": 1377330.0,
+      "end_time": 1384290.0,
+      "text": "areas of mathematics, right? So first of all they developed geometry,"
+    },
+    {
+      "index": 209,
+      "start_time": 1384290.0,
+      "end_time": 1394310.0,
+      "text": "algebra, number theory, topology, what have you, set theory"
+    },
+    {
+      "index": 210,
+      "start_time": 1394310.0,
+      "end_time": 1404710.0,
+      "text": "these are all completely different separate theories, they look nothing like each other, right"
+    },
+    {
+      "index": 211,
+      "start_time": 1404710.0,
+      "end_time": 1413330.0,
+      "text": "and category theory found out similarities between all these things. So it turns out that at a certain level of"
+    },
+    {
+      "index": 212,
+      "start_time": 1413330.0,
+      "end_time": 1421340.0,
+      "text": "abstraction, the structure of all these theories is the same. So you can describe,"
+    },
+    {
+      "index": 213,
+      "start_time": 1421340.0,
+      "end_time": 1427180.0,
+      "text": "you know, you tweak with the structure of a category and you suddenly get topology,"
+    },
+    {
+      "index": 214,
+      "start_time": 1427180.0,
+      "end_time": 1432120.0,
+      "text": "you tweak this structure of category, you suddenly get set theory,"
+    },
+    {
+      "index": 215,
+      "start_time": 1432120.0,
+      "end_time": 1436880.0,
+      "text": "you tweak something else and you get algebra."
+    },
+    {
+      "index": 216,
+      "start_time": 1436880.0,
+      "end_time": 1446600.0,
+      "text": "So there is this unification, this grand unification, of, essentially, all"
+    },
+    {
+      "index": 217,
+      "start_time": 1446600.0,
+      "end_time": 1455740.0,
+      "text": "areas of mathematics in category theory. But then there is also programming, right?"
+    },
+    {
+      "index": 218,
+      "start_time": 1455740.0,
+      "end_time": 1464900.0,
+      "text": "Programming that deals with these computers with this memory and processor or registers, ok?"
+    },
+    {
+      "index": 219,
+      "start_time": 1464900.0,
+      "end_time": 1470270.0,
+      "text": "And this stuff can be described also, and then there&#39;s a programming language,"
+    },
+    {
+      "index": 220,
+      "start_time": 1470270.0,
+      "end_time": 1475190.0,
+      "text": "this stuff can be described mathematically, yes, lambda calculus"
+    },
+    {
+      "index": 221,
+      "start_time": 1475190.0,
+      "end_time": 1480810.0,
+      "text": "Like all these languages that essentially have roots in lambda calculus"
+    },
+    {
+      "index": 222,
+      "start_time": 1480810.0,
+      "end_time": 1488530.0,
+      "text": "they try to get away from bits and bytes and gotos and jumps, right"
+    },
+    {
+      "index": 223,
+      "start_time": 1488530.0,
+      "end_time": 1494390.0,
+      "text": "and loops, and they want to abstract this stuff into stuff that&#39;s more"
+    },
+    {
+      "index": 224,
+      "start_time": 1494390.0,
+      "end_time": 1498560.0,
+      "text": "like lambda calculus, right and there are these data structures and these data"
+    },
+    {
+      "index": 225,
+      "start_time": 1498560.0,
+      "end_time": 1503030.0,
+      "text": "structures you know, we used to look at them like &quot;here&#39;s a bunch of bytes,"
+    },
+    {
+      "index": 226,
+      "start_time": 1503030.0,
+      "end_time": 1506840.0,
+      "text": "&quot;here&#39;s a bunch of bytes, here&#39;s a pointer from this bunch of bytes to this bunch"
+    },
+    {
+      "index": 227,
+      "start_time": 1506840.0,
+      "end_time": 1508640.0,
+      "text": "&quot;of bytes&quot; and so on, right?"
+    },
+    {
+      "index": 228,
+      "start_time": 1508640.0,
+      "end_time": 1514340.0,
+      "text": "The very very low level, like plumbers working with tubes, right?"
+    },
+    {
+      "index": 229,
+      "start_time": 1514340.0,
+      "end_time": 1523760.0,
+      "text": "And then computer scientists say &quot;Well actually these things, they form types&quot;"
+    },
+    {
+      "index": 230,
+      "start_time": 1523760.0,
+      "end_time": 1529790.0,
+      "text": "So there&#39;s type theory, there&#39;s type theory that can describe all these"
+    },
+    {
+      "index": 231,
+      "start_time": 1529790.0,
+      "end_time": 1539390.0,
+      "text": "categories of data structures, but there&#39;s also type theory in"
+    },
+    {
+      "index": 232,
+      "start_time": 1539390.0,
+      "end_time": 1547610.0,
+      "text": "mathematics, right, people invented types in math not to solve problems that"
+    },
+    {
+      "index": 233,
+      "start_time": 1547610.0,
+      "end_time": 1561280.0,
+      "text": "computer scientists have, they try to solve problems like paradoxes, like there is Russell&#39;s paradox"
+    },
+    {
+      "index": 234,
+      "start_time": 1561280.0,
+      "end_time": 1570710.0,
+      "text": "that says that you cannot construct a set of all sets, things like this,"
+    },
+    {
+      "index": 235,
+      "start_time": 1570710.0,
+      "end_time": 1576510.0,
+      "text": "or maybe you know the Barber&#39;s Paradox: can the barber shave himself or not –"
+    },
+    {
+      "index": 236,
+      "start_time": 1576510.0,
+      "end_time": 1587830.0,
+      "text": "every barber shaves only people who don&#39;t shave themselves so can he shave himself or not?"
+    },
+    {
+      "index": 237,
+      "start_time": 1587830.0,
+      "end_time": 1598310.0,
+      "text": "This kind of paradox – its a funny paradox but they&#39;re serious"
+    },
+    {
+      "index": 238,
+      "start_time": 1598310.0,
+      "end_time": 1602240.0,
+      "text": "So this Barber&#39;s Paradox actually can be translated into Russell&#39;s Paradox"
+    },
+    {
+      "index": 239,
+      "start_time": 1602240.0,
+      "end_time": 1614580.0,
+      "text": "which is like &quot;the set of all sets&quot; or &quot;sets that don&#39;t contain themselves don&#39;t form a set&quot; and so on stuff like this right and"
+    },
+    {
+      "index": 240,
+      "start_time": 1614580.0,
+      "end_time": 1622529.0,
+      "text": "and Russell came up with this theory of types that to say that sets"
+    },
+    {
+      "index": 241,
+      "start_time": 1622530.0,
+      "end_time": 1630810.0,
+      "text": "form layers upon layers, that you cannot just have all sets and put them"
+    },
+    {
+      "index": 242,
+      "start_time": 1630810.0,
+      "end_time": 1636540.0,
+      "text": "one big set, right and then the type theory evolved from this and there&#39;s"
+    },
+    {
+      "index": 243,
+      "start_time": 1636540.0,
+      "end_time": 1648961.0,
+      "text": "this very abstract Martin-Löf Type Theory that&#39;s very formal, right so that&#39;s"
+    },
+    {
+      "index": 244,
+      "start_time": 1648960.0,
+      "end_time": 1654990.0,
+      "text": "that&#39;s just a branch of mathematics that was created to deal with paradoxes and"
+    },
+    {
+      "index": 245,
+      "start_time": 1654990.0,
+      "end_time": 1659850.0,
+      "text": "then there is logic, and logic was created you know long, long time ago by the"
+    },
+    {
+      "index": 246,
+      "start_time": 1659850.0,
+      "end_time": 1666059.0,
+      "text": "ancient Greeks right, they used logic so there are laws of logic and people have"
+    },
+    {
+      "index": 247,
+      "start_time": 1666060.0,
+      "end_time": 1675420.0,
+      "text": "been studying logics for thousands of years, right. And at some point people"
+    },
+    {
+      "index": 248,
+      "start_time": 1675420.0,
+      "end_time": 1685530.0,
+      "text": "suddenly realized that all these distinct areas of mathematics are exactly the same"
+    },
+    {
+      "index": 249,
+      "start_time": 1685530.0,
+      "end_time": 1694310.0,
+      "text": "this is called the Curry-Howard-Lambek isomorphism which says that"
+    },
+    {
+      "index": 250,
+      "start_time": 1694310.0,
+      "end_time": 1703170.0,
+      "text": "whatever you do in logic can be directly translated into whatever you do in"
+    },
+    {
+      "index": 251,
+      "start_time": 1703170.0,
+      "end_time": 1708991.0,
+      "text": "type theory. They are exactly – it&#39;s not like they are similar – they are"
+    },
+    {
+      "index": 252,
+      "start_time": 1708990.0,
+      "end_time": 1715710.0,
+      "text": "exactly the same there is a one to one correspondence, right? And the Lambek"
+    },
+    {
+      "index": 253,
+      "start_time": 1715710.0,
+      "end_time": 1722340.0,
+      "text": "part of this isomorphism says that in category theory, there&#39;s certain"
+    },
+    {
+      "index": 254,
+      "start_time": 1722340.0,
+      "end_time": 1733230.0,
+      "text": "types of categories – like the cartesian closed categories – that actually totally"
+    },
+    {
+      "index": 255,
+      "start_time": 1733230.0,
+      "end_time": 1740340.0,
+      "text": "describe the same thing. It&#39;s just like there are these three different theories, one"
+    },
+    {
+      "index": 256,
+      "start_time": 1740340.0,
+      "end_time": 1746820.0,
+      "text": "is about computing, one is about categories another is about types and"
+    },
+    {
+      "index": 257,
+      "start_time": 1746820.0,
+      "end_time": 1753840.0,
+      "text": "they are all the same so like all essentially all our human activity is"
+    },
+    {
+      "index": 258,
+      "start_time": 1753840.0,
+      "end_time": 1758550.0,
+      "text": "described by one theory"
+    },
+    {
+      "index": 259,
+      "start_time": 1758550.0,
+      "end_time": 1766650.0,
+      "text": "ok so this is like really mind-blowing and of course mathematicians you know"
+    },
+    {
+      "index": 260,
+      "start_time": 1766650.0,
+      "end_time": 1773750.0,
+      "text": "when they discover things like this they turn philosophical or"
+    },
+    {
+      "index": 261,
+      "start_time": 1773750.0,
+      "end_time": 1780660.0,
+      "text": "I wouldn&#39;t say religious but at least philosophical right like &quot;Oh my god we are discovering"
+    },
+    {
+      "index": 262,
+      "start_time": 1780660.0,
+      "end_time": 1786900.0,
+      "text": "stuff!&quot; it&#39;s like you&#39;re not really creating mathematics right you&#39;re"
+    },
+    {
+      "index": 263,
+      "start_time": 1786900.0,
+      "end_time": 1794820.0,
+      "text": "discovering some deep deep truth about the universe"
+    },
+    {
+      "index": 264,
+      "start_time": 1794820.0,
+      "end_time": 1799650.0,
+      "text": "okay like what do you think it is mathematics something that we invent or"
+    },
+    {
+      "index": 265,
+      "start_time": 1799650.0,
+      "end_time": 1804450.0,
+      "text": "is it like built into the universe, because for physicists, this is &quot;no&quot;, right, physicists"
+    },
+    {
+      "index": 266,
+      "start_time": 1804450.0,
+      "end_time": 1811740.0,
+      "text": "do experiments so – &quot;We study stuff, we throw these atoms at each other, bang bang"
+    },
+    {
+      "index": 267,
+      "start_time": 1811740.0,
+      "end_time": 1817710.0,
+      "text": "and we observe something so we are discovering stuff that&#39;s around us&quot;"
+    },
+    {
+      "index": 268,
+      "start_time": 1817710.0,
+      "end_time": 1822450.0,
+      "text": "Whereas mathematicians, no, they just sit down at the desk with a pencil"
+    },
+    {
+      "index": 269,
+      "start_time": 1822450.0,
+      "end_time": 1828180.0,
+      "text": "or walk around in a park and think."
+    },
+    {
+      "index": 270,
+      "start_time": 1828180.0,
+      "end_time": 1835610.0,
+      "text": "What are they discovering? And now they are saying &quot;Well we have independently discovered"
+    },
+    {
+      "index": 271,
+      "start_time": 1835610.0,
+      "end_time": 1840350.0,
+      "text": "that this branch of mathematics this guy discovered and this other guy in"
+    },
+    {
+      "index": 272,
+      "start_time": 1840350.0,
+      "end_time": 1846860.0,
+      "text": "ancient Greece he discovered logic and this guy in Sweden who discovered type"
+    },
+    {
+      "index": 273,
+      "start_time": 1846860.0,
+      "end_time": 1854030.0,
+      "text": "theory you know, and they all discovered the same thing – there is some really really"
+    },
+    {
+      "index": 274,
+      "start_time": 1854030.0,
+      "end_time": 1863900.0,
+      "text": "deep truth that we are discovering&quot; so it&#39;s like there is some Platonic Ideal right"
+    },
+    {
+      "index": 275,
+      "start_time": 1863900.0,
+      "end_time": 1869540.0,
+      "text": "I don&#39;t know if you read [Neal] Stephenson&#39;s novels about,"
+    },
+    {
+      "index": 276,
+      "start_time": 1869540.0,
+      "end_time": 1873950.0,
+      "text": "there&#39;s this novel in which there are multiple universes and each of them is"
+    },
+    {
+      "index": 277,
+      "start_time": 1873950.0,
+      "end_time": 1881059.0,
+      "text": "more platonic than the other, and people move from one platonic universe to another but the"
+    },
+    {
+      "index": 278,
+      "start_time": 1881060.0,
+      "end_time": 1893511.0,
+      "text": "mathematicians think that this is really what they are doing, right?"
+    },
+    {
+      "index": 279,
+      "start_time": 1893510.0,
+      "end_time": 1899960.0,
+      "text": "And I was thinking about it and I thought &quot;No this is really not – there"
+    },
+    {
+      "index": 280,
+      "start_time": 1899960.0,
+      "end_time": 1911100.0,
+      "text": "has to be at a simpler explanation&quot;"
+    },
+    {
+      "index": 281,
+      "start_time": 1911100.0,
+      "end_time": 1922000.0,
+      "text": "And that goes back to the way we do mathematics or the way we discover the universe, right."
+    },
+    {
+      "index": 282,
+      "start_time": 1922000.0,
+      "end_time": 1932280.0,
+      "text": "So what do we do? I mean we are human, right? We are these evolved"
+    },
+    {
+      "index": 283,
+      "start_time": 1932280.0,
+      "end_time": 1938880.0,
+      "text": "monkeys, right now we have evolved our brains so some parts of our brain"
+    },
+    {
+      "index": 284,
+      "start_time": 1938880.0,
+      "end_time": 1948900.0,
+      "text": "evolved you know since, I dunno, billion years of evolution, like, the image"
+    },
+    {
+      "index": 285,
+      "start_time": 1948900.0,
+      "end_time": 1953760.0,
+      "text": "processing stuff for instance has been evolving for a very very long time right"
+    },
+    {
+      "index": 286,
+      "start_time": 1953760.0,
+      "end_time": 1964169.0,
+      "text": "so this is a really very good system to analyse visual"
+    },
+    {
+      "index": 287,
+      "start_time": 1964170.0,
+      "end_time": 1970290.0,
+      "text": "input. That&#39;s been involving for a very long time starting with bacteria"
+    },
+    {
+      "index": 288,
+      "start_time": 1970290.0,
+      "end_time": 1978450.0,
+      "text": "that would just see whether it&#39;s bright or dark and change their metabolism"
+    },
+    {
+      "index": 289,
+      "start_time": 1978450.0,
+      "end_time": 1988140.0,
+      "text": "and then they would start seeing this side is brighter than that side and so on and eventually, you know, the"
+    },
+    {
+      "index": 290,
+      "start_time": 1988140.0,
+      "end_time": 1993630.0,
+      "text": "most important thing &quot;Where is the predator?&quot; &quot;Where&#39;s the food?&quot; distinguishing"
+    },
+    {
+      "index": 291,
+      "start_time": 1993630.0,
+      "end_time": 1998100.0,
+      "text": "between a predator and food right this is like the most important"
+    },
+    {
+      "index": 292,
+      "start_time": 1998100.0,
+      "end_time": 2005480.0,
+      "text": "thing that makes you survive right so we got very good at this and we have"
+    },
+    {
+      "index": 293,
+      "start_time": 2005480.0,
+      "end_time": 2014780.0,
+      "text": "inherited the stuff from lower animals and and there&#39;s been a lot of"
+    },
+    {
+      "index": 294,
+      "start_time": 2014780.0,
+      "end_time": 2022370.0,
+      "text": "evolutionary pressure to evolve these right and now we are trying to imitate"
+    },
+    {
+      "index": 295,
+      "start_time": 2022370.0,
+      "end_time": 2027320.0,
+      "text": "the stuff with computers and we&#39;re finding it really hard"
+    },
+    {
+      "index": 296,
+      "start_time": 2027320.0,
+      "end_time": 2031010.0,
+      "text": "it&#39;s a really hard problem image recognition right now, recognizing"
+    },
+    {
+      "index": 297,
+      "start_time": 2031010.0,
+      "end_time": 2037130.0,
+      "text": "who&#39;s your foe and who&#39;s your friend and recognizing where the food is right"
+    },
+    {
+      "index": 298,
+      "start_time": 2037130.0,
+      "end_time": 2042530.0,
+      "text": "and whether it&#39;s spoiled or not – very important things computers don&#39;t do very well"
+    },
+    {
+      "index": 299,
+      "start_time": 2042530.0,
+      "end_time": 2047570.0,
+      "text": "ok so this is a very hard problem but we&#39;ve been working on it for a billion"
+    },
+    {
+      "index": 300,
+      "start_time": 2047570.0,
+      "end_time": 2055731.0,
+      "text": "years so our brains know how to do this stuff. But then there are there are"
+    },
+    {
+      "index": 301,
+      "start_time": 2055730.0,
+      "end_time": 2064759.0,
+      "text": "things that evolved in the last hundred thousand years or so, I don&#39;t"
+    },
+    {
+      "index": 302,
+      "start_time": 2064760.0000000002,
+      "end_time": 2071591.0000000002,
+      "text": "know, how long is human evolution? 100 million years?"
+    },
+    {
+      "index": 303,
+      "start_time": 2071590.0000000002,
+      "end_time": 2077770.0000000002,
+      "text": "No it&#39;s not. Whatever it is it&#39;s a tiny number, it&#39;s just like the"
+    },
+    {
+      "index": 304,
+      "start_time": 2077770.0,
+      "end_time": 2085810.0,
+      "text": "last millisecond of evolution that we suddenly had these brains that"
+    },
+    {
+      "index": 305,
+      "start_time": 2085810.0,
+      "end_time": 2095080.0,
+      "text": "that can actually think abstractly – we can count, we can communicate, we"
+    },
+    {
+      "index": 306,
+      "start_time": 2095080.0,
+      "end_time": 2102820.0,
+      "text": "can organise stuff, and we can do math and we can do science and this is"
+    },
+    {
+      "index": 307,
+      "start_time": 2102820.0,
+      "end_time": 2111040.0,
+      "text": "like a really fresh ability, and and we&#39;ve been doing science for"
+    },
+    {
+      "index": 308,
+      "start_time": 2111040.0,
+      "end_time": 2116020.0,
+      "text": "the last few thousand years onwards so that&#39;s that&#39;s nothing on the evolutionary scale"
+    },
+    {
+      "index": 309,
+      "start_time": 2116020.0,
+      "end_time": 2121540.0,
+      "text": "and we&#39;re doing it with these brains, what do these brains come"
+    },
+    {
+      "index": 310,
+      "start_time": 2121540.0,
+      "end_time": 2133240.0,
+      "text": "from, they evolved to do things like hunt mammoths, or run away from"
+    },
+    {
+      "index": 311,
+      "start_time": 2133240.0,
+      "end_time": 2145360.0,
+      "text": "sabre-toothed tigers, they did not evolve to do programming, that&#39;s a"
+    },
+    {
+      "index": 312,
+      "start_time": 2145360.0,
+      "end_time": 2149890.0,
+      "text": "very recent thing! They didn&#39;t evolve even to do mathematics or logic"
+    },
+    {
+      "index": 313,
+      "start_time": 2149890.0,
+      "end_time": 2157300.0,
+      "text": "no, they evolved to do stuff like hunting, like finding food and"
+    },
+    {
+      "index": 314,
+      "start_time": 2157300.0,
+      "end_time": 2167190.0,
+      "text": "especially organizing ourselves into groups, right? Social activities"
+    },
+    {
+      "index": 315,
+      "start_time": 2167190.0,
+      "end_time": 2174359.0,
+      "text": "and communicating, so language right? So we have these language skills"
+    },
+    {
+      "index": 316,
+      "start_time": 2174360.0,
+      "end_time": 2176701.0,
+      "text": "it&#39;s very fresh thing, right?"
+    },
+    {
+      "index": 317,
+      "start_time": 2176700.0,
+      "end_time": 2184500.0,
+      "text": "So compared to the complexity of our visual cortex this new newly"
+    },
+    {
+      "index": 318,
+      "start_time": 2184500.0,
+      "end_time": 2193829.0,
+      "text": "acquired ability to actually think abstractly and using a language that"
+    },
+    {
+      "index": 319,
+      "start_time": 2193830.0,
+      "end_time": 2205350.0,
+      "text": "that&#39;s like really very very fresh thing and it&#39;s very primitive, ok. It hasn&#39;t had"
+    },
+    {
+      "index": 320,
+      "start_time": 2205350.0,
+      "end_time": 2212850.0,
+      "text": "time to evolve. It&#39;s very simple and we are using this tool that we evolved to"
+    },
+    {
+      "index": 321,
+      "start_time": 2212850.0,
+      "end_time": 2224491.0,
+      "text": "throwing javelins or arrows, shooting arrows and communicating with with other"
+    },
+    {
+      "index": 322,
+      "start_time": 2224490.0,
+      "end_time": 2227550.0,
+      "text": "guys like &quot;Oh here, the mammoth is over there!&quot;"
+    },
+    {
+      "index": 323,
+      "start_time": 2227550.0,
+      "end_time": 2237630.0,
+      "text": "&quot;No don&#39;t run there!&quot; or &quot;Right behind you a sabre-toothed tiger!&quot; or &quot;A bear!&quot; so we"
+    },
+    {
+      "index": 324,
+      "start_time": 2237630.0,
+      "end_time": 2242820.0,
+      "text": "are now using this tool to do mathematics"
+    },
+    {
+      "index": 325,
+      "start_time": 2242820.0,
+      "end_time": 2252600.0,
+      "text": "so there are certain things that we found useful in doing"
+    },
+    {
+      "index": 326,
+      "start_time": 2252600.0,
+      "end_time": 2260310.0,
+      "text": "abstract thinking, in doing mathematics and the major thing is we"
+    },
+    {
+      "index": 327,
+      "start_time": 2260310.0,
+      "end_time": 2267660.0,
+      "text": "come head-to-head with a very complex problem like how to provide food for our"
+    },
+    {
+      "index": 328,
+      "start_time": 2267660.0,
+      "end_time": 2274740.0,
+      "text": "tribe right and we solve it, how do we solve it, we divide it into smaller"
+    },
+    {
+      "index": 329,
+      "start_time": 2274740.0,
+      "end_time": 2280770.0,
+      "text": "problems that we can solve and then we combine the solutions"
+    },
+    {
+      "index": 330,
+      "start_time": 2280770.0,
+      "end_time": 2288750.0,
+      "text": "ok so this is the only way we know how to deal with complex situations by"
+    },
+    {
+      "index": 331,
+      "start_time": 2288750.0,
+      "end_time": 2295440.0,
+      "text": "decomposing these things into simpler things and then solving"
+    },
+    {
+      "index": 332,
+      "start_time": 2295440.0,
+      "end_time": 2305460.0,
+      "text": "them, the simplest problems, and combining the solutions into bigger solutions and this is everywhere."
+    },
+    {
+      "index": 333,
+      "start_time": 2305460.0,
+      "end_time": 2315600.0,
+      "text": "You find is that this permeates everything we do that we don&#39;t even notice it."
+    },
+    {
+      "index": 334,
+      "start_time": 2315600.0,
+      "end_time": 2327520.0,
+      "text": "But this is how we work and because this is how we work this is how we do science as well."
+    },
+    {
+      "index": 335,
+      "start_time": 2327520.0,
+      "end_time": 2331680.0,
+      "text": "So every branch of science, every branch of mathematics is"
+    },
+    {
+      "index": 336,
+      "start_time": 2331680.0,
+      "end_time": 2339120.0,
+      "text": "&quot;We can only see these things that can be chopped into pieces and then put"
+    },
+    {
+      "index": 337,
+      "start_time": 2339120.0,
+      "end_time": 2342690.0,
+      "text": "together&quot; so no wonder they look the same!"
+    },
+    {
+      "index": 338,
+      "start_time": 2342690.0,
+      "end_time": 2350550.0,
+      "text": "Because we can only see these problems that have this structure. If they"
+    },
+    {
+      "index": 339,
+      "start_time": 2350550.0,
+      "end_time": 2359010.0,
+      "text": "don&#39;t have this structure, we just don&#39;t see them, we just say &quot;We cannot solve this problem&quot;"
+    },
+    {
+      "index": 340,
+      "start_time": 2359010.0,
+      "end_time": 2364020.0,
+      "text": "&quot;Let&#39;s do something else, maybe we can get a grant for solving that other"
+    },
+    {
+      "index": 341,
+      "start_time": 2364020.0,
+      "end_time": 2368580.0,
+      "text": "&quot;problem because that seems choppable into smaller pieces"
+    },
+    {
+      "index": 342,
+      "start_time": 2368580.0,
+      "end_time": 2374190.0,
+      "text": "&quot;this one doesn&#39;t, let&#39;s forget about it let&#39;s not even talk about it&quot;, right?"
+    },
+    {
+      "index": 343,
+      "start_time": 2374190.0,
+      "end_time": 2380100.0,
+      "text": "So one good thing,"
+    },
+    {
+      "index": 344,
+      "start_time": 2380100.0,
+      "end_time": 2384150.0,
+      "text": "ok, so maybe the whole universe is like this maybe everything in this universe"
+    },
+    {
+      "index": 345,
+      "start_time": 2384150.0,
+      "end_time": 2389100.0,
+      "text": "can be chopped into little pieces and then put together, maybe that&#39;s like the"
+    },
+    {
+      "index": 346,
+      "start_time": 2389100.0,
+      "end_time": 2394470.0,
+      "text": "property of this universe and our brains are just reflecting this."
+    },
+    {
+      "index": 347,
+      "start_time": 2394470.0,
+      "end_time": 2405120.0,
+      "text": "And personally I don&#39;t think so. Maybe I&#39;m wrong, hopefully I&#39;m wrong, but I&#39;m a"
+    },
+    {
+      "index": 348,
+      "start_time": 2405120.0,
+      "end_time": 2411360.0,
+      "text": "physicist also, I started as a physicist, so I saw what was happening in physics"
+    },
+    {
+      "index": 349,
+      "start_time": 2411360.0,
+      "end_time": 2417090.0,
+      "text": "and in physics we also wanted to chop things into little pieces, right. And"
+    },
+    {
+      "index": 350,
+      "start_time": 2417090.0,
+      "end_time": 2422280.0,
+      "text": "we were very successful at this you know – we found out that matter is"
+    },
+    {
+      "index": 351,
+      "start_time": 2422280.0,
+      "end_time": 2427860.0,
+      "text": "built from atoms, right? So atoms are these things that we can"
+    },
+    {
+      "index": 352,
+      "start_time": 2427860.0,
+      "end_time": 2433500.0,
+      "text": "separate and then study, find their properties and then say that the"
+    },
+    {
+      "index": 353,
+      "start_time": 2433500.0,
+      "end_time": 2441000.0,
+      "text": "property of a rock or a piece of metal comes by combining the properties"
+    },
+    {
+      "index": 354,
+      "start_time": 2441000.0,
+      "end_time": 2449280.0,
+      "text": "of these atoms so we can  decompose a piece of rock into atoms, study"
+    },
+    {
+      "index": 355,
+      "start_time": 2449280.0,
+      "end_time": 2455730.0,
+      "text": "them and then recompose it, and then we have the understanding of them."
+    },
+    {
+      "index": 356,
+      "start_time": 2455730.0,
+      "end_time": 2462720.0,
+      "text": "But then we didn&#39;t stop at that because we wanted to see what&#39;s inside the"
+    },
+    {
+      "index": 357,
+      "start_time": 2462720.0,
+      "end_time": 2468120.0,
+      "text": "atom right? So there are these elementary particles"
+    },
+    {
+      "index": 358,
+      "start_time": 2468120.0,
+      "end_time": 2474410.0,
+      "text": "electrons, protons and so on. So at some level if we"
+    },
+    {
+      "index": 359,
+      "start_time": 2474410.0,
+      "end_time": 2480260.0,
+      "text": "want to decompose things into simpler things, these simpler things have"
+    },
+    {
+      "index": 360,
+      "start_time": 2480260.0,
+      "end_time": 2483470.0,
+      "text": "to have similar properties. For instance"
+    },
+    {
+      "index": 361,
+      "start_time": 2483470.0,
+      "end_time": 2489590.0,
+      "text": "what&#39;s the simplest thing that we can imagine for an elementary particle? It"
+    },
+    {
+      "index": 362,
+      "start_time": 2489590.0,
+      "end_time": 2496970.0,
+      "text": "has to be a point, right? It should be a point. I mean, if it&#39;s a ball right then maybe we can"
+    },
+    {
+      "index": 363,
+      "start_time": 2496970.0,
+      "end_time": 2502580.0,
+      "text": "cut it, chop it into smaller pieces and and then do the decomposition,"
+    },
+    {
+      "index": 364,
+      "start_time": 2502580.0,
+      "end_time": 2510350.0,
+      "text": "recomposition and so on. So at some level, some lowest possible level we"
+    },
+    {
+      "index": 365,
+      "start_time": 2510350.0,
+      "end_time": 2515840.0,
+      "text": "cannot chop it anymore and we should find a point, right? So an elementary"
+    },
+    {
+      "index": 366,
+      "start_time": 2515840.0,
+      "end_time": 2529680.0,
+      "text": "particle should be a point. That would be the end of this level of decomposition, right?"
+    },
+    {
+      "index": 367,
+      "start_time": 2529680.0,
+      "end_time": 2537480.0,
+      "text": "And we tried doing this, we have like the standard model of particles in"
+    },
+    {
+      "index": 368,
+      "start_time": 2537480.0,
+      "end_time": 2543510.0,
+      "text": "which we assume that the particles are points, which is sort of a cheat because it turns"
+    },
+    {
+      "index": 369,
+      "start_time": 2543510.0,
+      "end_time": 2548400.0,
+      "text": "out that we cannot really deal theoretically with point particles because"
+    },
+    {
+      "index": 370,
+      "start_time": 2548400.0,
+      "end_time": 2552480.0,
+      "text": "they get to infinities like two point particles when they get very very very"
+    },
+    {
+      "index": 371,
+      "start_time": 2552480.0,
+      "end_time": 2554220.0,
+      "text": "close together, right."
+    },
+    {
+      "index": 372,
+      "start_time": 2554220.0,
+      "end_time": 2558450.0,
+      "text": "The interaction goes to infinity and everything blows up so we came up with"
+    },
+    {
+      "index": 373,
+      "start_time": 2558450.0,
+      "end_time": 2563609.0,
+      "text": "this renormalization theory which is like a big hack you know to get rid of"
+    },
+    {
+      "index": 374,
+      "start_time": 2563610.0,
+      "end_time": 2570421.0,
+      "text": "infinities and so on and and of course physicists were not very happy with that"
+    },
+    {
+      "index": 375,
+      "start_time": 2570420.0,
+      "end_time": 2572760.0,
+      "text": "So they thought"
+    },
+    {
+      "index": 376,
+      "start_time": 2572760.0,
+      "end_time": 2579690.0,
+      "text": "&quot;ok so maybe at this lowest level things are not as choppable as we thought, maybe"
+    },
+    {
+      "index": 377,
+      "start_time": 2579690.0,
+      "end_time": 2587730.0,
+      "text": "nature really does not follow this kind of divide and then combine&quot; so"
+    },
+    {
+      "index": 378,
+      "start_time": 2587730.0,
+      "end_time": 2593400.0,
+      "text": "they came up with this idea that maybe elementary particles are strings. If you&#39;ve heard of"
+    },
+    {
+      "index": 379,
+      "start_time": 2593400.0,
+      "end_time": 2601980.0,
+      "text": "of string theory right? Like, what a crazy theory this is! That this most elementary"
+    },
+    {
+      "index": 380,
+      "start_time": 2601980.0,
+      "end_time": 2607170.0,
+      "text": "thing is not a point but it actually is a string and you cannot chop it"
+    },
+    {
+      "index": 381,
+      "start_time": 2607170.0,
+      "end_time": 2624730.0,
+      "text": "Its like the elementary thing is not divisible, but it&#39;s not a point."
+    },
+    {
+      "index": 382,
+      "start_time": 2624730.0,
+      "end_time": 2633850.0,
+      "text": "And quantum theory – and this is another non-choppable piece"
+    },
+    {
+      "index": 383,
+      "start_time": 2633850.0,
+      "end_time": 2645940.0,
+      "text": "of knowledge that we found out – says that if you have a bigger system, maybe you"
+    },
+    {
+      "index": 384,
+      "start_time": 2645940.0,
+      "end_time": 2650500.0,
+      "text": "can separate it into elementary particles and say &quot;Hey I have a system of"
+    },
+    {
+      "index": 385,
+      "start_time": 2650500.0,
+      "end_time": 2656620.0,
+      "text": "10 particles, I know properties of these 10 particles and I call this system"
+    },
+    {
+      "index": 386,
+      "start_time": 2656620.0,
+      "end_time": 2662530.0,
+      "text": "something bigger like an object&quot;, right, and I can find out the structure of this"
+    },
+    {
+      "index": 387,
+      "start_time": 2662530.0,
+      "end_time": 2669880.0,
+      "text": "object by looking at these particles and it turns out in quantum mechanics that the states that"
+    },
+    {
+      "index": 388,
+      "start_time": 2669880.0,
+      "end_time": 2674320.0,
+      "text": "it comes to – they don&#39;t add up!"
+    },
+    {
+      "index": 389,
+      "start_time": 2674320.0,
+      "end_time": 2684490.0,
+      "text": "A state that has two particles is not a sum or a product or a convolution of"
+    },
+    {
+      "index": 390,
+      "start_time": 2684490.0,
+      "end_time": 2694630.0,
+      "text": "states of a single particle it&#39;s a new state which follows a different you know"
+    },
+    {
+      "index": 391,
+      "start_time": 2694630.0,
+      "end_time": 2702280.0,
+      "text": "differential equation, and so on, so we try to separate particles"
+    },
+    {
+      "index": 392,
+      "start_time": 2702280.0,
+      "end_time": 2707740.0,
+      "text": "And suddenly we cut the particles apart and it turns out that"
+    },
+    {
+      "index": 393,
+      "start_time": 2707740.0,
+      "end_time": 2712660.0,
+      "text": "something weird happens in between when you are cutting, right, you are actually"
+    },
+    {
+      "index": 394,
+      "start_time": 2712660.0,
+      "end_time": 2723490.0,
+      "text": "changing the system by separating things, ok? So maybe, maybe at the very bottom – or"
+    },
+    {
+      "index": 395,
+      "start_time": 2723490.0,
+      "end_time": 2730930.0,
+      "text": "maybe there is no bottom – maybe at the very bottom things are not separable,"
+    },
+    {
+      "index": 396,
+      "start_time": 2730930.0,
+      "end_time": 2738400.0,
+      "text": "maybe things are not composable. Maybe this composability that we love so much"
+    },
+    {
+      "index": 397,
+      "start_time": 2738400.0,
+      "end_time": 2747220.0,
+      "text": "is not a property of nature, that&#39;s what I&#39;m saying, maybe it&#39;s not a property of nature."
+    },
+    {
+      "index": 398,
+      "start_time": 2747220.0,
+      "end_time": 2755930.0,
+      "text": "Maybe this is just the property of our brains, maybe our brains are such that we  have"
+    },
+    {
+      "index": 399,
+      "start_time": 2755930.0,
+      "end_time": 2763610.0,
+      "text": "to see structure everywhere and if we can&#39;t find the structure we just give up"
+    },
+    {
+      "index": 400,
+      "start_time": 2763610.0,
+      "end_time": 2771410.0,
+      "text": "So in this way category theory is not really about mathematics or physics"
+    },
+    {
+      "index": 401,
+      "start_time": 2771410.0,
+      "end_time": 2780200.0,
+      "text": "category theory is about our minds, how our brains work so it&#39;s more of"
+    },
+    {
+      "index": 402,
+      "start_time": 2780200.0,
+      "end_time": 2788420.0,
+      "text": "epistemology than ontology. Epistemology is how we can reason about stuff, how we can"
+    },
+    {
+      "index": 403,
+      "start_time": 2788420.0,
+      "end_time": 2794690.0,
+      "text": "learn about stuff, ontology is about what things are, right. Maybe we cannot learn what"
+    },
+    {
+      "index": 404,
+      "start_time": 2794690.0,
+      "end_time": 2803390.0,
+      "text": "things are. But we can learn about how we can study, and that&#39;s what category theory tells us."
+    },
+    {
+      "index": 405,
+      "start_time": 2803390.0,
+      "end_time": 2813390.0,
+      "text": "Let&#39;s take a break"
+    }
+  ]
+}

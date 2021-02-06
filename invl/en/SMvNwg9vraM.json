@@ -1,0 +1,1200 @@
+{
+  "video_id": "SMvNwg9vraM",
+  "title": "5   6   Dimensionality Reduction  Introduction 12 01",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 250.0,
+      "end_time": 2200.0,
+      "text": "So we are starting with a new topic."
+    },
+    {
+      "index": 2,
+      "start_time": 2200.0,
+      "end_time": 6370.0,
+      "text": "The topic we will discuss today is, is called dimensionality reduction."
+    },
+    {
+      "index": 3,
+      "start_time": 6370.0,
+      "end_time": 9860.0,
+      "text": "And the idea here is basically that we will learn about techniques that will"
+    },
+    {
+      "index": 4,
+      "start_time": 9860.0,
+      "end_time": 13370.0,
+      "text": "later become very handy when we will talk about recommender systems, and"
+    },
+    {
+      "index": 5,
+      "start_time": 13370.0,
+      "end_time": 16290.0,
+      "text": "in particular latent factor recommender systems."
+    },
+    {
+      "index": 6,
+      "start_time": 16290.0,
+      "end_time": 19490.0,
+      "text": "So let me give you an idea of what the problem of dimensionality reduction"
+    },
+    {
+      "index": 7,
+      "start_time": 19490.0,
+      "end_time": 20540.0,
+      "text": "is all about."
+    },
+    {
+      "index": 8,
+      "start_time": 20540.0,
+      "end_time": 24490.0,
+      "text": "So basically our assumption is that we have a set of data points."
+    },
+    {
+      "index": 9,
+      "start_time": 24500.0,
+      "end_time": 27780.0,
+      "text": "Think of them as points in a plane or points in a three-dimensional space."
+    },
+    {
+      "index": 10,
+      "start_time": 27780.0,
+      "end_time": 31220.0,
+      "text": "And the idea is that these points are not just randomly scattered through the space,"
+    },
+    {
+      "index": 11,
+      "start_time": 31220.0,
+      "end_time": 33920.0,
+      "text": "but they, they li, lie in a subspace of it."
+    },
+    {
+      "index": 12,
+      "start_time": 33920.0,
+      "end_time": 36760.0,
+      "text": "So for example, here, here I have two cases of this."
+    },
+    {
+      "index": 13,
+      "start_time": 36760.0,
+      "end_time": 40660.0,
+      "text": "You could imagine that you have a set of data in a two-dimensional plane, but"
+    },
+    {
+      "index": 14,
+      "start_time": 40660.0,
+      "end_time": 43830.0,
+      "text": "the data is not only kind of randomly scattered through this plane,"
+    },
+    {
+      "index": 15,
+      "start_time": 43830.0,
+      "end_time": 48800.0,
+      "text": "but it it it is only scattered across a small subspace of it."
+    },
+    {
+      "index": 16,
+      "start_time": 48800.0,
+      "end_time": 51730.0,
+      "text": "So for example in the first case, we have our we have the data points that are that"
+    },
+    {
+      "index": 17,
+      "start_time": 51730.0,
+      "end_time": 56470.0,
+      "text": "are embedded on this particular line so maybe a more better representation of"
+    },
+    {
+      "index": 18,
+      "start_time": 56470.0,
+      "end_time": 60500.0,
+      "text": "this data is not in this two-dimensional space but it&#39;s basically just"
+    },
+    {
+      "index": 19,
+      "start_time": 60500.0,
+      "end_time": 65360.0,
+      "text": "where where in the length of the line is, is a given data point."
+    },
+    {
+      "index": 20,
+      "start_time": 65360.0,
+      "end_time": 69580.0,
+      "text": "Or, for example, in the second case, we have we, we are drawing a case where we"
+    },
+    {
+      "index": 21,
+      "start_time": 69580.0,
+      "end_time": 74500.0,
+      "text": "have points embedded in a three-dimensional space, but again, these"
+    },
+    {
+      "index": 22,
+      "start_time": 74500.0,
+      "end_time": 78130.0,
+      "text": "point, points are not randomly scattered through space, but basically, they are,"
+    },
+    {
+      "index": 23,
+      "start_time": 78130.0,
+      "end_time": 82690.0,
+      "text": "they are, they all lie on this single plane that is embedded in this space."
+    },
+    {
+      "index": 24,
+      "start_time": 82690.0,
+      "end_time": 87350.0,
+      "text": "So basically the idea for axes can we go and discover such data in presentation."
+    },
+    {
+      "index": 25,
+      "start_time": 87350.0,
+      "end_time": 91419.0,
+      "text": "So if I give you another clear set of data can we go identify what are the main"
+    },
+    {
+      "index": 26,
+      "start_time": 91420.0,
+      "end_time": 94900.0,
+      "text": "axes along original data is represented or embedded."
+    },
+    {
+      "index": 27,
+      "start_time": 94900.0,
+      "end_time": 97770.0,
+      "text": "So in particular, in this second case,"
+    },
+    {
+      "index": 28,
+      "start_time": 97770.0,
+      "end_time": 102229.0,
+      "text": "we have these 2 are an axis where all the data lies."
+    },
+    {
+      "index": 29,
+      "start_time": 102230.0,
+      "end_time": 105530.0,
+      "text": "So our goal in some sense will be that we want to find a sub space"
+    },
+    {
+      "index": 30,
+      "start_time": 105530.0,
+      "end_time": 110690.0,
+      "text": "that effectively represents all the data in that we are given."
+    },
+    {
+      "index": 31,
+      "start_time": 110690.0,
+      "end_time": 113320.0,
+      "text": "So, let me just give you a complete example, right."
+    },
+    {
+      "index": 32,
+      "start_time": 113320.0,
+      "end_time": 116419.0,
+      "text": "So, our goal, in a sense, would be that we want to compress or"
+    },
+    {
+      "index": 33,
+      "start_time": 116420.0,
+      "end_time": 119980.0,
+      "text": "reduce the dimensionality or the size of the data representation."
+    },
+    {
+      "index": 34,
+      "start_time": 119980.0,
+      "end_time": 125120.0,
+      "text": "So the way we can think of this is that we are given a big table with a, large number"
+    },
+    {
+      "index": 35,
+      "start_time": 125120.0,
+      "end_time": 129190.0,
+      "text": "of rows, let&#39;s say millions of rows, and also a large number of, of columns."
+    },
+    {
+      "index": 36,
+      "start_time": 129190.0,
+      "end_time": 130919.0,
+      "text": "And what we can think of, of this,"
+    },
+    {
+      "index": 37,
+      "start_time": 130919.00000000001,
+      "end_time": 134829.0,
+      "text": "of this kind of table is that every row represents a different data point."
+    },
+    {
+      "index": 38,
+      "start_time": 134830.0,
+      "end_time": 138790.0,
+      "text": "And every column represents a different coordinate or a dif, different dimension."
+    },
+    {
+      "index": 39,
+      "start_time": 138790.0,
+      "end_time": 141650.0,
+      "text": "And our goal is that we take this set of data and"
+    },
+    {
+      "index": 40,
+      "start_time": 141650.0,
+      "end_time": 147980.0,
+      "text": "identify kind of more compact or fewer dimensional representations."
+    },
+    {
+      "index": 41,
+      "start_time": 147980.0,
+      "end_time": 150490.0,
+      "text": "So in a sense, we would like to keep all the rows."
+    },
+    {
+      "index": 42,
+      "start_time": 150500.0,
+      "end_time": 152590.0,
+      "text": "But we would like to shrink the number of columns."
+    },
+    {
+      "index": 43,
+      "start_time": 152590.0,
+      "end_time": 156490.0,
+      "text": "While, while stoll, still preserve the richness of a da, of the data set."
+    },
+    {
+      "index": 44,
+      "start_time": 156490.0,
+      "end_time": 160200.0,
+      "text": "So, for example, let&#39;s look at the the table that I have here."
+    },
+    {
+      "index": 45,
+      "start_time": 160200.0,
+      "end_time": 164369.0,
+      "text": "I have, for example, a table where every row is a different customer and"
+    },
+    {
+      "index": 46,
+      "start_time": 164370.0,
+      "end_time": 170550.0,
+      "text": "every column is a different time of the day, where every entry stores how many."
+    },
+    {
+      "index": 47,
+      "start_time": 170550.0,
+      "end_time": 172900.0,
+      "text": "But how many of particular transactions or"
+    },
+    {
+      "index": 48,
+      "start_time": 172900.0,
+      "end_time": 176840.0,
+      "text": "particular products need a particular customer to buy."
+    },
+    {
+      "index": 49,
+      "start_time": 176840.0,
+      "end_time": 179870.0,
+      "text": "And for example what we see in this particular case is that even though we"
+    },
+    {
+      "index": 50,
+      "start_time": 179870.0,
+      "end_time": 183270.0,
+      "text": "have five different days so five different columns,"
+    },
+    {
+      "index": 51,
+      "start_time": 183270.0,
+      "end_time": 187270.0,
+      "text": "our data is not really in some sense five dimensional but it&#39;s only two dimensional."
+    },
+    {
+      "index": 52,
+      "start_time": 187270.0,
+      "end_time": 192230.0,
+      "text": "What do I mean by this is that for example all the first four rows and"
+    },
+    {
+      "index": 53,
+      "start_time": 192230.0,
+      "end_time": 197290.0,
+      "text": "the first three columns, they&#39;re basically all multiplications of one another, right?"
+    },
+    {
+      "index": 54,
+      "start_time": 197290.0,
+      "end_time": 201100.0,
+      "text": "So since I have a set of customers that all buy products on"
+    },
+    {
+      "index": 55,
+      "start_time": 201100.0,
+      "end_time": 205400.0,
+      "text": "the first in the first three columns and they do nothing on the last."
+    },
+    {
+      "index": 56,
+      "start_time": 205400.0,
+      "end_time": 207900.0,
+      "text": "Two and then I have another set of let&#39;s say, customers."
+    },
+    {
+      "index": 57,
+      "start_time": 207900.0,
+      "end_time": 210540.0,
+      "text": "That they will make transactions over the weekends."
+    },
+    {
+      "index": 58,
+      "start_time": 210540.0,
+      "end_time": 212660.0,
+      "text": "And they don&#39;t do anything over the week."
+    },
+    {
+      "index": 59,
+      "start_time": 212660.0,
+      "end_time": 213930.0,
+      "text": "Right? So, in some sense,"
+    },
+    {
+      "index": 60,
+      "start_time": 213930.0,
+      "end_time": 218640.0,
+      "text": "rather than representing every customer now with the with a set of five values."
+    },
+    {
+      "index": 61,
+      "start_time": 218640.0,
+      "end_time": 221839.0,
+      "text": "I can, I can simply represent this data with a."
+    },
+    {
+      "index": 62,
+      "start_time": 221840.0,
+      "end_time": 222690.0,
+      "text": "With a set of."
+    },
+    {
+      "index": 63,
+      "start_time": 222690.0,
+      "end_time": 227550.0,
+      "text": "Two two coordinate vectors, plus a value of which,"
+    },
+    {
+      "index": 64,
+      "start_time": 227550.0,
+      "end_time": 230510.0,
+      "text": "in some sense, which dimension or which cluster it belongs to, right?"
+    },
+    {
+      "index": 65,
+      "start_time": 230510.0,
+      "end_time": 234940.0,
+      "text": "So for example, this matrix that I showed you is really two dimensional, where every"
+    },
+    {
+      "index": 66,
+      "start_time": 234940.0,
+      "end_time": 240600.0,
+      "text": "row is simply a multiplication of one of the, one of the two vectors of 1s and 0s."
+    },
+    {
+      "index": 67,
+      "start_time": 240600.0,
+      "end_time": 241700.0,
+      "text": "So basically the idea for"
+    },
+    {
+      "index": 68,
+      "start_time": 241700.0,
+      "end_time": 247410.0,
+      "text": "us will be can we identify this kind of low low level of representation of data."
+    },
+    {
+      "index": 69,
+      "start_time": 247410.0,
+      "end_time": 253700.0,
+      "text": "So let me explain a concept that will be very important for"
+    },
+    {
+      "index": 70,
+      "start_time": 253700.0,
+      "end_time": 254200.0,
+      "text": "us to think about this, right?"
+    },
+    {
+      "index": 71,
+      "start_time": 254200.0,
+      "end_time": 257599.0,
+      "text": "So we are thinking that our data comes in the form of a matrix right."
+    },
+    {
+      "index": 72,
+      "start_time": 257600.00000000003,
+      "end_time": 260590.00000000003,
+      "text": "So we can think of matrix basically as every line giving us,"
+    },
+    {
+      "index": 73,
+      "start_time": 260589.0,
+      "end_time": 265489.0,
+      "text": "giving us coordinates of a point in some d-dimensional space."
+    },
+    {
+      "index": 74,
+      "start_time": 265490.0,
+      "end_time": 269450.0,
+      "text": "So we have our data point, we have some number of data points, and we have some"
+    },
+    {
+      "index": 75,
+      "start_time": 269450.0,
+      "end_time": 273120.0,
+      "text": "number of columns which is corresponds to the dimensionality of the data."
+    },
+    {
+      "index": 76,
+      "start_time": 273120.0,
+      "end_time": 278260.0,
+      "text": "And now the question is, what is the real intrinsic dimensionality to that data set?"
+    },
+    {
+      "index": 77,
+      "start_time": 278260.0,
+      "end_time": 281890.0,
+      "text": "And the concept we need to explain is the concept of a rank of a matrix."
+    },
+    {
+      "index": 78,
+      "start_time": 281890.0,
+      "end_time": 285750.0,
+      "text": "And we will say that the rank of a matrix A is simply the number of"
+    },
+    {
+      "index": 79,
+      "start_time": 285750.0,
+      "end_time": 287980.0,
+      "text": "linearly independent columns of A."
+    },
+    {
+      "index": 80,
+      "start_time": 287980.0,
+      "end_time": 291200.0,
+      "text": "So let me give you an example."
+    },
+    {
+      "index": 81,
+      "start_time": 291200.0,
+      "end_time": 293370.0,
+      "text": "So for, for in, in here is an example."
+    },
+    {
+      "index": 82,
+      "start_time": 293370.0,
+      "end_time": 298350.0,
+      "text": "You can see that the matrix A that has three rows and three columns."
+    },
+    {
+      "index": 83,
+      "start_time": 298350.0,
+      "end_time": 301210.0,
+      "text": "And the rank of this matrix equals 2."
+    },
+    {
+      "index": 84,
+      "start_time": 301210.0,
+      "end_time": 303849.0,
+      "text": "Why&#39;s the rank of this matrix equal to 2?"
+    },
+    {
+      "index": 85,
+      "start_time": 303850.0,
+      "end_time": 308850.0,
+      "text": "Is because it has 2 linear, linearly independent rows in this case."
+    },
+    {
+      "index": 86,
+      "start_time": 308850.0,
+      "end_time": 311110.0,
+      "text": "What do we notice for example is that, I can,"
+    },
+    {
+      "index": 87,
+      "start_time": 311110.0,
+      "end_time": 315110.0,
+      "text": "that the row number 3 is simply the sum of rows one and two."
+    },
+    {
+      "index": 88,
+      "start_time": 315110.0,
+      "end_time": 317730.0,
+      "text": "So the, the third row of this,"
+    },
+    {
+      "index": 89,
+      "start_time": 317730.0,
+      "end_time": 322210.0,
+      "text": "of this matrix can be represented as a linear combination of rows one and two."
+    },
+    {
+      "index": 90,
+      "start_time": 322210.0,
+      "end_time": 325570.0,
+      "text": "So in this case our matrix is really two dimensional."
+    },
+    {
+      "index": 91,
+      "start_time": 325570.0,
+      "end_time": 329180.0,
+      "text": "Even I have a, I have data, in three dimensions."
+    },
+    {
+      "index": 92,
+      "start_time": 329180.0,
+      "end_time": 332440.0,
+      "text": "I have three columns, this matrix is really two dimensional."
+    },
+    {
+      "index": 93,
+      "start_time": 332440.0,
+      "end_time": 334810.0,
+      "text": "So how can we think about this is the following?"
+    },
+    {
+      "index": 94,
+      "start_time": 334810.0,
+      "end_time": 339800.0,
+      "text": "I can basically think that there are really like two basis vectors or"
+    },
+    {
+      "index": 95,
+      "start_time": 339800.0,
+      "end_time": 342479.0,
+      "text": "two coordinate vectors in my in my space first one corresponds to"
+    },
+    {
+      "index": 96,
+      "start_time": 342480.0,
+      "end_time": 346890.0,
+      "text": "the first row second one corresponds to the second row and then what I can do"
+    },
+    {
+      "index": 97,
+      "start_time": 346890.0,
+      "end_time": 351400.0,
+      "text": "now is I can represent every data point as a linear combination of these two vectors."
+    },
+    {
+      "index": 98,
+      "start_time": 351400.0,
+      "end_time": 352320.0,
+      "text": "So for example,"
+    },
+    {
+      "index": 99,
+      "start_time": 352320.0,
+      "end_time": 355830.0,
+      "text": "the first row can simply be represented as a vector of one and zero."
+    },
+    {
+      "index": 100,
+      "start_time": 355830.0,
+      "end_time": 357599.0,
+      "text": "Which means that I only take the,"
+    },
+    {
+      "index": 101,
+      "start_time": 357600.0,
+      "end_time": 361810.0,
+      "text": "the first, the first vector and I take zero of the second vector."
+    },
+    {
+      "index": 102,
+      "start_time": 361810.0,
+      "end_time": 364530.0,
+      "text": "For example the, the second row of my matrix say,"
+    },
+    {
+      "index": 103,
+      "start_time": 364530.0,
+      "end_time": 370400.0,
+      "text": "can be represented now as a vector of one ze, zero one because I&#39;m only taking the."
+    },
+    {
+      "index": 104,
+      "start_time": 370400.0,
+      "end_time": 372880.0,
+      "text": "The second of my two basis vectors."
+    },
+    {
+      "index": 105,
+      "start_time": 372880.0,
+      "end_time": 376500.0,
+      "text": "And for example the last row which is a sum of the rows one and"
+    },
+    {
+      "index": 106,
+      "start_time": 376500.0,
+      "end_time": 379720.0,
+      "text": "two can be simply represented as with a vector one one."
+    },
+    {
+      "index": 107,
+      "start_time": 379720.0,
+      "end_time": 382550.0,
+      "text": "So why is this intuition interesting."
+    },
+    {
+      "index": 108,
+      "start_time": 382550.0,
+      "end_time": 385590.0,
+      "text": "This intuition is important because I could think of"
+    },
+    {
+      "index": 109,
+      "start_time": 385590.0,
+      "end_time": 389900.0,
+      "text": "now data as being some points in high dimensional space."
+    },
+    {
+      "index": 110,
+      "start_time": 389900.0,
+      "end_time": 393820.0,
+      "text": "I can think of the data being represented as a matrix where, as I mentioned before,"
+    },
+    {
+      "index": 111,
+      "start_time": 393820.0,
+      "end_time": 398320.0,
+      "text": "every data point is a row in this matrix, and every column is a separate dimension."
+    },
+    {
+      "index": 112,
+      "start_time": 398320.0,
+      "end_time": 402219.0,
+      "text": "And what I can do now, I can think of this as doing dimensionality reduction, right?"
+    },
+    {
+      "index": 113,
+      "start_time": 402220.0,
+      "end_time": 406520.0,
+      "text": "So for example, if I&#39;m given the matrix, on the top, I can basically take and"
+    },
+    {
+      "index": 114,
+      "start_time": 406520.0,
+      "end_time": 408960.0,
+      "text": "rewrite this, the coordinates of these points."
+    },
+    {
+      "index": 115,
+      "start_time": 408960.0,
+      "end_time": 412479.0,
+      "text": "Instead of using three coordinates, using only two coordinates, right?"
+    },
+    {
+      "index": 116,
+      "start_time": 412480.0,
+      "end_time": 417580.0,
+      "text": "So if I use my original coordinate space, where basically I have axis aligned."
+    },
+    {
+      "index": 117,
+      "start_time": 417580.0,
+      "end_time": 419599.0,
+      "text": "Vectors that describe coordinates of my space."
+    },
+    {
+      "index": 118,
+      "start_time": 419600.0,
+      "end_time": 424800.0,
+      "text": "So I have a one and then two zeros, and a zero one zero, and zero zero one."
+    },
+    {
+      "index": 119,
+      "start_time": 424800.0,
+      "end_time": 426660.0,
+      "text": "So this is x, y, and z coordinate."
+    },
+    {
+      "index": 120,
+      "start_time": 426660.0,
+      "end_time": 428590.0,
+      "text": "Then every, in this coordinate system,"
+    },
+    {
+      "index": 121,
+      "start_time": 428590.0,
+      "end_time": 433450.0,
+      "text": "every data point simply corresponds to the, to the, to the row of my matrix."
+    },
+    {
+      "index": 122,
+      "start_time": 433450.0,
+      "end_time": 436960.0,
+      "text": "But, what I can also do is I can come and invent a new coordinate system."
+    },
+    {
+      "index": 123,
+      "start_time": 436960.0,
+      "end_time": 440270.0,
+      "text": "Imagine I invent the second one, where I only have two, two vectors."
+    },
+    {
+      "index": 124,
+      "start_time": 440270.0,
+      "end_time": 442510.0,
+      "text": "So basically, I want to represent every data point."
+    },
+    {
+      "index": 125,
+      "start_time": 442510.0,
+      "end_time": 446280.0,
+      "text": "With two coordinates and every what is mean this means that I want to"
+    },
+    {
+      "index": 126,
+      "start_time": 446280.0,
+      "end_time": 450780.0,
+      "text": "represent every data point as linear combination of the, of the two vectors."
+    },
+    {
+      "index": 127,
+      "start_time": 450780.0,
+      "end_time": 454229.0,
+      "text": "And as I mentioned before now in this new coordinate space I"
+    },
+    {
+      "index": 128,
+      "start_time": 454230.0,
+      "end_time": 459120.0,
+      "text": "can represent the coordinates of every point using only, only two values, right?"
+    },
+    {
+      "index": 129,
+      "start_time": 459120.0,
+      "end_time": 463600.0,
+      "text": "And I can still reconstruct the or, the original coordinate values."
+    },
+    {
+      "index": 130,
+      "start_time": 463600.0,
+      "end_time": 467190.0,
+      "text": "So what does this mean is in some sense that we, we, reduce the dimensionality or"
+    },
+    {
+      "index": 131,
+      "start_time": 467190.0,
+      "end_time": 470969.0,
+      "text": "we compressed the date in a sense that now I need a fewer num,"
+    },
+    {
+      "index": 132,
+      "start_time": 470970.0,
+      "end_time": 474490.0,
+      "text": "number of coordinates to describe the location of every point right and"
+    },
+    {
+      "index": 133,
+      "start_time": 474490.0,
+      "end_time": 478100.0,
+      "text": "this is what the the role of dimensionality deduction is."
+    },
+    {
+      "index": 134,
+      "start_time": 478100.0,
+      "end_time": 481690.0,
+      "text": "So, really the way we can think of dimensionality deduction is that we have"
+    },
+    {
+      "index": 135,
+      "start_time": 481690.0,
+      "end_time": 486962.0,
+      "text": "a set of data points embedded in some some high dimensional space as in this case I"
+    },
+    {
+      "index": 136,
+      "start_time": 486962.0,
+      "end_time": 492490.0,
+      "text": "have two dimensional space but clearly the data is in high dimensions but only spends"
+    },
+    {
+      "index": 137,
+      "start_time": 492490.0,
+      "end_time": 497830.0,
+      "text": "a small dimensional spart, part of it so as in this case, I have a set of points."
+    },
+    {
+      "index": 138,
+      "start_time": 497830.0,
+      "end_time": 503570.0,
+      "text": "That are, that I, that I&#39;m given in, in two-dimensional space but in reality"
+    },
+    {
+      "index": 139,
+      "start_time": 503570.0,
+      "end_time": 507550.0,
+      "text": "these points simply fall on a line and i would like to discover that these points"
+    },
+    {
+      "index": 140,
+      "start_time": 507550.0,
+      "end_time": 511910.0,
+      "text": "are imbedded in a small, small subspace and I would like to present now or"
+    },
+    {
+      "index": 141,
+      "start_time": 511910.0,
+      "end_time": 516500.0,
+      "text": "compress the dimensionality of every point to this small coordinate subspace."
+    },
+    {
+      "index": 142,
+      "start_time": 516500.0,
+      "end_time": 519940.0,
+      "text": "And what is important here for example in this particular case is that."
+    },
+    {
+      "index": 143,
+      "start_time": 519940.00000000006,
+      "end_time": 523460.00000000006,
+      "text": "I can now think of representing the coordinates of every point,"
+    },
+    {
+      "index": 144,
+      "start_time": 523460.00000000006,
+      "end_time": 525200.0,
+      "text": "using kind of two dimensions."
+    },
+    {
+      "index": 145,
+      "start_time": 525200.0,
+      "end_time": 529540.0,
+      "text": "I can represent that position along the, the, the red line."
+    },
+    {
+      "index": 146,
+      "start_time": 529540.0,
+      "end_time": 532510.0,
+      "text": "And I can represent it with the coordinate that tells me how far away"
+    },
+    {
+      "index": 147,
+      "start_time": 532510.0,
+      "end_time": 535340.0,
+      "text": "from the red line is a given data point."
+    },
+    {
+      "index": 148,
+      "start_time": 535340.0,
+      "end_time": 536670.0,
+      "text": "And what is interesting now that&#39;s,"
+    },
+    {
+      "index": 149,
+      "start_time": 536670.0,
+      "end_time": 540760.0,
+      "text": "is that I can say that instead of representing, still using two coordinates."
+    },
+    {
+      "index": 150,
+      "start_time": 540760.0,
+      "end_time": 542650.0,
+      "text": "I can could only represent using one coordinate."
+    },
+    {
+      "index": 151,
+      "start_time": 542650.0,
+      "end_time": 547720.0,
+      "text": "So meaning, I would forget about how far from the red line a point and I would"
+    },
+    {
+      "index": 152,
+      "start_time": 547720.0,
+      "end_time": 551350.0,
+      "text": "only care about the location on the red line where the point can be projected."
+    },
+    {
+      "index": 153,
+      "start_time": 551350.0,
+      "end_time": 555120.0,
+      "text": "And this way I would be able to represent every point with a single,"
+    },
+    {
+      "index": 154,
+      "start_time": 555120.0,
+      "end_time": 559100.0,
+      "text": "with a single number, basically the position of it along the red line and"
+    },
+    {
+      "index": 155,
+      "start_time": 559100.0,
+      "end_time": 560650.0,
+      "text": "I would incur a bit of an error."
+    },
+    {
+      "index": 156,
+      "start_time": 560650.0,
+      "end_time": 564370.0,
+      "text": "Right so what we will be doing is we will be in some sense trying to use a,"
+    },
+    {
+      "index": 157,
+      "start_time": 564370.0,
+      "end_time": 566910.0,
+      "text": "a smaller representation of our data as possible."
+    },
+    {
+      "index": 158,
+      "start_time": 566910.0,
+      "end_time": 571110.0,
+      "text": "So as few columns as possible while also including as little error as"
+    },
+    {
+      "index": 159,
+      "start_time": 571110.0,
+      "end_time": 572350.0,
+      "text": "possible right so,"
+    },
+    {
+      "index": 160,
+      "start_time": 572350.0,
+      "end_time": 576380.0,
+      "text": "what will what will the game we will be playing is between having a smaller data"
+    },
+    {
+      "index": 161,
+      "start_time": 576380.0,
+      "end_time": 580160.0,
+      "text": "representation while also trying to incur as little error as possible."
+    },
+    {
+      "index": 162,
+      "start_time": 581270.0,
+      "end_time": 585850.0,
+      "text": "So the way we will do this and why we would want to do this is, is the following"
+    },
+    {
+      "index": 163,
+      "start_time": 585850.0,
+      "end_time": 589190.0,
+      "text": "right why would I want to dis, discuss do the dimensionality reduction."
+    },
+    {
+      "index": 164,
+      "start_time": 589190.0,
+      "end_time": 590910.0,
+      "text": "So the first thing is I would want to for"
+    },
+    {
+      "index": 165,
+      "start_time": 590910.0,
+      "end_time": 593620.0,
+      "text": "example discover hidden correlations in my data."
+    },
+    {
+      "index": 166,
+      "start_time": 593620.0,
+      "end_time": 596200.0,
+      "text": "And sometimes I would like to discovered really the,"
+    },
+    {
+      "index": 167,
+      "start_time": 596200.0,
+      "end_time": 600570.0,
+      "text": "the latent dimensions along the which d, along which the data varies."
+    },
+    {
+      "index": 168,
+      "start_time": 600570.0,
+      "end_time": 605660.0,
+      "text": "So this is particularly useful if I think of my da, data as, as my points."
+    },
+    {
+      "index": 169,
+      "start_time": 605660.0,
+      "end_time": 606910.0,
+      "text": "I think of them as documents."
+    },
+    {
+      "index": 170,
+      "start_time": 606910.0,
+      "end_time": 610209.0,
+      "text": "Right so I can take every document, represent it as a very long vector,"
+    },
+    {
+      "index": 171,
+      "start_time": 610210.0,
+      "end_time": 615570.0,
+      "text": "where this vector has only values zero and one where zero means a given word."
+    },
+    {
+      "index": 172,
+      "start_time": 615570.0,
+      "end_time": 618510.0,
+      "text": "You know, the Kth word does not appear in the document, and"
+    },
+    {
+      "index": 173,
+      "start_time": 618510.0,
+      "end_time": 621380.0,
+      "text": "one means the word appear, appears in the document."
+    },
+    {
+      "index": 174,
+      "start_time": 621380.0,
+      "end_time": 625370.0,
+      "text": "And my goal, for example, would be to identify what are the axes along."
+    },
+    {
+      "index": 175,
+      "start_time": 625370.0,
+      "end_time": 629430.0,
+      "text": "Which these, the documents, are spread in this,"
+    },
+    {
+      "index": 176,
+      "start_time": 629430.0,
+      "end_time": 633290.0,
+      "text": "all possible words kind of space and what we would find out is that here,"
+    },
+    {
+      "index": 177,
+      "start_time": 633290.0,
+      "end_time": 636930.0,
+      "text": "documents are basically align themselves along different axes that"
+    },
+    {
+      "index": 178,
+      "start_time": 636930.0,
+      "end_time": 642329.0,
+      "text": "correspond to topics like, like sports, politics, technology and so on."
+    },
+    {
+      "index": 179,
+      "start_time": 642330.0,
+      "end_time": 646770.0,
+      "text": "Another in, useful thing that we would want to do is for example many times we"
+    },
+    {
+      "index": 180,
+      "start_time": 646770.0,
+      "end_time": 650540.0,
+      "text": "can take a large data set and represent it as a much smaller data set."
+    },
+    {
+      "index": 181,
+      "start_time": 650540.0,
+      "end_time": 651969.0,
+      "text": "In some sense that basically we,"
+    },
+    {
+      "index": 182,
+      "start_time": 651970.0,
+      "end_time": 657480.0,
+      "text": "we are able to remove or get rid of noisy features so, or noisy columns because."
+    },
+    {
+      "index": 183,
+      "start_time": 657480.0,
+      "end_time": 660540.0,
+      "text": "There our data is not wearing too much, too much."
+    },
+    {
+      "index": 184,
+      "start_time": 660540.0,
+      "end_time": 664640.0,
+      "text": "So we can kind of get rid of, of that part of the data while still preserving more,"
+    },
+    {
+      "index": 185,
+      "start_time": 664640.0,
+      "end_time": 666410.0,
+      "text": "most, most, most of it."
+    },
+    {
+      "index": 186,
+      "start_time": 666410.0,
+      "end_time": 670630.0,
+      "text": "So this is the idea in some sense to do remove, to remove noise from"
+    },
+    {
+      "index": 187,
+      "start_time": 670630.0,
+      "end_time": 675900.0,
+      "text": "the data to remove noise and redundant features or noise and redundant columns."
+    },
+    {
+      "index": 188,
+      "start_time": 675900.0,
+      "end_time": 678290.0,
+      "text": "Another way why we, we may want to do this."
+    },
+    {
+      "index": 189,
+      "start_time": 678290.0,
+      "end_time": 681439.0,
+      "text": "Is that we want to, for example, be able to interpret or visualize data."
+    },
+    {
+      "index": 190,
+      "start_time": 681440.0,
+      "end_time": 685180.0,
+      "text": "What this means is that we can have very high dimensional data and"
+    },
+    {
+      "index": 191,
+      "start_time": 685180.0,
+      "end_time": 689339.0,
+      "text": "we can reduce the dimensionality of it, maybe just to two or three dimensions."
+    },
+    {
+      "index": 192,
+      "start_time": 689340.0,
+      "end_time": 692430.0,
+      "text": "And plotting two or three dimensions is very easy, right?"
+    },
+    {
+      "index": 193,
+      "start_time": 692430.0,
+      "end_time": 694790.0,
+      "text": "We can kind of plot it on the screen."
+    },
+    {
+      "index": 194,
+      "start_time": 694800.0,
+      "end_time": 696120.0,
+      "text": "So, that&#39;s another case."
+    },
+    {
+      "index": 195,
+      "start_time": 696120.0,
+      "end_time": 700930.0,
+      "text": "And, of course, one important application is that, many ties, times, we want to"
+    },
+    {
+      "index": 196,
+      "start_time": 700930.0,
+      "end_time": 704729.0,
+      "text": "reduce dimensionality of the data so that kind of the data size also shrinks,"
+    },
+    {
+      "index": 197,
+      "start_time": 704730.0,
+      "end_time": 709840.0,
+      "text": "which means it&#39;s easier to store, process and analyze the data afterwards, right?"
+    },
+    {
+      "index": 198,
+      "start_time": 709840.0,
+      "end_time": 713980.0,
+      "text": "So these are all the reasons why I would want to, in some sense, find as low or"
+    },
+    {
+      "index": 199,
+      "start_time": 713980.0,
+      "end_time": 717290.0,
+      "text": "dimens, dimension of representation of a given set of data."
+    }
+  ]
+}

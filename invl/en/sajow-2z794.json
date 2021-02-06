@@ -1,0 +1,2982 @@
+{
+  "video_id": "sajow-2z794",
+  "title": "DEF CON 21 - Eric Robi and Michael Perklin - Forensic Fails Shift + Delete Won't Help You Here",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 110.0,
+      "end_time": 8849.0,
+      "text": ">> ERIC ROBI: Talk is about forensic fails. I'm this guy. Over here. I founded an eDiscovery"
+    },
+    {
+      "index": 2,
+      "start_time": 8849.0,
+      "end_time": 15400.0,
+      "text": "company a few years ago. I'm a forensic examiner. I've done thousands and thousands of exams."
+    },
+    {
+      "index": 3,
+      "start_time": 15400.0,
+      "end_time": 23620.0,
+      "text": "I'm an expert witness in state and federal court and I like cats and my name is Eric"
+    },
+    {
+      "index": 4,
+      "start_time": 23620.0,
+      "end_time": 27880.0,
+      "text": "Robi. >> AUDIENCE: Hi, Eric!"
+    },
+    {
+      "index": 5,
+      "start_time": 27880.0,
+      "end_time": 35220.0,
+      "text": ">> ERIC ROBI: Hi. About this other guy. >> MICHAEL PERKLIN: Hi, I'm Michael Perklin."
+    },
+    {
+      "index": 6,
+      "start_time": 35220.0,
+      "end_time": 43140.0,
+      "text": "You may remember from past DEF CONs from ACL Steganography. I'm a forensic examiner, cyber"
+    },
+    {
+      "index": 7,
+      "start_time": 43140.0,
+      "end_time": 50360.0,
+      "text": "crime investigator, security professional. I've also done thousands of exams. And I like"
+    },
+    {
+      "index": 8,
+      "start_time": 50360.0,
+      "end_time": 54200.0,
+      "text": "to break things. A lot. (Chuckles.)"
+    },
+    {
+      "index": 9,
+      "start_time": 54200.0,
+      "end_time": 62380.0,
+      "text": ">> ERIC ROBI: Don't break my cat. All right. So our agenda today. We've got seven amazing"
+    },
+    {
+      "index": 10,
+      "start_time": 62380.0,
+      "end_time": 67060.0,
+      "text": "stories full of fail. We are going to learn something about forensic techniques. That's"
+    },
+    {
+      "index": 11,
+      "start_time": 67060.0,
+      "end_time": 73970.0,
+      "text": "what we do. The fails are brought to you by both the suspect and the examiner. We'll get"
+    },
+    {
+      "index": 12,
+      "start_time": 73970.0,
+      "end_time": 77690.0,
+      "text": "into that in a little bit. The names have been changed to protect the idiots on both"
+    },
+    {
+      "index": 13,
+      "start_time": 77690.0,
+      "end_time": 82990.0,
+      "text": "sides. We actually changed some of the facts to protect the idiots. It seemed like a good"
+    },
+    {
+      "index": 14,
+      "start_time": 82990.0,
+      "end_time": 88909.0,
+      "text": "thing to do, basically. Because fail was not just one-dimensional, we found many dimensions"
+    },
+    {
+      "index": 15,
+      "start_time": 88909.0,
+      "end_time": 94939.0,
+      "text": "of fail in our research. We decided we need to create a fail matrix."
+    },
+    {
+      "index": 16,
+      "start_time": 94939.0,
+      "end_time": 101420.0,
+      "text": "(Laughter.) >> ERIC ROBI: To explain how the fail ... I'm"
+    },
+    {
+      "index": 17,
+      "start_time": 101420.0,
+      "end_time": 108080.0,
+      "text": "going to explain how the fail matrix works. The first level of fail is the user retard"
+    },
+    {
+      "index": 18,
+      "start_time": 108080.0,
+      "end_time": 112890.0,
+      "text": "level. Oh, my God, I spelled that wrong! (Laughter.)"
+    },
+    {
+      "index": 19,
+      "start_time": 112890.0,
+      "end_time": 120689.0,
+      "text": ">> MICHAEL PERKLIN: Drink! Drink! For the record, he was responsible for the keynote"
+    },
+    {
+      "index": 20,
+      "start_time": 120689.0,
+      "end_time": 126560.0,
+      "text": "presentation. So this is definitely his fail. >> ERIC ROBI: This is my fail. I get ten points."
+    },
+    {
+      "index": 21,
+      "start_time": 126560.0,
+      "end_time": 133060.0,
+      "text": "So the punishment level depends on what happens. So this particular guy lost the case. Dollars,"
+    },
+    {
+      "index": 22,
+      "start_time": 133060.0,
+      "end_time": 137780.0,
+      "text": "distress caused, let's give this 15 points. And bonus points are whatever the fuck I feel"
+    },
+    {
+      "index": 23,
+      "start_time": 137780.0,
+      "end_time": 146890.0,
+      "text": "like doing. His girlfriend left him in this case. So he gets 35 points."
+    },
+    {
+      "index": 24,
+      "start_time": 146890.0,
+      "end_time": 153900.0,
+      "text": "Let's get into the first one. This is the \"it wasn't me\" defense. You may have heard"
+    },
+    {
+      "index": 25,
+      "start_time": 153900.0,
+      "end_time": 160560.0,
+      "text": "this one before. All right. So we do a lot of commercial litigation. And a really typical"
+    },
+    {
+      "index": 26,
+      "start_time": 160560.0,
+      "end_time": 166090.0,
+      "text": "kind of case is a trade secrets case. This is a typical example of that. This guy Bob,"
+    },
+    {
+      "index": 27,
+      "start_time": 166090.0,
+      "end_time": 171629.0,
+      "text": "he was working in sales at ac me. He resigned his position and decided to go work for a"
+    },
+    {
+      "index": 28,
+      "start_time": 171629.0,
+      "end_time": 176840.0,
+      "text": "competitor. This happens all the time. And some allegations were made by his employer"
+    },
+    {
+      "index": 29,
+      "start_time": 176840.0,
+      "end_time": 182750.0,
+      "text": "that he took some trade secrets. He took the customer list with him to his new company."
+    },
+    {
+      "index": 30,
+      "start_time": 182750.0,
+      "end_time": 186910.0,
+      "text": "It happens. So Bob says I got nothing to hide. Come at"
+    },
+    {
+      "index": 31,
+      "start_time": 186910.0,
+      "end_time": 194120.0,
+      "text": "me, bros. He didn't exactly say that, but I'm paraphrasing."
+    },
+    {
+      "index": 32,
+      "start_time": 194120.0,
+      "end_time": 199480.0,
+      "text": "We started imaging the drive and planning the examination. One thing we frequently do"
+    },
+    {
+      "index": 33,
+      "start_time": 199480.0,
+      "end_time": 205239.0,
+      "text": "is we look for deleted file and unallocated space. That's the part of the drive that can"
+    },
+    {
+      "index": 34,
+      "start_time": 205239.0,
+      "end_time": 210930.0,
+      "text": "typically contain a deleted file. When you hit shift delete and it doesn't go away, it"
+    },
+    {
+      "index": 35,
+      "start_time": 210930.0,
+      "end_time": 216690.0,
+      "text": "ends up in unallocated space. We look for stuff there. Something we do, we look for"
+    },
+    {
+      "index": 36,
+      "start_time": 216690.0,
+      "end_time": 223330.0,
+      "text": "recently used files by common programs by Word, Excel, Acrobat and so forth and USB"
+    },
+    {
+      "index": 37,
+      "start_time": 223330.0,
+      "end_time": 231180.0,
+      "text": "device insertion. We look to see how trade secrets got from acme to the new company."
+    },
+    {
+      "index": 38,
+      "start_time": 231180.0,
+      "end_time": 237760.0,
+      "text": "The drive finished imaging and I'll share something really cool today, DEF CON exclusive,"
+    },
+    {
+      "index": 39,
+      "start_time": 237760.0,
+      "end_time": 241690.0,
+      "text": "worldwide premiere, we found a new wiping pattern."
+    },
+    {
+      "index": 40,
+      "start_time": 241690.0,
+      "end_time": 249760.0,
+      "text": "(Laughter.) (Cheers and applause.)"
+    },
+    {
+      "index": 41,
+      "start_time": 249760.0,
+      "end_time": 262219.0,
+      "text": ">> ERIC ROBI: This is actually real. I'm not making this up. This is real."
+    },
+    {
+      "index": 42,
+      "start_time": 262219.0,
+      "end_time": 267930.0,
+      "text": "So Bob apparently had used some kind of data destruction program that can over write every"
+    },
+    {
+      "index": 43,
+      "start_time": 267930.0,
+      "end_time": 275969.0,
+      "text": "bit of space, unallocated space. He used a pattern that, however, was not really commonly"
+    },
+    {
+      "index": 44,
+      "start_time": 275969.0,
+      "end_time": 281550.0,
+      "text": "used by Windows or any other utilities I've seen. Might have been something custom. So"
+    },
+    {
+      "index": 45,
+      "start_time": 281550.0,
+      "end_time": 288110.0,
+      "text": "you know, I thought: Hmm, this might suggest something bad was happening here. Let's maybe"
+    },
+    {
+      "index": 46,
+      "start_time": 288110.0,
+      "end_time": 290199.0,
+      "text": "take another closer look at this. (Chuckles.)"
+    },
+    {
+      "index": 47,
+      "start_time": 290199.0,
+      "end_time": 294559.0,
+      "text": ">> ERIC ROBI: We are going to zoom in on this and look at this on a molecular level now."
+    },
+    {
+      "index": 48,
+      "start_time": 294559.0,
+      "end_time": 295629.0,
+      "text": "(Applause.) (Laughter.)"
+    },
+    {
+      "index": 49,
+      "start_time": 295629.0,
+      "end_time": 307399.0,
+      "text": ">> ERIC ROBI: I think we need to zoom in a little bit more."
+    },
+    {
+      "index": 50,
+      "start_time": 307399.0,
+      "end_time": 315909.0,
+      "text": "(Laughter.) >> ERIC ROBI: So what have we learned in I"
+    },
+    {
+      "index": 51,
+      "start_time": 315909.0,
+      "end_time": 321909.0,
+      "text": "admit the first part, there was no Sarah Palin in this case. Data destruction can almost"
+    },
+    {
+      "index": 52,
+      "start_time": 321909.0,
+      "end_time": 328189.0,
+      "text": "always be detected even if you don't use a repeating pattern, it's detectable. We see"
+    },
+    {
+      "index": 53,
+      "start_time": 328189.0,
+      "end_time": 334089.0,
+      "text": "it all the time. Artifacts can be left behind that are part of the pattern."
+    },
+    {
+      "index": 54,
+      "start_time": 334089.0,
+      "end_time": 339960.0,
+      "text": "We might not know what you destroyed, but we'll know you destroyed something."
+    },
+    {
+      "index": 55,
+      "start_time": 339960.0,
+      "end_time": 347629.0,
+      "text": "Oops. This is the mic. There you go. And all of a sudden it doesn't work very well. Mean"
+    },
+    {
+      "index": 56,
+      "start_time": 347629.0,
+      "end_time": 350919.0,
+      "text": "phrases make people dislike you. >> MICHAEL PERKLIN: What about the fail matrix?"
+    },
+    {
+      "index": 57,
+      "start_time": 350919.0,
+      "end_time": 357689.0,
+      "text": ">> ERIC ROBI: We have to do the fail matrix. Da da da."
+    },
+    {
+      "index": 58,
+      "start_time": 357689.0,
+      "end_time": 366599.0,
+      "text": "12. Pretty retarded, I think. The guy lost the case. He got sued. Under $100,000. So"
+    },
+    {
+      "index": 59,
+      "start_time": 366599.0,
+      "end_time": 371449.0,
+      "text": "not a huge amount of economic distress. I didn't give him any bonus points here. It"
+    },
+    {
+      "index": 60,
+      "start_time": 371449.0,
+      "end_time": 378979.0,
+      "text": "just wasn't that good. He gets 27. >> MICHAEL PERKLIN: I think I'll do --"
+    },
+    {
+      "index": 61,
+      "start_time": 378979.0,
+      "end_time": 382659.0,
+      "text": ">> ERIC ROBI: It's already a fail. (Laughter.)"
+    },
+    {
+      "index": 62,
+      "start_time": 382659.0,
+      "end_time": 389169.0,
+      "text": ">> MICHAEL PERKLIN: I think we can blame that guy who gave me the beer."
+    },
+    {
+      "index": 63,
+      "start_time": 389169.0,
+      "end_time": 396330.0,
+      "text": "All right. So this case is a lot of fun. I didn't expect it to be fun when it started"
+    },
+    {
+      "index": 64,
+      "start_time": 396330.0,
+      "end_time": 400969.0,
+      "text": "out. It ended up being a lot of fun. I call it the Nickel Back guy. You'll see why in"
+    },
+    {
+      "index": 65,
+      "start_time": 400969.0,
+      "end_time": 405869.0,
+      "text": "a second. Another case of stolen confidential documents."
+    },
+    {
+      "index": 66,
+      "start_time": 405869.0,
+      "end_time": 412830.0,
+      "text": "This guy, let's call him John. He left one company to go work for a direct competitor."
+    },
+    {
+      "index": 67,
+      "start_time": 412830.0,
+      "end_time": 417289.0,
+      "text": "And his old company hired us to go in and take a look at his --"
+    },
+    {
+      "index": 68,
+      "start_time": 417289.0,
+      "end_time": 421979.0,
+      "text": ">> ERIC ROBI: Can we get audio for this? By the way, we need audio for this segment. Turn"
+    },
+    {
+      "index": 69,
+      "start_time": 421979.0,
+      "end_time": 426300.0,
+      "text": "it on? >> MICHAEL PERKLIN: So the company where he"
+    },
+    {
+      "index": 70,
+      "start_time": 426300.0,
+      "end_time": 432169.0,
+      "text": "left, they asked us to take a look at his work computer to look for signs of data exfiltration."
+    },
+    {
+      "index": 71,
+      "start_time": 432169.0,
+      "end_time": 437409.0,
+      "text": "We, he worked on a lot of confidential projects and they wanted to make sure that he wasn't"
+    },
+    {
+      "index": 72,
+      "start_time": 437409.0,
+      "end_time": 441610.0,
+      "text": "taking these confidential projects to the competitor and letting them know what they"
+    },
+    {
+      "index": 73,
+      "start_time": 441610.0,
+      "end_time": 448020.0,
+      "text": "were doing. So, right. I totally said all that."
+    },
+    {
+      "index": 74,
+      "start_time": 448020.0,
+      "end_time": 457219.0,
+      "text": "Why is this not working? There it is. We opened up the hard drive to start the analysis and"
+    },
+    {
+      "index": 75,
+      "start_time": 457219.0,
+      "end_time": 461309.0,
+      "text": "we started finding all the same stuff that you typically find on a work computer. Work"
+    },
+    {
+      "index": 76,
+      "start_time": 461309.0,
+      "end_time": 466699.0,
+      "text": "stuff, sure, some evidence of Facebooking. He's got an MP3 collection. He listened to"
+    },
+    {
+      "index": 77,
+      "start_time": 466699.0,
+      "end_time": 472909.0,
+      "text": "music while he was at work. Typical stuff. We found the confidential documents that we"
+    },
+    {
+      "index": 78,
+      "start_time": 472909.0,
+      "end_time": 477159.0,
+      "text": "were asked to make sure that he didn't take. So that was to be expected because he did"
+    },
+    {
+      "index": 79,
+      "start_time": 477159.0,
+      "end_time": 485999.0,
+      "text": "the work on this computer. And almost immediately something jumped out at me. And we will get"
+    },
+    {
+      "index": 80,
+      "start_time": 485999.0,
+      "end_time": 493229.0,
+      "text": "into why it jumped out at me in a second, but his music collection became very interesting"
+    },
+    {
+      "index": 81,
+      "start_time": 493229.0,
+      "end_time": 497669.0,
+      "text": "to me. Not because I love Nickel Back, but because -- well, again, we'll get into that."
+    },
+    {
+      "index": 82,
+      "start_time": 497669.0,
+      "end_time": 502159.0,
+      "text": ">> ERIC ROBI: That would be fail. >> MICHAEL PERKLIN: Yeah. I'm Canadian, too,"
+    },
+    {
+      "index": 83,
+      "start_time": 502159.0,
+      "end_time": 507379.0,
+      "text": "so I ... yeah, Nickel Back is from Canada. >> AUDIENCE: (Speaker away from microphone.)"
+    },
+    {
+      "index": 84,
+      "start_time": 507379.0,
+      "end_time": 511969.0,
+      "text": ">> MICHAEL PERKLIN: Yeah, take a closer look at this photo, something may jump out at you"
+    },
+    {
+      "index": 85,
+      "start_time": 511969.0,
+      "end_time": 518810.0,
+      "text": "as well. These are MP3s, just songs, but the size of the files is a little bit off."
+    },
+    {
+      "index": 86,
+      "start_time": 518809.99999999994,
+      "end_time": 523258.99999999994,
+      "text": ">> ERIC ROBI: What's wrong here? >> MICHAEL PERKLIN: Extended play Nickel Back."
+    },
+    {
+      "index": 87,
+      "start_time": 523259.0,
+      "end_time": 528199.0,
+      "text": "This guy loved the Nickel Back. These are actually AVI files."
+    },
+    {
+      "index": 88,
+      "start_time": 528199.0,
+      "end_time": 532779.0,
+      "text": ">> AUDIENCE: (Speaker away from microphone.) >> MICHAEL PERKLIN: These are AVI file that"
+    },
+    {
+      "index": 89,
+      "start_time": 532779.0,
+      "end_time": 543329.0,
+      "text": "is he just renamed. John assumed nobody would listen to his Nickel Back MP3s. That's a good"
+    },
+    {
+      "index": 90,
+      "start_time": 543329.0,
+      "end_time": 551440.0,
+      "text": "assumption because nobody would listen to his Nickel Back MP3s. He was hiding something."
+    },
+    {
+      "index": 91,
+      "start_time": 551440.0,
+      "end_time": 559009.0,
+      "text": "But what was he hiding? (Music playing.)"
+    },
+    {
+      "index": 92,
+      "start_time": 559009.0,
+      "end_time": 571500.0,
+      "text": ">> MICHAEL PERKLIN: Pregger porn. This guy was looking at pregger porn. These were full-length"
+    },
+    {
+      "index": 93,
+      "start_time": 571500.0,
+      "end_time": 579240.0,
+      "text": "feature films of pregnant ladies banging. And they were like, there was a ton of them"
+    },
+    {
+      "index": 94,
+      "start_time": 579240.0,
+      "end_time": 583019.0,
+      "text": "all over this guy's hard drive. >> AUDIENCE: (Speaker away from microphone.)"
+    },
+    {
+      "index": 95,
+      "start_time": 583019.0,
+      "end_time": 586790.0,
+      "text": ">> MICHAEL PERKLIN: We did have top analyze them to see what they were."
+    },
+    {
+      "index": 96,
+      "start_time": 586790.0,
+      "end_time": 592399.0,
+      "text": "(Laughter.) >> MICHAEL PERKLIN: But I will say that the"
+    },
+    {
+      "index": 97,
+      "start_time": 592399.0,
+      "end_time": 596769.0,
+      "text": "specific techniques that we used to analyze, they're trade secrets. I can't tell you how"
+    },
+    {
+      "index": 98,
+      "start_time": 596769.0,
+      "end_time": 603230.0,
+      "text": "much depth we went into when we were analyzing them. Yeah, seems that John did a lot more"
+    },
+    {
+      "index": 99,
+      "start_time": 603230.0,
+      "end_time": 609439.0,
+      "text": "than work on his confidential project on that computer. We had to tell the company that"
+    },
+    {
+      "index": 100,
+      "start_time": 609439.0,
+      "end_time": 613329.0,
+      "text": "over the last three years while he was working there on this confidential project, he was"
+    },
+    {
+      "index": 101,
+      "start_time": 613329.0,
+      "end_time": 617160.0,
+      "text": "also doing other stuff. They were pretty happy that he left anyway."
+    },
+    {
+      "index": 102,
+      "start_time": 617160.0,
+      "end_time": 619720.0,
+      "text": "(Laughter.) >> MICHAEL PERKLIN: All right. What have we"
+    },
+    {
+      "index": 103,
+      "start_time": 619720.0,
+      "end_time": 627300.0,
+      "text": "learned? Examiners, when we take a look at files on a computer, we don't typically look"
+    },
+    {
+      "index": 104,
+      "start_time": 627300.0,
+      "end_time": 632430.0,
+      "text": "at it in the nested folder structure. Like we don't have to go into every single subfolder,"
+    },
+    {
+      "index": 105,
+      "start_time": 632430.0,
+      "end_time": 638879.0,
+      "text": "go back, go to other subfolders, back it out. We have a big long list. It makes it easier"
+    },
+    {
+      "index": 106,
+      "start_time": 638879.0,
+      "end_time": 644560.0,
+      "text": "to analyze stuff. One of the very first things we always run is Codifile Signature Analysis."
+    },
+    {
+      "index": 107,
+      "start_time": 644560.0,
+      "end_time": 650000.0,
+      "text": "This is a special script that looks at the contents of every final and compares what"
+    },
+    {
+      "index": 108,
+      "start_time": 650000.0,
+      "end_time": 654660.0,
+      "text": "is inside the file with the extension. If there's any discrepancies, those files are"
+    },
+    {
+      "index": 109,
+      "start_time": 654660.0,
+      "end_time": 658850.0,
+      "text": "bumped up to the top of the list to be looked at because the system knows if these don't"
+    },
+    {
+      "index": 110,
+      "start_time": 658850.0,
+      "end_time": 663439.0,
+      "text": "match, something may not be right here and a human should take a look at this."
+    },
+    {
+      "index": 111,
+      "start_time": 663439.0,
+      "end_time": 669339.0,
+      "text": "I just said those things and so at the end of the day John's attempt at hiding his pregger"
+    },
+    {
+      "index": 112,
+      "start_time": 669339.0,
+      "end_time": 675709.0,
+      "text": "porn bumped it up to the top of the list for me to look at. If you're going to hide something,"
+    },
+    {
+      "index": 113,
+      "start_time": 675709.0,
+      "end_time": 682000.0,
+      "text": "don't just change the file name. That makes me want to look at it even more."
+    },
+    {
+      "index": 114,
+      "start_time": 682000.0,
+      "end_time": 683620.0,
+      "text": "So the fail matrix. (Laughter.)"
+    },
+    {
+      "index": 115,
+      "start_time": 683620.0,
+      "end_time": 689500.0,
+      "text": ">> MICHAEL PERKLIN: The retard level, I would say 12. Again renaming a file is not data"
+    },
+    {
+      "index": 116,
+      "start_time": 689500.0,
+      "end_time": 698779.0,
+      "text": "hiding. If up want to hide data, come to my Steg ACL course."
+    },
+    {
+      "index": 117,
+      "start_time": 698779.0,
+      "end_time": 705370.0,
+      "text": "The new company where he landed, he lost his job there. Distress caused was zero. Didn't"
+    },
+    {
+      "index": 118,
+      "start_time": 705370.0,
+      "end_time": 710040.0,
+      "text": "really hurt anybody. What you choose to do on your own time is up to you. Although he"
+    },
+    {
+      "index": 119,
+      "start_time": 710040.0,
+      "end_time": 714199.0,
+      "text": "chose to do it. >> ERIC ROBI: You know what the bonus points"
+    },
+    {
+      "index": 120,
+      "start_time": 714199.0,
+      "end_time": 719339.0,
+      "text": "are going to be for, don't you? >> MICHAEL PERKLIN: There are some bonus points."
+    },
+    {
+      "index": 121,
+      "start_time": 719339.0,
+      "end_time": 722029.0,
+      "text": "About a nickel's worth. (Laughter.)"
+    },
+    {
+      "index": 122,
+      "start_time": 722029.0,
+      "end_time": 729670.0,
+      "text": "(Loud buzzer.) >> MICHAEL PERKLIN: Grand total of 30 fail"
+    },
+    {
+      "index": 123,
+      "start_time": 729670.0,
+      "end_time": 734620.0,
+      "text": "points. >> ERIC ROBI: That is the fail sound. Thank"
+    },
+    {
+      "index": 124,
+      "start_time": 734620.0,
+      "end_time": 740459.0,
+      "text": "you. By the way, do you like the font that we're using? Comic Sans. Nobody uses Comic"
+    },
+    {
+      "index": 125,
+      "start_time": 740459.0,
+      "end_time": 742170.0,
+      "text": "Sans. It's the most under appreciated font in presentations."
+    },
+    {
+      "index": 126,
+      "start_time": 742170.0,
+      "end_time": 750480.0,
+      "text": ">> MICHAEL PERKLIN: I don't know why we don't see Comic Sans in more presentation settings."
+    },
+    {
+      "index": 127,
+      "start_time": 750480.0,
+      "end_time": 757459.0,
+      "text": ">> ERIC ROBI: We're bringing it back. Let's look at the \"just bill me later\" case."
+    },
+    {
+      "index": 128,
+      "start_time": 757459.0,
+      "end_time": 762730.0,
+      "text": "Our client, the ABC firm, out-sourced a key part of their business. Have been doing it"
+    },
+    {
+      "index": 129,
+      "start_time": 762730.0,
+      "end_time": 768720.0,
+      "text": "many years. And the part of their business that they are out-sourcing is on a time and"
+    },
+    {
+      "index": 130,
+      "start_time": 768720.0,
+      "end_time": 774259.0,
+      "text": "materials basis. So there's a lot of invoices with ours and rates. And that's basically"
+    },
+    {
+      "index": 131,
+      "start_time": 774259.0,
+      "end_time": 779709.0,
+      "text": "it. It was several million dollars a year on average that was being billed. Our client"
+    },
+    {
+      "index": 132,
+      "start_time": 779709.0,
+      "end_time": 783399.0,
+      "text": "started a review project because they thought they were being over billed. They thought"
+    },
+    {
+      "index": 133,
+      "start_time": 783399.0,
+      "end_time": 787529.0,
+      "text": "there might be a little inflation and they wanted to figure out why things were looking"
+    },
+    {
+      "index": 134,
+      "start_time": 787529.0,
+      "end_time": 793149.0,
+      "text": "inflated. They looked at some of the individual bills and thought things were taking a little"
+    },
+    {
+      "index": 135,
+      "start_time": 793149.0,
+      "end_time": 798199.0,
+      "text": "bit too long. So we came in and we decided to help."
+    },
+    {
+      "index": 136,
+      "start_time": 798199.0,
+      "end_time": 802759.0,
+      "text": "So they had thousands and thousands and thousands of PDF format invoices. That's not going to"
+    },
+    {
+      "index": 137,
+      "start_time": 802759.0,
+      "end_time": 810620.0,
+      "text": "do us a lot of good. Even if we applied optical character recognition to it, we have unstructured"
+    },
+    {
+      "index": 138,
+      "start_time": 810620.0,
+      "end_time": 816370.0,
+      "text": "data. I can search a few PDFs, but tens of thousands of them, it's you have to to do"
+    },
+    {
+      "index": 139,
+      "start_time": 816370.0,
+      "end_time": 822540.0,
+      "text": "anything with that. We didn't have a lot of clues with this one."
+    },
+    {
+      "index": 140,
+      "start_time": 822540.0,
+      "end_time": 829779.0,
+      "text": "Through the magic of court order we were able to go to the customer's database, their network"
+    },
+    {
+      "index": 141,
+      "start_time": 829779.0,
+      "end_time": 834180.0,
+      "text": "and get an image of everything in the network including a billing database."
+    },
+    {
+      "index": 142,
+      "start_time": 834180.0,
+      "end_time": 839139.0,
+      "text": "Which turned out to be very handy. We made a forensic copy of this database. It was not"
+    },
+    {
+      "index": 143,
+      "start_time": 839139.0,
+      "end_time": 845120.0,
+      "text": "a -- it was in a proprietary format. In order for us to do forensic analysis in a database"
+    },
+    {
+      "index": 144,
+      "start_time": 845120.0,
+      "end_time": 851189.0,
+      "text": "we need to get it into something like SQL where we can do standard queries. We migrated"
+    },
+    {
+      "index": 145,
+      "start_time": 851189.0,
+      "end_time": 856920.0,
+      "text": "over and did standard queries. Looking at it, there's no way to compare the PDFs to"
+    },
+    {
+      "index": 146,
+      "start_time": 856920.0,
+      "end_time": 863579.0,
+      "text": "the database. We decided to reverse engineer the tables in the database. Sometimes it's"
+    },
+    {
+      "index": 147,
+      "start_time": 863579.0,
+      "end_time": 868209.0,
+      "text": "easy, but sometimes there are thousands and thousands of tables and when you don't have"
+    },
+    {
+      "index": 148,
+      "start_time": 868209.0,
+      "end_time": 873420.0,
+      "text": "tech support of developers, you have to figure it out. It's a slow, laborious process. We"
+    },
+    {
+      "index": 149,
+      "start_time": 873420.0,
+      "end_time": 877829.0,
+      "text": "did figure it out. We noticed that the audit logs were turned on in this which happened"
+    },
+    {
+      "index": 150,
+      "start_time": 877829.0,
+      "end_time": 883790.0,
+      "text": "to be particularly useful. So we ran a lot of queries and versus the"
+    },
+    {
+      "index": 151,
+      "start_time": 883790.0,
+      "end_time": 889339.0,
+      "text": "time billed versus the audit logs. We found a pattern of inflation going on. Basically"
+    },
+    {
+      "index": 152,
+      "start_time": 889339.0,
+      "end_time": 894990.0,
+      "text": "when you are billing on time and materials, all you're doing is you've got either hours"
+    },
+    {
+      "index": 153,
+      "start_time": 894990.0,
+      "end_time": 899920.0,
+      "text": "or you've got a rate. And those are the two things and they inflated."
+    },
+    {
+      "index": 154,
+      "start_time": 899920.0,
+      "end_time": 905730.0,
+      "text": "(Loud noise.) >> ERIC ROBI: So these are the two things"
+    },
+    {
+      "index": 155,
+      "start_time": 905730.0,
+      "end_time": 911059.0,
+      "text": "that you can change there. You can change time. Or you can change the rate. But we found"
+    },
+    {
+      "index": 156,
+      "start_time": 911059.0,
+      "end_time": 916779.0,
+      "text": "the audit logs were turned off by default and the IT folks, bless the IT folks, they"
+    },
+    {
+      "index": 157,
+      "start_time": 916779.0,
+      "end_time": 923189.0,
+      "text": "turned the audit logs on which was helpful because we do a lot of database forensic cases"
+    },
+    {
+      "index": 158,
+      "start_time": 923189.0,
+      "end_time": 930199.0,
+      "text": "and this is the only one where the audit logs were turned on. We were able to compare basically"
+    },
+    {
+      "index": 159,
+      "start_time": 930199.0,
+      "end_time": 934769.0,
+      "text": "the amount that was billed at the end of the day versus how many hours were put out up"
+    },
+    {
+      "index": 160,
+      "start_time": 934769.0,
+      "end_time": 938660.0,
+      "text": "to that point. We were able to see a chronology. Maybe at the end of the day the bill was for"
+    },
+    {
+      "index": 161,
+      "start_time": 938660.0,
+      "end_time": 945699.0,
+      "text": "$1,000. But we saw it was only $800 actually billed. So the billing person, the database"
+    },
+    {
+      "index": 162,
+      "start_time": 945699.0,
+      "end_time": 950569.0,
+      "text": "person who basically was working with it, this person would change the hours and the"
+    },
+    {
+      "index": 163,
+      "start_time": 950569.0,
+      "end_time": 955680.0,
+      "text": "rate sometimes and bump it up. Interest went from 800 to $1,000 on a typical invoice. They"
+    },
+    {
+      "index": 164,
+      "start_time": 955680.0,
+      "end_time": 959800.0,
+      "text": "did this thousands and thousands and thousands of times."
+    },
+    {
+      "index": 165,
+      "start_time": 959800.0,
+      "end_time": 966649.0,
+      "text": "So let's look at the fail matrix. So I didn't give the user retard level too many points"
+    },
+    {
+      "index": 166,
+      "start_time": 966649.0,
+      "end_time": 969920.0,
+      "text": "here because it was a bill administrator. Most people don't know what is going on inside"
+    },
+    {
+      "index": 167,
+      "start_time": 969920.0,
+      "end_time": 976029.0,
+      "text": "a database, most average people. However, they had to refund the money. So"
+    },
+    {
+      "index": 168,
+      "start_time": 976029.0,
+      "end_time": 979499.0,
+      "text": "they get 18-point for that. >> MICHAEL PERKLIN: Over the last four or"
+    },
+    {
+      "index": 169,
+      "start_time": 979499.0,
+      "end_time": 981749.0,
+      "text": "five years worth of money. It was a lot of money."
+    },
+    {
+      "index": 170,
+      "start_time": 981749.0,
+      "end_time": 986080.0,
+      "text": ">> ERIC ROBI: It was about $12 million actually. They get 15 points."
+    },
+    {
+      "index": 171,
+      "start_time": 986080.0,
+      "end_time": 993899.0,
+      "text": ">> AUDIENCE: (Speaker away from microphone.) >> ERIC ROBI: I wish! And bonus points, hmm,"
+    },
+    {
+      "index": 172,
+      "start_time": 993899.0,
+      "end_time": 996749.0,
+      "text": "systematic culture of over billing. (Noise.)"
+    },
+    {
+      "index": 173,
+      "start_time": 996749.0,
+      "end_time": 1007389.0,
+      "text": ">> MICHAEL PERKLIN: They get 45. >> ERIC ROBI: Okay. This next one, I call"
+    },
+    {
+      "index": 174,
+      "start_time": 1007390.0,
+      "end_time": 1016320.0,
+      "text": "it \"smokinggun.txt.\" If you work in the forensic arena, you probably heard the term the smokinggun.txt."
+    },
+    {
+      "index": 175,
+      "start_time": 1016320.0,
+      "end_time": 1021411.0,
+      "text": "It's the gag name of what you are always looking for in the case. It could be that record in"
+    },
+    {
+      "index": 176,
+      "start_time": 1021410.0,
+      "end_time": 1026439.0,
+      "text": "the database. It could be that Internet history record that shows that the guy really did"
+    },
+    {
+      "index": 177,
+      "start_time": 1026440.0,
+      "end_time": 1031861.0,
+      "text": "something bad. It comes from the cheesy western movies where the gun was smoking after he"
+    },
+    {
+      "index": 178,
+      "start_time": 1031859.9999999999,
+      "end_time": 1039428.9999999999,
+      "text": "shot someone, and it proves he fired the shot. We say did you find the smoking gun? Yeah,"
+    },
+    {
+      "index": 179,
+      "start_time": 1039430.0000000001,
+      "end_time": 1048650.0,
+      "text": "we found the smokinggun.txt. Sometimes I wish it was as easy as finding smokinggun.txt."
+    },
+    {
+      "index": 180,
+      "start_time": 1048650.0,
+      "end_time": 1054011.0,
+      "text": "Another intellectual property case. You have a guy league one company to go to work for"
+    },
+    {
+      "index": 181,
+      "start_time": 1054010.0,
+      "end_time": 1058620.0,
+      "text": "another company. The first company says can you make sure he didn't do stupid shit and"
+    },
+    {
+      "index": 182,
+      "start_time": 1058620.0,
+      "end_time": 1065710.0,
+      "text": "we are called in to make sure he didn't do stupid shit. We imaged the drive. Kicked off"
+    },
+    {
+      "index": 183,
+      "start_time": 1065710.0,
+      "end_time": 1072320.0,
+      "text": "the analysis script, like the script I told you guys about before. Opened up his desktop"
+    },
+    {
+      "index": 184,
+      "start_time": 1072320.0,
+      "end_time": 1077899.0,
+      "text": "folder. I like to open up the desktop folder of every suspect I'm examining. You can tell"
+    },
+    {
+      "index": 185,
+      "start_time": 1077900.0,
+      "end_time": 1084011.0,
+      "text": "a lot about what a guy, or a lot about the person when you're looking at the desktop."
+    },
+    {
+      "index": 186,
+      "start_time": 1084010.0,
+      "end_time": 1088070.0,
+      "text": "Did they cram a lot of files in there in an unorganized fashion or everything is neatly"
+    },
+    {
+      "index": 187,
+      "start_time": 1088070.0,
+      "end_time": 1094169.0,
+      "text": "packed away into my documents folder. Things like that. Are they arranged nicely or all"
+    },
+    {
+      "index": 188,
+      "start_time": 1094170.0,
+      "end_time": 1097670.0,
+      "text": "spattered? It tells you a little bit about the person. So you can get a little bit into"
+    },
+    {
+      "index": 189,
+      "start_time": 1097670.0,
+      "end_time": 1102751.0,
+      "text": "the mind of who they are. Immediately I solved the case."
+    },
+    {
+      "index": 190,
+      "start_time": 1102750.0,
+      "end_time": 1111399.0,
+      "text": ">> MICHAEL PERKLIN: How did you do that? >> ERIC ROBI: Well, the smokinggun.txt. It"
+    },
+    {
+      "index": 191,
+      "start_time": 1111400.0,
+      "end_time": 1114861.0,
+      "text": "was almost as easy as this. >> MICHAEL PERKLIN: A barbecue?"
+    },
+    {
+      "index": 192,
+      "start_time": 1114860.0,
+      "end_time": 1121390.0,
+      "text": ">> ERIC ROBI: I opened up the desktop folder and I saw this."
+    },
+    {
+      "index": 193,
+      "start_time": 1121390.0,
+      "end_time": 1128049.0,
+      "text": "I'm hoping you can see that in the back. You have a folder on the desktop, the bottom left"
+    },
+    {
+      "index": 194,
+      "start_time": 1128050.0,
+      "end_time": 1131381.0,
+      "text": "there. The folder is called Competitive Intelligence. (Laughter.)"
+    },
+    {
+      "index": 195,
+      "start_time": 1131380.0,
+      "end_time": 1137710.0,
+      "text": ">> ERIC ROBI: Inside that folder we've got a Power Point presentation titled \"Project"
+    },
+    {
+      "index": 196,
+      "start_time": 1137710.0,
+      "end_time": 1144590.0,
+      "text": "Blue Book.\" we've got some PDFs. We've got a whole bunch of stuff about this project"
+    },
+    {
+      "index": 197,
+      "start_time": 1144590.0,
+      "end_time": 1149529.0,
+      "text": "Blue Book that this guy was working on from his old company. He was getting ready to deliver"
+    },
+    {
+      "index": 198,
+      "start_time": 1149530.0,
+      "end_time": 1155040.0,
+      "text": "this presentation to the executive leadership team of the new company, telling them everything"
+    },
+    {
+      "index": 199,
+      "start_time": 1155040.0,
+      "end_time": 1157810.0,
+      "text": "about this confidential project from his old company."
+    },
+    {
+      "index": 200,
+      "start_time": 1157810.0,
+      "end_time": 1163321.0,
+      "text": "(Groaning.) >> ERIC ROBI: He didn't even make it difficult"
+    },
+    {
+      "index": 201,
+      "start_time": 1163320.0,
+      "end_time": 1168510.0,
+      "text": "for me. Not only was all that stuff there, he made a Power Point presentation describing"
+    },
+    {
+      "index": 202,
+      "start_time": 1168510.0,
+      "end_time": 1173520.0,
+      "text": "it and to deliver all the knowledge for this to the LT."
+    },
+    {
+      "index": 203,
+      "start_time": 1173520.0,
+      "end_time": 1183309.0,
+      "text": "Yeah. So I just said that. >> Did you over bill for that?"
+    },
+    {
+      "index": 204,
+      "start_time": 1183310.0,
+      "end_time": 1188531.0,
+      "text": ">> MICHAEL PERKLIN: We are not the last client. >> ERIC ROBI: All right."
+    },
+    {
+      "index": 205,
+      "start_time": 1188530.0,
+      "end_time": 1189820.0,
+      "text": ">> AUDIENCE: (Speaker away from microphone.) >> ERIC ROBI: Pardon me?"
+    },
+    {
+      "index": 206,
+      "start_time": 1189820.0,
+      "end_time": 1191750.0,
+      "text": ">> AUDIENCE: (Speaker away from microphone.) >> MICHAEL PERKLIN: I don't even remember."
+    },
+    {
+      "index": 207,
+      "start_time": 1191750.0,
+      "end_time": 1196399.0,
+      "text": "Probably, well, it took 20 minutes. We probably just billed one hour."
+    },
+    {
+      "index": 208,
+      "start_time": 1196400.0,
+      "end_time": 1200310.0,
+      "text": ">> ERIC ROBI: Michael, what have we learned in this case?"
+    },
+    {
+      "index": 209,
+      "start_time": 1200310.0,
+      "end_time": 1210900.0,
+      "text": ">> MICHAEL PERKLIN: Well, we learned that sometimes people don't even try."
+    },
+    {
+      "index": 210,
+      "start_time": 1210900.0,
+      "end_time": 1215401.0,
+      "text": "Fail matrix. User retard level has to be an 18."
+    },
+    {
+      "index": 211,
+      "start_time": 1215400.0,
+      "end_time": 1219980.0,
+      "text": ">> AUDIENCE: (Speaker away from microphone.) >> MICHAEL PERKLIN: We are saving the higher"
+    },
+    {
+      "index": 212,
+      "start_time": 1219980.0,
+      "end_time": 1226350.0,
+      "text": "scores for some of the later stories. >> ERIC ROBI: Numbers are going up, you may"
+    },
+    {
+      "index": 213,
+      "start_time": 1226350.0,
+      "end_time": 1229130.0,
+      "text": "have noticed. >> MICHAEL PERKLIN: So far each one has been"
+    },
+    {
+      "index": 214,
+      "start_time": 1229130.0,
+      "end_time": 1235049.0,
+      "text": "going up. He got an 18 for user retard level. If you're going to be doing this, don't leave"
+    },
+    {
+      "index": 215,
+      "start_time": 1235050.0,
+      "end_time": 1239631.0,
+      "text": "tracks all over your computer. Sure if you're going to say they are going to be launching"
+    },
+    {
+      "index": 216,
+      "start_time": 1239630.0,
+      "end_time": 1244010.0,
+      "text": "this new thing in August next year, it's one thing to say it to a person. If you put together"
+    },
+    {
+      "index": 217,
+      "start_time": 1244010.0,
+      "end_time": 1250590.0,
+      "text": "a whole presentation to about the whole thing. That's a fail. Punishment is ten. He had to"
+    },
+    {
+      "index": 218,
+      "start_time": 1250590.0,
+      "end_time": 1259149.0,
+      "text": "settle. Obviously in breach of his NDA from the old company and it cost him 1.5 million"
+    },
+    {
+      "index": 219,
+      "start_time": 1259150.0,
+      "end_time": 1268231.0,
+      "text": "in damages. So the distress caused is a six-pointer. Bonus points of 12 for zero effort."
+    },
+    {
+      "index": 220,
+      "start_time": 1268230.0,
+      "end_time": 1272610.0,
+      "text": "This all adds up to the fail matrix score of 46."
+    },
+    {
+      "index": 221,
+      "start_time": 1272610.0,
+      "end_time": 1277590.0,
+      "text": "Next story. >> ERIC ROBI: I hope you appreciate these"
+    },
+    {
+      "index": 222,
+      "start_time": 1277590.0,
+      "end_time": 1280409.0,
+      "text": "amazing sound effects and video editing that I did."
+    },
+    {
+      "index": 223,
+      "start_time": 1280410.0,
+      "end_time": 1285011.0,
+      "text": ">> MICHAEL PERKLIN: Hold on. We need to put the presentation on hold. I have a problem."
+    },
+    {
+      "index": 224,
+      "start_time": 1285010.0,
+      "end_time": 1287390.0,
+      "text": "Which one is which? >> ERIC ROBI: That one is mine on the let"
+    },
+    {
+      "index": 225,
+      "start_time": 1287390.0,
+      "end_time": 1288460.0,
+      "text": "hand. >> MICHAEL PERKLIN: Really, because I want"
+    },
+    {
+      "index": 226,
+      "start_time": 1288460.0,
+      "end_time": 1293590.0,
+      "text": "the one with more. >> ERIC ROBI: The one with yours is more."
+    },
+    {
+      "index": 227,
+      "start_time": 1293590.0,
+      "end_time": 1300390.0,
+      "text": ">> AUDIENCE: (Speaker away from microphone.) >> ERIC ROBI: We will be taking questions"
+    },
+    {
+      "index": 228,
+      "start_time": 1300390.0,
+      "end_time": 1306390.0,
+      "text": "later. All right. The next one I call hiding in the"
+    },
+    {
+      "index": 229,
+      "start_time": 1306390.0,
+      "end_time": 1314370.0,
+      "text": "Cloud. So once again a top sales guy leaves a company and the sales just take a nose dive"
+    },
+    {
+      "index": 230,
+      "start_time": 1314370.0,
+      "end_time": 1320850.0,
+      "text": "actually and they think he took the customer list but they can't prove it. They know that"
+    },
+    {
+      "index": 231,
+      "start_time": 1320850.0,
+      "end_time": 1325019.0,
+      "text": "there's new customers. They know that there's old customers over at the new company but"
+    },
+    {
+      "index": 232,
+      "start_time": 1325020.0,
+      "end_time": 1330800.0,
+      "text": "they can't prove he took the customer list. We image the computer and look for the usual"
+    },
+    {
+      "index": 233,
+      "start_time": 1330800.0,
+      "end_time": 1337160.0,
+      "text": "clues. For example, link files are a Windows artifact"
+    },
+    {
+      "index": 234,
+      "start_time": 1337160.0,
+      "end_time": 1342310.0,
+      "text": "that show what files have been recently opened. They are a simple text final and easily parsed"
+    },
+    {
+      "index": 235,
+      "start_time": 1342310.0,
+      "end_time": 1347191.0,
+      "text": "and have a lot of information about the location of the file, the date and the time, all that"
+    },
+    {
+      "index": 236,
+      "start_time": 1347190.0,
+      "end_time": 1352429.0,
+      "text": "kind of good stuff. We look at a registry key which I love the name of this. It makes"
+    },
+    {
+      "index": 237,
+      "start_time": 1352430.0,
+      "end_time": 1357881.0,
+      "text": "no sense to me at all, but somebody in Microsoft maybe had a couple of these one day when we"
+    },
+    {
+      "index": 238,
+      "start_time": 1357880.0,
+      "end_time": 1364240.0,
+      "text": "were working. Bag MRU for some reason -- most recently used, but why bag?"
+    },
+    {
+      "index": 239,
+      "start_time": 1364240.0,
+      "end_time": 1374970.0,
+      "text": ">> AUDIENCE: (Speaker away from microphone.) >> ERIC ROBI: You guys are full of great answers."
+    },
+    {
+      "index": 240,
+      "start_time": 1374970.0,
+      "end_time": 1379299.0,
+      "text": ">> MICHAEL PERKLIN: You want to explain why it is named that? It's still a fucked up name."
+    },
+    {
+      "index": 241,
+      "start_time": 1379300.0,
+      "end_time": 1382971.0,
+      "text": ">> ERIC ROBI: It can show what files are inside a folder. That's what we typically look at"
+    },
+    {
+      "index": 242,
+      "start_time": 1382970.0,
+      "end_time": 1390229.0,
+      "text": "in a file exfiltration case. This is from Vista forward you have jump lists."
+    },
+    {
+      "index": 243,
+      "start_time": 1390230.0,
+      "end_time": 1395071.0,
+      "text": ">> MICHAEL PERKLIN: That is a fail. It should say Vista."
+    },
+    {
+      "index": 244,
+      "start_time": 1395070.0,
+      "end_time": 1404470.0,
+      "text": ">> ERIC ROBI: I have to take a drink. I don't love Vista in there to do it Wright. If you"
+    },
+    {
+      "index": 245,
+      "start_time": 1404470.0,
+      "end_time": 1410200.0,
+      "text": "have five Word documents open and you click on it, you have the five, those are jump lists"
+    },
+    {
+      "index": 246,
+      "start_time": 1410200.0,
+      "end_time": 1416240.0,
+      "text": "basically. IE history. Internet Explorer. Internet Explorer is so much morning exploring"
+    },
+    {
+      "index": 247,
+      "start_time": 1416240.0,
+      "end_time": 1421799.0,
+      "text": "the Internet. It records things that you do without your knowledge, like opening files."
+    },
+    {
+      "index": 248,
+      "start_time": 1421800.0,
+      "end_time": 1428841.0,
+      "text": "But we are getting no love. I'm not finding anything. Show me the love, baby. He's having"
+    },
+    {
+      "index": 249,
+      "start_time": 1428840.0,
+      "end_time": 1432090.0,
+      "text": "a beer. So we search the IE history and we found a"
+    },
+    {
+      "index": 250,
+      "start_time": 1432090.0,
+      "end_time": 1438980.0,
+      "text": ".JVM file pointing to files anywhere. Who is familiar with that site? It's very much"
+    },
+    {
+      "index": 251,
+      "start_time": 1438980.0,
+      "end_time": 1444929.0,
+      "text": "like Dropbox. The same kind of concept but more for business users. It has a lot of really"
+    },
+    {
+      "index": 252,
+      "start_time": 1444930.0,
+      "end_time": 1448400.0,
+      "text": "great auditing, logging, stuff like that. If you&#39;re uploading and downloading files,"
+    },
+    {
+      "index": 253,
+      "start_time": 1448400.0,
+      "end_time": 1454471.0,
+      "text": "you can monitor and track them. That turned out to be a nice thing. Typically that&#39;s only"
+    },
+    {
+      "index": 254,
+      "start_time": 1454470.0,
+      "end_time": 1461710.0,
+      "text": "in the user control file best of your recollection we found an HTM file and we solved the case."
+    },
+    {
+      "index": 255,
+      "start_time": 1461710.0,
+      "end_time": 1465859.0,
+      "text": "&gt;&gt; Bingo! &gt;&gt; ERIC ROBI: Timing fail, I&#39;m sorry."
+    },
+    {
+      "index": 256,
+      "start_time": 1465860.0,
+      "end_time": 1467050.0,
+      "text": "&gt;&gt; Drink! &gt;&gt; Drink!"
+    },
+    {
+      "index": 257,
+      "start_time": 1467050.0,
+      "end_time": 1477851.0,
+      "text": "&gt;&gt; ERIC ROBI: Bingo, we solved the case. All right. So what we got was the account ID,"
+    },
+    {
+      "index": 258,
+      "start_time": 1477850.0,
+      "end_time": 1483700.0,
+      "text": "the upload times, the file names, everything. We got some sweet loving. We got stolen files."
+    },
+    {
+      "index": 259,
+      "start_time": 1483700.0,
+      "end_time": 1493419.0,
+      "text": "Let&#39;s look at JavaScript here. I changed the names of the file. We have recipe for Coke,"
+    },
+    {
+      "index": 260,
+      "start_time": 1493420.0,
+      "end_time": 1498491.0,
+      "text": "minor trade secrets. The user is the user account name. So we were able to subpoena"
+    },
+    {
+      "index": 261,
+      "start_time": 1498490.0,
+      "end_time": 1502450.0,
+      "text": "that from files anywhere and figure out who actually registered the account."
+    },
+    {
+      "index": 262,
+      "start_time": 1502450.0,
+      "end_time": 1507750.0,
+      "text": "There is the folder that it was in. And this is really handy here, the date that it was"
+    },
+    {
+      "index": 263,
+      "start_time": 1507750.0,
+      "end_time": 1514120.0,
+      "text": "uploaded. And we got a whole bunch of these. In fact this is the first page of an 80-page"
+    },
+    {
+      "index": 264,
+      "start_time": 1514120.0,
+      "end_time": 1519429.0,
+      "text": "Excel report I prepared. These are all the file names that this guy uploaded."
+    },
+    {
+      "index": 265,
+      "start_time": 1519430.0,
+      "end_time": 1527380.0,
+      "text": "So yeah. The second part of the story is -- go back. Another fail."
+    },
+    {
+      "index": 266,
+      "start_time": 1527380.0,
+      "end_time": 1528821.0,
+      "text": "&gt;&gt; Fail! &gt;&gt; Drink!"
+    },
+    {
+      "index": 267,
+      "start_time": 1528820.0,
+      "end_time": 1534870.0,
+      "text": "&gt;&gt; ERIC ROBI: Which one do I drink from? &gt;&gt; MICHAEL PERKLIN: Good answer."
+    },
+    {
+      "index": 268,
+      "start_time": 1534870.0,
+      "end_time": 1538760.0,
+      "text": "&gt;&gt; ERIC ROBI: The second part of the case, the opposing attorney, the guy representing"
+    },
+    {
+      "index": 269,
+      "start_time": 1538760.0,
+      "end_time": 1546240.0,
+      "text": "the thief handed us ab an Outlook CD, Outlook PST on it. This is part of the discovery process."
+    },
+    {
+      "index": 270,
+      "start_time": 1546240.0,
+      "end_time": 1553190.0,
+      "text": "Discovery is a legal term in litigation where both sides are able to exchange evidence."
+    },
+    {
+      "index": 271,
+      "start_time": 1553190.0,
+      "end_time": 1556279.0,
+      "text": "In fact, they have, they are compelled to exchange evidence through the rules of the"
+    },
+    {
+      "index": 272,
+      "start_time": 1556280.0,
+      "end_time": 1562581.0,
+      "text": "court. He gives us a CD. It has Outlook and Outlook PST on it."
+    },
+    {
+      "index": 273,
+      "start_time": 1562580.0,
+      "end_time": 1567600.0,
+      "text": "First thing we do, there&#39;s not a lot of files in there and the first thing we do, we want"
+    },
+    {
+      "index": 274,
+      "start_time": 1567600.0,
+      "end_time": 1573460.0,
+      "text": "to recover the deleted e-mails in a PST. We&#39;re forensic analysts and that&#39;s what we like"
+    },
+    {
+      "index": 275,
+      "start_time": 1573460.0,
+      "end_time": 1581250.0,
+      "text": "doing, looking at people&#39;s e-mails. I&#39;ll show you the old school way of recovering"
+    },
+    {
+      "index": 276,
+      "start_time": 1581250.0,
+      "end_time": 1586950.0,
+      "text": "deleted e-mails. You use a hex editor, crack open the PST and exchange bytes seven through"
+    },
+    {
+      "index": 277,
+      "start_time": 1586950.0,
+      "end_time": 1594700.0,
+      "text": "13, change them to zeros. Save the file. Then you use the Outlook repair tool built in with"
+    },
+    {
+      "index": 278,
+      "start_time": 1594700.0,
+      "end_time": 1602049.0,
+      "text": "Microsoft. And you basically repair the tool -- sorry, repair the PST and what happens?"
+    },
+    {
+      "index": 279,
+      "start_time": 1602050.0,
+      "end_time": 1606900.0,
+      "text": "You get a lot of e-mails back. These are not the actual e-mails, but you get tons and tons"
+    },
+    {
+      "index": 280,
+      "start_time": 1606900.0,
+      "end_time": 1612390.0,
+      "text": "of e-mails back. In this case, we got tens of thousands of"
+    },
+    {
+      "index": 281,
+      "start_time": 1612390.0,
+      "end_time": 1617871.0,
+      "text": "deleted e-mails. What was in these e-mails? Everything that completely turned the case"
+    },
+    {
+      "index": 282,
+      "start_time": 1617870.0,
+      "end_time": 1622809.0,
+      "text": "around. Not only did we have this guy with all the uploads on the spreadsheets. We also"
+    },
+    {
+      "index": 283,
+      "start_time": 1622810.0,
+      "end_time": 1628530.0,
+      "text": "had all the e-mails about who was involved. What lists he took. Who are the, you know,"
+    },
+    {
+      "index": 284,
+      "start_time": 1628530.0,
+      "end_time": 1633691.0,
+      "text": "all the people that were involved. We were winning. We went to Charlie Sheen mode all"
+    },
+    {
+      "index": 285,
+      "start_time": 1633690.0,
+      "end_time": 1638010.0,
+      "text": "of a sudden. And the funny thing is, we were able to take"
+    },
+    {
+      "index": 286,
+      "start_time": 1638010.0,
+      "end_time": 1643200.0,
+      "text": "all this information and at a deposition. If you don&#39;t know what a deposition is, we"
+    },
+    {
+      "index": 287,
+      "start_time": 1643200.0,
+      "end_time": 1648649.0,
+      "text": "get to ask questions of the opposing party. We are asking them, what happened? Did you"
+    },
+    {
+      "index": 288,
+      "start_time": 1648650.0,
+      "end_time": 1651881.0,
+      "text": "guys steal anything? Did you take anything? No, no, no."
+    },
+    {
+      "index": 289,
+      "start_time": 1651880.0,
+      "end_time": 1658320.0,
+      "text": "We part pulling out these e-mails one by one by one. The guy turns white as a sheet."
+    },
+    {
+      "index": 290,
+      "start_time": 1658320.0,
+      "end_time": 1665690.0,
+      "text": "And he spills the beans. And basically, you know, we do pretty well. Who deleted the mails,"
+    },
+    {
+      "index": 291,
+      "start_time": 1665690.0,
+      "end_time": 1670130.0,
+      "text": "do you think in this case? Hmm? &gt;&gt; MICHAEL PERKLIN: Call it out if you think"
+    },
+    {
+      "index": 292,
+      "start_time": 1670130.0,
+      "end_time": 1671759.0,
+      "text": "you know. &gt;&gt; AUDIENCE: (Speaker away from microphone.)"
+    },
+    {
+      "index": 293,
+      "start_time": 1671760.0,
+      "end_time": 1675691.0,
+      "text": "&gt;&gt; MICHAEL PERKLIN: Wow, people got it almost immediately."
+    },
+    {
+      "index": 294,
+      "start_time": 1675690.0,
+      "end_time": 1690059.0,
+      "text": "&gt;&gt; ERIC ROBI: They hired Saul Goodman, unfortunately. And yeah, he deleted the mails. Not a good"
+    },
+    {
+      "index": 295,
+      "start_time": 1690060.0,
+      "end_time": 1692060.0,
+      "text": "thing. Not a good thing. What have we learned?"
+    },
+    {
+      "index": 296,
+      "start_time": 1692060.0,
+      "end_time": 1699030.0,
+      "text": "&gt;&gt; AUDIENCE: (Speaker away from microphone.) &gt;&gt; MICHAEL PERKLIN: The question is, did he"
+    },
+    {
+      "index": 297,
+      "start_time": 1699030.0,
+      "end_time": 1702430.0,
+      "text": "claim privilege on the e-mails? &gt;&gt; ERIC ROBI: He claimed privilege on some"
+    },
+    {
+      "index": 298,
+      "start_time": 1702430.0,
+      "end_time": 1710640.0,
+      "text": "of them, but not all of the 10,000 that he deleted. IE history is difficult to wipe."
+    },
+    {
+      "index": 299,
+      "start_time": 1710640.0,
+      "end_time": 1722530.0,
+      "text": "It seems to leave stuff behind. We learned a new file type, the Java file type, JavaScript"
+    },
+    {
+      "index": 300,
+      "start_time": 1722530.0,
+      "end_time": 1727841.0,
+      "text": "files can give us love, too. We like them. And uploading files still leaves traces."
+    },
+    {
+      "index": 301,
+      "start_time": 1727840.0,
+      "end_time": 1732450.0,
+      "text": "So attorneys shouldn&#39;t mess with evidence. It&#39;s against the ethical rules in every state"
+    },
+    {
+      "index": 302,
+      "start_time": 1732450.0,
+      "end_time": 1736220.0,
+      "text": "and probably every Canadian province and can get you disbarred."
+    },
+    {
+      "index": 303,
+      "start_time": 1736220.0,
+      "end_time": 1740279.0,
+      "text": "&gt;&gt; AUDIENCE: Did they in this case? &gt;&gt; Let&#39;s look at the fail matrix."
+    },
+    {
+      "index": 304,
+      "start_time": 1740280.0,
+      "end_time": 1746910.0,
+      "text": "&gt;&gt; ERIC ROBI: User retard level is damn high on this one. Fails on the attorney&#39;s part"
+    },
+    {
+      "index": 305,
+      "start_time": 1746910.0,
+      "end_time": 1754581.0,
+      "text": "and also on the ex-sales guy. Huge lawsuit. Three and a half million dollars in fees and"
+    },
+    {
+      "index": 306,
+      "start_time": 1754580.0,
+      "end_time": 1755749.0,
+      "text": "damages. (Whistling.)"
+    },
+    {
+      "index": 307,
+      "start_time": 1755750.0,
+      "end_time": 1762121.0,
+      "text": "&gt;&gt; ERIC ROBI: Which our client all got back basically and 15 bonus points. The attorney"
+    },
+    {
+      "index": 308,
+      "start_time": 1762120.0,
+      "end_time": 1766740.0,
+      "text": "might lose his license on this one. He hasn&#39;t yet. We don&#39;t track that kind of stuff."
+    },
+    {
+      "index": 309,
+      "start_time": 1766740.0,
+      "end_time": 1772299.0,
+      "text": "(Buzzer.) &gt;&gt; ERIC ROBI: Fifty-one, we&#39;re moving up."
+    },
+    {
+      "index": 310,
+      "start_time": 1772300.0,
+      "end_time": 1778981.0,
+      "text": "You ready? &gt;&gt; MICHAEL PERKLIN: Oh, right."
+    },
+    {
+      "index": 311,
+      "start_time": 1778980.0,
+      "end_time": 1781200.0,
+      "text": "&gt;&gt; Fail! &gt;&gt; Drink!"
+    },
+    {
+      "index": 312,
+      "start_time": 1781200.0,
+      "end_time": 1788250.0,
+      "text": "&gt;&gt; MICHAEL PERKLIN: All right. Let&#39;s do this shit."
+    },
+    {
+      "index": 313,
+      "start_time": 1788250.0,
+      "end_time": 1791840.0,
+      "text": "&gt;&gt; ERIC ROBI: That&#39;s winning. &gt;&gt; MICHAEL PERKLIN: This next case is probably"
+    },
+    {
+      "index": 314,
+      "start_time": 1791840.0,
+      "end_time": 1796510.0,
+      "text": "one of the most fun cases I&#39;ve worked on. From the start I could tell that something"
+    },
+    {
+      "index": 315,
+      "start_time": 1796510.0,
+      "end_time": 1803299.0,
+      "text": "-- it was going to be a fun one. The RBT bounce. You&#39;ll see why. I was called in to investigate"
+    },
+    {
+      "index": 316,
+      "start_time": 1803300.0,
+      "end_time": 1809441.0,
+      "text": "a network breach. The company shared information with us that was evidence that at least one"
+    },
+    {
+      "index": 317,
+      "start_time": 1809440.0,
+      "end_time": 1814639.0,
+      "text": "computer had been breached. They didn&#39;t know why. They didn&#39;t know what. Asked us to investigate"
+    },
+    {
+      "index": 318,
+      "start_time": 1814640.0,
+      "end_time": 1821341.0,
+      "text": "and to tell them why and what. It was a large company. They had a lot of"
+    },
+    {
+      "index": 319,
+      "start_time": 1821340.0,
+      "end_time": 1826909.0,
+      "text": "computers, all of them were Windows based. Thousands upon thousands of computers in offices"
+    },
+    {
+      "index": 320,
+      "start_time": 1826910.0,
+      "end_time": 1834121.0,
+      "text": "all across the world and in one of their offices they noticed this computer had been breached."
+    },
+    {
+      "index": 321,
+      "start_time": 1834120.0,
+      "end_time": 1839620.0,
+      "text": "So let&#39;s figure out what happened. So we move in. And actually I think I&#39;m going"
+    },
+    {
+      "index": 322,
+      "start_time": 1839620.0,
+      "end_time": 1844850.0,
+      "text": "to pause here for two seconds. Eric, is this your first time presenting at"
+    },
+    {
+      "index": 323,
+      "start_time": 1844850.0,
+      "end_time": 1849659.0,
+      "text": "DEF CON? &gt;&gt; ERIC ROBI: Yes, it is."
+    },
+    {
+      "index": 324,
+      "start_time": 1849660.0,
+      "end_time": 1852410.0,
+      "text": "(Laughter.) &gt;&gt; MICHAEL PERKLIN: Okay."
+    },
+    {
+      "index": 325,
+      "start_time": 1852410.0,
+      "end_time": 1857910.0,
+      "text": "(Applause.) &gt;&gt; MICHAEL PERKLIN: We don&#39;t even have to"
+    },
+    {
+      "index": 326,
+      "start_time": 1857910.0,
+      "end_time": 1860430.0,
+      "text": "say anything anymore. You guys know exactly what is going on."
+    },
+    {
+      "index": 327,
+      "start_time": 1860430.0,
+      "end_time": 1864871.0,
+      "text": "&gt;&gt; ERIC ROBI: Uh-oh. &gt;&gt; MICHAEL PERKLIN: I want to know, is Sarah"
+    },
+    {
+      "index": 328,
+      "start_time": 1864870.0,
+      "end_time": 1868989.0,
+      "text": "in the room? &gt;&gt; Show yourself!"
+    },
+    {
+      "index": 329,
+      "start_time": 1868990.0,
+      "end_time": 1872250.0,
+      "text": "&gt;&gt; Which Sarah? Narrow it down? (Overlapping speakers.)"
+    },
+    {
+      "index": 330,
+      "start_time": 1872250.0,
+      "end_time": 1875560.0,
+      "text": "&gt;&gt; MICHAEL PERKLIN: Is your name Sarah? &gt;&gt; Bend over."
+    },
+    {
+      "index": 331,
+      "start_time": 1875560.0,
+      "end_time": 1877581.0,
+      "text": "(Laughter.) &gt;&gt; We are just going to leave now."
+    },
+    {
+      "index": 332,
+      "start_time": 1877580.0,
+      "end_time": 1880710.0,
+      "text": "&gt;&gt; You are the ugliest Sarah ever. &gt;&gt; Fail! Another soldier bites the dust."
+    },
+    {
+      "index": 333,
+      "start_time": 1880710.0,
+      "end_time": 1881230.0,
+      "text": "Winning! (Laughter.)"
+    },
+    {
+      "index": 334,
+      "start_time": 1881230.0,
+      "end_time": 1882450.0,
+      "text": "&gt;&gt; Stop that. &gt;&gt; The path to recovery is --"
+    },
+    {
+      "index": 335,
+      "start_time": 1882450.0,
+      "end_time": 1884980.0,
+      "text": "&gt;&gt; Paul, there&#39;s some issue about the sound person?"
+    },
+    {
+      "index": 336,
+      "start_time": 1884980.0,
+      "end_time": 1899940.0,
+      "text": "&gt;&gt; No. Sarah is supposed to be the sound person. &gt;&gt; Sarah is right here. You are talking about"
+    },
+    {
+      "index": 337,
+      "start_time": 1899940.0,
+      "end_time": 1904909.0,
+      "text": "me, right? &gt;&gt; I appreciate that, Sarah, but we&#39;re looking"
+    },
+    {
+      "index": 338,
+      "start_time": 1904910.0,
+      "end_time": 1907321.0,
+      "text": "for a different person. &gt;&gt; Since she is not here, Sarah, would you"
+    },
+    {
+      "index": 339,
+      "start_time": 1907320.0,
+      "end_time": 1913730.0,
+      "text": "come up? &gt;&gt; Come up. You&#39;re the next contestant on:"
+    },
+    {
+      "index": 340,
+      "start_time": 1913730.0,
+      "end_time": 1923740.0,
+      "text": "Will you fail? &gt;&gt; Thank you."
+    },
+    {
+      "index": 341,
+      "start_time": 1923740.0,
+      "end_time": 1943590.0,
+      "text": "&gt;&gt; The other Sarah is going to be pissed. You want to go around that way?"
+    },
+    {
+      "index": 342,
+      "start_time": 1943590.0,
+      "end_time": 1948170.0,
+      "text": "&gt;&gt; You already got one. Someone counted wrong! &gt;&gt; Pass one to Sarah."
+    },
+    {
+      "index": 343,
+      "start_time": 1948170.0,
+      "end_time": 1949840.0,
+      "text": "&gt;&gt; All right. &gt;&gt; A double."
+    },
+    {
+      "index": 344,
+      "start_time": 1949840.0,
+      "end_time": 1951090.0,
+      "text": "(Laughter.) &gt;&gt; Find Sarah --"
+    },
+    {
+      "index": 345,
+      "start_time": 1951090.0,
+      "end_time": 1956080.0,
+      "text": "&gt;&gt; I&#39;m sure all of you want to be Sarah right now."
+    },
+    {
+      "index": 346,
+      "start_time": 1956080.0,
+      "end_time": 1961639.0,
+      "text": "&gt;&gt; To our new speakers and new attendees! (Applause.)"
+    },
+    {
+      "index": 347,
+      "start_time": 1961640.0,
+      "end_time": 1970360.0,
+      "text": "&gt;&gt; Whew! &gt;&gt; Uh-oh. How many more talks?"
+    },
+    {
+      "index": 348,
+      "start_time": 1970360.0,
+      "end_time": 1973711.0,
+      "text": "&gt;&gt; Thank you. &gt;&gt; Two more this hour."
+    },
+    {
+      "index": 349,
+      "start_time": 1973710.0,
+      "end_time": 1979760.0,
+      "text": "&gt;&gt; MICHAEL PERKLIN: All right. We have 15 minutes left."
+    },
+    {
+      "index": 350,
+      "start_time": 1979760.0,
+      "end_time": 1982759.0,
+      "text": "&gt;&gt; Is Sarah in the next -- &gt;&gt; MICHAEL PERKLIN: Thank you very much, goons,"
+    },
+    {
+      "index": 351,
+      "start_time": 1982760.0,
+      "end_time": 1987130.0,
+      "text": "for doing that. It&#39;s Eric&#39;s first time at DEF CON."
+    },
+    {
+      "index": 352,
+      "start_time": 1987130.0,
+      "end_time": 1997060.0,
+      "text": "So I was talking with the RDP bounce case that I was investigating. As I mentioned,"
+    },
+    {
+      "index": 353,
+      "start_time": 1997060.0,
+      "end_time": 2003670.0,
+      "text": "thousands of computers, various offices all around the world. So we analyze the one computer"
+    },
+    {
+      "index": 354,
+      "start_time": 2003670.0,
+      "end_time": 2009201.0,
+      "text": "that they knew was breached. And it showed that RDP or remote desktop property call."
+    },
+    {
+      "index": 355,
+      "start_time": 2009200.0,
+      "end_time": 2014740.0,
+      "text": "This is the tool in Windows that allows you to remotely control another computer. Some"
+    },
+    {
+      "index": 356,
+      "start_time": 2014740.0,
+      "end_time": 2021009.0,
+      "text": "logs showed us that RDP was used to connect using the local administrator password to"
+    },
+    {
+      "index": 357,
+      "start_time": 2021010.0,
+      "end_time": 2026680.0,
+      "text": "another machine. It also showed that -- actually I said it"
+    },
+    {
+      "index": 358,
+      "start_time": 2026680.0,
+      "end_time": 2031831.0,
+      "text": "backwards. RDP was used to connect in and also showed that RDP was used to connect out."
+    },
+    {
+      "index": 359,
+      "start_time": 2031830.0,
+      "end_time": 2036120.0,
+      "text": "In this diagram I was looking at the middle computer. I didn&#39;t know at the time there"
+    },
+    {
+      "index": 360,
+      "start_time": 2036120.0,
+      "end_time": 2039279.0,
+      "text": "were other computers. I was looking at the middle one."
+    },
+    {
+      "index": 361,
+      "start_time": 2039280.0,
+      "end_time": 2045021.0,
+      "text": "It seemed like there were a bunched used in here. It was probably the tip of the iceberg."
+    },
+    {
+      "index": 362,
+      "start_time": 2045020.0,
+      "end_time": 2047500.0,
+      "text": "&gt;&gt; ERIC ROBI: Where do you find these logs, Michael?"
+    },
+    {
+      "index": 363,
+      "start_time": 2047500.0,
+      "end_time": 2053340.0,
+      "text": "&gt;&gt; MICHAEL PERKLIN: Specifically I was looking at the Windows event viewer. Go into the control"
+    },
+    {
+      "index": 364,
+      "start_time": 2053340.0000000002,
+      "end_time": 2059900.0000000002,
+      "text": "panel and the administrator tools. It logs by default a lot of stuff in there including"
+    },
+    {
+      "index": 365,
+      "start_time": 2059900.0,
+      "end_time": 2064020.0,
+      "text": "when RDP is used to connect in and when you&#39;re connecting out."
+    },
+    {
+      "index": 366,
+      "start_time": 2064020.0,
+      "end_time": 2071960.0,
+      "text": "So I analyzed that machine that came before it. And same thing. There were logs that showed"
+    },
+    {
+      "index": 367,
+      "start_time": 2071960.0,
+      "end_time": 2076540.0,
+      "text": "that somebody was connecting into that. It was basically an entire bounce. Now, these"
+    },
+    {
+      "index": 368,
+      "start_time": 2076540.0,
+      "end_time": 2081920.0,
+      "text": "computers were located in different offices all around the world. This guy was bouncing"
+    },
+    {
+      "index": 369,
+      "start_time": 2081920.0,
+      "end_time": 2086580.0,
+      "text": "all around the world to do something. So obviously this is a pattern."
+    },
+    {
+      "index": 370,
+      "start_time": 2086580.0,
+      "end_time": 2091990.0,
+      "text": "I still didn&#39;t know what he was doing. I just knew that he was clearly going through a lot"
+    },
+    {
+      "index": 371,
+      "start_time": 2091989.9999999998,
+      "end_time": 2097410.0,
+      "text": "of trouble to obfuscate his trail, bouncing all around. Probably so that when he does"
+    },
+    {
+      "index": 372,
+      "start_time": 2097410.0,
+      "end_time": 2102990.0,
+      "text": "hit his final target there&#39;s no direct evidence to where he was coming from."
+    },
+    {
+      "index": 373,
+      "start_time": 2102990.0,
+      "end_time": 2109700.0,
+      "text": "&gt;&gt; AUDIENCE: Were they sessions within sessions? &gt;&gt; MICHAEL PERKLIN: Yes, within the remote"
+    },
+    {
+      "index": 374,
+      "start_time": 2109700.0,
+      "end_time": 2118330.0,
+      "text": "desktop, he did this over and over. Remote desktop is not the fastest protocol at all."
+    },
+    {
+      "index": 375,
+      "start_time": 2118330.0,
+      "end_time": 2123180.0,
+      "text": "I don&#39;t want to speculate how long it took him to do this."
+    },
+    {
+      "index": 376,
+      "start_time": 2123180.0,
+      "end_time": 2127920.0,
+      "text": "&gt;&gt; ERIC ROBI: Can you imagine how long the screen redraw was by the time you get to machine"
+    },
+    {
+      "index": 377,
+      "start_time": 2127920.0,
+      "end_time": 2130310.0,
+      "text": "ten? &gt;&gt; MICHAEL PERKLIN: Jesus Christ, you have"
+    },
+    {
+      "index": 378,
+      "start_time": 2130310.0,
+      "end_time": 2138320.0,
+      "text": "to click a minute between clicks or something. What was the target? So I think you can all"
+    },
+    {
+      "index": 379,
+      "start_time": 2138320.0,
+      "end_time": 2143370.0,
+      "text": "figure out what I do next. Rather than following the trail back, I followed the trail forward."
+    },
+    {
+      "index": 380,
+      "start_time": 2143370.0,
+      "end_time": 2149770.0,
+      "text": "What was he getting? Step after step, computer after computer. Site after site after site"
+    },
+    {
+      "index": 381,
+      "start_time": 2149770.0,
+      "end_time": 2154620.0,
+      "text": "all around the world. I finally reached a high profile machine. I wish I could tell"
+    },
+    {
+      "index": 382,
+      "start_time": 2154620.0,
+      "end_time": 2161800.0,
+      "text": "you which specific machine it was. I can&#39;t because it would give away too much about"
+    },
+    {
+      "index": 383,
+      "start_time": 2161800.0,
+      "end_time": 2164090.0,
+      "text": "this company. &gt;&gt; Prism?"
+    },
+    {
+      "index": 384,
+      "start_time": 2164090.0,
+      "end_time": 2174360.0,
+      "text": "&gt;&gt; ERIC ROBI: Did it have Nickel Back on it? &gt;&gt; MICHAEL PERKLIN: Chalkiest video ever."
+    },
+    {
+      "index": 385,
+      "start_time": 2174360.0,
+      "end_time": 2179560.0,
+      "text": "I knew what he was going after when I reached that machine. He wanted confidential documents"
+    },
+    {
+      "index": 386,
+      "start_time": 2179560.0,
+      "end_time": 2183770.0,
+      "text": "that were only on this one machine in the entire company. He obviously knew that and"
+    },
+    {
+      "index": 387,
+      "start_time": 2183770.0,
+      "end_time": 2188000.0,
+      "text": "he wanted to get into the machine to get these documents."
+    },
+    {
+      "index": 388,
+      "start_time": 2188000.0,
+      "end_time": 2194320.0,
+      "text": "I focused the analysis on this target machine, on this special confidential machine and I"
+    },
+    {
+      "index": 389,
+      "start_time": 2194320.0,
+      "end_time": 2199950.0,
+      "text": "wanted to see what did they do? Specifically which files did they take? And it took me"
+    },
+    {
+      "index": 390,
+      "start_time": 2199950.0,
+      "end_time": 2206840.0,
+      "text": "only about two minutes. As I was analyzing this machine. I identified the attacker immediately."
+    },
+    {
+      "index": 391,
+      "start_time": 2206840.0,
+      "end_time": 2211060.0,
+      "text": "He went through all around the world. Finally when I was taking a look at his target, within"
+    },
+    {
+      "index": 392,
+      "start_time": 2211060.0,
+      "end_time": 2215609.0,
+      "text": "two minutes I found out who he was. &gt;&gt; AUDIENCE: (Speaker away from microphone.)"
+    },
+    {
+      "index": 393,
+      "start_time": 2215610.0,
+      "end_time": 2219811.0,
+      "text": "&gt;&gt; MICHAEL PERKLIN: He used his own credentials on the machine? No, he didn&#39;t use his own"
+    },
+    {
+      "index": 394,
+      "start_time": 2219810.0,
+      "end_time": 2224970.0,
+      "text": "credentials on the machine. &gt;&gt; E-mails to himself?"
+    },
+    {
+      "index": 395,
+      "start_time": 2224970.0,
+      "end_time": 2227820.0,
+      "text": "&gt;&gt; MICHAEL PERKLIN: No. &gt;&gt; He stole his own file?"
+    },
+    {
+      "index": 396,
+      "start_time": 2227820.0,
+      "end_time": 2233410.0,
+      "text": "&gt;&gt; MICHAEL PERKLIN: No, and he did not check Facebook and no share drives. Why don&#39;t I"
+    },
+    {
+      "index": 397,
+      "start_time": 2233410.0,
+      "end_time": 2240720.0,
+      "text": "tell you what he did? &gt;&gt; ERIC ROBI: Michael, what did he do?"
+    },
+    {
+      "index": 398,
+      "start_time": 2240720.0,
+      "end_time": 2247430.0,
+      "text": "&gt;&gt; MICHAEL PERKLIN: Printers. One thing a lot of people don&#39;t know about"
+    },
+    {
+      "index": 399,
+      "start_time": 2247430.0,
+      "end_time": 2253130.0,
+      "text": "remote desktop, by default it maps the printer connected to your machine to the machine that"
+    },
+    {
+      "index": 400,
+      "start_time": 2253130.0,
+      "end_time": 2258040.0,
+      "text": "you are connecting out to. It does this so that when you hit print inside your remote"
+    },
+    {
+      "index": 401,
+      "start_time": 2258040.0,
+      "end_time": 2262380.0,
+      "text": "desktop window your printer next to you is available so you can print a document besides"
+    },
+    {
+      "index": 402,
+      "start_time": 2262380.0,
+      "end_time": 2269200.0,
+      "text": "you. This guy didn&#39;t print any documents but just by connecting the machine automatically"
+    },
+    {
+      "index": 403,
+      "start_time": 2269200.0,
+      "end_time": 2277080.0,
+      "text": "mapped his local printer to the target machine, which identified his machine name."
+    },
+    {
+      "index": 404,
+      "start_time": 2277080.0,
+      "end_time": 2281660.0,
+      "text": "He forgot to turn this off. There is a check box in remote desktop protocol when you open"
+    },
+    {
+      "index": 405,
+      "start_time": 2281660.0,
+      "end_time": 2288670.0,
+      "text": "up the RDP window, unmap printers to unmap printers. And it&#39;s a check box and he did"
+    },
+    {
+      "index": 406,
+      "start_time": 2288670.0,
+      "end_time": 2294600.0,
+      "text": "not map it. &gt;&gt; ERIC ROBI: What have re logged Michael?"
+    },
+    {
+      "index": 407,
+      "start_time": 2294600.0,
+      "end_time": 2302400.0,
+      "text": "&gt;&gt; MICHAEL PERKLIN: What have we learned? Documents logged by inside -- can give insight"
+    },
+    {
+      "index": 408,
+      "start_time": 2302400.0,
+      "end_time": 2310250.0,
+      "text": "into user actions. The system did this automatically. By looking at the system is doing can tell"
+    },
+    {
+      "index": 409,
+      "start_time": 2310250.0,
+      "end_time": 2316150.0,
+      "text": "what you the user is doing. For the fail matrix, user retard level would be about a 20 because"
+    },
+    {
+      "index": 410,
+      "start_time": 2316150.0,
+      "end_time": 2322990.0,
+      "text": "he went through a lot of trouble to cover his tracks and he did not cover his tracks."
+    },
+    {
+      "index": 411,
+      "start_time": 2322990.0,
+      "end_time": 2328460.0,
+      "text": "Punishment level would be 15. He loss his job. He also lost his references. He can&#39;t"
+    },
+    {
+      "index": 412,
+      "start_time": 2328460.0,
+      "end_time": 2334200.0,
+      "text": "use that company as a reference anymore. So distress caused would be 8. Bonus points"
+    },
+    {
+      "index": 413,
+      "start_time": 2334200.0,
+      "end_time": 2340010.0,
+      "text": "would be 20. Do some research. If you are going to use RDP to pull off a scam, know"
+    },
+    {
+      "index": 414,
+      "start_time": 2340010.0,
+      "end_time": 2346560.0,
+      "text": "how RDP works. Adding it all up, we have a fail score of"
+    },
+    {
+      "index": 415,
+      "start_time": 2346560.0,
+      "end_time": 2349640.0,
+      "text": "63. Last story, Eric."
+    },
+    {
+      "index": 416,
+      "start_time": 2349640.0,
+      "end_time": 2357160.0,
+      "text": "&gt;&gt; ERIC ROBI: All right. So the last story is a little bit different than the others."
+    },
+    {
+      "index": 417,
+      "start_time": 2357160.0,
+      "end_time": 2360770.0,
+      "text": "(Laughter.) &gt;&gt; ERIC ROBI: This is the epic porno fail."
+    },
+    {
+      "index": 418,
+      "start_time": 2360770.0,
+      "end_time": 2365230.0,
+      "text": "The difference in this one, all together the cases we have talked about have been commercial"
+    },
+    {
+      "index": 419,
+      "start_time": 2365230.0,
+      "end_time": 2369990.0,
+      "text": "litigation, civil litigation, something on this side. This one happens to be a criminal"
+    },
+    {
+      "index": 420,
+      "start_time": 2369990.0,
+      "end_time": 2375630.0,
+      "text": "case. From time to time we do criminal defense work. And we work either with Public Defenders"
+    },
+    {
+      "index": 421,
+      "start_time": 2375630.0,
+      "end_time": 2379760.0,
+      "text": "or private attorneys. This is about this kind of situation."
+    },
+    {
+      "index": 422,
+      "start_time": 2379760.0,
+      "end_time": 2384630.0,
+      "text": "So our client, Edgar, has been charged with possession of contra band, aka child porn"
+    },
+    {
+      "index": 423,
+      "start_time": 2384630.0,
+      "end_time": 2392120.0,
+      "text": "in his computer. He claims innocence and I roll my eyes because everybody always claims"
+    },
+    {
+      "index": 424,
+      "start_time": 2392120.0,
+      "end_time": 2398040.0,
+      "text": "innocence. 98 percent of these people did it."
+    },
+    {
+      "index": 425,
+      "start_time": 2398040.0,
+      "end_time": 2402500.0,
+      "text": "We examine the computer. We looked at the examiners report. We looked at the allegations."
+    },
+    {
+      "index": 426,
+      "start_time": 2402500.0,
+      "end_time": 2410070.0,
+      "text": "Let&#39;s take a look at them. So they claim Edgar downloaded porn. All right?"
+    },
+    {
+      "index": 427,
+      "start_time": 2410070.0,
+      "end_time": 2415910.0,
+      "text": "They claim that Edgar&#39;s user account had passwords. This is all documented in the record. They"
+    },
+    {
+      "index": 428,
+      "start_time": 2415910.0,
+      "end_time": 2420780.0,
+      "text": "claim that Edgar utilized news groups to download porn, like for real?"
+    },
+    {
+      "index": 429,
+      "start_time": 2420780.0,
+      "end_time": 2427600.0,
+      "text": "&gt;&gt; Who uses news groups to download porn? I think they have the --"
+    },
+    {
+      "index": 430,
+      "start_time": 2427600.0,
+      "end_time": 2433010.0,
+      "text": "(Overlapping speakers.) &gt;&gt; ERIC ROBI: Yeah, news groups, right?"
+    },
+    {
+      "index": 431,
+      "start_time": 2433010.0,
+      "end_time": 2441650.0,
+      "text": "&gt;&gt; AUDIENCE: Pregger porn. &gt;&gt; ERIC ROBI: That guy I would believe. They"
+    },
+    {
+      "index": 432,
+      "start_time": 2441650.0,
+      "end_time": 2446800.0,
+      "text": "allege that he downloaded illegal porn. There is one thing to note. Keep this in mind. He"
+    },
+    {
+      "index": 433,
+      "start_time": 2446800.0,
+      "end_time": 2452270.0,
+      "text": "left his house on April 2012. His wife kicked him out because of this stuff happening. April"
+    },
+    {
+      "index": 434,
+      "start_time": 2452270.0,
+      "end_time": 2457520.0,
+      "text": "2012. Keep that in mind. So let&#39;s look when we examine the computer."
+    },
+    {
+      "index": 435,
+      "start_time": 2457520.0,
+      "end_time": 2463690.0,
+      "text": "Let&#39;s see what we came up with. First we looked at IE history. As I mentioned before, IE history"
+    },
+    {
+      "index": 436,
+      "start_time": 2463690.0,
+      "end_time": 2469100.0,
+      "text": "is able to show you when a file has been opened. This is an actual example, I changed the file"
+    },
+    {
+      "index": 437,
+      "start_time": 2469100.0,
+      "end_time": 2472700.0,
+      "text": "name a little bit here. What was the date I just mentioned?"
+    },
+    {
+      "index": 438,
+      "start_time": 2472700.0,
+      "end_time": 2477110.0,
+      "text": "&gt;&gt; AUDIENCE: April 2012. &gt;&gt; ERIC ROBI: April 2012. I see some dates"
+    },
+    {
+      "index": 439,
+      "start_time": 2477110.0,
+      "end_time": 2484410.0,
+      "text": "here. Are these before or after April 2012? Put up your hand if it&#39;s after? Ahh!"
+    },
+    {
+      "index": 440,
+      "start_time": 2484410.0,
+      "end_time": 2494210.0,
+      "text": "Yes. So all right. One fail here. Let&#39;s look at his peer to peer software download folder."
+    },
+    {
+      "index": 441,
+      "start_time": 2494210.0,
+      "end_time": 2500380.0,
+      "text": "In the top there I&#39;ve got the path where these naughty files were downloaded and it&#39;s a pretty"
+    },
+    {
+      "index": 442,
+      "start_time": 2500380.0,
+      "end_time": 2506940.0,
+      "text": "typical path. These P to P programs change the name to something long. It&#39;s like T-something"
+    },
+    {
+      "index": 443,
+      "start_time": 2506940.0,
+      "end_time": 2511680.0,
+      "text": "something something naughty file. I&#39;m looking at the dates here again. Michael,"
+    },
+    {
+      "index": 444,
+      "start_time": 2511680.0,
+      "end_time": 2515220.0,
+      "text": "do you have a calendar? &gt;&gt; MICHAEL PERKLIN: Give me a second here."
+    },
+    {
+      "index": 445,
+      "start_time": 2515220.0,
+      "end_time": 2519170.0,
+      "text": "&gt;&gt; ERIC ROBI: When is December? &gt;&gt; MICHAEL PERKLIN: It is after April. Definitely"
+    },
+    {
+      "index": 446,
+      "start_time": 2519170.0,
+      "end_time": 2522850.0,
+      "text": "after April. &gt;&gt; ERIC ROBI: Okay, just wanted to check."
+    },
+    {
+      "index": 447,
+      "start_time": 2522850.0,
+      "end_time": 2529910.0,
+      "text": "We need to verify our forensic findings before we publish them. We&#39;re verifying. Oops."
+    },
+    {
+      "index": 448,
+      "start_time": 2529910.0,
+      "end_time": 2533920.0,
+      "text": "I think -- &gt;&gt; MICHAEL PERKLIN: Fail!"
+    },
+    {
+      "index": 449,
+      "start_time": 2533920.0,
+      "end_time": 2543190.0,
+      "text": "&gt;&gt; ERIC ROBI: Fail. Give me that beer. All right. They also claim that he used Outlook"
+    },
+    {
+      "index": 450,
+      "start_time": 2543190.0,
+      "end_time": 2550260.0,
+      "text": "express. Really, to download porn. Outlook express. This is 2012, remember, folks."
+    },
+    {
+      "index": 451,
+      "start_time": 2550260.0,
+      "end_time": 2556320.0,
+      "text": "&gt;&gt; MICHAEL PERKLIN: Makes you wonder, did they even analyze this guy&#39;s machine? We saw"
+    },
+    {
+      "index": 452,
+      "start_time": 2556320.0,
+      "end_time": 2561560.0,
+      "text": "records of P to P, not Outlook express. &gt;&gt; ERIC ROBI: Outlook express, all right."
+    },
+    {
+      "index": 453,
+      "start_time": 2561560.0,
+      "end_time": 2567570.0,
+      "text": "In reality, yes, Outlook express was on the machine set up with an account called porno"
+    },
+    {
+      "index": 454,
+      "start_time": 2567570.0,
+      "end_time": 2578060.0,
+      "text": "lover. Okay? It was set up after Edgar moved out of the house. And only headers were downloaded."
+    },
+    {
+      "index": 455,
+      "start_time": 2578060.0,
+      "end_time": 2580720.0,
+      "text": "No content. &gt;&gt; MICHAEL PERKLIN: What do you mean by headers?"
+    },
+    {
+      "index": 456,
+      "start_time": 2580720.0,
+      "end_time": 2587760.0,
+      "text": "&gt;&gt; ERIC ROBI: A header, if you&#39;re using Outlook express, it is just the first part of the"
+    },
+    {
+      "index": 457,
+      "start_time": 2587760.0,
+      "end_time": 2593020.0,
+      "text": "file. The e-mail is going to have the date, the send to, the receiver, the subject line,"
+    },
+    {
+      "index": 458,
+      "start_time": 2593020.0,
+      "end_time": 2600050.0,
+      "text": "make the first couple words. There was no content. There was no photos in there, just"
+    },
+    {
+      "index": 459,
+      "start_time": 2600050.0,
+      "end_time": 2606100.0,
+      "text": "headers with, you know, admittedly porno names. Also, let&#39;s look at accusation three. They"
+    },
+    {
+      "index": 460,
+      "start_time": 2606100.0,
+      "end_time": 2612860.0,
+      "text": "said his user account had a password. The inference is only Edgar was able to access"
+    },
+    {
+      "index": 461,
+      "start_time": 2612860.0,
+      "end_time": 2620690.0,
+      "text": "it because there was a password. Let&#39;s look at the password, shall we? Maybe"
+    },
+    {
+      "index": 462,
+      "start_time": 2620690.0,
+      "end_time": 2624800.0,
+      "text": "we can zoom in a little bit on this. (Laughter.)"
+    },
+    {
+      "index": 463,
+      "start_time": 2624800.0,
+      "end_time": 2630840.0,
+      "text": "&gt;&gt; ERIC ROBI: This is actually a cool utility the it&#39;s free. It&#39;s LCP. I&#39;ll go back to it"
+    },
+    {
+      "index": 464,
+      "start_time": 2630840.0,
+      "end_time": 2640280.0,
+      "text": "here. It&#39;s a free utility, great for looking and seeing if there are passwords. You can"
+    },
+    {
+      "index": 465,
+      "start_time": 2640280.0,
+      "end_time": 2643940.0,
+      "text": "also use it to perform an attack, although it&#39;s not very good."
+    },
+    {
+      "index": 466,
+      "start_time": 2643940.0,
+      "end_time": 2652340.0,
+      "text": "All right. So more facts undiscovered by the examiner. The P to P client was used to download"
+    },
+    {
+      "index": 467,
+      "start_time": 2652340.0,
+      "end_time": 2659690.0,
+      "text": "porn. The examiner didn&#39;t find that. Into a new user account called porno lover. Guess"
+    },
+    {
+      "index": 468,
+      "start_time": 2659690.0,
+      "end_time": 2666250.0,
+      "text": "when? After he moved out of the house. So we submitted our report to the prosecutor."
+    },
+    {
+      "index": 469,
+      "start_time": 2666250.0,
+      "end_time": 2671920.0,
+      "text": "Looks like a five, ten-page report, something like that. The government dropped the charges,"
+    },
+    {
+      "index": 470,
+      "start_time": 2671920.0,
+      "end_time": 2678030.0,
+      "text": "years after they charged this guy, they dropped the charges. This does not ever happen really."
+    },
+    {
+      "index": 471,
+      "start_time": 2678030.0,
+      "end_time": 2682950.0,
+      "text": "This is the first time. I&#39;ve done thousands of cases -- well, hundreds of cases, thousands"
+    },
+    {
+      "index": 472,
+      "start_time": 2682950.0,
+      "end_time": 2686510.0,
+      "text": "of exams. I don&#39;t know how many, it&#39;s never happened before."
+    },
+    {
+      "index": 473,
+      "start_time": 2686510.0,
+      "end_time": 2692190.0,
+      "text": "This is after the guy spent a huge amount of money on legal costs. So to do all this,"
+    },
+    {
+      "index": 474,
+      "start_time": 2692190.0,
+      "end_time": 2697700.0,
+      "text": "I just want to give a thank you to Rob Lee and SANs -- you know Rob Lee? We used super"
+    },
+    {
+      "index": 475,
+      "start_time": 2697700.0,
+      "end_time": 2699050.0,
+      "text": "timeline for this analysis. That&#39;s a super piece of --"
+    },
+    {
+      "index": 476,
+      "start_time": 2699050.0,
+      "end_time": 2712680.0,
+      "text": "(Lost audio.) &gt;&gt; MICHAEL PERKLIN: Definitely one of the"
+    },
+    {
+      "index": 477,
+      "start_time": 2712680.0,
+      "end_time": 2717930.0,
+      "text": "best pieces of software used. &gt;&gt; ERIC ROBI: So the government interviews"
+    },
+    {
+      "index": 478,
+      "start_time": 2717930.0,
+      "end_time": 2725180.0,
+      "text": "Edgar&#39;s friend. The friend confesses. The friend did it. The friend was trying to get"
+    },
+    {
+      "index": 479,
+      "start_time": 2725180.0,
+      "end_time": 2729310.0,
+      "text": "jiggy with Edgar&#39;s wife. (Groans.)"
+    },
+    {
+      "index": 480,
+      "start_time": 2729310.0,
+      "end_time": 2734650.0,
+      "text": "&gt;&gt; ERIC ROBI: And he put the porn on the computer. The court clears Edgar&#39;s name. They give him"
+    },
+    {
+      "index": 481,
+      "start_time": 2734650.0,
+      "end_time": 2746680.0,
+      "text": "an finding of innocence. Rarely happens. I have been to court a couple times where there"
+    },
+    {
+      "index": 482,
+      "start_time": 2746680.0,
+      "end_time": 2752880.0,
+      "text": "have been acquittals and we didn&#39;t go to court on this one, fortunately, but we would have."
+    },
+    {
+      "index": 483,
+      "start_time": 2752880.0,
+      "end_time": 2759980.0,
+      "text": "So what did we learn? Base your conclusions upon actual evidence. Find multiple artifacts"
+    },
+    {
+      "index": 484,
+      "start_time": 2759980.0,
+      "end_time": 2764410.0,
+      "text": "backing up your allegations. I don&#39;t know where the password thing came from. Tie it"
+    },
+    {
+      "index": 485,
+      "start_time": 2764410.0,
+      "end_time": 2769070.0,
+      "text": "to a person, not just a machine if possible. Try to use at user activity that would tie"
+    },
+    {
+      "index": 486,
+      "start_time": 2769070.0,
+      "end_time": 2774500.0,
+      "text": "expect events to a person. Remember, the maximum you can get is 20 in"
+    },
+    {
+      "index": 487,
+      "start_time": 2774500.0,
+      "end_time": 2779830.0,
+      "text": "any category. However, I have decided to break the rules"
+    },
+    {
+      "index": 488,
+      "start_time": 2779830.0,
+      "end_time": 2785780.0,
+      "text": "a little bit for this one. Examiner ineptness, he gets five bonus points built in right there."
+    },
+    {
+      "index": 489,
+      "start_time": 2785780.0,
+      "end_time": 2793080.0,
+      "text": "Oh, yeah, the guy sued the city for millions of dollars. And you know, there might be a"
+    },
+    {
+      "index": 490,
+      "start_time": 2793080.0,
+      "end_time": 2797230.0,
+      "text": "job security issue for somebody in this case. &gt;&gt; MICHAEL PERKLIN: I don&#39;t think that examiner"
+    },
+    {
+      "index": 491,
+      "start_time": 2797230.0,
+      "end_time": 2802690.0,
+      "text": "is really going to have a job much longer. &gt;&gt; ERIC ROBI: One hundred bonus points because"
+    },
+    {
+      "index": 492,
+      "start_time": 2802690.0,
+      "end_time": 2806740.0,
+      "text": "the court finds the suspect innocent. Factually innocent."
+    },
+    {
+      "index": 493,
+      "start_time": 2806740.0,
+      "end_time": 2807880.0,
+      "text": "(Buzzer.) (Music playing.)"
+    },
+    {
+      "index": 494,
+      "start_time": 2807880.0,
+      "end_time": 2812060.0,
+      "text": "&gt;&gt; ERIC ROBI: Thank you very much! &gt;&gt; MICHAEL PERKLIN: Thank you, everybody!"
+    },
+    {
+      "index": 495,
+      "start_time": 2812060.0,
+      "end_time": 2816990.0,
+      "text": "If you want to do Q&amp;A, we&#39;re going over to the Chill-Out Lounge."
+    },
+    {
+      "index": 496,
+      "start_time": 2816990.0,
+      "end_time": 2826990.0,
+      "text": "(The session concluded at 2:45 p.m.)"
+    }
+  ]
+}

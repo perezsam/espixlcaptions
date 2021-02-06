@@ -1,0 +1,3774 @@
+{
+  "video_id": "xJVib7_verk",
+  "title": "Off the Charts: Getting Cost Data into Google Analytics",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 7904.0,
+      "end_time": 8910.0,
+      "text": "PETE FRISELLA: Hi, everybody."
+    },
+    {
+      "index": 2,
+      "start_time": 8910.0,
+      "end_time": 10330.0,
+      "text": "My name&#39;s Pete Frisella."
+    },
+    {
+      "index": 3,
+      "start_time": 10330.0,
+      "end_time": 12985.0,
+      "text": "I&#39;m a developer advocate on the Google Analytics team."
+    },
+    {
+      "index": 4,
+      "start_time": 12985.0,
+      "end_time": 15630.0,
+      "text": "I&#39;d like to introduce you to a new series we have called &quot;Off"
+    },
+    {
+      "index": 5,
+      "start_time": 15630.0,
+      "end_time": 18440.0,
+      "text": "the Charts.&quot; This series is about getting into the deep"
+    },
+    {
+      "index": 6,
+      "start_time": 18440.0,
+      "end_time": 21240.0,
+      "text": "features of Google Analytics, understanding how it works,"
+    },
+    {
+      "index": 7,
+      "start_time": 21240.0,
+      "end_time": 24210.0,
+      "text": "things you can do with it, and how to use the feature itself."
+    },
+    {
+      "index": 8,
+      "start_time": 24210.0,
+      "end_time": 26780.0,
+      "text": "So today, I&#39;d like actually talk to you about getting"
+    },
+    {
+      "index": 9,
+      "start_time": 26780.0,
+      "end_time": 29050.0,
+      "text": "started with cost data upload, and this is all about"
+    },
+    {
+      "index": 10,
+      "start_time": 29050.0,
+      "end_time": 30835.0,
+      "text": "measuring non-Google paid campaigns."
+    },
+    {
+      "index": 11,
+      "start_time": 33560.0,
+      "end_time": 37580.0,
+      "text": "So let&#39;s talk about what is cost data upload."
+    },
+    {
+      "index": 12,
+      "start_time": 37580.0,
+      "end_time": 39730.0,
+      "text": "I&#39;ll kind of get into little bit more about what that means"
+    },
+    {
+      "index": 13,
+      "start_time": 39730.0,
+      "end_time": 41710.0,
+      "text": "and what cost data upload works, how it works and the"
+    },
+    {
+      "index": 14,
+      "start_time": 41710.0,
+      "end_time": 43280.0,
+      "text": "feature itself."
+    },
+    {
+      "index": 15,
+      "start_time": 43280.0,
+      "end_time": 45090.0,
+      "text": "Then we&#39;ll go into the architectural overview, which"
+    },
+    {
+      "index": 16,
+      "start_time": 45090.0,
+      "end_time": 48600.0,
+      "text": "explains the deep details and also how you would actually go"
+    },
+    {
+      "index": 17,
+      "start_time": 48600.0,
+      "end_time": 51170.0,
+      "text": "about uploading data to Google Analytics."
+    },
+    {
+      "index": 18,
+      "start_time": 51170.0,
+      "end_time": 53110.0,
+      "text": "And then finally, we&#39;ll talk a little bit about some"
+    },
+    {
+      "index": 19,
+      "start_time": 53110.0,
+      "end_time": 54760.0,
+      "text": "opportunities that are available from a developer"
+    },
+    {
+      "index": 20,
+      "start_time": 54760.0,
+      "end_time": 58780.0,
+      "text": "perspective and also from a business perspective."
+    },
+    {
+      "index": 21,
+      "start_time": 58780.0,
+      "end_time": 61570.0,
+      "text": "So with that, we&#39;ll get started."
+    },
+    {
+      "index": 22,
+      "start_time": 61570.0,
+      "end_time": 63280.0,
+      "text": "So what is cost data upload, and what does"
+    },
+    {
+      "index": 23,
+      "start_time": 63280.0,
+      "end_time": 65459.0,
+      "text": "cost data itself mean?"
+    },
+    {
+      "index": 24,
+      "start_time": 65459.0,
+      "end_time": 68510.0,
+      "text": "So this is all related to all the paid campaigns you may be"
+    },
+    {
+      "index": 25,
+      "start_time": 68510.0,
+      "end_time": 70560.0,
+      "text": "running out there, all the information that&#39;s related to"
+    },
+    {
+      "index": 26,
+      "start_time": 70560.0,
+      "end_time": 71950.0,
+      "text": "that paid campaign."
+    },
+    {
+      "index": 27,
+      "start_time": 71950.0,
+      "end_time": 75460.0,
+      "text": "Whether it be ad costs, clicks, impressions, the name"
+    },
+    {
+      "index": 28,
+      "start_time": 75460.0,
+      "end_time": 79550.0,
+      "text": "of the campaign, all this itself relates to cost data."
+    },
+    {
+      "index": 29,
+      "start_time": 79550.0,
+      "end_time": 83820.0,
+      "text": "It&#39;s what we refer to as cost data in Google Analytics."
+    },
+    {
+      "index": 30,
+      "start_time": 83820.0,
+      "end_time": 87900.0,
+      "text": "So for example, if you are running a campaign, say with"
+    },
+    {
+      "index": 31,
+      "start_time": 87900.0,
+      "end_time": 91220.0,
+      "text": "Google AdWords, for example, you&#39;ll know this is pretty"
+    },
+    {
+      "index": 32,
+      "start_time": 91220.0,
+      "end_time": 92350.0,
+      "text": "familiar for you."
+    },
+    {
+      "index": 33,
+      "start_time": 92350.0,
+      "end_time": 94800.0,
+      "text": "You&#39;ve got cost data, and if you link that to Google"
+    },
+    {
+      "index": 34,
+      "start_time": 94800.0,
+      "end_time": 97210.0,
+      "text": "Analytics, which is what you should be doing, you actually"
+    },
+    {
+      "index": 35,
+      "start_time": 97210.0,
+      "end_time": 99500.0,
+      "text": "get these reports within Google Analytics that"
+    },
+    {
+      "index": 36,
+      "start_time": 99500.0,
+      "end_time": 102580.0,
+      "text": "highlight, for your paid campaigns, how they&#39;re"
+    },
+    {
+      "index": 37,
+      "start_time": 102580.0,
+      "end_time": 103320.0,
+      "text": "performing."
+    },
+    {
+      "index": 38,
+      "start_time": 103320.0,
+      "end_time": 106030.0,
+      "text": "And they give you a lot more information around how to"
+    },
+    {
+      "index": 39,
+      "start_time": 106030.0,
+      "end_time": 107960.0,
+      "text": "optimize certain key words, maybe landing page"
+    },
+    {
+      "index": 40,
+      "start_time": 107960.0,
+      "end_time": 109190.0,
+      "text": "optimization."
+    },
+    {
+      "index": 41,
+      "start_time": 109190.0,
+      "end_time": 110720.0,
+      "text": "Now, these things are important things, but to"
+    },
+    {
+      "index": 42,
+      "start_time": 110720.0,
+      "end_time": 113320.0,
+      "text": "really do this analysis, you need that cost data associated"
+    },
+    {
+      "index": 43,
+      "start_time": 113320.0,
+      "end_time": 115960.0,
+      "text": "with the campaigns that you&#39;re running in Google AdWords."
+    },
+    {
+      "index": 44,
+      "start_time": 115960.0,
+      "end_time": 118110.0,
+      "text": "And this linking works really well today, and it takes care"
+    },
+    {
+      "index": 45,
+      "start_time": 118110.0,
+      "end_time": 119270.0,
+      "text": "of all that for you."
+    },
+    {
+      "index": 46,
+      "start_time": 119270.0,
+      "end_time": 122180.0,
+      "text": "And it gives you some powerful tools to take care of analysis"
+    },
+    {
+      "index": 47,
+      "start_time": 122180.0,
+      "end_time": 126060.0,
+      "text": "around campaigns and user interaction, and how campaigns"
+    },
+    {
+      "index": 48,
+      "start_time": 126060.0,
+      "end_time": 128100.0,
+      "text": "are performing."
+    },
+    {
+      "index": 49,
+      "start_time": 128100.0,
+      "end_time": 131020.0,
+      "text": "The thing is, though, for a lot of people, why we"
+    },
+    {
+      "index": 50,
+      "start_time": 131020.00000000001,
+      "end_time": 132760.0,
+      "text": "encourage you to use Google AdWords, we love Google"
+    },
+    {
+      "index": 51,
+      "start_time": 132760.0,
+      "end_time": 133820.0,
+      "text": "AdWords, obviously."
+    },
+    {
+      "index": 52,
+      "start_time": 133820.0,
+      "end_time": 137610.0,
+      "text": "There is other paid campaign services out there that people"
+    },
+    {
+      "index": 53,
+      "start_time": 137610.0,
+      "end_time": 140040.0,
+      "text": "obviously use, and that includes things like other"
+    },
+    {
+      "index": 54,
+      "start_time": 140040.0,
+      "end_time": 141760.0,
+      "text": "paid search services."
+    },
+    {
+      "index": 55,
+      "start_time": 141760.0,
+      "end_time": 143730.0,
+      "text": "You might be running in a campaign on a social network."
+    },
+    {
+      "index": 56,
+      "start_time": 143730.0,
+      "end_time": 146640.0,
+      "text": "You might be doing email marketing campaigns."
+    },
+    {
+      "index": 57,
+      "start_time": 146640.0,
+      "end_time": 149320.0,
+      "text": "So all of these campaigns are running out there, and you&#39;re"
+    },
+    {
+      "index": 58,
+      "start_time": 149320.0,
+      "end_time": 152180.0,
+      "text": "getting users visiting your website or your property from"
+    },
+    {
+      "index": 59,
+      "start_time": 152180.0,
+      "end_time": 153850.0,
+      "text": "these paid campaigns, and that&#39;s great."
+    },
+    {
+      "index": 60,
+      "start_time": 153850.0,
+      "end_time": 156030.0,
+      "text": "You&#39;re able to track what they&#39;re doing, the conversions"
+    },
+    {
+      "index": 61,
+      "start_time": 156030.0,
+      "end_time": 158900.0,
+      "text": "possibly that are taking place, goal completions."
+    },
+    {
+      "index": 62,
+      "start_time": 158900.0,
+      "end_time": 161550.0,
+      "text": "And you&#39;re getting a good general sense of which paid"
+    },
+    {
+      "index": 63,
+      "start_time": 161550.0,
+      "end_time": 164240.0,
+      "text": "campaigns are driving traffic to your site."
+    },
+    {
+      "index": 64,
+      "start_time": 164240.0,
+      "end_time": 164820.0,
+      "text": "This is great."
+    },
+    {
+      "index": 65,
+      "start_time": 164820.0,
+      "end_time": 168140.0,
+      "text": "So a report like this, that I&#39;m showing here right now, is"
+    },
+    {
+      "index": 66,
+      "start_time": 168140.0,
+      "end_time": 170570.0,
+      "text": "kind of common that you&#39;re looking at, for my particular"
+    },
+    {
+      "index": 67,
+      "start_time": 170570.0,
+      "end_time": 173020.0,
+      "text": "campaigns, how are they performing and what kind of"
+    },
+    {
+      "index": 68,
+      "start_time": 173020.0,
+      "end_time": 175710.0,
+      "text": "traffic is coming to my site because these campaigns?"
+    },
+    {
+      "index": 69,
+      "start_time": 175710.0,
+      "end_time": 178600.0,
+      "text": "Now, you see that first row there, row number one, is a"
+    },
+    {
+      "index": 70,
+      "start_time": 178600.0,
+      "end_time": 179610.0,
+      "text": "Google AdWords campaign."
+    },
+    {
+      "index": 71,
+      "start_time": 179610.0,
+      "end_time": 182600.0,
+      "text": "And you&#39;ll notice while you have user interaction data"
+    },
+    {
+      "index": 72,
+      "start_time": 182600.0,
+      "end_time": 186730.0,
+      "text": "such as visits, and you have impressions and clicks cost"
+    },
+    {
+      "index": 73,
+      "start_time": 186730.0,
+      "end_time": 190880.0,
+      "text": "data, you don&#39;t get the same kind of visual in cost data"
+    },
+    {
+      "index": 74,
+      "start_time": 190880.0,
+      "end_time": 192230.0,
+      "text": "that you would have for AdWords."
+    },
+    {
+      "index": 75,
+      "start_time": 192230.0,
+      "end_time": 194800.0,
+      "text": "You don&#39;t get the same data for the other paid campaigns"
+    },
+    {
+      "index": 76,
+      "start_time": 194800.0,
+      "end_time": 195370.0,
+      "text": "that you may have."
+    },
+    {
+      "index": 77,
+      "start_time": 195370.0,
+      "end_time": 197730.0,
+      "text": "So for example, we have an AdWords network campaign"
+    },
+    {
+      "index": 78,
+      "start_time": 197730.0,
+      "end_time": 199580.0,
+      "text": "running, and we have an affiliate"
+    },
+    {
+      "index": 79,
+      "start_time": 199580.0,
+      "end_time": 201000.0,
+      "text": "network campaign running."
+    },
+    {
+      "index": 80,
+      "start_time": 201000.0,
+      "end_time": 204770.0,
+      "text": "And you&#39;ll see, we know people are coming to the site, but we"
+    },
+    {
+      "index": 81,
+      "start_time": 204770.0,
+      "end_time": 208320.0,
+      "text": "don&#39;t have the cost data within GA to do that analysis."
+    },
+    {
+      "index": 82,
+      "start_time": 208320.0,
+      "end_time": 210360.0,
+      "text": "There&#39;s kind of two things missing around this then."
+    },
+    {
+      "index": 83,
+      "start_time": 210360.0,
+      "end_time": 213570.0,
+      "text": "For the particular paid campaign itself, being able to"
+    },
+    {
+      "index": 84,
+      "start_time": 213570.0,
+      "end_time": 216190.0,
+      "text": "analyze that in terms of the ROI and the metrics you might"
+    },
+    {
+      "index": 85,
+      "start_time": 216190.0,
+      "end_time": 217790.0,
+      "text": "be getting."
+    },
+    {
+      "index": 86,
+      "start_time": 217790.0,
+      "end_time": 219980.0,
+      "text": "Click-through rate, cost per click, things like that, you"
+    },
+    {
+      "index": 87,
+      "start_time": 219980.0,
+      "end_time": 221330.0,
+      "text": "kind of miss out on that."
+    },
+    {
+      "index": 88,
+      "start_time": 221330.0,
+      "end_time": 222640.0,
+      "text": "And then also, you don&#39;t really have the ability to"
+    },
+    {
+      "index": 89,
+      "start_time": 222640.0,
+      "end_time": 225680.0,
+      "text": "compare how these services are performing against each other."
+    },
+    {
+      "index": 90,
+      "start_time": 225680.0,
+      "end_time": 228120.0,
+      "text": "So is the AdWords network driving more?"
+    },
+    {
+      "index": 91,
+      "start_time": 228120.0,
+      "end_time": 230000.0,
+      "text": "Better conversions, or is Google AdWords driving better"
+    },
+    {
+      "index": 92,
+      "start_time": 230000.0,
+      "end_time": 230730.0,
+      "text": "conversions?"
+    },
+    {
+      "index": 93,
+      "start_time": 230730.0,
+      "end_time": 232580.0,
+      "text": "So you&#39;re missing that kind of complete view, that complete"
+    },
+    {
+      "index": 94,
+      "start_time": 232580.0,
+      "end_time": 236510.0,
+      "text": "analysis, around your cost data across all your different"
+    },
+    {
+      "index": 95,
+      "start_time": 236510.0,
+      "end_time": 238970.0,
+      "text": "paid campaigns that you might be having for all online"
+    },
+    {
+      "index": 96,
+      "start_time": 238970.0,
+      "end_time": 241710.0,
+      "text": "advertising and digital marketing."
+    },
+    {
+      "index": 97,
+      "start_time": 241710.0,
+      "end_time": 244830.0,
+      "text": "But cost data kind of solves that problem."
+    },
+    {
+      "index": 98,
+      "start_time": 244830.0,
+      "end_time": 248490.0,
+      "text": "When we launched this feature about a month ago, we had some"
+    },
+    {
+      "index": 99,
+      "start_time": 248490.0,
+      "end_time": 251730.0,
+      "text": "success stories right off the bat with a couple customers,"
+    },
+    {
+      "index": 100,
+      "start_time": 251730.0,
+      "end_time": 254290.0,
+      "text": "working with partners of ours to get something in place and"
+    },
+    {
+      "index": 101,
+      "start_time": 254290.0,
+      "end_time": 255940.0,
+      "text": "a solution for them."
+    },
+    {
+      "index": 102,
+      "start_time": 255940.0,
+      "end_time": 258350.0,
+      "text": "So, for example, we talked Next Analytics and Cardinal"
+    },
+    {
+      "index": 103,
+      "start_time": 258350.00000000003,
+      "end_time": 260019.00000000003,
+      "text": "Path, and they came up with a solution that"
+    },
+    {
+      "index": 104,
+      "start_time": 260019.0,
+      "end_time": 261459.0,
+      "text": "uses cost data upload."
+    },
+    {
+      "index": 105,
+      "start_time": 261459.0,
+      "end_time": 262580.0,
+      "text": "And they worked with Natural Wellbeing."
+    },
+    {
+      "index": 106,
+      "start_time": 262580.0,
+      "end_time": 265180.0,
+      "text": "And really, it was around fully automating this process"
+    },
+    {
+      "index": 107,
+      "start_time": 265180.0,
+      "end_time": 266980.0,
+      "text": "for them, so being able to take their cost data"
+    },
+    {
+      "index": 108,
+      "start_time": 266980.0,
+      "end_time": 270280.0,
+      "text": "automatically, export it, and upload it into Google"
+    },
+    {
+      "index": 109,
+      "start_time": 270280.0,
+      "end_time": 272340.0,
+      "text": "Analytics using this new feature."
+    },
+    {
+      "index": 110,
+      "start_time": 272340.0,
+      "end_time": 274350.0,
+      "text": "And it worked really well for them in saving them a lot of"
+    },
+    {
+      "index": 111,
+      "start_time": 274350.0,
+      "end_time": 275810.0,
+      "text": "time and doing this full automation."
+    },
+    {
+      "index": 112,
+      "start_time": 279070.0,
+      "end_time": 282150.0,
+      "text": "We also did the same thing with ShufflePoint and E-Nor."
+    },
+    {
+      "index": 113,
+      "start_time": 282150.0,
+      "end_time": 286350.0,
+      "text": "They came up with a solution using cost data upload again"
+    },
+    {
+      "index": 114,
+      "start_time": 286350.0,
+      "end_time": 287570.0,
+      "text": "to help OEMPCWorld."
+    },
+    {
+      "index": 115,
+      "start_time": 287570.0,
+      "end_time": 291230.0,
+      "text": "And this one was really about, again, fully automation."
+    },
+    {
+      "index": 116,
+      "start_time": 291230.0,
+      "end_time": 293440.0,
+      "text": "And a lot of the analysis they were doing was kind of a"
+    },
+    {
+      "index": 117,
+      "start_time": 293440.0,
+      "end_time": 296260.0,
+      "text": "manual process where you had your Google AdWords data, you"
+    },
+    {
+      "index": 118,
+      "start_time": 296260.0,
+      "end_time": 298140.0,
+      "text": "had some other campaigns."
+    },
+    {
+      "index": 119,
+      "start_time": 298140.0,
+      "end_time": 300310.0,
+      "text": "You had to manually bring that stuff together and do analysis"
+    },
+    {
+      "index": 120,
+      "start_time": 300310.0,
+      "end_time": 301850.0,
+      "text": "outside of GA."
+    },
+    {
+      "index": 121,
+      "start_time": 301850.0,
+      "end_time": 304040.0,
+      "text": "So this new feature really allowed them to bring all that"
+    },
+    {
+      "index": 122,
+      "start_time": 304040.0,
+      "end_time": 306550.0,
+      "text": "into Google Analytics and to do that complete analysis"
+    },
+    {
+      "index": 123,
+      "start_time": 306550.0,
+      "end_time": 308570.0,
+      "text": "within the product itself."
+    },
+    {
+      "index": 124,
+      "start_time": 308570.0,
+      "end_time": 311210.0,
+      "text": "So it saved them a lot of time, fully automated, a great"
+    },
+    {
+      "index": 125,
+      "start_time": 311210.0,
+      "end_time": 312460.0,
+      "text": "solution for them."
+    },
+    {
+      "index": 126,
+      "start_time": 316890.0,
+      "end_time": 319340.0,
+      "text": "So I think it would be good just to start off with a quick"
+    },
+    {
+      "index": 127,
+      "start_time": 319340.0,
+      "end_time": 320950.0,
+      "text": "demo to show you how this actually works."
+    },
+    {
+      "index": 128,
+      "start_time": 320950.0,
+      "end_time": 322730.0,
+      "text": "And then we&#39;re going to dive into details, and I can give"
+    },
+    {
+      "index": 129,
+      "start_time": 322730.0,
+      "end_time": 325410.0,
+      "text": "you a little bit more background on how these actual"
+    },
+    {
+      "index": 130,
+      "start_time": 325410.0,
+      "end_time": 327370.0,
+      "text": "steps that involved to do this."
+    },
+    {
+      "index": 131,
+      "start_time": 327370.0,
+      "end_time": 329730.0,
+      "text": "Sometimes, it&#39;s just easier to show you how it works, so I&#39;ll"
+    },
+    {
+      "index": 132,
+      "start_time": 329730.0,
+      "end_time": 331570.0,
+      "text": "start off with a report."
+    },
+    {
+      "index": 133,
+      "start_time": 331570.0,
+      "end_time": 333440.0,
+      "text": "This is within Google Analytics."
+    },
+    {
+      "index": 134,
+      "start_time": 333440.0,
+      "end_time": 338650.0,
+      "text": "It&#39;s a custom report, and the example here is that I have a"
+    },
+    {
+      "index": 135,
+      "start_time": 338650.0,
+      "end_time": 342970.0,
+      "text": "paid search ad running, and it&#39;s for an ad network."
+    },
+    {
+      "index": 136,
+      "start_time": 342970.0,
+      "end_time": 345130.0,
+      "text": "It&#39;s a CPC, and it&#39;s for the keyword"
+    },
+    {
+      "index": 137,
+      "start_time": 345130.0,
+      "end_time": 347280.0,
+      "text": "&quot;dogbone.&quot; And I can see--"
+    },
+    {
+      "index": 138,
+      "start_time": 347280.0,
+      "end_time": 349110.0,
+      "text": "so I&#39;ve tagged my URLs, and I&#39;ll get into that"
+    },
+    {
+      "index": 139,
+      "start_time": 349110.0,
+      "end_time": 350220.0,
+      "text": "a little bit later."
+    },
+    {
+      "index": 140,
+      "start_time": 350220.0,
+      "end_time": 352340.0,
+      "text": "So I know that someone&#39;s clicked on the URL, and"
+    },
+    {
+      "index": 141,
+      "start_time": 352340.0,
+      "end_time": 354680.0,
+      "text": "they&#39;ve visited my property, and I can see that there&#39;s"
+    },
+    {
+      "index": 142,
+      "start_time": 354680.0,
+      "end_time": 355920.0,
+      "text": "been two visits."
+    },
+    {
+      "index": 143,
+      "start_time": 355920.0,
+      "end_time": 358690.0,
+      "text": "But just as how I described before, we don&#39;t have"
+    },
+    {
+      "index": 144,
+      "start_time": 358690.0,
+      "end_time": 359610.0,
+      "text": "any cost data here."
+    },
+    {
+      "index": 145,
+      "start_time": 359610.0,
+      "end_time": 361970.0,
+      "text": "But the thing is, I actually do have the cost data."
+    },
+    {
+      "index": 146,
+      "start_time": 361970.0,
+      "end_time": 364660.0,
+      "text": "The service provider that I&#39;m using allows me to"
+    },
+    {
+      "index": 147,
+      "start_time": 364660.0,
+      "end_time": 366420.0,
+      "text": "export the cost data."
+    },
+    {
+      "index": 148,
+      "start_time": 366420.0,
+      "end_time": 368200.0,
+      "text": "I just don&#39;t have it in GA, so that&#39;s really"
+    },
+    {
+      "index": 149,
+      "start_time": 368200.0,
+      "end_time": 368620.0,
+      "text": "what I want to do."
+    },
+    {
+      "index": 150,
+      "start_time": 368620.0,
+      "end_time": 371340.0,
+      "text": "I want to have that same data available in GA so I can do"
+    },
+    {
+      "index": 151,
+      "start_time": 371340.0,
+      "end_time": 375900.0,
+      "text": "analysis and can carry out cost analysis."
+    },
+    {
+      "index": 152,
+      "start_time": 375900.0,
+      "end_time": 378180.0,
+      "text": "So just something to note here, the source is Ad"
+    },
+    {
+      "index": 153,
+      "start_time": 378180.0,
+      "end_time": 383080.0,
+      "text": "Network, the medium is CPC, and the keyword is &quot;dogbone.&quot;"
+    },
+    {
+      "index": 154,
+      "start_time": 383080.0,
+      "end_time": 385600.0,
+      "text": "So as I mentioned, I actually do have this cost data."
+    },
+    {
+      "index": 155,
+      "start_time": 385600.0,
+      "end_time": 389070.0,
+      "text": "So you can imagine that I exported this from the paid"
+    },
+    {
+      "index": 156,
+      "start_time": 389070.0,
+      "end_time": 392370.0,
+      "text": "search provider and have it in CSV file."
+    },
+    {
+      "index": 157,
+      "start_time": 392370.0,
+      "end_time": 394805.0,
+      "text": "And there&#39;s a header up here that has some dimensions that"
+    },
+    {
+      "index": 158,
+      "start_time": 394805.0,
+      "end_time": 396440.0,
+      "text": "I&#39;ll explain later."
+    },
+    {
+      "index": 159,
+      "start_time": 396440.0,
+      "end_time": 399320.0,
+      "text": "But in row two, we can see the same values that I just showed"
+    },
+    {
+      "index": 160,
+      "start_time": 399320.0,
+      "end_time": 400560.0,
+      "text": "you in report are actually here."
+    },
+    {
+      "index": 161,
+      "start_time": 400560.0,
+      "end_time": 404850.0,
+      "text": "We have Ad Network as a source, CPC is our medium, and"
+    },
+    {
+      "index": 162,
+      "start_time": 404850.0,
+      "end_time": 407410.0,
+      "text": "we have this keyword here, &quot;dogbone.&quot;"
+    },
+    {
+      "index": 163,
+      "start_time": 407410.0,
+      "end_time": 408830.0,
+      "text": "And there&#39;s that cost data I was talking about."
+    },
+    {
+      "index": 164,
+      "start_time": 408830.0,
+      "end_time": 413810.0,
+      "text": "We have impressions, we have clicks, and we have ad cost,"
+    },
+    {
+      "index": 165,
+      "start_time": 413810.0,
+      "end_time": 414730.0,
+      "text": "so I have this data."
+    },
+    {
+      "index": 166,
+      "start_time": 414730.0,
+      "end_time": 414940.0,
+      "text": "It&#39;s there."
+    },
+    {
+      "index": 167,
+      "start_time": 414940.0,
+      "end_time": 416090.0,
+      "text": "It&#39;s available, and there was a couple other"
+    },
+    {
+      "index": 168,
+      "start_time": 416090.0,
+      "end_time": 418770.0,
+      "text": "keywords that I ran also."
+    },
+    {
+      "index": 169,
+      "start_time": 418770.0,
+      "end_time": 421510.0,
+      "text": "Now, let&#39;s actually upload it and see how this process"
+    },
+    {
+      "index": 170,
+      "start_time": 421510.0,
+      "end_time": 424090.0,
+      "text": "works, and then we&#39;ll see--"
+    },
+    {
+      "index": 171,
+      "start_time": 424090.0,
+      "end_time": 425460.0,
+      "text": "once it&#39;s available in the report, you&#39;ll see how it&#39;s"
+    },
+    {
+      "index": 172,
+      "start_time": 425460.0,
+      "end_time": 428080.0,
+      "text": "actually joined together."
+    },
+    {
+      "index": 173,
+      "start_time": 428080.0,
+      "end_time": 429250.0,
+      "text": "So I have a little script."
+    },
+    {
+      "index": 174,
+      "start_time": 429250.0,
+      "end_time": 433140.0,
+      "text": "It&#39;s a Python script, just to kind of test things and see"
+    },
+    {
+      "index": 175,
+      "start_time": 433140.0,
+      "end_time": 436970.0,
+      "text": "how it&#39;s working, how the feature works."
+    },
+    {
+      "index": 176,
+      "start_time": 436970.0,
+      "end_time": 438090.0,
+      "text": "I&#39;ll start off with--"
+    },
+    {
+      "index": 177,
+      "start_time": 438090.0,
+      "end_time": 441450.0,
+      "text": "there&#39;s this new entity called custom data source."
+    },
+    {
+      "index": 178,
+      "start_time": 441450.0,
+      "end_time": 443490.0,
+      "text": "I can also explain what this means in a little bit, but"
+    },
+    {
+      "index": 179,
+      "start_time": 443490.0,
+      "end_time": 448290.0,
+      "text": "basically, you upload the cost data to a custom data source,"
+    },
+    {
+      "index": 180,
+      "start_time": 448290.0,
+      "end_time": 450960.0,
+      "text": "and you specify which date you&#39;d like to upload"
+    },
+    {
+      "index": 181,
+      "start_time": 450960.0,
+      "end_time": 451810.0,
+      "text": "the cost data for."
+    },
+    {
+      "index": 182,
+      "start_time": 451810.0,
+      "end_time": 454770.0,
+      "text": "So, in this example, this cost data actually is from"
+    },
+    {
+      "index": 183,
+      "start_time": 454770.0,
+      "end_time": 458850.0,
+      "text": "yesterday, so I exported all of the cost data and metrics"
+    },
+    {
+      "index": 184,
+      "start_time": 458850.0,
+      "end_time": 461340.0,
+      "text": "from yesterday into a CSV file, and it&#39;s"
+    },
+    {
+      "index": 185,
+      "start_time": 461340.0,
+      "end_time": 462820.0,
+      "text": "available to upload."
+    },
+    {
+      "index": 186,
+      "start_time": 462820.0,
+      "end_time": 464770.0,
+      "text": "So I&#39;m going to select the custom data source that I want"
+    },
+    {
+      "index": 187,
+      "start_time": 464770.0,
+      "end_time": 466363.0,
+      "text": "to upload to."
+    },
+    {
+      "index": 188,
+      "start_time": 466363.0,
+      "end_time": 469200.0,
+      "text": "And I&#39;ll show you how this process works."
+    },
+    {
+      "index": 189,
+      "start_time": 469200.0,
+      "end_time": 470770.0,
+      "text": "So I have quite a few accounts here."
+    },
+    {
+      "index": 190,
+      "start_time": 470770.0,
+      "end_time": 472730.0,
+      "text": "I want to upload to the My Store account."
+    },
+    {
+      "index": 191,
+      "start_time": 472730.0,
+      "end_time": 475950.0,
+      "text": "I will select the web property, and then here&#39;s what"
+    },
+    {
+      "index": 192,
+      "start_time": 475950.0,
+      "end_time": 477410.0,
+      "text": "I&#39;m talking about in terms of custom data sources."
+    },
+    {
+      "index": 193,
+      "start_time": 477410.0,
+      "end_time": 479830.0,
+      "text": "I have three set up, and I&#39;m just going to choose the first"
+    },
+    {
+      "index": 194,
+      "start_time": 479830.0,
+      "end_time": 483470.0,
+      "text": "one, the Ad Network custom data source."
+    },
+    {
+      "index": 195,
+      "start_time": 483470.0,
+      "end_time": 484720.0,
+      "text": "So now I&#39;ve selected it."
+    },
+    {
+      "index": 196,
+      "start_time": 484720.0,
+      "end_time": 489240.0,
+      "text": "If I go back up, you&#39;ll see now that it&#39;s actually"
+    },
+    {
+      "index": 197,
+      "start_time": 489240.0,
+      "end_time": 492860.0,
+      "text": "selected, here, Ad Network, and then also the account and"
+    },
+    {
+      "index": 198,
+      "start_time": 492860.0,
+      "end_time": 494490.0,
+      "text": "the web property."
+    },
+    {
+      "index": 199,
+      "start_time": 494490.0,
+      "end_time": 499800.0,
+      "text": "And then the upload data again is 2012, November 28."
+    },
+    {
+      "index": 200,
+      "start_time": 499800.0,
+      "end_time": 503510.0,
+      "text": "So I will do an upload of cost data, which is"
+    },
+    {
+      "index": 201,
+      "start_time": 503510.0,
+      "end_time": 505660.0,
+      "text": "number three here."
+    },
+    {
+      "index": 202,
+      "start_time": 505660.0,
+      "end_time": 508365.0,
+      "text": "I know the file that I showed you, what the name of it is."
+    },
+    {
+      "index": 203,
+      "start_time": 512990.0,
+      "end_time": 514240.0,
+      "text": "Oops."
+    },
+    {
+      "index": 204,
+      "start_time": 517030.0,
+      "end_time": 520220.0,
+      "text": "Spelled that wrong."
+    },
+    {
+      "index": 205,
+      "start_time": 520220.0,
+      "end_time": 523350.0,
+      "text": "OK, so it&#39;s actually uploading right now to Google Analytics"
+    },
+    {
+      "index": 206,
+      "start_time": 523350.0,
+      "end_time": 526850.0,
+      "text": "to that customer data source, and if all goes successful,"
+    },
+    {
+      "index": 207,
+      "start_time": 526850.0,
+      "end_time": 528660.0,
+      "text": "we&#39;ll get a response back from the server"
+    },
+    {
+      "index": 208,
+      "start_time": 528660.0,
+      "end_time": 530145.0,
+      "text": "saying it was a success."
+    },
+    {
+      "index": 209,
+      "start_time": 533190.0,
+      "end_time": 535830.0,
+      "text": "So it takes a little bit of time to process the data."
+    },
+    {
+      "index": 210,
+      "start_time": 535830.0,
+      "end_time": 537620.0,
+      "text": "It&#39;s not going to show up instantly."
+    },
+    {
+      "index": 211,
+      "start_time": 537620.0,
+      "end_time": 539740.0,
+      "text": "I will go back to the presentation."
+    },
+    {
+      "index": 212,
+      "start_time": 539740.0,
+      "end_time": 543270.0,
+      "text": "It could take anywhere from a few minutes to up to 12 hours,"
+    },
+    {
+      "index": 213,
+      "start_time": 543270.0,
+      "end_time": 546360.0,
+      "text": "so you should see data within 12 hours."
+    },
+    {
+      "index": 214,
+      "start_time": 546360.0,
+      "end_time": 548650.0,
+      "text": "Depending on the kind of load and your profile and web"
+    },
+    {
+      "index": 215,
+      "start_time": 548650.0,
+      "end_time": 550860.0,
+      "text": "property, it could take a little longer."
+    },
+    {
+      "index": 216,
+      "start_time": 550860.0,
+      "end_time": 552610.0,
+      "text": "I&#39;m going to actually go back to the presentation."
+    },
+    {
+      "index": 217,
+      "start_time": 552610.0,
+      "end_time": 554400.0,
+      "text": "We&#39;ve successfully uploaded cost data."
+    },
+    {
+      "index": 218,
+      "start_time": 554400.0,
+      "end_time": 556580.0,
+      "text": "I&#39;ll come back a little bit later, and we&#39;ll see if it&#39;s"
+    },
+    {
+      "index": 219,
+      "start_time": 556580.0,
+      "end_time": 558650.0,
+      "text": "available in the report and if it&#39;s been joined"
+    },
+    {
+      "index": 220,
+      "start_time": 558650.0,
+      "end_time": 562560.0,
+      "text": "to our actual campaign."
+    },
+    {
+      "index": 221,
+      "start_time": 562560.0,
+      "end_time": 565770.0,
+      "text": "In the meantime, let&#39;s talk about architectural overview,"
+    },
+    {
+      "index": 222,
+      "start_time": 565770.0,
+      "end_time": 567230.0,
+      "text": "how this feature works, and how you would actually go"
+    },
+    {
+      "index": 223,
+      "start_time": 567230.0,
+      "end_time": 571220.0,
+      "text": "about uploading cost data."
+    },
+    {
+      "index": 224,
+      "start_time": 571220.0,
+      "end_time": 573500.0,
+      "text": "So there&#39;s quite a few steps involved, but they&#39;re all"
+    },
+    {
+      "index": 225,
+      "start_time": 573500.0,
+      "end_time": 575040.0,
+      "text": "pretty simple."
+    },
+    {
+      "index": 226,
+      "start_time": 575040.0,
+      "end_time": 578760.0,
+      "text": "The first four are really around how to prepare for a"
+    },
+    {
+      "index": 227,
+      "start_time": 578760.0,
+      "end_time": 580310.0,
+      "text": "successful upload."
+    },
+    {
+      "index": 228,
+      "start_time": 580310.0,
+      "end_time": 582310.0,
+      "text": "And the fifth is really around reporting and how you would do"
+    },
+    {
+      "index": 229,
+      "start_time": 582310.0,
+      "end_time": 585550.0,
+      "text": "analysis, the tools that are available for that within GA."
+    },
+    {
+      "index": 230,
+      "start_time": 588190.0,
+      "end_time": 591190.0,
+      "text": "We&#39;ll start with tagging campaign URLS."
+    },
+    {
+      "index": 231,
+      "start_time": 591190.0,
+      "end_time": 594370.0,
+      "text": "So obviously, the primary benefit to this feature is"
+    },
+    {
+      "index": 232,
+      "start_time": 594370.0,
+      "end_time": 597260.0,
+      "text": "that you&#39;re able to join that user interaction data that&#39;s"
+    },
+    {
+      "index": 233,
+      "start_time": 597260.0,
+      "end_time": 599570.0,
+      "text": "already in GA that you have, and you&#39;re able to join that"
+    },
+    {
+      "index": 234,
+      "start_time": 599570.0,
+      "end_time": 601990.0,
+      "text": "with the cost data that might sit somewhere externally."
+    },
+    {
+      "index": 235,
+      "start_time": 601990.0,
+      "end_time": 605660.0,
+      "text": "So bringing those two together is really a huge benefit here."
+    },
+    {
+      "index": 236,
+      "start_time": 605660.0,
+      "end_time": 608870.0,
+      "text": "But in order to do that, it&#39;s important that you use"
+    },
+    {
+      "index": 237,
+      "start_time": 608870.0,
+      "end_time": 610680.0,
+      "text": "campaign tracking parameters, so you should"
+    },
+    {
+      "index": 238,
+      "start_time": 610680.0,
+      "end_time": 612810.0,
+      "text": "be doing this anyways."
+    },
+    {
+      "index": 239,
+      "start_time": 612810.0,
+      "end_time": 615100.0,
+      "text": "But the important part of this is that the campaign tracking"
+    },
+    {
+      "index": 240,
+      "start_time": 615100.0,
+      "end_time": 618520.0,
+      "text": "parameters, the values you use as part of the campaign,"
+    },
+    {
+      "index": 241,
+      "start_time": 618520.0,
+      "end_time": 621100.0,
+      "text": "should or have to match the values that you&#39;re uploading"
+    },
+    {
+      "index": 242,
+      "start_time": 621100.0,
+      "end_time": 623720.0,
+      "text": "through cost data upload feature."
+    },
+    {
+      "index": 243,
+      "start_time": 623720.0,
+      "end_time": 626000.0,
+      "text": "So I&#39;ll explain a little bit more in detail what this"
+    },
+    {
+      "index": 244,
+      "start_time": 626000.0,
+      "end_time": 630730.0,
+      "text": "means, but basically, they have to match, and if they"
+    },
+    {
+      "index": 245,
+      "start_time": 630730.0,
+      "end_time": 631960.0,
+      "text": "match, then they&#39;ll actually get joined"
+    },
+    {
+      "index": 246,
+      "start_time": 631960.0,
+      "end_time": 635030.0,
+      "text": "together in that case."
+    },
+    {
+      "index": 247,
+      "start_time": 635030.0,
+      "end_time": 638305.0,
+      "text": "So in this example here, I have an ad running."
+    },
+    {
+      "index": 248,
+      "start_time": 638305.0,
+      "end_time": 639540.0,
+      "text": "It&#39;s not a Google ad."
+    },
+    {
+      "index": 249,
+      "start_time": 639540.0,
+      "end_time": 642440.0,
+      "text": "It&#39;s another paid search provider."
+    },
+    {
+      "index": 250,
+      "start_time": 642440.0,
+      "end_time": 647410.0,
+      "text": "The link there actually has UTM parameters as part of it,"
+    },
+    {
+      "index": 251,
+      "start_time": 647410.0,
+      "end_time": 649800.0,
+      "text": "these campaign tracking parameters, and I&#39;ve specified"
+    },
+    {
+      "index": 252,
+      "start_time": 649800.0,
+      "end_time": 652970.0,
+      "text": "an ad network, CPC as a medium, the campaign is summer"
+    },
+    {
+      "index": 253,
+      "start_time": 652970.0,
+      "end_time": 656240.0,
+      "text": "sale, and again the term is &quot;dogbone.&quot; So you&#39;ve seen"
+    },
+    {
+      "index": 254,
+      "start_time": 656240.0,
+      "end_time": 658405.0,
+      "text": "these values throughout, and we&#39;ll kind of explain how this"
+    },
+    {
+      "index": 255,
+      "start_time": 658405.0,
+      "end_time": 659655.0,
+      "text": "all works now."
+    },
+    {
+      "index": 256,
+      "start_time": 662196.0,
+      "end_time": 664570.0,
+      "text": "OK, so you&#39;ve tagged your URLs."
+    },
+    {
+      "index": 257,
+      "start_time": 664570.0,
+      "end_time": 665900.0,
+      "text": "All your destination URLs for all your paid"
+    },
+    {
+      "index": 258,
+      "start_time": 665900.0,
+      "end_time": 667390.0,
+      "text": "campaigns are tagged."
+    },
+    {
+      "index": 259,
+      "start_time": 667390.0,
+      "end_time": 668750.0,
+      "text": "And again, this is not for Google AdWords."
+    },
+    {
+      "index": 260,
+      "start_time": 668750.0,
+      "end_time": 670520.0,
+      "text": "Google AdWords has a different mechanism for"
+    },
+    {
+      "index": 261,
+      "start_time": 670520.0,
+      "end_time": 671840.0,
+      "text": "uploading cost data."
+    },
+    {
+      "index": 262,
+      "start_time": 671840.0,
+      "end_time": 675420.0,
+      "text": "You just link your profile to your Analytics account, and"
+    },
+    {
+      "index": 263,
+      "start_time": 675420.0,
+      "end_time": 676320.0,
+      "text": "it&#39;ll take care of itself."
+    },
+    {
+      "index": 264,
+      "start_time": 676320.0,
+      "end_time": 678360.0,
+      "text": "This is for non-Google paid campaigns, just something to"
+    },
+    {
+      "index": 265,
+      "start_time": 678360.0,
+      "end_time": 679760.0,
+      "text": "keep in mind."
+    },
+    {
+      "index": 266,
+      "start_time": 679760.0,
+      "end_time": 682530.0,
+      "text": "But once you&#39;ve tagged those URLs, the next thing you want"
+    },
+    {
+      "index": 267,
+      "start_time": 682530.0,
+      "end_time": 685070.0,
+      "text": "to do is actually get the data out of the external source and"
+    },
+    {
+      "index": 268,
+      "start_time": 685070.0,
+      "end_time": 689260.0,
+      "text": "prepare it as a CSV file to upload, so let&#39;s take a look"
+    },
+    {
+      "index": 269,
+      "start_time": 689260.0,
+      "end_time": 690780.0,
+      "text": "at what that means."
+    },
+    {
+      "index": 270,
+      "start_time": 690780.0,
+      "end_time": 693230.0,
+      "text": "The first thing is what can you actually upload."
+    },
+    {
+      "index": 271,
+      "start_time": 693230.0,
+      "end_time": 696230.0,
+      "text": "So there&#39;s quite a few different dimensions and three"
+    },
+    {
+      "index": 272,
+      "start_time": 696230.0,
+      "end_time": 698290.0,
+      "text": "metrics that you can provide values for"
+    },
+    {
+      "index": 273,
+      "start_time": 698290.0,
+      "end_time": 699610.0,
+      "text": "through cost data upload."
+    },
+    {
+      "index": 274,
+      "start_time": 699610.0,
+      "end_time": 701670.0,
+      "text": "There&#39;s actually nothing new here in terms of dimensions"
+    },
+    {
+      "index": 275,
+      "start_time": 701670.0,
+      "end_time": 702180.0,
+      "text": "and metrics."
+    },
+    {
+      "index": 276,
+      "start_time": 702180.0,
+      "end_time": 704770.0,
+      "text": "So these use existing AdWords dimensions and metrics that"
+    },
+    {
+      "index": 277,
+      "start_time": 704770.0,
+      "end_time": 707420.0,
+      "text": "you&#39;ve seen and are probably familiar with, so"
+    },
+    {
+      "index": 278,
+      "start_time": 707420.0,
+      "end_time": 708190.0,
+      "text": "it&#39;s nothing new there."
+    },
+    {
+      "index": 279,
+      "start_time": 708190.0,
+      "end_time": 710400.0,
+      "text": "So if you have any reports set up, like custom reports around"
+    },
+    {
+      "index": 280,
+      "start_time": 710400.0,
+      "end_time": 713740.0,
+      "text": "performance of paid campaigns, those don&#39;t have to be changed"
+    },
+    {
+      "index": 281,
+      "start_time": 713740.0,
+      "end_time": 715750.0,
+      "text": "once you start uploading cost data."
+    },
+    {
+      "index": 282,
+      "start_time": 715750.0,
+      "end_time": 717770.0,
+      "text": "Any zero values that you had before will just automatically"
+    },
+    {
+      "index": 283,
+      "start_time": 717770.0,
+      "end_time": 720920.0,
+      "text": "be populated with this data that you&#39;ve uploaded."
+    },
+    {
+      "index": 284,
+      "start_time": 720920.0,
+      "end_time": 724040.0,
+      "text": "For the dimensions, there are two that are required, which"
+    },
+    {
+      "index": 285,
+      "start_time": 724040.0,
+      "end_time": 726160.0,
+      "text": "are source and medium."
+    },
+    {
+      "index": 286,
+      "start_time": 726160.0,
+      "end_time": 728650.0,
+      "text": "And then for metrics, there&#39;s three of them,"
+    },
+    {
+      "index": 287,
+      "start_time": 728650.0,
+      "end_time": 730490.0,
+      "text": "and only one is required."
+    },
+    {
+      "index": 288,
+      "start_time": 730490.0,
+      "end_time": 731830.0,
+      "text": "One of the three is required."
+    },
+    {
+      "index": 289,
+      "start_time": 731830.0,
+      "end_time": 734760.0,
+      "text": "For any ones that are omitted, we&#39;ll just assume it&#39;s a value"
+    },
+    {
+      "index": 290,
+      "start_time": 734760.0,
+      "end_time": 736025.0,
+      "text": "of zero basically for those."
+    },
+    {
+      "index": 291,
+      "start_time": 739482.0,
+      "end_time": 741445.0,
+      "text": "So this is the important part here."
+    },
+    {
+      "index": 292,
+      "start_time": 741445.0,
+      "end_time": 743260.0,
+      "text": "We talked about the tagging of the URLs, and"
+    },
+    {
+      "index": 293,
+      "start_time": 743260.0,
+      "end_time": 745030.0,
+      "text": "this is why it&#39;s important."
+    },
+    {
+      "index": 294,
+      "start_time": 745030.0,
+      "end_time": 746220.0,
+      "text": "This is how the data actually gets"
+    },
+    {
+      "index": 295,
+      "start_time": 746220.0,
+      "end_time": 747260.0,
+      "text": "joined and mapped together."
+    },
+    {
+      "index": 296,
+      "start_time": 747260.0,
+      "end_time": 750210.0,
+      "text": "So you have all your user interaction data sitting in GA"
+    },
+    {
+      "index": 297,
+      "start_time": 750210.0,
+      "end_time": 752500.0,
+      "text": "already today, and you&#39;re doing that through normal"
+    },
+    {
+      "index": 298,
+      "start_time": 752500.0,
+      "end_time": 755280.0,
+      "text": "measurement that you&#39;ve already done all the time, so"
+    },
+    {
+      "index": 299,
+      "start_time": 755280.0,
+      "end_time": 756500.0,
+      "text": "that&#39;s taken care of."
+    },
+    {
+      "index": 300,
+      "start_time": 756500.0,
+      "end_time": 758040.0,
+      "text": "Now, you&#39;re uploading cost data."
+    },
+    {
+      "index": 301,
+      "start_time": 758040.0,
+      "end_time": 761930.0,
+      "text": "And what&#39;s going to happen is the campaign tracking"
+    },
+    {
+      "index": 302,
+      "start_time": 761930.0,
+      "end_time": 764660.0,
+      "text": "parameters, the values you use there and the ones you upload,"
+    },
+    {
+      "index": 303,
+      "start_time": 764660.0,
+      "end_time": 765980.0,
+      "text": "if there&#39;s a match there, then the data"
+    },
+    {
+      "index": 304,
+      "start_time": 765980.0,
+      "end_time": 767100.0,
+      "text": "will get joined together."
+    },
+    {
+      "index": 305,
+      "start_time": 767100.0,
+      "end_time": 769300.0,
+      "text": "This is why it&#39;s important that these things are synced"
+    },
+    {
+      "index": 306,
+      "start_time": 769300.0,
+      "end_time": 771450.0,
+      "text": "across the two."
+    },
+    {
+      "index": 307,
+      "start_time": 771450.0,
+      "end_time": 777270.0,
+      "text": "Also, there is a specific case in terms of the case that is"
+    },
+    {
+      "index": 308,
+      "start_time": 777270.0,
+      "end_time": 778330.0,
+      "text": "required for these things."
+    },
+    {
+      "index": 309,
+      "start_time": 778330.0,
+      "end_time": 780540.0,
+      "text": "The keyword is case insensitive."
+    },
+    {
+      "index": 310,
+      "start_time": 780540.0,
+      "end_time": 784860.0,
+      "text": "So it doesn&#39;t matter if the keyword is capitalized or not,"
+    },
+    {
+      "index": 311,
+      "start_time": 784860.0,
+      "end_time": 786430.0,
+      "text": "they&#39;ll get joined regardless."
+    },
+    {
+      "index": 312,
+      "start_time": 786430.0,
+      "end_time": 791130.0,
+      "text": "But the other four dimensions are case sensitive, so you&#39;ve"
+    },
+    {
+      "index": 313,
+      "start_time": 791130.0,
+      "end_time": 792680.0,
+      "text": "got to be careful there and make sure these values are"
+    },
+    {
+      "index": 314,
+      "start_time": 792680.0,
+      "end_time": 796050.0,
+      "text": "consistent in that regard."
+    },
+    {
+      "index": 315,
+      "start_time": 796050.0,
+      "end_time": 799680.0,
+      "text": "Also, it&#39;s up to you really to determine the naming"
+    },
+    {
+      "index": 316,
+      "start_time": 799680.0,
+      "end_time": 801480.0,
+      "text": "conventions that are used in the external system."
+    },
+    {
+      "index": 317,
+      "start_time": 801480.0,
+      "end_time": 804490.0,
+      "text": "It&#39;s quite possible that the naming convention used by this"
+    },
+    {
+      "index": 318,
+      "start_time": 804490.0,
+      "end_time": 806650.0,
+      "text": "external source might be a little bit different and not"
+    },
+    {
+      "index": 319,
+      "start_time": 806650.0,
+      "end_time": 808640.0,
+      "text": "as matched up with the namings that we use for our"
+    },
+    {
+      "index": 320,
+      "start_time": 808640.0,
+      "end_time": 810520.0,
+      "text": "dimensions within GA."
+    },
+    {
+      "index": 321,
+      "start_time": 810520.0,
+      "end_time": 813085.0,
+      "text": "So it&#39;s kind of up to you to look at what&#39;s available from"
+    },
+    {
+      "index": 322,
+      "start_time": 813085.0,
+      "end_time": 816000.0,
+      "text": "the external provider and map and see how that maps these"
+    },
+    {
+      "index": 323,
+      "start_time": 816000.0,
+      "end_time": 818540.0,
+      "text": "dimensions and the values you need to provide for these"
+    },
+    {
+      "index": 324,
+      "start_time": 818540.0,
+      "end_time": 819900.0,
+      "text": "dimensions."
+    },
+    {
+      "index": 325,
+      "start_time": 819900.0,
+      "end_time": 821030.0,
+      "text": "It&#39;s kind of up to you to do that."
+    },
+    {
+      "index": 326,
+      "start_time": 821030.0,
+      "end_time": 822950.0,
+      "text": "And usually, it&#39;s a one-step kind of process once you&#39;ve"
+    },
+    {
+      "index": 327,
+      "start_time": 822950.0,
+      "end_time": 824030.0,
+      "text": "got it setup."
+    },
+    {
+      "index": 328,
+      "start_time": 824030.0,
+      "end_time": 825960.0,
+      "text": "Then you don&#39;t have to really worry about it anymore, but"
+    },
+    {
+      "index": 329,
+      "start_time": 825960.0,
+      "end_time": 828990.0,
+      "text": "identifying those mappings at first is really important."
+    },
+    {
+      "index": 330,
+      "start_time": 831756.0,
+      "end_time": 834390.0,
+      "text": "OK, so we know what we can upload."
+    },
+    {
+      "index": 331,
+      "start_time": 834390.0,
+      "end_time": 835880.0,
+      "text": "Let&#39;s take a look at actually what you would upload."
+    },
+    {
+      "index": 332,
+      "start_time": 835880.0,
+      "end_time": 837870.0,
+      "text": "So I showed you a CSV file before."
+    },
+    {
+      "index": 333,
+      "start_time": 837870.0,
+      "end_time": 839900.0,
+      "text": "Here&#39;s another example."
+    },
+    {
+      "index": 334,
+      "start_time": 839900.0,
+      "end_time": 841390.0,
+      "text": "So this is for aggregates, right?"
+    },
+    {
+      "index": 335,
+      "start_time": 841390.0,
+      "end_time": 844570.0,
+      "text": "You&#39;re uploading aggregate data on a daily basis."
+    },
+    {
+      "index": 336,
+      "start_time": 844570.0,
+      "end_time": 847170.0,
+      "text": "That&#39;s usually the typical use case."
+    },
+    {
+      "index": 337,
+      "start_time": 847170.0,
+      "end_time": 849430.0,
+      "text": "So best practice then is really to wait until the end"
+    },
+    {
+      "index": 338,
+      "start_time": 849430.0,
+      "end_time": 851660.0,
+      "text": "of the day and then upload cost data."
+    },
+    {
+      "index": 339,
+      "start_time": 851660.0,
+      "end_time": 854300.0,
+      "text": "Or upload cost data for the previous day because you want"
+    },
+    {
+      "index": 340,
+      "start_time": 854300.0,
+      "end_time": 856400.0,
+      "text": "to upload it in an aggregate, and you upload it for a"
+    },
+    {
+      "index": 341,
+      "start_time": 856400.0,
+      "end_time": 857150.0,
+      "text": "specific date."
+    },
+    {
+      "index": 342,
+      "start_time": 857150.0,
+      "end_time": 859250.0,
+      "text": "You say I&#39;m going to upload it for yesterday or the day"
+    },
+    {
+      "index": 343,
+      "start_time": 859250.0,
+      "end_time": 861240.0,
+      "text": "before and so on."
+    },
+    {
+      "index": 344,
+      "start_time": 861240.0,
+      "end_time": 863140.0,
+      "text": "Again, you&#39;ll notice here that the values I have for the"
+    },
+    {
+      "index": 345,
+      "start_time": 863140.0,
+      "end_time": 867070.0,
+      "text": "source and medium match the values that I use in my URLs"
+    },
+    {
+      "index": 346,
+      "start_time": 867070.0,
+      "end_time": 869880.0,
+      "text": "for my campaigns as part of the campaign tracking"
+    },
+    {
+      "index": 347,
+      "start_time": 869880.0,
+      "end_time": 872480.0,
+      "text": "parameters, and those should always be consistent."
+    },
+    {
+      "index": 348,
+      "start_time": 872480.0,
+      "end_time": 874510.0,
+      "text": "And then you have your actual metrics here, the cost data"
+    },
+    {
+      "index": 349,
+      "start_time": 874510.0,
+      "end_time": 876710.0,
+      "text": "itself, the compressions, ads, and clicks."
+    },
+    {
+      "index": 350,
+      "start_time": 876710.0,
+      "end_time": 878570.0,
+      "text": "In this case, I provided values for all three because I"
+    },
+    {
+      "index": 351,
+      "start_time": 878570.0,
+      "end_time": 880000.0,
+      "text": "had them available."
+    },
+    {
+      "index": 352,
+      "start_time": 880000.0,
+      "end_time": 882490.0,
+      "text": "And then, of course, you saw the list of all the dimensions"
+    },
+    {
+      "index": 353,
+      "start_time": 882490.0,
+      "end_time": 883000.0,
+      "text": "that are available."
+    },
+    {
+      "index": 354,
+      "start_time": 883000.0,
+      "end_time": 885250.0,
+      "text": "Those can be included also."
+    },
+    {
+      "index": 355,
+      "start_time": 885250.0,
+      "end_time": 888570.0,
+      "text": "There is quite a few different constraints and requirements"
+    },
+    {
+      "index": 356,
+      "start_time": 888570.0,
+      "end_time": 890270.0,
+      "text": "around what needs to be provided and the values you"
+    },
+    {
+      "index": 357,
+      "start_time": 890270.0,
+      "end_time": 891460.0,
+      "text": "can provide."
+    },
+    {
+      "index": 358,
+      "start_time": 891460.0,
+      "end_time": 894230.0,
+      "text": "These are all available on our developer site, which I"
+    },
+    {
+      "index": 359,
+      "start_time": 894230.0,
+      "end_time": 898450.0,
+      "text": "provide some links later for you guys."
+    },
+    {
+      "index": 360,
+      "start_time": 898450.0,
+      "end_time": 904130.0,
+      "text": "OK, so we&#39;ve tagged our campaign URLs with campaign"
+    },
+    {
+      "index": 361,
+      "start_time": 904130.0,
+      "end_time": 906410.0,
+      "text": "tracking parameters."
+    },
+    {
+      "index": 362,
+      "start_time": 906410.0,
+      "end_time": 910090.0,
+      "text": "We&#39;ve got our CSV file that we exported out from the external"
+    },
+    {
+      "index": 363,
+      "start_time": 910090.0,
+      "end_time": 913590.0,
+      "text": "source, and we&#39;ve prepared it properly."
+    },
+    {
+      "index": 364,
+      "start_time": 913590.0,
+      "end_time": 915560.0,
+      "text": "And now we have to create a data source."
+    },
+    {
+      "index": 365,
+      "start_time": 915560.0,
+      "end_time": 917480.0,
+      "text": "Remember, we have to upload to a custom data source."
+    },
+    {
+      "index": 366,
+      "start_time": 917480.0,
+      "end_time": 919790.0,
+      "text": "We have to create that, and that&#39;s actually done through"
+    },
+    {
+      "index": 367,
+      "start_time": 919790.0,
+      "end_time": 922432.0,
+      "text": "the web interface."
+    },
+    {
+      "index": 368,
+      "start_time": 922432.0,
+      "end_time": 929754.0,
+      "text": "OK, so I&#39;ll show you how it actually is done right now,"
+    },
+    {
+      "index": 369,
+      "start_time": 929754.0,
+      "end_time": 932120.0,
+      "text": "and then I&#39;ll explain how exactly that this works."
+    },
+    {
+      "index": 370,
+      "start_time": 932120.0,
+      "end_time": 933370.0,
+      "text": "So it&#39;s at the web property level."
+    },
+    {
+      "index": 371,
+      "start_time": 935750.0,
+      "end_time": 937470.0,
+      "text": "And we&#39;re currently doing white listing, so some of you"
+    },
+    {
+      "index": 372,
+      "start_time": 937470.0,
+      "end_time": 940620.0,
+      "text": "may have this, some of you may not, but it will be all rolled"
+    },
+    {
+      "index": 373,
+      "start_time": 940620.0,
+      "end_time": 942900.0,
+      "text": "out to everybody in the next week or so I think."
+    },
+    {
+      "index": 374,
+      "start_time": 942900.0,
+      "end_time": 945800.0,
+      "text": "So if you go to the web property level in the admin"
+    },
+    {
+      "index": 375,
+      "start_time": 945800.0,
+      "end_time": 948280.0,
+      "text": "panel, you&#39;ll see a tab called Custom Definitions."
+    },
+    {
+      "index": 376,
+      "start_time": 951730.0,
+      "end_time": 954400.0,
+      "text": "So I already have three custom data sources"
+    },
+    {
+      "index": 377,
+      "start_time": 954400.0,
+      "end_time": 956840.0,
+      "text": "available in here."
+    },
+    {
+      "index": 378,
+      "start_time": 956840.0,
+      "end_time": 958125.0,
+      "text": "I&#39;m going to create a new one, so I&#39;ll show"
+    },
+    {
+      "index": 379,
+      "start_time": 958125.0,
+      "end_time": 958730.0,
+      "text": "you how it&#39;s done."
+    },
+    {
+      "index": 380,
+      "start_time": 958730.0,
+      "end_time": 963430.0,
+      "text": "So a new custom data source, You can imagine just, say, I"
+    },
+    {
+      "index": 381,
+      "start_time": 963430.0,
+      "end_time": 965987.0,
+      "text": "want to have one for, let&#39;s say, email marketing, so I&#39;ll"
+    },
+    {
+      "index": 382,
+      "start_time": 965987.0,
+      "end_time": 972880.0,
+      "text": "put email marketing campaigns, specify the type."
+    },
+    {
+      "index": 383,
+      "start_time": 972880.0,
+      "end_time": 973720.0,
+      "text": "We&#39;re uplinking cost data."
+    },
+    {
+      "index": 384,
+      "start_time": 973720.0,
+      "end_time": 975210.0,
+      "text": "That&#39;s the type."
+    },
+    {
+      "index": 385,
+      "start_time": 975210.0,
+      "end_time": 976460.0,
+      "text": "And then we link your profile."
+    },
+    {
+      "index": 386,
+      "start_time": 978880.0,
+      "end_time": 982300.0,
+      "text": "Linking profiles will enable this cost data to be available"
+    },
+    {
+      "index": 387,
+      "start_time": 982300.0,
+      "end_time": 983170.0,
+      "text": "for those profiles."
+    },
+    {
+      "index": 388,
+      "start_time": 983170.0,
+      "end_time": 985670.0,
+      "text": "You can imagine you might have 100 profiles here."
+    },
+    {
+      "index": 389,
+      "start_time": 985670.0,
+      "end_time": 986760.0,
+      "text": "You can select which ones you want."
+    },
+    {
+      "index": 390,
+      "start_time": 986760.0,
+      "end_time": 989130.0,
+      "text": "There&#39;s a little search box to make it a little bit easier."
+    },
+    {
+      "index": 391,
+      "start_time": 989130.0,
+      "end_time": 991150.0,
+      "text": "And then you just select which profiles you would like the"
+    },
+    {
+      "index": 392,
+      "start_time": 991150.0,
+      "end_time": 993370.0,
+      "text": "cost data to show up in."
+    },
+    {
+      "index": 393,
+      "start_time": 993370.0,
+      "end_time": 997960.0,
+      "text": "Click Create, and you&#39;ll see now I have a new custom data"
+    },
+    {
+      "index": 394,
+      "start_time": 997960.0,
+      "end_time": 1001410.0,
+      "text": "source for email marketing campaigns."
+    },
+    {
+      "index": 395,
+      "start_time": 1001410.0,
+      "end_time": 1004590.0,
+      "text": "And the important thing here is there&#39;s an ID, and you"
+    },
+    {
+      "index": 396,
+      "start_time": 1004590.0,
+      "end_time": 1007430.0,
+      "text": "actually need that ID to do uploads, and I&#39;ll show you how"
+    },
+    {
+      "index": 397,
+      "start_time": 1007430.0,
+      "end_time": 1008904.0,
+      "text": "that&#39;s done."
+    },
+    {
+      "index": 398,
+      "start_time": 1008900.0,
+      "end_time": 1011626.0,
+      "text": "I&#39;m going to go back to the presentation."
+    },
+    {
+      "index": 399,
+      "start_time": 1011630.0,
+      "end_time": 1013750.0,
+      "text": "So let&#39;s look at what&#39;s a custom data source, and how"
+    },
+    {
+      "index": 400,
+      "start_time": 1013750.0,
+      "end_time": 1016750.0,
+      "text": "does it relate to Google Analytics model?"
+    },
+    {
+      "index": 401,
+      "start_time": 1016750.0,
+      "end_time": 1018890.0,
+      "text": "I think you&#39;re probably mostly familiar with this."
+    },
+    {
+      "index": 402,
+      "start_time": 1018890.0,
+      "end_time": 1020010.0,
+      "text": "This is the way GA is set up today."
+    },
+    {
+      "index": 403,
+      "start_time": 1020010.0,
+      "end_time": 1020950.0,
+      "text": "We have Web Properties."
+    },
+    {
+      "index": 404,
+      "start_time": 1020950.0,
+      "end_time": 1023230.0,
+      "text": "That&#39;s where all the user interaction data is collected."
+    },
+    {
+      "index": 405,
+      "start_time": 1023230.0,
+      "end_time": 1024829.0,
+      "text": "That&#39;s the level it&#39;s collected at."
+    },
+    {
+      "index": 406,
+      "start_time": 1024829.9999999999,
+      "end_time": 1027420.9999999999,
+      "text": "And then we have profiles, and profiles basically act as"
+    },
+    {
+      "index": 407,
+      "start_time": 1027420.0000000001,
+      "end_time": 1029109.0000000001,
+      "text": "views of that data."
+    },
+    {
+      "index": 408,
+      "start_time": 1029109.9999999999,
+      "end_time": 1030550.9999999999,
+      "text": "So you can have one maybe for marketing."
+    },
+    {
+      "index": 409,
+      "start_time": 1030550.0,
+      "end_time": 1033000.0,
+      "text": "You might have one for sales, or certain filters apply that"
+    },
+    {
+      "index": 410,
+      "start_time": 1033000.0,
+      "end_time": 1035490.0,
+      "text": "you want to have different views of your web property"
+    },
+    {
+      "index": 411,
+      "start_time": 1035490.0,
+      "end_time": 1037190.0,
+      "text": "user interaction data."
+    },
+    {
+      "index": 412,
+      "start_time": 1037190.0,
+      "end_time": 1039920.0,
+      "text": "What&#39;s been introduced with cost data upload is custom"
+    },
+    {
+      "index": 413,
+      "start_time": 1039920.0000000001,
+      "end_time": 1041150.0000000001,
+      "text": "data sources."
+    },
+    {
+      "index": 414,
+      "start_time": 1041150.0000000001,
+      "end_time": 1045010.0000000001,
+      "text": "So this resource kind of acts as representing"
+    },
+    {
+      "index": 415,
+      "start_time": 1045010.0,
+      "end_time": 1046220.0,
+      "text": "external data sources."
+    },
+    {
+      "index": 416,
+      "start_time": 1046220.0,
+      "end_time": 1049790.0,
+      "text": "You could have a single or multiple external data sources"
+    },
+    {
+      "index": 417,
+      "start_time": 1049790.0,
+      "end_time": 1051120.0,
+      "text": "per custom data source."
+    },
+    {
+      "index": 418,
+      "start_time": 1051120.0,
+      "end_time": 1052790.0,
+      "text": "It&#39;s up to you."
+    },
+    {
+      "index": 419,
+      "start_time": 1052790.0,
+      "end_time": 1054675.0,
+      "text": "You can have multiple custom data"
+    },
+    {
+      "index": 420,
+      "start_time": 1054680.0,
+      "end_time": 1056535.0,
+      "text": "sources on your web property."
+    },
+    {
+      "index": 421,
+      "start_time": 1056530.0,
+      "end_time": 1058620.0,
+      "text": "I would say, as a best practice, I would create a"
+    },
+    {
+      "index": 422,
+      "start_time": 1058620.0,
+      "end_time": 1062290.0,
+      "text": "custom data source per external data source."
+    },
+    {
+      "index": 423,
+      "start_time": 1062290.0,
+      "end_time": 1064315.0,
+      "text": "It&#39;s just a little bit easier to manage, and it allows you"
+    },
+    {
+      "index": 424,
+      "start_time": 1064310.0,
+      "end_time": 1066885.0,
+      "text": "to kind of separate data from across the different sources"
+    },
+    {
+      "index": 425,
+      "start_time": 1066890.0,
+      "end_time": 1068370.0,
+      "text": "that you might have."
+    },
+    {
+      "index": 426,
+      "start_time": 1068370.0,
+      "end_time": 1070010.0,
+      "text": "It&#39;s really important that you link a profile."
+    },
+    {
+      "index": 427,
+      "start_time": 1070010.0,
+      "end_time": 1071680.0,
+      "text": "So this, as I showed you before, when you link"
+    },
+    {
+      "index": 428,
+      "start_time": 1071680.0,
+      "end_time": 1074230.0,
+      "text": "profiles, it enables that data to be available"
+    },
+    {
+      "index": 429,
+      "start_time": 1074230.0,
+      "end_time": 1075510.0,
+      "text": "within those reports."
+    },
+    {
+      "index": 430,
+      "start_time": 1075510.0,
+      "end_time": 1078020.0,
+      "text": "If you don&#39;t have that linking, then the cost data"
+    },
+    {
+      "index": 431,
+      "start_time": 1078020.0,
+      "end_time": 1079210.0,
+      "text": "will not show up in reports."
+    },
+    {
+      "index": 432,
+      "start_time": 1079210.0,
+      "end_time": 1081290.0,
+      "text": "So in this case, we have an example here where we&#39;ve"
+    },
+    {
+      "index": 433,
+      "start_time": 1081290.0,
+      "end_time": 1083110.0,
+      "text": "created a custom data source, and it&#39;s linked to two"
+    },
+    {
+      "index": 434,
+      "start_time": 1083110.0,
+      "end_time": 1085340.0,
+      "text": "profiles, profile one and profile three."
+    },
+    {
+      "index": 435,
+      "start_time": 1085340.0,
+      "end_time": 1088260.0,
+      "text": "So those two will show data, and profile two will not show"
+    },
+    {
+      "index": 436,
+      "start_time": 1088260.0,
+      "end_time": 1090190.0,
+      "text": "any cost data from that custom data source."
+    },
+    {
+      "index": 437,
+      "start_time": 1092940.0,
+      "end_time": 1094600.0,
+      "text": "In addition to that, we have what we call"
+    },
+    {
+      "index": 438,
+      "start_time": 1094600.0,
+      "end_time": 1096890.0,
+      "text": "daily upload resources."
+    },
+    {
+      "index": 439,
+      "start_time": 1096890.0,
+      "end_time": 1098900.0,
+      "text": "These kind of represent the actual data you&#39;ve uploaded to"
+    },
+    {
+      "index": 440,
+      "start_time": 1098900.0,
+      "end_time": 1101600.0,
+      "text": "GA on a per-date basis."
+    },
+    {
+      "index": 441,
+      "start_time": 1101600.0,
+      "end_time": 1104080.0,
+      "text": "So you have one for each day, a resource,"
+    },
+    {
+      "index": 442,
+      "start_time": 1104080.0,
+      "end_time": 1104800.0,
+      "text": "and these are important."
+    },
+    {
+      "index": 443,
+      "start_time": 1104800.0,
+      "end_time": 1107120.0,
+      "text": "They store information around which custom data source they"
+    },
+    {
+      "index": 444,
+      "start_time": 1107120.0,
+      "end_time": 1111000.0,
+      "text": "belong to and also metadata around recent changes that"
+    },
+    {
+      "index": 445,
+      "start_time": 1111000.0,
+      "end_time": 1113370.0,
+      "text": "have taken place with this particular resource."
+    },
+    {
+      "index": 446,
+      "start_time": 1113370.0,
+      "end_time": 1116230.0,
+      "text": "So if someone uploaded to it, deleted it, you get that kind"
+    },
+    {
+      "index": 447,
+      "start_time": 1116230.0,
+      "end_time": 1117200.0,
+      "text": "of changelog history."
+    },
+    {
+      "index": 448,
+      "start_time": 1117200.0,
+      "end_time": 1120650.0,
+      "text": "It&#39;s part of that resource."
+    },
+    {
+      "index": 449,
+      "start_time": 1120650.0,
+      "end_time": 1123990.0,
+      "text": "You manage and create custom data sources within the UI,"
+    },
+    {
+      "index": 450,
+      "start_time": 1123990.0,
+      "end_time": 1128060.0,
+      "text": "and you actually upload cost data using an API."
+    },
+    {
+      "index": 451,
+      "start_time": 1128060.0,
+      "end_time": 1131170.0,
+      "text": "You can actually also look at the history of a daily upload"
+    },
+    {
+      "index": 452,
+      "start_time": 1131170.0,
+      "end_time": 1133105.0,
+      "text": "resource within the UI."
+    },
+    {
+      "index": 453,
+      "start_time": 1133100.0,
+      "end_time": 1136335.0,
+      "text": "I&#39;ll show you that, by going to the history."
+    },
+    {
+      "index": 454,
+      "start_time": 1136340.0,
+      "end_time": 1137950.0,
+      "text": "There&#39;s a little history link here."
+    },
+    {
+      "index": 455,
+      "start_time": 1137950.0,
+      "end_time": 1138890.0,
+      "text": "You can kind of get it."
+    },
+    {
+      "index": 456,
+      "start_time": 1138890.0,
+      "end_time": 1140970.0,
+      "text": "For that custom data source, you can see all the changes"
+    },
+    {
+      "index": 457,
+      "start_time": 1140970.0,
+      "end_time": 1142210.0,
+      "text": "that have taking place."
+    },
+    {
+      "index": 458,
+      "start_time": 1142210.0,
+      "end_time": 1144470.0,
+      "text": "And you can actually get-- per day, you can see all the"
+    },
+    {
+      "index": 459,
+      "start_time": 1144470.0,
+      "end_time": 1147630.0,
+      "text": "changes that have taken place."
+    },
+    {
+      "index": 460,
+      "start_time": 1147630.0,
+      "end_time": 1153630.0,
+      "text": "OK, also from a creation standpoint, in deletion, you"
+    },
+    {
+      "index": 461,
+      "start_time": 1153630.0,
+      "end_time": 1155050.0,
+      "text": "need to be an admin."
+    },
+    {
+      "index": 462,
+      "start_time": 1155050.0,
+      "end_time": 1157880.0,
+      "text": "So admins, anything with modification to a resource,"
+    },
+    {
+      "index": 463,
+      "start_time": 1157880.0,
+      "end_time": 1159760.0,
+      "text": "whether it&#39;s create or delete, is admin."
+    },
+    {
+      "index": 464,
+      "start_time": 1159760.0,
+      "end_time": 1163480.0,
+      "text": "And viewers, just regular users, can view data, but they"
+    },
+    {
+      "index": 465,
+      "start_time": 1163480.0,
+      "end_time": 1164630.0,
+      "text": "can&#39;t do anything around creating"
+    },
+    {
+      "index": 466,
+      "start_time": 1164630.0,
+      "end_time": 1166362.0,
+      "text": "or deleting or uploading."
+    },
+    {
+      "index": 467,
+      "start_time": 1166360.0,
+      "end_time": 1167610.0,
+      "text": "So that&#39;s important."
+    },
+    {
+      "index": 468,
+      "start_time": 1170870.0,
+      "end_time": 1172516.0,
+      "text": "OK, so we showed you how to create a data"
+    },
+    {
+      "index": 469,
+      "start_time": 1172520.0,
+      "end_time": 1175110.0,
+      "text": "source, so let&#39;s recap."
+    },
+    {
+      "index": 470,
+      "start_time": 1175110.0,
+      "end_time": 1178810.0,
+      "text": "We&#39;ve got our URLs tagged with campaign tracking parameters."
+    },
+    {
+      "index": 471,
+      "start_time": 1178810.0,
+      "end_time": 1181350.0,
+      "text": "We&#39;ve got our CSV file that&#39;s prepared and which was"
+    },
+    {
+      "index": 472,
+      "start_time": 1181350.0,
+      "end_time": 1183400.0,
+      "text": "exported out from the external source."
+    },
+    {
+      "index": 473,
+      "start_time": 1183400.0,
+      "end_time": 1186260.0,
+      "text": "We&#39;ve created a custom data source"
+    },
+    {
+      "index": 474,
+      "start_time": 1186260.0,
+      "end_time": 1187760.0,
+      "text": "using the web interface."
+    },
+    {
+      "index": 475,
+      "start_time": 1187760.0,
+      "end_time": 1189750.0,
+      "text": "Now, we actually want to upload the cost data, and we"
+    },
+    {
+      "index": 476,
+      "start_time": 1189750.0,
+      "end_time": 1193500.0,
+      "text": "use this API to carry this out."
+    },
+    {
+      "index": 477,
+      "start_time": 1193500.0,
+      "end_time": 1195130.0,
+      "text": "So here&#39;s an example in Python."
+    },
+    {
+      "index": 478,
+      "start_time": 1195130.0,
+      "end_time": 1196530.0,
+      "text": "It&#39;s pretty simple, actually."
+    },
+    {
+      "index": 479,
+      "start_time": 1196530.0,
+      "end_time": 1198640.0,
+      "text": "You create a media file upload object, and you"
+    },
+    {
+      "index": 480,
+      "start_time": 1198640.0,
+      "end_time": 1201140.0,
+      "text": "specify the CSV file."
+    },
+    {
+      "index": 481,
+      "start_time": 1201140.0,
+      "end_time": 1204130.0,
+      "text": "And then you actually just call the upload method for the"
+    },
+    {
+      "index": 482,
+      "start_time": 1204130.0,
+      "end_time": 1205540.0,
+      "text": "daily uploads resources."
+    },
+    {
+      "index": 483,
+      "start_time": 1205540.0,
+      "end_time": 1208460.0,
+      "text": "And you specify a few parameters that are required,"
+    },
+    {
+      "index": 484,
+      "start_time": 1208460.0,
+      "end_time": 1209640.0,
+      "text": "and you execute that."
+    },
+    {
+      "index": 485,
+      "start_time": 1209640.0,
+      "end_time": 1214050.0,
+      "text": "And it&#39;ll automatically upload the file for you and respond"
+    },
+    {
+      "index": 486,
+      "start_time": 1214050.0,
+      "end_time": 1216720.0,
+      "text": "with a 200 if successful."
+    },
+    {
+      "index": 487,
+      "start_time": 1216720.0,
+      "end_time": 1218370.0,
+      "text": "If there was an error, typically--"
+    },
+    {
+      "index": 488,
+      "start_time": 1218370.0,
+      "end_time": 1220060.0,
+      "text": "I think when people first start out with this, they get"
+    },
+    {
+      "index": 489,
+      "start_time": 1220060.0,
+      "end_time": 1222910.0,
+      "text": "errors around the file formatting for the CSV."
+    },
+    {
+      "index": 490,
+      "start_time": 1222910.0,
+      "end_time": 1225180.0,
+      "text": "The errors are really descriptive, so they really"
+    },
+    {
+      "index": 491,
+      "start_time": 1225180.0,
+      "end_time": 1226640.0,
+      "text": "help you out in terms of figuring out what"
+    },
+    {
+      "index": 492,
+      "start_time": 1226640.0,
+      "end_time": 1227890.0,
+      "text": "the problems are."
+    },
+    {
+      "index": 493,
+      "start_time": 1229870.0,
+      "end_time": 1231970.0,
+      "text": "There&#39;s also a few other operations you can carry out."
+    },
+    {
+      "index": 494,
+      "start_time": 1231970.0,
+      "end_time": 1233390.0,
+      "text": "You can list which daily uploads."
+    },
+    {
+      "index": 495,
+      "start_time": 1233390.0,
+      "end_time": 1235220.0,
+      "text": "This gives you your history and changes."
+    },
+    {
+      "index": 496,
+      "start_time": 1235220.0,
+      "end_time": 1237620.0,
+      "text": "You can look up for a year of history."
+    },
+    {
+      "index": 497,
+      "start_time": 1237620.0,
+      "end_time": 1240040.0,
+      "text": "You can look at what&#39;s taken place."
+    },
+    {
+      "index": 498,
+      "start_time": 1240040.0,
+      "end_time": 1241120.0,
+      "text": "And we also have a delete method."
+    },
+    {
+      "index": 499,
+      "start_time": 1241120.0,
+      "end_time": 1243090.0,
+      "text": "So if you want to get rid of data completely, you can"
+    },
+    {
+      "index": 500,
+      "start_time": 1243090.0,
+      "end_time": 1244630.0,
+      "text": "actually delete it out of the daily resource."
+    },
+    {
+      "index": 501,
+      "start_time": 1244630.0,
+      "end_time": 1247020.0,
+      "text": "And this is important because the way the cost data is"
+    },
+    {
+      "index": 502,
+      "start_time": 1247020.0,
+      "end_time": 1249650.0,
+      "text": "stored within GA, it&#39;s actually stored separately"
+    },
+    {
+      "index": 503,
+      "start_time": 1249650.0,
+      "end_time": 1251460.0,
+      "text": "outside of your user interaction data."
+    },
+    {
+      "index": 504,
+      "start_time": 1251460.0,
+      "end_time": 1254740.0,
+      "text": "So this is great because you can kind of upload--"
+    },
+    {
+      "index": 505,
+      "start_time": 1254740.0,
+      "end_time": 1255000.0,
+      "text": "If you?"
+    },
+    {
+      "index": 506,
+      "start_time": 1255000.0,
+      "end_time": 1257390.0,
+      "text": "Want to delete something, it doesn&#39;t actually touch any of"
+    },
+    {
+      "index": 507,
+      "start_time": 1257390.0,
+      "end_time": 1258970.0,
+      "text": "your user interaction data."
+    },
+    {
+      "index": 508,
+      "start_time": 1258970.0,
+      "end_time": 1261870.0,
+      "text": "So feel free to upload and delete without any worrying"
+    },
+    {
+      "index": 509,
+      "start_time": 1261870.0,
+      "end_time": 1265570.0,
+      "text": "about corrupting or having any effect on your user"
+    },
+    {
+      "index": 510,
+      "start_time": 1265570.0,
+      "end_time": 1268910.0,
+      "text": "interaction data that&#39;s already there."
+    },
+    {
+      "index": 511,
+      "start_time": 1268910.0,
+      "end_time": 1270780.0,
+      "text": "All right, so once you&#39;ve kind of done that, and you&#39;ve"
+    },
+    {
+      "index": 512,
+      "start_time": 1270780.0,
+      "end_time": 1273720.0,
+      "text": "actually successfully uploaded cost data, and it&#39;s been"
+    },
+    {
+      "index": 513,
+      "start_time": 1273720.0,
+      "end_time": 1275420.0,
+      "text": "processed, you&#39;ll have the data"
+    },
+    {
+      "index": 514,
+      "start_time": 1275420.0,
+      "end_time": 1277250.0,
+      "text": "available in your reports."
+    },
+    {
+      "index": 515,
+      "start_time": 1277250.0,
+      "end_time": 1280160.0,
+      "text": "So going back to the start of our presentation, now, the"
+    },
+    {
+      "index": 516,
+      "start_time": 1280160.0,
+      "end_time": 1282900.0,
+      "text": "magic&#39;s happened."
+    },
+    {
+      "index": 517,
+      "start_time": 1282900.0,
+      "end_time": 1284680.0,
+      "text": "Before, we had zero values for the cost data."
+    },
+    {
+      "index": 518,
+      "start_time": 1284680.0,
+      "end_time": 1286990.0,
+      "text": "And you can see now when you&#39;ve done it properly, this"
+    },
+    {
+      "index": 519,
+      "start_time": 1286990.0,
+      "end_time": 1288040.0,
+      "text": "actual cost data will get joined."
+    },
+    {
+      "index": 520,
+      "start_time": 1288040.0,
+      "end_time": 1290350.0,
+      "text": "In reports that you would normally see zeroes now show"
+    },
+    {
+      "index": 521,
+      "start_time": 1290350.0,
+      "end_time": 1293775.0,
+      "text": "you the campaign visits are now joined and associated with"
+    },
+    {
+      "index": 522,
+      "start_time": 1293780.0,
+      "end_time": 1296465.0,
+      "text": "that uploaded cost data, which gives you all these nice other"
+    },
+    {
+      "index": 523,
+      "start_time": 1296460.0,
+      "end_time": 1299130.0,
+      "text": "additional metrics, calculated metrics, around margin, ROI,"
+    },
+    {
+      "index": 524,
+      "start_time": 1299130.0,
+      "end_time": 1299650.0,
+      "text": "and things like that."
+    },
+    {
+      "index": 525,
+      "start_time": 1299650.0,
+      "end_time": 1302220.0,
+      "text": "So now you can do your complete ROI analysis across"
+    },
+    {
+      "index": 526,
+      "start_time": 1302220.0,
+      "end_time": 1305500.0,
+      "text": "all of your different paid campaigns."
+    },
+    {
+      "index": 527,
+      "start_time": 1305500.0,
+      "end_time": 1307940.0,
+      "text": "Reporting is available a few different ways."
+    },
+    {
+      "index": 528,
+      "start_time": 1307940.0,
+      "end_time": 1310090.0,
+      "text": "We have the API, of course."
+    },
+    {
+      "index": 529,
+      "start_time": 1310090.0,
+      "end_time": 1312780.0,
+      "text": "You can continue to use the core report in API to pull"
+    },
+    {
+      "index": 530,
+      "start_time": 1312780.0,
+      "end_time": 1314050.0,
+      "text": "metrics out."
+    },
+    {
+      "index": 531,
+      "start_time": 1314050.0,
+      "end_time": 1315480.0,
+      "text": "Like I said before, the dimensions and measures"
+    },
+    {
+      "index": 532,
+      "start_time": 1315480.0,
+      "end_time": 1316980.0,
+      "text": "haven&#39;t changed, so any reports you might have been"
+    },
+    {
+      "index": 533,
+      "start_time": 1316980.0,
+      "end_time": 1319760.0,
+      "text": "running before will work just as they did before."
+    },
+    {
+      "index": 534,
+      "start_time": 1319760.0,
+      "end_time": 1321170.0,
+      "text": "There&#39;s no changes to be made."
+    },
+    {
+      "index": 535,
+      "start_time": 1321170.0,
+      "end_time": 1323460.0,
+      "text": "And then from the web interface, there&#39;s kind of two"
+    },
+    {
+      "index": 536,
+      "start_time": 1323460.0,
+      "end_time": 1327250.0,
+      "text": "main options, which are you can build a custom report or"
+    },
+    {
+      "index": 537,
+      "start_time": 1327250.0,
+      "end_time": 1331780.0,
+      "text": "there&#39;s a new cost analysis report under Traffic Sources."
+    },
+    {
+      "index": 538,
+      "start_time": 1331780.0,
+      "end_time": 1335270.0,
+      "text": "The cost analysis report, this is what it looks like."
+    },
+    {
+      "index": 539,
+      "start_time": 1335270.0,
+      "end_time": 1336780.0,
+      "text": "It&#39;s actually just for cost data upload."
+    },
+    {
+      "index": 540,
+      "start_time": 1336780.0,
+      "end_time": 1337870.0,
+      "text": "It was created for that."
+    },
+    {
+      "index": 541,
+      "start_time": 1337870.0,
+      "end_time": 1341010.0,
+      "text": "And then for custom reports, let&#39;s just see if our data"
+    },
+    {
+      "index": 542,
+      "start_time": 1341010.0,
+      "end_time": 1343740.0,
+      "text": "that I had uploaded has been processed."
+    },
+    {
+      "index": 543,
+      "start_time": 1343740.0,
+      "end_time": 1346910.0,
+      "text": "So let&#39;s refresh this and, yes, you can see."
+    },
+    {
+      "index": 544,
+      "start_time": 1346910.0,
+      "end_time": 1349080.0,
+      "text": "That was the cost data we uploaded at the start of the"
+    },
+    {
+      "index": 545,
+      "start_time": 1349080.0,
+      "end_time": 1349730.0,
+      "text": "presentation."
+    },
+    {
+      "index": 546,
+      "start_time": 1349730.0,
+      "end_time": 1353920.0,
+      "text": "It has been joined to my campaign visits for that"
+    },
+    {
+      "index": 547,
+      "start_time": 1353920.0,
+      "end_time": 1356180.0,
+      "text": "particular keyword, and we can now see"
+    },
+    {
+      "index": 548,
+      "start_time": 1356180.0,
+      "end_time": 1357440.0,
+      "text": "impressions, clicks, and cost."
+    },
+    {
+      "index": 549,
+      "start_time": 1357440.0,
+      "end_time": 1358790.0,
+      "text": "And of course, you could do--"
+    },
+    {
+      "index": 550,
+      "start_time": 1358790.0,
+      "end_time": 1360480.0,
+      "text": "there&#39;s some calculated metrics, like cost per click,"
+    },
+    {
+      "index": 551,
+      "start_time": 1360480.0,
+      "end_time": 1361790.0,
+      "text": "and you can add those to your custom report."
+    },
+    {
+      "index": 552,
+      "start_time": 1361790.0,
+      "end_time": 1363040.0,
+      "text": "So great, it worked."
+    },
+    {
+      "index": 553,
+      "start_time": 1366960.0,
+      "end_time": 1370950.0,
+      "text": "So some of the opportunities are, for developers, you have"
+    },
+    {
+      "index": 554,
+      "start_time": 1370950.0,
+      "end_time": 1372820.0,
+      "text": "an opportunity to build a connector."
+    },
+    {
+      "index": 555,
+      "start_time": 1372820.0,
+      "end_time": 1374560.0,
+      "text": "There&#39;s kind of two steps to this, I would say."
+    },
+    {
+      "index": 556,
+      "start_time": 1374560.0,
+      "end_time": 1376840.0,
+      "text": "There&#39;s the initial setup, which is kind of just creating"
+    },
+    {
+      "index": 557,
+      "start_time": 1376840.0,
+      "end_time": 1378730.0,
+      "text": "custom data source, but then there&#39;s two cases that you"
+    },
+    {
+      "index": 558,
+      "start_time": 1378730.0,
+      "end_time": 1379870.0,
+      "text": "really got to consider."
+    },
+    {
+      "index": 559,
+      "start_time": 1379870.0,
+      "end_time": 1381610.0,
+      "text": "One is historical upload."
+    },
+    {
+      "index": 560,
+      "start_time": 1381610.0,
+      "end_time": 1382705.0,
+      "text": "You&#39;ll notice when I did the upload, I"
+    },
+    {
+      "index": 561,
+      "start_time": 1382700.0,
+      "end_time": 1383875.0,
+      "text": "uploaded to actually yesterday."
+    },
+    {
+      "index": 562,
+      "start_time": 1383880.0,
+      "end_time": 1388730.0,
+      "text": "It was data for the 28th, and you can actually upload data"
+    },
+    {
+      "index": 563,
+      "start_time": 1388730.0,
+      "end_time": 1390220.0,
+      "text": "all the way back to 2005."
+    },
+    {
+      "index": 564,
+      "start_time": 1390220.0,
+      "end_time": 1394070.0,
+      "text": "So if you&#39;ve been tagging your campaign URLs over the last"
+    },
+    {
+      "index": 565,
+      "start_time": 1394070.0,
+      "end_time": 1396810.0,
+      "text": "seven years, you can actually go back and export the data"
+    },
+    {
+      "index": 566,
+      "start_time": 1396810.0,
+      "end_time": 1397960.0,
+      "text": "and upload that."
+    },
+    {
+      "index": 567,
+      "start_time": 1397960.0,
+      "end_time": 1399460.0,
+      "text": "It&#39;s a little bit different use case, because typically"
+    },
+    {
+      "index": 568,
+      "start_time": 1399460.0,
+      "end_time": 1402110.0,
+      "text": "when you export, you&#39;re going to export a large chunk of"
+    },
+    {
+      "index": 569,
+      "start_time": 1402110.0,
+      "end_time": 1404200.0,
+      "text": "data from your system, and then you have to individually"
+    },
+    {
+      "index": 570,
+      "start_time": 1404200.0,
+      "end_time": 1405840.0,
+      "text": "upload that for each day."
+    },
+    {
+      "index": 571,
+      "start_time": 1405840.0,
+      "end_time": 1407600.0,
+      "text": "So that initial historic upload is a little bit"
+    },
+    {
+      "index": 572,
+      "start_time": 1407600.0,
+      "end_time": 1410020.0,
+      "text": "different use case, but the API really allows you to"
+    },
+    {
+      "index": 573,
+      "start_time": 1410020.0,
+      "end_time": 1411190.0,
+      "text": "automate all that."
+    },
+    {
+      "index": 574,
+      "start_time": 1411190.0,
+      "end_time": 1412900.0,
+      "text": "And then going forward, there&#39;s an opportunity to"
+    },
+    {
+      "index": 575,
+      "start_time": 1412900.0,
+      "end_time": 1414770.0,
+      "text": "build a connector that pulls the data down from the"
+    },
+    {
+      "index": 576,
+      "start_time": 1414770.0,
+      "end_time": 1417510.0,
+      "text": "external source automatically and uploads it to GA."
+    },
+    {
+      "index": 577,
+      "start_time": 1420460.0,
+      "end_time": 1422480.0,
+      "text": "If you don&#39;t really have the development resources or you&#39;d"
+    },
+    {
+      "index": 578,
+      "start_time": 1422480.0,
+      "end_time": 1425020.0,
+      "text": "just like to get started, we do have four partners that"
+    },
+    {
+      "index": 579,
+      "start_time": 1425020.0,
+      "end_time": 1428090.0,
+      "text": "have built integrations using this feature."
+    },
+    {
+      "index": 580,
+      "start_time": 1428090.0,
+      "end_time": 1431055.0,
+      "text": "Next Analytics, GA Data Uploader, Analytics Canvas,"
+    },
+    {
+      "index": 581,
+      "start_time": 1431060.0,
+      "end_time": 1433675.0,
+      "text": "and ShufflePoint all have great integrations."
+    },
+    {
+      "index": 582,
+      "start_time": 1433670.0,
+      "end_time": 1436770.0,
+      "text": "And depending on your requirements, I think any one"
+    },
+    {
+      "index": 583,
+      "start_time": 1436770.0,
+      "end_time": 1439320.0,
+      "text": "of them will be able to solve a lot of different use cases."
+    },
+    {
+      "index": 584,
+      "start_time": 1439320.0,
+      "end_time": 1441000.0,
+      "text": "So I&#39;d definitely encourage you to check these out in our"
+    },
+    {
+      "index": 585,
+      "start_time": 1441000.0,
+      "end_time": 1443700.0,
+      "text": "App Gallery."
+    },
+    {
+      "index": 586,
+      "start_time": 1443700.0,
+      "end_time": 1446690.0,
+      "text": "So to finish up here, we have just a few resources for you."
+    },
+    {
+      "index": 587,
+      "start_time": 1446690.0,
+      "end_time": 1448810.0,
+      "text": "We&#39;ll include these links at the bottom of the video for"
+    },
+    {
+      "index": 588,
+      "start_time": 1448810.0,
+      "end_time": 1452520.0,
+      "text": "you, but all of this is available on our developer"
+    },
+    {
+      "index": 589,
+      "start_time": 1452520.0,
+      "end_time": 1453177.0,
+      "text": "site, which is developers.googl"
+    },
+    {
+      "index": 590,
+      "start_time": 1453180.0,
+      "end_time": 1456403.0,
+      "text": "e.com/analytics."
+    },
+    {
+      "index": 591,
+      "start_time": 1456400.0,
+      "end_time": 1458500.0,
+      "text": "And we also have the App Gallery, which is"
+    },
+    {
+      "index": 592,
+      "start_time": 1458500.0,
+      "end_time": 1463980.0,
+      "text": "google.com/analytics/apps."
+    },
+    {
+      "index": 593,
+      "start_time": 1463980.0,
+      "end_time": 1465820.0,
+      "text": "All right, thank you very much, and"
+    },
+    {
+      "index": 594,
+      "start_time": 1465820.0,
+      "end_time": 1467460.0,
+      "text": "you can start uploading."
+    },
+    {
+      "index": 595,
+      "start_time": 1467460.0,
+      "end_time": 1468850.0,
+      "text": "I think if we have some questions,"
+    },
+    {
+      "index": 596,
+      "start_time": 1468850.0,
+      "end_time": 1470600.0,
+      "text": "we&#39;ll take some questions."
+    },
+    {
+      "index": 597,
+      "start_time": 1474580.0,
+      "end_time": 1475556.0,
+      "text": "MALE SPEAKER: All right, so taking a"
+    },
+    {
+      "index": 598,
+      "start_time": 1475560.0,
+      "end_time": 1478270.0,
+      "text": "quick look at the Moderator."
+    },
+    {
+      "index": 599,
+      "start_time": 1478270.0,
+      "end_time": 1479550.0,
+      "text": "We have a few questions."
+    },
+    {
+      "index": 600,
+      "start_time": 1479550.0,
+      "end_time": 1482700.0,
+      "text": "One of them is from John, who says he&#39;s played around a"
+    },
+    {
+      "index": 601,
+      "start_time": 1482700.0,
+      "end_time": 1485650.0,
+      "text": "little bit with uploading cost data, and his campaigns don&#39;t"
+    },
+    {
+      "index": 602,
+      "start_time": 1485650.0,
+      "end_time": 1487140.0,
+      "text": "seem to be matching up."
+    },
+    {
+      "index": 603,
+      "start_time": 1487140.0,
+      "end_time": 1489565.0,
+      "text": "Are the UTM parameters case sensitive?"
+    },
+    {
+      "index": 604,
+      "start_time": 1489560.0,
+      "end_time": 1491645.0,
+      "text": "PETE FRISELLA: Yeah, I think I touched on this earlier."
+    },
+    {
+      "index": 605,
+      "start_time": 1491650.0,
+      "end_time": 1493900.0,
+      "text": "So the keyword is normalized to lowercase no matter what."
+    },
+    {
+      "index": 606,
+      "start_time": 1493900.0,
+      "end_time": 1496470.0,
+      "text": "So that one, you don&#39;t even have to worry about case."
+    },
+    {
+      "index": 607,
+      "start_time": 1496470.0,
+      "end_time": 1498350.0,
+      "text": "But for the other ones, you do have to worry about case"
+    },
+    {
+      "index": 608,
+      "start_time": 1498350.0,
+      "end_time": 1499470.0,
+      "text": "sensitivity."
+    },
+    {
+      "index": 609,
+      "start_time": 1499470.0,
+      "end_time": 1501530.0,
+      "text": "Those will affect what gets matched up."
+    },
+    {
+      "index": 610,
+      "start_time": 1501530.0,
+      "end_time": 1504270.0,
+      "text": "But again, because the data&#39;s stored separately, go ahead,"
+    },
+    {
+      "index": 611,
+      "start_time": 1504270.0,
+      "end_time": 1507230.0,
+      "text": "upload things, and you&#39;ll see if you have a problem, you"
+    },
+    {
+      "index": 612,
+      "start_time": 1507230.0,
+      "end_time": 1508060.0,
+      "text": "simply just delete the data."
+    },
+    {
+      "index": 613,
+      "start_time": 1508060.0,
+      "end_time": 1510270.0,
+      "text": "It doesn&#39;t affect any of your user interaction data, so"
+    },
+    {
+      "index": 614,
+      "start_time": 1510270.0,
+      "end_time": 1511480.0,
+      "text": "there&#39;s no problem there."
+    },
+    {
+      "index": 615,
+      "start_time": 1511480.0,
+      "end_time": 1514170.0,
+      "text": "MALE SPEAKER: And Andrew asks, &quot;Are we going to be able to"
+    },
+    {
+      "index": 616,
+      "start_time": 1514170.0,
+      "end_time": 1517880.0,
+      "text": "apply advanced segments to uploaded cost data?&quot;"
+    },
+    {
+      "index": 617,
+      "start_time": 1517880.0,
+      "end_time": 1521010.0,
+      "text": "PETE FRISELLA: So because you&#39;re uploading aggregate"
+    },
+    {
+      "index": 618,
+      "start_time": 1521010.0,
+      "end_time": 1524210.0,
+      "text": "totals for a day, it&#39;s not on a session basis."
+    },
+    {
+      "index": 619,
+      "start_time": 1524210.0,
+      "end_time": 1526090.0,
+      "text": "So you can&#39;t actually do the advanced"
+    },
+    {
+      "index": 620,
+      "start_time": 1526090.0,
+      "end_time": 1527990.0,
+      "text": "segments like you would."
+    },
+    {
+      "index": 621,
+      "start_time": 1527990.0,
+      "end_time": 1529630.0,
+      "text": "It actually acts exactly the same way that AdWords does"
+    },
+    {
+      "index": 622,
+      "start_time": 1529630.0,
+      "end_time": 1532650.0,
+      "text": "today, which is advanced segments would not apply for"
+    },
+    {
+      "index": 623,
+      "start_time": 1532650.0,
+      "end_time": 1535720.0,
+      "text": "this particular case."
+    },
+    {
+      "index": 624,
+      "start_time": 1535720.0,
+      "end_time": 1537850.0,
+      "text": "All right, so thanks very much for taking the time and"
+    },
+    {
+      "index": 625,
+      "start_time": 1537850.0,
+      "end_time": 1538870.0,
+      "text": "joining me today about learning"
+    },
+    {
+      "index": 626,
+      "start_time": 1538870.0,
+      "end_time": 1540250.0,
+      "text": "about cost data upload."
+    },
+    {
+      "index": 627,
+      "start_time": 1540250.0,
+      "end_time": 1541500.0,
+      "text": "I&#39;ll see you guys next time."
+    },
+    {
+      "index": 628,
+      "start_time": 1549680.0,
+      "end_time": 1551180.0,
+      "text": "[MUSIC PLAYING]"
+    }
+  ]
+}

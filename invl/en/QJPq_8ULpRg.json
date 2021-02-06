@@ -1,0 +1,3936 @@
+{
+  "video_id": "QJPq_8ULpRg",
+  "title": "Inside VMware Fusion",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 23730.0,
+      "end_time": 29359.0,
+      "text": "&gt;&gt; GERTZFIELD: So, the real gist though is that with any computer, what you want is applications."
+    },
+    {
+      "index": 2,
+      "start_time": 29359.0,
+      "end_time": 33230.0,
+      "text": "You know, you might want your Safari for web browsing, you&#39;re iTunes, or maybe you want"
+    },
+    {
+      "index": 3,
+      "start_time": 33230.0,
+      "end_time": 39190.0,
+      "text": "your web services application. You know, on the server side. And the problem is, until"
+    },
+    {
+      "index": 4,
+      "start_time": 39190.0,
+      "end_time": 46540.0,
+      "text": "today, outside of the web, all of your applications are tied physically to an OS. You know, by"
+    },
+    {
+      "index": 5,
+      "start_time": 46540.0,
+      "end_time": 52170.0,
+      "text": "APIs, ABI&#39;s, other things. You know, it&#39;s not true for the web of course. And you&#39;re"
+    },
+    {
+      "index": 6,
+      "start_time": 52170.0,
+      "end_time": 58360.0,
+      "text": "OS, until today has been tied to your hardware. So, Windows runs on Intel machine from Dell,"
+    },
+    {
+      "index": 7,
+      "start_time": 58360.0,
+      "end_time": 64489.0,
+      "text": "Compaq, whatever. Mac runs on the shiny silver laptops that we see peeking out here and there."
+    },
+    {
+      "index": 8,
+      "start_time": 64489.00000000001,
+      "end_time": 72330.0,
+      "text": "How--one, to three, okay. I think we&#39;ve met quorum of laptops--of Mac laptops. This is,"
+    },
+    {
+      "index": 9,
+      "start_time": 72330.0,
+      "end_time": 78899.0,
+      "text": "you know, quickly becoming--yes, thank you. The mating--the mating call of the Macbook"
+    },
+    {
+      "index": 10,
+      "start_time": 78899.0,
+      "end_time": 84170.0,
+      "text": "pro. It&#39;s quickly becoming a way of the past in virtualization, and Google are, as well,"
+    },
+    {
+      "index": 11,
+      "start_time": 84170.0,
+      "end_time": 89110.0,
+      "text": "are trying to break these chains. And that&#39;s kind of the point of my talk here, is virtualizations"
+    },
+    {
+      "index": 12,
+      "start_time": 89110.0,
+      "end_time": 93700.0,
+      "text": "frees your apps from silicon chains. Before, you know, you wanted to run your favorite"
+    },
+    {
+      "index": 13,
+      "start_time": 93700.0,
+      "end_time": 99569.0,
+      "text": "Windows app, you know, heaven forbid Outlook or IE when you happen to do some web testing."
+    },
+    {
+      "index": 14,
+      "start_time": 99569.0,
+      "end_time": 106009.0,
+      "text": "You had to have a physical install of Windows that was tied to that box. The aim of VMware"
+    },
+    {
+      "index": 15,
+      "start_time": 106009.0,
+      "end_time": 110259.0,
+      "text": "and Google is to just break that chain. Wherever you are, you apps go with you. From Google&#39;s"
+    },
+    {
+      "index": 16,
+      "start_time": 110259.0,
+      "end_time": 115800.0,
+      "text": "point of view, it&#39;s basically your apps are hosted for you. You go use your Picasa, you"
+    },
+    {
+      "index": 17,
+      "start_time": 115800.0,
+      "end_time": 122250.0,
+      "text": "go use your word editing, your presentation editor, it&#39;s all hosting for you. VMware takes"
+    },
+    {
+      "index": 18,
+      "start_time": 122250.0,
+      "end_time": 127020.0,
+      "text": "kind of an inverse look where you just take your entire computer in a little bundle, stick"
+    },
+    {
+      "index": 19,
+      "start_time": 127020.0,
+      "end_time": 131250.0,
+      "text": "it on your iPod or your single hard drive and just plug it in wherever you go. It runs"
+    },
+    {
+      "index": 20,
+      "start_time": 131250.0,
+      "end_time": 137670.0,
+      "text": "on your Mac, your pc, Windows, Linux, it doesn&#39;t matter. You&#39;ve got the same platform underneath."
+    },
+    {
+      "index": 21,
+      "start_time": 137670.0,
+      "end_time": 144680.0,
+      "text": "So, I wanted to just like, to tell you a little bit about how we got to this stage. Application"
+    },
+    {
+      "index": 22,
+      "start_time": 144680.0,
+      "end_time": 149129.0,
+      "text": "development has gone through a lot of different eras. You know, back in the 80&#39;s, application"
+    },
+    {
+      "index": 23,
+      "start_time": 149129.0,
+      "end_time": 154060.0,
+      "text": "development was really centered around source level APIs. We got the birth of [INDISTINCT]"
+    },
+    {
+      "index": 24,
+      "start_time": 154060.0,
+      "end_time": 157379.0,
+      "text": "for the first time and people were able to say &quot;Hey, I can distribute my application"
+    },
+    {
+      "index": 25,
+      "start_time": 157379.0,
+      "end_time": 160459.0,
+      "text": "just by giving you the source code and it doesn&#39;t matter where I [INDISTINCT] running,"
+    },
+    {
+      "index": 26,
+      "start_time": 160459.0,
+      "end_time": 164959.0,
+      "text": "you can recompile it and it&#39;ll basically work more or less.&quot; You know, the good example"
+    },
+    {
+      "index": 27,
+      "start_time": 164959.0,
+      "end_time": 169769.0,
+      "text": "is Fork. You know, entire operation systems were designed around this one API. To really"
+    },
+    {
+      "index": 28,
+      "start_time": 169769.0,
+      "end_time": 174150.0,
+      "text": "know Fork, you really have to know UNIX and vice versa. To have Fork, you have to have"
+    },
+    {
+      "index": 29,
+      "start_time": 174150.0,
+      "end_time": 180069.0,
+      "text": "UNIX. And, you know, in the 90s when business computing got a lot more popular, people kind"
+    },
+    {
+      "index": 30,
+      "start_time": 180069.0,
+      "end_time": 184170.0,
+      "text": "of seized on the notion that &quot;Okay, I&#39;ve got these applications. I want the same application"
+    },
+    {
+      "index": 31,
+      "start_time": 184170.0,
+      "end_time": 190040.0,
+      "text": "to work as I upgrade my hardware. I want binary compatibility for my applications.&quot; And Microsoft"
+    },
+    {
+      "index": 32,
+      "start_time": 190040.0,
+      "end_time": 193890.0,
+      "text": "really seized on this. They made them a lot of money. But as we&#39;re finding out, you know,"
+    },
+    {
+      "index": 33,
+      "start_time": 193890.0,
+      "end_time": 198170.0,
+      "text": "in the current era, this is changing really, really fast. People don&#39;t want their application"
+    },
+    {
+      "index": 34,
+      "start_time": 198170.0,
+      "end_time": 205040.0,
+      "text": "to be tied to a physical computer or a location at all. So, in the current decade, what we&#39;re"
+    },
+    {
+      "index": 35,
+      "start_time": 205040.0,
+      "end_time": 211909.0,
+      "text": "moving more towards is a virtualized infrastructure where applications can actually go with you"
+    },
+    {
+      "index": 36,
+      "start_time": 211909.0,
+      "end_time": 217060.0,
+      "text": "anywhere. Specifically, what virtualization does is it brings the Intel--oh, I&#39;m sorry,"
+    },
+    {
+      "index": 37,
+      "start_time": 217060.0,
+      "end_time": 222939.0,
+      "text": "VMware virtualization, brings the Intel binary layer, the ISA, to any platform anywhere."
+    },
+    {
+      "index": 38,
+      "start_time": 222939.0,
+      "end_time": 227859.0,
+      "text": "It gives you a whole set of virtual hardware. It perfectly emulates the Intel instruction"
+    },
+    {
+      "index": 39,
+      "start_time": 227859.0,
+      "end_time": 233489.0,
+      "text": "set without people having to recompile or change a single byte of their existing programs."
+    },
+    {
+      "index": 40,
+      "start_time": 233489.0,
+      "end_time": 239139.0,
+      "text": "So, they can take their ancients, you know, Windows 3.1 development environment and just"
+    },
+    {
+      "index": 41,
+      "start_time": 239139.0,
+      "end_time": 244439.0,
+      "text": "copy, import into a VM and bring it around and there&#39;s a shiny new Macbooks. Or, a good"
+    },
+    {
+      "index": 42,
+      "start_time": 244439.0,
+      "end_time": 247650.0,
+      "text": "example is, you know, there&#39;s all sorts of people in Japan, they run power plants off"
+    },
+    {
+      "index": 43,
+      "start_time": 247650.0,
+      "end_time": 252389.0,
+      "text": "Windows 98, and that&#39;s all that they have. There&#39;s offer runs on Windows 98 and they--you"
+    },
+    {
+      "index": 44,
+      "start_time": 252389.0,
+      "end_time": 256700.0,
+      "text": "can&#39;t even buy hardware for it. But the Intel ISA actually stays the same. So you can actually"
+    },
+    {
+      "index": 45,
+      "start_time": 256700.0,
+      "end_time": 260260.0,
+      "text": "install this, you know, you could--you could run a power plant [INDISTINCT] of your Mac"
+    },
+    {
+      "index": 46,
+      "start_time": 260260.0,
+      "end_time": 264030.0,
+      "text": "if you want to know. An important thing to know is that there&#39;s a lot of other people"
+    },
+    {
+      "index": 47,
+      "start_time": 264030.0,
+      "end_time": 270560.0,
+      "text": "who have tried and failed at this. Java really promised to provide another virtual, you know,"
+    },
+    {
+      "index": 48,
+      "start_time": 270560.0,
+      "end_time": 275139.0,
+      "text": "ISA that people could code to that would give their promise of being able to be portable"
+    },
+    {
+      "index": 49,
+      "start_time": 275139.0,
+      "end_time": 279970.0,
+      "text": "everywhere, run the same apps no matter where you go. We&#39;re pretty sure that Java&#39;s promise"
+    },
+    {
+      "index": 50,
+      "start_time": 279970.0,
+      "end_time": 285750.0,
+      "text": "to do that has failed to this point. Two main reasons, one is, they didn&#39;t really have a"
+    },
+    {
+      "index": 51,
+      "start_time": 285750.0,
+      "end_time": 290140.0,
+      "text": "stable ISA to work from. You know, the Intel ISA has been around for a long time. It&#39;s"
+    },
+    {
+      "index": 52,
+      "start_time": 290140.0,
+      "end_time": 293400.0,
+      "text": "cruddy. The current processors don&#39;t even really implement it, they just--they just"
+    },
+    {
+      "index": 53,
+      "start_time": 293400.0,
+      "end_time": 297560.0,
+      "text": "emulate it on a virtual processor inside. But with Java, you know, I&#39;ve already had"
+    },
+    {
+      "index": 54,
+      "start_time": 297560.0,
+      "end_time": 302260.0,
+      "text": "to rewrite their programs, you know, nth times, once for every version of the Java virtual"
+    },
+    {
+      "index": 55,
+      "start_time": 302260.0,
+      "end_time": 306840.0,
+      "text": "machine when they broke the backwards compatibility. The VM gives you perfect backwards compatibility"
+    },
+    {
+      "index": 56,
+      "start_time": 306840.0,
+      "end_time": 310790.0,
+      "text": "at the machine instruction layer and--because it virtualizes out the restrictions of the"
+    },
+    {
+      "index": 57,
+      "start_time": 310790.0,
+      "end_time": 317750.0,
+      "text": "hardware, you don&#39;t actually need to depend on, you know, the version requirements that"
+    },
+    {
+      "index": 58,
+      "start_time": 317750.0,
+      "end_time": 325480.0,
+      "text": "Java introduced. But VMware didn&#39;t introduce this. Like VMware did not invent this notion"
+    },
+    {
+      "index": 59,
+      "start_time": 325480.0,
+      "end_time": 328980.0,
+      "text": "of virtualization and people--people have been doing this for four years now. IBM introduced"
+    },
+    {
+      "index": 60,
+      "start_time": 328980.0,
+      "end_time": 334970.0,
+      "text": "that way back when with system 360, 67, you know, we&#39;re time sharing again. You know,"
+    },
+    {
+      "index": 61,
+      "start_time": 334970.0,
+      "end_time": 344820.0,
+      "text": "we&#39;ve got server loads that are completely spread out all over the place and, you know,"
+    },
+    {
+      "index": 62,
+      "start_time": 344820.0,
+      "end_time": 350350.0,
+      "text": "we&#39;re just revisiting the past. Like, everything goes in cycles. Virtualization really isn&#39;t"
+    },
+    {
+      "index": 63,
+      "start_time": 350350.0,
+      "end_time": 355350.0,
+      "text": "just about, you know, installing monster machines and partitioning though, because it gives"
+    },
+    {
+      "index": 64,
+      "start_time": 355350.0,
+      "end_time": 359560.0,
+      "text": "you an individual container that has identical hardware wherever you go, identical machine"
+    },
+    {
+      "index": 65,
+      "start_time": 359560.0,
+      "end_time": 362950.0,
+      "text": "compatibility. You can just lift it up and move it form your PC to your Mac, to your"
+    },
+    {
+      "index": 66,
+      "start_time": 362950.0,
+      "end_time": 366370.0,
+      "text": "Linux box. Or you can have a cluster of server farms, and maybe the hardware isn&#39;t exactly"
+    },
+    {
+      "index": 67,
+      "start_time": 366370.0,
+      "end_time": 370510.0,
+      "text": "identical but I&#39;m sure anybody who&#39;s worked in IT knows you spend all your time installing"
+    },
+    {
+      "index": 68,
+      "start_time": 370510.0,
+      "end_time": 375310.0,
+      "text": "operation systems, and, you know, your applications are tied to that particular install unless"
+    },
+    {
+      "index": 69,
+      "start_time": 375310.0,
+      "end_time": 379930.0,
+      "text": "you have a really clever folks like the Google people who know how to write massively parallel"
+    },
+    {
+      "index": 70,
+      "start_time": 379930.0,
+      "end_time": 384580.0,
+      "text": "applications. I mean, most system administrators and IT organizations aren&#39;t quite up to snuff"
+    },
+    {
+      "index": 71,
+      "start_time": 384580.0,
+      "end_time": 389460.0,
+      "text": "[INDISTINCT] huge, you know, massively parallel architectures just yet. So, VM what gives"
+    },
+    {
+      "index": 72,
+      "start_time": 389460.0,
+      "end_time": 395190.0,
+      "text": "those people a way to make fault tolerance, distributed systems from another aspect, you"
+    },
+    {
+      "index": 73,
+      "start_time": 395190.0,
+      "end_time": 399960.0,
+      "text": "know. You basically take the computer out of the picture and move the [INDISTINCT] into"
+    },
+    {
+      "index": 74,
+      "start_time": 399960.0,
+      "end_time": 406990.0,
+      "text": "their own little compartment that you can take around. So, what I wanted to--what I"
+    },
+    {
+      "index": 75,
+      "start_time": 406990.0,
+      "end_time": 412380.0,
+      "text": "wanted to get at is what VMware brings the table is, specifically, x86 virtualization."
+    },
+    {
+      "index": 76,
+      "start_time": 412380.0,
+      "end_time": 417290.0,
+      "text": "So, this wasn&#39;t really hard--this isn&#39;t really hard. A lot of people said this couldn&#39;t be"
+    },
+    {
+      "index": 77,
+      "start_time": 417290.0,
+      "end_time": 422220.0,
+      "text": "done. There&#39;s a really seminal paper by Popet and Goldberg that a lot of people latch on"
+    },
+    {
+      "index": 78,
+      "start_time": 422220.0,
+      "end_time": 427060.0,
+      "text": "to instead. You know, you can&#39;t actually virtualize the Intel ISA, it&#39;s not possible. There&#39;s"
+    },
+    {
+      "index": 79,
+      "start_time": 427060.0,
+      "end_time": 430560.0,
+      "text": "all sorts of instructions that actually mess with internals of the processor that you can&#39;t"
+    },
+    {
+      "index": 80,
+      "start_time": 430560.0,
+      "end_time": 436000.0,
+      "text": "trap. You know, several things like call and return, push up and pop off. I mean, you can&#39;t"
+    },
+    {
+      "index": 81,
+      "start_time": 436000.0,
+      "end_time": 442410.0,
+      "text": "actually trap them and emulate those at any time. So, you know, what VMware innovated"
+    },
+    {
+      "index": 82,
+      "start_time": 442410.0,
+      "end_time": 447490.0,
+      "text": "in is actually being able to rewrite this on the fly so that they are safe to virtualize"
+    },
+    {
+      "index": 83,
+      "start_time": 447490.0,
+      "end_time": 452640.0,
+      "text": "and that let&#39;s us do it on Linux, Windows, Mac, whatever. The reason I bring up the Intel"
+    },
+    {
+      "index": 84,
+      "start_time": 452640.0,
+      "end_time": 459770.0,
+      "text": "point is, for the Mac market, there was a really momentous occasion in summer of 05"
+    },
+    {
+      "index": 85,
+      "start_time": 459770.0,
+      "end_time": 465270.0,
+      "text": "when Steve Jobs got up with Intel on stage and basically said, &quot;Okay, we were wrong all"
+    },
+    {
+      "index": 86,
+      "start_time": 465270.0,
+      "end_time": 470280.0,
+      "text": "along, [INDISTINCT] wasn&#39;t the light and it&#39;s time to actually jump ship.&quot; I know it&#39;s hard"
+    },
+    {
+      "index": 87,
+      "start_time": 470280.0,
+      "end_time": 476050.0,
+      "text": "to believe for the Mac had to--who heard all the [INDISTINCT] promises and--what was 3"
+    },
+    {
+      "index": 88,
+      "start_time": 476050.0,
+      "end_time": 482540.0,
+      "text": "gigahertz but 20065 wasn&#39;t it? Or 2004? Yeah, it never happened. They jumped on to the Intel"
+    },
+    {
+      "index": 89,
+      "start_time": 482540.0,
+      "end_time": 487270.0,
+      "text": "ISA bandwagon again, which basically says it&#39;s another platform that the Intel ISA is"
+    },
+    {
+      "index": 90,
+      "start_time": 487270.0,
+      "end_time": 494150.0,
+      "text": "supported on that can become another way to have virtual machines on. So, the engineers"
+    },
+    {
+      "index": 91,
+      "start_time": 494150.0,
+      "end_time": 497670.0,
+      "text": "at VMware really knew, you know, &quot;this is going to be something momentous, this is really"
+    },
+    {
+      "index": 92,
+      "start_time": 497670.0,
+      "end_time": 502630.0,
+      "text": "huge.&quot; So, you know, a couple of us just started hacking around for fun and eventually came"
+    },
+    {
+      "index": 93,
+      "start_time": 502630.0,
+      "end_time": 507120.0,
+      "text": "up with what became VMware fusion. I heard that happens a lot at Google, people just"
+    },
+    {
+      "index": 94,
+      "start_time": 507120.0,
+      "end_time": 510630.0,
+      "text": "messing around to start their spare time and coming up with something that gets procuctized."
+    },
+    {
+      "index": 95,
+      "start_time": 510630.0,
+      "end_time": 519419.0,
+      "text": "Funny, how that works. The difference on the Apple platform is Apple builds products specifically"
+    },
+    {
+      "index": 96,
+      "start_time": 519419.0,
+      "end_time": 524060.0,
+      "text": "for one purpose. Their products are meant to run Apple applications. They give you all"
+    },
+    {
+      "index": 97,
+      "start_time": 524059.99999999994,
+      "end_time": 529910.0,
+      "text": "the APIs you need to run iTunes, iPhoto, Safari, but they&#39;re not actually going to give you"
+    },
+    {
+      "index": 98,
+      "start_time": 529910.0,
+      "end_time": 536060.0,
+      "text": "the kind of robust tools to develop a huge client server network or a massively scalable,"
+    },
+    {
+      "index": 99,
+      "start_time": 536060.0,
+      "end_time": 539999.0,
+      "text": "you know, database infrastructure. I mean, that&#39;s just not what they do. If you&#39;re coding"
+    },
+    {
+      "index": 100,
+      "start_time": 539999.0,
+      "end_time": 545870.0,
+      "text": "to make a really cool image browser or a multimedia editor, it&#39;s totally the way to go. It&#39;s really"
+    },
+    {
+      "index": 101,
+      "start_time": 545870.0,
+      "end_time": 552709.0,
+      "text": "easy. It&#39;s fast, you know, it&#39;s well understood. But if you&#39;re going out of the box, it&#39;s tough."
+    },
+    {
+      "index": 102,
+      "start_time": 552709.0,
+      "end_time": 556970.0,
+      "text": "Of course, there&#39;s one product that people want to run on Apple apps on is that, that"
+    },
+    {
+      "index": 103,
+      "start_time": 556970.0,
+      "end_time": 565310.0,
+      "text": "is the iPhone. I wrote this slide before this morning. So, I missed this morning&#39;s announcement"
+    },
+    {
+      "index": 104,
+      "start_time": 565310.0,
+      "end_time": 570089.0,
+      "text": "of the new Apple API, but it is--it was true when I wrote the slide that the iPhone did"
+    },
+    {
+      "index": 105,
+      "start_time": 570089.0,
+      "end_time": 574209.0,
+      "text": "not run the Apple apps, but if you didn&#39;t hear this morning, Steve announced from on"
+    },
+    {
+      "index": 106,
+      "start_time": 574209.0,
+      "end_time": 578209.0,
+      "text": "high that we will get an API to run--to write our own iPhone application. That&#39;s actually"
+    },
+    {
+      "index": 107,
+      "start_time": 578209.0,
+      "end_time": 587360.0,
+      "text": "pretty exciting, even more VMware. Virtual machine on an iPhone [INDISTINCT] Intel. So"
+    },
+    {
+      "index": 108,
+      "start_time": 587360.0,
+      "end_time": 594670.0,
+      "text": "what we did in Fusion is we focused on one and use case which was totally new for VMware"
+    },
+    {
+      "index": 109,
+      "start_time": 594670.0,
+      "end_time": 600529.0,
+      "text": "which was consumers want their Macs to run PC apps. They really want to run their Outlook."
+    },
+    {
+      "index": 110,
+      "start_time": 600529.0,
+      "end_time": 605120.0,
+      "text": "They want to run their IE for web testing. There&#39;s a million little PC apps. I use it"
+    },
+    {
+      "index": 111,
+      "start_time": 605120.0,
+      "end_time": 609600.0,
+      "text": "to update the firmer on my phone. You know, there&#39;s all these crazy little apps that require"
+    },
+    {
+      "index": 112,
+      "start_time": 609600.0,
+      "end_time": 615790.0,
+      "text": "Windows support in hardware and software and these--I don&#39;t expect Sony to go out and write"
+    },
+    {
+      "index": 113,
+      "start_time": 615790.0,
+      "end_time": 620629.0,
+      "text": "drivers from Mac for my phone. It&#39;s not very likely. But they will support and write drivers"
+    },
+    {
+      "index": 114,
+      "start_time": 620629.0,
+      "end_time": 626309.0,
+      "text": "for Windows and not use a virtual machine to flash my phone. The whole point of virtualization"
+    },
+    {
+      "index": 115,
+      "start_time": 626309.0,
+      "end_time": 630490.0,
+      "text": "is that, unlike things like boot camp, you don&#39;t have to stop all the applications you&#39;ve"
+    },
+    {
+      "index": 116,
+      "start_time": 630490.0,
+      "end_time": 634860.0,
+      "text": "been using, shut everything down and reboot. Your PC apps and your Mac apps are both first"
+    },
+    {
+      "index": 117,
+      "start_time": 634860.0,
+      "end_time": 638829.0,
+      "text": "class citizens for the virtualization. So you can actually drag and drop between your"
+    },
+    {
+      "index": 118,
+      "start_time": 638829.0,
+      "end_time": 644769.0,
+      "text": "PC and your Mac. You can copy and paste text, share your files and, you know, more and more,"
+    },
+    {
+      "index": 119,
+      "start_time": 644769.0,
+      "end_time": 648040.0,
+      "text": "the lines get blurred. There&#39;s even something called unity that we worked on that completely"
+    },
+    {
+      "index": 120,
+      "start_time": 648040.0,
+      "end_time": 654129.0,
+      "text": "gets rid of the Mac desktop and you just got your Windows application just floating there"
+    },
+    {
+      "index": 121,
+      "start_time": 654129.0,
+      "end_time": 658620.0,
+      "text": "on your Mac. I&#39;ll show you guys a little bit later. It&#39;s pretty exciting. It makes you"
+    },
+    {
+      "index": 122,
+      "start_time": 658620.0,
+      "end_time": 668480.0,
+      "text": "want to jump out and go, you know, grab a Mac, like this lady. So, she&#39;s really excited"
+    },
+    {
+      "index": 123,
+      "start_time": 668480.0,
+      "end_time": 675449.0,
+      "text": "about Leopard. And--this is the new OS 10.5 that&#39;s coming out. It sent all of the Mac"
+    },
+    {
+      "index": 124,
+      "start_time": 675449.0,
+      "end_time": 683490.0,
+      "text": "developers into a usual Steve Jobs Beetle style hysteria. Lot of things are really nice"
+    },
+    {
+      "index": 125,
+      "start_time": 683490.0,
+      "end_time": 690199.0,
+      "text": "on the Mac platform, but it&#39;s not perfect. And what I wanted to tell you guys about was--some"
+    },
+    {
+      "index": 126,
+      "start_time": 690199.0,
+      "end_time": 694749.0,
+      "text": "of the lessons we&#39;ve learned from developing VMware fusion and some of the internals of"
+    },
+    {
+      "index": 127,
+      "start_time": 694749.0,
+      "end_time": 702550.0,
+      "text": "how we brought the VMware fusion to the Mac. So, the Mac platform, it&#39;s a--kind of a bipolar"
+    },
+    {
+      "index": 128,
+      "start_time": 702550.0,
+      "end_time": 707279.0,
+      "text": "situation, and I kind of like to given an analogy from my favorite 60s TV show called"
+    },
+    {
+      "index": 129,
+      "start_time": 707279.0,
+      "end_time": 721149.0,
+      "text": "The Prisoner. So, The Prisoner was a 60s TV show about a super spy who came to this--he"
+    },
+    {
+      "index": 130,
+      "start_time": 721149.0,
+      "end_time": 725470.0,
+      "text": "was shipped off to this idyllic island and everything was perfect and planned for you."
+    },
+    {
+      "index": 131,
+      "start_time": 725470.0,
+      "end_time": 730350.0,
+      "text": "There was this beautiful scenery everywhere and you could never leave the village. You"
+    },
+    {
+      "index": 132,
+      "start_time": 730350.0,
+      "end_time": 735470.0,
+      "text": "were never allowed to escape. Everyday he tried to escape and there was a new face of"
+    },
+    {
+      "index": 133,
+      "start_time": 735470.0,
+      "end_time": 742309.0,
+      "text": "the number two who ran the village. And--it&#39;s pretty similar to the Mac development world."
+    },
+    {
+      "index": 134,
+      "start_time": 742309.0,
+      "end_time": 745660.0,
+      "text": "You know, you&#39;re kind of enticed into it by saying, &quot;Oh, what a cool platform. We&#39;re going"
+    },
+    {
+      "index": 135,
+      "start_time": 745660.0,
+      "end_time": 749439.0,
+      "text": "to make exciting new apps for it,&quot; and then you kind of dive into the inside [INDISTINCT]."
+    },
+    {
+      "index": 136,
+      "start_time": 749439.0,
+      "end_time": 754369.0,
+      "text": "Inside, it&#39;s actually four or five different operating systems, kind of jumbled together"
+    },
+    {
+      "index": 137,
+      "start_time": 754369.0,
+      "end_time": 760619.0,
+      "text": "in different pieces. And as Apple needed different pieces to build iTunes, safari, iPhoto, iWeb,"
+    },
+    {
+      "index": 138,
+      "start_time": 760619.0,
+      "end_time": 765619.0,
+      "text": "they use each of this piece and develop them, but there&#39;s really no cohesive whole. To learn"
+    },
+    {
+      "index": 139,
+      "start_time": 765619.0,
+      "end_time": 772470.0,
+      "text": "these different pieces, you kind of got to learn through trial by fire, and I kind of"
+    },
+    {
+      "index": 140,
+      "start_time": 772470.0,
+      "end_time": 775680.0,
+      "text": "call it the Mac Club. And as the first rule of Mac club and everybody knows the first"
+    },
+    {
+      "index": 141,
+      "start_time": 775680.0,
+      "end_time": 782430.0,
+      "text": "rule of Mac club is &quot;You don&#39;t talk about the Mac Club.&quot; So, what I mean by that is,"
+    },
+    {
+      "index": 142,
+      "start_time": 782430.0,
+      "end_time": 786300.0,
+      "text": "you know, the APIs, there&#39;s documentation, but they&#39;re not telling you what&#39;s going on"
+    },
+    {
+      "index": 143,
+      "start_time": 786300.0,
+      "end_time": 790059.0,
+      "text": "under the hood and they&#39;re not telling you about all the side effects, the scary, you"
+    },
+    {
+      "index": 144,
+      "start_time": 790059.0,
+      "end_time": 795809.0,
+      "text": "know, callbacks that are being registered for you under the hood. You know, you really"
+    },
+    {
+      "index": 145,
+      "start_time": 795809.0,
+      "end_time": 801379.0,
+      "text": "have to dig deep. With good books like &quot;Mac OS X: Internal Assistance Approach&quot; by Mr."
+    },
+    {
+      "index": 146,
+      "start_time": 801379.0,
+      "end_time": 804889.0,
+      "text": "Amit Singh, you can actually start to learn some of the internals under the hood. But"
+    },
+    {
+      "index": 147,
+      "start_time": 804889.0,
+      "end_time": 809439.0,
+      "text": "seriously, before that existed, there was nothing and it was all just handed down over"
+    },
+    {
+      "index": 148,
+      "start_time": 809439.0,
+      "end_time": 815619.0,
+      "text": "the years. Very interestingly, you know, how many people here have done like Windows development,"
+    },
+    {
+      "index": 149,
+      "start_time": 815619.0,
+      "end_time": 821350.0,
+      "text": "professionally? So--I mean you&#39;ve interacted with Microsoft, with MSDN. It&#39;s kind of frightening"
+    },
+    {
+      "index": 150,
+      "start_time": 821350.0,
+      "end_time": 824790.0,
+      "text": "but it&#39;s thorough, right? And if you have a problem, you can write to somebody. Apple&#39;s"
+    },
+    {
+      "index": 151,
+      "start_time": 824790.0,
+      "end_time": 830559.0,
+      "text": "equivalent is a once a year conference called WWDC. And you can sign up with WWDC, pay a"
+    },
+    {
+      "index": 152,
+      "start_time": 830559.0,
+      "end_time": 834860.0,
+      "text": "couple of thousand, and get direct access to the engineers. But other than that, you"
+    },
+    {
+      "index": 153,
+      "start_time": 834860.0,
+      "end_time": 839800.0,
+      "text": "know, there&#39;s no way to get information about the actual innards of the operating system."
+    },
+    {
+      "index": 154,
+      "start_time": 839800.0,
+      "end_time": 845009.0,
+      "text": "You can submit support request, but they&#39;re more intended to shield the developers from"
+    },
+    {
+      "index": 155,
+      "start_time": 845009.0,
+      "end_time": 851579.0,
+      "text": "the hoards of hungry third party application vendors than anything else. So, here&#39;s some"
+    },
+    {
+      "index": 156,
+      "start_time": 851579.0,
+      "end_time": 855740.0,
+      "text": "of the real rules of the Mac club. So I wanted to share these, for anybody who&#39;s doing Mac"
+    },
+    {
+      "index": 157,
+      "start_time": 855740.0,
+      "end_time": 860199.0,
+      "text": "application development, because if I could travel back in time and give myself a couple"
+    },
+    {
+      "index": 158,
+      "start_time": 860199.0,
+      "end_time": 864769.0,
+      "text": "of tips before I started down this road and helping VMware fusion with my team, I wish"
+    },
+    {
+      "index": 159,
+      "start_time": 864769.0,
+      "end_time": 870550.0,
+      "text": "somebody would have told me. The first big rule, know and fear Carbon. Carbon is scary."
+    },
+    {
+      "index": 160,
+      "start_time": 870550.0,
+      "end_time": 876189.0,
+      "text": "So, before OS came out, there was this huge legacy of APIs, all jumbled together based"
+    },
+    {
+      "index": 161,
+      "start_time": 876189.0,
+      "end_time": 882980.0,
+      "text": "on C and a little bit of C++ called Carbon. Carbon is intended, basically, to support"
+    },
+    {
+      "index": 162,
+      "start_time": 882980.0,
+      "end_time": 887369.0,
+      "text": "older applications, to get imported with a minimum of fuss. If you start using an OS10"
+    },
+    {
+      "index": 163,
+      "start_time": 887369.0,
+      "end_time": 891509.0,
+      "text": "though, you have to be really careful. Some of the stories that we actually learned when"
+    },
+    {
+      "index": 164,
+      "start_time": 891509.0,
+      "end_time": 898139.0,
+      "text": "we started using a little bit of Carbon, VMware fusion is basically based on our Linux application,"
+    },
+    {
+      "index": 165,
+      "start_time": 898139.0,
+      "end_time": 903329.0,
+      "text": "VMware work station, and as such, we use a lot of Linux APIs. You know, pull, select,"
+    },
+    {
+      "index": 166,
+      "start_time": 903329.0,
+      "end_time": 909220.0,
+      "text": "fork. And we kind of assumed that Mac was then being UNIX or &quot;UNIX underpinnings&quot; as"
+    },
+    {
+      "index": 167,
+      "start_time": 909220.0,
+      "end_time": 917339.0,
+      "text": "Steve put it, was a true UNIX. The truth is that, it&#39;s really splits among the UNIX side"
+    },
+    {
+      "index": 168,
+      "start_time": 917339.0,
+      "end_time": 922629.0,
+      "text": "and the Carbon&#39;s side, and they really don&#39;t interact. A good example is when you--there&#39;s"
+    },
+    {
+      "index": 169,
+      "start_time": 922629.0,
+      "end_time": 926579.0,
+      "text": "a library in Mac, was called disc arbitration and they&#39;ll tell you when discs are plugged"
+    },
+    {
+      "index": 170,
+      "start_time": 926579.0,
+      "end_time": 930889.0,
+      "text": "or unplugged. You can know when an iPod&#39;s connected or disconnected. If you don&#39;t actually"
+    },
+    {
+      "index": 171,
+      "start_time": 930889.0,
+      "end_time": 937300.0,
+      "text": "respond in time--a disc arbitration function will secretly, behind the scenes, register"
+    },
+    {
+      "index": 172,
+      "start_time": 937300.0,
+      "end_time": 943279.0,
+      "text": "a bunch of callbacks and Mac will assume that you will receive those callbacks by processing"
+    },
+    {
+      "index": 173,
+      "start_time": 943279.0,
+      "end_time": 947139.0,
+      "text": "something called the CFrunloop which every thread has one of these. Well, if your app"
+    },
+    {
+      "index": 174,
+      "start_time": 947139.0,
+      "end_time": 951309.0,
+      "text": "isn&#39;t based around that concept of a CFrunloop, you can just hang the entire system for 15"
+    },
+    {
+      "index": 175,
+      "start_time": 951309.0,
+      "end_time": 955519.0,
+      "text": "to 30 seconds while Mac [INDISTINCT] tries to repeatedly send messages to your runloop"
+    },
+    {
+      "index": 176,
+      "start_time": 955519.0,
+      "end_time": 959509.0,
+      "text": "saying, &quot;Hello, there&#39;s a new disc. Are you there? Hello, there&#39;s a new disc,&quot; even if"
+    },
+    {
+      "index": 177,
+      "start_time": 959509.0,
+      "end_time": 965759.0,
+      "text": "you didn&#39;t know the API that you called have the side effect of registering with CFrunloop."
+    },
+    {
+      "index": 178,
+      "start_time": 965759.0,
+      "end_time": 970399.0,
+      "text": "So, be very careful and know your side effects. Sometimes, you have to go down to the disassembly"
+    },
+    {
+      "index": 179,
+      "start_time": 970399.0,
+      "end_time": 977220.0,
+      "text": "level as we know, to figure out what these APIs are really doing. Next rule about Mac"
+    },
+    {
+      "index": 180,
+      "start_time": 977220.0,
+      "end_time": 983129.0,
+      "text": "Club, you have to be really careful of angering the Universal Buffer Cache. So, on Mac OS,"
+    },
+    {
+      "index": 181,
+      "start_time": 983129.0,
+      "end_time": 989600.0,
+      "text": "virtual memory is kind of a virtual notion again where it&#39;s cached by the same buffers"
+    },
+    {
+      "index": 182,
+      "start_time": 989600.0,
+      "end_time": 995410.0,
+      "text": "that hold your disc cache. So, if your photo shop or VMware fusion and you&#39;re reading a"
+    },
+    {
+      "index": 183,
+      "start_time": 995410.0,
+      "end_time": 1001029.0,
+      "text": "gigantic, you know, 1.5 gigabyte file, OS10 is going to cache all of that memory, maybe"
+    },
+    {
+      "index": 184,
+      "start_time": 1001030.0,
+      "end_time": 1006400.0,
+      "text": "even in priority over other programs, forcing them to maybe even swap out the disc. You"
+    },
+    {
+      "index": 185,
+      "start_time": 1006400.0,
+      "end_time": 1010301.0,
+      "text": "have to be really careful and very explicit about, you know, when you do and don&#39;t anger"
+    },
+    {
+      "index": 186,
+      "start_time": 1010300.0,
+      "end_time": 1015009.0,
+      "text": "the buffer cache. They do provide API&#39;s to that, but again, there&#39;s no document that"
+    },
+    {
+      "index": 187,
+      "start_time": 1015010.0,
+      "end_time": 1020911.0,
+      "text": "says, &quot;PS,&quot; you know, &quot;if you read a large file, you better,&quot; you know, &quot;disable caching"
+    },
+    {
+      "index": 188,
+      "start_time": 1020910.0,
+      "end_time": 1024770.0,
+      "text": "on this file or you can make every single program on the systems swap the disc.&quot; So"
+    },
+    {
+      "index": 189,
+      "start_time": 1024770.0,
+      "end_time": 1031020.0,
+      "text": "be very careful about the buffer cache. The last real rule that I wanted to share, whenever"
+    },
+    {
+      "index": 190,
+      "start_time": 1031020.0,
+      "end_time": 1036470.0,
+      "text": "you&#39;re doing dynamic 2D, you have to go straight OpenGL in Mac OS. If you&#39;re doing things like"
+    },
+    {
+      "index": 191,
+      "start_time": 1036470.0,
+      "end_time": 1041300.0,
+      "text": "static layout of curves and text and buttons, it&#39;s great to use Quarts and coco and these"
+    },
+    {
+      "index": 192,
+      "start_time": 1041300.0,
+      "end_time": 1047199.0,
+      "text": "very high level obstructions. But if you need to render, you know, video or a fast 2D drawing"
+    },
+    {
+      "index": 193,
+      "start_time": 1047200.0,
+      "end_time": 1051741.0,
+      "text": "stream, you need to use other technologies. One of them is OpenGL. And normally, I mean,"
+    },
+    {
+      "index": 194,
+      "start_time": 1051740.0,
+      "end_time": 1055870.0,
+      "text": "people don&#39;t think of OpenGL as a 2D technology, right? You think of it for video games, doom,"
+    },
+    {
+      "index": 195,
+      "start_time": 1055870.0,
+      "end_time": 1060159.0,
+      "text": "and quake, and that kind of stuff. On the Mac OpenGL is really the closest thing you&#39;re"
+    },
+    {
+      "index": 196,
+      "start_time": 1060160.0,
+      "end_time": 1065400.0,
+      "text": "going to get to bit [INDISTINCT] on Windows. You don&#39;t get direct access to the video rom"
+    },
+    {
+      "index": 197,
+      "start_time": 1065400.0,
+      "end_time": 1070030.0,
+      "text": "on the hardware, but you got the next best thing which is access to video rom that will"
+    },
+    {
+      "index": 198,
+      "start_time": 1070030.0,
+      "end_time": 1075650.0,
+      "text": "be composited later by the Window manager. Meditate heavily upon OpenGL because it will"
+    },
+    {
+      "index": 199,
+      "start_time": 1075650.0,
+      "end_time": 1079300.0,
+      "text": "reward you once you learn that there&#39;s lots of fast paths and slow paths. You have to"
+    },
+    {
+      "index": 200,
+      "start_time": 1079300.0,
+      "end_time": 1083020.0,
+      "text": "make very, very sure that you can recognize when you&#39;re being kicked off to the slow path"
+    },
+    {
+      "index": 201,
+      "start_time": 1083020.0,
+      "end_time": 1088581.0,
+      "text": "in OpenGL. Good candidates are if you&#39;re using the wrong texture type, has to be BGRA. You"
+    },
+    {
+      "index": 202,
+      "start_time": 1088580.0,
+      "end_time": 1093990.0,
+      "text": "know, make sure that&#39;s a, you know, you&#39;re not using anything but 15 or a 24 bit color"
+    },
+    {
+      "index": 203,
+      "start_time": 1093990.0,
+      "end_time": 1099240.0,
+      "text": "or you&#39;re going to be booted off to the slow path. So, be very, very careful. I have mentioned"
+    },
+    {
+      "index": 204,
+      "start_time": 1099240.0,
+      "end_time": 1104809.0,
+      "text": "before, OS X is kind of bipolar as we learned through developing VMware fusion. It&#39;s got"
+    },
+    {
+      "index": 205,
+      "start_time": 1104810.0,
+      "end_time": 1110030.0,
+      "text": "a chunk called Mac. So, you know, the Mac 5 is not a very good logo for Mac, but it"
+    },
+    {
+      "index": 206,
+      "start_time": 1110030.0,
+      "end_time": 1115091.0,
+      "text": "was the best I can find. They don&#39;t have a cute penguin or a demon or anything. So, the"
+    },
+    {
+      "index": 207,
+      "start_time": 1115090.0,
+      "end_time": 1122539.0,
+      "text": "Mac OS came from CMU, as everything good seems to come from, just kidding. And it&#39;s a really"
+    },
+    {
+      "index": 208,
+      "start_time": 1122540.0,
+      "end_time": 1127540.0,
+      "text": "simple operating--it&#39;s a really simple operating system that just manages memory management,"
+    },
+    {
+      "index": 209,
+      "start_time": 1127540.0,
+      "end_time": 1131611.0,
+      "text": "message passing, scheduling, and a little bit of threading. You know, really, really"
+    },
+    {
+      "index": 210,
+      "start_time": 1131610.0,
+      "end_time": 1135640.0,
+      "text": "basic stuff. And this was the reason of the foundation of OS X, but that didn&#39;t give them"
+    },
+    {
+      "index": 211,
+      "start_time": 1135640.0,
+      "end_time": 1140360.0,
+      "text": "any actual functionality. It just gave them a really cool abstraction. So, in a hurry,"
+    },
+    {
+      "index": 212,
+      "start_time": 1140360.0,
+      "end_time": 1145919.0,
+      "text": "back in the next step days, they dumped a huge monolithic guy called BSD right on top."
+    },
+    {
+      "index": 213,
+      "start_time": 1145920.0,
+      "end_time": 1149780.0,
+      "text": "And the reason they did this because they needed file systems, they needed TCPIP, they"
+    },
+    {
+      "index": 214,
+      "start_time": 1149780.0,
+      "end_time": 1155451.0,
+      "text": "needed, you know, UNIX interoperability, most of all. So they said, &quot;Ah, well kind of [INDISTINCT]"
+    },
+    {
+      "index": 215,
+      "start_time": 1155450.0,
+      "end_time": 1159740.0,
+      "text": "of BSD layer on top of Mac and see what happens.&quot; So it kind of got this top heavy, two headed"
+    },
+    {
+      "index": 216,
+      "start_time": 1159740.0,
+      "end_time": 1165860.0,
+      "text": "demon that has half Mac and half BSD, and they call it Darwin. So, they--this one does"
+    },
+    {
+      "index": 217,
+      "start_time": 1165860.0,
+      "end_time": 1169370.0,
+      "text": "have a cool little mascot. It&#39;s kind of like the platypus with the devil&#39;s head. I don&#39;t"
+    },
+    {
+      "index": 218,
+      "start_time": 1169370.0,
+      "end_time": 1175110.0,
+      "text": "know. It&#39;s kind of sinister. But we have to remember is that even inside Apple, their"
+    },
+    {
+      "index": 219,
+      "start_time": 1175110.0,
+      "end_time": 1181470.0,
+      "text": "own kernel is called X and U which stands for X and U is not UNIX. This is really true."
+    },
+    {
+      "index": 220,
+      "start_time": 1181470.0,
+      "end_time": 1187450.0,
+      "text": "I mean, it&#39;s UNIXish, sort of, but if you really depend on UNIX&#39;s semantics for things"
+    },
+    {
+      "index": 221,
+      "start_time": 1187450.0,
+      "end_time": 1192539.0,
+      "text": "like, just as simple as, you know, when you call a--when you flush, right? If you want"
+    },
+    {
+      "index": 222,
+      "start_time": 1192540.0,
+      "end_time": 1197861.0,
+      "text": "to flush--if you want to Msync all your pages to disc, Msync does everything except for"
+    },
+    {
+      "index": 223,
+      "start_time": 1197860.0,
+      "end_time": 1203289.0,
+      "text": "Mmap pages. They don&#39;t tell you that. Every other UNIX in the world, if you Msync, any"
+    },
+    {
+      "index": 224,
+      "start_time": 1203290.0,
+      "end_time": 1207861.0,
+      "text": "page in their Mmap will also be written to disc--excuse me, Fsync. Msync is the one that"
+    },
+    {
+      "index": 225,
+      "start_time": 1207860.0,
+      "end_time": 1214929.0,
+      "text": "does work, right? Excuse me, Fsync. So, you know, there are always little needly things"
+    },
+    {
+      "index": 226,
+      "start_time": 1214930.0,
+      "end_time": 1218141.0,
+      "text": "that aren&#39;t documented anywhere that you just kind of have to discover through trial by"
+    },
+    {
+      "index": 227,
+      "start_time": 1218140.0,
+      "end_time": 1223220.0,
+      "text": "fire, but just keep in mind that if you&#39;re porting UNIX code, expect the unexpected because"
+    },
+    {
+      "index": 228,
+      "start_time": 1223220.0,
+      "end_time": 1228399.0,
+      "text": "it&#39;s going to keep happening. Ann so what we did for fusion was we took the VMware platform"
+    },
+    {
+      "index": 229,
+      "start_time": 1228400.0,
+      "end_time": 1233861.0,
+      "text": "that was, you know, VMware work station, server, player, and we moved it all to the Mac. There&#39;s"
+    },
+    {
+      "index": 230,
+      "start_time": 1233860.0,
+      "end_time": 1239580.0,
+      "text": "several components of this that we ended up porting using a nice sprinkling of different"
+    },
+    {
+      "index": 231,
+      "start_time": 1239580.0,
+      "end_time": 1247399.0,
+      "text": "programming languages and libraries along the way. The first chunk I like to portray"
+    },
+    {
+      "index": 232,
+      "start_time": 1247400.0,
+      "end_time": 1252761.0,
+      "text": "it here is like bit from Tron. It&#39;s our faithful UI. It&#39;s says &quot;Yes&quot;, it says &quot;No&quot;, it does"
+    },
+    {
+      "index": 233,
+      "start_time": 1252760.0,
+      "end_time": 1256340.0,
+      "text": "whatever the virtual machine tells it to do. It&#39;s, you know, its job is basically to look"
+    },
+    {
+      "index": 234,
+      "start_time": 1256340.0,
+      "end_time": 1260880.0,
+      "text": "pretty and connect to one or more virtual machines running behind the scenes. One of"
+    },
+    {
+      "index": 235,
+      "start_time": 1260880.0,
+      "end_time": 1265510.0,
+      "text": "the neat things about our infrastructure though, is that it&#39;s actually completely client server"
+    },
+    {
+      "index": 236,
+      "start_time": 1265510.0,
+      "end_time": 1272110.0,
+      "text": "based in that UIs can talk to separate virtual machines running behind the scenes. So, any"
+    },
+    {
+      "index": 237,
+      "start_time": 1272110.0,
+      "end_time": 1276330.0,
+      "text": "number of UIs can connect to any number of virtual machines and manage them locally or"
+    },
+    {
+      "index": 238,
+      "start_time": 1276330.0,
+      "end_time": 1283440.0,
+      "text": "remotely. So, the VMX is the separate process that runs--that manages a single virtual machine."
+    },
+    {
+      "index": 239,
+      "start_time": 1283440.0,
+      "end_time": 1288870.0,
+      "text": "This is like hardworking Tron with his, you know, with his faithful data disc. He does"
+    },
+    {
+      "index": 240,
+      "start_time": 1288870.0,
+      "end_time": 1298230.0,
+      "text": "the heavy lifting of actually binding a virtual machine, emulating discs, network cards, graphics."
+    },
+    {
+      "index": 241,
+      "start_time": 1298230.0,
+      "end_time": 1302490.0,
+      "text": "He does--he does all the stuff of making the bits actually show up on the screen of the"
+    },
+    {
+      "index": 242,
+      "start_time": 1302490.0,
+      "end_time": 1308700.0,
+      "text": "Mac. So, he&#39;ll do all the OpenGL drawing, all the core audio for sound, and the mouse"
+    },
+    {
+      "index": 243,
+      "start_time": 1308700.0,
+      "end_time": 1313429.0,
+      "text": "and keyboard input. So the UI and VMX kind of work together. Those of you who have seen"
+    },
+    {
+      "index": 244,
+      "start_time": 1313430.0,
+      "end_time": 1317871.0,
+      "text": "Tron probably know where I&#39;m going with the third member of the triumvirates. And this"
+    },
+    {
+      "index": 245,
+      "start_time": 1317870.0,
+      "end_time": 1321610.0,
+      "text": "is--this is the most interesting part of VMware, it&#39;s called The Monitor. It&#39;s kind of like"
+    },
+    {
+      "index": 246,
+      "start_time": 1321610.0,
+      "end_time": 1326279.0,
+      "text": "the master control program in Tron of this giant spinning. We actually have giant spinning"
+    },
+    {
+      "index": 247,
+      "start_time": 1326280.0,
+      "end_time": 1330591.0,
+      "text": "top. It just kind of stares at us all day long while we&#39;re coding, tells us what to"
+    },
+    {
+      "index": 248,
+      "start_time": 1330590.0,
+      "end_time": 1338700.0,
+      "text": "do. The monitor&#39;s job is basically--it&#39;s a bit of Intel code, you know, that&#39;s identical"
+    },
+    {
+      "index": 249,
+      "start_time": 1338700.0,
+      "end_time": 1344700.0,
+      "text": "on all VMware platforms. You know, Linux, Windows, Mac, and all specific releases of"
+    },
+    {
+      "index": 250,
+      "start_time": 1344700.0,
+      "end_time": 1350019.0,
+      "text": "software can use the exact same monitor. Its job is basically to manage the few physical"
+    },
+    {
+      "index": 251,
+      "start_time": 1350020.0,
+      "end_time": 1354741.0,
+      "text": "resources that a virtual machine actually needs. Virtual Machines basically depend on"
+    },
+    {
+      "index": 252,
+      "start_time": 1354740.0,
+      "end_time": 1359649.0,
+      "text": "processor resources and memory resources. And the monitor&#39;s job is to make sure that"
+    },
+    {
+      "index": 253,
+      "start_time": 1359650.0,
+      "end_time": 1364810.0,
+      "text": "these are available when we switch a thousand times a second or more, to and from of virtual"
+    },
+    {
+      "index": 254,
+      "start_time": 1364810.0,
+      "end_time": 1369680.0,
+      "text": "machine back to the host virtual machine, back to the host. The monitor actually makes"
+    },
+    {
+      "index": 255,
+      "start_time": 1369680.0,
+      "end_time": 1374231.0,
+      "text": "sure that every--all the registers are set correctly, the memory is all available for"
+    },
+    {
+      "index": 256,
+      "start_time": 1374230.0,
+      "end_time": 1380399.0,
+      "text": "the virtual machine that needs it and vise-versa, that the virtual machine doesn&#39;t overstep"
+    },
+    {
+      "index": 257,
+      "start_time": 1380400.0,
+      "end_time": 1385991.0,
+      "text": "its bounds. So, we talked back earlier about the Intel ISA. Intel ISA is really hard because"
+    },
+    {
+      "index": 258,
+      "start_time": 1385990.0,
+      "end_time": 1390159.0,
+      "text": "you have to trap all these exceptions that aren&#39;t trappable. So, what the monitor actually"
+    },
+    {
+      "index": 259,
+      "start_time": 1390160.0,
+      "end_time": 1394900.0,
+      "text": "does is, he&#39;ll actually rewrite a fending instructions on the fly into a completely"
+    },
+    {
+      "index": 260,
+      "start_time": 1394900.0,
+      "end_time": 1399851.0,
+      "text": "equivalent but safe version, except that the virtual has no idea they were rewritten, but"
+    },
+    {
+      "index": 261,
+      "start_time": 1399850.0,
+      "end_time": 1405980.0,
+      "text": "it gets the same effect on--when it comes back. The reason for that is if the virtual"
+    },
+    {
+      "index": 262,
+      "start_time": 1405980.0,
+      "end_time": 1411519.0,
+      "text": "machine could, say, do any raw interrupt call that it wanted, what will stop a virtual machine"
+    },
+    {
+      "index": 263,
+      "start_time": 1411520.0,
+      "end_time": 1415721.0,
+      "text": "from rebooting your physical machine, or taking all the memory, or scribbling all over your"
+    },
+    {
+      "index": 264,
+      "start_time": 1415720.0,
+      "end_time": 1422769.0,
+      "text": "disc? So, it&#39;s provides that boundary between the virtual machine and the actual hardware."
+    },
+    {
+      "index": 265,
+      "start_time": 1422770.0,
+      "end_time": 1435150.0,
+      "text": "So--oh crap, just kidding. So, what we learned in fusion development is that, you know, you"
+    },
+    {
+      "index": 266,
+      "start_time": 1435150.0,
+      "end_time": 1439111.0,
+      "text": "want to stay out of the kernel of OS X absolutely as much as possible. You know, there&#39;s some"
+    },
+    {
+      "index": 267,
+      "start_time": 1439110.0,
+      "end_time": 1444139.0,
+      "text": "times that you can&#39;t avoid it, but by large, the vast majority of the work that you need"
+    },
+    {
+      "index": 268,
+      "start_time": 1444140.0,
+      "end_time": 1449621.0,
+      "text": "to do in OS X can be done in user space. And if you need some raw kernel access, the best"
+    },
+    {
+      "index": 269,
+      "start_time": 1449620.0,
+      "end_time": 1454889.0,
+      "text": "thing to do is actually to set up a communication channel, whether it&#39;s a BSD socket or a Mac"
+    },
+    {
+      "index": 270,
+      "start_time": 1454890.0,
+      "end_time": 1459481.0,
+      "text": "port to communicate back and forth between user space and the kernel. And--so a good"
+    },
+    {
+      "index": 271,
+      "start_time": 1459480.0,
+      "end_time": 1464250.0,
+      "text": "example is like, user space can actually do pretty much every Mac operation. You know,"
+    },
+    {
+      "index": 272,
+      "start_time": 1464250.0,
+      "end_time": 1469320.0,
+      "text": "open ports, create tasks, it can do everything. A lot of these--I see aren&#39;t publicly available"
+    },
+    {
+      "index": 273,
+      "start_time": 1469320.0,
+      "end_time": 1472190.0,
+      "text": "inside the kernel itself. So if you write that kernel extension you can&#39;t actually do"
+    },
+    {
+      "index": 274,
+      "start_time": 1472190.0,
+      "end_time": 1477970.0,
+      "text": "these things, but user space can, vice-versa. We just found we needed to work around the"
+    },
+    {
+      "index": 275,
+      "start_time": 1477970.0,
+      "end_time": 1482320.0,
+      "text": "bug and one of the kernel drivers in OS X; we had to check what version of the kernel"
+    },
+    {
+      "index": 276,
+      "start_time": 1482320.0,
+      "end_time": 1487120.0,
+      "text": "extensions was loaded on the machine. You can actually do that from inside the kernel,"
+    },
+    {
+      "index": 277,
+      "start_time": 1487120.0,
+      "end_time": 1490250.0,
+      "text": "but you can ask user space to do it for you. Do a little processing and send you a message"
+    },
+    {
+      "index": 278,
+      "start_time": 1490250.0,
+      "end_time": 1496139.0,
+      "text": "backup over a socket of a Mac port. So, the lesson to be learned here is stay out of the"
+    },
+    {
+      "index": 279,
+      "start_time": 1496140.0,
+      "end_time": 1503001.0,
+      "text": "kernel if you can. I&#39;ll talk about the technology that you can use instead. Again, I don&#39;t mean"
+    },
+    {
+      "index": 280,
+      "start_time": 1503000.0,
+      "end_time": 1506559.0,
+      "text": "to pitch. I misspoke again. But if you do need to go into the kernel, the only resource"
+    },
+    {
+      "index": 281,
+      "start_time": 1506560.0,
+      "end_time": 1512310.0,
+      "text": "out there is basically Amit&#39;s book. So read it. It&#39;s really good. So if you have to go"
+    },
+    {
+      "index": 282,
+      "start_time": 1512310.0,
+      "end_time": 1517971.0,
+      "text": "inside the kernel, there&#39;s two main inter-phases for you to use when you&#39;re writing your kernel"
+    },
+    {
+      "index": 283,
+      "start_time": 1517970.0,
+      "end_time": 1520779.0,
+      "text": "extensions. And VMware fusion uses both of these, which is why I kind of want to talk"
+    },
+    {
+      "index": 284,
+      "start_time": 1520780.0,
+      "end_time": 1527121.0,
+      "text": "about them. So, I/O kit came from some research from the next days. It&#39;s kind of scary actually."
+    },
+    {
+      "index": 285,
+      "start_time": 1527120.0,
+      "end_time": 1534210.0,
+      "text": "It&#39;s a big C++ framework for use inside of a kernel. I&#39;ll say that again, it&#39;s C++ inside"
+    },
+    {
+      "index": 286,
+      "start_time": 1534210.0,
+      "end_time": 1539549.0,
+      "text": "the kernel. If that doesn&#39;t scare you, I don&#39;t what will? It is--it is a restricted [INDISTINCT]"
+    },
+    {
+      "index": 287,
+      "start_time": 1539550.0,
+      "end_time": 1544410.0,
+      "text": "of C++. So, there&#39;s no exceptions, no multiple inheritance, no templates, but what it does"
+    },
+    {
+      "index": 288,
+      "start_time": 1544410.0,
+      "end_time": 1550081.0,
+      "text": "give you is transparent access to things like busses. So if you need to interact with USB"
+    },
+    {
+      "index": 289,
+      "start_time": 1550080.0,
+      "end_time": 1555399.0,
+      "text": "devices, PCI devices, [INDISTINCT], any of that kind of stuff. You want to notify when"
+    },
+    {
+      "index": 290,
+      "start_time": 1555400.0,
+      "end_time": 1559611.0,
+      "text": "the machine goes to sleep or wakes up, you know, synchronously, you have to do through"
+    },
+    {
+      "index": 291,
+      "start_time": 1559610.0,
+      "end_time": 1567250.0,
+      "text": "I/O K. On the other side of the Jekyll and Hyde personality inside OS X&#39;s kernel is BSD."
+    },
+    {
+      "index": 292,
+      "start_time": 1567250.0,
+      "end_time": 1571450.0,
+      "text": "So BSD, you need to interact with it in your kernel extensions if you need to do any file"
+    },
+    {
+      "index": 293,
+      "start_time": 1571450.0,
+      "end_time": 1576440.0,
+      "text": "system work, any networking. So if you want--one big thing that VMware fusion does a ton of"
+    },
+    {
+      "index": 294,
+      "start_time": 1576440.0,
+      "end_time": 1582169.0,
+      "text": "is transparently bridging the networking inside of virtual machine, to networking outside."
+    },
+    {
+      "index": 295,
+      "start_time": 1582170.0,
+      "end_time": 1585920.0,
+      "text": "And maybe that&#39;s not too hard for like, physical Ethernet but think about that for a second"
+    },
+    {
+      "index": 296,
+      "start_time": 1585920.0,
+      "end_time": 1591800.0,
+      "text": "for things like, wireless, right? A wireless card has one IP and one Mac address, and you"
+    },
+    {
+      "index": 297,
+      "start_time": 1591800.0,
+      "end_time": 1594800.0,
+      "text": "can&#39;t just put it into promiscuous mode and start blasting packets on the network that"
+    },
+    {
+      "index": 298,
+      "start_time": 1594800.0,
+      "end_time": 1598290.0,
+      "text": "you could with Ethernet. So, there&#39;s a lot of work that fusion has to do under the scenes"
+    },
+    {
+      "index": 299,
+      "start_time": 1598290.0,
+      "end_time": 1602520.0,
+      "text": "to make sure that things like networking are just, you know, they just work for the end"
+    },
+    {
+      "index": 300,
+      "start_time": 1602520.0,
+      "end_time": 1608951.0,
+      "text": "user. So if you need to do any of that, you know, go to the BSD layer. And like I said,"
+    },
+    {
+      "index": 301,
+      "start_time": 1608950.0,
+      "end_time": 1614809.0,
+      "text": "if you must, you must. Fusion has three main kernel components that actually use I/O kit"
+    },
+    {
+      "index": 302,
+      "start_time": 1614810.0,
+      "end_time": 1620601.0,
+      "text": "and BSD. We [INDISTINCT] called VMX 86 for the VM on. His job is actually--is mostly"
+    },
+    {
+      "index": 303,
+      "start_time": 1620600.0,
+      "end_time": 1624960.0,
+      "text": "an optimization task. He&#39;s the one who&#39;s actually responsible for getting the monitor, that"
+    },
+    {
+      "index": 304,
+      "start_time": 1624960.0,
+      "end_time": 1630600.0,
+      "text": "huge master control program--well, [INDISTINCT] pretty small, kind of cute. Getting him inside"
+    },
+    {
+      "index": 305,
+      "start_time": 1630600.0,
+      "end_time": 1635080.0,
+      "text": "the physical memory of the machine and locking those pages down, so that we can reliably"
+    },
+    {
+      "index": 306,
+      "start_time": 1635080.0,
+      "end_time": 1642509.0,
+      "text": "jump to and from it and make it actually run a virtual machine. VMnet is the one I just"
+    },
+    {
+      "index": 307,
+      "start_time": 1642510.0,
+      "end_time": 1646890.0,
+      "text": "mentioned. You know, this is what actually talks to the BSD layer, makes virtual machines,"
+    },
+    {
+      "index": 308,
+      "start_time": 1646890.0,
+      "end_time": 1651310.0,
+      "text": "networks inter-phases, bridge, if you want them to be bridged, or be nodded if you want"
+    },
+    {
+      "index": 309,
+      "start_time": 1651310.0,
+      "end_time": 1655770.0,
+      "text": "them to be in nodded to be protected from viruses or, you know, you don&#39;t want it--or"
+    },
+    {
+      "index": 310,
+      "start_time": 1655770.0,
+      "end_time": 1660550.0,
+      "text": "maybe you don&#39;t have a DACP server on your local LAN. You know, it will handle transparently"
+    },
+    {
+      "index": 311,
+      "start_time": 1660550.0,
+      "end_time": 1664800.0,
+      "text": "setting up virtual networks. What&#39;s interesting about VMnet is it can be a simple or as complicated"
+    },
+    {
+      "index": 312,
+      "start_time": 1664800.0,
+      "end_time": 1669111.0,
+      "text": "as you want. You know, by default, fusion comes out of the box with one bridge network,"
+    },
+    {
+      "index": 313,
+      "start_time": 1669110.0,
+      "end_time": 1673120.0,
+      "text": "one net network, and one host to only network which means that you&#39;re VM can only talk to"
+    },
+    {
+      "index": 314,
+      "start_time": 1673120.0,
+      "end_time": 1678519.0,
+      "text": "the physical machine for like researching viruses or honey pots, that kind of stuff."
+    },
+    {
+      "index": 315,
+      "start_time": 1678520.0,
+      "end_time": 1682121.0,
+      "text": "But you can make it as complicated or as simple as you want just by editing some shell script"
+    },
+    {
+      "index": 316,
+      "start_time": 1682120.0,
+      "end_time": 1686370.0,
+      "text": "in the library applications support in VMware fusion directory. So if you need to have,"
+    },
+    {
+      "index": 317,
+      "start_time": 1686370.0,
+      "end_time": 1691110.0,
+      "text": "you know, a network that, you know, specifically binds with specific [INDISTINCT] demon that"
+    },
+    {
+      "index": 318,
+      "start_time": 1691110.0,
+      "end_time": 1697549.0,
+      "text": "has specific behavior or only allows two machines at a time, what&#39;s another good example [INDISTINCT]?"
+    },
+    {
+      "index": 319,
+      "start_time": 1697550.0,
+      "end_time": 1703500.0,
+      "text": "&gt;&gt; [INDISTINCT] the firewall, you know. Have a machine that has [INDISTINCT] and [INDISTINCT]."
+    },
+    {
+      "index": 320,
+      "start_time": 1703500.0,
+      "end_time": 1707071.0,
+      "text": "&gt;&gt; GERTZFIELD: So, what we just said is, you know, you could develop an entire network"
+    },
+    {
+      "index": 321,
+      "start_time": 1707070.0,
+      "end_time": 1711159.0,
+      "text": "of virtual machines that have layers of firewalls between them and you can have, you know, three"
+    },
+    {
+      "index": 322,
+      "start_time": 1711160.0,
+      "end_time": 1716001.0,
+      "text": "virtual networks. You can set all these up with the VMnet. And they&#39;re as separate as"
+    },
+    {
+      "index": 323,
+      "start_time": 1716000.0,
+      "end_time": 1720399.0,
+      "text": "physical--they&#39;re really just like physical switches or hubs from the virtual machine&#39;s"
+    },
+    {
+      "index": 324,
+      "start_time": 1720400.0,
+      "end_time": 1725481.0,
+      "text": "point of view. And the last kernel component that fusion uses is called VMIO plug. So,"
+    },
+    {
+      "index": 325,
+      "start_time": 1725480.0,
+      "end_time": 1731460.0,
+      "text": "VMIO plug is a necessity born on the Mac. One big thing that fusion does that I mentioned"
+    },
+    {
+      "index": 326,
+      "start_time": 1731460.0,
+      "end_time": 1737899.0,
+      "text": "earlier, is you can take any random USB device like a cell phone, an iPhone, or a printer,"
+    },
+    {
+      "index": 327,
+      "start_time": 1737900.0,
+      "end_time": 1741821.0,
+      "text": "scanner, whatever. Even if Mac OS X does not have drivers for it, you plug it in while"
+    },
+    {
+      "index": 328,
+      "start_time": 1741820.0,
+      "end_time": 1747659.0,
+      "text": "a virtual machine is running and VMIO plug&#39;s job is to seize that and connect it virtually"
+    },
+    {
+      "index": 329,
+      "start_time": 1747660.0,
+      "end_time": 1752140.0,
+      "text": "to one of the open ports in the virtual machine. So, Windows will just pop up say, &quot;Hey, I"
+    },
+    {
+      "index": 330,
+      "start_time": 1752140.0,
+      "end_time": 1757491.0,
+      "text": "detected a new--a new scanner.&quot; And even though OS X doesn&#39;t have drivers for it, all it knows"
+    },
+    {
+      "index": 331,
+      "start_time": 1757490.0,
+      "end_time": 1762519.0,
+      "text": "is the VMIO plug is handling the USB traffic for that guy. And just because it goes to"
+    },
+    {
+      "index": 332,
+      "start_time": 1762520.0,
+      "end_time": 1766260.0,
+      "text": "Windows, Mac OS X doesn&#39;t have to know--know any better. That&#39;s actually really handy."
+    },
+    {
+      "index": 333,
+      "start_time": 1766260.0,
+      "end_time": 1773121.0,
+      "text": "That&#39;s where we completely using I/O kit as it must. But--so far I just talked about how"
+    },
+    {
+      "index": 334,
+      "start_time": 1773120.0,
+      "end_time": 1779700.0,
+      "text": "virtual machines interact on the outside with, you know, MAC Os and the kernel components."
+    },
+    {
+      "index": 335,
+      "start_time": 1779700.0,
+      "end_time": 1784539.0,
+      "text": "But what&#39;s inside virtual machine is actually really important, too. This is the other story"
+    },
+    {
+      "index": 336,
+      "start_time": 1784540.0,
+      "end_time": 1791321.0,
+      "text": "of the application is so important to the virtual machine. With full inoperability and"
+    },
+    {
+      "index": 337,
+      "start_time": 1791320.0,
+      "end_time": 1797129.0,
+      "text": "integration between windows, [INDISTINCT], Linux, BSD, even network, believe it or not,"
+    },
+    {
+      "index": 338,
+      "start_time": 1797130.0,
+      "end_time": 1804900.0,
+      "text": "we found out in network because we just broke the network build last and I am really embarrassed."
+    },
+    {
+      "index": 339,
+      "start_time": 1804900.0,
+      "end_time": 1809560.0,
+      "text": "The tools basically handle full integration for drag and drop. So you can drag files in"
+    },
+    {
+      "index": 340,
+      "start_time": 1809560.0,
+      "end_time": 1816040.0,
+      "text": "and out of your Windows virtual machine to Mac, or Linux, or Solaris, or free BSD. You"
+    },
+    {
+      "index": 341,
+      "start_time": 1816040.0,
+      "end_time": 1819920.0,
+      "text": "can literally drag files in and out of the window, copy, paste to synchronize. So you"
+    },
+    {
+      "index": 342,
+      "start_time": 1819920.0,
+      "end_time": 1824201.0,
+      "text": "just go into your text editor in Linux and you can paste it in to your web browser on"
+    },
+    {
+      "index": 343,
+      "start_time": 1824200.0,
+      "end_time": 1830000.0,
+      "text": "the Mac. And it also do more advanced things like, you know, if the host needs more--has"
+    },
+    {
+      "index": 344,
+      "start_time": 1830000.0,
+      "end_time": 1834440.0,
+      "text": "pressure on it&#39;s memory, we can ask the virtual machine to swap some of its memory out son"
+    },
+    {
+      "index": 345,
+      "start_time": 1834440.0,
+      "end_time": 1839289.0,
+      "text": "that we can get that back for the physical machine, its called ballooning. It&#39;s a pretty"
+    },
+    {
+      "index": 346,
+      "start_time": 1839290.0,
+      "end_time": 1844611.0,
+      "text": "cool technique. So, you know, it&#39;s really important to know that, you know, integration"
+    },
+    {
+      "index": 347,
+      "start_time": 1844610.0,
+      "end_time": 1849519.0,
+      "text": "with the applications is really what we&#39;re aiming for. So, another really interesting"
+    },
+    {
+      "index": 348,
+      "start_time": 1849520.0,
+      "end_time": 1854130.0,
+      "text": "story I wanted to share about fusion development is, we learned this: You don&#39;t actually need"
+    },
+    {
+      "index": 349,
+      "start_time": 1854130.0,
+      "end_time": 1861180.0,
+      "text": "a Mac to build Mac software. Traditionally, people who develop, you know, apps for Mac"
+    },
+    {
+      "index": 350,
+      "start_time": 1861180.0,
+      "end_time": 1864910.0,
+      "text": "like the Picasa up-loader. You know, you just start hacking on it in X code and, you know,"
+    },
+    {
+      "index": 351,
+      "start_time": 1864910.0,
+      "end_time": 1869351.0,
+      "text": "eventually, you know, it becomes a full pledge product, but you need to have automated builds."
+    },
+    {
+      "index": 352,
+      "start_time": 1869350.0,
+      "end_time": 1873470.0,
+      "text": "You need to have, you know, the--your build team needs to have a way to generate builds"
+    },
+    {
+      "index": 353,
+      "start_time": 1873470.0,
+      "end_time": 1878029.0,
+      "text": "on demand and you may need, you know, your friends maybe modifying some shared coding."
+    },
+    {
+      "index": 354,
+      "start_time": 1878030.0,
+      "end_time": 1882170.0,
+      "text": "He might need to build it. What we do with VMware fusion is we actually do the entire"
+    },
+    {
+      "index": 355,
+      "start_time": 1882170.0,
+      "end_time": 1889571.0,
+      "text": "build on Linux. So, the entirety of VMware fusion is cross compiled on Linux--a cluster"
+    },
+    {
+      "index": 356,
+      "start_time": 1889570.0,
+      "end_time": 1896049.0,
+      "text": "of Linux virtual machines at VMware. The real big advantage here is, you know, you don&#39;t"
+    },
+    {
+      "index": 357,
+      "start_time": 1896050.0,
+      "end_time": 1900091.0,
+      "text": "need a physical Mac to run the Mac build. So, I don&#39;t know if anybody here--have anybody"
+    },
+    {
+      "index": 358,
+      "start_time": 1900090.0,
+      "end_time": 1906330.0,
+      "text": "here worked on cross platform software development? Okay, a lot of people have. I mean it&#39;s really"
+    },
+    {
+      "index": 359,
+      "start_time": 1906330.0,
+      "end_time": 1911149.0,
+      "text": "common for somebody to edit something in shared code, the string library, or the formatting"
+    },
+    {
+      "index": 360,
+      "start_time": 1911150.0,
+      "end_time": 1914180.0,
+      "text": "library and, you know, they break some of the secure platform because they have no way"
+    },
+    {
+      "index": 361,
+      "start_time": 1914180.0,
+      "end_time": 1919341.0,
+      "text": "of testing the build. Well, you know, when you concentrate on cross-compiling, they can"
+    },
+    {
+      "index": 362,
+      "start_time": 1919340.0,
+      "end_time": 1923710.0,
+      "text": "just pop open a virtual machine, cross compile inside that virtual machine if they&#39;re running"
+    },
+    {
+      "index": 363,
+      "start_time": 1923710.0,
+      "end_time": 1926830.0,
+      "text": "Windows, or if they&#39;re running Linux, they can just cross--they can just compile--cross"
+    },
+    {
+      "index": 364,
+      "start_time": 1926830.0,
+      "end_time": 1931799.0,
+      "text": "compile it directly and test the build before they check in. That was a real big boon for"
+    },
+    {
+      "index": 365,
+      "start_time": 1931800.0,
+      "end_time": 1936211.0,
+      "text": "us. But you have to be kind of careful. There are a couple of things--even though GCC is"
+    },
+    {
+      "index": 366,
+      "start_time": 1936210.0,
+      "end_time": 1943370.0,
+      "text": "completely open source, Apple&#39;s moribund, open Darwin tools are--they&#39;re kind of only"
+    },
+    {
+      "index": 367,
+      "start_time": 1943370.0,
+      "end_time": 1947769.0,
+      "text": "mostly dead. The linkering, what not, are still available. But there couple of things"
+    },
+    {
+      "index": 368,
+      "start_time": 1947770.0,
+      "end_time": 1952010.0,
+      "text": "that aren&#39;t yet available. Actually, packaging up a Mac--Mac&#39;s software for distribution,"
+    },
+    {
+      "index": 369,
+      "start_time": 1952010.0,
+      "end_time": 1957170.0,
+      "text": "people [INDISTINCT] .PKG and .DMB bundles. The disc images and what not, are still completely"
+    },
+    {
+      "index": 370,
+      "start_time": 1957170.0,
+      "end_time": 1961300.0,
+      "text": "proprietary and you do need a Mac for that final packaging step, unless you&#39;re clever"
+    },
+    {
+      "index": 371,
+      "start_time": 1961300.0,
+      "end_time": 1969400.0,
+      "text": "enough to reverse engineer it. We&#39;re not that clever. So, you do need a Mac for a couple"
+    },
+    {
+      "index": 372,
+      "start_time": 1969400.0,
+      "end_time": 1973160.0,
+      "text": "of things, but actually for the building--for the actual development and making sure that,"
+    },
+    {
+      "index": 373,
+      "start_time": 1973160.0,
+      "end_time": 1977691.0,
+      "text": "you know, things compile and--compile okay, you can actually do it all complete outside"
+    },
+    {
+      "index": 374,
+      "start_time": 1977690.0,
+      "end_time": 1981950.0,
+      "text": "a Mac. And then in the future, you know, if Steve Jobs gives the okay, there&#39;s no reason"
+    },
+    {
+      "index": 375,
+      "start_time": 1981950.0,
+      "end_time": 1986740.0,
+      "text": "my Mac virtual machine can&#39;t run on physical Windows or physical Linux boxes. You know,"
+    },
+    {
+      "index": 376,
+      "start_time": 1986740.0,
+      "end_time": 1991730.0,
+      "text": "so far it&#39;s basically been mostly a licensing issue, but there&#39;s no telling what will happen"
+    },
+    {
+      "index": 377,
+      "start_time": 1991730.0,
+      "end_time": 1997039.0,
+      "text": "in the future. I mean, if you run, you know, Mac OS inside a virtual machine, you know,"
+    },
+    {
+      "index": 378,
+      "start_time": 1997040.0,
+      "end_time": 2000300.0,
+      "text": "the possibilities are pretty--pretty limitless there. But you have to be careful, right?"
+    },
+    {
+      "index": 379,
+      "start_time": 2000300.0,
+      "end_time": 2005000.0,
+      "text": "Because Apple is a hardware vendor, they sell hardware. They sell shiny metal, beautiful"
+    },
+    {
+      "index": 380,
+      "start_time": 2005000.0,
+      "end_time": 2011770.0,
+      "text": "shiny metal boxes, they seem--one, two, three. All right, there&#39;s like twelve of them now."
+    },
+    {
+      "index": 381,
+      "start_time": 2011770.0,
+      "end_time": 2015910.0,
+      "text": "They&#39;re multiplying. Apple sells hardware and they don&#39;t want OS X running on average"
+    },
+    {
+      "index": 382,
+      "start_time": 2015910.0,
+      "end_time": 2020941.0,
+      "text": "Dell and Compaq boxes. So, you know, the virtual machine world and Apple kind of collide. They"
+    },
+    {
+      "index": 383,
+      "start_time": 2020940.0,
+      "end_time": 2025039.0,
+      "text": "want to sell more boxes. You know, we want everybody to kind of consolidate everything"
+    },
+    {
+      "index": 384,
+      "start_time": 2025040.0,
+      "end_time": 2029981.0,
+      "text": "into one box and save power and energy and maintenance cost. So, you know, we got to"
+    },
+    {
+      "index": 385,
+      "start_time": 2029980.0,
+      "end_time": 2036249.0,
+      "text": "find a way to cut the Gordian knot, as it were, to make sure OS X can run as a virtual"
+    },
+    {
+      "index": 386,
+      "start_time": 2036250.0,
+      "end_time": 2044010.0,
+      "text": "machine. So, what I want to finish out with is, to talk a little bit and demonstrate some"
+    },
+    {
+      "index": 387,
+      "start_time": 2044010.0,
+      "end_time": 2049311.0,
+      "text": "of fusion&#39;s features. We really thought outside the box with fusion. This is a demonstration--this"
+    },
+    {
+      "index": 388,
+      "start_time": 2049310.0,
+      "end_time": 2054260.0,
+      "text": "is a screen shot of one of our features called Unity. This was kind of born of necessity."
+    },
+    {
+      "index": 389,
+      "start_time": 2054260.0000000002,
+      "end_time": 2057490.0000000002,
+      "text": "Anybody who&#39;s used Parallels has heard of their feature, Coherence. This is a similar"
+    },
+    {
+      "index": 390,
+      "start_time": 2057489.9999999998,
+      "end_time": 2064769.9999999998,
+      "text": "idea where virtual machines can be running Windows and the host OS Mac can actually display"
+    },
+    {
+      "index": 391,
+      "start_time": 2064770.0,
+      "end_time": 2069730.0,
+      "text": "them as floating stand-alone applications from the user&#39;s point of view random at desktop."
+    },
+    {
+      "index": 392,
+      "start_time": 2069730.0,
+      "end_time": 2075050.0,
+      "text": "So, even things like Expose&#39; were great. You know, each of your individual Windows application"
+    },
+    {
+      "index": 393,
+      "start_time": 2075050.0000000002,
+      "end_time": 2079899.0000000002,
+      "text": "shrink down and displaying your desktop just as if they&#39;re Mac apps. I mean, it totally"
+    },
+    {
+      "index": 394,
+      "start_time": 2079900.0,
+      "end_time": 2084410.0,
+      "text": "breaks down the walls and again, kind of focus on the point that the application is king,"
+    },
+    {
+      "index": 395,
+      "start_time": 2084409.9999999998,
+      "end_time": 2089819.9999999998,
+      "text": "whether you need to, you know, contact it over a web interface to a server ring somewhere,"
+    },
+    {
+      "index": 396,
+      "start_time": 2089820.0000000002,
+      "end_time": 2094320.0000000002,
+      "text": "or run it natively in your Mac because you need, you know, the speed, 2D or even 3D,"
+    },
+    {
+      "index": 397,
+      "start_time": 2094320.0000000002,
+      "end_time": 2098691.0,
+      "text": "right? One of the big--the big sticking points for a lot people I know with Mac users is,"
+    },
+    {
+      "index": 398,
+      "start_time": 2098690.0,
+      "end_time": 2102660.0,
+      "text": "they still hate to play those PC games. You know, everyone wants to play BioShock or Halo"
+    },
+    {
+      "index": 399,
+      "start_time": 2102660.0,
+      "end_time": 2109260.0,
+      "text": "3 or whatever comes out. Is Halo 3 app for PC? Probably not. We will, in a year of two."
+    },
+    {
+      "index": 400,
+      "start_time": 2109260.0,
+      "end_time": 2112760.0,
+      "text": "So there&#39;s always--there&#39;s always those, but virtualization is getting to the point where"
+    },
+    {
+      "index": 401,
+      "start_time": 2112760.0,
+      "end_time": 2119710.0,
+      "text": "you can start to play 3D games and fully interact with your virtual machines there ran on--your"
+    },
+    {
+      "index": 402,
+      "start_time": 2119710.0,
+      "end_time": 2127569.0,
+      "text": "virtual machines apps run the desktop. So, I want to give a quick demo of some of--some"
+    },
+    {
+      "index": 403,
+      "start_time": 2127570.0,
+      "end_time": 2135501.0,
+      "text": "of fusion here. So--all right. Let&#39;s see if I can actually get to my Window here. So,"
+    },
+    {
+      "index": 404,
+      "start_time": 2135500.0,
+      "end_time": 2148609.0,
+      "text": "that will do it. Ah, okay, cool. So, we have Windows running here. This is all inside a"
+    },
+    {
+      "index": 405,
+      "start_time": 2148610.0,
+      "end_time": 2153830.0,
+      "text": "virtual machine in full screen mode here. So, you know, I have very, very important"
+    },
+    {
+      "index": 406,
+      "start_time": 2153830.0,
+      "end_time": 2159021.0,
+      "text": "work to do on my Windows desktop. You know, I often have to play solitaire. It&#39;s very,"
+    },
+    {
+      "index": 407,
+      "start_time": 2159020.0,
+      "end_time": 2163109.0,
+      "text": "very important to me and it&#39;s a very huge a shortcoming on the Mac that we don&#39;t have"
+    },
+    {
+      "index": 408,
+      "start_time": 2163110.0,
+      "end_time": 2167221.0,
+      "text": "things like solitaire. But, you know, why stop there? I mean, why not go for things"
+    },
+    {
+      "index": 409,
+      "start_time": 2167220.0,
+      "end_time": 2172950.0,
+      "text": "like full 3D games? So, this one--I have a pretty old 3D download here, but I&#39;ll show"
+    },
+    {
+      "index": 410,
+      "start_time": 2172950.0,
+      "end_time": 2178140.0,
+      "text": "you guys some of the stuff that fusion can do now. So, this is just, you know, a pass"
+    },
+    {
+      "index": 411,
+      "start_time": 2178140.0,
+      "end_time": 2187869.0,
+      "text": "mark test. I can do 3D graphics. So this is just in the Window here. So you can actually,"
+    },
+    {
+      "index": 412,
+      "start_time": 2187870.0,
+      "end_time": 2191921.0,
+      "text": "you know, you can actually do--this is actually using hardware acceleration. So it&#39;s actually"
+    },
+    {
+      "index": 413,
+      "start_time": 2191920.0,
+      "end_time": 2197160.0,
+      "text": "translating everything to OpenGL on the fly. You know, it&#39;s--it&#39;s pretty cool. You can"
+    },
+    {
+      "index": 414,
+      "start_time": 2197160.0,
+      "end_time": 2202690.0,
+      "text": "do things like 2D games. So, you know, I can run my very, very important Bookworm adventures."
+    },
+    {
+      "index": 415,
+      "start_time": 2202690.0,
+      "end_time": 2208089.0,
+      "text": "You may--you have to have Bookworm adventures. You know, you can run your IE for testing,"
+    },
+    {
+      "index": 416,
+      "start_time": 2208090.0,
+      "end_time": 2213991.0,
+      "text": "your Google desktop. You know, very important on Windows. And if I don&#39;t want to interact"
+    },
+    {
+      "index": 417,
+      "start_time": 2213990.0,
+      "end_time": 2225440.0,
+      "text": "with a full screen, you know, I can just leave and go to a window. So, I can interact with"
+    },
+    {
+      "index": 418,
+      "start_time": 2225440.0,
+      "end_time": 2229950.0,
+      "text": "it, you know, anyway I want. You know, whether I want it to be just a window, you know, floating"
+    },
+    {
+      "index": 419,
+      "start_time": 2229950.0,
+      "end_time": 2237650.0,
+      "text": "around. No, I don&#39;t want that. Yes. So this is also a very key feature for me, its playing"
+    },
+    {
+      "index": 420,
+      "start_time": 2237650.0,
+      "end_time": 2247250.0,
+      "text": "Bookworm adventure between builds. So, well, I got a good word here. Squeezy. Squishiest."
+    },
+    {
+      "index": 421,
+      "start_time": 2247250.0,
+      "end_time": 2260630.0,
+      "text": "Oh, very exciting. Nice. Get them. Okay, cool. But let say I don&#39;t want to have to deal with,"
+    },
+    {
+      "index": 422,
+      "start_time": 2260630.0,
+      "end_time": 2265500.0,
+      "text": "you know, the Window&#39;s desktop. I can actually escape from the confines of the Windows desktop"
+    },
+    {
+      "index": 423,
+      "start_time": 2265500.0,
+      "end_time": 2275200.0,
+      "text": "and go into Unity mode. So now my Windows applications are just kind of floating here"
+    },
+    {
+      "index": 424,
+      "start_time": 2275200.0,
+      "end_time": 2281609.0,
+      "text": "on my Mac desktop. So, you know, I can have my Mac apps and my Windows apps, kind of side"
+    },
+    {
+      "index": 425,
+      "start_time": 2281610.0,
+      "end_time": 2290631.0,
+      "text": "by side. I don&#39;t know why my desktop showed up there. You can do a lot of interesting"
+    },
+    {
+      "index": 426,
+      "start_time": 2290630.0,
+      "end_time": 2295640.0,
+      "text": "things because your Mac apps become, kind of fully integrated with--with Windows and"
+    },
+    {
+      "index": 427,
+      "start_time": 2295640.0,
+      "end_time": 2303660.0,
+      "text": "vice-versa. So, it&#39;s pretty exciting there. Let&#39;s get out of unity mode. Oh, actually"
+    },
+    {
+      "index": 428,
+      "start_time": 2303660.0,
+      "end_time": 2307790.0,
+      "text": "that was my--that wasn&#39;t my windows desktop. That was Mac desktop. I was forgetting because"
+    },
+    {
+      "index": 429,
+      "start_time": 2307790.0,
+      "end_time": 2312450.0,
+      "text": "I didn&#39;t see my--my icons there. That wasn&#39;t very exciting actually. Let&#39;s get--let&#39;s get"
+    },
+    {
+      "index": 430,
+      "start_time": 2312450.0,
+      "end_time": 2320390.0,
+      "text": "the Mac talk over there. Here we go. You can see we&#39;re actually in Mac quest here. So,"
+    },
+    {
+      "index": 431,
+      "start_time": 2320390.0,
+      "end_time": 2325970.0,
+      "text": "if I need to open up, you know, I don&#39;t know, IE or something because you have to--you know,"
+    },
+    {
+      "index": 432,
+      "start_time": 2325970.0,
+      "end_time": 2330800.0,
+      "text": "a lot of things that fusion is all about is getting access to those apps that don&#39;t exist"
+    },
+    {
+      "index": 433,
+      "start_time": 2330800.0,
+      "end_time": 2338099.0,
+      "text": "otherwise. So, I can go into Unity mode. And there you go. So now we have IE and my Mac"
+    },
+    {
+      "index": 434,
+      "start_time": 2338100.0,
+      "end_time": 2343961.0,
+      "text": "applications kind of side by side. So, I can open up, you know, finder and let&#39;s see. Where&#39;s"
+    },
+    {
+      "index": 435,
+      "start_time": 2343960.0,
+      "end_time": 2347910.0,
+      "text": "my finder window? Here it is. So, I have my finder windows, my IE windows and they are"
+    },
+    {
+      "index": 436,
+      "start_time": 2347910.0,
+      "end_time": 2352270.0,
+      "text": "all kind of--they&#39;re all kind of interacting. So, you know, if I minimize them, they go"
+    },
+    {
+      "index": 437,
+      "start_time": 2352270.0,
+      "end_time": 2358200.0,
+      "text": "into the dock. I un-minimize them they come back. It&#39;s a pretty cool way of interacting"
+    },
+    {
+      "index": 438,
+      "start_time": 2358200.0,
+      "end_time": 2365410.0,
+      "text": "with virtual machines. So, that&#39;s basically--that&#39;s basically my gist is, you know, virtual machines"
+    },
+    {
+      "index": 439,
+      "start_time": 2365410.0,
+      "end_time": 2370140.0,
+      "text": "are really coming along. Their--we&#39;re looking at it from an application development and"
+    },
+    {
+      "index": 440,
+      "start_time": 2370140.0,
+      "end_time": 2374980.0,
+      "text": "distribution standpoint. We really want people to think about--if they have to interact with"
+    },
+    {
+      "index": 441,
+      "start_time": 2374980.0,
+      "end_time": 2378790.0,
+      "text": "the hardware and they don&#39;t have the resources or the know-how to make a widely distributed"
+    },
+    {
+      "index": 442,
+      "start_time": 2378790.0,
+      "end_time": 2382809.0,
+      "text": "fault tolerance, client service system like you guys at Google do. You know, they can"
+    },
+    {
+      "index": 443,
+      "start_time": 2382810.0,
+      "end_time": 2387080.0,
+      "text": "take it from the other direction and take their existing Intel apps. As crummy as they"
+    },
+    {
+      "index": 444,
+      "start_time": 2387080.0,
+      "end_time": 2390481.0,
+      "text": "are, maybe they were written 20 years ago and packaged them up on a virtual machine"
+    },
+    {
+      "index": 445,
+      "start_time": 2390480.0,
+      "end_time": 2394940.0,
+      "text": "that will run in any Intel box, Mac, Windows, Linux, whatever they have lying around, and"
+    },
+    {
+      "index": 446,
+      "start_time": 2394940.0,
+      "end_time": 2399750.0,
+      "text": "run perfectly. Like there&#39;s no--there&#39;s no Java, VM that might be different on Mac, Window,"
+    },
+    {
+      "index": 447,
+      "start_time": 2399750.0,
+      "end_time": 2404230.0,
+      "text": "or Linux. It&#39;s literally identical and the same virtual hardware&#39;s available wherever"
+    },
+    {
+      "index": 448,
+      "start_time": 2404230.0,
+      "end_time": 2410470.0,
+      "text": "you go. So, yes, so that&#39;s basically my presentation. I want to take any questions. I have--so,"
+    },
+    {
+      "index": 449,
+      "start_time": 2410470.0,
+      "end_time": 2417550.0,
+      "text": "it is first internal and then external? Amit? First, external then internal or internal"
+    },
+    {
+      "index": 450,
+      "start_time": 2417550.0,
+      "end_time": 2418920.0,
+      "text": "then external? &gt;&gt; What?"
+    },
+    {
+      "index": 451,
+      "start_time": 2418920.0,
+      "end_time": 2423400.0,
+      "text": "&gt;&gt; GERTZFIELD: The Q&amp;A session? &gt;&gt; Oh, no, it&#39;s [INDISTINCT]."
+    },
+    {
+      "index": 452,
+      "start_time": 2423400.0,
+      "end_time": 2425949.0,
+      "text": "&gt;&gt; GERTZFIELD: Okay, soů &gt;&gt; [INDISTINCT]"
+    },
+    {
+      "index": 453,
+      "start_time": 2425950.0,
+      "end_time": 2431131.0,
+      "text": "&gt;&gt; GERTZFIELD: Okay guys. So come on up and ask any questions. You can up to the microphone"
+    },
+    {
+      "index": 454,
+      "start_time": 2431130.0,
+      "end_time": 2437020.0,
+      "text": "or come on up. I&#39;d love to answer anything about Mac developments, fusion in specific,"
+    },
+    {
+      "index": 455,
+      "start_time": 2437020.0,
+      "end_time": 2446430.0,
+      "text": "how we did, what we did, how we got here and what we learned along the way. Right there."
+    },
+    {
+      "index": 456,
+      "start_time": 2446430.0,
+      "end_time": 2452059.0,
+      "text": "&gt;&gt; I was wondering about the--you use VT? The VT instruction set? Do you need to [INDISTINCT]"
+    },
+    {
+      "index": 457,
+      "start_time": 2452060.0,
+      "end_time": 2454431.0,
+      "text": "monitor if you use VT? &gt;&gt; GERTZFIELD: So, the question is, do we"
+    },
+    {
+      "index": 458,
+      "start_time": 2454430.0,
+      "end_time": 2459799.0,
+      "text": "still need VT--do we still need the monitor if we use VT? So VT is an extension, developed"
+    },
+    {
+      "index": 459,
+      "start_time": 2459800.0,
+      "end_time": 2466911.0,
+      "text": "by Intel at--VMware work pretty closely with Intel, any hardware vendors to provide hardware"
+    },
+    {
+      "index": 460,
+      "start_time": 2466910.0,
+      "end_time": 2470819.0,
+      "text": "assisted virtualization. The big thing that was really hard with virtualization and Intel"
+    },
+    {
+      "index": 461,
+      "start_time": 2470820.0,
+      "end_time": 2476360.0,
+      "text": "to begin with, was like I said, trapping this naughty instructions, like return and, you"
+    },
+    {
+      "index": 462,
+      "start_time": 2476360.0,
+      "end_time": 2483971.0,
+      "text": "know, push up and pop up. VT extensions basically gave--made the task of writing a virtual machine"
+    },
+    {
+      "index": 463,
+      "start_time": 2483970.0,
+      "end_time": 2490400.0,
+      "text": "monitor a lot easier. What we found with VT was the performance with VT is much better"
+    },
+    {
+      "index": 464,
+      "start_time": 2490400.0,
+      "end_time": 2495730.0,
+      "text": "for certain tasks and much worst for others. So things that require a lot of context switches"
+    },
+    {
+      "index": 465,
+      "start_time": 2495730.0,
+      "end_time": 2500700.0,
+      "text": "like system calls, perform way better under better VT. So we provide it as an option in"
+    },
+    {
+      "index": 466,
+      "start_time": 2500700.0,
+      "end_time": 2505349.0,
+      "text": "VMware fusion. Certain things you have to have VT for, like segmentation protection"
+    },
+    {
+      "index": 467,
+      "start_time": 2505350.0,
+      "end_time": 2511891.0,
+      "text": "was actually removed from the original 64 bit Intel I64 instruction set. I&#39;m sorry,"
+    },
+    {
+      "index": 468,
+      "start_time": 2511890.0,
+      "end_time": 2519319.0,
+      "text": "not I64, the AMD 64 instruction set. So we actually had to use VT to emulate segmentation--to"
+    },
+    {
+      "index": 469,
+      "start_time": 2519320.0,
+      "end_time": 2524570.0,
+      "text": "remove the need for segmentation. We offer the availability for VT, but we don&#39;t depend"
+    },
+    {
+      "index": 470,
+      "start_time": 2524570.0,
+      "end_time": 2528251.0,
+      "text": "on it because VT basically, it boils down to making--writing a virtual machine monitor"
+    },
+    {
+      "index": 471,
+      "start_time": 2528250.0,
+      "end_time": 2532260.0,
+      "text": "a lot easier. That&#39;s why you see a lot of new products coming out that require VT. It&#39;s"
+    },
+    {
+      "index": 472,
+      "start_time": 2532260.0,
+      "end_time": 2537170.0,
+      "text": "just much, much easier than writing a binary translation monitor that performs really well."
+    },
+    {
+      "index": 473,
+      "start_time": 2537170.0,
+      "end_time": 2540430.0,
+      "text": "So, we justů &gt;&gt; We&#39;re actually using free virtualization"
+    },
+    {
+      "index": 474,
+      "start_time": 2540430.0,
+      "end_time": 2544390.0,
+      "text": "technologies. One of them is VT binary translation [INDISTINCT]?"
+    },
+    {
+      "index": 475,
+      "start_time": 2544390.0,
+      "end_time": 2549230.0,
+      "text": "&gt;&gt; GERTZFIELD: You want to repeat yourself? &gt;&gt; Yes, thanks. We&#39;re actually using [INDISTINCT]"
+    },
+    {
+      "index": 476,
+      "start_time": 2549230.0,
+      "end_time": 2553329.0,
+      "text": "kinds of virtualization technologies. One of them is VT binary translation that Ben"
+    },
+    {
+      "index": 477,
+      "start_time": 2553330.0,
+      "end_time": 2558661.0,
+      "text": "described earlier, which is effectively just a time compiler. We compile--we take X36 code"
+    },
+    {
+      "index": 478,
+      "start_time": 2558660.0,
+      "end_time": 2564390.0,
+      "text": "and we write it to X36 code that is safe to run on the host. That&#39;s one technique. The"
+    },
+    {
+      "index": 479,
+      "start_time": 2564390.0,
+      "end_time": 2570829.0,
+      "text": "other one is VT or a--it&#39;s called also SVM on AMG processors which is not ready [INDISTINCT]"
+    },
+    {
+      "index": 480,
+      "start_time": 2570830.0,
+      "end_time": 2576731.0,
+      "text": "but just mentioning for completeness. And the third one is power of virtualization which"
+    },
+    {
+      "index": 481,
+      "start_time": 2576730.0,
+      "end_time": 2583540.0,
+      "text": "is the approach that the Zen folks have taken where you effectively rewrite your OS so that"
+    },
+    {
+      "index": 482,
+      "start_time": 2583540.0,
+      "end_time": 2589859.0,
+      "text": "it doesn&#39;t use the non-neutralizer but instructions of the X36. The difference between the VMware"
+    },
+    {
+      "index": 483,
+      "start_time": 2589860.0,
+      "end_time": 2595511.0,
+      "text": "and the competition in that space is that VMware has the free technologies. We do not"
+    },
+    {
+      "index": 484,
+      "start_time": 2595510.0,
+      "end_time": 2599599.0,
+      "text": "focus on just one, and we can also switch dynamically while you are--we&#39;re executing"
+    },
+    {
+      "index": 485,
+      "start_time": 2599600.0,
+      "end_time": 2605161.0,
+      "text": "the VM between these [INDISTINCT] of technologies. So we always get the one that&#39;s the best for"
+    },
+    {
+      "index": 486,
+      "start_time": 2605160.0,
+      "end_time": 2609299.0,
+      "text": "the workload that we are running depending on what we are running, we adapt. And that"
+    },
+    {
+      "index": 487,
+      "start_time": 2609300.0,
+      "end_time": 2615330.0,
+      "text": "gives us a lot of flexibility. And we usually don&#39;t mention that a lot in our documents"
+    },
+    {
+      "index": 488,
+      "start_time": 2615330.0,
+      "end_time": 2619541.0,
+      "text": "because to us it&#39;s an implementation detail. What we are trying to do is run the VMS files"
+    },
+    {
+      "index": 489,
+      "start_time": 2619540.0,
+      "end_time": 2624690.0,
+      "text": "as possible. That&#39;s what the customers care about."
+    },
+    {
+      "index": 490,
+      "start_time": 2624690.0,
+      "end_time": 2629109.0,
+      "text": "&gt;&gt; I was just wondering, in a situation like this for example, what do you do with files"
+    },
+    {
+      "index": 491,
+      "start_time": 2629110.0,
+      "end_time": 2631501.0,
+      "text": "that you want to share between the different virtual machines?"
+    },
+    {
+      "index": 492,
+      "start_time": 2631500.0,
+      "end_time": 2634790.0,
+      "text": "&gt;&gt; GERTZFIELD: So the question is, what do you do with files that you don&#39;t share between"
+    },
+    {
+      "index": 493,
+      "start_time": 2634790.0,
+      "end_time": 2636200.0,
+      "text": "the virtual machines? &gt;&gt; That you--well, that you do want to share"
+    },
+    {
+      "index": 494,
+      "start_time": 2636200.0,
+      "end_time": 2638390.0,
+      "text": "or--I mean, how do you control that? &gt;&gt; GERTZFIELD: There&#39;s a couple of different"
+    },
+    {
+      "index": 495,
+      "start_time": 2638390.0,
+      "end_time": 2642589.0,
+      "text": "technologies. So, we explicitly have the user opt in if they want to share, for example,"
+    },
+    {
+      "index": 496,
+      "start_time": 2642590.0,
+      "end_time": 2647610.0,
+      "text": "their home directory or their documents directory. You can create shared folders one by one and"
+    },
+    {
+      "index": 497,
+      "start_time": 2647610.0,
+      "end_time": 2656461.0,
+      "text": "specifically share them. So, a good example is--let&#39;s see if I can do it here. So, here&#39;s"
+    },
+    {
+      "index": 498,
+      "start_time": 2656460.0,
+      "end_time": 2663630.0,
+      "text": "the virtual machine. Here&#39;s the VMware window. And I can actually pull up the settings for"
+    },
+    {
+      "index": 499,
+      "start_time": 2663630.0,
+      "end_time": 2668619.0,
+      "text": "this guy. And you can actually add shared folders on the fly. So right now, I have a"
+    },
+    {
+      "index": 500,
+      "start_time": 2668620.0,
+      "end_time": 2673791.0,
+      "text": "shared folder that maps my home directory then read only, but I can actually make more"
+    },
+    {
+      "index": 501,
+      "start_time": 2673790.0,
+      "end_time": 2677619.0,
+      "text": "shared folders on the fly, you know, on the fly or manually that actually share explicit"
+    },
+    {
+      "index": 502,
+      "start_time": 2677620.0,
+      "end_time": 2680711.0,
+      "text": "more stuff. You can also--there&#39;s nothing stopping you from doing what you do with the"
+    },
+    {
+      "index": 503,
+      "start_time": 2680710.0,
+      "end_time": 2686730.0,
+      "text": "physical machine and using technologies like SMB, NFS, or AFP, it actually share your files"
+    },
+    {
+      "index": 504,
+      "start_time": 2686730.0,
+      "end_time": 2690650.0,
+      "text": "back and forth. And, you know, each--the nice thing about shared folder is that they don&#39;t"
+    },
+    {
+      "index": 505,
+      "start_time": 2690650.0,
+      "end_time": 2695299.0,
+      "text": "require any network set up. The nice thing about things like SMB and NFS is they&#39;re really"
+    },
+    {
+      "index": 506,
+      "start_time": 2695300.0,
+      "end_time": 2699661.0,
+      "text": "tuned and they, you know, Windows does SMB really, really well. And so, if you want to"
+    },
+    {
+      "index": 507,
+      "start_time": 2699660.0,
+      "end_time": 2704490.0,
+      "text": "do things like, you know, really heavy workloads, you know, you can use network files systems"
+    },
+    {
+      "index": 508,
+      "start_time": 2704490.0,
+      "end_time": 2709440.0,
+      "text": "as well. &gt;&gt; Best case, what kind of overhead that is"
+    },
+    {
+      "index": 509,
+      "start_time": 2709440.0,
+      "end_time": 2713119.0,
+      "text": "introduced by virtualizing? &gt;&gt; GERTZFIELD: So, what kind of overhead is"
+    },
+    {
+      "index": 510,
+      "start_time": 2713120.0,
+      "end_time": 2717840.0,
+      "text": "introduced by virtualizing? It depends very heavily in the workload. With today&#39;s technology"
+    },
+    {
+      "index": 511,
+      "start_time": 2717840.0,
+      "end_time": 2721971.0,
+      "text": "is, what you&#39;re going to find is CPU intensive workloads very, very fast. You&#39;re not going"
+    },
+    {
+      "index": 512,
+      "start_time": 2721970.0,
+      "end_time": 2727680.0,
+      "text": "to have very much overhead at all. So things like compiling or number crunching, work really"
+    },
+    {
+      "index": 513,
+      "start_time": 2727680.0,
+      "end_time": 2734000.0,
+      "text": "well. When you start getting into IO heavy workload, you know, lots of disc network,"
+    },
+    {
+      "index": 514,
+      "start_time": 2734000.0,
+      "end_time": 2738920.0,
+      "text": "those kind of things, there&#39;s more overhead because the cost of those is often, you know,"
+    },
+    {
+      "index": 515,
+      "start_time": 2738920.0,
+      "end_time": 2744400.0,
+      "text": "all the context switching copies that you have to make them happen. So, until you get--and"
+    },
+    {
+      "index": 516,
+      "start_time": 2744400.0,
+      "end_time": 2746869.0,
+      "text": "that&#39;s really an interesting point because we&#39;re actually starting to see virtualized"
+    },
+    {
+      "index": 517,
+      "start_time": 2746870.0,
+      "end_time": 2752070.0,
+      "text": "IO hardware supports. So you&#39;re starting to see more and more things like fiber channel"
+    },
+    {
+      "index": 518,
+      "start_time": 2752070.0,
+      "end_time": 2757511.0,
+      "text": "on the server side start to be aware of virtualization such that we can actually start offloading"
+    },
+    {
+      "index": 519,
+      "start_time": 2757510.0,
+      "end_time": 2762069.0,
+      "text": "some of the work of IO to the hardware because today, you know, discs network and what not,"
+    },
+    {
+      "index": 520,
+      "start_time": 2762070.0,
+      "end_time": 2765631.0,
+      "text": "that&#39;s all emulated in user space. We try to accelerate it by putting some of the work"
+    },
+    {
+      "index": 521,
+      "start_time": 2765630.0,
+      "end_time": 2769260.0,
+      "text": "into the kernel, but there&#39;s only so much you can do. It&#39;s not as fast as talking to"
+    },
+    {
+      "index": 522,
+      "start_time": 2769260.0,
+      "end_time": 2776020.0,
+      "text": "the hardware. So--but overall, I mean, you know, things like, you know, I can--I can"
+    },
+    {
+      "index": 523,
+      "start_time": 2776020.0,
+      "end_time": 2781589.0,
+      "text": "go into my virtual machine right here, open up a folder and the performance is really"
+    },
+    {
+      "index": 524,
+      "start_time": 2781590.0,
+      "end_time": 2785211.0,
+      "text": "good, I think. You know, I mean, it&#39;s pretty close to native."
+    },
+    {
+      "index": 525,
+      "start_time": 2785210.0,
+      "end_time": 2789510.0,
+      "text": "&gt;&gt; Well, I guess I was asking more from a server perspective. This is not necessarily"
+    },
+    {
+      "index": 526,
+      "start_time": 2789510.0,
+      "end_time": 2792150.0,
+      "text": "from a desktop becauseů &gt;&gt; GERTZFIELD: From a server perspective,"
+    },
+    {
+      "index": 527,
+      "start_time": 2792150.0,
+      "end_time": 2796309.0,
+      "text": "it&#39;s pretty ideal unless you&#39;re doing really heavy IO bound workloads. So, if you&#39;re doing"
+    },
+    {
+      "index": 528,
+      "start_time": 2796310.0,
+      "end_time": 2800731.0,
+      "text": "things like, you know, web, you know, web services, you know, lot&#39;s of things that stay"
+    },
+    {
+      "index": 529,
+      "start_time": 2800730.0,
+      "end_time": 2805510.0,
+      "text": "in cache, it&#39;s not that bad. But if you&#39;re doing, you know, heavy disc, you know, like"
+    },
+    {
+      "index": 530,
+      "start_time": 2805510.0,
+      "end_time": 2809850.0,
+      "text": "a file server or something, you may see not see as much gain."
+    },
+    {
+      "index": 531,
+      "start_time": 2809850.0,
+      "end_time": 2815370.0,
+      "text": "&gt;&gt; Okay. &gt;&gt; GERTZFIELD: Thanks."
+    },
+    {
+      "index": 532,
+      "start_time": 2815370.0,
+      "end_time": 2818880.0,
+      "text": "&gt;&gt; What&#39;s the plan on multiple snapshots? &gt;&gt; GERTZFIELD: Multiple snapshots, so you&#39;re"
+    },
+    {
+      "index": 533,
+      "start_time": 2818880.0,
+      "end_time": 2821480.0,
+      "text": "saying when are they coming? &gt;&gt; Yeah, when are they coming?"
+    },
+    {
+      "index": 534,
+      "start_time": 2821480.0,
+      "end_time": 2824809.0,
+      "text": "&gt; GERTZFIELD: So, multiple snap shots. So, the VMware platform supports something called"
+    },
+    {
+      "index": 535,
+      "start_time": 2824810.0,
+      "end_time": 2831151.0,
+      "text": "snapshots. When you have virtualized hardware, you don&#39;t actually--you can do some things"
+    },
+    {
+      "index": 536,
+      "start_time": 2831150.0,
+      "end_time": 2835210.0,
+      "text": "you can&#39;t do with physical hardware. You can just think called snapshots where the entire"
+    },
+    {
+      "index": 537,
+      "start_time": 2835210.0,
+      "end_time": 2841849.0,
+      "text": "state of the machine, devices, memory, CPU is frozen in time and you can keep going forward"
+    },
+    {
+      "index": 538,
+      "start_time": 2841850.0,
+      "end_time": 2845631.0,
+      "text": "form that point on. At any point, you can decide, you know what? I&#39;m going to go back"
+    },
+    {
+      "index": 539,
+      "start_time": 2845630.0,
+      "end_time": 2850450.0,
+      "text": "to that point of my snapshot. It&#39;s kind of like TVO for virtual machines. So, I&#39;ll show"
+    },
+    {
+      "index": 540,
+      "start_time": 2850450.0,
+      "end_time": 2857190.0,
+      "text": "you. I don&#39;t know how long will it take here. I actually read--it might take a little while."
+    },
+    {
+      "index": 541,
+      "start_time": 2857190.0,
+      "end_time": 2861020.0,
+      "text": "Snapshots basically let you, you know, just go back to the exact state. So if you want"
+    },
+    {
+      "index": 542,
+      "start_time": 2861020.0,
+      "end_time": 2864690.0,
+      "text": "to test out some new service pack for Windows, I know service pack 3 is about to come out"
+    },
+    {
+      "index": 543,
+      "start_time": 2864690.0,
+      "end_time": 2869780.0,
+      "text": "for XP for example, you can take a snapshot, install it, if it totally trashes your software,"
+    },
+    {
+      "index": 544,
+      "start_time": 2869780.0,
+      "end_time": 2875250.0,
+      "text": "you just go back to the previous snapshot. The question I was asking, you know, what"
+    },
+    {
+      "index": 545,
+      "start_time": 2875250.0,
+      "end_time": 2880359.0,
+      "text": "about multiple snapshots? So, in VMware workstation, there&#39;s a feature called multiple snapshots"
+    },
+    {
+      "index": 546,
+      "start_time": 2880360.0,
+      "end_time": 2885340.0,
+      "text": "that gives you an entire history in a tree form where you can have, you know, one snapshot"
+    },
+    {
+      "index": 547,
+      "start_time": 2885340.0,
+      "end_time": 2889941.0,
+      "text": "that branches out into three possible different scenarios. Maybe install application version"
+    },
+    {
+      "index": 548,
+      "start_time": 2889940.0,
+      "end_time": 2893289.0,
+      "text": "one, two, and three all separately in separate snapshots, you want to kind of toggle between"
+    },
+    {
+      "index": 549,
+      "start_time": 2893290.0,
+      "end_time": 2897881.0,
+      "text": "them. The abilities in the platform of the VMware fusion today, and we just didn&#39;t have"
+    },
+    {
+      "index": 550,
+      "start_time": 2897880.0,
+      "end_time": 2903630.0,
+      "text": "time to write the user interface for it. So, we just have--we haven&#39;t announced when the"
+    },
+    {
+      "index": 551,
+      "start_time": 2903630.0,
+      "end_time": 2908809.0,
+      "text": "actual user interface for that is coming out, but it&#39;s pretty--it&#39;s a pretty logical next"
+    },
+    {
+      "index": 552,
+      "start_time": 2908810.0,
+      "end_time": 2915441.0,
+      "text": "step. The one thing that we want to do with virtual snapshots on the Mac specifically"
+    },
+    {
+      "index": 553,
+      "start_time": 2915440.0,
+      "end_time": 2920240.0,
+      "text": "though, on Linux you have this giant tree and anybody who&#39;s ever used a tree interface"
+    },
+    {
+      "index": 554,
+      "start_time": 2920240.0,
+      "end_time": 2923990.0,
+      "text": "in consumer software knows the consumers are completely bewildered by it. They don&#39;t want"
+    },
+    {
+      "index": 555,
+      "start_time": 2923990.0,
+      "end_time": 2928309.0,
+      "text": "to have to navigate through branches and, you know, figure out a parent-child relationship."
+    },
+    {
+      "index": 556,
+      "start_time": 2928310.0,
+      "end_time": 2933251.0,
+      "text": "Any computer science geeks, we know trees. We eat, breath, and sleep trees, but consumers"
+    },
+    {
+      "index": 557,
+      "start_time": 2933250.0,
+      "end_time": 2937829.0,
+      "text": "don&#39;t think in terms of trees. They don&#39;t know what pointers are or, you know, red black"
+    },
+    {
+      "index": 558,
+      "start_time": 2937830.0,
+      "end_time": 2943681.0,
+      "text": "trees or [INDISTINCT]. So, we want to come out with a better metaphor. Some of the ones"
+    },
+    {
+      "index": 559,
+      "start_time": 2943680.0,
+      "end_time": 2948750.0,
+      "text": "we&#39;ve been talking about, you know, are pretty, pretty novel. So I think you guys were like,"
+    },
+    {
+      "index": 560,
+      "start_time": 2948750.0,
+      "end_time": 2959079.0,
+      "text": "overcoming up with. So I love to answer more questions about fusion, Mac, go ahead."
+    },
+    {
+      "index": 561,
+      "start_time": 2959080.0,
+      "end_time": 2965161.0,
+      "text": "&gt;&gt; From a virtualizing hardware, I don&#39;t understand how unity would work. How would you tell something"
+    },
+    {
+      "index": 562,
+      "start_time": 2965160.0,
+      "end_time": 2968020.0,
+      "text": "is window versus something that&#39;s just artifact on screen?"
+    },
+    {
+      "index": 563,
+      "start_time": 2968020.0,
+      "end_time": 2971500.0,
+      "text": "&gt;&gt; GERTZFIELD: So the question is, you know, how does unity actually tell at the hardware"
+    },
+    {
+      "index": 564,
+      "start_time": 2971500.0,
+      "end_time": 2976130.0,
+      "text": "level, what is a window, what isn&#39;t? And that&#39;s the trick; it&#39;s not done at the hardware level."
+    },
+    {
+      "index": 565,
+      "start_time": 2976130.0,
+      "end_time": 2980000.0,
+      "text": "So, I don&#39;t know how much I can talk about the internals, but it&#39;s basically all done"
+    },
+    {
+      "index": 566,
+      "start_time": 2980000.0,
+      "end_time": 2985579.0,
+      "text": "inside the guest. So, inside Windows, we actually have a process that knows when windows are"
+    },
+    {
+      "index": 567,
+      "start_time": 2985580.0,
+      "end_time": 2993050.0,
+      "text": "placed, shaped, or moved. And we echo that on screen with physical--well, physical &quot;coco&quot;"
+    },
+    {
+      "index": 568,
+      "start_time": 2993050.0,
+      "end_time": 2997231.0,
+      "text": "windows that, you know, refresh themselves with the contents of the virtual machine."
+    },
+    {
+      "index": 569,
+      "start_time": 2997230.0,
+      "end_time": 3002160.0,
+      "text": "So, you know, if I run things like, Windows media player is a good example, as a perfect"
+    },
+    {
+      "index": 570,
+      "start_time": 3002160.0,
+      "end_time": 3007260.0,
+      "text": "example for unity, because its really--it&#39;s a funky, funky window. So here I am in my"
+    },
+    {
+      "index": 571,
+      "start_time": 3007260.0,
+      "end_time": 3015599.0,
+      "text": "single window, I&#39;ll go into unity, and here&#39;s media player slowly trying to connect to the"
+    },
+    {
+      "index": 572,
+      "start_time": 3015600.0,
+      "end_time": 3022391.0,
+      "text": "internet and failing, here it goes. All right, so you can see this is like a crazy shaped"
+    },
+    {
+      "index": 573,
+      "start_time": 3022390.0,
+      "end_time": 3026240.0,
+      "text": "window here, check out the edges here. So we actually have--I don&#39;t know if this would"
+    },
+    {
+      "index": 574,
+      "start_time": 3026240.0,
+      "end_time": 3031559.0,
+      "text": "work on the projector, we&#39;ll see, oh my God it does. You can actually see we went to the"
+    },
+    {
+      "index": 575,
+      "start_time": 3031560.0,
+      "end_time": 3036521.0,
+      "text": "trouble of making the shadow actually curve as the window curves. There&#39;s a lot of love"
+    },
+    {
+      "index": 576,
+      "start_time": 3036520.0,
+      "end_time": 3043220.0,
+      "text": "here. I have to tell you. So even funky shaped windows like this work, and the speed is actually"
+    },
+    {
+      "index": 577,
+      "start_time": 3043220.0,
+      "end_time": 3052069.0,
+      "text": "really good. So I can do things like play some Beethoven and, you know, the video speed"
+    },
+    {
+      "index": 578,
+      "start_time": 3052070.0,
+      "end_time": 3057461.0,
+      "text": "is actually pretty good. So we&#39;ve done--we&#39;ve done a lot of work to, you know, really transparently"
+    },
+    {
+      "index": 579,
+      "start_time": 3057460.0,
+      "end_time": 3062150.0,
+      "text": "integrate the applications with the host. I mean, you know, that&#39;s--that&#39;s pretty if--that&#39;s"
+    },
+    {
+      "index": 580,
+      "start_time": 3062150.0,
+      "end_time": 3077170.0,
+      "text": "pretty much as obvious that I&#39;d like. Okay, let&#39;s get some Beethoven. It&#39;s pretty cool."
+    },
+    {
+      "index": 581,
+      "start_time": 3077170.0,
+      "end_time": 3085430.0,
+      "text": "There was one--there&#39;s another question? &gt;&gt; At book talks, they typically hand out"
+    },
+    {
+      "index": 582,
+      "start_time": 3085430.0,
+      "end_time": 3088480.0,
+      "text": "a few copies of the book at the end, are you going to be handing out VMware fusion copies?"
+    },
+    {
+      "index": 583,
+      "start_time": 3088480.0,
+      "end_time": 3096769.0,
+      "text": "Because I really miss BioShock. &gt;&gt; Come talk to me later."
+    },
+    {
+      "index": 584,
+      "start_time": 3096770.0,
+      "end_time": 3099481.0,
+      "text": "&gt;&gt; So I got my copy the other dayů &gt;&gt; Thank you."
+    },
+    {
+      "index": 585,
+      "start_time": 3099480.0,
+      "end_time": 3104720.0,
+      "text": "&gt;&gt; ůbut I have a question. I haven&#39;t figured out everything. So if I&#39;m running multiple--multiple"
+    },
+    {
+      "index": 586,
+      "start_time": 3104720.0,
+      "end_time": 3114539.0,
+      "text": "OSS, multiple guest, is there a way to [INDISTINCT]? As to one guess more CPU and, you know, resources"
+    },
+    {
+      "index": 587,
+      "start_time": 3114540.0,
+      "end_time": 3116671.0,
+      "text": "from the--from the Mac OS versus the others becauseů?"
+    },
+    {
+      "index": 588,
+      "start_time": 3116670.0,
+      "end_time": 3122539.0,
+      "text": "&gt;&gt; So from a resource point of view, are you talking about CPU, memory, disk? Because there&#39;s"
+    },
+    {
+      "index": 589,
+      "start_time": 3122540.0,
+      "end_time": 3124280.0,
+      "text": "also two different resources that you would want to purchase."
+    },
+    {
+      "index": 590,
+      "start_time": 3124280.0,
+      "end_time": 3129951.0,
+      "text": "&gt;&gt; Right. Just CPU, you know, if you [INDISTINCT] takes up like, you know, half my, you know,"
+    },
+    {
+      "index": 591,
+      "start_time": 3129950.0,
+      "end_time": 3134559.0,
+      "text": "CPU and I&#39;m thinking &quot;Well,&quot; you know, &quot;I just want to swallow it down completely,&quot;"
+    },
+    {
+      "index": 592,
+      "start_time": 3134560.0,
+      "end_time": 3138891.0,
+      "text": "you know, &quot;by 115 % or something so thatů&quot; &gt;&gt; On the server products, we do have the"
+    },
+    {
+      "index": 593,
+      "start_time": 3138890.0,
+      "end_time": 3142869.0,
+      "text": "capability. We can partition, you know, you can have a physical machine that has four"
+    },
+    {
+      "index": 594,
+      "start_time": 3142870.0,
+      "end_time": 3147431.0,
+      "text": "[INDISTINCT], whatever--as many processes as you want, and you can partition off the"
+    },
+    {
+      "index": 595,
+      "start_time": 3147430.0,
+      "end_time": 3151380.0,
+      "text": "amount of CPU. We didn&#39;t put that in fusion because it&#39;s not really consumer oriented"
+    },
+    {
+      "index": 596,
+      "start_time": 3151380.0,
+      "end_time": 3155500.0,
+      "text": "feature, but from a server perspective, it makes a lot of sense and we did do that. We"
+    },
+    {
+      "index": 597,
+      "start_time": 3155500.0,
+      "end_time": 3161580.0,
+      "text": "just--we just by the way, [INDISTINCT] our original VMware head, he&#39;s awesome."
+    },
+    {
+      "index": 598,
+      "start_time": 3161580.0,
+      "end_time": 3165520.0,
+      "text": "&gt;&gt; There is another reason why we don&#39;t do CPU partitioning on the Mac is because again,"
+    },
+    {
+      "index": 599,
+      "start_time": 3165520.0,
+      "end_time": 3172589.0,
+      "text": "you know, Apple provides APIs to sweet Apple applications, and they don&#39;t provide what"
+    },
+    {
+      "index": 600,
+      "start_time": 3172590.0,
+      "end_time": 3178360.0,
+      "text": "they don&#39;t need and there is actually no way to do CPU affinity on Mac OS whether from"
+    },
+    {
+      "index": 601,
+      "start_time": 3178360.0,
+      "end_time": 3186241.0,
+      "text": "[INDISTINCT] or form the kernel--from a kernel extension."
+    },
+    {
+      "index": 602,
+      "start_time": 3186240.0,
+      "end_time": 3188440.0,
+      "text": "&gt;&gt; Thanks. &gt;&gt; Can we set the VMX priority?"
+    },
+    {
+      "index": 603,
+      "start_time": 3188440.0,
+      "end_time": 3190670.0,
+      "text": "&gt;&gt; The question is, can we set the VMX priority? We can set the priority of the--of the threads"
+    },
+    {
+      "index": 604,
+      "start_time": 3190670.0,
+      "end_time": 3195530.0,
+      "text": "inside the VMX. We didn&#39;t expose that to the user. Amit might know more about what affect"
+    },
+    {
+      "index": 605,
+      "start_time": 3195530.0,
+      "end_time": 3199030.0,
+      "text": "that might have and we can push the thread priority up and down programmatically. So"
+    },
+    {
+      "index": 606,
+      "start_time": 3199030.0,
+      "end_time": 3202589.0,
+      "text": "we need--from that point of view, you know, we could come up with some sort of interface,"
+    },
+    {
+      "index": 607,
+      "start_time": 3202590.0,
+      "end_time": 3207081.0,
+      "text": "but we haven&#39;t done that yet. &gt;&gt; [INDISTINCT]"
+    },
+    {
+      "index": 608,
+      "start_time": 3207080.0,
+      "end_time": 3210490.0,
+      "text": "&gt;&gt; Sorry? &gt;&gt; Do not [INDISTINCT]"
+    },
+    {
+      "index": 609,
+      "start_time": 3210490.0,
+      "end_time": 3215859.0,
+      "text": "&gt;&gt; Yes. So, Amit&#39;s saying basically, you know, setting thread priority isn&#39;t a knob that"
+    },
+    {
+      "index": 610,
+      "start_time": 3215860.0,
+      "end_time": 3222040.0,
+      "text": "really make sense for the end user because the gain--the gain or the, what&#39;s the opposite"
+    },
+    {
+      "index": 611,
+      "start_time": 3222040.0,
+      "end_time": 3226550.0,
+      "text": "of gain? The gain to the user, the performance characteristics aren&#39;t going to change that"
+    },
+    {
+      "index": 612,
+      "start_time": 3226550.0,
+      "end_time": 3234590.0,
+      "text": "much by change just the thread priority. Any more questions on VMware fusion for Mac, the"
+    },
+    {
+      "index": 613,
+      "start_time": 3234590.0,
+      "end_time": 3239181.0,
+      "text": "development cycle orů? So one thing I wanted to bring up was, one of the really cool features"
+    },
+    {
+      "index": 614,
+      "start_time": 3239180.0,
+      "end_time": 3242970.0,
+      "text": "of the VMware fusion that I haven&#39;t demonstrated here is something on the inside. We support"
+    },
+    {
+      "index": 615,
+      "start_time": 3242970.0,
+      "end_time": 3249660.0,
+      "text": "for--even OSS that are still 32 bit, you can run 64 bit operating system as a guest. So,"
+    },
+    {
+      "index": 616,
+      "start_time": 3249660.0,
+      "end_time": 3255130.0,
+      "text": "if you need to do testing of XP64 bit or Linux 64 bit, you can actually run them on your"
+    },
+    {
+      "index": 617,
+      "start_time": 3255130.0,
+      "end_time": 3261240.0,
+      "text": "Mac book pro with core two duo or your Mac pro with Xeon processors. And even though"
+    },
+    {
+      "index": 618,
+      "start_time": 3261240.0,
+      "end_time": 3266630.0,
+      "text": "the OSS itself is pretty much strictly 32 bit and the kernel is strictly 32 bit, even"
+    },
+    {
+      "index": 619,
+      "start_time": 3266630.0,
+      "end_time": 3272289.0,
+      "text": "in Leopard, that&#39;s not [INDISTINCT] anymore, right? That&#39;s public? It&#39;s out now, so I don&#39;t"
+    },
+    {
+      "index": 620,
+      "start_time": 3272290.0,
+      "end_time": 3279320.0,
+      "text": "have--I don&#39;t have to pretend. The 64 bit [INDISTINCT] runs really well and on top of"
+    },
+    {
+      "index": 621,
+      "start_time": 3279320.0,
+      "end_time": 3284560.0,
+      "text": "that, we also support virtual SMP. So if the host has multiple processors, you can actually"
+    },
+    {
+      "index": 622,
+      "start_time": 3284560.0,
+      "end_time": 3290531.0,
+      "text": "give the guest multiple virtual processors and it will actually--inside, you know--you"
+    },
+    {
+      "index": 623,
+      "start_time": 3290530.0,
+      "end_time": 3295770.0,
+      "text": "know, you can write activity monitor in windows and see the multiple processors, you know,"
+    },
+    {
+      "index": 624,
+      "start_time": 3295770.0,
+      "end_time": 3299299.0,
+      "text": "the actual load graphs on each. It&#39;s actually pretty cool. And that&#39;s really good for CPU"
+    },
+    {
+      "index": 625,
+      "start_time": 3299300.0,
+      "end_time": 3303981.0,
+      "text": "bound things, like compiling and number crunching. That&#39;s a really cool feature that we put in"
+    },
+    {
+      "index": 626,
+      "start_time": 3303980.0,
+      "end_time": 3308910.0,
+      "text": "there. Any more questions on fusion? &gt;&gt; [INDISTINCT]"
+    },
+    {
+      "index": 627,
+      "start_time": 3308910.0,
+      "end_time": 3313190.0,
+      "text": "&gt;&gt; Can you hear me there? &gt;&gt; I can hear you, yes."
+    },
+    {
+      "index": 628,
+      "start_time": 3313190.0,
+      "end_time": 3319619.0,
+      "text": "&gt;&gt; Okay. I was wondering what the story was with Mac OS as a guest operating system."
+    },
+    {
+      "index": 629,
+      "start_time": 3319620.0,
+      "end_time": 3325471.0,
+      "text": "&gt;&gt; Mac OS as a guest. So, about 50 minutes ago, we talked about it a little bit. Technically,"
+    },
+    {
+      "index": 630,
+      "start_time": 3325470.0,
+      "end_time": 3333859.0,
+      "text": "it&#39;s very doable. VMware, you know, doesn&#39;t sanction piracy at all. And one of the big--the"
+    },
+    {
+      "index": 631,
+      "start_time": 3333860.0,
+      "end_time": 3338800.0,
+      "text": "big hoax--hang ups has been licensing. Mac OS X is not licensed to run on anything but"
+    },
+    {
+      "index": 632,
+      "start_time": 3338800.0,
+      "end_time": 3346461.0,
+      "text": "physical Apple hardware. We hope that the situation will change. And--but technologically"
+    },
+    {
+      "index": 633,
+      "start_time": 3346460.0,
+      "end_time": 3351410.0,
+      "text": "there&#39;s not a lot of barriers. Here&#39;s [INDISTINCT]. &gt;&gt; There are few differences between the Mac"
+    },
+    {
+      "index": 634,
+      "start_time": 3351410.0,
+      "end_time": 3357920.0,
+      "text": "hardware and the PC hardware. One of them is the Mac uses high performance timer device"
+    },
+    {
+      "index": 635,
+      "start_time": 3357920.0,
+      "end_time": 3364789.0,
+      "text": "called HPET and that is not usually standout on normal PCs. So we have to neutralize new"
+    },
+    {
+      "index": 636,
+      "start_time": 3364790.0,
+      "end_time": 3368941.0,
+      "text": "hardware. Another piece of hardware that might be useful is the securing--what they call"
+    },
+    {
+      "index": 637,
+      "start_time": 3368940.0,
+      "end_time": 3379880.0,
+      "text": "the securing device which I Amit told us is not a--is not a TPN but--so essentially it"
+    },
+    {
+      "index": 638,
+      "start_time": 3379880.0,
+      "end_time": 3384539.0,
+      "text": "means more work, right? We have to emulate a different kind of virtual machine. One was"
+    },
+    {
+      "index": 639,
+      "start_time": 3384540.0,
+      "end_time": 3391411.0,
+      "text": "[INDISTINCT] virtual hardware, but it&#39;s a--it&#39;s a matter of time and implementing that. There"
+    },
+    {
+      "index": 640,
+      "start_time": 3391410.0,
+      "end_time": 3397099.0,
+      "text": "is no--nothing--there is no technical thing that prevents it from being done. It must"
+    },
+    {
+      "index": 641,
+      "start_time": 3397100.0,
+      "end_time": 3400401.0,
+      "text": "be a legal [INDISTINCT] and--and putting resources on it."
+    },
+    {
+      "index": 642,
+      "start_time": 3400400.0,
+      "end_time": 3404579.0,
+      "text": "&gt;&gt; But I will mention one thing and that is, initially we met with some resistance talking"
+    },
+    {
+      "index": 643,
+      "start_time": 3404580.0,
+      "end_time": 3409471.0,
+      "text": "about this because there are--not created by VMware, but hackers have actually used"
+    },
+    {
+      "index": 644,
+      "start_time": 3409470.0,
+      "end_time": 3415000.0,
+      "text": "VMware&#39;s disc format as a popular way of distributing hacked copies of OS X and, you know, while"
+    },
+    {
+      "index": 645,
+      "start_time": 3415000.0,
+      "end_time": 3419339.0,
+      "text": "that&#39;s it, you know, that&#39;s a pity that they chose the VMware because, you know, we don&#39;t"
+    },
+    {
+      "index": 646,
+      "start_time": 3419340.0,
+      "end_time": 3423741.0,
+      "text": "condone piracy or anything, but people have started doing this thing called Hacking Tosh"
+    },
+    {
+      "index": 647,
+      "start_time": 3423740.0,
+      "end_time": 3428400.0,
+      "text": "where they distributes copies of VMware running--OS X running in VMware virtual machines for Dell"
+    },
+    {
+      "index": 648,
+      "start_time": 3428400.0,
+      "end_time": 3432349.0,
+      "text": "or Compaq that have been hacked to smithereens to remove all Apple&#39;s hardware protection."
+    },
+    {
+      "index": 649,
+      "start_time": 3432350.0,
+      "end_time": 3438691.0,
+      "text": "&gt;&gt; Another difference also that most PCs today boot way what&#39;s called a Vios and Mac&#39;s boot"
+    },
+    {
+      "index": 650,
+      "start_time": 3438690.0,
+      "end_time": 3443089.0,
+      "text": "was something called EFI, and there are ways to reconcile both but again, its more--more"
+    },
+    {
+      "index": 651,
+      "start_time": 3443090.0,
+      "end_time": 3445370.0,
+      "text": "things to implement. &gt;&gt; Right. Hope that answered your question."
+    },
+    {
+      "index": 652,
+      "start_time": 3445370.0,
+      "end_time": 3456320.0,
+      "text": "That&#39;s kind of cool. It&#39;s like magic voice on Mr. [INDISTINCT] Theater. Do we have any"
+    },
+    {
+      "index": 653,
+      "start_time": 3456320.0,
+      "end_time": 3461590.0,
+      "text": "other questions from the other cameras? I see a bunch over there. That&#39;s kind of cool."
+    },
+    {
+      "index": 654,
+      "start_time": 3461590.0,
+      "end_time": 3466721.0,
+      "text": "I&#39;ve never seen that before. All right, well its 2 O&#39;clock. Thank you guys very much for"
+    },
+    {
+      "index": 655,
+      "start_time": 3466720.0,
+      "end_time": 3476720.0,
+      "text": "attending my talk. I appreciate it very much."
+    }
+  ]
+}

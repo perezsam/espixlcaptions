@@ -1,0 +1,1314 @@
+{
+  "video_id": "YahFRqf-rFA",
+  "title": "#128 Node-Red Tricks for Home Automation (JS, Audio, SQlite, Alexa, Mosquitto MQTT etc.)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 4960.0,
+      "end_time": 12090.0,
+      "text": "Last week we started with our home automation system based on PIR sensors and Sonoff Switches."
+    },
+    {
+      "index": 2,
+      "start_time": 12090.0,
+      "end_time": 18320.0,
+      "text": "Both devices were operated by a Firmware based on Tinkerman’s Espurna framework."
+    },
+    {
+      "index": 3,
+      "start_time": 18320.0,
+      "end_time": 24980.0,
+      "text": "The “brains” of the system is a Raspberry Pi zero and a script provided by Peter Scargill."
+    },
+    {
+      "index": 4,
+      "start_time": 24980.0,
+      "end_time": 28790.0,
+      "text": "And all communication is done via the MQTT protocol."
+    },
+    {
+      "index": 5,
+      "start_time": 28790.0,
+      "end_time": 34880.0,
+      "text": "Today, we will bring these things together and dig a little into node-red and SQLite."
+    },
+    {
+      "index": 6,
+      "start_time": 34880.0,
+      "end_time": 41309.0,
+      "text": "I will also show you, how you can monitor your Pi Zero from a web interface."
+    },
+    {
+      "index": 7,
+      "start_time": 41309.0,
+      "end_time": 48339.0,
+      "text": "So, let’s start: You remember, I have 2 PIR sensors, one Alexa,"
+    },
+    {
+      "index": 8,
+      "start_time": 48339.0,
+      "end_time": 50670.0,
+      "text": "and two Sonoff switches."
+    },
+    {
+      "index": 9,
+      "start_time": 50670.0,
+      "end_time": 56269.0,
+      "text": "This is just a small setup, but we can learn a lot which can be used if we extend this"
+    },
+    {
+      "index": 10,
+      "start_time": 56269.0,
+      "end_time": 58800.0,
+      "text": "setup."
+    },
+    {
+      "index": 11,
+      "start_time": 58800.0,
+      "end_time": 64350.0,
+      "text": "Last week, we were able to send messages to a public MQTT broker."
+    },
+    {
+      "index": 12,
+      "start_time": 64349.99999999999,
+      "end_time": 71119.0,
+      "text": "Because we do not want to leave our secure Wi-Fi network, we first setup our own MQTT"
+    },
+    {
+      "index": 13,
+      "start_time": 71119.0,
+      "end_time": 75470.0,
+      "text": "broker on a Raspberry Pi behind our Firewall."
+    },
+    {
+      "index": 14,
+      "start_time": 75470.0,
+      "end_time": 78829.0,
+      "text": "I did this in video #126."
+    },
+    {
+      "index": 15,
+      "start_time": 78829.0,
+      "end_time": 82890.0,
+      "text": "I even posted an image for a Pi Zero."
+    },
+    {
+      "index": 16,
+      "start_time": 82890.0,
+      "end_time": 85310.0,
+      "text": "You find a link in the description."
+    },
+    {
+      "index": 17,
+      "start_time": 85310.0,
+      "end_time": 88240.0,
+      "text": "So, you have an easy start."
+    },
+    {
+      "index": 18,
+      "start_time": 88240.0,
+      "end_time": 93390.0,
+      "text": "If you want to use another Raspberry, you have to install Raspbian and run the script"
+    },
+    {
+      "index": 19,
+      "start_time": 93390.0,
+      "end_time": 94539.0,
+      "text": "of Peter."
+    },
+    {
+      "index": 20,
+      "start_time": 94539.0,
+      "end_time": 96899.0,
+      "text": "You find a link in the description."
+    },
+    {
+      "index": 21,
+      "start_time": 96899.0,
+      "end_time": 101009.0,
+      "text": "So, we have now a working MQTT broker."
+    },
+    {
+      "index": 22,
+      "start_time": 101009.0,
+      "end_time": 107890.0,
+      "text": "With the utility “DietPi-setup”, we can give it a fixed IP address."
+    },
+    {
+      "index": 23,
+      "start_time": 107890.0,
+      "end_time": 112260.0,
+      "text": "You can also work with the name of your device, but, I decided for a fixed address."
+    },
+    {
+      "index": 24,
+      "start_time": 112260.0,
+      "end_time": 120649.0,
+      "text": "I also decided to use my old Pi zero without Wi-Fi, because I will place the device close"
+    },
+    {
+      "index": 25,
+      "start_time": 120649.0,
+      "end_time": 126310.0,
+      "text": "to my switch and I am able to connect it to a Ethernet cable."
+    },
+    {
+      "index": 26,
+      "start_time": 126310.0,
+      "end_time": 131310.0,
+      "text": "For that, I purchased a 3$ USB hub with Ethernet connection."
+    },
+    {
+      "index": 27,
+      "start_time": 131310.0,
+      "end_time": 133500.0,
+      "text": "It runs without any problems."
+    },
+    {
+      "index": 28,
+      "start_time": 133500.0,
+      "end_time": 141110.0,
+      "text": "I even can insert the Keyboard in one of the three USB plugs if I want."
+    },
+    {
+      "index": 29,
+      "start_time": 141110.0,
+      "end_time": 147260.0,
+      "text": "So, The IP address is 192.168.0.203 and its name is hub.local."
+    },
+    {
+      "index": 30,
+      "start_time": 147260.0,
+      "end_time": 155190.0,
+      "text": "Next, we have to change the MQTT broker addresses in our PIR sensors and our Sonoff switches."
+    },
+    {
+      "index": 31,
+      "start_time": 155190.0,
+      "end_time": 159550.0,
+      "text": "This can be done by the webinterface introduced in Video #127."
+    },
+    {
+      "index": 32,
+      "start_time": 159550.0,
+      "end_time": 165410.0,
+      "text": "Here, we are also able to set the first part of the topics string."
+    },
+    {
+      "index": 33,
+      "start_time": 165410.0,
+      "end_time": 173320.0,
+      "text": "The device will automatically insert its board name and add things like “relay” or “alexa”."
+    },
+    {
+      "index": 34,
+      "start_time": 173320.0,
+      "end_time": 177860.0,
+      "text": "For the moment, I do not use username/password for MQTT."
+    },
+    {
+      "index": 35,
+      "start_time": 177860.0,
+      "end_time": 187180.0,
+      "text": "Now, we can start MQTT with the command mosquito -v. When we power our devices, we should now"
+    },
+    {
+      "index": 36,
+      "start_time": 187180.0,
+      "end_time": 190280.0,
+      "text": "see a lot of messages coming."
+    },
+    {
+      "index": 37,
+      "start_time": 190280.0,
+      "end_time": 193670.0,
+      "text": "Each message has a topic and a payload."
+    },
+    {
+      "index": 38,
+      "start_time": 193670.0,
+      "end_time": 200100.0,
+      "text": "This is, because the devices publish many different topics to the MQTT broker."
+    },
+    {
+      "index": 39,
+      "start_time": 200100.0,
+      "end_time": 206660.0,
+      "text": "We can now “subscribe” to particular topics using “mosquito-sub” plus the desired"
+    },
+    {
+      "index": 40,
+      "start_time": 206660.0,
+      "end_time": 207660.0,
+      "text": "topic."
+    },
+    {
+      "index": 41,
+      "start_time": 207660.0,
+      "end_time": 211560.0,
+      "text": "Now, we only see the messages of this topic."
+    },
+    {
+      "index": 42,
+      "start_time": 211560.0,
+      "end_time": 218030.0,
+      "text": "If you use my SD card image, you have to issue two additional commands now."
+    },
+    {
+      "index": 43,
+      "start_time": 218030.0,
+      "end_time": 220950.0,
+      "text": "Otherwise, later-on, you will see an empty page."
+    },
+    {
+      "index": 44,
+      "start_time": 220950.0,
+      "end_time": 226730.0,
+      "text": "Now, we know, that the broker runs and we can go on to the next step."
+    },
+    {
+      "index": 45,
+      "start_time": 226730.0,
+      "end_time": 229280.0,
+      "text": "We start node-red on our Pi."
+    },
+    {
+      "index": 46,
+      "start_time": 229280.0,
+      "end_time": 236360.0,
+      "text": "As soon as it runs, we can connect to it from a browser by calling the address of our raspberry."
+    },
+    {
+      "index": 47,
+      "start_time": 236360.0,
+      "end_time": 242260.0,
+      "text": "Just type the IP address in a browser window and you get this nice menu."
+    },
+    {
+      "index": 48,
+      "start_time": 242260.0,
+      "end_time": 246880.0,
+      "text": "For the next step, we go to node-red control panel."
+    },
+    {
+      "index": 49,
+      "start_time": 246880.0,
+      "end_time": 250280.0,
+      "text": "If there is already something there, you can delete it."
+    },
+    {
+      "index": 50,
+      "start_time": 250280.0,
+      "end_time": 253660.0,
+      "text": "For this video, we start with a fresh Flow."
+    },
+    {
+      "index": 51,
+      "start_time": 253660.0,
+      "end_time": 255510.0,
+      "text": "But how do you get this flow?"
+    },
+    {
+      "index": 52,
+      "start_time": 255510.0,
+      "end_time": 257519.0,
+      "text": "This is really easy."
+    },
+    {
+      "index": 53,
+      "start_time": 257519.0,
+      "end_time": 262580.0,
+      "text": "You go to my Github and open the file “flow.txt” with any editor."
+    },
+    {
+      "index": 54,
+      "start_time": 262580.0,
+      "end_time": 267000.0,
+      "text": "Then, you select the whole text and copy it with crtl-c."
+    },
+    {
+      "index": 55,
+      "start_time": 267000.0,
+      "end_time": 272199.0,
+      "text": "Next, you go to node-red and import from clipboard."
+    },
+    {
+      "index": 56,
+      "start_time": 272199.0,
+      "end_time": 277800.0,
+      "text": "Paste the content of your clipboard and decide, if you want a new flow."
+    },
+    {
+      "index": 57,
+      "start_time": 277800.0,
+      "end_time": 281199.0,
+      "text": "Hit import and the miracle happens."
+    },
+    {
+      "index": 58,
+      "start_time": 281199.0,
+      "end_time": 284819.0,
+      "text": "You have exactly my flow on your computer."
+    },
+    {
+      "index": 59,
+      "start_time": 284819.0,
+      "end_time": 285949.0,
+      "text": "Cool."
+    },
+    {
+      "index": 60,
+      "start_time": 285949.0,
+      "end_time": 287080.0,
+      "text": "BTW."
+    },
+    {
+      "index": 61,
+      "start_time": 287080.0,
+      "end_time": 291490.0,
+      "text": "You can do this with all sorts of objects you find in the internet."
+    },
+    {
+      "index": 62,
+      "start_time": 291490.0,
+      "end_time": 294370.0,
+      "text": "Now we start from left to right."
+    },
+    {
+      "index": 63,
+      "start_time": 294370.0,
+      "end_time": 297889.0,
+      "text": "The first node is a so called MQTT node."
+    },
+    {
+      "index": 64,
+      "start_time": 297889.0,
+      "end_time": 303650.0,
+      "text": "You see this if you compare the color and the symbol with the “palette” on the left."
+    },
+    {
+      "index": 65,
+      "start_time": 303650.0,
+      "end_time": 307490.0,
+      "text": "You see also, that it is an “input node”."
+    },
+    {
+      "index": 66,
+      "start_time": 307490.0,
+      "end_time": 313130.0,
+      "text": "Next, we have to connect this input node with our MQTT broker."
+    },
+    {
+      "index": 67,
+      "start_time": 313130.0,
+      "end_time": 319790.0,
+      "text": "Easy: Because we run on the same computer, we just type-in localhost and the Mosquitto"
+    },
+    {
+      "index": 68,
+      "start_time": 319790.0,
+      "end_time": 322370.0,
+      "text": "port is 1883."
+    },
+    {
+      "index": 69,
+      "start_time": 322370.0,
+      "end_time": 329449.0,
+      "text": "Fortunately, we only have to enter this once and can refer later to it."
+    },
+    {
+      "index": 70,
+      "start_time": 329449.0,
+      "end_time": 335460.0,
+      "text": "Because this node should connect to the main PIR sensor, we have to select the right topic."
+    },
+    {
+      "index": 71,
+      "start_time": 335460.0,
+      "end_time": 340069.0,
+      "text": "The client id and the other tabs are not important for the moment."
+    },
+    {
+      "index": 72,
+      "start_time": 340069.0,
+      "end_time": 344780.0,
+      "text": "If you are interested in these, you can watch my video #125."
+    },
+    {
+      "index": 73,
+      "start_time": 344780.0,
+      "end_time": 354120.0,
+      "text": "If you do not remember the topics, just enter # as topic, “done” and deploy."
+    },
+    {
+      "index": 74,
+      "start_time": 354120.0,
+      "end_time": 358050.0,
+      "text": "Connected to this node is a so-called “debug node”."
+    },
+    {
+      "index": 75,
+      "start_time": 358050.0,
+      "end_time": 361520.0,
+      "text": "This node sends messages to the debug window."
+    },
+    {
+      "index": 76,
+      "start_time": 361520.0,
+      "end_time": 367400.0,
+      "text": "We can define, how much info we want and we can switch it on or off."
+    },
+    {
+      "index": 77,
+      "start_time": 367400.0,
+      "end_time": 370210.0,
+      "text": "Now, we see the topic and the payload."
+    },
+    {
+      "index": 78,
+      "start_time": 370210.0,
+      "end_time": 375479.0,
+      "text": "“0” payload means “off” and “1” means on."
+    },
+    {
+      "index": 79,
+      "start_time": 375479.0,
+      "end_time": 379590.0,
+      "text": "This is defined by the firmware of our PIR sensor."
+    },
+    {
+      "index": 80,
+      "start_time": 379590.0,
+      "end_time": 383669.0,
+      "text": "So, the connection to our PIR sensor works."
+    },
+    {
+      "index": 81,
+      "start_time": 383669.0,
+      "end_time": 390439.0,
+      "text": "Next, I want, that the lamps keep on for 5 minutes after my last movement."
+    },
+    {
+      "index": 82,
+      "start_time": 390439.0,
+      "end_time": 396400.0,
+      "text": "This is to prevent, that the light goes on-and off if I am thinking…"
+    },
+    {
+      "index": 83,
+      "start_time": 396400.0,
+      "end_time": 400639.0,
+      "text": "To achieve that, we can choose a so-called “function” node."
+    },
+    {
+      "index": 84,
+      "start_time": 400639.0,
+      "end_time": 404159.0,
+      "text": "I use the trigger node for our purpose."
+    },
+    {
+      "index": 85,
+      "start_time": 404159.0,
+      "end_time": 410110.0,
+      "text": "This has the desired function: It sends an “on” message to its output as soon as"
+    },
+    {
+      "index": 86,
+      "start_time": 410110.0,
+      "end_time": 412819.0,
+      "text": "it gets any message at its input."
+    },
+    {
+      "index": 87,
+      "start_time": 412819.0,
+      "end_time": 418150.0,
+      "text": "After 5 minutes, it automatically sends an “off” message."
+    },
+    {
+      "index": 88,
+      "start_time": 418150.0,
+      "end_time": 419900.0,
+      "text": "We also select re-trigger."
+    },
+    {
+      "index": 89,
+      "start_time": 419900.0,
+      "end_time": 427020.0,
+      "text": "As we have seen before, the PIR sensor sends on and off messages."
+    },
+    {
+      "index": 90,
+      "start_time": 427020.0,
+      "end_time": 433029.0,
+      "text": "If we want, that only on messages reach our “Pulse” node, we can filter them with"
+    },
+    {
+      "index": 91,
+      "start_time": 433029.0,
+      "end_time": 434400.0,
+      "text": "a switch node."
+    },
+    {
+      "index": 92,
+      "start_time": 434400.0,
+      "end_time": 440340.0,
+      "text": "Here, I define, that I only want the “on” messages forwarded."
+    },
+    {
+      "index": 93,
+      "start_time": 440340.0,
+      "end_time": 442449.0,
+      "text": "The off messages are suppressed."
+    },
+    {
+      "index": 94,
+      "start_time": 442449.0,
+      "end_time": 447539.0,
+      "text": "I could add a second output for the off messages…"
+    },
+    {
+      "index": 95,
+      "start_time": 447539.0,
+      "end_time": 453840.0,
+      "text": "The pulse node has a nice feature: it shows us its status with a blue dot."
+    },
+    {
+      "index": 96,
+      "start_time": 453840.0,
+      "end_time": 458360.0,
+      "text": "Later on, we will build such a feature for our own nodes."
+    },
+    {
+      "index": 97,
+      "start_time": 458360.0,
+      "end_time": 462970.0,
+      "text": "Another nice feature is the sound node: It helps for example during debugging, when you"
+    },
+    {
+      "index": 98,
+      "start_time": 462970.0,
+      "end_time": 467860.0,
+      "text": "work with your sensor and you cannot monitor node red at the same time."
+    },
+    {
+      "index": 99,
+      "start_time": 467860.0,
+      "end_time": 478080.0,
+      "text": "So, I added an audio output."
+    },
+    {
+      "index": 100,
+      "start_time": 478080.0,
+      "end_time": 482250.0,
+      "text": "In several languages, of course!"
+    },
+    {
+      "index": 101,
+      "start_time": 482250.0,
+      "end_time": 492059.0,
+      "text": "Now, I can concentrate on my work and get acoustic feedback."
+    },
+    {
+      "index": 102,
+      "start_time": 492059.0,
+      "end_time": 493639.0,
+      "text": "How cool is that?"
+    },
+    {
+      "index": 103,
+      "start_time": 493639.0,
+      "end_time": 500379.0,
+      "text": "BTW, you can look at these nodes if you are interested on how you can achieve this function."
+    },
+    {
+      "index": 104,
+      "start_time": 500379.0,
+      "end_time": 507319.0,
+      "text": "We could connect the output of the pulse node directly to our LIGHT_Main node."
+    },
+    {
+      "index": 105,
+      "start_time": 507319.0,
+      "end_time": 513909.0,
+      "text": "LIGHT_Main, by the way, is also an MQTT node, this time an output node."
+    },
+    {
+      "index": 106,
+      "start_time": 513909.0,
+      "end_time": 518890.0,
+      "text": "And its topic is the topic of the Sonoff to switch the light on."
+    },
+    {
+      "index": 107,
+      "start_time": 518890.0,
+      "end_time": 526060.0,
+      "text": "But, we want more: We want, that we are able to override the PIR sensors with either a"
+    },
+    {
+      "index": 108,
+      "start_time": 526060.0,
+      "end_time": 528150.0,
+      "text": "dashboard or with Alexa."
+    },
+    {
+      "index": 109,
+      "start_time": 528150.0,
+      "end_time": 533900.0,
+      "text": "So, we introduce a new input node: A dashboard button node."
+    },
+    {
+      "index": 110,
+      "start_time": 533900.0,
+      "end_time": 544510.0,
+      "text": "Its function is simple: It creates or “injects” a 1 for on, a 0 for off, and a “A” for"
+    },
+    {
+      "index": 111,
+      "start_time": 544510.0,
+      "end_time": 545750.0,
+      "text": "automatic."
+    },
+    {
+      "index": 112,
+      "start_time": 545750.0,
+      "end_time": 549250.0,
+      "text": "But is not operated from this page."
+    },
+    {
+      "index": 113,
+      "start_time": 549250.0,
+      "end_time": 556280.0,
+      "text": "If we go back to our main page and select “Node Red UI Desktop”, we get a new window."
+    },
+    {
+      "index": 114,
+      "start_time": 556280.0,
+      "end_time": 560510.0,
+      "text": "Here, we see for each of the nodes a button with a label."
+    },
+    {
+      "index": 115,
+      "start_time": 560510.0,
+      "end_time": 564350.0,
+      "text": "I also grouped the different buttons according their purpose."
+    },
+    {
+      "index": 116,
+      "start_time": 564350.0,
+      "end_time": 568930.0,
+      "text": "So, I have now a small “command center”."
+    },
+    {
+      "index": 117,
+      "start_time": 568930.0,
+      "end_time": 576770.0,
+      "text": "But now, we have two different chains of command for our Sonoff switches: The PIR signals and"
+    },
+    {
+      "index": 118,
+      "start_time": 576770.0,
+      "end_time": 580700.0,
+      "text": "the signals from our Dashboard."
+    },
+    {
+      "index": 119,
+      "start_time": 580700.0,
+      "end_time": 587580.0,
+      "text": "It is quite obvious, how this should work: If we press the on or off button on the dashboard,"
+    },
+    {
+      "index": 120,
+      "start_time": 587580.0,
+      "end_time": 594370.0,
+      "text": "we want, that the lamp is on or off, even if a conflicting signal comes from the PIR"
+    },
+    {
+      "index": 121,
+      "start_time": 594370.0,
+      "end_time": 595370.0,
+      "text": "sensor."
+    },
+    {
+      "index": 122,
+      "start_time": 595370.0,
+      "end_time": 600480.0,
+      "text": "Only if it is on “Automatic”, we want, that the signal is transferred directly from"
+    },
+    {
+      "index": 123,
+      "start_time": 600480.0,
+      "end_time": 603300.0,
+      "text": "our “Pulse” node to the Lamp."
+    },
+    {
+      "index": 124,
+      "start_time": 603300.0,
+      "end_time": 605000.0,
+      "text": "But how can we achieve this?"
+    },
+    {
+      "index": 125,
+      "start_time": 605000.0,
+      "end_time": 612250.0,
+      "text": "Here, we need a few things: We have to use a fully programmable node, and we have also"
+    },
+    {
+      "index": 126,
+      "start_time": 612250.0,
+      "end_time": 616250.0,
+      "text": "to have variables which can store a particular status."
+    },
+    {
+      "index": 127,
+      "start_time": 616250.0,
+      "end_time": 621080.0,
+      "text": "The first is easy: We just take the empty “function” node."
+    },
+    {
+      "index": 128,
+      "start_time": 621080.0,
+      "end_time": 623570.0,
+      "text": "This node is programmable in java script."
+    },
+    {
+      "index": 129,
+      "start_time": 623570.0,
+      "end_time": 626600.0,
+      "text": "So, let’s have a closer look."
+    },
+    {
+      "index": 130,
+      "start_time": 626600.0,
+      "end_time": 631890.0,
+      "text": "If we look at a new node, we just see, that it returns the message it gets."
+    },
+    {
+      "index": 131,
+      "start_time": 631890.0,
+      "end_time": 634480.0,
+      "text": "So, we learn two things: 1."
+    },
+    {
+      "index": 132,
+      "start_time": 634480.0,
+      "end_time": 639311.0,
+      "text": "The full message on the input is called msg and"
+    },
+    {
+      "index": 133,
+      "start_time": 639311.0,
+      "end_time": 640311.0,
+      "text": "2."
+    },
+    {
+      "index": 134,
+      "start_time": 640311.0,
+      "end_time": 644900.0,
+      "text": "We can transfer a message to the output by “returning” it."
+    },
+    {
+      "index": 135,
+      "start_time": 644900.0,
+      "end_time": 645900.0,
+      "text": "Simple."
+    },
+    {
+      "index": 136,
+      "start_time": 645900.0,
+      "end_time": 650040.0,
+      "text": "Now, let’s look at such a message."
+    },
+    {
+      "index": 137,
+      "start_time": 650040.0,
+      "end_time": 654280.0,
+      "text": "To do that, we use our PIR sensor and the debug node."
+    },
+    {
+      "index": 138,
+      "start_time": 654280.0,
+      "end_time": 658240.0,
+      "text": "The only thing we do is, to select the complete message."
+    },
+    {
+      "index": 139,
+      "start_time": 658240.0,
+      "end_time": 663950.0,
+      "text": "Then, we see an “object”, and its content, which we easily refer to."
+    },
+    {
+      "index": 140,
+      "start_time": 663950.0,
+      "end_time": 666310.0,
+      "text": "You will later see, how."
+    },
+    {
+      "index": 141,
+      "start_time": 666310.0,
+      "end_time": 671640.0,
+      "text": "To play with that setup, I place the function node between the PIR sensor and the debug"
+    },
+    {
+      "index": 142,
+      "start_time": 671640.0,
+      "end_time": 672640.0,
+      "text": "node."
+    },
+    {
+      "index": 143,
+      "start_time": 672640.0,
+      "end_time": 677700.0,
+      "text": "So, if we want to refer to the topic, we use msg.topic."
+    },
+    {
+      "index": 144,
+      "start_time": 677700.0,
+      "end_time": 686450.0,
+      "text": "So, if we want to transfer the topic also to the payload, we just write this small code."
+    },
+    {
+      "index": 145,
+      "start_time": 686450.0,
+      "end_time": 692060.0,
+      "text": "And if we test now, we see in the debug tab, that the magic works."
+    },
+    {
+      "index": 146,
+      "start_time": 692060.0,
+      "end_time": 696450.0,
+      "text": "But very often, the debug tab is clouded by many different messages."
+    },
+    {
+      "index": 147,
+      "start_time": 696450.0,
+      "end_time": 698550.0,
+      "text": "We have to find a better way."
+    },
+    {
+      "index": 148,
+      "start_time": 698550.0,
+      "end_time": 705640.0,
+      "text": "What, if we could see important info in proximity to the node, like with the pulse sensor?"
+    },
+    {
+      "index": 149,
+      "start_time": 705640.0,
+      "end_time": 708269.0,
+      "text": "Easy, if you know, how."
+    },
+    {
+      "index": 150,
+      "start_time": 708269.0,
+      "end_time": 715280.0,
+      "text": "We just add this line of code, and we now see the payload directly in our flow."
+    },
+    {
+      "index": 151,
+      "start_time": 715280.0,
+      "end_time": 716540.0,
+      "text": "Nice."
+    },
+    {
+      "index": 152,
+      "start_time": 716540.0,
+      "end_time": 719980.0,
+      "text": "But how do we get this “override” behavior?"
+    },
+    {
+      "index": 153,
+      "start_time": 719980.0,
+      "end_time": 727130.0,
+      "text": "Here, we can add a few lines of code: If the “override” variable is “ON” we want,"
+    },
+    {
+      "index": 154,
+      "start_time": 727130.0,
+      "end_time": 733040.0,
+      "text": "that the payload always is “1”, and if “OFF”, it has to be “0”."
+    },
+    {
+      "index": 155,
+      "start_time": 733040.0,
+      "end_time": 738360.0,
+      "text": "If the variable is “auto”, we transfer the payload without change from the input"
+    },
+    {
+      "index": 156,
+      "start_time": 738360.0,
+      "end_time": 739510.0,
+      "text": "to the output."
+    },
+    {
+      "index": 157,
+      "start_time": 739510.0,
+      "end_time": 744970.0,
+      "text": "So, we have to find a way to set and store the override flag."
+    },
+    {
+      "index": 158,
+      "start_time": 744970.0,
+      "end_time": 748110.0,
+      "text": "So far, we only had messages to work with."
+    },
+    {
+      "index": 159,
+      "start_time": 748110.0,
+      "end_time": 753730.0,
+      "text": "If the next message arrives, we lose the content of the former."
+    },
+    {
+      "index": 160,
+      "start_time": 753730.0,
+      "end_time": 759820.0,
+      "text": "If we look at our override node, we get sometimes a message from the “always on” button,"
+    },
+    {
+      "index": 161,
+      "start_time": 759820.0,
+      "end_time": 763390.0,
+      "text": "or from the PIR sensor and so on."
+    },
+    {
+      "index": 162,
+      "start_time": 763390.0,
+      "end_time": 768410.0,
+      "text": "To achieve our goal, we have to store the override flag every time a message from the"
+    },
+    {
+      "index": 163,
+      "start_time": 768410.0,
+      "end_time": 770800.0,
+      "text": "dashboard arrives."
+    },
+    {
+      "index": 164,
+      "start_time": 770800.0,
+      "end_time": 777350.0,
+      "text": "And the override flag should not be affected by the messages from the PIR sensor."
+    },
+    {
+      "index": 165,
+      "start_time": 777350.0,
+      "end_time": 780390.0,
+      "text": "These lines of code do exactly that."
+    },
+    {
+      "index": 166,
+      "start_time": 780390.0,
+      "end_time": 785380.0,
+      "text": "Our dashboard buttons all include the word “OVERRIDE” in their topic."
+    },
+    {
+      "index": 167,
+      "start_time": 785380.0,
+      "end_time": 790500.0,
+      "text": "So, we filter these messages and set the override flag accordingly."
+    },
+    {
+      "index": 168,
+      "start_time": 790500.0,
+      "end_time": 794930.0,
+      "text": "If we now test our setup, it behaves exactly as desired."
+    },
+    {
+      "index": 169,
+      "start_time": 794930.0,
+      "end_time": 802920.0,
+      "text": "We can use Alexa to switch the lamp on or off, even if the PIR sensor is still on."
+    },
+    {
+      "index": 170,
+      "start_time": 802920.0,
+      "end_time": 805590.0,
+      "text": "We could now go on to the next topic."
+    },
+    {
+      "index": 171,
+      "start_time": 805590.0,
+      "end_time": 811310.0,
+      "text": "But I do not want to omit telling you, that Peter Scargill wrote a small article about"
+    },
+    {
+      "index": 172,
+      "start_time": 811310.0,
+      "end_time": 813620.0,
+      "text": "variables in node-red."
+    },
+    {
+      "index": 173,
+      "start_time": 813620.0,
+      "end_time": 819940.0,
+      "text": "You can, for example, store global variables in one place and use them in another."
+    },
+    {
+      "index": 174,
+      "start_time": 819940.0,
+      "end_time": 825900.0,
+      "text": "If we store the result of the override flag in a global variable, we can use it in our"
+    },
+    {
+      "index": 175,
+      "start_time": 825900.0,
+      "end_time": 827160.0,
+      "text": "second node."
+    },
+    {
+      "index": 176,
+      "start_time": 827160.0,
+      "end_time": 831210.0,
+      "text": "We will use this function in our data logger."
+    },
+    {
+      "index": 177,
+      "start_time": 831210.0,
+      "end_time": 837760.0,
+      "text": "From our previous videos, we know, that Peter’s script also installed the SQLite database."
+    },
+    {
+      "index": 178,
+      "start_time": 837760.0,
+      "end_time": 844390.0,
+      "text": "Here, we want to store all events from the two PIR sensors, together with the override"
+    },
+    {
+      "index": 179,
+      "start_time": 844390.0,
+      "end_time": 845940.0,
+      "text": "flags."
+    },
+    {
+      "index": 180,
+      "start_time": 845940.0,
+      "end_time": 850910.0,
+      "text": "For that, we go to the main page and from there, to SQLite administrator."
+    },
+    {
+      "index": 181,
+      "start_time": 850910.0,
+      "end_time": 860070.0,
+      "text": "Here, we create a database called Sonoff and add four fields: Topic, payload, timestamp,"
+    },
+    {
+      "index": 182,
+      "start_time": 860070.0,
+      "end_time": 863420.0,
+      "text": "overrideMain, and overrideTable."
+    },
+    {
+      "index": 183,
+      "start_time": 863420.0,
+      "end_time": 864960.0,
+      "text": "That is all here."
+    },
+    {
+      "index": 184,
+      "start_time": 864960.0,
+      "end_time": 870810.0,
+      "text": "We go back to our node red tab and start with connecting the two PIR sensors to a function"
+    },
+    {
+      "index": 185,
+      "start_time": 870810.0,
+      "end_time": 872050.0,
+      "text": "node."
+    },
+    {
+      "index": 186,
+      "start_time": 872050.0,
+      "end_time": 875950.0,
+      "text": "This function node is connected to a SQLite node."
+    },
+    {
+      "index": 187,
+      "start_time": 875950.0,
+      "end_time": 884480.0,
+      "text": "Now, our function node gets all messages from the two PIR sensors."
+    },
+    {
+      "index": 188,
+      "start_time": 884480.0,
+      "end_time": 891850.0,
+      "text": "Now, we just have to bring all into a form in which the SQLite node will store it properly"
+    },
+    {
+      "index": 189,
+      "start_time": 891850.0,
+      "end_time": 892850.0,
+      "text": "away."
+    },
+    {
+      "index": 190,
+      "start_time": 892850.0,
+      "end_time": 897500.0,
+      "text": "In my last video, I showed you one version to do that."
+    },
+    {
+      "index": 191,
+      "start_time": 897500.0,
+      "end_time": 901900.0,
+      "text": "Some of my viewers made a point, that this method is not very secure."
+    },
+    {
+      "index": 192,
+      "start_time": 901900.0,
+      "end_time": 906790.0,
+      "text": "So, this time, I use a different method and hope, it is better."
+    },
+    {
+      "index": 193,
+      "start_time": 906790.0,
+      "end_time": 915130.0,
+      "text": "The SQLite node needs a “SQL statement as a topic and the field content as a payload."
+    },
+    {
+      "index": 194,
+      "start_time": 915130.0,
+      "end_time": 922470.0,
+      "text": "So, the SQL statement is “INSERT INTO Sonoff” and all fields of the database."
+    },
+    {
+      "index": 195,
+      "start_time": 922470.0,
+      "end_time": 929050.0,
+      "text": "At the end, we add a “VALUES” template with the same number of question marks."
+    },
+    {
+      "index": 196,
+      "start_time": 929050.0,
+      "end_time": 935030.0,
+      "text": "And the payload contains the content of the variables in the right order."
+    },
+    {
+      "index": 197,
+      "start_time": 935030.0,
+      "end_time": 938630.0,
+      "text": "The rest of the code is easily understandable."
+    },
+    {
+      "index": 198,
+      "start_time": 938630.0,
+      "end_time": 943310.0,
+      "text": "It only formats the time stamp in a “human readable format”."
+    },
+    {
+      "index": 199,
+      "start_time": 943310.0,
+      "end_time": 949510.0,
+      "text": "And, of course, displays the last update time as a reference below the node."
+    },
+    {
+      "index": 200,
+      "start_time": 949510.0,
+      "end_time": 954720.0,
+      "text": "Now, everything is done and we can deploy the flow a last time."
+    },
+    {
+      "index": 201,
+      "start_time": 954720.0,
+      "end_time": 960910.0,
+      "text": "If you want to create a backup, you can export the whole content or only selected nodes into"
+    },
+    {
+      "index": 202,
+      "start_time": 960910.0,
+      "end_time": 962040.0,
+      "text": "your clipboard."
+    },
+    {
+      "index": 203,
+      "start_time": 962040.0,
+      "end_time": 966290.0,
+      "text": "Then, you paste it in a text file and you are done."
+    },
+    {
+      "index": 204,
+      "start_time": 966290.0,
+      "end_time": 967940.0,
+      "text": "Very simple, too."
+    },
+    {
+      "index": 205,
+      "start_time": 967940.0,
+      "end_time": 974620.0,
+      "text": "And, if you want to know how much resources node red uses, you go back to the main page,"
+    },
+    {
+      "index": 206,
+      "start_time": 974620.0,
+      "end_time": 977320.0,
+      "text": "and to “Web Administrator”."
+    },
+    {
+      "index": 207,
+      "start_time": 977320.0,
+      "end_time": 986430.0,
+      "text": "Here, you can do all the small stuff an administrator has to do."
+    },
+    {
+      "index": 208,
+      "start_time": 986430.0,
+      "end_time": 994800.0,
+      "text": "So, summarized, we are able to control our two lamps by two"
+    },
+    {
+      "index": 209,
+      "start_time": 994800.0,
+      "end_time": 999210.0,
+      "text": "PIR sensors can override their signal by either pressing"
+    },
+    {
+      "index": 210,
+      "start_time": 999210.0,
+      "end_time": 1006560.0,
+      "text": "a button on a dashboard or by calling Alexa Were able to use voice as an output"
+    },
+    {
+      "index": 211,
+      "start_time": 1006560.0,
+      "end_time": 1011820.0,
+      "text": "were able to store a nice log in a structured database."
+    },
+    {
+      "index": 212,
+      "start_time": 1011820.0,
+      "end_time": 1015670.0,
+      "text": "And we even learned a few lines of java script."
+    },
+    {
+      "index": 213,
+      "start_time": 1015670.0,
+      "end_time": 1021540.0,
+      "text": "For me, I see now in the morning, if my PIR sensors were triggered during night."
+    },
+    {
+      "index": 214,
+      "start_time": 1021540.0,
+      "end_time": 1026380.0,
+      "text": "Then, the usual suspect would be our cat called Dishka."
+    },
+    {
+      "index": 215,
+      "start_time": 1026380.0000000001,
+      "end_time": 1029409.0000000001,
+      "text": "fortunately, we did not name her “Alexa”."
+    },
+    {
+      "index": 216,
+      "start_time": 1029410.0000000001,
+      "end_time": 1034111.0000000001,
+      "text": "I hope, this video was useful or at least interesting."
+    },
+    {
+      "index": 217,
+      "start_time": 1034109.9999999999,
+      "end_time": 1037148.9999999999,
+      "text": "If true, then Like."
+    },
+    {
+      "index": 218,
+      "start_time": 1037150.0000000001,
+      "end_time": 1047150.0000000001,
+      "text": "Bye"
+    }
+  ]
+}

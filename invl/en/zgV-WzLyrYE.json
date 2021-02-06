@@ -1,0 +1,408 @@
+{
+  "video_id": "zgV-WzLyrYE",
+  "title": "Deep Learning with Tensorflow - Tensors, Variables and Placeholders",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 1100.0,
+      "end_time": 7339.0,
+      "text": "Hello, and welcome."
+    },
+    {
+      "index": 2,
+      "start_time": 7339.0,
+      "end_time": 13180.0,
+      "text": "In this video, we&#39;ll provide an overview of tensors, variables, and placeholders."
+    },
+    {
+      "index": 3,
+      "start_time": 13180.0,
+      "end_time": 18020.0,
+      "text": "A tensor is a special type of mathematical object that was originally used to analyze"
+    },
+    {
+      "index": 4,
+      "start_time": 18020.0,
+      "end_time": 21180.0,
+      "text": "the way that materials stretch under tension."
+    },
+    {
+      "index": 5,
+      "start_time": 21180.0,
+      "end_time": 25530.0,
+      "text": "Nowadays, a tensor typically refers to a multi-dimensional array."
+    },
+    {
+      "index": 6,
+      "start_time": 25530.0,
+      "end_time": 30800.0,
+      "text": "To fully understand multi-dimensional arrays, we&#39;ll need to understand the concept of dimension,"
+    },
+    {
+      "index": 7,
+      "start_time": 30800.0,
+      "end_time": 34420.0,
+      "text": "which if you&#39;re familiar, is an important topic in physics."
+    },
+    {
+      "index": 8,
+      "start_time": 34420.0,
+      "end_time": 38480.0,
+      "text": "The zero dimension is simply a point, or a single object."
+    },
+    {
+      "index": 9,
+      "start_time": 38480.0,
+      "end_time": 43750.0,
+      "text": "The first dimension is a line, which can contain an infinite number of point elements."
+    },
+    {
+      "index": 10,
+      "start_time": 43750.0,
+      "end_time": 48210.0,
+      "text": "A one-dimensional array only requires one coordinate to locate an element."
+    },
+    {
+      "index": 11,
+      "start_time": 48210.0,
+      "end_time": 52899.0,
+      "text": "The second dimension can be seen as a flat surface, which can contain and infinite number"
+    },
+    {
+      "index": 12,
+      "start_time": 52899.0,
+      "end_time": 54530.0,
+      "text": "of lines."
+    },
+    {
+      "index": 13,
+      "start_time": 54530.0,
+      "end_time": 59929.0,
+      "text": "To locate an element in a two-dimensional array, you need to specify two coordinates."
+    },
+    {
+      "index": 14,
+      "start_time": 59929.0,
+      "end_time": 65510.0,
+      "text": "The third dimension can be seen as a volume, which can contain an infinite number of surfaces."
+    },
+    {
+      "index": 15,
+      "start_time": 65510.00000000001,
+      "end_time": 69500.0,
+      "text": "And the fourth dimension goes beyond what we can easily visualize, but you can think"
+    },
+    {
+      "index": 16,
+      "start_time": 69500.0,
+      "end_time": 75360.0,
+      "text": "of it as space time, or a volume that changes through time, something like that."
+    },
+    {
+      "index": 17,
+      "start_time": 75360.0,
+      "end_time": 80049.0,
+      "text": "The main idea is that the dimension specifies the number of coordinates you&#39;d need to locate"
+    },
+    {
+      "index": 18,
+      "start_time": 80049.0,
+      "end_time": 81650.0,
+      "text": "a specific point."
+    },
+    {
+      "index": 19,
+      "start_time": 81650.0,
+      "end_time": 84799.0,
+      "text": "You can look here to see the mathematical objects."
+    },
+    {
+      "index": 20,
+      "start_time": 84799.0,
+      "end_time": 88009.0,
+      "text": "And this table should help to reinforce the concept."
+    },
+    {
+      "index": 21,
+      "start_time": 88009.0,
+      "end_time": 91090.0,
+      "text": "So let&#39;s define these arrays using TensorFlow:"
+    },
+    {
+      "index": 22,
+      "start_time": 91090.0,
+      "end_time": 95399.0,
+      "text": "If you want to experiment with these data structures, you should apply a few functions"
+    },
+    {
+      "index": 23,
+      "start_time": 95399.0,
+      "end_time": 99179.0,
+      "text": "and observe the behavior based on the different structure types."
+    },
+    {
+      "index": 24,
+      "start_time": 99179.0,
+      "end_time": 103890.0,
+      "text": "The tensor structure gives us the freedom to shape the dataset the way we want it."
+    },
+    {
+      "index": 25,
+      "start_time": 103890.0,
+      "end_time": 108429.0,
+      "text": "It&#39;s particularly helpful when dealing with images, since images have to encode a lot"
+    },
+    {
+      "index": 26,
+      "start_time": 108429.0,
+      "end_time": 110200.0,
+      "text": "of information."
+    },
+    {
+      "index": 27,
+      "start_time": 110200.0,
+      "end_time": 115070.0,
+      "text": "Images have a width and a height, so it should be easy to see that we&#39;d need at least a two-dimensional"
+    },
+    {
+      "index": 28,
+      "start_time": 115070.0,
+      "end_time": 116070.0,
+      "text": "structure."
+    },
+    {
+      "index": 29,
+      "start_time": 116070.0,
+      "end_time": 121450.0,
+      "text": "But remember, the pixels of an image are broken down into three color channels: typically,"
+    },
+    {
+      "index": 30,
+      "start_time": 121450.0,
+      "end_time": 125100.0,
+      "text": "Red, Green, and Blue, or RGB."
+    },
+    {
+      "index": 31,
+      "start_time": 125100.0,
+      "end_time": 129850.0,
+      "text": "So an image essentially needs three different matrices, to store the intensity of each color"
+    },
+    {
+      "index": 32,
+      "start_time": 129850.0,
+      "end_time": 130970.0,
+      "text": "channel."
+    },
+    {
+      "index": 33,
+      "start_time": 130970.0,
+      "end_time": 133110.0,
+      "text": "That might look something like this:"
+    },
+    {
+      "index": 34,
+      "start_time": 133110.0,
+      "end_time": 137750.0,
+      "text": "As you can see, an image requires a third dimension for color, in order to represent"
+    },
+    {
+      "index": 35,
+      "start_time": 137750.0,
+      "end_time": 139930.0,
+      "text": "all the information."
+    },
+    {
+      "index": 36,
+      "start_time": 139930.0,
+      "end_time": 144220.0,
+      "text": "So we can combine these three matrices together to form a tensor."
+    },
+    {
+      "index": 37,
+      "start_time": 144220.0,
+      "end_time": 148720.0,
+      "text": "Now that we&#39;re more familiar with the structure of the data, we can take a look at how TensorFlow"
+    },
+    {
+      "index": 38,
+      "start_time": 148720.0,
+      "end_time": 150840.0,
+      "text": "handles variables."
+    },
+    {
+      "index": 39,
+      "start_time": 150840.0,
+      "end_time": 154410.0,
+      "text": "To define variables, we simply use the command &#39;tf.variable&#39;."
+    },
+    {
+      "index": 40,
+      "start_time": 154410.0,
+      "end_time": 160350.0,
+      "text": "Variables need to be initialized before a graph can be run in a session, which can be"
+    },
+    {
+      "index": 41,
+      "start_time": 160350.0,
+      "end_time": 165830.0,
+      "text": "done using &#39;tf.initialize_all_variables&#39;."
+    },
+    {
+      "index": 42,
+      "start_time": 165830.0,
+      "end_time": 172140.0,
+      "text": "To update the value of a variable, we define an update function using &#39;tf.assign&#39;."
+    },
+    {
+      "index": 43,
+      "start_time": 172140.0,
+      "end_time": 174850.0,
+      "text": "We can then run the operation."
+    },
+    {
+      "index": 44,
+      "start_time": 174850.0,
+      "end_time": 177120.0,
+      "text": "Let&#39;s first create a simple counter:"
+    },
+    {
+      "index": 45,
+      "start_time": 177120.0,
+      "end_time": 182670.0,
+      "text": "When the graph is launched, we&#39;ll need to add an initialization operation for the variables."
+    },
+    {
+      "index": 46,
+      "start_time": 182670.0,
+      "end_time": 185680.0,
+      "text": "We can then start the session and run the graph."
+    },
+    {
+      "index": 47,
+      "start_time": 185680.0,
+      "end_time": 190691.0,
+      "text": "After the variables are initialized, we print the initial value of the state variable, we"
+    },
+    {
+      "index": 48,
+      "start_time": 190691.0,
+      "end_time": 195440.0,
+      "text": "run the update operation, and then we print the result after each update."
+    },
+    {
+      "index": 49,
+      "start_time": 195440.0,
+      "end_time": 201450.0,
+      "text": "If you want to feed data to TensorFlow from outside a model, you will need to use placeholders."
+    },
+    {
+      "index": 50,
+      "start_time": 201450.0,
+      "end_time": 205760.0,
+      "text": "You can think of a placeholder like a variable that won&#39;t actually receive its data until"
+    },
+    {
+      "index": 51,
+      "start_time": 205760.0,
+      "end_time": 207390.0,
+      "text": "a later point."
+    },
+    {
+      "index": 52,
+      "start_time": 207390.0,
+      "end_time": 210970.0,
+      "text": "To create one, you can use the &#39;placeholder&#39; method."
+    },
+    {
+      "index": 53,
+      "start_time": 210970.0,
+      "end_time": 215620.0,
+      "text": "You&#39;ll need to specify the data type, as well as the data type&#39;s precision in terms of the"
+    },
+    {
+      "index": 54,
+      "start_time": 215620.0,
+      "end_time": 217620.0,
+      "text": "number of bits."
+    },
+    {
+      "index": 55,
+      "start_time": 217620.0,
+      "end_time": 222320.0,
+      "text": "Here, you can see each data type with the respective python syntax:"
+    },
+    {
+      "index": 56,
+      "start_time": 222320.0,
+      "end_time": 224660.0,
+      "text": "So now let&#39;s create a placeholder."
+    },
+    {
+      "index": 57,
+      "start_time": 224660.0,
+      "end_time": 229790.0,
+      "text": "And then we&#39;ll define a simple multiplication operation."
+    },
+    {
+      "index": 58,
+      "start_time": 229790.0,
+      "end_time": 232860.0,
+      "text": "Now we need to define and run the session."
+    },
+    {
+      "index": 59,
+      "start_time": 232860.0,
+      "end_time": 239860.0,
+      "text": "But remember, the placeholder still doesn&#39;t hold a value, so if we run as is, we&#39;d get"
+    },
+    {
+      "index": 60,
+      "start_time": 239860.0,
+      "end_time": 241390.0,
+      "text": "an error."
+    },
+    {
+      "index": 61,
+      "start_time": 241390.0,
+      "end_time": 247640.0,
+      "text": "We can solve this by passing an extra argument when we call the session."
+    },
+    {
+      "index": 62,
+      "start_time": 247640.0,
+      "end_time": 255220.0,
+      "text": "We&#39;ll use the argument &#39;feed_dict&#39;, a dictionary that contains each placeholder name followed"
+    },
+    {
+      "index": 63,
+      "start_time": 255220.0,
+      "end_time": 258820.0,
+      "text": "by its respective data:"
+    },
+    {
+      "index": 64,
+      "start_time": 258820.0,
+      "end_time": 263250.0,
+      "text": "We can pass any kind of tensor through the placeholders to get the answer to the multiplication"
+    },
+    {
+      "index": 65,
+      "start_time": 263250.0,
+      "end_time": 266790.0,
+      "text": "operation:"
+    },
+    {
+      "index": 66,
+      "start_time": 266790.0,
+      "end_time": 273250.0,
+      "text": "By now you should understand the purpose of tensors, variables, and placeholders."
+    },
+    {
+      "index": 67,
+      "start_time": 273250.0,
+      "end_time": 283250.0,
+      "text": "Thank you for watching this video."
+    }
+  ]
+}

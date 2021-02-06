@@ -1,0 +1,552 @@
+{
+  "video_id": "WbcPIjN3KKc",
+  "title": "Creating an ocean - Appendix A: Raindrops",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 5633.0,
+      "end_time": 8399.0,
+      "text": "Hi there and welcome to the Maya Learning Channel."
+    },
+    {
+      "index": 2,
+      "start_time": 8400.0,
+      "end_time": 12733.0,
+      "text": "Previously in this series, I showed you how to create realistic waves, shaders, and wakes"
+    },
+    {
+      "index": 3,
+      "start_time": 12733.0,
+      "end_time": 16133.0,
+      "text": "using a combination of BOSS and Bifrost particles."
+    },
+    {
+      "index": 4,
+      "start_time": 16133.0,
+      "end_time": 22330.0,
+      "text": "In these appendices, I&#39;ll focus on some fun side effects - like simulating rain on a watery surface."
+    },
+    {
+      "index": 5,
+      "start_time": 22766.0,
+      "end_time": 27598.0,
+      "text": "As always, a big thanks to Diego Trazzi, on whose work these tutorials are based."
+    },
+    {
+      "index": 6,
+      "start_time": 28266.0,
+      "end_time": 30999.0,
+      "text": "So, while I’m going to start with a fresh scene here,"
+    },
+    {
+      "index": 7,
+      "start_time": 31000.0,
+      "end_time": 35000.0,
+      "text": "I&#39;m going to be using a very similar technique to the boat wake I created in part 3."
+    },
+    {
+      "index": 8,
+      "start_time": 35000.0,
+      "end_time": 40233.0,
+      "text": "That is, I’ll first use geometry to generate real raindrop collisions on a wave solver,"
+    },
+    {
+      "index": 9,
+      "start_time": 40233.0,
+      "end_time": 43233.0,
+      "text": "then cache the results to EXR files."
+    },
+    {
+      "index": 10,
+      "start_time": 44466.0,
+      "end_time": 53166.0,
+      "text": "I’ll start by creating a polygon plane, and then adjusting its height and width to 60."
+    },
+    {
+      "index": 11,
+      "start_time": 53166.0,
+      "end_time": 58232.0,
+      "text": "I’ll also add plenty of subdivisions, since I want to capture nice round ripples."
+    },
+    {
+      "index": 12,
+      "start_time": 61000.0,
+      "end_time": 65000.0,
+      "text": "Now, the easiest way to simulate rain is with nParticles, so I’ll just create a new emitter."
+    },
+    {
+      "index": 13,
+      "start_time": 68433.0,
+      "end_time": 72166.0,
+      "text": "Then I’ll change the Emitter Type to Volume"
+    },
+    {
+      "index": 14,
+      "start_time": 72166.0,
+      "end_time": 78199.0,
+      "text": "and scale it to the size of the plane to create my cloud."
+    },
+    {
+      "index": 15,
+      "start_time": 78200.0,
+      "end_time": 81966.0,
+      "text": "Next, I’ll translate my cloud above the plane, but too high."
+    },
+    {
+      "index": 16,
+      "start_time": 81966.0,
+      "end_time": 85966.0,
+      "text": "No need to waste time waiting for the particles to fall very far."
+    },
+    {
+      "index": 17,
+      "start_time": 85966.0,
+      "end_time": 89966.0,
+      "text": "And now that should be enough to get some rain."
+    },
+    {
+      "index": 18,
+      "start_time": 93000.0,
+      "end_time": 94166.0,
+      "text": "Nice."
+    },
+    {
+      "index": 19,
+      "start_time": 94166.0,
+      "end_time": 96466.0,
+      "text": "So since the droplets don’t fall very far,"
+    },
+    {
+      "index": 20,
+      "start_time": 96466.0,
+      "end_time": 100466.0,
+      "text": "I should limit their lifespan to 1 second so they don’t fall forever."
+    },
+    {
+      "index": 21,
+      "start_time": 102900.0,
+      "end_time": 107800.0,
+      "text": "I can then adjust the amount of rain by changing the Emitter’s emission Rate."
+    },
+    {
+      "index": 22,
+      "start_time": 107800.0,
+      "end_time": 111800.0,
+      "text": "For a light drizzle, I&#39;ll bump the value down to 20."
+    },
+    {
+      "index": 23,
+      "start_time": 116466.0,
+      "end_time": 119166.0,
+      "text": "Cool, now I need to prepare the mesh."
+    },
+    {
+      "index": 24,
+      "start_time": 122500.0,
+      "end_time": 128800.0,
+      "text": "I&#39;ll start by opening the BOSS editor and creating a Wave Solver for the mesh."
+    },
+    {
+      "index": 25,
+      "start_time": 128800.00000000001,
+      "end_time": 134660.0,
+      "text": "Now, based on previous tutorials, you might try to add the raindrops as influencers."
+    },
+    {
+      "index": 26,
+      "start_time": 134660.0,
+      "end_time": 135599.0,
+      "text": "But you can&#39;t!"
+    },
+    {
+      "index": 27,
+      "start_time": 135600.0,
+      "end_time": 139166.0,
+      "text": "As you can see, nparticles aren’t compatible with BOSS."
+    },
+    {
+      "index": 28,
+      "start_time": 139166.0,
+      "end_time": 143599.0,
+      "text": "Instead, I’m going to have to generate some geometry around each particle first."
+    },
+    {
+      "index": 29,
+      "start_time": 146330.0,
+      "end_time": 152833.0,
+      "text": "So with my nParticle object selected, I&#39;ll go to Modify > Convert > nParticle to Polygons."
+    },
+    {
+      "index": 30,
+      "start_time": 155366.0,
+      "end_time": 159366.0,
+      "text": "Unfortunately, that seems to have temporarily removed my drops."
+    },
+    {
+      "index": 31,
+      "start_time": 159366.0,
+      "end_time": 163866.0,
+      "text": "To bring them back, I’ll go to the nParticleShape&#39;s Output Mesh section"
+    },
+    {
+      "index": 32,
+      "start_time": 163866.0,
+      "end_time": 166466.0,
+      "text": "and turn down the Threshold value."
+    },
+    {
+      "index": 33,
+      "start_time": 166466.0,
+      "end_time": 169732.0,
+      "text": "This reduces the smoothness requirement for generating meshes,"
+    },
+    {
+      "index": 34,
+      "start_time": 169733.0,
+      "end_time": 172466.0,
+      "text": "thereby making them easier to generate."
+    },
+    {
+      "index": 35,
+      "start_time": 173400.0,
+      "end_time": 175400.0,
+      "text": "Now I get these blobs on each particle"
+    },
+    {
+      "index": 36,
+      "start_time": 175400.0,
+      "end_time": 180330.0,
+      "text": "but they’re kinda big, so I’ll just reduce the Blobby Radius Scale."
+    },
+    {
+      "index": 37,
+      "start_time": 180900.0,
+      "end_time": 182660.0,
+      "text": "That&#39;s better."
+    },
+    {
+      "index": 38,
+      "start_time": 182660.0,
+      "end_time": 185566.0,
+      "text": "Of course, they still don’t really look like raindrops but that’s okay."
+    },
+    {
+      "index": 39,
+      "start_time": 185566.0,
+      "end_time": 190660.0,
+      "text": "I’m only interested in the collisions they make with the surface."
+    },
+    {
+      "index": 40,
+      "start_time": 191800.0,
+      "end_time": 195800.0,
+      "text": "Which I can now do by adding them as a Wave Influence."
+    },
+    {
+      "index": 41,
+      "start_time": 199433.0,
+      "end_time": 203433.0,
+      "text": "Now if I play back the scene, I get ripples where the drops hit the surface."
+    },
+    {
+      "index": 42,
+      "start_time": 208566.0,
+      "end_time": 212566.0,
+      "text": "I&#39;ll just make them more obvious by bumping up the Amplitude value."
+    },
+    {
+      "index": 43,
+      "start_time": 217433.0,
+      "end_time": 221433.0,
+      "text": "Once I’m happy with the effect, I can cache everything out."
+    },
+    {
+      "index": 44,
+      "start_time": 226833.0,
+      "end_time": 229733.0,
+      "text": "This creates two cache files in our cache folder."
+    },
+    {
+      "index": 45,
+      "start_time": 229733.0,
+      "end_time": 233966.0,
+      "text": "One for the Wave Influence, which records where the raindrops impact the water..."
+    },
+    {
+      "index": 46,
+      "start_time": 241000.0,
+      "end_time": 245000.0,
+      "text": "...and one for the Wave Solver, which records actual ripple deformation."
+    },
+    {
+      "index": 47,
+      "start_time": 251100.0,
+      "end_time": 255100.0,
+      "text": "These allow me to remove the nparticles from my scene, without losing my ripple effect."
+    },
+    {
+      "index": 48,
+      "start_time": 269330.0,
+      "end_time": 272666.0,
+      "text": "Now this looks kind of cool on its own, but it’s still only on a flat plane."
+    },
+    {
+      "index": 49,
+      "start_time": 272666.0,
+      "end_time": 276666.0,
+      "text": "Even if I added an Arnold shader to it, we wouldn’t get something very compelling."
+    },
+    {
+      "index": 50,
+      "start_time": 277433.0,
+      "end_time": 281433.0,
+      "text": "However, what if we combined it with our finished ocean from part 2?"
+    },
+    {
+      "index": 51,
+      "start_time": 286233.0,
+      "end_time": 291366.0,
+      "text": "Remember, this is the scene where we projected the spectral waves onto a shader."
+    },
+    {
+      "index": 52,
+      "start_time": 291366.0,
+      "end_time": 297632.0,
+      "text": "I’ll start by hiding the result plane and showing the BossOutput mesh again."
+    },
+    {
+      "index": 53,
+      "start_time": 300300.0,
+      "end_time": 305733.0,
+      "text": "In the BOSS Editor, I’ll add a Wave Solver like before."
+    },
+    {
+      "index": 54,
+      "start_time": 305733.0,
+      "end_time": 309733.0,
+      "text": "I can also disable these Spectral Wave Solvers since I know the Arnold shader covers them."
+    },
+    {
+      "index": 55,
+      "start_time": 311166.0,
+      "end_time": 314299.0,
+      "text": "Now, instead of redoing my entire process from before,"
+    },
+    {
+      "index": 56,
+      "start_time": 314300.0,
+      "end_time": 319660.0,
+      "text": "I can actually re-use the rain cache we already created and apply it to this new ocean!"
+    },
+    {
+      "index": 57,
+      "start_time": 319660.0,
+      "end_time": 323166.0,
+      "text": "This time, rather than a Geometry Influence, I’ll create an EXR Influence."
+    },
+    {
+      "index": 58,
+      "start_time": 323166.0,
+      "end_time": 328199.0,
+      "text": "As you probably guessed, this substitutes EXR files for geometry."
+    },
+    {
+      "index": 59,
+      "start_time": 328900.0,
+      "end_time": 335700.0,
+      "text": "I’ll just click this file icon, and navigate to the cache we created previously."
+    },
+    {
+      "index": 60,
+      "start_time": 338660.0,
+      "end_time": 342732.0,
+      "text": "Make sure you select the BossGeoProperties cache, NOT the BossWaveSolver cache."
+    },
+    {
+      "index": 61,
+      "start_time": 342733.0,
+      "end_time": 346733.0,
+      "text": "Remember, this is the cache that recorded where the raindrops hit the mesh."
+    },
+    {
+      "index": 62,
+      "start_time": 350733.0,
+      "end_time": 353533.0,
+      "text": "I just need to adjust the file path."
+    },
+    {
+      "index": 63,
+      "start_time": 353533.0,
+      "end_time": 357533.0,
+      "text": "First, I’ll replace the specific frame number with this generic frame tag,"
+    },
+    {
+      "index": 64,
+      "start_time": 357533.0,
+      "end_time": 361533.0,
+      "text": "since I want use all the EXR files."
+    },
+    {
+      "index": 65,
+      "start_time": 361533.0,
+      "end_time": 363666.0,
+      "text": "I’ll also add a project tag to the beginning,"
+    },
+    {
+      "index": 66,
+      "start_time": 363666.0,
+      "end_time": 367990.0,
+      "text": "just to indicate that the files are local to my current project."
+    },
+    {
+      "index": 67,
+      "start_time": 368600.0,
+      "end_time": 372600.0,
+      "text": "And like before, I’ll bump up the Amplitude."
+    },
+    {
+      "index": 68,
+      "start_time": 372600.0,
+      "end_time": 377800.0,
+      "text": "As well as turn off Collider, since the EXRs are just for the ripples."
+    },
+    {
+      "index": 69,
+      "start_time": 383200.0,
+      "end_time": 386765.0,
+      "text": "Now play back the scene, and you&#39;ll see the same rain pattern as our previous scene!"
+    },
+    {
+      "index": 70,
+      "start_time": 393700.0,
+      "end_time": 398966.0,
+      "text": "But in here I can also apply my Arnold shader with all of its spectral wave displacements."
+    },
+    {
+      "index": 71,
+      "start_time": 401400.0,
+      "end_time": 405400.0,
+      "text": "Thereby combining my two effects into one!"
+    },
+    {
+      "index": 72,
+      "start_time": 406400.0,
+      "end_time": 411133.0,
+      "text": "This&#39;ll be even more apparent if I cache the Wave Solver and render the entire sequence."
+    },
+    {
+      "index": 73,
+      "start_time": 416766.0,
+      "end_time": 421299.0,
+      "text": "I should note that even though I generated this EXR cache by “doing it for real”"
+    },
+    {
+      "index": 74,
+      "start_time": 421300.0,
+      "end_time": 425466.0,
+      "text": "with the whole nParticle rain simulation, you don’t have to go that route."
+    },
+    {
+      "index": 75,
+      "start_time": 425466.0,
+      "end_time": 430990.0,
+      "text": "If you prefer to create your rain pattern in a 2D compositor or by some other means,"
+    },
+    {
+      "index": 76,
+      "start_time": 430100.0,
+      "end_time": 432366.0,
+      "text": "it’ll work just as well!"
+    },
+    {
+      "index": 77,
+      "start_time": 432366.0,
+      "end_time": 434660.0,
+      "text": "Speaking of EXRs,"
+    },
+    {
+      "index": 78,
+      "start_time": 434660.0,
+      "end_time": 438866.0,
+      "text": "we can also use a compositor to define where we DON&#39;T want ripples to show up."
+    },
+    {
+      "index": 79,
+      "start_time": 438866.0,
+      "end_time": 444332.0,
+      "text": "So, suppose our water was inside some kind of shelter with a circular hole in the roof."
+    },
+    {
+      "index": 80,
+      "start_time": 444333.0,
+      "end_time": 448899.0,
+      "text": "We would only want ripples in the non-roofed areas, right?"
+    },
+    {
+      "index": 81,
+      "start_time": 448900.0,
+      "end_time": 454666.0,
+      "text": "I can achieve that using an EXR collider, where red denotes where ripples are allowed."
+    },
+    {
+      "index": 82,
+      "start_time": 454666.0,
+      "end_time": 458666.0,
+      "text": "Then I can apply it as a second EXR influence."
+    },
+    {
+      "index": 83,
+      "start_time": 466766.0,
+      "end_time": 470766.0,
+      "text": "This time, I only want the Collider."
+    },
+    {
+      "index": 84,
+      "start_time": 489166.0,
+      "end_time": 493166.0,
+      "text": "And sure enough, the ripples only appear in my red circle."
+    },
+    {
+      "index": 85,
+      "start_time": 493166.0,
+      "end_time": 496320.0,
+      "text": "By default, the boundary of this area is pretty hard,"
+    },
+    {
+      "index": 86,
+      "start_time": 496330.0,
+      "end_time": 500330.0,
+      "text": "but I can soften it using the Wave Solver&#39;s Decay Width."
+    },
+    {
+      "index": 87,
+      "start_time": 501566.0,
+      "end_time": 507899.0,
+      "text": "Increasing this value widens the area of decay from the center of the sim to the boundary."
+    },
+    {
+      "index": 88,
+      "start_time": 515866.0,
+      "end_time": 520598.0,
+      "text": "And as you can see, it gives us a much more natural falloff."
+    },
+    {
+      "index": 89,
+      "start_time": 526566.0,
+      "end_time": 528699.0,
+      "text": "And that&#39;s a wrap for rain."
+    },
+    {
+      "index": 90,
+      "start_time": 528700.0,
+      "end_time": 532700.0,
+      "text": "But if these type of collision tricks interest you, be sure to check out my next video"
+    },
+    {
+      "index": 91,
+      "start_time": 532700.0,
+      "end_time": 536100.0,
+      "text": "where I’ll use them in shallow water to generate capillary waves."
+    }
+  ]
+}

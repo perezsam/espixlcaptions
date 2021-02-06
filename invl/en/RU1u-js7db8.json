@@ -1,0 +1,1230 @@
+{
+  "video_id": "RU1u-js7db8",
+  "title": "The First Programming Languages: Crash Course Computer Science #11",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3140.0,
+      "end_time": 5960.0,
+      "text": "This episode is brought to you by CuriosityStream."
+    },
+    {
+      "index": 2,
+      "start_time": 5960.0,
+      "end_time": 8630.0,
+      "text": "Hi, I’m Carrie Anne and welcome to CrashCourse\nComputer Science!"
+    },
+    {
+      "index": 3,
+      "start_time": 8630.0,
+      "end_time": 12520.0,
+      "text": "So far, for most of this series, we’ve focused\non hardware -- the physical components of"
+    },
+    {
+      "index": 4,
+      "start_time": 12530.0,
+      "end_time": 17580.0,
+      "text": "computing -- things like: electricity and\ncircuits, registers and RAM, ALUs and CPUs."
+    },
+    {
+      "index": 5,
+      "start_time": 17580.0,
+      "end_time": 21390.0,
+      "text": "But programming at the hardware level is cumbersome\nand inflexible, so programmers wanted a more"
+    },
+    {
+      "index": 6,
+      "start_time": 21390.0,
+      "end_time": 24849.0,
+      "text": "versatile way to program computers - what\nyou might call a “softer” medium."
+    },
+    {
+      "index": 7,
+      "start_time": 24849.0,
+      "end_time": 27440.0,
+      "text": "That’s right, we’re going to talk about\nSoftware!"
+    },
+    {
+      "index": 8,
+      "start_time": 27440.0,
+      "end_time": 36640.0,
+      "text": "INTRO"
+    },
+    {
+      "index": 9,
+      "start_time": 36650.0,
+      "end_time": 40230.0,
+      "text": "In episode 8, we walked through a simple program\nfor the CPU we designed."
+    },
+    {
+      "index": 10,
+      "start_time": 40230.0,
+      "end_time": 46290.0,
+      "text": "The very first instruction to be executed,\nthe one at memory address 0, was 0010 1110."
+    },
+    {
+      "index": 11,
+      "start_time": 46290.0,
+      "end_time": 50800.0,
+      "text": "As we discussed, the first four bits of an\ninstruction is the operation code, or OPCODE"
+    },
+    {
+      "index": 12,
+      "start_time": 50800.0,
+      "end_time": 51800.0,
+      "text": "for short."
+    },
+    {
+      "index": 13,
+      "start_time": 51800.0,
+      "end_time": 57210.0,
+      "text": "On our hypothetical CPU, 0010 indicated a\nLOAD_A instruction -- which moves a value"
+    },
+    {
+      "index": 14,
+      "start_time": 57210.0,
+      "end_time": 59170.0,
+      "text": "from memory into Register A."
+    },
+    {
+      "index": 15,
+      "start_time": 59170.0,
+      "end_time": 64830.0,
+      "text": "The second set of four bits defines the memory\nlocation, in this case, 1110, which is 14"
+    },
+    {
+      "index": 16,
+      "start_time": 64830.0,
+      "end_time": 65830.0,
+      "text": "in decimal."
+    },
+    {
+      "index": 17,
+      "start_time": 65830.0,
+      "end_time": 69840.0,
+      "text": "So what these eight numbers really mean is\n“LOAD Address 14 into Register A”."
+    },
+    {
+      "index": 18,
+      "start_time": 69840.0,
+      "end_time": 71860.0,
+      "text": "We’re just using two different languages."
+    },
+    {
+      "index": 19,
+      "start_time": 71860.0,
+      "end_time": 74100.0,
+      "text": "You can think of it like English and Morse\nCode."
+    },
+    {
+      "index": 20,
+      "start_time": 74100.0,
+      "end_time": 79140.0,
+      "text": "“Hello” and “.... . .-.. .-.. ---” mean\nthe same thing -- hello! -- they’re just"
+    },
+    {
+      "index": 21,
+      "start_time": 79140.0,
+      "end_time": 80570.0,
+      "text": "encoded differently."
+    },
+    {
+      "index": 22,
+      "start_time": 80570.0,
+      "end_time": 83500.0,
+      "text": "English and Morse Code also have different\nlevels of complexity."
+    },
+    {
+      "index": 23,
+      "start_time": 83500.0,
+      "end_time": 88080.0,
+      "text": "English has 26 different letters in its alphabet\nand way more possible sounds."
+    },
+    {
+      "index": 24,
+      "start_time": 88080.0,
+      "end_time": 89710.0,
+      "text": "Morse only has dots and dashes."
+    },
+    {
+      "index": 25,
+      "start_time": 89710.0,
+      "end_time": 93900.0,
+      "text": "But, they can convey the same information,\nand computer languages are similar."
+    },
+    {
+      "index": 26,
+      "start_time": 93900.0,
+      "end_time": 97570.0,
+      "text": "As we've seen, computer hardware can only\nhandle raw, binary instructions."
+    },
+    {
+      "index": 27,
+      "start_time": 97570.0,
+      "end_time": 100830.0,
+      "text": "This is the “language” computer processors\nnatively speak."
+    },
+    {
+      "index": 28,
+      "start_time": 100830.0,
+      "end_time": 103290.0,
+      "text": "In fact, it’s the only language they’re\nable to speak."
+    },
+    {
+      "index": 29,
+      "start_time": 103290.0,
+      "end_time": 105900.0,
+      "text": "It’s called Machine Language or Machine\nCode."
+    },
+    {
+      "index": 30,
+      "start_time": 105900.0,
+      "end_time": 109840.0,
+      "text": "In the early days of computing, people had\nto write entire programs in machine code."
+    },
+    {
+      "index": 31,
+      "start_time": 109850.0,
+      "end_time": 113500.0,
+      "text": "More specifically, they’d first write a\nhigh-level version of a program on paper,"
+    },
+    {
+      "index": 32,
+      "start_time": 113510.0,
+      "end_time": 115510.0,
+      "text": "in English, for example..."
+    },
+    {
+      "index": 33,
+      "start_time": 115510.0,
+      "end_time": 119310.0,
+      "text": "“retrieve the next sale from memory, then\nadd this to the running total for the day,"
+    },
+    {
+      "index": 34,
+      "start_time": 119310.0,
+      "end_time": 122040.0,
+      "text": "week and year, then calculate any tax to be\nadded”"
+    },
+    {
+      "index": 35,
+      "start_time": 122040.0,
+      "end_time": 123120.0,
+      "text": "...and so on."
+    },
+    {
+      "index": 36,
+      "start_time": 123120.0,
+      "end_time": 126680.0,
+      "text": "An informal, high-level description of a program\nlike this is called Pseudo-Code."
+    },
+    {
+      "index": 37,
+      "start_time": 126680.0,
+      "end_time": 130729.0,
+      "text": "Then, when the program was all figured out\non paper, they’d painstakingly expand and"
+    },
+    {
+      "index": 38,
+      "start_time": 130729.00000000001,
+      "end_time": 135110.0,
+      "text": "translate it into binary machine code by hand,\nusing things like opcode tables."
+    },
+    {
+      "index": 39,
+      "start_time": 135110.0,
+      "end_time": 139150.0,
+      "text": "After the translation was complete, the program\ncould be fed into the computer and run."
+    },
+    {
+      "index": 40,
+      "start_time": 139150.0,
+      "end_time": 141700.0,
+      "text": "As you might imagine, people quickly got fed\nup with this process."
+    },
+    {
+      "index": 41,
+      "start_time": 141700.0,
+      "end_time": 146819.0,
+      "text": "So, by the late 1940s and into the 50s, programmers\nhad developed slightly higher-level languages"
+    },
+    {
+      "index": 42,
+      "start_time": 146820.0,
+      "end_time": 148540.0,
+      "text": "that were more human-readable."
+    },
+    {
+      "index": 43,
+      "start_time": 148540.0,
+      "end_time": 153720.0,
+      "text": "Opcodes were given simple names, called mnemonics,\nwhich were followed by operands, to form instructions."
+    },
+    {
+      "index": 44,
+      "start_time": 153720.0,
+      "end_time": 157760.0,
+      "text": "So instead of having to write instructions\nas a bunch of 1’s and 0’s, programmers"
+    },
+    {
+      "index": 45,
+      "start_time": 157760.0,
+      "end_time": 160240.0,
+      "text": "could write something like “LOAD_A 14”."
+    },
+    {
+      "index": 46,
+      "start_time": 160240.0,
+      "end_time": 163840.0,
+      "text": "We used this mnemonic in Episode 8 because\nit’s so much easier to understand!"
+    },
+    {
+      "index": 47,
+      "start_time": 163840.0,
+      "end_time": 166880.0,
+      "text": "Of course, a CPU has no idea what “LOAD_A\n14” is."
+    },
+    {
+      "index": 48,
+      "start_time": 166880.0,
+      "end_time": 169510.0,
+      "text": "It doesn’t understand text-based language,\nonly binary."
+    },
+    {
+      "index": 49,
+      "start_time": 169510.0,
+      "end_time": 171419.0,
+      "text": "And so programmers came up with a clever trick."
+    },
+    {
+      "index": 50,
+      "start_time": 171419.0,
+      "end_time": 176330.0,
+      "text": "They created reusable helper programs, in\nbinary, that read in text-based instructions,"
+    },
+    {
+      "index": 51,
+      "start_time": 176330.0,
+      "end_time": 180060.0,
+      "text": "and assemble them into the corresponding binary\ninstructions automatically."
+    },
+    {
+      "index": 52,
+      "start_time": 180060.0,
+      "end_time": 182909.0,
+      "text": "This program is called -- you guessed it -- an\nAssembler."
+    },
+    {
+      "index": 53,
+      "start_time": 182909.0,
+      "end_time": 187020.0,
+      "text": "It reads in a program written in an Assembly\nLanguage and converts it to native machine"
+    },
+    {
+      "index": 54,
+      "start_time": 187020.0,
+      "end_time": 187520.0,
+      "text": "code."
+    },
+    {
+      "index": 55,
+      "start_time": 187520.0,
+      "end_time": 190500.0,
+      "text": "“LOAD_A 14” is one example of an assembly\ninstruction."
+    },
+    {
+      "index": 56,
+      "start_time": 190500.0,
+      "end_time": 194840.0,
+      "text": "Over time, Assemblers gained new features\nthat made programming even easier."
+    },
+    {
+      "index": 57,
+      "start_time": 194840.0,
+      "end_time": 198100.0,
+      "text": "One nifty feature is automatically figuring\nout JUMP addresses."
+    },
+    {
+      "index": 58,
+      "start_time": 198110.0,
+      "end_time": 202279.0,
+      "text": "This was an example program I used in episode\n8:Notice how our JUMP NEGATIVE instruction"
+    },
+    {
+      "index": 59,
+      "start_time": 202279.0,
+      "end_time": 205700.0,
+      "text": "jumps to address 5, and our regular JUMP goes\nto address 2."
+    },
+    {
+      "index": 60,
+      "start_time": 205700.0,
+      "end_time": 209459.0,
+      "text": "The problem is, if we add more code to the\nbeginning of this program, all of the addresses"
+    },
+    {
+      "index": 61,
+      "start_time": 209459.0,
+      "end_time": 210459.0,
+      "text": "would change."
+    },
+    {
+      "index": 62,
+      "start_time": 210459.0,
+      "end_time": 212919.0,
+      "text": "That’s a huge pain if you ever want to update\nyour program!"
+    },
+    {
+      "index": 63,
+      "start_time": 212919.0,
+      "end_time": 217139.0,
+      "text": "And so an assembler does away with raw jump\naddresses, and lets you insert little labels"
+    },
+    {
+      "index": 64,
+      "start_time": 217139.0,
+      "end_time": 218139.0,
+      "text": "that can be jumped to."
+    },
+    {
+      "index": 65,
+      "start_time": 218139.0,
+      "end_time": 221480.0,
+      "text": "When this program is passed into the assembler,\nit does the work of figuring out all of the"
+    },
+    {
+      "index": 66,
+      "start_time": 221480.0,
+      "end_time": 222699.0,
+      "text": "jump addresses."
+    },
+    {
+      "index": 67,
+      "start_time": 222700.0,
+      "end_time": 226320.0,
+      "text": "Now the programmer can focus more on programming\nand less on the underlying mechanics under"
+    },
+    {
+      "index": 68,
+      "start_time": 226320.0,
+      "end_time": 231480.0,
+      "text": "the hood enabling more sophisticated things\nto be built by hiding unnecessary complexity."
+    },
+    {
+      "index": 69,
+      "start_time": 231520.0,
+      "end_time": 235279.0,
+      "text": "As we’ve done many times in this series,\nwe’re once again moving up another level"
+    },
+    {
+      "index": 70,
+      "start_time": 235279.0,
+      "end_time": 236499.0,
+      "text": "of abstraction."
+    },
+    {
+      "index": 71,
+      "start_time": 236500.0,
+      "end_time": 242380.0,
+      "text": "A NEW LEVEL OF ABSTRACTION!"
+    },
+    {
+      "index": 72,
+      "start_time": 242380.0,
+      "end_time": 247280.0,
+      "text": "However, even with nifty assembler features\nlike auto-linking JUMPs to labels, Assembly"
+    },
+    {
+      "index": 73,
+      "start_time": 247290.0,
+      "end_time": 249769.0,
+      "text": "Languages are still a thin veneer over machine\ncode."
+    },
+    {
+      "index": 74,
+      "start_time": 249769.0,
+      "end_time": 254200.0,
+      "text": "In general, each assembly language instruction\nconverts directly to a corresponding machine"
+    },
+    {
+      "index": 75,
+      "start_time": 254200.0,
+      "end_time": 258840.0,
+      "text": "instruction – a one-to-one mapping – so\nit’s inherently tied to the underlying hardware."
+    },
+    {
+      "index": 76,
+      "start_time": 258839.99999999997,
+      "end_time": 262400.0,
+      "text": "And the assembler still forces programmers\nto think about which registers and memory"
+    },
+    {
+      "index": 77,
+      "start_time": 262400.0,
+      "end_time": 264139.0,
+      "text": "locations they will use."
+    },
+    {
+      "index": 78,
+      "start_time": 264139.0,
+      "end_time": 267810.0,
+      "text": "If you suddenly needed an extra value, you\nmight have to change a lot of code to fit"
+    },
+    {
+      "index": 79,
+      "start_time": 267810.0,
+      "end_time": 268810.0,
+      "text": "it in."
+    },
+    {
+      "index": 80,
+      "start_time": 268810.0,
+      "end_time": 269909.0,
+      "text": "Let’s go to the Thought Bubble."
+    },
+    {
+      "index": 81,
+      "start_time": 269909.0,
+      "end_time": 272360.0,
+      "text": "This problem did not escape Dr. Grace Hopper."
+    },
+    {
+      "index": 82,
+      "start_time": 272360.0,
+      "end_time": 277060.0,
+      "text": "As a US naval officer, she was one of the\nfirst programmers on the Harvard Mark 1 computer,"
+    },
+    {
+      "index": 83,
+      "start_time": 277060.0,
+      "end_time": 278800.0,
+      "text": "which we talked about in Episode 2."
+    },
+    {
+      "index": 84,
+      "start_time": 278800.0,
+      "end_time": 284120.0,
+      "text": "This was a colossal, electro-mechanical beast completed in 1944 as part of the allied war effort."
+    },
+    {
+      "index": 85,
+      "start_time": 284160.0,
+      "end_time": 287480.0,
+      "text": "Programs were stored and fed into the computer\non punched paper tape."
+    },
+    {
+      "index": 86,
+      "start_time": 287480.0,
+      "end_time": 291840.0,
+      "text": "By the way, as you can see, they “patched”\nsome bugs in this program by literally putting"
+    },
+    {
+      "index": 87,
+      "start_time": 291840.0,
+      "end_time": 294560.0,
+      "text": "patches of paper over the holes on the punch\ntape."
+    },
+    {
+      "index": 88,
+      "start_time": 294560.0,
+      "end_time": 298870.0,
+      "text": "The Mark 1’s instruction set was so primitive,\nthere weren’t even JUMP instructions."
+    },
+    {
+      "index": 89,
+      "start_time": 298870.0,
+      "end_time": 302889.0,
+      "text": "To create code that repeated the same operation\nmultiple times, you’d tape the two ends"
+    },
+    {
+      "index": 90,
+      "start_time": 302889.0,
+      "end_time": 305830.0,
+      "text": "of the punched tape together, creating a physical\nloop."
+    },
+    {
+      "index": 91,
+      "start_time": 305830.0,
+      "end_time": 308910.0,
+      "text": "In other words, programming the Mark 1 was\nkind of a nightmare!"
+    },
+    {
+      "index": 92,
+      "start_time": 308910.0,
+      "end_time": 312169.0,
+      "text": "After the war, Hopper continued to work at\nthe forefront of computing."
+    },
+    {
+      "index": 93,
+      "start_time": 312169.0,
+      "end_time": 315770.0,
+      "text": "To unleash the potential of computers, she\ndesigned a high-level programming language"
+    },
+    {
+      "index": 94,
+      "start_time": 315770.0,
+      "end_time": 319580.0,
+      "text": "called “Arithmetic Language Version 0”,\nor A-0 for short."
+    },
+    {
+      "index": 95,
+      "start_time": 319580.0,
+      "end_time": 323380.0,
+      "text": "Assembly languages have direct, one-to-one\nmapping to machine instructions."
+    },
+    {
+      "index": 96,
+      "start_time": 323389.0,
+      "end_time": 327580.0,
+      "text": "But, a single line of a high-level programming\nlanguage might result in dozens of instructions"
+    },
+    {
+      "index": 97,
+      "start_time": 327590.0,
+      "end_time": 329419.0,
+      "text": "being executed by the CPU."
+    },
+    {
+      "index": 98,
+      "start_time": 329419.0,
+      "end_time": 334060.0,
+      "text": "To perform this complex translation, Hopper\nbuilt the first compiler in 1952."
+    },
+    {
+      "index": 99,
+      "start_time": 334060.0,
+      "end_time": 338409.0,
+      "text": "This is a specialized program that transforms\n“source” code written in a programming"
+    },
+    {
+      "index": 100,
+      "start_time": 338409.0,
+      "end_time": 342750.0,
+      "text": "language into a low-level language, like assembly\nor the binary “machine code” that the"
+    },
+    {
+      "index": 101,
+      "start_time": 342750.0,
+      "end_time": 344410.0,
+      "text": "CPU can directly process."
+    },
+    {
+      "index": 102,
+      "start_time": 344410.0,
+      "end_time": 345720.0,
+      "text": "Thanks, Thought Bubble."
+    },
+    {
+      "index": 103,
+      "start_time": 345720.0,
+      "end_time": 350430.0,
+      "text": "So, despite the promise of easier programming,\nmany people were skeptical of Hopper’s idea."
+    },
+    {
+      "index": 104,
+      "start_time": 350430.0,
+      "end_time": 354000.0,
+      "text": "She once said, “I had a running compiler\nand nobody would touch it."
+    },
+    {
+      "index": 105,
+      "start_time": 354000.0,
+      "end_time": 358120.0,
+      "text": "… they carefully told me, computers could\nonly do arithmetic; they could not do programs.”"
+    },
+    {
+      "index": 106,
+      "start_time": 358120.0,
+      "end_time": 363080.0,
+      "text": "But the idea was a good one, and soon many\nefforts were underway to craft new programming"
+    },
+    {
+      "index": 107,
+      "start_time": 363080.0,
+      "end_time": 364970.0,
+      "text": "languages -- today there are hundreds!"
+    },
+    {
+      "index": 108,
+      "start_time": 364970.0,
+      "end_time": 369520.0,
+      "text": "Sadly, there are no surviving examples of\nA-0 code, so we’ll use Python, a modern"
+    },
+    {
+      "index": 109,
+      "start_time": 369520.0,
+      "end_time": 370960.0,
+      "text": "programming language, as an example."
+    },
+    {
+      "index": 110,
+      "start_time": 370960.0,
+      "end_time": 374260.0,
+      "text": "Let’s say we want to add two numbers and\nsave that value."
+    },
+    {
+      "index": 111,
+      "start_time": 374260.0,
+      "end_time": 378320.0,
+      "text": "Remember, in assembly code, we had to fetch\nvalues from memory, deal with registers, and"
+    },
+    {
+      "index": 112,
+      "start_time": 378320.0,
+      "end_time": 379320.0,
+      "text": "other low-level details."
+    },
+    {
+      "index": 113,
+      "start_time": 379320.0,
+      "end_time": 382219.0,
+      "text": "But this same program can be written in python\nlike so:"
+    },
+    {
+      "index": 114,
+      "start_time": 382219.0,
+      "end_time": 385940.0,
+      "text": "Notice how there are no registers or memory\nlocations to deal with -- the compiler takes"
+    },
+    {
+      "index": 115,
+      "start_time": 385940.0,
+      "end_time": 389970.0,
+      "text": "care of that stuff, abstracting away a lot\nof low-level and unnecessary complexity."
+    },
+    {
+      "index": 116,
+      "start_time": 389970.0,
+      "end_time": 394599.0,
+      "text": "The programmer just creates abstractions for\nneeded memory locations, known as variables,"
+    },
+    {
+      "index": 117,
+      "start_time": 394599.0,
+      "end_time": 395669.0,
+      "text": "and gives them names."
+    },
+    {
+      "index": 118,
+      "start_time": 395669.0,
+      "end_time": 400370.0,
+      "text": "So now we can just take our two numbers, store\nthem in variables we give names to -- in this"
+    },
+    {
+      "index": 119,
+      "start_time": 400370.0,
+      "end_time": 405110.0,
+      "text": "case, I picked a and b but those variables\ncould be anything - and then add those together,"
+    },
+    {
+      "index": 120,
+      "start_time": 405110.0,
+      "end_time": 407770.0,
+      "text": "saving the result in c, another variable I\ncreated."
+    },
+    {
+      "index": 121,
+      "start_time": 407770.0,
+      "end_time": 412060.0,
+      "text": "It might be that the compiler assigns Register\nA under the hood to store the value in a,"
+    },
+    {
+      "index": 122,
+      "start_time": 412060.0,
+      "end_time": 414490.0,
+      "text": "but I don’t need to know about it!"
+    },
+    {
+      "index": 123,
+      "start_time": 414490.0,
+      "end_time": 415629.0,
+      "text": "Out of sight, out of mind!"
+    },
+    {
+      "index": 124,
+      "start_time": 415629.0,
+      "end_time": 421020.0,
+      "text": "It was an important historical milestone,\nbut A-0 and its later variants weren’t widely used."
+    },
+    {
+      "index": 125,
+      "start_time": 421120.0,
+      "end_time": 426100.0,
+      "text": "FORTRAN, derived from \"Formula Translation\",\nwas released by IBM a few years later, in"
+    },
+    {
+      "index": 126,
+      "start_time": 426100.0,
+      "end_time": 428900.0,
+      "text": "1957, and came to dominate early computer\nprogramming."
+    },
+    {
+      "index": 127,
+      "start_time": 428919.0,
+      "end_time": 432949.0,
+      "text": "John Backus, the FORTRAN project director,\nsaid: \"Much of my work has come from being"
+    },
+    {
+      "index": 128,
+      "start_time": 432949.0,
+      "end_time": 433949.0,
+      "text": "lazy."
+    },
+    {
+      "index": 129,
+      "start_time": 433949.0,
+      "end_time": 437760.0,
+      "text": "I didn't like writing programs, and so ... I\nstarted work on a programming system to make"
+    },
+    {
+      "index": 130,
+      "start_time": 437760.0,
+      "end_time": 439419.0,
+      "text": "it easier to write programs.\""
+    },
+    {
+      "index": 131,
+      "start_time": 439419.0,
+      "end_time": 441030.0,
+      "text": "You know, typical lazy person."
+    },
+    {
+      "index": 132,
+      "start_time": 441030.0,
+      "end_time": 443550.0,
+      "text": "They’re always creating their own programming\nsystems."
+    },
+    {
+      "index": 133,
+      "start_time": 443550.0,
+      "end_time": 447919.0,
+      "text": "Anyway, on average, programs written in FORTRAN\nwere 20 times shorter than equivalent handwritten"
+    },
+    {
+      "index": 134,
+      "start_time": 447919.0,
+      "end_time": 448919.0,
+      "text": "assembly code."
+    },
+    {
+      "index": 135,
+      "start_time": 448919.0,
+      "end_time": 452949.0,
+      "text": "Then the FORTRAN Compiler would translate\nand expand that into native machine code."
+    },
+    {
+      "index": 136,
+      "start_time": 452949.0,
+      "end_time": 456740.0,
+      "text": "The community was skeptical that the performance\nwould be as good as hand written code, but"
+    },
+    {
+      "index": 137,
+      "start_time": 456740.0,
+      "end_time": 460469.0,
+      "text": "the fact that programmers could write more\ncode more quickly, made it an easy choice"
+    },
+    {
+      "index": 138,
+      "start_time": 460469.0,
+      "end_time": 465090.0,
+      "text": "economically: trading a small increase in\ncomputation time for a significant decrease"
+    },
+    {
+      "index": 139,
+      "start_time": 465090.0,
+      "end_time": 466219.0,
+      "text": "in programmer time."
+    },
+    {
+      "index": 140,
+      "start_time": 466219.0,
+      "end_time": 470259.0,
+      "text": "Of course, IBM was in the business of selling\ncomputers, and so initially, FORTRAN code"
+    },
+    {
+      "index": 141,
+      "start_time": 470259.0,
+      "end_time": 473039.0,
+      "text": "could only be compiled and run on IBM computers."
+    },
+    {
+      "index": 142,
+      "start_time": 473039.0,
+      "end_time": 477169.0,
+      "text": "And most programing languages and compilers\nof the 1950s could only run on a single type"
+    },
+    {
+      "index": 143,
+      "start_time": 477169.0,
+      "end_time": 478169.0,
+      "text": "of computer."
+    },
+    {
+      "index": 144,
+      "start_time": 478169.0,
+      "end_time": 482620.0,
+      "text": "So, if you upgraded your computer, you’d\noften have to re-write all the code too!"
+    },
+    {
+      "index": 145,
+      "start_time": 482620.0,
+      "end_time": 486249.0,
+      "text": "In response, computer experts from industry,\nacademia and government formed a consortium"
+    },
+    {
+      "index": 146,
+      "start_time": 486249.0,
+      "end_time": 492110.0,
+      "text": "in 1959 -- the Committee on Data Systems Languages,\nadvised by our friend Grace Hopper -- to guide"
+    },
+    {
+      "index": 147,
+      "start_time": 492110.0,
+      "end_time": 495999.0,
+      "text": "the development of a common programming language\nthat could be used across different machines."
+    },
+    {
+      "index": 148,
+      "start_time": 496000.0,
+      "end_time": 500460.0,
+      "text": "The result was the high-level, easy to use,\nCommon Business-Oriented Language, or COBOL"
+    },
+    {
+      "index": 149,
+      "start_time": 500460.0,
+      "end_time": 501160.0,
+      "text": "for short."
+    },
+    {
+      "index": 150,
+      "start_time": 501160.0,
+      "end_time": 504840.0,
+      "text": "To deal with different underlying hardware,\neach computing architecture needed its own"
+    },
+    {
+      "index": 151,
+      "start_time": 504960.0,
+      "end_time": 505900.0,
+      "text": "COBOL compiler."
+    },
+    {
+      "index": 152,
+      "start_time": 505900.0,
+      "end_time": 510460.0,
+      "text": "But critically, these compilers could all\naccept the same COBOL source code, no matter"
+    },
+    {
+      "index": 153,
+      "start_time": 510480.0,
+      "end_time": 511800.0,
+      "text": "what computer it was run on."
+    },
+    {
+      "index": 154,
+      "start_time": 511800.0,
+      "end_time": 513890.0,
+      "text": "This notion is called write once, run anywhere."
+    },
+    {
+      "index": 155,
+      "start_time": 513890.0,
+      "end_time": 517960.0,
+      "text": "It’s true of most programming languages\ntoday, a benefit of moving away from assembly"
+    },
+    {
+      "index": 156,
+      "start_time": 517960.00000000006,
+      "end_time": 520200.00000000006,
+      "text": "and machine code, which is still CPU specific."
+    },
+    {
+      "index": 157,
+      "start_time": 520200.00000000006,
+      "end_time": 524100.00000000006,
+      "text": "The biggest impact of all this was reducing\ncomputing’s barrier to entry."
+    },
+    {
+      "index": 158,
+      "start_time": 524100.0,
+      "end_time": 528780.0,
+      "text": "Before high level programming languages existed,\nit was a realm exclusive to computer experts"
+    },
+    {
+      "index": 159,
+      "start_time": 528780.0,
+      "end_time": 529780.0,
+      "text": "and enthusiasts."
+    },
+    {
+      "index": 160,
+      "start_time": 529780.0,
+      "end_time": 531820.0,
+      "text": "And it was often their full time profession."
+    },
+    {
+      "index": 161,
+      "start_time": 531820.0,
+      "end_time": 536840.0,
+      "text": "But now, scientists, engineers, doctors, economists,\nteachers, and many others could incorporate"
+    },
+    {
+      "index": 162,
+      "start_time": 536850.0,
+      "end_time": 538300.0,
+      "text": "computation into their work ."
+    },
+    {
+      "index": 163,
+      "start_time": 538300.0,
+      "end_time": 542050.0,
+      "text": "Thanks to these languages, computing went\nfrom a cumbersome and esoteric discipline"
+    },
+    {
+      "index": 164,
+      "start_time": 542050.0,
+      "end_time": 544130.0,
+      "text": "to a general purpose and accessible tool."
+    },
+    {
+      "index": 165,
+      "start_time": 544130.0,
+      "end_time": 548990.0,
+      "text": "At the same time, abstraction in programming\nallowed those computer experts – now “professional"
+    },
+    {
+      "index": 166,
+      "start_time": 548990.0,
+      "end_time": 552880.0,
+      "text": "programmers” – to create increasingly\nsophisticated programs, which would have taken"
+    },
+    {
+      "index": 167,
+      "start_time": 552880.0,
+      "end_time": 556110.0,
+      "text": "millions, tens of millions, or even more lines\nof assembly code."
+    },
+    {
+      "index": 168,
+      "start_time": 556110.0,
+      "end_time": 558480.0,
+      "text": "Now, this history didn’t end in 1959."
+    },
+    {
+      "index": 169,
+      "start_time": 558480.0,
+      "end_time": 562940.0,
+      "text": "In fact, a golden era in programming language\ndesign jump started, evolving in lockstep"
+    },
+    {
+      "index": 170,
+      "start_time": 562940.0,
+      "end_time": 565230.0,
+      "text": "with dramatic advances in computer hardware."
+    },
+    {
+      "index": 171,
+      "start_time": 565230.0,
+      "end_time": 568810.0,
+      "text": "In the 1960s, we had languages like ALGOL,\nLISP and BASIC."
+    },
+    {
+      "index": 172,
+      "start_time": 568810.0,
+      "end_time": 571590.0,
+      "text": "In the 70’s: Pascal, C and Smalltalk were\nreleased."
+    },
+    {
+      "index": 173,
+      "start_time": 571590.0,
+      "end_time": 574280.0,
+      "text": "The 80s gave us C++, Objective-C, and Perl."
+    },
+    {
+      "index": 174,
+      "start_time": 574280.0,
+      "end_time": 576650.0,
+      "text": "And the 90’s: python, ruby, and Java."
+    },
+    {
+      "index": 175,
+      "start_time": 576650.0,
+      "end_time": 580760.0,
+      "text": "And the new millennium has seen the rise of\nSwift, C#, and Go - not to be confused with"
+    },
+    {
+      "index": 176,
+      "start_time": 580760.0,
+      "end_time": 582650.0,
+      "text": "Let it Go and Pokemon Go."
+    },
+    {
+      "index": 177,
+      "start_time": 582650.0,
+      "end_time": 585940.0,
+      "text": "Anyway, some of these might sound familiar\n-- many are still around today."
+    },
+    {
+      "index": 178,
+      "start_time": 585940.0,
+      "end_time": 589800.0,
+      "text": "It’s extremely likely that the web browser\nyou’re using right now was written in C++"
+    },
+    {
+      "index": 179,
+      "start_time": 589800.0,
+      "end_time": 590800.0,
+      "text": "or Objective-C."
+    },
+    {
+      "index": 180,
+      "start_time": 590800.0,
+      "end_time": 593600.0,
+      "text": "That list I just gave is the tip of the iceberg."
+    },
+    {
+      "index": 181,
+      "start_time": 593600.0,
+      "end_time": 596540.0,
+      "text": "And languages with fancy, new features are\nproposed all the time."
+    },
+    {
+      "index": 182,
+      "start_time": 596540.0,
+      "end_time": 600040.0,
+      "text": "Each new language attempts to leverage new\nand clever abstractions to make some aspect"
+    },
+    {
+      "index": 183,
+      "start_time": 600050.0,
+      "end_time": 603830.0,
+      "text": "of programming easier or more powerful, or\ntake advantage of emerging technologies and"
+    },
+    {
+      "index": 184,
+      "start_time": 603830.0,
+      "end_time": 607700.0,
+      "text": "platforms, so that more people can do more\namazing things, more quickly."
+    },
+    {
+      "index": 185,
+      "start_time": 607700.0,
+      "end_time": 610690.0,
+      "text": "Many consider the holy grail of programming\nto be the use of “plain ol’ English”,"
+    },
+    {
+      "index": 186,
+      "start_time": 610690.0,
+      "end_time": 614670.0,
+      "text": "where you can literally just speak what you\nwant the computer to do, it figures it out,"
+    },
+    {
+      "index": 187,
+      "start_time": 614670.0,
+      "end_time": 615670.0,
+      "text": "and executes it."
+    },
+    {
+      "index": 188,
+      "start_time": 615670.0,
+      "end_time": 618530.0,
+      "text": "This kind of intelligent system is science\nfiction… for now."
+    },
+    {
+      "index": 189,
+      "start_time": 618530.0,
+      "end_time": 621990.0,
+      "text": "And fans of 2001: A Space Odyssey may be okay\nwith that."
+    },
+    {
+      "index": 190,
+      "start_time": 621990.0,
+      "end_time": 625370.0,
+      "text": "Now that you know all about programming languages,\nwe’re going to deep dive for the next couple"
+    },
+    {
+      "index": 191,
+      "start_time": 625370.0,
+      "end_time": 629950.0,
+      "text": "of episodes, and we’ll continue to build\nyour understanding of how programming languages,"
+    },
+    {
+      "index": 192,
+      "start_time": 629950.0,
+      "end_time": 633590.0,
+      "text": "and the software they create, are used to\ndo cool and unbelievable things."
+    },
+    {
+      "index": 193,
+      "start_time": 633590.0,
+      "end_time": 634790.0,
+      "text": "See you next week."
+    },
+    {
+      "index": 194,
+      "start_time": 634790.0,
+      "end_time": 639110.0,
+      "text": "Hey guys, this week’s episode was brought\nto you by CuriosityStream which is a streaming"
+    },
+    {
+      "index": 195,
+      "start_time": 639110.0,
+      "end_time": 643990.0,
+      "text": "service full of documentaries and non­fiction\ntitles from some really great filmmakers,"
+    },
+    {
+      "index": 196,
+      "start_time": 643990.0,
+      "end_time": 645660.0,
+      "text": "including exclusive originals."
+    },
+    {
+      "index": 197,
+      "start_time": 645660.0,
+      "end_time": 649300.0,
+      "text": "I just watched a great series called “Digits”\nhosted by our friend Derek Muller."
+    },
+    {
+      "index": 198,
+      "start_time": 649300.0,
+      "end_time": 653899.0,
+      "text": "It’s all about the Internet - from its origins,\nto the proliferation of the Internet of Things,"
+    },
+    {
+      "index": 199,
+      "start_time": 653899.0,
+      "end_time": 655990.0,
+      "text": "to ethical, or white hat, hacking."
+    },
+    {
+      "index": 200,
+      "start_time": 655990.0,
+      "end_time": 660330.0,
+      "text": "And it even includes some special guest appearances…\nlike that John Green guy you keep mentioning"
+    },
+    {
+      "index": 201,
+      "start_time": 660330.0,
+      "end_time": 661420.0,
+      "text": "in the comments."
+    },
+    {
+      "index": 202,
+      "start_time": 661420.0,
+      "end_time": 667090.0,
+      "text": "And Curiosity Stream offers unlimited access\nstarting at $2.99 a month, and for you guys,"
+    },
+    {
+      "index": 203,
+      "start_time": 667090.0,
+      "end_time": 672300.0,
+      "text": "the first two months are free if you sign\nup at curiositystream.com/crashcourse"
+    },
+    {
+      "index": 204,
+      "start_time": 672320.0,
+      "end_time": 675900.0,
+      "text": "and use the promo code \"crash course\" during the sign-up process."
+    }
+  ]
+}

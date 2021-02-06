@@ -1,0 +1,1656 @@
+{
+  "video_id": "wQ8BIBpya2k",
+  "title": "Deep Learning with Python, TensorFlow, and Keras tutorial",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 1060.0,
+      "end_time": 3600.0,
+      "text": "What is going on everybody and welcome to a much-needed"
+    },
+    {
+      "index": 2,
+      "start_time": 4089.0000000000005,
+      "end_time": 10529.0,
+      "text": "Update to the deep learning and Python with tensorflow as well as now chaos tutorial"
+    },
+    {
+      "index": 3,
+      "start_time": 10530.0,
+      "end_time": 15630.0,
+      "text": "it's been a bit over two years since I did just a basic deep learning video in Python and"
+    },
+    {
+      "index": 4,
+      "start_time": 16570.0,
+      "end_time": 22920.0,
+      "text": "Since then a lot has changed. It's now much simpler to both like get into it"
+    },
+    {
+      "index": 5,
+      "start_time": 22920.0,
+      "end_time": 25829.0,
+      "text": "But then also just to work with deep learning models"
+    },
+    {
+      "index": 6,
+      "start_time": 25830.0,
+      "end_time": 29939.0,
+      "text": "So if you want to get into the more nitty gritty details in the lower-level"
+    },
+    {
+      "index": 7,
+      "start_time": 30010.0,
+      "end_time": 32459.0,
+      "text": "Tensorflow code you can still check out the older video"
+    },
+    {
+      "index": 8,
+      "start_time": 32460.0,
+      "end_time": 38849.0,
+      "text": "But if you're just trying to get started with deep learning that's not necessary anymore because we have these nice high-level"
+    },
+    {
+      "index": 9,
+      "start_time": 38860.0,
+      "end_time": 41969.0,
+      "text": "api's like chaos that sit on top of tensorflow and"
+    },
+    {
+      "index": 10,
+      "start_time": 42850.0,
+      "end_time": 48840.0,
+      "text": "Make it super super simple. So anybody can follow along if you don't know anything about deep learning that's totally fine"
+    },
+    {
+      "index": 11,
+      "start_time": 48840.0,
+      "end_time": 53669.0,
+      "text": "We're going to do a quick run-through of neural networks. Also, you're gonna want Python"
+    },
+    {
+      "index": 12,
+      "start_time": 54640.0,
+      "end_time": 58469.0,
+      "text": "3.6 at least as of the release of this video hopefully very very soon"
+    },
+    {
+      "index": 13,
+      "start_time": 58930.0,
+      "end_time": 63899.0,
+      "text": "Tensorflow will be supported on three seven and later versions of Python just happens to be the case right now"
+    },
+    {
+      "index": 14,
+      "start_time": 63899.0,
+      "end_time": 65899.0,
+      "text": "it isn't I think it's something to do with the"
+    },
+    {
+      "index": 15,
+      "start_time": 66340.0,
+      "end_time": 67479.0,
+      "text": "async"
+    },
+    {
+      "index": 16,
+      "start_time": 67479.0,
+      "end_time": 69479.0,
+      "text": "Changes, I'm not really sure anyways"
+    },
+    {
+      "index": 17,
+      "start_time": 69880.0,
+      "end_time": 73710.0,
+      "text": "Let's get into it starting with an overview of how neural networks just work"
+    },
+    {
+      "index": 18,
+      "start_time": 74680.0,
+      "end_time": 75520.0,
+      "text": "Alright to begin"
+    },
+    {
+      "index": 19,
+      "start_time": 75520.0,
+      "end_time": 81540.0,
+      "text": "we need to have some sort of balance between treating neural networks like a total black box that we just don't understand at all and"
+    },
+    {
+      "index": 20,
+      "start_time": 82360.0,
+      "end_time": 89129.0,
+      "text": "Understanding every single detail to them. So I'm gonna show you guys what I think is just the kind of bare essential to understanding"
+    },
+    {
+      "index": 21,
+      "start_time": 89130.0,
+      "end_time": 96720.0,
+      "text": "What's going on? So a neural network is going to consist of the following things. Like what's the goal of any machine learning model?"
+    },
+    {
+      "index": 22,
+      "start_time": 96720.0,
+      "end_time": 97890.0,
+      "text": "Well, you've got some input"
+    },
+    {
+      "index": 23,
+      "start_time": 97890.0,
+      "end_time": 103949.0,
+      "text": "So let's say X 1 X 2 X 3 and you're just trying to map those"
+    },
+    {
+      "index": 24,
+      "start_time": 104110.0,
+      "end_time": 106259.0,
+      "text": "inputs to some sort of output"
+    },
+    {
+      "index": 25,
+      "start_time": 106750.0,
+      "end_time": 113009.0,
+      "text": "Let's say that output is determining whether something is a dog or that something is a cat"
+    },
+    {
+      "index": 26,
+      "start_time": 113590.0,
+      "end_time": 119490.0,
+      "text": "So the output is going to be two neurons in this case. So it's just boom two neurons"
+    },
+    {
+      "index": 27,
+      "start_time": 120189.0,
+      "end_time": 123689.0,
+      "text": "Now what we want to do is is figure out how are we going to map to those things?"
+    },
+    {
+      "index": 28,
+      "start_time": 123689.0,
+      "end_time": 128458.0,
+      "text": "We could use a single hidden layer. Let's say we're going to do some neurons here and"
+    },
+    {
+      "index": 29,
+      "start_time": 129610.00000000001,
+      "end_time": 131610.0,
+      "text": "That's our first"
+    },
+    {
+      "index": 30,
+      "start_time": 132220.0,
+      "end_time": 134220.0,
+      "text": "Hidden lair now"
+    },
+    {
+      "index": 31,
+      "start_time": 137200.0,
+      "end_time": 143640.0,
+      "text": "What's gonna happen is each of these X 1 X 2 and X 3 these are gonna map to that hidden lair"
+    },
+    {
+      "index": 32,
+      "start_time": 144280.0,
+      "end_time": 146280.0,
+      "text": "each of the"
+    },
+    {
+      "index": 33,
+      "start_time": 146560.0,
+      "end_time": 148890.0,
+      "text": "input data x' gets"
+    },
+    {
+      "index": 34,
+      "start_time": 149410.0,
+      "end_time": 155729.0,
+      "text": "Connected to each of the neurons in that first hidden layer. And each of those connections has its own"
+    },
+    {
+      "index": 35,
+      "start_time": 156520.0,
+      "end_time": 162059.0,
+      "text": "Unique weight now from here that first hidden layer could then map and connect to that output layer"
+    },
+    {
+      "index": 36,
+      "start_time": 162100.0,
+      "end_time": 167339.0,
+      "text": "the problem is if you did this the relationship between x1 and dog or cat and"
+    },
+    {
+      "index": 37,
+      "start_time": 167680.0,
+      "end_time": 172320.0,
+      "text": "All the other ones those relationships would only be linear relationships"
+    },
+    {
+      "index": 38,
+      "start_time": 172420.0,
+      "end_time": 174839.0,
+      "text": "so if we're looking to map and nonlinear relationships"
+    },
+    {
+      "index": 39,
+      "start_time": 174840.0,
+      "end_time": 179640.0,
+      "text": "Which is probably going to be the case in a complex question. You need to have two or more one"
+    },
+    {
+      "index": 40,
+      "start_time": 179640.0,
+      "end_time": 185850.0,
+      "text": "Hidden layer means you just have a neural network two or more hidden layers means you have a quote-unquote deep neural network"
+    },
+    {
+      "index": 41,
+      "start_time": 185850.0,
+      "end_time": 189119.0,
+      "text": "So we'll add one more layer and then we're gonna fully connect that one two"
+    },
+    {
+      "index": 42,
+      "start_time": 189120.0,
+      "end_time": 195959.0,
+      "text": "And then once that's fully connected again all unique weights, each of those blue lines has a unique weight associated with it"
+    },
+    {
+      "index": 43,
+      "start_time": 195959.0,
+      "end_time": 197959.0,
+      "text": "and then that gets mapped to"
+    },
+    {
+      "index": 44,
+      "start_time": 198280.0,
+      "end_time": 203160.0,
+      "text": "The output and again each blue line has a unique weight associated with it"
+    },
+    {
+      "index": 45,
+      "start_time": 203160.0,
+      "end_time": 206459.0,
+      "text": "so now what we're gonna do is talk about what's happening on an"
+    },
+    {
+      "index": 46,
+      "start_time": 207400.0,
+      "end_time": 208690.0,
+      "text": "individual"
+    },
+    {
+      "index": 47,
+      "start_time": 208690.0,
+      "end_time": 212279.0,
+      "text": "Neuron level. So again that neuron has certain inputs coming to it"
+    },
+    {
+      "index": 48,
+      "start_time": 212280.0,
+      "end_time": 217559.0,
+      "text": "It might be the input layer X values or it could be inputs coming from the other neurons"
+    },
+    {
+      "index": 49,
+      "start_time": 217560.0,
+      "end_time": 220470.0,
+      "text": "So we're gonna again we're gonna call the inputs x1 x2 and x3"
+    },
+    {
+      "index": 50,
+      "start_time": 221019.0,
+      "end_time": 225359.0,
+      "text": "But just keep in mind this could actually not be it might not be your input data"
+    },
+    {
+      "index": 51,
+      "start_time": 225360.0,
+      "end_time": 227880.0,
+      "text": "It might be data coming from another neuron"
+    },
+    {
+      "index": 52,
+      "start_time": 227880.0,
+      "end_time": 233070.0,
+      "text": "But regardless that data's gonna come in and we're just gonna get the sum of that data"
+    },
+    {
+      "index": 53,
+      "start_time": 233170.0,
+      "end_time": 235589.0,
+      "text": "So it's gonna come in and be summed all together"
+    },
+    {
+      "index": 54,
+      "start_time": 235600.0,
+      "end_time": 242459.0,
+      "text": "But remember we also have those weights each of the inputs has a unique weight that gets put you know multiplied"
+    },
+    {
+      "index": 55,
+      "start_time": 242650.0,
+      "end_time": 249120.0,
+      "text": "Against the input data and then we sum it together finally and this is kind of where the artificial neural network comes into play"
+    },
+    {
+      "index": 56,
+      "start_time": 249120.0,
+      "end_time": 253079.0,
+      "text": "we have an activation function and this activation function is kind of meant to"
+    },
+    {
+      "index": 57,
+      "start_time": 253420.0,
+      "end_time": 256229.0,
+      "text": "Simulate a neuron actually firing or not"
+    },
+    {
+      "index": 58,
+      "start_time": 256228.99999999997,
+      "end_time": 259438.99999999997,
+      "text": "So you can think of the activation function like on a graph, you know?"
+    },
+    {
+      "index": 59,
+      "start_time": 259440.0,
+      "end_time": 263969.0,
+      "text": "You got your X and your Y and then a really basic activation function would be like a step or function"
+    },
+    {
+      "index": 60,
+      "start_time": 263970.0,
+      "end_time": 269760.0,
+      "text": "So if X is than a certain value boom we step up and we have a value. So let's say here"
+    },
+    {
+      "index": 61,
+      "start_time": 269760.0,
+      "end_time": 271800.0,
+      "text": "This is zero here. The value is one"
+    },
+    {
+      "index": 62,
+      "start_time": 271800.0,
+      "end_time": 274979.0,
+      "text": "So let's say this is our x-axis 1 2 3"
+    },
+    {
+      "index": 63,
+      "start_time": 275050.0,
+      "end_time": 281550.0,
+      "text": "so if X, you know after being all the inputs are multiplied by their weights sum together if that value is"
+    },
+    {
+      "index": 64,
+      "start_time": 282460.0,
+      "end_time": 283900.0,
+      "text": "let's say"
+    },
+    {
+      "index": 65,
+      "start_time": 283900.0,
+      "end_time": 285730.0,
+      "text": "greater than 3"
+    },
+    {
+      "index": 66,
+      "start_time": 285730.0,
+      "end_time": 293700.0,
+      "text": "well, then this activation function returns a 1 but today we tend to use more of a"
+    },
+    {
+      "index": 67,
+      "start_time": 294130.0,
+      "end_time": 299429.0,
+      "text": "sigmoid activation function so it's not going to be a 0 or 1 it's going to be some sort of value between"
+    },
+    {
+      "index": 68,
+      "start_time": 299770.0,
+      "end_time": 305459.0,
+      "text": "0 and a 1 so instead we might actually return like a point seven nine or something like that"
+    },
+    {
+      "index": 69,
+      "start_time": 305460.0,
+      "end_time": 308010.0,
+      "text": "So coming back to this neural network here that we've been drawing"
+    },
+    {
+      "index": 70,
+      "start_time": 308920.0,
+      "end_time": 314129.0,
+      "text": "Let's say here on this final output layer. You've got dog and cat"
+    },
+    {
+      "index": 71,
+      "start_time": 314130.0,
+      "end_time": 319679.0,
+      "text": "well, this output layer is almost certain to have just a sigmoid activation function and"
+    },
+    {
+      "index": 72,
+      "start_time": 320440.0,
+      "end_time": 325980.0,
+      "text": "What's gonna say is maybe dog is a point seven nine and cat is a point two one"
+    },
+    {
+      "index": 73,
+      "start_time": 325980.0,
+      "end_time": 331469.0,
+      "text": "these two values are gonna add up to a perfect 1.0 but we're gonna go with whatever the"
+    },
+    {
+      "index": 74,
+      "start_time": 331690.0,
+      "end_time": 334200.0,
+      "text": "Largest value is so in this case"
+    },
+    {
+      "index": 75,
+      "start_time": 334200.0,
+      "end_time": 340619.0,
+      "text": "The neural network is you could say 79 percent confident that it's a dog 21 percent confidence a cat"
+    },
+    {
+      "index": 76,
+      "start_time": 340620.0,
+      "end_time": 345390.0,
+      "text": "We're gonna say we're gonna take the Arg max basically and we're gonna say hmm. We think it's a dog"
+    },
+    {
+      "index": 77,
+      "start_time": 345520.0,
+      "end_time": 352079.0,
+      "text": "All right. Now that we're all experts on the concepts of neural networks. Let's go ahead and build one. You're gonna need tensorflow"
+    },
+    {
+      "index": 78,
+      "start_time": 352080.0,
+      "end_time": 358919.0,
+      "text": "So do a pip install - - upgrade tensorflow you should be on tensorflow version 1.1 or greater. So"
+    },
+    {
+      "index": 79,
+      "start_time": 359470.0,
+      "end_time": 362700.0,
+      "text": "one thing you can do is import tensorflow and then"
+    },
+    {
+      "index": 80,
+      "start_time": 363340.0,
+      "end_time": 370530.0,
+      "text": "Actually touch flow as TF and then TF dot version will give you your current version"
+    },
+    {
+      "index": 81,
+      "start_time": 370720.0,
+      "end_time": 372610.0,
+      "text": "so mine is"
+    },
+    {
+      "index": 82,
+      "start_time": 372610.0,
+      "end_time": 374290.0,
+      "text": "1.10"
+    },
+    {
+      "index": 83,
+      "start_time": 374290.0,
+      "end_time": 378869.0,
+      "text": "Now let's go ahead and get started. So the first thing we're going to do is import a data set. We're going to use em"
+    },
+    {
+      "index": 84,
+      "start_time": 379810.0,
+      "end_time": 381420.0,
+      "text": "nacelle"
+    },
+    {
+      "index": 85,
+      "start_time": 381420.0,
+      "end_time": 382180.0,
+      "text": "of"
+    },
+    {
+      "index": 86,
+      "start_time": 382180.0,
+      "end_time": 389459.0,
+      "text": "Data sets with machine learning. It is a dataset that consists of 28 by 28 sized images"
+    },
+    {
+      "index": 87,
+      "start_time": 389460.0,
+      "end_time": 391460.0,
+      "text": "So it's like the resolution"
+    },
+    {
+      "index": 88,
+      "start_time": 391630.0,
+      "end_time": 393630.0,
+      "text": "images of handwritten"
+    },
+    {
+      "index": 89,
+      "start_time": 393850.0,
+      "end_time": 401650.0,
+      "text": "Digits 0 through 9. So it'll be like a 0 1 2 3 and so on and it's a handwritten kind of unique image"
+    },
+    {
+      "index": 90,
+      "start_time": 402620.0,
+      "end_time": 403790.0,
+      "text": "so it's actually a"
+    },
+    {
+      "index": 91,
+      "start_time": 403790.0,
+      "end_time": 405320.0,
+      "text": "Picture we can graph it"
+    },
+    {
+      "index": 92,
+      "start_time": 405320.0,
+      "end_time": 411459.0,
+      "text": "soon enough so you can see it's actually an image and the idea is to feed through the pixel values to the neural network and"
+    },
+    {
+      "index": 93,
+      "start_time": 411460.0,
+      "end_time": 413360.0,
+      "text": "Then have the neural network output"
+    },
+    {
+      "index": 94,
+      "start_time": 413360.0,
+      "end_time": 416320.0,
+      "text": "Which number it actually thinks that image is"
+    },
+    {
+      "index": 95,
+      "start_time": 418640.0,
+      "end_time": 422320.0,
+      "text": "So that's our data set, and now what we want to do is"
+    },
+    {
+      "index": 96,
+      "start_time": 422840.0,
+      "end_time": 425769.0,
+      "text": "Unpack that data set to training and testing variables"
+    },
+    {
+      "index": 97,
+      "start_time": 425770.0,
+      "end_time": 428169.0,
+      "text": "So this is a far more complex"
+    },
+    {
+      "index": 98,
+      "start_time": 428330.0,
+      "end_time": 432639.0,
+      "text": "Operation when it's actually a data set that you're kind of bringing in or that you built or whatever"
+    },
+    {
+      "index": 99,
+      "start_time": 432770.0,
+      "end_time": 436210.0,
+      "text": "For the sake of this tutorial we want to use something real basic like M inist"
+    },
+    {
+      "index": 100,
+      "start_time": 436330.0,
+      "end_time": 440170.0,
+      "text": "so we're gonna unpack it to X train Y train and"
+    },
+    {
+      "index": 101,
+      "start_time": 440750.0,
+      "end_time": 445480.0,
+      "text": "then we're going to do X test Y test and"
+    },
+    {
+      "index": 102,
+      "start_time": 446300.0,
+      "end_time": 448300.0,
+      "text": "that's gonna equal m n--"
+    },
+    {
+      "index": 103,
+      "start_time": 448880.0,
+      "end_time": 453459.0,
+      "text": "Astana score data, so that's gonna unpack it into there now"
+    },
+    {
+      "index": 104,
+      "start_time": 454160.0,
+      "end_time": 456040.0,
+      "text": "Just to show you guys what this is"
+    },
+    {
+      "index": 105,
+      "start_time": 456040.0,
+      "end_time": 461559.0,
+      "text": "We're gonna use Matt plot Lib you can pip install or just look at it with me, but we're gonna import matplotlib"
+    },
+    {
+      "index": 106,
+      "start_time": 462170.0,
+      "end_time": 469060.0,
+      "text": "Pipe lot as a PLT. And what we're gonna do is peel TM show and we're gonna do X"
+    },
+    {
+      "index": 107,
+      "start_time": 470090.0,
+      "end_time": 471410.0,
+      "text": "train"
+    },
+    {
+      "index": 108,
+      "start_time": 471410.0,
+      "end_time": 473410.0,
+      "text": "And we'll do the zero width"
+    },
+    {
+      "index": 109,
+      "start_time": 475310.0,
+      "end_time": 477910.0,
+      "text": "So one thing we could do just just for the record"
+    },
+    {
+      "index": 110,
+      "start_time": 478730.0,
+      "end_time": 483759.0,
+      "text": "Let me just print so we can you can see what we're talking about here. So this is just going to be an array"
+    },
+    {
+      "index": 111,
+      "start_time": 484490.0,
+      "end_time": 488199.0,
+      "text": "It'll be a multi-dimensional array which is all a tensor is by the way"
+    },
+    {
+      "index": 112,
+      "start_time": 488930.0,
+      "end_time": 490930.0,
+      "text": "So this is this is here's your tensor"
+    },
+    {
+      "index": 113,
+      "start_time": 491810.0,
+      "end_time": 493070.0,
+      "text": "right"
+    },
+    {
+      "index": 114,
+      "start_time": 493070.0,
+      "end_time": 499480.0,
+      "text": "Okay, so that's the the actual data that we're gonna attempt to pass through our neural network and just to show you if we were"
+    },
+    {
+      "index": 115,
+      "start_time": 499480.0,
+      "end_time": 505480.0,
+      "text": "To actually graph it and then do a peel t touch show. It's gonna be the number and you can just excuse the color"
+    },
+    {
+      "index": 116,
+      "start_time": 505480.0,
+      "end_time": 508809.0,
+      "text": "It's definitely black and white. It's a single color. It's a binary"
+    },
+    {
+      "index": 117,
+      "start_time": 508850.0,
+      "end_time": 513999.0,
+      "text": "So one thing we could say is the color map is equal to P LTCM for color map"
+    },
+    {
+      "index": 118,
+      "start_time": 514400.0,
+      "end_time": 518410.0,
+      "text": "Binary Reap lot it and there you go. It's a it's not a color image"
+    },
+    {
+      "index": 119,
+      "start_time": 518990.0,
+      "end_time": 522999.0,
+      "text": "So anyways back to our actual code up here"
+    },
+    {
+      "index": 120,
+      "start_time": 524090.00000000006,
+      "end_time": 528550.0,
+      "text": "Once we have the data one thing we want to do is is normalize that data"
+    },
+    {
+      "index": 121,
+      "start_time": 528550.0,
+      "end_time": 532810.0,
+      "text": "so again, if I print it out, you can see it's data that seems to vary from 0 to"
+    },
+    {
+      "index": 122,
+      "start_time": 533500.0,
+      "end_time": 537309.0,
+      "text": "Looks like we have as high as 253. It's 0 to 255 4 pixel data"
+    },
+    {
+      "index": 123,
+      "start_time": 537800.0,
+      "end_time": 545019.0,
+      "text": "So what we want to do is scale this data or normalize it but really what we're doing in this normalization is scaling it"
+    },
+    {
+      "index": 124,
+      "start_time": 545149.0,
+      "end_time": 552369.0,
+      "text": "So we're going to just redefine X train and X testing but it's gonna be TF caras dot utils dot"
+    },
+    {
+      "index": 125,
+      "start_time": 552800.0,
+      "end_time": 555370.0,
+      "text": "Normalize and we're gonna pass X"
+    },
+    {
+      "index": 126,
+      "start_time": 556220.0,
+      "end_time": 561010.0,
+      "text": "Train and it'll be on axis 1 and then we're gonna copy"
+    },
+    {
+      "index": 127,
+      "start_time": 561290.0,
+      "end_time": 564550.0,
+      "text": "paste and we're gonna do the exact same thing for X test and"
+    },
+    {
+      "index": 128,
+      "start_time": 564860.0,
+      "end_time": 570130.0,
+      "text": "All this does let's just run that and then we'll run this again and you can see how the 5 has changed a little bit"
+    },
+    {
+      "index": 129,
+      "start_time": 570130.0,
+      "end_time": 572130.0,
+      "text": "looks like I got a little lighter and"
+    },
+    {
+      "index": 130,
+      "start_time": 572540.0,
+      "end_time": 575829.0,
+      "text": "Then we come down here and we can see the values here are now"
+    },
+    {
+      "index": 131,
+      "start_time": 576620.0,
+      "end_time": 583209.0,
+      "text": "Scaled between 0 and 1 and that just makes it easier for a network to learn we don't have to do this"
+    },
+    {
+      "index": 132,
+      "start_time": 583209.0,
+      "end_time": 586209.0,
+      "text": "But at the end of this only probably won't have time"
+    },
+    {
+      "index": 133,
+      "start_time": 586209.0,
+      "end_time": 591879.0,
+      "text": "But if you want on, you know, comment those lines out and see how it effects the network. It's it's pretty significant"
+    },
+    {
+      "index": 134,
+      "start_time": 593000.0,
+      "end_time": 596409.0,
+      "text": "Ok. So the next thing we're gonna do now is actually build the model"
+    },
+    {
+      "index": 135,
+      "start_time": 596600.0,
+      "end_time": 604060.0,
+      "text": "So the model itself is gonna start as TF karosta model's dot and then it's going to be the sequential type of model"
+    },
+    {
+      "index": 136,
+      "start_time": 604060.0,
+      "end_time": 606060.0,
+      "text": "There's two types of models"
+    },
+    {
+      "index": 137,
+      "start_time": 606589.0,
+      "end_time": 611589.0,
+      "text": "The sequential is your your most common one. It's a feed-forward like the image we drew"
+    },
+    {
+      "index": 138,
+      "start_time": 612170.0,
+      "end_time": 617320.0,
+      "text": "So we're gonna use this sequential model and then from here we can use this like model dot add syntax"
+    },
+    {
+      "index": 139,
+      "start_time": 617360.0,
+      "end_time": 623050.0,
+      "text": "so the first layer is gonna be the input layer and now right now our images are 28 by 28 in this like"
+    },
+    {
+      "index": 140,
+      "start_time": 623449.0,
+      "end_time": 625509.0,
+      "text": "Multi-dimensional array we don't want that"
+    },
+    {
+      "index": 141,
+      "start_time": 625510.0,
+      "end_time": 629649.0,
+      "text": "We want them to be just like flat if we were doing like a confident or something like that"
+    },
+    {
+      "index": 142,
+      "start_time": 629649.0,
+      "end_time": 631649.0,
+      "text": "We might not want it to be flat"
+    },
+    {
+      "index": 143,
+      "start_time": 631790.0,
+      "end_time": 633040.0,
+      "text": "but in this case"
+    },
+    {
+      "index": 144,
+      "start_time": 633040.0,
+      "end_time": 637599.0,
+      "text": "we definitely want to flatten it so we could use that we could use like numpy and reshape or"
+    },
+    {
+      "index": 145,
+      "start_time": 638000.0,
+      "end_time": 642459.0,
+      "text": "We can actually use one of the layers that's built into chaos, which is flattened. So"
+    },
+    {
+      "index": 146,
+      "start_time": 642980.0,
+      "end_time": 648099.0,
+      "text": "So we're gonna do ad and what we're gonna add is TF. Chaos layers dot flatten"
+    },
+    {
+      "index": 147,
+      "start_time": 648320.0,
+      "end_time": 653019.0,
+      "text": "so one of the reasons why you you want this to actually be a layer type is like when you have a"
+    },
+    {
+      "index": 148,
+      "start_time": 653240.0,
+      "end_time": 658390.0,
+      "text": "Convolutional neural network a lot of times at the end of the convolutional neural network. There'll be just like a densely connected"
+    },
+    {
+      "index": 149,
+      "start_time": 659269.0,
+      "end_time": 665019.0,
+      "text": "Layer, and so you need to flatten it before that layer. So it's it's it's used for more than then the input layer"
+    },
+    {
+      "index": 150,
+      "start_time": 665020.0,
+      "end_time": 667020.0,
+      "text": "We're just use it for the input layer"
+    },
+    {
+      "index": 151,
+      "start_time": 667470.0,
+      "end_time": 671329.0,
+      "text": "Just to make our lives easier. So once we've got that"
+    },
+    {
+      "index": 152,
+      "start_time": 671850.0,
+      "end_time": 674990.0,
+      "text": "That's our input layer. Now. We want to do our hidden layers again"
+    },
+    {
+      "index": 153,
+      "start_time": 674990.0,
+      "end_time": 679430.0,
+      "text": "We're going to go with I think just two hidden layers. This isn't a complex problem to solve"
+    },
+    {
+      "index": 154,
+      "start_time": 681450.0,
+      "end_time": 687890.0,
+      "text": "So again, we're going to use the model set up model dot add syntax and we're gonna add and in fact"
+    },
+    {
+      "index": 155,
+      "start_time": 687890.0,
+      "end_time": 695090.0,
+      "text": "I think what I'm gonna do is copy paste and then rather than a flattened layer it's a dense layer in the dense layer"
+    },
+    {
+      "index": 156,
+      "start_time": 695280.0,
+      "end_time": 700160.0,
+      "text": "We're gonna pass a couple parameters here. So the first one is gonna be how many units in the layer. So we're gonna use"
+    },
+    {
+      "index": 157,
+      "start_time": 700800.0,
+      "end_time": 706190.0,
+      "text": "128 units or 128 neurons in the layer, then we're gonna pass the activation function"
+    },
+    {
+      "index": 158,
+      "start_time": 706260.0,
+      "end_time": 710629.0,
+      "text": "This is like the function. Like I said like a stepper function or a sigmoid function"
+    },
+    {
+      "index": 159,
+      "start_time": 710850.0,
+      "end_time": 716630.0,
+      "text": "What is gonna make that neuron fire or sort of fire whatever so we're gonna use TF tenon"
+    },
+    {
+      "index": 160,
+      "start_time": 717330.0,
+      "end_time": 720979.0,
+      "text": "Lu for rectified linear, this is kind of the default go-to"
+    },
+    {
+      "index": 161,
+      "start_time": 721500.0,
+      "end_time": 726799.0,
+      "text": "Activation function just use it as your default and then later you can tweak it to see if you can get better results"
+    },
+    {
+      "index": 162,
+      "start_time": 726800.0,
+      "end_time": 729260.0,
+      "text": "But it's a pretty good one to always fall back on"
+    },
+    {
+      "index": 163,
+      "start_time": 729900.0,
+      "end_time": 732799.0,
+      "text": "So we're gonna add the second one just by copying and pasting"
+    },
+    {
+      "index": 164,
+      "start_time": 733590.0,
+      "end_time": 738410.0,
+      "text": "Again, I'm gonna add a final one and this is our output layer, which is still going to be a dense layer"
+    },
+    {
+      "index": 165,
+      "start_time": 738410.0,
+      "end_time": 743179.0,
+      "text": "It's not a hundred and twenty eight your output layer will always if it's in the case of classification"
+    },
+    {
+      "index": 166,
+      "start_time": 743340.0,
+      "end_time": 748369.0,
+      "text": "Anyways, it'll have your number of classifications in our case. That's ten and"
+    },
+    {
+      "index": 167,
+      "start_time": 749130.0,
+      "end_time": 753320.0,
+      "text": "the activation function we don't want it to be rel you because we actually this is like a"
+    },
+    {
+      "index": 168,
+      "start_time": 754200.0,
+      "end_time": 759349.0,
+      "text": "Probability distribution so we want to use softmax for a probability distribution. So"
+    },
+    {
+      "index": 169,
+      "start_time": 759990.0,
+      "end_time": 766099.0,
+      "text": "That is our entire model. We're done with defining, you know, the the architecture I guess of our model"
+    },
+    {
+      "index": 170,
+      "start_time": 766100.0,
+      "end_time": 769760.0,
+      "text": "Now what we need to define is some parameters for the training of the model"
+    },
+    {
+      "index": 171,
+      "start_time": 769760.0,
+      "end_time": 774140.0,
+      "text": "So here we're going to say model dot compile and in here"
+    },
+    {
+      "index": 172,
+      "start_time": 774140.0,
+      "end_time": 777319.0,
+      "text": "We're gonna pass some we're gonna pass the optimizer that we want to use"
+    },
+    {
+      "index": 173,
+      "start_time": 777480.0,
+      "end_time": 784670.0,
+      "text": "We're gonna pass the loss metric which loss you don't know we haven't really talked about it loss is the degree of error"
+    },
+    {
+      "index": 174,
+      "start_time": 784920.0,
+      "end_time": 792440.0,
+      "text": "Basically, it's it's it's it's what you got wrong. So a normal network doesn't actually attempt to optimize for accuracy"
+    },
+    {
+      "index": 175,
+      "start_time": 792440.0,
+      "end_time": 797089.0,
+      "text": "It doesn't try to maximize accuracy. It's always trying to minimize loss"
+    },
+    {
+      "index": 176,
+      "start_time": 797520.0,
+      "end_time": 803809.0,
+      "text": "So the way that you calculate loss can make a huge impact because it's it's what's the losses?"
+    },
+    {
+      "index": 177,
+      "start_time": 804180.0,
+      "end_time": 806239.0,
+      "text": "relationship to your"
+    },
+    {
+      "index": 178,
+      "start_time": 806790.0,
+      "end_time": 808790.0,
+      "text": "to your accuracy op timer"
+    },
+    {
+      "index": 179,
+      "start_time": 810690.0,
+      "end_time": 811710.0,
+      "text": "Optimizer"
+    },
+    {
+      "index": 180,
+      "start_time": 811710.0,
+      "end_time": 818210.0,
+      "text": "Okay, so the optimizer that we're going to use is going to be the Adam optimizer you could use something"
+    },
+    {
+      "index": 181,
+      "start_time": 818210.0,
+      "end_time": 820699.0,
+      "text": "this is basically it's just your it's your"
+    },
+    {
+      "index": 182,
+      "start_time": 821640.0,
+      "end_time": 825770.0,
+      "text": "It's the this is like the most complex part of the entire neural network"
+    },
+    {
+      "index": 183,
+      "start_time": 825770.0,
+      "end_time": 830179.0,
+      "text": "So if you're familiar with gradient descent, you could pass something like stochastic gradient descent"
+    },
+    {
+      "index": 184,
+      "start_time": 830460.0,
+      "end_time": 834889.0,
+      "text": "But the Adam optimizer kind of like the rectified linear is the you know"
+    },
+    {
+      "index": 185,
+      "start_time": 834890.0,
+      "end_time": 837830.0,
+      "text": "Just kind of the default go-to optimizer you can use others"
+    },
+    {
+      "index": 186,
+      "start_time": 837830.0,
+      "end_time": 844309.0,
+      "text": "There's lots of them not lots, but I don't know ten or so in Karis anyways, so anyways"
+    },
+    {
+      "index": 187,
+      "start_time": 844310.0,
+      "end_time": 849530.0,
+      "text": "There's other ones to go with Adam seems to be the one that you should start with for loss again"
+    },
+    {
+      "index": 188,
+      "start_time": 849870.0,
+      "end_time": 851870.0,
+      "text": "There's many ways to calculate loss"
+    },
+    {
+      "index": 189,
+      "start_time": 852240.0,
+      "end_time": 854510.0,
+      "text": "probably the most popular one is a"
+    },
+    {
+      "index": 190,
+      "start_time": 855150.0,
+      "end_time": 856350.0,
+      "text": "categorical"
+    },
+    {
+      "index": 191,
+      "start_time": 856350.0,
+      "end_time": 861230.0,
+      "text": "Cross and true P or some version of that and that in this case, we're gonna use sparse"
+    },
+    {
+      "index": 192,
+      "start_time": 861420.0,
+      "end_time": 866840.0,
+      "text": "You can also use binary like in the case of cats versus dogs. You probably use binary in that case"
+    },
+    {
+      "index": 193,
+      "start_time": 867480.0,
+      "end_time": 871610.0,
+      "text": "But you could you could just kind of blanket categorical cross entropy everything"
+    },
+    {
+      "index": 194,
+      "start_time": 872280.0,
+      "end_time": 879289.0,
+      "text": "Anyways, then finally what what are the metrics we want to track like as we go and we're going to just do accuracy"
+    },
+    {
+      "index": 195,
+      "start_time": 880080.0,
+      "end_time": 881280.0,
+      "text": "accuracy"
+    },
+    {
+      "index": 196,
+      "start_time": 881280.0,
+      "end_time": 886189.0,
+      "text": "Okay. So once we have all this we're actually ready to to train the model"
+    },
+    {
+      "index": 197,
+      "start_time": 886190.0,
+      "end_time": 890900.0,
+      "text": "So to Train it's just model that fit and then you're gonna pass your what do you want to fit?"
+    },
+    {
+      "index": 198,
+      "start_time": 890900.0,
+      "end_time": 894919.0,
+      "text": "so X train X test, I'm sorry y"
+    },
+    {
+      "index": 199,
+      "start_time": 897510.0,
+      "end_time": 904609.0,
+      "text": "Ok X train white rain and then epochs three total brain for it, okay, let's go ahead and run that and"
+    },
+    {
+      "index": 200,
+      "start_time": 905370.0,
+      "end_time": 908030.0,
+      "text": "We should start to get some training"
+    },
+    {
+      "index": 201,
+      "start_time": 909300.0,
+      "end_time": 912229.0,
+      "text": "Hopefully it doesn't crash me as I'm recording but okay looks good"
+    },
+    {
+      "index": 202,
+      "start_time": 912900.0,
+      "end_time": 914390.0,
+      "text": "Let's zoom out just slightly"
+    },
+    {
+      "index": 203,
+      "start_time": 914390.0,
+      "end_time": 918770.0,
+      "text": "So it looks a little better and we can see actually our accuracy is always already quite well"
+    },
+    {
+      "index": 204,
+      "start_time": 918770.0,
+      "end_time": 922999.0,
+      "text": "Our loss is also still dropping so our accuracy should still be improving and sure enough it is"
+    },
+    {
+      "index": 205,
+      "start_time": 926070.0,
+      "end_time": 928429.0,
+      "text": "Awesome, ok, so we did pretty good. We got a"
+    },
+    {
+      "index": 206,
+      "start_time": 929610.0,
+      "end_time": 933680.0,
+      "text": "97% accuracy after only three epochs which is pretty good"
+    },
+    {
+      "index": 207,
+      "start_time": 934860.0,
+      "end_time": 936860.0,
+      "text": "so once we have this we can"
+    },
+    {
+      "index": 208,
+      "start_time": 937500.0,
+      "end_time": 941510.0,
+      "text": "This was in sample. So this might this is always gonna really excite you"
+    },
+    {
+      "index": 209,
+      "start_time": 941510.0,
+      "end_time": 948260.0,
+      "text": "But what's really important to remember is neural networks are great at fitting the question is did they over fit?"
+    },
+    {
+      "index": 210,
+      "start_time": 948260.0,
+      "end_time": 952730.0,
+      "text": "So the idea or the hope is that your model actually generalized, right it learned"
+    },
+    {
+      "index": 211,
+      "start_time": 953280.0,
+      "end_time": 958009.0,
+      "text": "Patterns and in actual attributes to the toe to what makes an eight ten"
+    },
+    {
+      "index": 212,
+      "start_time": 958010.0,
+      "end_time": 964249.0,
+      "text": "what makes a for rather than memorizing every single sample you passed and you'd be surprised how easily a"
+    },
+    {
+      "index": 213,
+      "start_time": 964650.0,
+      "end_time": 968989.0,
+      "text": "Model can just memorize all the samples that you passed to do very well"
+    },
+    {
+      "index": 214,
+      "start_time": 968990.0,
+      "end_time": 972380.0,
+      "text": "so the next thing we want to always do is calculate the"
+    },
+    {
+      "index": 215,
+      "start_time": 972960.0,
+      "end_time": 974960.0,
+      "text": "validation loss in the validation"
+    },
+    {
+      "index": 216,
+      "start_time": 975660.0,
+      "end_time": 979730.0,
+      "text": "Accuracy, and that is just model dot evaluate evaluate"
+    },
+    {
+      "index": 217,
+      "start_time": 980730.0,
+      "end_time": 982730.0,
+      "text": "X tests"
+    },
+    {
+      "index": 218,
+      "start_time": 982920.0,
+      "end_time": 984920.0,
+      "text": "Y test and"
+    },
+    {
+      "index": 219,
+      "start_time": 984990.0,
+      "end_time": 990500.0,
+      "text": "then we'll go ahead and just print that loss and Val accuracy and"
+    },
+    {
+      "index": 220,
+      "start_time": 992100.0,
+      "end_time": 997609.0,
+      "text": "We can see here the loss is almost point 11 and the accuracy is at ninety six point five"
+    },
+    {
+      "index": 221,
+      "start_time": 997610.0,
+      "end_time": 1003730.0,
+      "text": "so a little less than the one that we ended on and the loss is quite a bit higher relatively, but"
+    },
+    {
+      "index": 222,
+      "start_time": 1005270.0,
+      "end_time": 1006430.0,
+      "text": "You should expect that"
+    },
+    {
+      "index": 223,
+      "start_time": 1006430.0,
+      "end_time": 1011500.0,
+      "text": "You should expect your out-of-sample accuracy to be slightly lower and your loss to be slightly higher"
+    },
+    {
+      "index": 224,
+      "start_time": 1011810.0,
+      "end_time": 1018160.0,
+      "text": "What you definitely don't want to see is either too close or it too much of a delta if there's a huge Delta"
+    },
+    {
+      "index": 225,
+      "start_time": 1018260.0,
+      "end_time": 1023050.0,
+      "text": "Chances are you probably already have over fit and you'd want to like kind of dial it back a little bit. So"
+    },
+    {
+      "index": 226,
+      "start_time": 1023810.0,
+      "end_time": 1025810.0,
+      "text": "That's basically everything"
+    },
+    {
+      "index": 227,
+      "start_time": 1026359.9999999999,
+      "end_time": 1028359.9999999999,
+      "text": "as far as the basics of"
+    },
+    {
+      "index": 228,
+      "start_time": 1028880.0000000001,
+      "end_time": 1030470.0000000001,
+      "text": "Karos and all that"
+    },
+    {
+      "index": 229,
+      "start_time": 1030470.0,
+      "end_time": 1032470.0,
+      "text": "the only other things that I wouldn't mind"
+    },
+    {
+      "index": 230,
+      "start_time": 1032569.9999999999,
+      "end_time": 1036098.9999999999,
+      "text": "Covering here is like if you want to save a model and load a model"
+    },
+    {
+      "index": 231,
+      "start_time": 1036130.0000000001,
+      "end_time": 1041080.0000000001,
+      "text": "It's just model dot save and we can save this as epoch num"
+    },
+    {
+      "index": 232,
+      "start_time": 1041990.0,
+      "end_time": 1043070.0,
+      "text": "reader"
+    },
+    {
+      "index": 233,
+      "start_time": 1043069.9999999999,
+      "end_time": 1044389.9999999999,
+      "text": "model and"
+    },
+    {
+      "index": 234,
+      "start_time": 1044390.0000000001,
+      "end_time": 1046300.0000000001,
+      "text": "Then if you want to reload that model"
+    },
+    {
+      "index": 235,
+      "start_time": 1046300.0,
+      "end_time": 1053469.0,
+      "text": "We'll save it as it will call the new underscore model that's going to be equal to TF. Caras models dot load model"
+    },
+    {
+      "index": 236,
+      "start_time": 1053470.0,
+      "end_time": 1055470.0,
+      "text": "And it's this exact model name"
+    },
+    {
+      "index": 237,
+      "start_time": 1056750.0,
+      "end_time": 1058750.0,
+      "text": "Whoops. There we go"
+    },
+    {
+      "index": 238,
+      "start_time": 1058940.0,
+      "end_time": 1060640.0,
+      "text": "So that's our new model"
+    },
+    {
+      "index": 239,
+      "start_time": 1060640.0,
+      "end_time": 1066280.0,
+      "text": "And then finally if we wanted to make a prediction we could say predictions equals new model dot"
+    },
+    {
+      "index": 240,
+      "start_time": 1066760.0,
+      "end_time": 1072640.0,
+      "text": "Dict and keep in mind predict always takes a list. This will get you a few times for sure"
+    },
+    {
+      "index": 241,
+      "start_time": 1072640.0,
+      "end_time": 1075429.0,
+      "text": "But anyways, they'll take a list and we'll do X underscore"
+    },
+    {
+      "index": 242,
+      "start_time": 1076010.0,
+      "end_time": 1077900.0,
+      "text": "test and"
+    },
+    {
+      "index": 243,
+      "start_time": 1077900.0,
+      "end_time": 1081759.0,
+      "text": "Then if we just print predictions, it's probably not gonna look too friendly"
+    },
+    {
+      "index": 244,
+      "start_time": 1082580.0,
+      "end_time": 1084500.0,
+      "text": "It's a little messy. So"
+    },
+    {
+      "index": 245,
+      "start_time": 1084500.0,
+      "end_time": 1089859.0,
+      "text": "What's going on here? These are all one hot arrays and it's it. These are our probability distributions"
+    },
+    {
+      "index": 246,
+      "start_time": 1090170.0,
+      "end_time": 1096700.0,
+      "text": "So what do we do with these so I'm gonna use numpy you can also use TF to arc max, but it's an abstract"
+    },
+    {
+      "index": 247,
+      "start_time": 1096700.0,
+      "end_time": 1099669.0,
+      "text": "It's a tensor and we have to pull it down. We need a session and all that"
+    },
+    {
+      "index": 248,
+      "start_time": 1099710.0,
+      "end_time": 1103419.0,
+      "text": "It's just easier to import numpy for at least for this tutorial here"
+    },
+    {
+      "index": 249,
+      "start_time": 1104030.0,
+      "end_time": 1110469.0,
+      "text": "import numpy as NP and then print for example NP arg max or max"
+    },
+    {
+      "index": 250,
+      "start_time": 1111320.0,
+      "end_time": 1113320.0,
+      "text": "Let's do predictions"
+    },
+    {
+      "index": 251,
+      "start_time": 1114140.0,
+      "end_time": 1116799.0,
+      "text": "And let's just do the zero width prediction. Okay"
+    },
+    {
+      "index": 252,
+      "start_time": 1116800.0,
+      "end_time": 1118481.0,
+      "text": "It says it's a seven"
+    },
+    {
+      "index": 253,
+      "start_time": 1118480.0,
+      "end_time": 1125260.0,
+      "text": "So the prediction for X test zero like the 0th index is it's a seven"
+    },
+    {
+      "index": 254,
+      "start_time": 1125260.0,
+      "end_time": 1130119.0,
+      "text": "So gee if only we had a way to draw it. Okay, we can definitely do this so we can do PLT"
+    },
+    {
+      "index": 255,
+      "start_time": 1130220.0,
+      "end_time": 1133630.0,
+      "text": "I'm sure and we're gonna do X test"
+    },
+    {
+      "index": 256,
+      "start_time": 1134210.0,
+      "end_time": 1136010.0,
+      "text": "zero with and"
+    },
+    {
+      "index": 257,
+      "start_time": 1136010.0,
+      "end_time": 1138760.0,
+      "text": "Then PLT dot show. Oh"
+    },
+    {
+      "index": 258,
+      "start_time": 1139430.0,
+      "end_time": 1141430.0,
+      "text": "Look at that. It's a seven"
+    },
+    {
+      "index": 259,
+      "start_time": 1141590.0,
+      "end_time": 1142340.0,
+      "text": "Okay"
+    },
+    {
+      "index": 260,
+      "start_time": 1142340.0,
+      "end_time": 1148569.0,
+      "text": "So I think that's basically all the things I would want to show you guys as far as like just a quick in"
+    },
+    {
+      "index": 261,
+      "start_time": 1148880.0,
+      "end_time": 1150880.0,
+      "text": "you know QuickStart with"
+    },
+    {
+      "index": 262,
+      "start_time": 1151070.0,
+      "end_time": 1158020.0,
+      "text": "Deep learning and Python and caris and tensorflow this just barely scratches the surface. There's so many things for us to do I"
+    },
+    {
+      "index": 263,
+      "start_time": 1158540.0,
+      "end_time": 1161109.0,
+      "text": "Definitely plan to have at least one more follow-up video"
+    },
+    {
+      "index": 264,
+      "start_time": 1161750.0,
+      "end_time": 1168489.0,
+      "text": "Covering things like loading and outside datasets and definitely some tensor board reading the model understanding what's going on"
+    },
+    {
+      "index": 265,
+      "start_time": 1168650.0,
+      "end_time": 1170949.0,
+      "text": "and also what's going wrong because that's"
+    },
+    {
+      "index": 266,
+      "start_time": 1171650.0,
+      "end_time": 1177280.0,
+      "text": "Eventually, you know, it's really fun when we're doing tutorials and problems or like already solved and we know the answer"
+    },
+    {
+      "index": 267,
+      "start_time": 1177830.0,
+      "end_time": 1185260.0,
+      "text": "It's very exciting. But in reality a lot of times you have to dig to find the model that works with your data. So"
+    },
+    {
+      "index": 268,
+      "start_time": 1185930.0,
+      "end_time": 1191320.0,
+      "text": "Anyways, that that's definitely something we have to cover or at least that you're gonna have to learn somehow or other"
+    },
+    {
+      "index": 269,
+      "start_time": 1191480.0,
+      "end_time": 1196150.0,
+      "text": "Anyway, that is all for now. If you got questions comments concerns, whatever. Feel free to leave them below"
+    },
+    {
+      "index": 270,
+      "start_time": 1196310.0,
+      "end_time": 1202390.0,
+      "text": "Definitely check out red comm slash are slash machine learning the learned machine learning subreddit"
+    },
+    {
+      "index": 271,
+      "start_time": 1202910.0,
+      "end_time": 1204820.0,
+      "text": "You can come join our discord"
+    },
+    {
+      "index": 272,
+      "start_time": 1204820.0,
+      "end_time": 1212260.0,
+      "text": "If you've got questions, that's just discord dot G G slash cent decks will get you there. Also special. Thanks to my most recent"
+    },
+    {
+      "index": 273,
+      "start_time": 1212930.0,
+      "end_time": 1220570.0,
+      "text": "Channel members Daniel Jeffrey KB AB Ajit H nur Newcastle geek fubá 44 Jason and eight counts"
+    },
+    {
+      "index": 274,
+      "start_time": 1220940.0,
+      "end_time": 1226240.0,
+      "text": "Thank you guys so much for your support without you guys. I couldn't do stuff like this. So really, thank you"
+    },
+    {
+      "index": 275,
+      "start_time": 1227180.0,
+      "end_time": 1232600.0,
+      "text": "Anyways, that's it for now more to come at some point until next time"
+    }
+  ]
+}

@@ -1,0 +1,1998 @@
+{
+  "video_id": "XcS-LdEBUkE",
+  "title": "James Coglan: Practical functional programming: pick two | JSConf EU 2014",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 21730.0,
+      "end_time": 25730.0,
+      "text": "Thank you for that wonderful introduction, that once expected."
+    },
+    {
+      "index": 2,
+      "start_time": 25730.0,
+      "end_time": 31230.0,
+      "text": "Yes, hello, I&#39;m James, I&#39;m going to talk to you today about practical functional programming,"
+    },
+    {
+      "index": 3,
+      "start_time": 31230.0,
+      "end_time": 35160.0,
+      "text": "to make sure I get through this in plenty of time, and the clock&#39;s not ticking down,"
+    },
+    {
+      "index": 4,
+      "start_time": 35160.0,
+      "end_time": 40070.0,
+      "text": "so I don&#39;t know how much time I&#39;ve got, that&#39;s very confusing."
+    },
+    {
+      "index": 5,
+      "start_time": 40070.0,
+      "end_time": 45420.0,
+      "text": "What do I mean by functional programming? Well, initially I didn&#39;t even know, itches"
+    },
+    {
+      "index": 6,
+      "start_time": 45420.0,
+      "end_time": 51519.0,
+      "text": "looking for ideas to talk about on Twitter a while ago, and Jan gave this idea, practical"
+    },
+    {
+      "index": 7,
+      "start_time": 51519.0,
+      "end_time": 56449.0,
+      "text": "function fallal programming, and I brushed it off with a little juke."
+    },
+    {
+      "index": 8,
+      "start_time": 56449.0,
+      "end_time": 59660.0,
+      "text": "Got me thinking."
+    },
+    {
+      "index": 9,
+      "start_time": 59660.0,
+      "end_time": 66020.0,
+      "text": "It has first class functions, and we have venttion and call backs and we have all the"
+    },
+    {
+      "index": 10,
+      "start_time": 66020.0,
+      "end_time": 69710.0,
+      "text": "array operations like map, filter, reduce and stuff like that."
+    },
+    {
+      "index": 11,
+      "start_time": 69710.0,
+      "end_time": 75250.0,
+      "text": "But, there&#39;s a lot more to functional programming than we often acknowledge."
+    },
+    {
+      "index": 12,
+      "start_time": 75250.0,
+      "end_time": 80170.0,
+      "text": "And what I would like to do is sort of demystify that a little bit."
+    },
+    {
+      "index": 13,
+      "start_time": 80170.0,
+      "end_time": 85440.0,
+      "text": "Because one criticism of functional programming, it&#39;s not very practical and you need a PhD"
+    },
+    {
+      "index": 14,
+      "start_time": 85440.0,
+      "end_time": 88450.0,
+      "text": "to understand it."
+    },
+    {
+      "index": 15,
+      "start_time": 88450.0,
+      "end_time": 92929.0,
+      "text": "What I&#39;d like to do is sort of talk about the ways in which we are already using functional"
+    },
+    {
+      "index": 16,
+      "start_time": 92929.0,
+      "end_time": 97250.0,
+      "text": "ideas in mainstream JavaScript and how we can pay better attention to those and get"
+    },
+    {
+      "index": 17,
+      "start_time": 97250.0,
+      "end_time": 98819.0,
+      "text": "better value out of them."
+    },
+    {
+      "index": 18,
+      "start_time": 98819.0,
+      "end_time": 104979.0,
+      "text": "Also promise the last occurrence of the word Monad in this talk, there&#39;s not going to be"
+    },
+    {
+      "index": 19,
+      "start_time": 104979.0,
+      "end_time": 107289.0,
+      "text": "a lot of type theory stuff going on."
+    },
+    {
+      "index": 20,
+      "start_time": 107289.0,
+      "end_time": 113020.0,
+      "text": "What do we mean by functions? Functional programming is about programming without side effects,"
+    },
+    {
+      "index": 21,
+      "start_time": 113020.0,
+      "end_time": 117979.0,
+      "text": "if you&#39;re in the Parallel JavaScript talk earlier you would have heard that side effects"
+    },
+    {
+      "index": 22,
+      "start_time": 117979.0,
+      "end_time": 124599.0,
+      "text": "are one of the biggest barriers to parallelizing a program because you can&#39;t reason about changes"
+    },
+    {
+      "index": 23,
+      "start_time": 124599.0,
+      "end_time": 128060.0,
+      "text": "to a global state, makes it hard to parial rise things."
+    },
+    {
+      "index": 24,
+      "start_time": 128060.0,
+      "end_time": 130940.0,
+      "text": "What does it look like to program functionally."
+    },
+    {
+      "index": 25,
+      "start_time": 130940.0,
+      "end_time": 140010.0,
+      "text": "You want to calculate the length of a list, length takes a list and returns an Int that&#39;s"
+    },
+    {
+      "index": 26,
+      "start_time": 140010.0,
+      "end_time": 141489.0,
+      "text": "what that little type signature means."
+    },
+    {
+      "index": 27,
+      "start_time": 141489.0,
+      "end_time": 148510.0,
+      "text": "So, what you could do is set the counter to 0 and increment the counter for every iment"
+    },
+    {
+      "index": 28,
+      "start_time": 148510.0,
+      "end_time": 150439.0,
+      "text": "and return the last value of the counter."
+    },
+    {
+      "index": 29,
+      "start_time": 150439.0,
+      "end_time": 155650.0,
+      "text": "How does that run out in practice, want to get the value of the list, set the count to"
+    },
+    {
+      "index": 30,
+      "start_time": 155650.0,
+      "end_time": 160280.0,
+      "text": "zero, first element, increment the index, there&#39;s a second element, we increment, there&#39;s"
+    },
+    {
+      "index": 31,
+      "start_time": 160280.0,
+      "end_time": 166900.0,
+      "text": "a third, we increment, there&#39;s no fourth element we break the loop and induction is 3."
+    },
+    {
+      "index": 32,
+      "start_time": 166900.0,
+      "end_time": 171989.0,
+      "text": "The values of the index comments ‑‑ those aren&#39;t statements that appear anywhere in"
+    },
+    {
+      "index": 33,
+      "start_time": 171989.0,
+      "end_time": 175700.0,
+      "text": "the program that state you have to keep in your head while you figure out what the program"
+    },
+    {
+      "index": 34,
+      "start_time": 175700.0,
+      "end_time": 180030.0,
+      "text": "dugs, that&#39;s what makes imperative programs hard to reason about."
+    },
+    {
+      "index": 35,
+      "start_time": 180030.0,
+      "end_time": 184859.0,
+      "text": "A functional version would look like this, cough free script has three dot syntax that"
+    },
+    {
+      "index": 36,
+      "start_time": 184859.0,
+      "end_time": 190230.0,
+      "text": "breaks a list into the first elements and the rest of the elements."
+    },
+    {
+      "index": 37,
+      "start_time": 190230.0,
+      "end_time": 195150.0,
+      "text": "If the first element is undefined the list is empty, right, so it has length 0 otherwise"
+    },
+    {
+      "index": 38,
+      "start_time": 195150.0,
+      "end_time": 199799.0,
+      "text": "the length one plus the length of the rest of the list, we&#39;re doing a recuresive break"
+    },
+    {
+      "index": 39,
+      "start_time": 199799.0,
+      "end_time": 200249.0,
+      "text": "down."
+    },
+    {
+      "index": 40,
+      "start_time": 200249.0,
+      "end_time": 206719.0,
+      "text": "What does that look like in practice, so, there is a first element, so we&#39;ll pick a"
+    },
+    {
+      "index": 41,
+      "start_time": 206719.0,
+      "end_time": 207480.0,
+      "text": "second bunch."
+    },
+    {
+      "index": 42,
+      "start_time": 207480.0,
+      "end_time": 214780.0,
+      "text": "We&#39;re just going to replace the definition, we&#39;re using it as a rewrite rule, no implicit"
+    },
+    {
+      "index": 43,
+      "start_time": 214780.0,
+      "end_time": 216879.0,
+      "text": "state to keep track of."
+    },
+    {
+      "index": 44,
+      "start_time": 216879.0,
+      "end_time": 221379.0,
+      "text": "We do that a couple more times then we get length of the empty list, which we pick the"
+    },
+    {
+      "index": 45,
+      "start_time": 221379.0,
+      "end_time": 226659.0,
+      "text": "first branch of the conditional, which is 0 and result falls out."
+    },
+    {
+      "index": 46,
+      "start_time": 226659.0,
+      "end_time": 231129.0,
+      "text": "So here rather than writing comments with sate in them, I&#39;ve written &quot;is&quot; before each"
+    },
+    {
+      "index": 47,
+      "start_time": 231129.0,
+      "end_time": 234329.0,
+      "text": "expression, that&#39;s because they&#39;re identical."
+    },
+    {
+      "index": 48,
+      "start_time": 234329.0,
+      "end_time": 238200.0,
+      "text": "Doesn&#39;t mean they have the same value at a particular point in time, they always have"
+    },
+    {
+      "index": 49,
+      "start_time": 238200.0,
+      "end_time": 241900.0,
+      "text": "the same value you can replace any of these expression with any of the other and the program"
+    },
+    {
+      "index": 50,
+      "start_time": 241900.0,
+      "end_time": 245540.0,
+      "text": "will do the same thing."
+    },
+    {
+      "index": 51,
+      "start_time": 245540.0,
+      "end_time": 249469.0,
+      "text": "Substituting bitting of source code for each other makes it easy to think about, you don&#39;t"
+    },
+    {
+      "index": 52,
+      "start_time": 249469.0,
+      "end_time": 253549.0,
+      "text": "have to track state somewhere else in your mind or on paper."
+    },
+    {
+      "index": 53,
+      "start_time": 253549.0,
+      "end_time": 261769.0,
+      "text": "Let&#39;s take another function, map, the signature means map takes a function from A to B and"
+    },
+    {
+      "index": 54,
+      "start_time": 261769.0,
+      "end_time": 266510.0,
+      "text": "a list of As and returns a list of Bs, the imperative version of that would be to take"
+    },
+    {
+      "index": 55,
+      "start_time": 266510.0,
+      "end_time": 272940.0,
+      "text": "an empty list and push ever VEX for every element in the input and return the list."
+    },
+    {
+      "index": 56,
+      "start_time": 272940.0,
+      "end_time": 277730.0,
+      "text": "The functional version would be to say in is no first element, the effect is undefined"
+    },
+    {
+      "index": 57,
+      "start_time": 277730.0,
+      "end_time": 282950.0,
+      "text": "then return an empty list otherwise afully F to the first element and then combine that"
+    },
+    {
+      "index": 58,
+      "start_time": 282950.0,
+      "end_time": 285340.0,
+      "text": "with map over the rest of the list."
+    },
+    {
+      "index": 59,
+      "start_time": 285340.0,
+      "end_time": 290420.0,
+      "text": "Same structure as we&#39;re doing the went, we&#39;re using list instead of numbers, say we want"
+    },
+    {
+      "index": 60,
+      "start_time": 290420.0,
+      "end_time": 295690.0,
+      "text": "to square the first three numbers, we go, there is a first element, so we&#39;ll take a"
+    },
+    {
+      "index": 61,
+      "start_time": 295690.0,
+      "end_time": 300280.0,
+      "text": "second branch, so square of one is one, we pull that out of the front and map over what&#39;s"
+    },
+    {
+      "index": 62,
+      "start_time": 300280.0,
+      "end_time": 306250.0,
+      "text": "left, map over what&#39;s left, square two and then, we have anmentty list, and so, the ‑‑"
+    },
+    {
+      "index": 63,
+      "start_time": 306250.0,
+      "end_time": 310590.0,
+      "text": "an empty list and then the result falls out."
+    },
+    {
+      "index": 64,
+      "start_time": 310590.0,
+      "end_time": 314350.0,
+      "text": "These are our functional solutions to the problem, theye they work by not my stating"
+    },
+    {
+      "index": 65,
+      "start_time": 314350.0,
+      "end_time": 318560.0,
+      "text": "the state, they work by giving you an expression you&#39;re trying to calculatend that you can"
+    },
+    {
+      "index": 66,
+      "start_time": 318560.0,
+      "end_time": 322100.0,
+      "text": "replace and you do that recursively."
+    },
+    {
+      "index": 67,
+      "start_time": 322100.0,
+      "end_time": 326810.0,
+      "text": "You can program by substitution by using these things."
+    },
+    {
+      "index": 68,
+      "start_time": 326810.0,
+      "end_time": 330940.0,
+      "text": "The imperative solutions work by making some state and then like changing that state until"
+    },
+    {
+      "index": 69,
+      "start_time": 330940.0,
+      "end_time": 335450.0,
+      "text": "some condition becomes true and then handing that state off to you at the end."
+    },
+    {
+      "index": 70,
+      "start_time": 335450.0,
+      "end_time": 339940.0,
+      "text": "But even though those have internal state and they&#39;re not internally functional, they"
+    },
+    {
+      "index": 71,
+      "start_time": 339940.0,
+      "end_time": 349290.0,
+      "text": "do exactly the same thing as these versions, because, ‑‑ they don&#39;t Mutate ‑‑"
+    },
+    {
+      "index": 72,
+      "start_time": 349290.0,
+      "end_time": 353310.0,
+      "text": "you can treat them as if they&#39;re the same functions."
+    },
+    {
+      "index": 73,
+      "start_time": 353310.0,
+      "end_time": 360370.0,
+      "text": "That&#39;s useful, it means their state is completely ensuelated the sidefects continue leek out"
+    },
+    {
+      "index": 74,
+      "start_time": 360370.0,
+      "end_time": 361910.0,
+      "text": "into the rest of the program."
+    },
+    {
+      "index": 75,
+      "start_time": 361910.0,
+      "end_time": 366530.0,
+      "text": "We use that in promises."
+    },
+    {
+      "index": 76,
+      "start_time": 366530.0,
+      "end_time": 371220.0,
+      "text": "Promises have internal state, they are pending and they can become fulfilled or rejected"
+    },
+    {
+      "index": 77,
+      "start_time": 371220.0,
+      "end_time": 373630.0,
+      "text": "with a value or an error."
+    },
+    {
+      "index": 78,
+      "start_time": 373630.0,
+      "end_time": 378190.0,
+      "text": "But, every time you call then it will yield the same value to you, you never get to see"
+    },
+    {
+      "index": 79,
+      "start_time": 378190.0,
+      "end_time": 382990.0,
+      "text": "what&#39;s actually going on inside of the promise, Jo us call then and value pops out and it&#39;s"
+    },
+    {
+      "index": 80,
+      "start_time": 382990.0,
+      "end_time": 387700.0,
+      "text": "always the same value you can treat a promise as an immutable value, which is useful."
+    },
+    {
+      "index": 81,
+      "start_time": 387700.0,
+      "end_time": 394470.0,
+      "text": "A couple weeks ago too much ash ford had this really good essay, vents are bad primitive"
+    },
+    {
+      "index": 82,
+      "start_time": 394470.0,
+      "end_time": 398940.0,
+      "text": "for data flow, they require distribution of mutable state around your code and it&#39;s not"
+    },
+    {
+      "index": 83,
+      "start_time": 398940.0,
+      "end_time": 407130.0,
+      "text": "idiomatic or plea Saint to flow through data through events."
+    },
+    {
+      "index": 84,
+      "start_time": 407130.0,
+      "end_time": 412070.0,
+      "text": "We can use types to answer that question, if we consider the FS.read file, that takes"
+    },
+    {
+      "index": 85,
+      "start_time": 412070.0,
+      "end_time": 417180.0,
+      "text": "a path name, an encoding, a call back and it returns nothing, and the call back is itself"
+    },
+    {
+      "index": 86,
+      "start_time": 417180.0,
+      "end_time": 421010.0,
+      "text": "a function that takes an error, value and alts returns nothing."
+    },
+    {
+      "index": 87,
+      "start_time": 421010.0,
+      "end_time": 424710.0,
+      "text": "Now function that returns nothing must have side effects because if a function has no"
+    },
+    {
+      "index": 88,
+      "start_time": 424710.0,
+      "end_time": 429800.0,
+      "text": "return value and no sidefects what why you calling it? It&#39;s not doing anything."
+    },
+    {
+      "index": 89,
+      "start_time": 429800.0,
+      "end_time": 434650.0,
+      "text": "The thing that you think of not having side effects is reading a file we work with these"
+    },
+    {
+      "index": 90,
+      "start_time": 434650.0,
+      "end_time": 438690.0,
+      "text": "things using side effects functions, completely."
+    },
+    {
+      "index": 91,
+      "start_time": 438690.0,
+      "end_time": 442490.0,
+      "text": "When we&#39;re dealing with all these asynchronous things all the time we have to make sure all"
+    },
+    {
+      "index": 92,
+      "start_time": 442490.0,
+      "end_time": 446130.0,
+      "text": "the side effects happen in the right order so the program doesn&#39;t get into a bizarre"
+    },
+    {
+      "index": 93,
+      "start_time": 446130.0,
+      "end_time": 450550.0,
+      "text": "state, and trying to did that on concurrent programs is very, very difficult, which you"
+    },
+    {
+      "index": 94,
+      "start_time": 450550.0,
+      "end_time": 452560.0,
+      "text": "doubt know."
+    },
+    {
+      "index": 95,
+      "start_time": 452560.0,
+      "end_time": 457400.0,
+      "text": "It gets even harder when you try odo a lot of things at same time, if you want to read"
+    },
+    {
+      "index": 96,
+      "start_time": 457400.0,
+      "end_time": 462140.0,
+      "text": "a file and request a URL and get something out of a data business at the same time, you"
+    },
+    {
+      "index": 97,
+      "start_time": 462140.0,
+      "end_time": 470770.0,
+      "text": "use Async.parallel, and do operation, when they complete you get a cull back and you"
+    },
+    {
+      "index": 98,
+      "start_time": 470770.0,
+      "end_time": 475490.0,
+      "text": "get value for those things, what would I do if I wanted to get the value of the file before"
+    },
+    {
+      "index": 99,
+      "start_time": 475490.0,
+      "end_time": 477840.0,
+      "text": "the other things are completed and do something with it."
+    },
+    {
+      "index": 100,
+      "start_time": 477840.0,
+      "end_time": 482180.0,
+      "text": "Because this, if any of the things fail, I won&#39;t get any of the values, I only work on"
+    },
+    {
+      "index": 101,
+      "start_time": 482180.0,
+      "end_time": 487110.0,
+      "text": "the file even if the HDP request fails, I could pull the file operation out top."
+    },
+    {
+      "index": 102,
+      "start_time": 487110.0,
+      "end_time": 494830.0,
+      "text": "I have an FS.read file ‑‑ but now I&#39;ve made the program slower because the second"
+    },
+    {
+      "index": 103,
+      "start_time": 494830.0,
+      "end_time": 498550.0,
+      "text": "thing are blocked on the first thing completing, so I de‑parol liesed it."
+    },
+    {
+      "index": 104,
+      "start_time": 498550.0,
+      "end_time": 505230.0,
+      "text": "That kills the performance, it&#39;s convenient, but, you&#39;ve traded convenience for performance."
+    },
+    {
+      "index": 105,
+      "start_time": 505230.0,
+      "end_time": 510130.0,
+      "text": "What you actually have do is keep the parallel construct to make sure the IO happens at the"
+    },
+    {
+      "index": 106,
+      "start_time": 510130.0,
+      "end_time": 514839.0,
+      "text": "same time but plug your processing into the bit where the file is requested, the more"
+    },
+    {
+      "index": 107,
+      "start_time": 514839.00000000006,
+      "end_time": 522729.00000000006,
+      "text": "you do these things the data processing, what you&#39;re forced do by the way that we schedule"
+    },
+    {
+      "index": 108,
+      "start_time": 522729.00000000006,
+      "end_time": 528089.0,
+      "text": "things in asynchronous programs your programs get very messy, edge tangled you get into"
+    },
+    {
+      "index": 109,
+      "start_time": 528089.0,
+      "end_time": 528860.0,
+      "text": "what we roll call"
+    },
+    {
+      "index": 110,
+      "start_time": 528860.0,
+      "end_time": 534399.0,
+      "text": "back hell, it&#39;s not a sin tackic thing about your code creeping across the page, it&#39;s the"
+    },
+    {
+      "index": 111,
+      "start_time": 534399.0,
+      "end_time": 538329.0,
+      "text": "inability to reason able when things are happening in your program and make sure they happen"
+    },
+    {
+      "index": 112,
+      "start_time": 538329.0,
+      "end_time": 542610.0,
+      "text": "as efficiently as possible, to do this you is to construct your program in a very specific"
+    },
+    {
+      "index": 113,
+      "start_time": 542610.0,
+      "end_time": 546089.0,
+      "text": "way with call backs in all the right places."
+    },
+    {
+      "index": 114,
+      "start_time": 546089.0,
+      "end_time": 551209.0,
+      "text": "So, last year I read this article called call backs are imperative, promises are functional,"
+    },
+    {
+      "index": 115,
+      "start_time": 551209.0,
+      "end_time": 557519.0,
+      "text": "which had this quote &quot;the future of promises is that they remain immune to change circumstances.&quot;"
+    },
+    {
+      "index": 116,
+      "start_time": 557519.0,
+      "end_time": 562379.0,
+      "text": "I&#39;ve already mentioned that ‑‑ I got some laughs ‑‑ I already mention how"
+    },
+    {
+      "index": 117,
+      "start_time": 562379.0,
+      "end_time": 567100.0,
+      "text": "promises look like immutable values because then always gives you the same result out"
+    },
+    {
+      "index": 118,
+      "start_time": 567100.0,
+      "end_time": 571680.0,
+      "text": "once the tasks are completed, but this is also true in a second way that I department"
+    },
+    {
+      "index": 119,
+      "start_time": 571680.0,
+      "end_time": 578639.0,
+      "text": "realize at the same, the promises that deal in changing promises much more easily."
+    },
+    {
+      "index": 120,
+      "start_time": 578639.0,
+      "end_time": 581839.0,
+      "text": "Before when I was using the asing module I had to change my program quite radically,"
+    },
+    {
+      "index": 121,
+      "start_time": 581839.0,
+      "end_time": 587360.0,
+      "text": "I could make a big structural change to it to make quite a small requirement change."
+    },
+    {
+      "index": 122,
+      "start_time": 587360.0,
+      "end_time": 593069.0,
+      "text": "But say those functions return promises my FS.read and database dot get always return"
+    },
+    {
+      "index": 123,
+      "start_time": 593069.0,
+      "end_time": 598999.0,
+      "text": "promises of strings, I can call all those functions and put the results in an array"
+    },
+    {
+      "index": 124,
+      "start_time": 598999.0,
+      "end_time": 605459.0,
+      "text": "and all the Io will just happen in parallel, but now I have an array of promises of strings."
+    },
+    {
+      "index": 125,
+      "start_time": 605459.0,
+      "end_time": 608810.0,
+      "text": "And if I want just the first ‑‑ if I just want the file out of that, then I can"
+    },
+    {
+      "index": 126,
+      "start_time": 608810.0,
+      "end_time": 613040.0,
+      "text": "get the first promise out of the list and do something with the result."
+    },
+    {
+      "index": 127,
+      "start_time": 613040.0,
+      "end_time": 616399.0,
+      "text": "If I want to wait for all of the things to finish, then I can call promise.all with the"
+    },
+    {
+      "index": 128,
+      "start_time": 616399.0,
+      "end_time": 622480.0,
+      "text": "documents and I get a promise that will give me all of the results when they&#39;re ready,"
+    },
+    {
+      "index": 129,
+      "start_time": 622480.0,
+      "end_time": 626309.0,
+      "text": "if I don&#39;t want to deal with the file on it&#39;s own, I just delete the documents.zero line,"
+    },
+    {
+      "index": 130,
+      "start_time": 626309.0,
+      "end_time": 635110.0,
+      "text": "I can just add lines for those, I don&#39;t have to make bige structural changes to my program."
+    },
+    {
+      "index": 131,
+      "start_time": 635110.0,
+      "end_time": 639559.0,
+      "text": "You keep the ability to keep your IO happening in parallel, but you keep the convenience"
+    },
+    {
+      "index": 132,
+      "start_time": 639559.0,
+      "end_time": 643370.0,
+      "text": "of being able to work with it easily, that&#39;s really important for dealing with programs"
+    },
+    {
+      "index": 133,
+      "start_time": 643370.0,
+      "end_time": 646490.0,
+      "text": "that change a lot over time."
+    },
+    {
+      "index": 134,
+      "start_time": 646490.0,
+      "end_time": 650809.0,
+      "text": "And the reason this works is that I can ask for the value out of the file promise and"
+    },
+    {
+      "index": 135,
+      "start_time": 650809.0,
+      "end_time": 655790.0,
+      "text": "promise to all can also answer the value out of that file promise, and it&#39;ll work both"
+    },
+    {
+      "index": 136,
+      "start_time": 655790.0,
+      "end_time": 659660.0,
+      "text": "times because you can keep asking for the value over and over again, and you won&#39;t repeat"
+    },
+    {
+      "index": 137,
+      "start_time": 659660.0,
+      "end_time": 664499.0,
+      "text": "any work, what it means to be immutable, it&#39;s rejuiceble, right."
+    },
+    {
+      "index": 138,
+      "start_time": 664499.0,
+      "end_time": 667370.0,
+      "text": "So let&#39;s talk ‑‑ it&#39;s reusable."
+    },
+    {
+      "index": 139,
+      "start_time": 667370.0,
+      "end_time": 673029.0,
+      "text": "We talk about I in very imperative terms, we say then takes a function and that function"
+    },
+    {
+      "index": 140,
+      "start_time": 673029.0,
+      "end_time": 677519.0,
+      "text": "will be invoked when the task completes with the value of the task, if it&#39;s completed it"
+    },
+    {
+      "index": 141,
+      "start_time": 677519.0,
+      "end_time": 681370.0,
+      "text": "will be invoked with the value of the task it returns a promise and that promise will"
+    },
+    {
+      "index": 142,
+      "start_time": 681370.0,
+      "end_time": 688279.0,
+      "text": "be invoked with the return of the call back, we talk about then, do this, then do this,"
+    },
+    {
+      "index": 143,
+      "start_time": 688279.0,
+      "end_time": 689339.0,
+      "text": "and then do that."
+    },
+    {
+      "index": 144,
+      "start_time": 689339.0,
+      "end_time": 693980.0,
+      "text": "But if you think about the types of things that are involved, what then really does it"
+    },
+    {
+      "index": 145,
+      "start_time": 693980.0,
+      "end_time": 698579.0,
+      "text": "takes a promise of A and function there A to B and returns a promise of B, if we have"
+    },
+    {
+      "index": 146,
+      "start_time": 698579.0,
+      "end_time": 703029.0,
+      "text": "a promise of a string and we call then with a function that counts the word in a string,"
+    },
+    {
+      "index": 147,
+      "start_time": 703029.0,
+      "end_time": 709749.0,
+      "text": "string.split on spaces.length what we get is a promise of an I Int, we might not have"
+    },
+    {
+      "index": 148,
+      "start_time": 709749.0,
+      "end_time": 714170.0,
+      "text": "the Int, but that&#39;s the type of the value we have, we continue to do more processing"
+    },
+    {
+      "index": 149,
+      "start_time": 714170.0,
+      "end_time": 718430.0,
+      "text": "on it, transform it into another thing, transform it into another thing, and use the promise"
+    },
+    {
+      "index": 150,
+      "start_time": 718430.0,
+      "end_time": 722100.0,
+      "text": "itself as a value, not the thing that&#39;s inside of it."
+    },
+    {
+      "index": 151,
+      "start_time": 722100.0,
+      "end_time": 728059.0,
+      "text": "This is exactly the same thing a ray.map works it takes list of something and a function"
+    },
+    {
+      "index": 152,
+      "start_time": 728059.0,
+      "end_time": 733170.0,
+      "text": "from A to B around returns a list of B, right, so if you have a list of strings and you map"
+    },
+    {
+      "index": 153,
+      "start_time": 733170.0,
+      "end_time": 736749.0,
+      "text": "a word counting function over the list, you now have a list of word counts just as if"
+    },
+    {
+      "index": 154,
+      "start_time": 736749.0,
+      "end_time": 740660.0,
+      "text": "you called then with a word counting function you turn a promise of a string into a promise"
+    },
+    {
+      "index": 155,
+      "start_time": 740660.0,
+      "end_time": 745910.0,
+      "text": "of a word count, a promise is just a container, it&#39;s a list, they&#39;re the same thing, the operations"
+    },
+    {
+      "index": 156,
+      "start_time": 745910.0,
+      "end_time": 751089.0,
+      "text": "are the same thing, a container of up type, container of another type with a mapping function"
+    },
+    {
+      "index": 157,
+      "start_time": 751089.0,
+      "end_time": 756319.0,
+      "text": "between them, and because they&#39;re just containertion you can compos containers, they&#39;re just another"
+    },
+    {
+      "index": 158,
+      "start_time": 756319.0,
+      "end_time": 760449.0,
+      "text": "type of data structure, if you have a list of promise of strings you turn that into a"
+    },
+    {
+      "index": 159,
+      "start_time": 760449.0,
+      "end_time": 766309.0,
+      "text": "list of promises of Int by mapping over the array this is no different than mapping over"
+    },
+    {
+      "index": 160,
+      "start_time": 766309.0,
+      "end_time": 769600.0,
+      "text": "nested array you have two maps inside of one another."
+    },
+    {
+      "index": 161,
+      "start_time": 769600.0,
+      "end_time": 775160.0,
+      "text": "Promise to all is the same, we talk at promise to all as in you give it a bunch of promises"
+    },
+    {
+      "index": 162,
+      "start_time": 775160.0,
+      "end_time": 780430.0,
+      "text": "as input then it will give you one promise when it resolve, we talk about it in time"
+    },
+    {
+      "index": 163,
+      "start_time": 780430.0,
+      "end_time": 786350.0,
+      "text": "terms, if you talk about it in type terms, it turns a container inside out you give it"
+    },
+    {
+      "index": 164,
+      "start_time": 786350.0,
+      "end_time": 790889.0,
+      "text": "a list of promises and it gives you a promise of a list, you get one promise back that will"
+    },
+    {
+      "index": 165,
+      "start_time": 790889.0,
+      "end_time": 794939.0,
+      "text": "give you a list of all of the things."
+    },
+    {
+      "index": 166,
+      "start_time": 794939.0,
+      "end_time": 801350.0,
+      "text": "This also solves the Zaga ‑‑ Zalg oproblem, personification of the problem with writing"
+    },
+    {
+      "index": 167,
+      "start_time": 801350.0,
+      "end_time": 804300.0,
+      "text": "call back APIs that will execute a call back synchronously or asynchronously."
+    },
+    {
+      "index": 168,
+      "start_time": 804300.0,
+      "end_time": 815740.0,
+      "text": "A equals Null promise.then X equals data equals X on statement before line three otherwise"
+    },
+    {
+      "index": 169,
+      "start_time": 815740.0,
+      "end_time": 820559.0,
+      "text": "your program won&#39;t work, if it ran asin concurrent resolution noselite would break."
+    },
+    {
+      "index": 170,
+      "start_time": 820559.0,
+      "end_time": 824240.0,
+      "text": "The only reason it&#39;s a problem is because you have side effect, you care about things"
+    },
+    {
+      "index": 171,
+      "start_time": 824240.0,
+      "end_time": 828399.0,
+      "text": "happening in a certain order something that&#39;s been changed into another state before another"
+    },
+    {
+      "index": 172,
+      "start_time": 828399.0,
+      "end_time": 832480.0,
+      "text": "statement runs, if instead you do your process inside of the promise construct you don&#39;t"
+    },
+    {
+      "index": 173,
+      "start_time": 832480.0,
+      "end_time": 836589.0,
+      "text": "think of a promise as a thing to get value out of you think of it as a value on it&#39;s"
+    },
+    {
+      "index": 174,
+      "start_time": 836589.0,
+      "end_time": 840550.0,
+      "text": "own that you can do commutation inside of, then that problem goes away."
+    },
+    {
+      "index": 175,
+      "start_time": 840550.0,
+      "end_time": 847749.0,
+      "text": "Want to talk about laciness, another big topic in functional programming (Lazi iness) I want"
+    },
+    {
+      "index": 176,
+      "start_time": 847749.0,
+      "end_time": 852089.0,
+      "text": "to show you a little bit of Hasckell code ‑‑ Haskell code."
+    },
+    {
+      "index": 177,
+      "start_time": 852089.0,
+      "end_time": 861139.0,
+      "text": "Cough free script is written as a colon, first element colon, the rest of the elements."
+    },
+    {
+      "index": 178,
+      "start_time": 861139.0,
+      "end_time": 866769.0,
+      "text": "So map we&#39;ve already seen, map of an Ety list is an empty list,and map in the general case,"
+    },
+    {
+      "index": 179,
+      "start_time": 866769.0,
+      "end_time": 871170.0,
+      "text": "you apply F to X and combine that to map over the rest of the list, it looks weird but we"
+    },
+    {
+      "index": 180,
+      "start_time": 871170.0,
+      "end_time": 877220.0,
+      "text": "saw it working in coffee script, filter works pretty much the same way, filter of an empty"
+    },
+    {
+      "index": 181,
+      "start_time": 877220.0,
+      "end_time": 884379.0,
+      "text": "list is an empty list, where peer Cex is true you keep X you you combine with the filter"
+    },
+    {
+      "index": 182,
+      "start_time": 884379.0,
+      "end_time": 890149.0,
+      "text": "of the rest of the list otherwise you throw X away and keep the rest of the list, we keep"
+    },
+    {
+      "index": 183,
+      "start_time": 890149.0,
+      "end_time": 893670.0,
+      "text": "X braced on whether the predicate is true for the value."
+    },
+    {
+      "index": 184,
+      "start_time": 893670.0,
+      "end_time": 900809.0,
+      "text": "Take, first and end elements of allis, take where N is less than 0 you don&#39;t want to take"
+    },
+    {
+      "index": 185,
+      "start_time": 900809.0,
+      "end_time": 906100.0,
+      "text": "any more data, take of an empty list because there&#39;s no more day the to take, so empty,"
+    },
+    {
+      "index": 186,
+      "start_time": 906100.0,
+      "end_time": 912300.0,
+      "text": "then take in a general case, you pop the first element and take N minus one of what&#39;s left"
+    },
+    {
+      "index": 187,
+      "start_time": 912300.0,
+      "end_time": 916429.0,
+      "text": "and apply that recuresively the value will fall out."
+    },
+    {
+      "index": 188,
+      "start_time": 916429.0,
+      "end_time": 918579.0,
+      "text": "This lets you do somethinger, very powerful."
+    },
+    {
+      "index": 189,
+      "start_time": 918579.0,
+      "end_time": 928600.0,
+      "text": "Haskell has infinite data structure, list of ..., is to infinity, the filter would never"
+    },
+    {
+      "index": 190,
+      "start_time": 928600.0,
+      "end_time": 933670.0,
+      "text": "return, it tries to process the whole array at once, looks what happen in Haskel, I&#39;m"
+    },
+    {
+      "index": 191,
+      "start_time": 933670.0,
+      "end_time": 939230.0,
+      "text": "going to program by replacing functioncal with the definition, so let&#39;s see what happens,"
+    },
+    {
+      "index": 192,
+      "start_time": 939230.0,
+      "end_time": 943319.0,
+      "text": "so, even if one is false, so we drop the one."
+    },
+    {
+      "index": 193,
+      "start_time": 943319.0,
+      "end_time": 947800.0,
+      "text": "Even if 2 is true, so pull the 2 out front and filter over what&#39;s left."
+    },
+    {
+      "index": 194,
+      "start_time": 947800.0,
+      "end_time": 953129.0,
+      "text": "Now, we&#39;ve destructured the umer end to map so we can pull that 2 through squaring functions,"
+    },
+    {
+      "index": 195,
+      "start_time": 953129.0,
+      "end_time": 959139.0,
+      "text": "we structured the upper end to take, can pull that expression out front, three minus what&#39;s"
+    },
+    {
+      "index": 196,
+      "start_time": 959139.0,
+      "end_time": 965160.0,
+      "text": "left, levering with two, one value through the list all the way through the pipeline."
+    },
+    {
+      "index": 197,
+      "start_time": 965160.0,
+      "end_time": 966699.0,
+      "text": "We do more time."
+    },
+    {
+      "index": 198,
+      "start_time": 966699.0,
+      "end_time": 971559.0,
+      "text": "We come down to take one, and one more time again, we come down to take zero and we have"
+    },
+    {
+      "index": 199,
+      "start_time": 971559.0,
+      "end_time": 973989.0,
+      "text": "three elements out front."
+    },
+    {
+      "index": 200,
+      "start_time": 973989.0,
+      "end_time": 979379.0,
+      "text": "We know by definition, take of zero is an empty list and the result pops out."
+    },
+    {
+      "index": 201,
+      "start_time": 979379.0,
+      "end_time": 981899.0,
+      "text": "We didn&#39;t have to look at the rest of the infinite list, we didn&#39;t have to care about"
+    },
+    {
+      "index": 202,
+      "start_time": 981899.0,
+      "end_time": 982730.0,
+      "text": "it."
+    },
+    {
+      "index": 203,
+      "start_time": 982730.0,
+      "end_time": 987399.0,
+      "text": "That&#39;s really really powerful, skipping work you don&#39;t need to do to get the result you"
+    },
+    {
+      "index": 204,
+      "start_time": 987399.0,
+      "end_time": 988379.0,
+      "text": "want."
+    },
+    {
+      "index": 205,
+      "start_time": 988379.0,
+      "end_time": 994899.0,
+      "text": "Again, Tom ash worth summed it up nicely there are two ways to combine transformations you"
+    },
+    {
+      "index": 206,
+      "start_time": 994899.0,
+      "end_time": 999110.0,
+      "text": "perform the first transformation on the whole collection before moving on to the second"
+    },
+    {
+      "index": 207,
+      "start_time": 999110.0,
+      "end_time": 1003269.0,
+      "text": "or perform all the transformations on the first element of the collection before moving"
+    },
+    {
+      "index": 208,
+      "start_time": 1003270.0,
+      "end_time": 1004190.0,
+      "text": "on to the second."
+    },
+    {
+      "index": 209,
+      "start_time": 1004190.0,
+      "end_time": 1009010.0,
+      "text": "Now the first version is how JavaScript deals with array, filter the whole array and hand"
+    },
+    {
+      "index": 210,
+      "start_time": 1009010.0,
+      "end_time": 1013090.0,
+      "text": "that off to the map and the map maps over the whole array, reiterates it over how ever"
+    },
+    {
+      "index": 211,
+      "start_time": 1013090.0,
+      "end_time": 1019440.0,
+      "text": "many operations you have, the second way is the way Haskell deal was arrays"
+    },
+    {
+      "index": 212,
+      "start_time": 1019440.0,
+      "end_time": 1023950.0,
+      "text": "&#39;s nothing inherent about the data structure that says you is to process them this way,"
+    },
+    {
+      "index": 213,
+      "start_time": 1023950.0,
+      "end_time": 1026011.0,
+      "text": "you can use either strategy."
+    },
+    {
+      "index": 214,
+      "start_time": 1026010.0,
+      "end_time": 1031750.0,
+      "text": "Just as Haskll deals with lists as if they were streams question can deal with streams"
+    },
+    {
+      "index": 215,
+      "start_time": 1031750.0,
+      "end_time": 1033980.0,
+      "text": "as if they&#39;re lists."
+    },
+    {
+      "index": 216,
+      "start_time": 1033980.0,
+      "end_time": 1036449.0,
+      "text": "Streams they&#39;re big part of node programming right."
+    },
+    {
+      "index": 217,
+      "start_time": 1036450.0,
+      "end_time": 1041731.0,
+      "text": "Huge part of node programming, really node&#39;s core feature, these streams."
+    },
+    {
+      "index": 218,
+      "start_time": 1041730.0,
+      "end_time": 1044280.0,
+      "text": "So, do something a little Funky."
+    },
+    {
+      "index": 219,
+      "start_time": 1044280.0,
+      "end_time": 1052820.0,
+      "text": "So, I&#39;m going to make a classical map that inherit from stream.platform, and transform"
+    },
+    {
+      "index": 220,
+      "start_time": 1052820.0,
+      "end_time": 1057200.0,
+      "text": "method is going to replay that function to incoming chunk and push it."
+    },
+    {
+      "index": 221,
+      "start_time": 1057200.0,
+      "end_time": 1063559.0,
+      "text": "Going to add a map method to stream.prototype that pipes the stream through map transform,"
+    },
+    {
+      "index": 222,
+      "start_time": 1063560.0,
+      "end_time": 1068601.0,
+      "text": "it&#39;s a similar lair toy array.map, we&#39;re taking a stream of As, and a function from A to B"
+    },
+    {
+      "index": 223,
+      "start_time": 1068600.0,
+      "end_time": 1070220.0,
+      "text": "and a stream of A to B."
+    },
+    {
+      "index": 224,
+      "start_time": 1070220.0,
+      "end_time": 1077890.0,
+      "text": "Same operation, filter same way, predicate function, and now we&#39;re going to push the"
+    },
+    {
+      "index": 225,
+      "start_time": 1077890.0,
+      "end_time": 1082240.0,
+      "text": "chunk, if the predicate is true for that chunk."
+    },
+    {
+      "index": 226,
+      "start_time": 1082240.0,
+      "end_time": 1085980.0,
+      "text": "Take is going to be substance showuated with a number and in the transform method we&#39;re"
+    },
+    {
+      "index": 227,
+      "start_time": 1085980.0,
+      "end_time": 1092630.0,
+      "text": "going to push the chunk if N is greater than zero and then call N if it reaches zero, it"
+    },
+    {
+      "index": 228,
+      "start_time": 1092630.0,
+      "end_time": 1098250.0,
+      "text": "will mean all the streams that are feeding into this will stop sending it data because"
+    },
+    {
+      "index": 229,
+      "start_time": 1098250.0,
+      "end_time": 1100870.0,
+      "text": "it&#39;s emitted end, doesn&#39;t want anymore data, we can stop processioning when we have the"
+    },
+    {
+      "index": 230,
+      "start_time": 1100870.0,
+      "end_time": 1101909.0,
+      "text": "information we want."
+    },
+    {
+      "index": 231,
+      "start_time": 1101910.0,
+      "end_time": 1104611.0,
+      "text": "That gets us lay citiness."
+    },
+    {
+      "index": 232,
+      "start_time": 1104610.0,
+      "end_time": 1106769.0,
+      "text": "We have split ‑‑ Laziness."
+    },
+    {
+      "index": 233,
+      "start_time": 1106770.0,
+      "end_time": 1113280.0,
+      "text": "I&#39;m going to add the split modules to the prototype."
+    },
+    {
+      "index": 234,
+      "start_time": 1113280.0,
+      "end_time": 1117251.0,
+      "text": "Set high water mark 0 on all the streams, that means node won&#39;t egg eerily buffer data"
+    },
+    {
+      "index": 235,
+      "start_time": 1117250.0,
+      "end_time": 1122169.0,
+      "text": "the streams don&#39;t need, it will pull data through as it needs."
+    },
+    {
+      "index": 236,
+      "start_time": 1122170.0,
+      "end_time": 1128631.0,
+      "text": "Put in a file called Lazy.Commonwealth of Virginia fee, I can split the on‑line breaks"
+    },
+    {
+      "index": 237,
+      "start_time": 1128630.0,
+      "end_time": 1134429.0,
+      "text": "and filter those lines if cluster finishing and map those matches to upper case and take"
+    },
+    {
+      "index": 238,
+      "start_time": 1134430.0,
+      "end_time": 1135001.0,
+      "text": "one of them."
+    },
+    {
+      "index": 239,
+      "start_time": 1135000.0,
+      "end_time": 1138690.0,
+      "text": "And if I attach a data list to that I will get the first class definition that comes"
+    },
+    {
+      "index": 240,
+      "start_time": 1138690.0,
+      "end_time": 1144370.0,
+      "text": "out as upper case, if you watch the filter and the map functions here, they&#39;ll only be"
+    },
+    {
+      "index": 241,
+      "start_time": 1144370.0,
+      "end_time": 1148409.0,
+      "text": "called as many times as necessary to produce the output, the program won&#39;t consume the"
+    },
+    {
+      "index": 242,
+      "start_time": 1148410.0,
+      "end_time": 1150300.0,
+      "text": "whole file, it&#39;s powerful."
+    },
+    {
+      "index": 243,
+      "start_time": 1150300.0,
+      "end_time": 1155221.0,
+      "text": "You&#39;re letting the consumer of the operation dictate how much get read at the other end,"
+    },
+    {
+      "index": 244,
+      "start_time": 1155220.0,
+      "end_time": 1158230.0,
+      "text": "you&#39;re avoiding work you don&#39;t need to do."
+    },
+    {
+      "index": 245,
+      "start_time": 1158230.0,
+      "end_time": 1162340.0,
+      "text": "So here we&#39;re programming the streams and they look like arrays, it might look like"
+    },
+    {
+      "index": 246,
+      "start_time": 1162340.0,
+      "end_time": 1167809.0,
+      "text": "a cute trick, it&#39;s a general model of programming, general functional programming, I&#39;m going"
+    },
+    {
+      "index": 247,
+      "start_time": 1167810.0,
+      "end_time": 1174691.0,
+      "text": "to write an IRC client using this strategy, first I&#39;ll write it imperative so it&#39;s familiar"
+    },
+    {
+      "index": 248,
+      "start_time": 1174690.0,
+      "end_time": 1183870.0,
+      "text": "Irc is going to take a TCP socket stand in and out, in a log file, we&#39;re going to split"
+    },
+    {
+      "index": 249,
+      "start_time": 1183870.0,
+      "end_time": 1188679.0,
+      "text": "the TCP and put on‑line breaks, IRC is a line warranted protocol, going to write that"
+    },
+    {
+      "index": 250,
+      "start_time": 1188680.0,
+      "end_time": 1193471.0,
+      "text": "file to the logs, going to pause the line into a ‑‑ park it into a command structure,"
+    },
+    {
+      "index": 251,
+      "start_time": 1193470.0,
+      "end_time": 1196630.0,
+      "text": "if it&#39;s a notice we&#39;ll print to screen."
+    },
+    {
+      "index": 252,
+      "start_time": 1196630.0,
+      "end_time": 1200140.0,
+      "text": "All the client will do is receive notices from the server and print them."
+    },
+    {
+      "index": 253,
+      "start_time": 1200140.0,
+      "end_time": 1205440.0,
+      "text": "These are also wants to join rim,es so we&#39;ll split standard I believee input on‑line"
+    },
+    {
+      "index": 254,
+      "start_time": 1205440.0,
+      "end_time": 1212029.0,
+      "text": "break and if we see a line slash join, we set our global variable room to the value"
+    },
+    {
+      "index": 255,
+      "start_time": 1212030.0,
+      "end_time": 1219550.0,
+      "text": "of the Redux match and construct an Irc command, the Irc command for joining that rim."
+    },
+    {
+      "index": 256,
+      "start_time": 1219550.0,
+      "end_time": 1224050.0,
+      "text": "If we did manager to construct a command, then we&#39;ll unparse it turn it into a string"
+    },
+    {
+      "index": 257,
+      "start_time": 1224050.0,
+      "end_time": 1228001.0,
+      "text": "and write that string to TCP and we&#39;ll write it to the logs."
+    },
+    {
+      "index": 258,
+      "start_time": 1228000.0,
+      "end_time": 1233700.0,
+      "text": "We also want to send messages so if we oar in a room and the line is not blank we&#39;ll"
+    },
+    {
+      "index": 259,
+      "start_time": 1233700.0,
+      "end_time": 1239309.0,
+      "text": "construct a proof message command ILC speak for sending a mission age somewhere with the"
+    },
+    {
+      "index": 260,
+      "start_time": 1239310.0,
+      "end_time": 1242851.0,
+      "text": "room and the line of input, that&#39;s the room that we&#39;re currently in, we always send a"
+    },
+    {
+      "index": 261,
+      "start_time": 1242850.0,
+      "end_time": 1245779.0,
+      "text": "message to the room we&#39;re currently in."
+    },
+    {
+      "index": 262,
+      "start_time": 1245780.0,
+      "end_time": 1251751.0,
+      "text": "We want to receive messages from the server, we&#39;ll get the channel and the message out"
+    },
+    {
+      "index": 263,
+      "start_time": 1251750.0,
+      "end_time": 1256289.0,
+      "text": "of that command and then compare the channel to the room that we&#39;re currently in, if they"
+    },
+    {
+      "index": 264,
+      "start_time": 1256290.0,
+      "end_time": 1260831.0,
+      "text": "match, we&#39;ll display the line, so we&#39;re only going to display messages from the server"
+    },
+    {
+      "index": 265,
+      "start_time": 1260830.0,
+      "end_time": 1264899.0,
+      "text": "from the room that we&#39;re currently in instead of all the rooms we&#39;ve joined."
+    },
+    {
+      "index": 266,
+      "start_time": 1264900.0,
+      "end_time": 1271030.0,
+      "text": "There&#39;s what room we&#39;re in, there&#39;s conditional processing, side effects things being written"
+    },
+    {
+      "index": 267,
+      "start_time": 1271030.0,
+      "end_time": 1277550.0,
+      "text": "to, event listeners, this is the imperative style for solving this problem."
+    },
+    {
+      "index": 268,
+      "start_time": 1277550.0,
+      "end_time": 1281170.0,
+      "text": "Programs like this tend to not scale very well, the bigger they get, the harder it is"
+    },
+    {
+      "index": 269,
+      "start_time": 1281170.0,
+      "end_time": 1286571.0,
+      "text": "to reason want is happening at which times, which is important you&#39;ve written in a state."
+    },
+    {
+      "index": 270,
+      "start_time": 1286570.0,
+      "end_time": 1287000.0,
+      "text": "Way."
+    },
+    {
+      "index": 271,
+      "start_time": 1287000.0,
+      "end_time": 1292820.0,
+      "text": "So, write that functionally, we can write function that takes TCP input stream and user"
+    },
+    {
+      "index": 272,
+      "start_time": 1292820.0,
+      "end_time": 1299559.0,
+      "text": "input stream and returns synchronously a TCP output stream and user output stream and some"
+    },
+    {
+      "index": 273,
+      "start_time": 1299560.0,
+      "end_time": 1303951.0,
+      "text": "logs, rather than taking it all as input and returning nothing with side effects we take"
+    },
+    {
+      "index": 274,
+      "start_time": 1303950.0,
+      "end_time": 1308690.0,
+      "text": "the inputs and return the outputs and do this without using call backs."
+    },
+    {
+      "index": 275,
+      "start_time": 1308690.0,
+      "end_time": 1311419.0,
+      "text": "How is that going to work."
+    },
+    {
+      "index": 276,
+      "start_time": 1311420.0,
+      "end_time": 1317971.0,
+      "text": "We take Irc in equals TCP map, ‑‑ take a stream of strings mapping them through a"
+    },
+    {
+      "index": 277,
+      "start_time": 1317970.0,
+      "end_time": 1323269.0,
+      "text": "pausing function and that gives a string of IRC objects, just like working with arrays,"
+    },
+    {
+      "index": 278,
+      "start_time": 1323270.0,
+      "end_time": 1328300.0,
+      "text": "pretend you&#39;re working with arrays, that&#39;s what&#39;s going to happen, to get the notices,"
+    },
+    {
+      "index": 279,
+      "start_time": 1328300.0,
+      "end_time": 1334520.0,
+      "text": "we can filter those commands for one who&#39;s command is notice, then match map the matches"
+    },
+    {
+      "index": 280,
+      "start_time": 1334520.0,
+      "end_time": 1338351.0,
+      "text": "and assign the notices to user out here."
+    },
+    {
+      "index": 281,
+      "start_time": 1338350.0,
+      "end_time": 1344730.0,
+      "text": "And that means user out will be the formated notice commands from the TCP stream."
+    },
+    {
+      "index": 282,
+      "start_time": 1344730.0,
+      "end_time": 1349380.0,
+      "text": "And for the logs, we&#39;re just going to say the logs are the TCP input for formatting"
+    },
+    {
+      "index": 283,
+      "start_time": 1349380.0,
+      "end_time": 1351149.0,
+      "text": "function."
+    },
+    {
+      "index": 284,
+      "start_time": 1351150.0,
+      "end_time": 1358160.0,
+      "text": "We want to join room, add more code, say room s is the user input, mapped through a function"
+    },
+    {
+      "index": 285,
+      "start_time": 1358160.0,
+      "end_time": 1364831.0,
+      "text": "that does a reject match on each line of input, it&#39;s going to match/join with a rename, we&#39;re"
+    },
+    {
+      "index": 286,
+      "start_time": 1364830.0,
+      "end_time": 1369789.0,
+      "text": "going to filter the reduction matches, so we just get the lines thattingually matched"
+    },
+    {
+      "index": 287,
+      "start_time": 1369790.0,
+      "end_time": 1376461.0,
+      "text": "and we&#39;re going to match those matches to pull the room value out of the ‑‑ now"
+    },
+    {
+      "index": 288,
+      "start_time": 1376460.0,
+      "end_time": 1381340.0,
+      "text": "we have a stream of rooms that we&#39;ve join joined to tell the server about that we need"
+    },
+    {
+      "index": 289,
+      "start_time": 1381340.0,
+      "end_time": 1389799.0,
+      "text": "need fro deuce a join command, join command equals room.map to produce an IRC command."
+    },
+    {
+      "index": 290,
+      "start_time": 1389800.0,
+      "end_time": 1395920.0,
+      "text": "And then to send those to the server, we can say TCP out, equals joint command IRC, we"
+    },
+    {
+      "index": 291,
+      "start_time": 1395920.0,
+      "end_time": 1401430.0,
+      "text": "oar taking this stream of joint commands here, mapping them to strings and assigning that"
+    },
+    {
+      "index": 292,
+      "start_time": 1401430.0,
+      "end_time": 1406670.0,
+      "text": "to the TCP output, I&#39;m also merging the TCP output into the logs here, time taking stuff"
+    },
+    {
+      "index": 293,
+      "start_time": 1406670.0,
+      "end_time": 1411471.0,
+      "text": "from input and stuff from out put and combining them in really clean way to get my logs, instead"
+    },
+    {
+      "index": 294,
+      "start_time": 1411470.0,
+      "end_time": 1415700.0,
+      "text": "of putting logging logic at different point in the program as before."
+    },
+    {
+      "index": 295,
+      "start_time": 1415700.0,
+      "end_time": 1421980.0,
+      "text": "Now, we want to be able to send messages, to send a message you need the room you&#39;re"
+    },
+    {
+      "index": 296,
+      "start_time": 1421980.0,
+      "end_time": 1425600.0,
+      "text": "currently in, and you fled message you want to send, we try dog this without states, there&#39;s"
+    },
+    {
+      "index": 297,
+      "start_time": 1425600.0,
+      "end_time": 1433659.0,
+      "text": "no global room variable (Need) instead of what we do user end out filter for lines that"
+    },
+    {
+      "index": 298,
+      "start_time": 1433660.0,
+      "end_time": 1439920.0,
+      "text": "aren&#39;t blank and we do this thing rooms.sampled by, whatever messages ‑‑ event, it gets"
+    },
+    {
+      "index": 299,
+      "start_time": 1439920.0,
+      "end_time": 1445680.0,
+      "text": "the latest vent by rooms and give both of the values by function arguments and construct"
+    },
+    {
+      "index": 300,
+      "start_time": 1445680.0,
+      "end_time": 1454091.0,
+      "text": "an IRC out of them, and then, we can just merge those into the TCP output with the joins"
+    },
+    {
+      "index": 301,
+      "start_time": 1454090.0,
+      "end_time": 1456970.0,
+      "text": "that we&#39;re sending earlier."
+    },
+    {
+      "index": 302,
+      "start_time": 1456970.0,
+      "end_time": 1459289.0,
+      "text": "So ..."
+    },
+    {
+      "index": 303,
+      "start_time": 1459290.0,
+      "end_time": 1462800.0,
+      "text": "finally we want to be able to receive messages from other people."
+    },
+    {
+      "index": 304,
+      "start_time": 1462800.0,
+      "end_time": 1470081.0,
+      "text": "So, we&#39;re going to filter the incoming messages for ones that match prove messages, and again,"
+    },
+    {
+      "index": 305,
+      "start_time": 1470080.0,
+      "end_time": 1474450.0,
+      "text": "we&#39;re going to use sample by, so every time we get a message in, we&#39;re going to give the"
+    },
+    {
+      "index": 306,
+      "start_time": 1474450.0,
+      "end_time": 1478480.0,
+      "text": "room we&#39;re currently in, and the message we just got, and compare the room that we&#39;re"
+    },
+    {
+      "index": 307,
+      "start_time": 1478480.0,
+      "end_time": 1483070.0,
+      "text": "currently if to the message room parameter, this gives us a stream of Boole cranes to"
+    },
+    {
+      "index": 308,
+      "start_time": 1483070.0,
+      "end_time": 1487889.0,
+      "text": "tell us whether the message we just got is for the room that we&#39;re currently in, it&#39;s"
+    },
+    {
+      "index": 309,
+      "start_time": 1487890.0,
+      "end_time": 1490091.0,
+      "text": "slightly weird operation, but it does work."
+    },
+    {
+      "index": 310,
+      "start_time": 1490090.0,
+      "end_time": 1496200.0,
+      "text": "And then I can filter the in‑coming messages on that stream, if you have a stream of Boole"
+    },
+    {
+      "index": 311,
+      "start_time": 1496200.0,
+      "end_time": 1500130.0,
+      "text": "cranes you can use that to filter something else."
+    },
+    {
+      "index": 312,
+      "start_time": 1500130.0,
+      "end_time": 1504840.0,
+      "text": "This will give you a stream of the in‑coming messages for the room I&#39;m currently in, I&#39;ve"
+    },
+    {
+      "index": 313,
+      "start_time": 1504840.0,
+      "end_time": 1510549.0,
+      "text": "written a non‑trivial network application that does exactly what we had before, no side"
+    },
+    {
+      "index": 314,
+      "start_time": 1510550.0,
+      "end_time": 1516321.0,
+      "text": "effects no variables are my stated, no call backs in the sense of side effect functions"
+    },
+    {
+      "index": 315,
+      "start_time": 1516320.0,
+      "end_time": 1517769.0,
+      "text": "that return nothing."
+    },
+    {
+      "index": 316,
+      "start_time": 1517770.0,
+      "end_time": 1522160.0,
+      "text": "It&#39;s all pure functions, you can replace any variable variable in the program with a definition"
+    },
+    {
+      "index": 317,
+      "start_time": 1522160.0,
+      "end_time": 1526611.0,
+      "text": "and the program will do exactly the same thing, there&#39;s no hidden state to take care of, rather"
+    },
+    {
+      "index": 318,
+      "start_time": 1526610.0,
+      "end_time": 1530460.0,
+      "text": "than write ago program that says do this, then do this, you&#39;ve written a program that"
+    },
+    {
+      "index": 319,
+      "start_time": 1530460.0,
+      "end_time": 1534750.0,
+      "text": "defines streame streams of day the relative to other streams of data and the control flow"
+    },
+    {
+      "index": 320,
+      "start_time": 1534750.0,
+      "end_time": 1540250.0,
+      "text": "is implicit that makes it easier to work in current programs."
+    },
+    {
+      "index": 321,
+      "start_time": 1540250.0,
+      "end_time": 1543409.0,
+      "text": "To sum up you can get the slides here."
+    },
+    {
+      "index": 322,
+      "start_time": 1543410.0,
+      "end_time": 1551321.0,
+      "text": "The article that Tom Ashwroth wrote."
+    },
+    {
+      "index": 323,
+      "start_time": 1551320.0,
+      "end_time": 1554519.0,
+      "text": " ‑‑ similarities between promises and liveses and maybes and stuff like that and"
+    },
+    {
+      "index": 324,
+      "start_time": 1554520.0,
+      "end_time": 1560060.0,
+      "text": "how they compos, last year Phillip Roberts is giving a talk here tomorrow, gave a really"
+    },
+    {
+      "index": 325,
+      "start_time": 1560060.0,
+      "end_time": 1564881.0,
+      "text": "good talk ant real‑timeCONF that you need watch."
+    },
+    {
+      "index": 326,
+      "start_time": 1564880.0,
+      "end_time": 1570250.0,
+      "text": "And I&#39;ve ended that with the links to documentation for some of these streaming libraries that"
+    },
+    {
+      "index": 327,
+      "start_time": 1570250.0,
+      "end_time": 1571630.0,
+      "text": "I&#39;ve use in the this talk."
+    },
+    {
+      "index": 328,
+      "start_time": 1571630.0,
+      "end_time": 1578450.0,
+      "text": "Finally, I thought I&#39;d try and do something nice while I&#39;m here, earlier this year I wrote"
+    },
+    {
+      "index": 329,
+      "start_time": 1578450.0,
+      "end_time": 1585220.0,
+      "text": "this book, apparently it&#39;s quite good, if you use the code JSFST for this weekend you"
+    },
+    {
+      "index": 330,
+      "start_time": 1585220.0,
+      "end_time": 1588659.0,
+      "text": "can get fiver pounds off of it, and it&#39;s already half price."
+    },
+    {
+      "index": 331,
+      "start_time": 1588660.0,
+      "end_time": 1590691.0,
+      "text": "thank you for having me."
+    },
+    {
+      "index": 332,
+      "start_time": 1590690.0,
+      "end_time": 1600690.0,
+      "text": "And I well see you upstairs (Applause)"
+    }
+  ]
+}

@@ -1,0 +1,1662 @@
+{
+  "video_id": "Qu183GFHbZQ",
+  "title": "14   1   Hash Tables  Operations and Applications 19 min",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 4019.9999999999995,
+      "text": "In this video we&#39;ll begin our discussion of hash tables; we&#39;ll focus first on the"
+    },
+    {
+      "index": 2,
+      "start_time": 4019.9999999999995,
+      "end_time": 8030.0,
+      "text": "support operations, and on some of the canonical applications. So hash tables are"
+    },
+    {
+      "index": 3,
+      "start_time": 8029.999999999999,
+      "end_time": 12018.0,
+      "text": "insanely useful. If you want to be a serious programmer or a computer scientist"
+    },
+    {
+      "index": 4,
+      "start_time": 12018.0,
+      "end_time": 16002.0,
+      "text": "you really have no choice but to learn about hash tables. I&#39;m sure many of you"
+    },
+    {
+      "index": 5,
+      "start_time": 16001.999999999998,
+      "end_time": 20010.0,
+      "text": "have used them in your own programs in the past in fact. Now on the one hand what&#39;s"
+    },
+    {
+      "index": 6,
+      "start_time": 20010.0,
+      "end_time": 24027.0,
+      "text": "funny is they don&#39;t actually do that many things in terms of the number of supported"
+    },
+    {
+      "index": 7,
+      "start_time": 24027.0,
+      "end_time": 28025.0,
+      "text": "operations, but what they do, do they do really, really well. So what is a hash"
+    },
+    {
+      "index": 8,
+      "start_time": 28025.0,
+      "end_time": 33008.0,
+      "text": "table? Well conceptually, ignoring all of the aspects of the implementation, you may"
+    },
+    {
+      "index": 9,
+      "start_time": 33008.0,
+      "end_time": 37097.0,
+      "text": "wanna think of a hash table as an array. So one thing that arrays do super well is"
+    },
+    {
+      "index": 10,
+      "start_time": 37097.0,
+      "end_time": 42040.0,
+      "text": "support immediate random access. So if you&#39;re wondering what&#39;s the position"
+    },
+    {
+      "index": 11,
+      "start_time": 42040.0,
+      "end_time": 47023.0,
+      "text": "number seventeen of some array, boom, with a couple of machine instructions you can"
+    },
+    {
+      "index": 12,
+      "start_time": 47023.0,
+      "end_time": 51089.0,
+      "text": "find out, wanna change the contents of position number 23 in some array? Done, in"
+    },
+    {
+      "index": 13,
+      "start_time": 51089.0,
+      "end_time": 56025.0,
+      "text": "constant time. So let&#39;s think about an application in which you want to remember"
+    },
+    {
+      "index": 14,
+      "start_time": 56025.0,
+      "end_time": 60059.0,
+      "text": "your friends phone numbers. So if you&#39;re lucky your friends parents were all u nu,"
+    },
+    {
+      "index": 15,
+      "start_time": 60059.0,
+      "end_time": 65009.0,
+      "text": "unusually unimaginative people and all of your friends names are integers let&#39;s say"
+    },
+    {
+      "index": 16,
+      "start_time": 65009.0,
+      "end_time": 69048.0,
+      "text": "between one and 10,000. So if this is the case then you can just maintain an array"
+    },
+    {
+      "index": 17,
+      "start_time": 69048.0,
+      "end_time": 74099.0,
+      "text": "of link 10,000. And to store the phone number of say, your best friend, 173, you"
+    },
+    {
+      "index": 18,
+      "start_time": 74099.0,
+      "end_time": 81022.0,
+      "text": "can just use position 173 of this modest sized array. So this array based solution"
+    },
+    {
+      "index": 19,
+      "start_time": 81022.0,
+      "end_time": 87014.0,
+      "text": "would work great, even if your friends change over time, you gain some here you"
+    },
+    {
+      "index": 20,
+      "start_time": 87014.0,
+      "end_time": 92060.0,
+      "text": "lose some there, as long as all your friends names happen to be integers"
+    },
+    {
+      "index": 21,
+      "start_time": 92060.0,
+      "end_time": 97081.0,
+      "text": "between 1-10,000. Now, of course, your friends have more interesting names:"
+    },
+    {
+      "index": 22,
+      "start_time": 97081.0,
+      "end_time": 102044.0,
+      "text": "Alice, Bob, Carol, whatever. And last names as well. So in principal you could"
+    },
+    {
+      "index": 23,
+      "start_time": 102044.0,
+      "end_time": 107023.0,
+      "text": "have an array with one position in the array for every conceivable name you might"
+    },
+    {
+      "index": 24,
+      "start_time": 107023.0,
+      "end_time": 112001.0,
+      "text": "encounter, with at least 30 letters set. But of course this array would be way too"
+    },
+    {
+      "index": 25,
+      "start_time": 112001.0,
+      "end_time": 116091.0,
+      "text": "big. It would be something like 26 raised to the thirtieth power and you could never"
+    },
+    {
+      "index": 26,
+      "start_time": 116091.0,
+      "end_time": 121063.0,
+      "text": "implement it. So what you&#39;d really want is you&#39;d want an array of reasonable size,"
+    },
+    {
+      "index": 27,
+      "start_time": 121063.0,
+      "end_time": 126001.0,
+      "text": "say, you know ballpark the number of friends that you&#39;d ever have, so say in"
+    },
+    {
+      "index": 28,
+      "start_time": 126001.0,
+      "end_time": 130062.0,
+      "text": "the thousands or something, where it&#39;s positions are indexed not by the numbers,"
+    },
+    {
+      "index": 29,
+      "start_time": 130062.00000000001,
+      "end_time": 136012.0,
+      "text": "not integers. [inaudible] Between one and 10,000, but rather by your friends Names"
+    },
+    {
+      "index": 30,
+      "start_time": 136012.0,
+      "end_time": 140050.0,
+      "text": "And what you&#39;d like to do is you&#39;d like to have random access to this array based on"
+    },
+    {
+      "index": 31,
+      "start_time": 140050.0,
+      "end_time": 144064.0,
+      "text": "your friend&#39;s name. So you just look up the quote unquote Alice position of this"
+    },
+    {
+      "index": 32,
+      "start_time": 144064.0,
+      "end_time": 148069.0,
+      "text": "array and. Boom, there would be Alice&#39;s phone number in constant time. And this,"
+    },
+    {
+      "index": 33,
+      "start_time": 148069.0,
+      "end_time": 152097.0,
+      "text": "on a conceptual level is basically what a hash table, can do for you. So there&#39;s a"
+    },
+    {
+      "index": 34,
+      "start_time": 152097.0,
+      "end_time": 157025.0,
+      "text": "lot of magic happening under the hood of a hash table and that&#39;s something we&#39;ll"
+    },
+    {
+      "index": 35,
+      "start_time": 157025.0,
+      "end_time": 161069.0,
+      "text": "discuss to some extent in other videos. So you have to have this mapping between the"
+    },
+    {
+      "index": 36,
+      "start_time": 161069.0,
+      "end_time": 165076.0,
+      "text": "keys that you care about, like your friends&#39; names, and, numerical positions"
+    },
+    {
+      "index": 37,
+      "start_time": 165076.0,
+      "end_time": 169056.0,
+      "text": "of some array. That&#39;s done by what&#39;s called a hash function, but properly"
+    },
+    {
+      "index": 38,
+      "start_time": 169056.0,
+      "end_time": 173042.0,
+      "text": "implemented, this is the kind of functionality that hash tables gives you,"
+    },
+    {
+      "index": 39,
+      "start_time": 173042.0,
+      "end_time": 177049.0,
+      "text": "So like an array with its positions indexed by the keys that you&#39;re storing."
+    },
+    {
+      "index": 40,
+      "start_time": 177049.0,
+      "end_time": 183026.0,
+      "text": "So you can think of the purpose of the hash table as to maintain a possibly"
+    },
+    {
+      "index": 41,
+      "start_time": 183026.0,
+      "end_time": 187099.0,
+      "text": "evolving set of stuff. Where of course the set of things that you&#39;re maintaining, you"
+    },
+    {
+      "index": 42,
+      "start_time": 187099.0,
+      "end_time": 192009.0,
+      "text": "know, will vary with the application. It can be any number of things. So if you&#39;re"
+    },
+    {
+      "index": 43,
+      "start_time": 192009.0,
+      "end_time": 195088.0,
+      "text": "running an e-commerce website, maybe you&#39;re keeping track of transactions. You"
+    },
+    {
+      "index": 44,
+      "start_time": 195088.0,
+      "end_time": 199093.0,
+      "text": "know, again, maybe you&#39;re keeping track of people, like for example, your friends and"
+    },
+    {
+      "index": 45,
+      "start_time": 199093.0,
+      "end_time": 203063.0,
+      "text": "various data about them. So maybe you&#39;re keeping track of I-P addresses, for"
+    },
+    {
+      "index": 46,
+      "start_time": 203063.0,
+      "end_time": 207062.0,
+      "text": "example if you wanna know, who was, were there unique visitors to your websites."
+    },
+    {
+      "index": 47,
+      "start_time": 207062.0,
+      "end_time": 211091.0,
+      "text": "And so on. So a little bit more formally, you know, the basic operations, you need"
+    },
+    {
+      "index": 48,
+      "start_time": 211091.0,
+      "end_time": 216021.0,
+      "text": "to be able to insert stuff into a hash table. In many, but not all applications,"
+    },
+    {
+      "index": 49,
+      "start_time": 216021.0,
+      "end_time": 220061.0,
+      "text": "you need to be able to delete stuff as well. And typically the most important"
+    },
+    {
+      "index": 50,
+      "start_time": 220061.0,
+      "end_time": 225053.0,
+      "text": "operation is look-up. And for all these three operation you do it in a key based"
+    },
+    {
+      "index": 51,
+      "start_time": 225053.0,
+      "end_time": 229015.0,
+      "text": "way. Where as usual a key should just be a unique identifier for the record that"
+    },
+    {
+      "index": 52,
+      "start_time": 229015.0,
+      "end_time": 232057.0,
+      "text": "you&#39;re concerned with. So, for example, for employees you might be using social"
+    },
+    {
+      "index": 53,
+      "start_time": 232057.0,
+      "end_time": 236013.0,
+      "text": "security numbers. For transactions you might have a transaction ID number. And"
+    },
+    {
+      "index": 54,
+      "start_time": 236013.0,
+      "end_time": 239078.0,
+      "text": "then IP addresses could act as their own key. And so sometimes all you&#39;re doing is"
+    },
+    {
+      "index": 55,
+      "start_time": 239078.0,
+      "end_time": 243025.0,
+      "text": "keeping track of the keys themselves. So, for example, in IP addresses, maybe you"
+    },
+    {
+      "index": 56,
+      "start_time": 243025.0,
+      "end_time": 246050.0,
+      "text": "just want to remember a list of IP addresses. You don&#39;t actually have any"
+    },
+    {
+      "index": 57,
+      "start_time": 246050.0,
+      "end_time": 250006.0,
+      "text": "associated data but in many applications, you know, along with the key, is a bunch"
+    },
+    {
+      "index": 58,
+      "start_time": 250006.0,
+      "end_time": 253022.0,
+      "text": "of other stuff. So along with the employee&#39;s social security number, you"
+    },
+    {
+      "index": 59,
+      "start_time": 253022.0,
+      "end_time": 256096.0,
+      "text": "gotta remember a bunch of other data about that employee. But when you do the insert,"
+    },
+    {
+      "index": 60,
+      "start_time": 256096.0,
+      "end_time": 260056.0,
+      "text": "when you do the delete, when you do the look up, you do it based. On this key, and"
+    },
+    {
+      "index": 61,
+      "start_time": 260055.99999999997,
+      "end_time": 264075.0,
+      "text": "then for example, on look up you feed the key into the hash table and the hash table"
+    },
+    {
+      "index": 62,
+      "start_time": 264075.0,
+      "end_time": 268055.0,
+      "text": "will spit back out all of the data associated with that key. We sometimes"
+    },
+    {
+      "index": 63,
+      "start_time": 268055.0,
+      "end_time": 272087.0,
+      "text": "hear people refer to data structures that support these operations as a dictionary."
+    },
+    {
+      "index": 64,
+      "start_time": 272087.0,
+      "end_time": 277018.0,
+      "text": "So the main thing the hash table is meant to support is look up in the spirit of a"
+    },
+    {
+      "index": 65,
+      "start_time": 277018.0,
+      "end_time": 281025.0,
+      "text": "dictionary. I find that terminology a little misleading actually. You know, most"
+    },
+    {
+      "index": 66,
+      "start_time": 281025.0,
+      "end_time": 285002.0,
+      "text": "dictionaries that you&#39;ll find are in alphabetical order. So they&#39;ll support"
+    },
+    {
+      "index": 67,
+      "start_time": 285002.0,
+      "end_time": 289004.0,
+      "text": "something like binary search. And I want to emphasis something a hash table does"
+    },
+    {
+      "index": 68,
+      "start_time": 289004.0,
+      "end_time": 292091.0,
+      "text": "not do is maintain an ordering on the elements that it supports. So if you&#39;re"
+    },
+    {
+      "index": 69,
+      "start_time": 292091.0,
+      "end_time": 296092.0,
+      "text": "storing stuff and you do want to have order based operations, you wanna find the"
+    },
+    {
+      "index": 70,
+      "start_time": 296092.0,
+      "end_time": 300084.0,
+      "text": "minimum or the maximum, or something like that, a hash table&#39;s probably not the"
+    },
+    {
+      "index": 71,
+      "start_time": 300084.0,
+      "end_time": 304068.0,
+      "text": "right data structure. You want something more. You wanna look at a heap or you"
+    },
+    {
+      "index": 72,
+      "start_time": 304068.0,
+      "end_time": 308067.0,
+      "text": "wanna look at a, a search tree. But for applications in which all you have to do"
+    },
+    {
+      "index": 73,
+      "start_time": 308067.0,
+      "end_time": 312086.0,
+      "text": "is basically look stuff up you gotta, you gotta know what&#39;s there and what&#39;s not,"
+    },
+    {
+      "index": 74,
+      "start_time": 312086.0,
+      "end_time": 316090.0,
+      "text": "then there should be a light bulb that goes off in your head. And you can say,"
+    },
+    {
+      "index": 75,
+      "start_time": 316090.0,
+      "end_time": 320089.0,
+      "text": "let me consider a hash table, that&#39;s probably the perfect data structure for"
+    },
+    {
+      "index": 76,
+      "start_time": 320089.0,
+      "end_time": 325004.0,
+      "text": "this application. Now, looking at this menu-supported operations, you may be left"
+    },
+    {
+      "index": 77,
+      "start_time": 325004.0,
+      "end_time": 329008.0,
+      "text": "kinda unimpressed. Alright, so a hash table, in some sense, doesn&#39;t do that many"
+    },
+    {
+      "index": 78,
+      "start_time": 329008.0,
+      "end_time": 333001.0,
+      "text": "things; but again, what it does, it does really, really well. So, to first order."
+    },
+    {
+      "index": 79,
+      "start_time": 333001.0,
+      "end_time": 337024.0,
+      "text": "What hash tables give you is the following amazing guarantee. All of these operations"
+    },
+    {
+      "index": 80,
+      "start_time": 337024.0,
+      "end_time": 341042.0,
+      "text": "run in constant time. And again this is in the spirit of thinking of a hash table as"
+    },
+    {
+      "index": 81,
+      "start_time": 341042.0,
+      "end_time": 345044.0,
+      "text": "just like an array. Where its positions are conveniently indexed by your keys, So"
+    },
+    {
+      "index": 82,
+      "start_time": 345044.0,
+      "end_time": 349032.0,
+      "text": "just like an array supports random access in constant time, you can see if, you"
+    },
+    {
+      "index": 83,
+      "start_time": 349032.0,
+      "end_time": 353000.0,
+      "text": "know, there&#39;s anything in the array position, and what it is. As similarly a"
+    },
+    {
+      "index": 84,
+      "start_time": 353000.0,
+      "end_time": 357006.0,
+      "text": "hash table will let you look up based on the key in constant time. So what is the"
+    },
+    {
+      "index": 85,
+      "start_time": 357006.0,
+      "end_time": 361007.0,
+      "text": "fine print? Well, there&#39;s basically two caveats. So the first thing is that hash"
+    },
+    {
+      "index": 86,
+      "start_time": 361007.0,
+      "end_time": 365039.0,
+      "text": "tables are easy to implement badly. And if you implement them badly you will not get"
+    },
+    {
+      "index": 87,
+      "start_time": 365039.0,
+      "end_time": 369051.0,
+      "text": "this guarantee. So this guarantee is for properly implemented hash tables. Now, of"
+    },
+    {
+      "index": 88,
+      "start_time": 369051.0,
+      "end_time": 373078.0,
+      "text": "course if you&#39;re just using a hash table from a well known library, it&#39;s probably a"
+    },
+    {
+      "index": 89,
+      "start_time": 373078.0,
+      "end_time": 377094.0,
+      "text": "pretty good assumption that it&#39;s properly implemented. You&#39;d hope. But in the event"
+    },
+    {
+      "index": 90,
+      "start_time": 377094.0,
+      "end_time": 381089.0,
+      "text": "that you&#39;re forced to come up with your own hash table and your own hash function"
+    },
+    {
+      "index": 91,
+      "start_time": 381089.0,
+      "end_time": 385046.0,
+      "text": "and unlike many of the other data structures we&#39;ll talk about, some of you"
+    },
+    {
+      "index": 92,
+      "start_time": 385046.0,
+      "end_time": 389046.0,
+      "text": "probably will have to do that at some point in your career. Then you&#39;ll get this"
+    },
+    {
+      "index": 93,
+      "start_time": 389046.0,
+      "end_time": 393060.0,
+      "text": "guarantee only if you implement it well. And we&#39;ll talk about exactly what that"
+    },
+    {
+      "index": 94,
+      "start_time": 393060.0,
+      "end_time": 397066.0,
+      "text": "means in other videos. So the second caveat is that, unlike most of the"
+    },
+    {
+      "index": 95,
+      "start_time": 397066.0,
+      "end_time": 402015.0,
+      "text": "problems that we&#39;ve solved in this course, hash tables don&#39;t enjoy worst case"
+    },
+    {
+      "index": 96,
+      "start_time": 402015.0,
+      "end_time": 406070.0,
+      "text": "guarantees. You cannot say for a given hash table that for every possible data"
+    },
+    {
+      "index": 97,
+      "start_time": 406070.0,
+      "end_time": 411043.0,
+      "text": "set you&#39;re gonna get cost and time. What&#39;s true is that for non-pathological data,"
+    },
+    {
+      "index": 98,
+      "start_time": 411043.0,
+      "end_time": 416026.0,
+      "text": "you will get cost and time operations in a properly implemented hash table. So we&#39;ll"
+    },
+    {
+      "index": 99,
+      "start_time": 416026.0,
+      "end_time": 420054.0,
+      "text": "talk about both of these issues a bit more in other videos, but for now just high"
+    },
+    {
+      "index": 100,
+      "start_time": 420054.0,
+      "end_time": 424036.0,
+      "text": "order bits are, you know, hash tables, constant time performance, subject to a"
+    },
+    {
+      "index": 101,
+      "start_time": 424036.0,
+      "end_time": 428018.0,
+      "text": "couple of caveats. So now that I&#39;ve covered the operations that hash tables"
+    },
+    {
+      "index": 102,
+      "start_time": 428018.0,
+      "end_time": 432016.0,
+      "text": "support and the recommend way to think about them, let&#39;s turn our attention to"
+    },
+    {
+      "index": 103,
+      "start_time": 432016.0,
+      "end_time": 435077.0,
+      "text": "some applications. All of these applications are gonna be in some sense,"
+    },
+    {
+      "index": 104,
+      "start_time": 435077.0,
+      "end_time": 439039.0,
+      "text": "you know, kinda trivial uses of hash tables, but they&#39;re also all really"
+    },
+    {
+      "index": 105,
+      "start_time": 439039.0,
+      "end_time": 443050.0,
+      "text": "practical. These come up all the time. So the first application we&#39;ll discuss, which"
+    },
+    {
+      "index": 106,
+      "start_time": 443050.0,
+      "end_time": 447011.0,
+      "text": "again is a conical one, is removing duplicates from a bunch of stuff, Also"
+    },
+    {
+      "index": 107,
+      "start_time": 447011.0,
+      "end_time": 451023.0,
+      "text": "known as the deduplication problem. So in the De-duplication problem, the input is"
+    },
+    {
+      "index": 108,
+      "start_time": 451023.0,
+      "end_time": 455039.0,
+      "text": "essentially a stream of objects. Where, when I say a stream I have kinda, you know"
+    },
+    {
+      "index": 109,
+      "start_time": 455039.0,
+      "end_time": 459086.0,
+      "text": "two different things in mind as canonical examples. So first of all you can imagine"
+    },
+    {
+      "index": 110,
+      "start_time": 459086.0,
+      "end_time": 463097.0,
+      "text": "you have a huge file. So you have, you know, a log of everything that happened on"
+    },
+    {
+      "index": 111,
+      "start_time": 463097.0,
+      "end_time": 468049.0,
+      "text": "some website you&#39;re running. Or all of the transactions that were made in a store on"
+    },
+    {
+      "index": 112,
+      "start_time": 468049.0,
+      "end_time": 472076.0,
+      "text": "some day, And you do a pass through this huge file. So you&#39;re just in the middle of"
+    },
+    {
+      "index": 113,
+      "start_time": 472076.0,
+      "end_time": 476079.0,
+      "text": "some outer for loop going line by line through this massive file. The other"
+    },
+    {
+      "index": 114,
+      "start_time": 476079.0,
+      "end_time": 480071.0,
+      "text": "example of a stream that I had in mind, is, where you&#39;re getting new data over"
+    },
+    {
+      "index": 115,
+      "start_time": 480071.0,
+      "end_time": 484053.0,
+      "text": "time. So here, you might imagine that you&#39;re running software to be deployed on"
+    },
+    {
+      "index": 116,
+      "start_time": 484053.0,
+      "end_time": 488050.0,
+      "text": "an internet router. And data packets are coming through this router at a constant"
+    },
+    {
+      "index": 117,
+      "start_time": 488050.0,
+      "end_time": 492043.0,
+      "text": "extremely fast rate. And so you might be looking at, say, the IP addresses and the"
+    },
+    {
+      "index": 118,
+      "start_time": 492043.0,
+      "end_time": 496045.0,
+      "text": "sender, and use your data packet which is going through your router. So it would be"
+    },
+    {
+      "index": 119,
+      "start_time": 496045.0,
+      "end_time": 500022.0,
+      "text": "another example of a stream of objects. And now, what do you gotta do? What you"
+    },
+    {
+      "index": 120,
+      "start_time": 500022.0,
+      "end_time": 503085.0,
+      "text": "gotta do is you gotta ignore the duplicates. So remember just the distinct"
+    },
+    {
+      "index": 121,
+      "start_time": 503085.0,
+      "end_time": 507093.0,
+      "text": "objects that you see in this stream. And I hope you find it easy to imagine why you"
+    },
+    {
+      "index": 122,
+      "start_time": 507093.0,
+      "end_time": 511069.0,
+      "text": "might want to do this task in various applications. So, for example, if you&#39;re"
+    },
+    {
+      "index": 123,
+      "start_time": 511069.0,
+      "end_time": 515069.0,
+      "text": "running a website you might want to keep track of the distinct visitors that you"
+    },
+    {
+      "index": 124,
+      "start_time": 515068.99999999994,
+      "end_time": 519048.99999999994,
+      "text": "ever saw in a given day or a given week. If you&#39;re doing something like a web"
+    },
+    {
+      "index": 125,
+      "start_time": 519049.0,
+      "end_time": 523024.0,
+      "text": "crawl, you might want to identify duplicate documents and only remember them"
+    },
+    {
+      "index": 126,
+      "start_time": 523024.0,
+      "end_time": 526095.0,
+      "text": "once. So, for example, it would be annoying if in search results both the top"
+    },
+    {
+      "index": 127,
+      "start_time": 526095.0,
+      "end_time": 530070.0,
+      "text": "link and the second link both led to identical pages at different URLs, okay,"
+    },
+    {
+      "index": 128,
+      "start_time": 530070.0,
+      "end_time": 534077.0,
+      "text": "so search engines obviously want to avoid that, so you want to detect duplicate web"
+    },
+    {
+      "index": 129,
+      "start_time": 534077.0,
+      "end_time": 540095.0,
+      "text": "pages and only report unique ones. And the solution using a hash table is laughably"
+    },
+    {
+      "index": 130,
+      "start_time": 540095.0,
+      "end_time": 546051.0,
+      "text": "simple. So every time a new object arrives in the stream, you look it up. If it?s"
+    },
+    {
+      "index": 131,
+      "start_time": 546051.0,
+      "end_time": 551079.0,
+      "text": "there, then it?s a duplicate and you ignore it. If it?s not there, then this is"
+    },
+    {
+      "index": 132,
+      "start_time": 551079.0,
+      "end_time": 556064.0,
+      "text": "a new object and you remember it. Qed, that&#39;s it. And so then after the string"
+    },
+    {
+      "index": 133,
+      "start_time": 556064.0,
+      "end_time": 561000.0,
+      "text": "completes, so for example after you finish reading some huge file, if you just want"
+    },
+    {
+      "index": 134,
+      "start_time": 561000.0,
+      "end_time": 565040.0,
+      "text": "to report all of the unique objects, hash tables generally support a linear scan"
+    },
+    {
+      "index": 135,
+      "start_time": 565040.0,
+      "end_time": 570007.0,
+      "text": "through them and you can just report all of the distinct objects when this stream"
+    },
+    {
+      "index": 136,
+      "start_time": 570007.0,
+      "end_time": 574037.0,
+      "text": "finishes. So let&#39;s move on to a second application slightly less trivial maybe"
+    },
+    {
+      "index": 137,
+      "start_time": 574037.0,
+      "end_time": 578040.0,
+      "text": "but still quite easy, and this is the subject of Programming Projects number"
+    },
+    {
+      "index": 138,
+      "start_time": 578040.0,
+      "end_time": 583041.0,
+      "text": "five. So this is a problem called the two sum problem. You&#39;re given as input an"
+    },
+    {
+      "index": 139,
+      "start_time": 583041.0,
+      "end_time": 588048.0,
+      "text": "array of N number. These images are in no particular order. You&#39;re also given a"
+    },
+    {
+      "index": 140,
+      "start_time": 588048.0,
+      "end_time": 593054.0,
+      "text": "target sum, which I&#39;ll call T. And what you want to know is are there two integers"
+    },
+    {
+      "index": 141,
+      "start_time": 593054.0,
+      "end_time": 598044.0,
+      "text": "from amongst these N you are given that sum to T. Now the most obvious and naive"
+    },
+    {
+      "index": 142,
+      "start_time": 598044.0,
+      "end_time": 603033.0,
+      "text": "way to solve this problem is just to go over all N, choose two pairs of integers"
+    },
+    {
+      "index": 143,
+      "start_time": 603033.0,
+      "end_time": 607080.0,
+      "text": "in the input, and check each one separately. So that&#39;s clearly a quadratic"
+    },
+    {
+      "index": 144,
+      "start_time": 607080.0,
+      "end_time": 612053.0,
+      "text": "time algorithm. But now, of course, we need to ask, can we do better? And, yes,"
+    },
+    {
+      "index": 145,
+      "start_time": 612053.0,
+      "end_time": 616099.0,
+      "text": "we can. And first of all let&#39;s see what you&#39;d do if you couldn&#39;t use any data"
+    },
+    {
+      "index": 146,
+      "start_time": 616099.0,
+      "end_time": 621085.0,
+      "text": "structures. So if you were clever, but you didn&#39;t use any data structures like a hash"
+    },
+    {
+      "index": 147,
+      "start_time": 621085.0,
+      "end_time": 625096.0,
+      "text": "table, here would be a reasonable improvement over the naive one. So the"
+    },
+    {
+      "index": 148,
+      "start_time": 625096.0,
+      "end_time": 630082.0,
+      "text": "first step of a better solution is to sort A upfront, For example, using word sort or"
+    },
+    {
+      "index": 149,
+      "start_time": 630082.0,
+      "end_time": 635038.0,
+      "text": "heap sort, something that runs in end log and time. So you may be asking about the"
+    },
+    {
+      "index": 150,
+      "start_time": 635038.0,
+      "end_time": 639061.0,
+      "text": "motivation for sorting. Well, again, you know, one thing is just, you know whenever"
+    },
+    {
+      "index": 151,
+      "start_time": 639061.0,
+      "end_time": 643096.0,
+      "text": "you&#39;re trying to do better than N squared; you might think that sorting your data"
+    },
+    {
+      "index": 152,
+      "start_time": 643096.0,
+      "end_time": 648014.0,
+      "text": "somehow helps. Right and you can sort of do it almost for free in N log N time."
+    },
+    {
+      "index": 153,
+      "start_time": 648014.0,
+      "end_time": 652048.0,
+      "text": "Now, why would sorting the array up front help us? Well, then the clever insight is"
+    },
+    {
+      "index": 154,
+      "start_time": 652048.0,
+      "end_time": 656067.0,
+      "text": "that for each entry of the array a, say the first entry, now we know what we&#39;re"
+    },
+    {
+      "index": 155,
+      "start_time": 656067.0,
+      "end_time": 661007.0,
+      "text": "looking for to achieve this given target, right. If the target that we&#39;re trying to"
+    },
+    {
+      "index": 156,
+      "start_time": 661007.0,
+      "end_time": 665025.0,
+      "text": "get to is summed to 100 and the first entry in the sorted array is 43, then we"
+    },
+    {
+      "index": 157,
+      "start_time": 665025.0,
+      "end_time": 669056.0,
+      "text": "know we&#39;re looking for a 57 somewhere else in. This now sorted array. And we know"
+    },
+    {
+      "index": 158,
+      "start_time": 669056.0,
+      "end_time": 673091.0,
+      "text": "that searching a sorted array is pretty easy, right. That just binary search. That"
+    },
+    {
+      "index": 159,
+      "start_time": 673091.0,
+      "end_time": 678073.0,
+      "text": "just takes logarithmic time. So for each of the n array entries, we can look for a"
+    },
+    {
+      "index": 160,
+      "start_time": 678073.0,
+      "end_time": 683083.0,
+      "text": "complementary. Entry, namely of reach X we can look for T - X using binary search."
+    },
+    {
+      "index": 161,
+      "start_time": 683083.0,
+      "end_time": 688080.0,
+      "text": "And to use binary search takes log N time. So the sorting upfront speeds up this"
+    },
+    {
+      "index": 162,
+      "start_time": 688080.0,
+      "end_time": 693038.0,
+      "text": "entire batch of N searches. So that&#39;s why it&#39;s a win. So, in the second step,"
+    },
+    {
+      "index": 163,
+      "start_time": 693038.0,
+      "end_time": 697089.0,
+      "text": "because we do a linear number of binary searches, again, this is just n, the"
+    },
+    {
+      "index": 164,
+      "start_time": 697089.0,
+      "end_time": 702083.0,
+      "text": "number of searches, times log-n, the time per search. So, this is just another theta"
+    },
+    {
+      "index": 165,
+      "start_time": 702083.0,
+      "end_time": 708036.0,
+      "text": "of N log N factor. Alright, so that&#39;s pretty cool. You, I don&#39;t think you could"
+    },
+    {
+      "index": 166,
+      "start_time": 708036.0,
+      "end_time": 711010.0,
+      "text": "come up with this N log N solution without having some basic, facility with"
+    },
+    {
+      "index": 167,
+      "start_time": 711010.0,
+      "end_time": 715043.0,
+      "text": "algorithms. This is already a really nice improvement over the naive N squared. But"
+    },
+    {
+      "index": 168,
+      "start_time": 715043.0,
+      "end_time": 719055.0,
+      "text": "we can do even better. It is no reason we&#39;re stuck with an N log N lower bound"
+    },
+    {
+      "index": 169,
+      "start_time": 719055.0,
+      "end_time": 723072.0,
+      "text": "for the [inaudible] problem. Obviously, because the array is unsorted, we have to"
+    },
+    {
+      "index": 170,
+      "start_time": 723072.0,
+      "end_time": 727083.0,
+      "text": "look at all the integers. So we&#39;re not gonna do better than linear time. But we"
+    },
+    {
+      "index": 171,
+      "start_time": 727083.0,
+      "end_time": 732040.0,
+      "text": "can do linear time via a hash table. So a good question you might ask at this point"
+    },
+    {
+      "index": 172,
+      "start_time": 732040.0,
+      "end_time": 736087.0,
+      "text": "is what&#39;s the clue about this problem, about this task that suggests we want to"
+    },
+    {
+      "index": 173,
+      "start_time": 736087.0,
+      "end_time": 741017.0,
+      "text": "use a hash table. Well, so hash tables are going to dramatically speed up any"
+    },
+    {
+      "index": 174,
+      "start_time": 741017.0,
+      "end_time": 745087.0,
+      "text": "application where the bulk of the word is just repeated look-ups. And if we examine"
+    },
+    {
+      "index": 175,
+      "start_time": 745087.0,
+      "end_time": 750046.0,
+      "text": "this n log n solution, once we have this idea of doing a search for T minus X for"
+    },
+    {
+      "index": 176,
+      "start_time": 750046.0,
+      "end_time": 755005.0,
+      "text": "each value of X, we realize actually, you know, the only thing we needed the sorted"
+    },
+    {
+      "index": 177,
+      "start_time": 755005.0,
+      "end_time": 759064.0,
+      "text": "array for was to support look-ups. That&#39;s all binary search here is doing, is just"
+    },
+    {
+      "index": 178,
+      "start_time": 759064.0,
+      "end_time": 764002.0,
+      "text": "looking stuff up. So we say, ah-ha. All of the work here in step two is from repeated"
+    },
+    {
+      "index": 179,
+      "start_time": 764002.0,
+      "end_time": 767085.0,
+      "text": "look-ups. We&#39;re paying an exorbitant relatively, logarithm per amount of time"
+    },
+    {
+      "index": 180,
+      "start_time": 767085.0,
+      "end_time": 771053.0,
+      "text": "per look-up, whereas hash tables can do them in cost and time. So, repeated"
+    },
+    {
+      "index": 181,
+      "start_time": 771053.0,
+      "end_time": 775036.0,
+      "text": "look-ups, ding, ding, ding, let&#39;s use a hash table; and indeed that&#39;s what gives"
+    },
+    {
+      "index": 182,
+      "start_time": 775036.0,
+      "end_time": 779034.0,
+      "text": "us linear time in this problem. So from the amazing guarantee of hash tables, we"
+    },
+    {
+      "index": 183,
+      "start_time": 779034.0,
+      "end_time": 783052.0,
+      "text": "get the following amazing solution for the true [inaudible] problem, although again"
+    },
+    {
+      "index": 184,
+      "start_time": 783052.0,
+      "end_time": 787015.0,
+      "text": "this is subject to the same fine print about you better use it properly"
+    },
+    {
+      "index": 185,
+      "start_time": 787015.0,
+      "end_time": 791019.0,
+      "text": "implemented hash table and you better not have pathological data. So rather than"
+    },
+    {
+      "index": 186,
+      "start_time": 791019.0,
+      "end_time": 795028.0,
+      "text": "sorting, you just insert everything in the array into a hash table. So insertions"
+    },
+    {
+      "index": 187,
+      "start_time": 795028.0,
+      "end_time": 799042.0,
+      "text": "cost time. So this is gonna be linear time rather than the end log [inaudible] we"
+    },
+    {
+      "index": 188,
+      "start_time": 799042.0,
+      "end_time": 803095.0,
+      "text": "were paying before. Once all the stuff is in the hash table, we just do the same"
+    },
+    {
+      "index": 189,
+      "start_time": 803095.0,
+      "end_time": 808080.0,
+      "text": "thing as in the n log-n solution. For each x in the array, we look for its matching"
+    },
+    {
+      "index": 190,
+      "start_time": 808080.0,
+      "end_time": 813065.0,
+      "text": "elements, t-x in the hash table using the cost and time look-up operation exported"
+    },
+    {
+      "index": 191,
+      "start_time": 813065.0,
+      "end_time": 818050.0,
+      "text": "by the hash table. And of course if for some X, you do find the matching element T"
+    },
+    {
+      "index": 192,
+      "start_time": 818050.0,
+      "end_time": 823043.0,
+      "text": "minus X. Then you can just report X and T minus X. That proves that there is indeed"
+    },
+    {
+      "index": 193,
+      "start_time": 823043.0,
+      "end_time": 828048.0,
+      "text": "a pair of integers of target sum T. If for every single element of the input array A,"
+    },
+    {
+      "index": 194,
+      "start_time": 828048.0,
+      "end_time": 833035.0,
+      "text": "you fail to find this matching element T minus X in the hash table. Then, for sure"
+    },
+    {
+      "index": 195,
+      "start_time": 833035.0,
+      "end_time": 838040.0,
+      "text": "there is no pair of integers in the input that sums to T. So this solves the problem"
+    },
+    {
+      "index": 196,
+      "start_time": 838040.0,
+      "end_time": 842079.0,
+      "text": "correctly. Moreover, constant time insertion, so that means this first step"
+    },
+    {
+      "index": 197,
+      "start_time": 842079.0,
+      "end_time": 847098.0,
+      "text": "is going to be O of end time. And constant time look-up. So that means that the"
+    },
+    {
+      "index": 198,
+      "start_time": 847098.0,
+      "end_time": 852072.0,
+      "text": "second step is also gonna be linear time. That leaves subjects to the caveats that"
+    },
+    {
+      "index": 199,
+      "start_time": 852072.0,
+      "end_time": 857027.0,
+      "text": "we discussed on the previous slide. So it&#39;s kind of amazing how many different"
+    },
+    {
+      "index": 200,
+      "start_time": 857027.0,
+      "end_time": 861093.0,
+      "text": "applications of computer science boil down in their essence to repeated look up"
+    },
+    {
+      "index": 201,
+      "start_time": 861093.0,
+      "end_time": 866071.0,
+      "text": "operations. Therefore, having a super fast look up operation, like that supported by"
+    },
+    {
+      "index": 202,
+      "start_time": 866071.0,
+      "end_time": 871043.0,
+      "text": "a hash table, permits these applications to scale to fantastic sizes. It&#39;s really"
+    },
+    {
+      "index": 203,
+      "start_time": 871043.0,
+      "end_time": 875074.0,
+      "text": "amazing, and it drives a lot of modern technology. So let me just mention a"
+    },
+    {
+      "index": 204,
+      "start_time": 875074.0,
+      "end_time": 880034.0,
+      "text": "couple examples. Again, if you look around or do some research on the web, you&#39;ll"
+    },
+    {
+      "index": 205,
+      "start_time": 880034.0,
+      "end_time": 884069.0,
+      "text": "quickly find many more. So originally what prompted researchers to think hard about"
+    },
+    {
+      "index": 206,
+      "start_time": 884069.0,
+      "end_time": 888075.0,
+      "text": "data structures that support super fast look ups, was back when people were first"
+    },
+    {
+      "index": 207,
+      "start_time": 888075.0,
+      "end_time": 892071.0,
+      "text": "building compilers. So this is a long time ago. This is in the fifties or so. And"
+    },
+    {
+      "index": 208,
+      "start_time": 892071.0,
+      "end_time": 896076.0,
+      "text": "these repeated look ups to figure out, you know, what has and has not been defined"
+    },
+    {
+      "index": 209,
+      "start_time": 896076.0,
+      "end_time": 900087.0,
+      "text": "before was, was emerging as a bottleneck in compilers. Back in the early days of"
+    },
+    {
+      "index": 210,
+      "start_time": 900087.0,
+      "end_time": 905023.0,
+      "text": "programming languages. And that was one of the early applications of hash tables. Was"
+    },
+    {
+      "index": 211,
+      "start_time": 905023.0,
+      "end_time": 909024.0,
+      "text": "to support super fast look ups to speed up compile time. To keep track of the"
+    },
+    {
+      "index": 212,
+      "start_time": 909024.0,
+      "end_time": 913090.0,
+      "text": "function of variable names and things like that. Hash table technology is also super"
+    },
+    {
+      "index": 213,
+      "start_time": 913090.0,
+      "end_time": 918027.0,
+      "text": "useful for software on routers in the Internet. So, for example, you might want"
+    },
+    {
+      "index": 214,
+      "start_time": 918027.0,
+      "end_time": 921061.0,
+      "text": "to block network traffic from certain sources. So, for example, maybe you"
+    },
+    {
+      "index": 215,
+      "start_time": 921061.0,
+      "end_time": 925061.0,
+      "text": "suspect that a certain IP address has been taken over by spammers and so any traffic"
+    },
+    {
+      "index": 216,
+      "start_time": 925061.0,
+      "end_time": 929057.0,
+      "text": "coming from that IP address you just want to ignore. And you don&#39;t wanna even let it"
+    },
+    {
+      "index": 217,
+      "start_time": 929057.0,
+      "end_time": 933034.0,
+      "text": "get to the end host, to the computer on someone&#39;s desktop, or to someone&#39;s mobile"
+    },
+    {
+      "index": 218,
+      "start_time": 933034.0,
+      "end_time": 937020.0,
+      "text": "device but rather inside the internet. You wanna just drop packets that are coming"
+    },
+    {
+      "index": 219,
+      "start_time": 937020.0,
+      "end_time": 941001.0,
+      "text": "certain, certain centers. So what is that problem boil down to? Well, you might have"
+    },
+    {
+      "index": 220,
+      "start_time": 941001.0,
+      "end_time": 944083.0,
+      "text": "a blacklist of IP addresses that you&#39;re refusing traffic from and then the tasks"
+    },
+    {
+      "index": 221,
+      "start_time": 944083.0,
+      "end_time": 948059.0,
+      "text": "faced by the router is really the look up problem. So if data packet comes in at"
+    },
+    {
+      "index": 222,
+      "start_time": 948059.0,
+      "end_time": 952050.0,
+      "text": "some insanely fast data rate, and when you wanna. You immediately, just look up, is"
+    },
+    {
+      "index": 223,
+      "start_time": 952050.0,
+      "end_time": 956080.0,
+      "text": "this in the blacklist or not, and if it is in the blacklist then you drop the packet,"
+    },
+    {
+      "index": 224,
+      "start_time": 956080.0,
+      "end_time": 961066.0,
+      "text": "if it?s not, then you let it go through. So a very different application is for"
+    },
+    {
+      "index": 225,
+      "start_time": 961066.0,
+      "end_time": 966057.0,
+      "text": "speeding up search algorithms. And when I say a search algorithm, what I&#39;m thinking"
+    },
+    {
+      "index": 226,
+      "start_time": 966057.0,
+      "end_time": 970047.0,
+      "text": "about here is something like a chess playing program. So something that does"
+    },
+    {
+      "index": 227,
+      "start_time": 970047.0,
+      "end_time": 974056.0,
+      "text": "game tree exploration. So we&#39;ve already talked a fair amount about graph search in"
+    },
+    {
+      "index": 228,
+      "start_time": 974056.0,
+      "end_time": 978032.0,
+      "text": "this class, but in our discussion of breadth first and depth first search, we"
+    },
+    {
+      "index": 229,
+      "start_time": 978032.0,
+      "end_time": 982047.0,
+      "text": "were thinking about graphs that you could basically write down. You could store them"
+    },
+    {
+      "index": 230,
+      "start_time": 982047.0,
+      "end_time": 986038.0,
+      "text": "in the main memory of your machine or, in the worst case, on some big cluster. So"
+    },
+    {
+      "index": 231,
+      "start_time": 986038.0,
+      "end_time": 990038.0,
+      "text": "maybe graphs, you know, about the size of the web graph or possibly smaller. But in"
+    },
+    {
+      "index": 232,
+      "start_time": 990038.0,
+      "end_time": 994019.0,
+      "text": "a context of something like a chess playing program the graph that you&#39;re"
+    },
+    {
+      "index": 233,
+      "start_time": 994019.0,
+      "end_time": 998029.0,
+      "text": "interested in is way, way, way bigger than the web graph. So what&#39;s the graph we care"
+    },
+    {
+      "index": 234,
+      "start_time": 998029.0,
+      "end_time": 1002000.0,
+      "text": "about for a chess playing program? Well, the nodes of the graph are going to"
+    },
+    {
+      "index": 235,
+      "start_time": 1002000.0,
+      "end_time": 1006047.0,
+      "text": "correspond to all possible configurations of chess pieces On a chess board. So every"
+    },
+    {
+      "index": 236,
+      "start_time": 1006050.0,
+      "end_time": 1011042.0,
+      "text": "chess board that you might ever encounter in a game of chess. So that&#39;s a. Massive,"
+    },
+    {
+      "index": 237,
+      "start_time": 1011040.0,
+      "end_time": 1015026.0,
+      "text": "massive number of configurations. And you&#39;re never gonna be able to write down"
+    },
+    {
+      "index": 238,
+      "start_time": 1015030.0,
+      "end_time": 1018076.0,
+      "text": "these vertices. The edges in this graph are going to take you from one"
+    },
+    {
+      "index": 239,
+      "start_time": 1018070.0,
+      "end_time": 1022071.0,
+      "text": "configuration to another. And there gonna correspond to legal moves. So if you can"
+    },
+    {
+      "index": 240,
+      "start_time": 1022070.0,
+      "end_time": 1026055.0,
+      "text": "move a bishop from. One place to another place, and you get from one configuration"
+    },
+    {
+      "index": 241,
+      "start_time": 1026060.0,
+      "end_time": 1030041.0,
+      "text": "to another configuration, there&#39;s an edge in the graph corresponding to that move."
+    },
+    {
+      "index": 242,
+      "start_time": 1030040.0,
+      "end_time": 1034017.0,
+      "text": "Now you can&#39;t write down this graph. So you can&#39;t implement breadth versus depth"
+    },
+    {
+      "index": 243,
+      "start_time": 1034020.0,
+      "end_time": 1037101.0,
+      "text": "versus search exactly as we discussed it before. But, you&#39;d still like to do graph"
+    },
+    {
+      "index": 244,
+      "start_time": 1037099.9999999999,
+      "end_time": 1041085.9999999999,
+      "text": "exploration, right? So you&#39;d like to have your computer program, reason about the at"
+    },
+    {
+      "index": 245,
+      "start_time": 1041079.9999999999,
+      "end_time": 1045013.9999999999,
+      "text": "least short term ramifications of your possible next move. So that will"
+    },
+    {
+      "index": 246,
+      "start_time": 1045020.0,
+      "end_time": 1048060.0,
+      "text": "correspond to searching through this graph. Now, how are you gonna, it&#39;s"
+    },
+    {
+      "index": 247,
+      "start_time": 1048060.0,
+      "end_time": 1052046.0,
+      "text": "remembering graphs search a really important property was you don&#39;t want to"
+    },
+    {
+      "index": 248,
+      "start_time": 1052040.0,
+      "end_time": 1056036.0,
+      "text": "do redundant work, you don&#39;t want to re-explore things you&#39;ve already explored."
+    },
+    {
+      "index": 249,
+      "start_time": 1056040.0,
+      "end_time": 1060051.0,
+      "text": "That would be silly and might lead into loops and so on. And you can&#39;t write down"
+    },
+    {
+      "index": 250,
+      "start_time": 1060050.0,
+      "end_time": 1064051.0,
+      "text": "the graph just remembering where you&#39;ve been, is suddenly a non-trivial problem;"
+    },
+    {
+      "index": 251,
+      "start_time": 1064050.0,
+      "end_time": 1069026.0,
+      "text": "but what is remembering where you&#39;ve been, fundamentally? Fundamentally that&#39;s a look"
+    },
+    {
+      "index": 252,
+      "start_time": 1069030.0,
+      "end_time": 1073039.0,
+      "text": "up operation. So that is exactly what hash tables are for. So to be a little more"
+    },
+    {
+      "index": 253,
+      "start_time": 1073040.0,
+      "end_time": 1076092.0,
+      "text": "concrete, you know, one where you use the hash table in, say, a chess playing"
+    },
+    {
+      "index": 254,
+      "start_time": 1076090.0,
+      "end_time": 1080071.0,
+      "text": "program, is you&#39;d stake, take the initial configuration. You would sort of imagine"
+    },
+    {
+      "index": 255,
+      "start_time": 1080070.0,
+      "end_time": 1084027.0,
+      "text": "trying all possible moves from this configuration. And then you&#39;d try, you&#39;d"
+    },
+    {
+      "index": 256,
+      "start_time": 1084030.0,
+      "end_time": 1088011.0,
+      "text": "sort of have all moves from your opponent and then you&#39;d have all your moves in"
+    },
+    {
+      "index": 257,
+      "start_time": 1088010.0,
+      "end_time": 1091082.0,
+      "text": "response. And you would always remember, as you were doing this reasoning, every"
+    },
+    {
+      "index": 258,
+      "start_time": 1091080.0,
+      "end_time": 1095066.0,
+      "text": "chessboard configuration you&#39;d ever looked at before and you&#39;d stick in the hash"
+    },
+    {
+      "index": 259,
+      "start_time": 1095060.0,
+      "end_time": 1099031.0,
+      "text": "table. And before you go exploring some configuration, you&#39;d look it up in your"
+    },
+    {
+      "index": 260,
+      "start_time": 1099040.0,
+      "end_time": 1102103.0,
+      "text": "hash table to see if you&#39;ve already explored it in the past. And if you have,"
+    },
+    {
+      "index": 261,
+      "start_time": 1102100.0,
+      "end_time": 1107049.0,
+      "text": "you don&#39;t bother. You&#39;ve already seen it. All right. So chess playing programs"
+    },
+    {
+      "index": 262,
+      "start_time": 1107050.0,
+      "end_time": 1110101.0,
+      "text": "operate by exploring systematically as many configurations as they&#39;d have time"
+    },
+    {
+      "index": 263,
+      "start_time": 1110100.0,
+      "end_time": 1114054.0,
+      "text": "for. You know, obviously, in a budget of three minutes or whatever you don&#39;t wanna"
+    },
+    {
+      "index": 264,
+      "start_time": 1114050.0,
+      "end_time": 1117083.0,
+      "text": "waste any work exploring any given configuration more than once. How do you"
+    },
+    {
+      "index": 265,
+      "start_time": 1117080.0,
+      "end_time": 1121008.0,
+      "text": "remember where you&#39;ve been? Well everything you&#39;ve explored you stick in a"
+    },
+    {
+      "index": 266,
+      "start_time": 1121010.0,
+      "end_time": 1124025.0,
+      "text": "hash table Before you explore a configuration you look it up in a hash"
+    },
+    {
+      "index": 267,
+      "start_time": 1124030.0,
+      "end_time": 1128004.0,
+      "text": "table and see if you&#39;ve already done it. So these of course are just scratching the"
+    },
+    {
+      "index": 268,
+      "start_time": 1128000.0,
+      "end_time": 1131056.0,
+      "text": "surface. I just wanted to highlight a couple, you know, fairly different looking"
+    },
+    {
+      "index": 269,
+      "start_time": 1131060.0,
+      "end_time": 1135025.0,
+      "text": "applications, you know to convince you that hash tables come up all the time. And"
+    },
+    {
+      "index": 270,
+      "start_time": 1135020.0,
+      "end_time": 1138063.0,
+      "text": "the reason they come up all the time is because you know the need for fast"
+    },
+    {
+      "index": 271,
+      "start_time": 1138070.0,
+      "end_time": 1142039.0,
+      "text": "look-ups comes up all the time. It&#39;s kind of amazing how much technology is being"
+    },
+    {
+      "index": 272,
+      "start_time": 1142040.0,
+      "end_time": 1145097.0,
+      "text": "driven just by you know repeated fast look-ups. So as homework I encourage you"
+    },
+    {
+      "index": 273,
+      "start_time": 1145090.0,
+      "end_time": 1149059.0,
+      "text": "to just sort of think about you know your own life, or think about technology out"
+    },
+    {
+      "index": 274,
+      "start_time": 1149060.0,
+      "end_time": 1153046.0,
+      "text": "there in the world, and come up with some. You know, guesses about where probably"
+    },
+    {
+      "index": 275,
+      "start_time": 1153050.0,
+      "end_time": 1157053.0,
+      "text": "hash tables are making something out there running blazingly fast. I think it won&#39;t"
+    },
+    {
+      "index": 276,
+      "start_time": 1157050.0,
+      "end_time": 1167050.0,
+      "text": "take you more than a few minutes to come up with some good examples."
+    }
+  ]
+}

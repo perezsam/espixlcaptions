@@ -1,0 +1,3588 @@
+{
+  "video_id": "WTVcLFTgDqs",
+  "title": "ASP.NET Core Web App Tutorial - Part 1",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 6000.0,
+      "text": "Hey guys, Wes here. So, I don't know about you guys, but I think the first place. I ever used the internet was at the library"
+    },
+    {
+      "index": 2,
+      "start_time": 9700.0,
+      "end_time": 11700.0,
+      "text": "so I just finished designing a"
+    },
+    {
+      "index": 3,
+      "start_time": 12309.0,
+      "end_time": 15659.0,
+      "text": "library management system in ASP.NET Core MVC"
+    },
+    {
+      "index": 4,
+      "start_time": 15660.0,
+      "end_time": 17660.0,
+      "text": "and I thought it would be kind of fun to"
+    },
+    {
+      "index": 5,
+      "start_time": 17680.0,
+      "end_time": 23249.0,
+      "text": "Make a series of videos documenting that project so you guys could follow along and we could do some full stack development"
+    },
+    {
+      "index": 6,
+      "start_time": 23250.0,
+      "end_time": 26039.0,
+      "text": "We're going to do everything from setting up and designing the database"
+    },
+    {
+      "index": 7,
+      "start_time": 26410.0,
+      "end_time": 32939.0,
+      "text": "to implementing the MVC pattern and then finally playing around with some front-end stuff like DataTables (.js)"
+    },
+    {
+      "index": 8,
+      "start_time": 33579.0,
+      "end_time": 35579.0,
+      "text": "and maybe some Material Design and Bootstrap"
+    },
+    {
+      "index": 9,
+      "start_time": 35860.0,
+      "end_time": 41219.0,
+      "text": "So yeah, the project was kind of fun, and I thought it might be something that you guys would be interested in checking out"
+    },
+    {
+      "index": 10,
+      "start_time": 41219.0,
+      "end_time": 43219.0,
+      "text": "So yeah, let's take a look"
+    },
+    {
+      "index": 11,
+      "start_time": 73830.0,
+      "end_time": 77839.0,
+      "text": "Okay, so let's take a look at the software we'll be building over the course of the next several videos"
+    },
+    {
+      "index": 12,
+      "start_time": 78390.0,
+      "end_time": 84080.0,
+      "text": "So we have here an integrated library system for a fictional library called Lake View"
+    },
+    {
+      "index": 13,
+      "start_time": 84300.0,
+      "end_time": 91969.0,
+      "text": "So an integrative library system also sometimes called a library management system is the software that a library uses to"
+    },
+    {
+      "index": 14,
+      "start_time": 92550.0,
+      "end_time": 95959.0,
+      "text": "to lend its Assets and manage its assets"
+    },
+    {
+      "index": 15,
+      "start_time": 96300.0,
+      "end_time": 101089.0,
+      "text": "As they're lent out to various patrons who might sign up for a library card"
+    },
+    {
+      "index": 16,
+      "start_time": 101760.0,
+      "end_time": 104989.0,
+      "text": "within that system. So - the library is going to control"
+    },
+    {
+      "index": 17,
+      "start_time": 105000.0,
+      "end_time": 107959.0,
+      "text": "You know it's books, magazines - things like that"
+    },
+    {
+      "index": 18,
+      "start_time": 107960.0,
+      "end_time": 110570.0,
+      "text": "so it's going to need to manage all of its inventory and"
+    },
+    {
+      "index": 19,
+      "start_time": 110880.0,
+      "end_time": 117859.0,
+      "text": "sort of control, you know, how it lends out to its various patrons and to keep track of what patrons have what assets and"
+    },
+    {
+      "index": 20,
+      "start_time": 118050.0,
+      "end_time": 120919.0,
+      "text": "what patrons have certain items on hold, for instance."
+    },
+    {
+      "index": 21,
+      "start_time": 120920.0,
+      "end_time": 125180.0,
+      "text": "It's also going to want to track the different branches that belong to that library, so if you live,"
+    },
+    {
+      "index": 22,
+      "start_time": 125369.0,
+      "end_time": 132409.0,
+      "text": "for example, in a larger city or region, then your library system might consist of multiple branches"
+    },
+    {
+      "index": 23,
+      "start_time": 132410.0,
+      "end_time": 134570.0,
+      "text": "Let's take a look first of all at our library catalog"
+    },
+    {
+      "index": 24,
+      "start_time": 137070.0,
+      "end_time": 141979.0,
+      "text": "So you'll see here that we just have a list of assets very simply in a table here"
+    },
+    {
+      "index": 25,
+      "start_time": 141980.0,
+      "end_time": 147860.0,
+      "text": "And so we're going to have like the title of whatever the past that is in this case. We'll have a lot of books"
+    },
+    {
+      "index": 26,
+      "start_time": 148560.0,
+      "end_time": 153470.0,
+      "text": "The author or director, and then a do we call number, so if the library's going to do a decimal system"
+    },
+    {
+      "index": 27,
+      "start_time": 153470.0,
+      "end_time": 158299.0,
+      "text": "This is just a way that they index their books yeah, we can see that the books all have covers"
+    },
+    {
+      "index": 28,
+      "start_time": 158940.0,
+      "end_time": 162049.0,
+      "text": "And if they don't we have no cover available icon here"
+    },
+    {
+      "index": 29,
+      "start_time": 162330.0,
+      "end_time": 166339.0,
+      "text": "So if we click on one of the books we get taken to a detail page here"
+    },
+    {
+      "index": 30,
+      "start_time": 166340.0,
+      "end_time": 172610.0,
+      "text": "so we have a lot more Metadata on this book that we can see so we've got an iSbn for instance a"
+    },
+    {
+      "index": 31,
+      "start_time": 173160.0,
+      "end_time": 177739.0,
+      "text": "Call number again. This is the Dewey call number the cost of this asset"
+    },
+    {
+      "index": 32,
+      "start_time": 178470.0,
+      "end_time": 180979.0,
+      "text": "What it is so if it's a book or a video or anything?"
+    },
+    {
+      "index": 33,
+      "start_time": 181290.0,
+      "end_time": 185929.0,
+      "text": "Its last location so the answers will be associated with a particular Branch"
+    },
+    {
+      "index": 34,
+      "start_time": 186180.0,
+      "end_time": 188269.0,
+      "text": "Some checkout history, so in other words"
+    },
+    {
+      "index": 35,
+      "start_time": 188310.0,
+      "end_time": 193699.0,
+      "text": "what patrons have checked out this item in the past and over what period of time and"
+    },
+    {
+      "index": 36,
+      "start_time": 194040.0,
+      "end_time": 198529.0,
+      "text": "Then also a list of current holds so look at what that means in here in a second"
+    },
+    {
+      "index": 37,
+      "start_time": 198900.0,
+      "end_time": 201620.0,
+      "text": "So let's say I wanted to check this book out so I just click here"
+    },
+    {
+      "index": 38,
+      "start_time": 201620.0,
+      "end_time": 206530.0,
+      "text": "and then we supply a library card id to which we to check out the book and"
+    },
+    {
+      "index": 39,
+      "start_time": 208400.0,
+      "end_time": 214630.0,
+      "text": "now we can see that the book is no longer available, but it has been checked out by this patron and"
+    },
+    {
+      "index": 40,
+      "start_time": 215540.0,
+      "end_time": 220060.0,
+      "text": "We can see now that we have a new checkout history started in the table here as well"
+    },
+    {
+      "index": 41,
+      "start_time": 220250.0,
+      "end_time": 224470.0,
+      "text": "So the book hasn't been returned yet, but it was checked out this time on this date"
+    },
+    {
+      "index": 42,
+      "start_time": 225740.0,
+      "end_time": 229779.0,
+      "text": "So now let's say that I'd like to check the book out, but I'm another patron"
+    },
+    {
+      "index": 43,
+      "start_time": 230720.0,
+      "end_time": 236020.0,
+      "text": "and of course it's not available for checkout yet, but I can place a hold will click place hold here and"
+    },
+    {
+      "index": 44,
+      "start_time": 236630.0,
+      "end_time": 238899.0,
+      "text": "Let's say we'll put the new customers"
+    },
+    {
+      "index": 45,
+      "start_time": 239720.0,
+      "end_time": 242109.0,
+      "text": "library card Id here and we'll place a hold and"
+    },
+    {
+      "index": 46,
+      "start_time": 243020.0,
+      "end_time": 249999.0,
+      "text": "So now we'll see that this patron has a hold on the item and again other customers can continue placing"
+    },
+    {
+      "index": 47,
+      "start_time": 250760.0,
+      "end_time": 256899.0,
+      "text": "Hold and so we'll basically have a queue here of hold so that when our"
+    },
+    {
+      "index": 48,
+      "start_time": 257630.0,
+      "end_time": 260589.0,
+      "text": "Customer tomas here checks the item back in"
+    },
+    {
+      "index": 49,
+      "start_time": 262070.0,
+      "end_time": 269049.0,
+      "text": "it gets checked out automatically to the first person who had a hold on it a new checkout history record is created and"
+    },
+    {
+      "index": 50,
+      "start_time": 269180.0,
+      "end_time": 275830.0,
+      "text": "The Q obviously drops one of the patrons so again if this is checked in by Mary Lee"
+    },
+    {
+      "index": 51,
+      "start_time": 276560.0,
+      "end_time": 279820.0,
+      "text": "Is now automatically checked out and if you checked it in"
+    },
+    {
+      "index": 52,
+      "start_time": 280430.0,
+      "end_time": 286150.0,
+      "text": "The book is back to being available for checkout. We can also very simply mark it mark the item is lost"
+    },
+    {
+      "index": 53,
+      "start_time": 286729.0,
+      "end_time": 289929.0,
+      "text": "Not at which point. It can't be checked out can Margaret sound again"
+    },
+    {
+      "index": 54,
+      "start_time": 290840.0,
+      "end_time": 294669.0,
+      "text": "So that's our kind of simple check-in checkout system"
+    },
+    {
+      "index": 55,
+      "start_time": 295310.0,
+      "end_time": 298540.0,
+      "text": "To go back home and we click patrons now"
+    },
+    {
+      "index": 56,
+      "start_time": 300080.0,
+      "end_time": 305919.0,
+      "text": "We can see how we can manage different patrons that are in our system, so we can see their overdue fees"
+    },
+    {
+      "index": 57,
+      "start_time": 306229.0,
+      "end_time": 312579.0,
+      "text": "What library cards are associated with what library branch there so sid live if we click on one of the customers here?"
+    },
+    {
+      "index": 58,
+      "start_time": 313729.0,
+      "end_time": 316059.0,
+      "text": "We can see their name address"
+    },
+    {
+      "index": 59,
+      "start_time": 316060.0,
+      "end_time": 319510.0,
+      "text": "It's an explanation that they might supply when they sign up for a library card"
+    },
+    {
+      "index": 60,
+      "start_time": 319910.0,
+      "end_time": 325959.0,
+      "text": "as well as the current items they have checked out and any assets that they have placed a hold on we can also see if"
+    },
+    {
+      "index": 61,
+      "start_time": 325960.0,
+      "end_time": 328210.0,
+      "text": "The customer has any fees on their account"
+    },
+    {
+      "index": 62,
+      "start_time": 328460.0,
+      "end_time": 331600.0,
+      "text": "It will show up and read on their profile page here"
+    },
+    {
+      "index": 63,
+      "start_time": 331600.0,
+      "end_time": 336549.0,
+      "text": "So we can see that this customer has fees due and then so we can base some logic on this and say"
+    },
+    {
+      "index": 64,
+      "start_time": 337080.0,
+      "end_time": 340190.0,
+      "text": "Like if the customer has a certain amount of seeds on their account"
+    },
+    {
+      "index": 65,
+      "start_time": 340190.0,
+      "end_time": 345469.0,
+      "text": "They might not be able to check out a book or a video just a small other feature we have here some other information"
+    },
+    {
+      "index": 66,
+      "start_time": 345470.0,
+      "end_time": 351529.0,
+      "text": "We have on our patron object and finally if we take a look over at our branches page. We have another list view here"
+    },
+    {
+      "index": 67,
+      "start_time": 352530.0,
+      "end_time": 358669.0,
+      "text": "Where we have some data about the branch how many patrons are associated with a number of assets that are associated with it?"
+    },
+    {
+      "index": 68,
+      "start_time": 359100.0,
+      "end_time": 361100.0,
+      "text": "Whether or not it is open"
+    },
+    {
+      "index": 69,
+      "start_time": 362190.0,
+      "end_time": 364399.0,
+      "text": "And if we click on it, we can see a picture"
+    },
+    {
+      "index": 70,
+      "start_time": 364590.0,
+      "end_time": 368720.0,
+      "text": "It's scheduled so the dates between which the branch is open"
+    },
+    {
+      "index": 71,
+      "start_time": 369180.0,
+      "end_time": 374930.0,
+      "text": "the Total value of the Assets owned by the Branch and some more data so like the description and"
+    },
+    {
+      "index": 72,
+      "start_time": 375180.0,
+      "end_time": 381799.0,
+      "text": "some sort of profile data on this particular branch and so each of the branches will have its own sort of profile page and"
+    },
+    {
+      "index": 73,
+      "start_time": 382200.0,
+      "end_time": 384590.0,
+      "text": "The specific Data associated with it"
+    },
+    {
+      "index": 74,
+      "start_time": 384660.0,
+      "end_time": 392179.0,
+      "text": "So yeah, this is our simple integrated library system or library management system, and it's kind of fun to build it's pretty straightforward application"
+    },
+    {
+      "index": 75,
+      "start_time": 392180.0,
+      "end_time": 392900.0,
+      "text": "It's not very large"
+    },
+    {
+      "index": 76,
+      "start_time": 392900.0,
+      "end_time": 397039.0,
+      "text": "but it's actually it would be a fairly decent starting point for an"
+    },
+    {
+      "index": 77,
+      "start_time": 397410.0,
+      "end_time": 405139.0,
+      "text": "Actual system that managed sort of any type of inventory or any type of check-in checkout system. Where you have patrons?"
+    },
+    {
+      "index": 78,
+      "start_time": 405930.0,
+      "end_time": 411560.0,
+      "text": "Various locations and various assets to control so I think it's kind of a good general purpose project"
+    },
+    {
+      "index": 79,
+      "start_time": 412020.0,
+      "end_time": 419479.0,
+      "text": "Particularly if you are interested in learning about the MVC pattern or just diving into some net"
+    },
+    {
+      "index": 80,
+      "start_time": 420960.0,
+      "end_time": 423620.0,
+      "text": "okay, so I have visual Studio open here and"
+    },
+    {
+      "index": 81,
+      "start_time": 424290.0,
+      "end_time": 428509.0,
+      "text": "So we'll go ahead and create a new project. So just file new project and"
+    },
+    {
+      "index": 82,
+      "start_time": 429360.0,
+      "end_time": 432830.0,
+      "text": "we're going to create an asp.net core web application and"
+    },
+    {
+      "index": 83,
+      "start_time": 433380.0,
+      "end_time": 439280.0,
+      "text": "I'm just going to call it library, and I'll place this in a projects directory that I have here"
+    },
+    {
+      "index": 84,
+      "start_time": 440760.0,
+      "end_time": 442760.0,
+      "text": "and"
+    },
+    {
+      "index": 85,
+      "start_time": 442830.0,
+      "end_time": 446870.0,
+      "text": "We'll make sure that it creates a new git repo and creates a directory for the solution"
+    },
+    {
+      "index": 86,
+      "start_time": 446870.0,
+      "end_time": 451819.0,
+      "text": "So we'll select ok and it's going to ask us if we'd like to use a template and we're going to use the web"
+    },
+    {
+      "index": 87,
+      "start_time": 451950.0,
+      "end_time": 457340.0,
+      "text": "application template which is going to allow us to create an asp.net core application with"
+    },
+    {
+      "index": 88,
+      "start_time": 457890.0,
+      "end_time": 459890.0,
+      "text": "MVC"
+    },
+    {
+      "index": 89,
+      "start_time": 462820.0,
+      "end_time": 466950.0,
+      "text": "Okay, so you can see that by default here with this template"
+    },
+    {
+      "index": 90,
+      "start_time": 466950.0,
+      "end_time": 474809.0,
+      "text": "we have a project structure in place already, and if you've developed in asp.net before this may look a little bit different to you if"
+    },
+    {
+      "index": 91,
+      "start_time": 475510.0,
+      "end_time": 478140.0,
+      "text": "you're coming to dotnet core for the first time so"
+    },
+    {
+      "index": 92,
+      "start_time": 478780.0,
+      "end_time": 482820.0,
+      "text": "Something that you'll notice here. Is that we have a wwe?"
+    },
+    {
+      "index": 93,
+      "start_time": 483700.0,
+      "end_time": 488759.0,
+      "text": "And that's going to contain all of our static files so csS images Javascript"
+    },
+    {
+      "index": 94,
+      "start_time": 489370.0,
+      "end_time": 495060.0,
+      "text": "Third-Party libraries, and you can see that the template has brought in jquery and bootstrap, and yeah"
+    },
+    {
+      "index": 95,
+      "start_time": 495060.0,
+      "end_time": 498420.0,
+      "text": "So we can actually use this directory to serve up our static files"
+    },
+    {
+      "index": 96,
+      "start_time": 499120.0,
+      "end_time": 503850.0,
+      "text": "When it comes time to load some of those a little bit later, and then we have directories for our"
+    },
+    {
+      "index": 97,
+      "start_time": 504520.0,
+      "end_time": 506520.0,
+      "text": "controllers and views and"
+    },
+    {
+      "index": 98,
+      "start_time": 506830.0,
+      "end_time": 509789.0,
+      "text": "so the template has provided us with the home controller and"
+    },
+    {
+      "index": 99,
+      "start_time": 510430.0,
+      "end_time": 516150.0,
+      "text": "Some views for the home controller here as well as some shared views so a layout and a narrow page here"
+    },
+    {
+      "index": 100,
+      "start_time": 516150.0,
+      "end_time": 523470.0,
+      "text": "So the layout that's the htML. This is actually going to be shared by all the other views in our system, and so you'll see"
+    },
+    {
+      "index": 101,
+      "start_time": 524020.0,
+      "end_time": 526889.0,
+      "text": "That we are implementing razr Syntax here"
+    },
+    {
+      "index": 102,
+      "start_time": 526890.0,
+      "end_time": 532679.0,
+      "text": "So anytime you see a spiral and then some keyword here, we're going to be using new razor"
+    },
+    {
+      "index": 103,
+      "start_time": 533380.0,
+      "end_time": 535380.0,
+      "text": "templating engine and"
+    },
+    {
+      "index": 104,
+      "start_time": 536110.0,
+      "end_time": 543060.0,
+      "text": "So that we can dynamically render htML on a page in these Cs. HtML files so you'll notice that?"
+    },
+    {
+      "index": 105,
+      "start_time": 543970.0,
+      "end_time": 549269.0,
+      "text": "Towards the middle of the page here after we define the head and the body tags and we have a navbar"
+    },
+    {
+      "index": 106,
+      "start_time": 549790.0,
+      "end_time": 553169.0,
+      "text": "Inside of this dIV with the class container body content"
+    },
+    {
+      "index": 107,
+      "start_time": 553420.0,
+      "end_time": 558240.0,
+      "text": "We have this render body method that's being called after the spiral here"
+    },
+    {
+      "index": 108,
+      "start_time": 558240.0,
+      "end_time": 564630.0,
+      "text": "And so this is actually where all of our views will be rendered by default in our application. So very quickly"
+    },
+    {
+      "index": 109,
+      "start_time": 564630.0,
+      "end_time": 570270.0,
+      "text": "we'll take a look at the application that the template has provided us with and we can just fire up the"
+    },
+    {
+      "index": 110,
+      "start_time": 570610.0,
+      "end_time": 574560.0,
+      "text": "Browser clicking the iis Express button up here with a play button you"
+    },
+    {
+      "index": 111,
+      "start_time": 575230.0,
+      "end_time": 579150.0,
+      "text": "Can also hit F5 as long as the library is set to your start up project?"
+    },
+    {
+      "index": 112,
+      "start_time": 582400.0,
+      "end_time": 586679.0,
+      "text": "Okay, so the browser is going to pop up here, and I'll just maximize it"
+    },
+    {
+      "index": 113,
+      "start_time": 587380.0,
+      "end_time": 593130.0,
+      "text": "It may take a little bit longer to fire up the application if this is the first time that it's being built and it's worth"
+    },
+    {
+      "index": 114,
+      "start_time": 593130.0,
+      "end_time": 596520.0,
+      "text": "noting that unlike in some scripting languages of you're familiar with"
+    },
+    {
+      "index": 115,
+      "start_time": 596920.0,
+      "end_time": 602969.0,
+      "text": "Developing web applications in Django using python or in a particular"
+    },
+    {
+      "index": 116,
+      "start_time": 603400.0,
+      "end_time": 606360.0,
+      "text": "Javascript framework if you have a small node server running"
+    },
+    {
+      "index": 117,
+      "start_time": 606550.0,
+      "end_time": 610500.0,
+      "text": "We're actually going to need to stop and start or sort of anytime we work on"
+    },
+    {
+      "index": 118,
+      "start_time": 611350.0,
+      "end_time": 615870.0,
+      "text": "Compiled codes of things like code that's in our controllers and models, okay?"
+    },
+    {
+      "index": 119,
+      "start_time": 615870.0,
+      "end_time": 617850.0,
+      "text": "So we have the application up here"
+    },
+    {
+      "index": 120,
+      "start_time": 617850.0,
+      "end_time": 625379.0,
+      "text": "And you can see that it has created a simple home page for us that has a sort of carousel slider here"
+    },
+    {
+      "index": 121,
+      "start_time": 625380.0,
+      "end_time": 629400.0,
+      "text": "And then we have a nav bar up top here with home about and contact link"
+    },
+    {
+      "index": 122,
+      "start_time": 629400.0,
+      "end_time": 636329.0,
+      "text": "So if we click on these and notice that pages are getting rendered for us if you take a look at the url in"
+    },
+    {
+      "index": 123,
+      "start_time": 636640.0,
+      "end_time": 643290.0,
+      "text": "A browser you can see that all the links that we click on here are relative to this home path"
+    },
+    {
+      "index": 124,
+      "start_time": 643290.0,
+      "end_time": 649409.0,
+      "text": "so home is the controller that our application is using in this particular case and"
+    },
+    {
+      "index": 125,
+      "start_time": 649720.0,
+      "end_time": 654209.0,
+      "text": "Then the action will be the second part of our path here"
+    },
+    {
+      "index": 126,
+      "start_time": 654210.0,
+      "end_time": 659280.0,
+      "text": "so home slash about is going to look in the home controller for an about action and"
+    },
+    {
+      "index": 127,
+      "start_time": 659920.0,
+      "end_time": 664050.0,
+      "text": "home Slash contact is going to be looking in the home controller for a contact action and"
+    },
+    {
+      "index": 128,
+      "start_time": 664810.0,
+      "end_time": 667619.0,
+      "text": "Then our Index page looks like it's rendering"
+    },
+    {
+      "index": 129,
+      "start_time": 668170.0,
+      "end_time": 674099.0,
+      "text": "Probably the index section on the home controller by default when we have nothing in our route here"
+    },
+    {
+      "index": 130,
+      "start_time": 674230.0,
+      "end_time": 680519.0,
+      "text": "So let's take a look at where that's configured, so I'm just going to close the browser and hit stop and we'll come down here"
+    },
+    {
+      "index": 131,
+      "start_time": 681040.0,
+      "end_time": 682720.0,
+      "text": "to"
+    },
+    {
+      "index": 132,
+      "start_time": 682720.0,
+      "end_time": 689129.0,
+      "text": "Will close our view and controller folders, and we'll come down here to the startup that's es file"
+    },
+    {
+      "index": 133,
+      "start_time": 689130.0,
+      "end_time": 691130.0,
+      "text": "Which contains our startup class?"
+    },
+    {
+      "index": 134,
+      "start_time": 691600.0,
+      "end_time": 692740.0,
+      "text": "and"
+    },
+    {
+      "index": 135,
+      "start_time": 692740.0,
+      "end_time": 697799.0,
+      "text": "this class contains a constructor and two methods the configure services method and"
+    },
+    {
+      "index": 136,
+      "start_time": 698170.0,
+      "end_time": 705509.0,
+      "text": "configure method if we look inside the configure method you can see where we are actually telling the application how to"
+    },
+    {
+      "index": 137,
+      "start_time": 705820.0,
+      "end_time": 712259.0,
+      "text": "do its routing so we have a default route here where the controller is going to be set to home and"
+    },
+    {
+      "index": 138,
+      "start_time": 712390.0,
+      "end_time": 719580.0,
+      "text": "then we'll have slash index slash and optional id that might get passed years you can imagine that we might have for example like a"
+    },
+    {
+      "index": 139,
+      "start_time": 719800.0,
+      "end_time": 725879.0,
+      "text": "detail view where if we had say like an iMages controller and then select images and then"
+    },
+    {
+      "index": 140,
+      "start_time": 726250.0,
+      "end_time": 729880.0,
+      "text": "Tale action where we were going to pass the id of a particular image?"
+    },
+    {
+      "index": 141,
+      "start_time": 729880.0,
+      "end_time": 732939.0,
+      "text": "Then we could go to like a detail page for that image"
+    },
+    {
+      "index": 142,
+      "start_time": 732940.0,
+      "end_time": 736809.0,
+      "text": "Let's talk a little bit about this startup class as a whole so again"
+    },
+    {
+      "index": 143,
+      "start_time": 736810.0,
+      "end_time": 740469.0,
+      "text": "if you've developed an asp.net application in the past you may be familiar with"
+    },
+    {
+      "index": 144,
+      "start_time": 741110.0,
+      "end_time": 745659.0,
+      "text": "Seeing like a ab dot config file and a global"
+    },
+    {
+      "index": 145,
+      "start_time": 745910.0,
+      "end_time": 753790.0,
+      "text": "Sx file here in your project structure everything now is going to be handled inside of our startup dot CS class and"
+    },
+    {
+      "index": 146,
+      "start_time": 754610.0,
+      "end_time": 758050.0,
+      "text": "You'll notice that in the constructor for this class"
+    },
+    {
+      "index": 147,
+      "start_time": 758210.0,
+      "end_time": 763150.0,
+      "text": "We are actually going to be building all the configuration for this application"
+    },
+    {
+      "index": 148,
+      "start_time": 763880.0,
+      "end_time": 766450.0,
+      "text": "using this configuration builder class and"
+    },
+    {
+      "index": 149,
+      "start_time": 766880.0,
+      "end_time": 773140.0,
+      "text": "So all the configuration is going to be stored in a series of JSon files that might contain any"
+    },
+    {
+      "index": 150,
+      "start_time": 773390.0,
+      "end_time": 775629.0,
+      "text": "Configurations that we set for application"
+    },
+    {
+      "index": 151,
+      "start_time": 775630.0,
+      "end_time": 778929.0,
+      "text": "And so we'll have pairs of keys and values in"
+    },
+    {
+      "index": 152,
+      "start_time": 779240.0,
+      "end_time": 784479.0,
+      "text": "Json files that will represent the various configuration values that we might need to use and"
+    },
+    {
+      "index": 153,
+      "start_time": 784970.0,
+      "end_time": 788830.0,
+      "text": "If we have new Json files that we'd like to add to our application. We can actually"
+    },
+    {
+      "index": 154,
+      "start_time": 789380.0,
+      "end_time": 796689.0,
+      "text": "Just chain another adjacent file method here onto our configuration builder to apply those configurations"
+    },
+    {
+      "index": 155,
+      "start_time": 796690.0,
+      "end_time": 803289.0,
+      "text": "So that's pretty straightforward note also that we can add environment variables to our configuration builder"
+    },
+    {
+      "index": 156,
+      "start_time": 803290.0,
+      "end_time": 810280.0,
+      "text": "which is kind of nice because we could store things like database passwords Connection strings or any other type of"
+    },
+    {
+      "index": 157,
+      "start_time": 810589.0,
+      "end_time": 815169.0,
+      "text": "Configuration that might be particularly an environment that our application is deployed to"
+    },
+    {
+      "index": 158,
+      "start_time": 815870.0,
+      "end_time": 819669.0,
+      "text": "Those can be set here and they can actually be set last so that they'll overwrite anything"
+    },
+    {
+      "index": 159,
+      "start_time": 820280.0,
+      "end_time": 824199.0,
+      "text": "That is set in the JSon files that live with the application itself"
+    },
+    {
+      "index": 160,
+      "start_time": 824510.0,
+      "end_time": 828909.0,
+      "text": "so this is how we'll build out the configuration for our application and"
+    },
+    {
+      "index": 161,
+      "start_time": 829580.0,
+      "end_time": 832629.0,
+      "text": "we'll go to the app settings that JSon file in a little bit when we"
+    },
+    {
+      "index": 162,
+      "start_time": 832940.0,
+      "end_time": 835479.0,
+      "text": "Specify the Connection string to the database that we'll be using"
+    },
+    {
+      "index": 163,
+      "start_time": 836810.0,
+      "end_time": 843070.0,
+      "text": "Okay, so if we come down now to the configure services method you can see that. We have a comment here"
+    },
+    {
+      "index": 164,
+      "start_time": 843070.0,
+      "end_time": 845140.0,
+      "text": "It says this method gets called by the runtime"
+    },
+    {
+      "index": 165,
+      "start_time": 845900.0,
+      "end_time": 850329.0,
+      "text": "Use this method to add services to the container so dotnet core is"
+    },
+    {
+      "index": 166,
+      "start_time": 850910.0,
+      "end_time": 854680.0,
+      "text": "leveraging the concept of dependency injection here"
+    },
+    {
+      "index": 167,
+      "start_time": 854680.0,
+      "end_time": 860340.0,
+      "text": "And so you'll see that as we create various services that are going to handle working with our data sources"
+    },
+    {
+      "index": 168,
+      "start_time": 860650.0,
+      "end_time": 861150.0,
+      "text": "Okay"
+    },
+    {
+      "index": 169,
+      "start_time": 861150.0,
+      "end_time": 865379.0,
+      "text": "working with a database or maybe some response from a remote api"
+    },
+    {
+      "index": 170,
+      "start_time": 865630.0,
+      "end_time": 871230.0,
+      "text": "What have you will register all those services here in our configure services method?"
+    },
+    {
+      "index": 171,
+      "start_time": 871510.0,
+      "end_time": 875819.0,
+      "text": "We'll go through an example of that shortly as we create a services layer for this application"
+    },
+    {
+      "index": 172,
+      "start_time": 876070.0,
+      "end_time": 882629.0,
+      "text": "And if you're wondering about sort of what I mean when I say services, they are essentially just objects that have a particular"
+    },
+    {
+      "index": 173,
+      "start_time": 883270.0,
+      "end_time": 885359.0,
+      "text": "functionality for other parts of our application"
+    },
+    {
+      "index": 174,
+      "start_time": 885360.0,
+      "end_time": 889229.0,
+      "text": "and then we can actually inject those services and so"
+    },
+    {
+      "index": 175,
+      "start_time": 889600.0,
+      "end_time": 895769.0,
+      "text": "Say like our controllers might require us if we have a controller for say our books"
+    },
+    {
+      "index": 176,
+      "start_time": 895770.0,
+      "end_time": 897960.0,
+      "text": "We might have a book controller that will create later"
+    },
+    {
+      "index": 177,
+      "start_time": 898150.0,
+      "end_time": 900479.0,
+      "text": "We'll have a book service that we can actually"
+    },
+    {
+      "index": 178,
+      "start_time": 900640.0,
+      "end_time": 907799.0,
+      "text": "Inject into our book controller so that it can retrieve data about the books we have coming from any particular Data source that we might"
+    },
+    {
+      "index": 179,
+      "start_time": 907800.0,
+      "end_time": 909240.0,
+      "text": "Want to implement in our case"
+    },
+    {
+      "index": 180,
+      "start_time": 909240.0,
+      "end_time": 910480.0,
+      "text": "We'll be using a database"
+    },
+    {
+      "index": 181,
+      "start_time": 910480.0,
+      "end_time": 916890.0,
+      "text": "But we'll construct it in such a way that the controller simply asks for what it needs via this"
+    },
+    {
+      "index": 182,
+      "start_time": 917110.0,
+      "end_time": 921810.0,
+      "text": "Service that will create that'll be nice because we won't be doing things like throwing a DB"
+    },
+    {
+      "index": 183,
+      "start_time": 922000.0,
+      "end_time": 926460.0,
+      "text": "Context directly inside of our controller any part of the application that wants access to the database"
+    },
+    {
+      "index": 184,
+      "start_time": 926700.0,
+      "end_time": 932340.0,
+      "text": "Will be instead injecting this service ok and then if we look down again at the configure method"
+    },
+    {
+      "index": 185,
+      "start_time": 932340.0,
+      "end_time": 936720.0,
+      "text": "This is where we saw our use MVC called here on the app all this is"
+    },
+    {
+      "index": 186,
+      "start_time": 937240.0,
+      "end_time": 945000.0,
+      "text": "Middleware so middleware is going to be the components which handle hTTP requests and which produce an HTTP response?"
+    },
+    {
+      "index": 187,
+      "start_time": 945610.0,
+      "end_time": 948720.0,
+      "text": "So we'll have things like use static files called here"
+    },
+    {
+      "index": 188,
+      "start_time": 948720.0,
+      "end_time": 954119.0,
+      "text": "And will control what types of air pages are shown for instance depending on what type of environment?"
+    },
+    {
+      "index": 189,
+      "start_time": 954120.0,
+      "end_time": 958859.0,
+      "text": "We're running in and so the configure method in general is setting up"
+    },
+    {
+      "index": 190,
+      "start_time": 958860.0,
+      "end_time": 964860.0,
+      "text": "What would be called our request pipeline ok we won't actually have to do much or if anything in our consider?"
+    },
+    {
+      "index": 191,
+      "start_time": 965020.0,
+      "end_time": 966540.0,
+      "text": "method for this application"
+    },
+    {
+      "index": 192,
+      "start_time": 966540.0,
+      "end_time": 973799.0,
+      "text": "But we will be revisiting the configure services method as we go through and add services to our project ok so now"
+    },
+    {
+      "index": 193,
+      "start_time": 973800.0,
+      "end_time": 977729.0,
+      "text": "We'll take a look at our program that CSV file which contains our program class"
+    },
+    {
+      "index": 194,
+      "start_time": 977950.0,
+      "end_time": 980549.0,
+      "text": "This is the actual entry point for our applications"
+    },
+    {
+      "index": 195,
+      "start_time": 980550.0,
+      "end_time": 987120.0,
+      "text": "so you see that this is where our main method gets called and this is where we're actually going to run our web host and"
+    },
+    {
+      "index": 196,
+      "start_time": 987310.0,
+      "end_time": 991380.0,
+      "text": "So similar to a configuration builder we have a web host builder here"
+    },
+    {
+      "index": 197,
+      "start_time": 991740.0,
+      "end_time": 995719.0,
+      "text": "Where we will be setting up the web host that we want to run when our application?"
+    },
+    {
+      "index": 198,
+      "start_time": 996240.0,
+      "end_time": 1001390.0,
+      "text": "Starts, so Kestrel is a lightweight server, and you can see we have I is"
+    },
+    {
+      "index": 199,
+      "start_time": 1002120.0,
+      "end_time": 1004120.0,
+      "text": "used as well, which is a little bit more of a"
+    },
+    {
+      "index": 200,
+      "start_time": 1004310.0,
+      "end_time": 1006040.0,
+      "text": "Full-fledged server and you can see that"
+    },
+    {
+      "index": 201,
+      "start_time": 1006040.0,
+      "end_time": 1010990.0,
+      "text": "we're going to use the startup class where we set up the configuration and middleware for our application and"
+    },
+    {
+      "index": 202,
+      "start_time": 1011900.0,
+      "end_time": 1017200.0,
+      "text": "Eventually we call build and then once the web host is built we call run on it"
+    },
+    {
+      "index": 203,
+      "start_time": 1017200.0,
+      "end_time": 1022209.0,
+      "text": "And so that's basically how our application gets bootstrapped all right the last thing we'll look at before we"
+    },
+    {
+      "index": 204,
+      "start_time": 1022310.0,
+      "end_time": 1027369.0,
+      "text": "Get into writing a little bit of code is if we look at the app settings that JSon file?"
+    },
+    {
+      "index": 205,
+      "start_time": 1027890.0000000001,
+      "end_time": 1034989.0000000001,
+      "text": "You'll note that. This is part of the configuration files that we are building for application the only key that we have in here"
+    },
+    {
+      "index": 206,
+      "start_time": 1034990.0,
+      "end_time": 1038260.0,
+      "text": "Right now is one for logging here, but very shortly"
+    },
+    {
+      "index": 207,
+      "start_time": 1038260.0,
+      "end_time": 1042129.0,
+      "text": "We'll add a connection string to the database that we'll want to use"
+    },
+    {
+      "index": 208,
+      "start_time": 1042130.0000000001,
+      "end_time": 1046809.0000000001,
+      "text": "I think now be a good time to start thinking about our data and so what we'll do is"
+    },
+    {
+      "index": 209,
+      "start_time": 1046849.9999999999,
+      "end_time": 1052480.0,
+      "text": "go ahead and right-click on our solution, and we're going to add a new project and"
+    },
+    {
+      "index": 210,
+      "start_time": 1053150.0,
+      "end_time": 1057609.0,
+      "text": "we're just going to call it library data, and we needed to actually be a"
+    },
+    {
+      "index": 211,
+      "start_time": 1058280.0,
+      "end_time": 1064959.0,
+      "text": "class library, so just going to hold a bunch of C-Sharp files for us, so we'll say ok and"
+    },
+    {
+      "index": 212,
+      "start_time": 1065990.0,
+      "end_time": 1069969.0,
+      "text": "This data class library is where we're going to implement any framework core"
+    },
+    {
+      "index": 213,
+      "start_time": 1069970.0,
+      "end_time": 1073480.0,
+      "text": "So I'm going to right click here and select manage and you get packages"
+    },
+    {
+      "index": 214,
+      "start_time": 1073670.0,
+      "end_time": 1075161.0,
+      "text": "We're going to click browse here"
+    },
+    {
+      "index": 215,
+      "start_time": 1075160.0,
+      "end_time": 1081069.0,
+      "text": "So we can browse online and we're going to add Microsoft got entity framework core"
+    },
+    {
+      "index": 216,
+      "start_time": 1081070.0,
+      "end_time": 1081710.0,
+      "text": "and"
+    },
+    {
+      "index": 217,
+      "start_time": 1081710.0,
+      "end_time": 1087880.0,
+      "text": "So you want to make sure that you select the option that says at any framework core and not a previous version of any framework?"
+    },
+    {
+      "index": 218,
+      "start_time": 1088100.0,
+      "end_time": 1094510.0,
+      "text": "So we'll go ahead and install this this is going to be our our orm that's going to be used to"
+    },
+    {
+      "index": 219,
+      "start_time": 1094940.0,
+      "end_time": 1099910.0,
+      "text": "Essentially map the data from our entity models which are just plain C"
+    },
+    {
+      "index": 220,
+      "start_time": 1099910.0,
+      "end_time": 1103329.0,
+      "text": "sharp objects to our data source which in our case is going to be a"
+    },
+    {
+      "index": 221,
+      "start_time": 1103670.0,
+      "end_time": 1110680.0,
+      "text": "Sequel database using Microsoft sequel server and so to use Microsoft sequel server within a framework core. We need to also install"
+    },
+    {
+      "index": 222,
+      "start_time": 1112100.0,
+      "end_time": 1118990.0,
+      "text": "Microsoft at any framework sequel server, so I'll go ahead and install that it's worth noting that with any framework core"
+    },
+    {
+      "index": 223,
+      "start_time": 1119420.0,
+      "end_time": 1121420.0,
+      "text": "Microsoft now supports the use of"
+    },
+    {
+      "index": 224,
+      "start_time": 1122000.0,
+      "end_time": 1126909.0,
+      "text": "other types of databases besides server and apparently even non-relational databases"
+    },
+    {
+      "index": 225,
+      "start_time": 1126910.0,
+      "end_time": 1132369.0,
+      "text": "So I assume that means sort of document based databases like no sequel databases"
+    },
+    {
+      "index": 226,
+      "start_time": 1132370.0,
+      "end_time": 1135609.0,
+      "text": "Maybe like Mongodb or something are supported although"
+    },
+    {
+      "index": 227,
+      "start_time": 1135610.0,
+      "end_time": 1139390.0,
+      "text": "I don't have any experience implementing those in a dotnet project yet"
+    },
+    {
+      "index": 228,
+      "start_time": 1139490.0,
+      "end_time": 1145870.0,
+      "text": "But if anyone else does I would be interested in seeing it implemented, okay the last thing that we'll add here is"
+    },
+    {
+      "index": 229,
+      "start_time": 1146660.0,
+      "end_time": 1148660.0,
+      "text": "Microsoft any Framework tools"
+    },
+    {
+      "index": 230,
+      "start_time": 1148940.0,
+      "end_time": 1155409.0,
+      "text": "And this is going to allow us to use the package manager console to do database migrations"
+    },
+    {
+      "index": 231,
+      "start_time": 1155750.0,
+      "end_time": 1161380.0,
+      "text": "So in any framework core is exclusively a code first o rm meaning that"
+    },
+    {
+      "index": 232,
+      "start_time": 1161840.0,
+      "end_time": 1163840.0,
+      "text": "We're actually going to write all of our"
+    },
+    {
+      "index": 233,
+      "start_time": 1164180.0,
+      "end_time": 1168759.0,
+      "text": "entity classes in Code first then any framework is going to"
+    },
+    {
+      "index": 234,
+      "start_time": 1168950.0,
+      "end_time": 1173830.0,
+      "text": "look at the models that we created compare them to some database that will tell it to connect to and"
+    },
+    {
+      "index": 235,
+      "start_time": 1174230.0,
+      "end_time": 1177219.0,
+      "text": "Make any changes to that sequel database is actually like"
+    },
+    {
+      "index": 236,
+      "start_time": 1177620.0,
+      "end_time": 1184720.0,
+      "text": "creating tables from the class names and creating columns from the property names and basically generating a"
+    },
+    {
+      "index": 237,
+      "start_time": 1185060.0,
+      "end_time": 1190960.0,
+      "text": "Complete sequel database just by looking at the structure and content of our C-sharp classes, okay awesome"
+    },
+    {
+      "index": 238,
+      "start_time": 1190960.0,
+      "end_time": 1197199.0,
+      "text": "So now we have a library data class library that's set up with entity framework and the first thing that we need to do to"
+    },
+    {
+      "index": 239,
+      "start_time": 1197200.0,
+      "end_time": 1205119.0,
+      "text": "Work with entity framework is to create a class that's going to inherit from any frameworks DB context and so DB context is"
+    },
+    {
+      "index": 240,
+      "start_time": 1205520.0,
+      "end_time": 1207910.0,
+      "text": "essentially the link that exists between"
+    },
+    {
+      "index": 241,
+      "start_time": 1208190.0,
+      "end_time": 1214419.0,
+      "text": "Your enemy classes and the database so as I said we'll be writing all of our"
+    },
+    {
+      "index": 242,
+      "start_time": 1214550.0,
+      "end_time": 1220210.0,
+      "text": "database models if you will our entity models in C-sharp classes and entity framework needs a way to"
+    },
+    {
+      "index": 243,
+      "start_time": 1220550.0,
+      "end_time": 1226300.0,
+      "text": "make that mapping and so we need to create that particular DB context classes that will be responsible for"
+    },
+    {
+      "index": 244,
+      "start_time": 1227000.0,
+      "end_time": 1229690.0,
+      "text": "interacting with that data as a C"
+    },
+    {
+      "index": 245,
+      "start_time": 1229690.0,
+      "end_time": 1230289.0,
+      "text": "type object"
+    },
+    {
+      "index": 246,
+      "start_time": 1230290.0,
+      "end_time": 1234009.0,
+      "text": "So let's just go ahead and do it and we'll take a look at what it looks like so"
+    },
+    {
+      "index": 247,
+      "start_time": 1234410.0,
+      "end_time": 1240369.0,
+      "text": "By default for some reason when we create a new class library we get this class 1 dot Cs. File in here"
+    },
+    {
+      "index": 248,
+      "start_time": 1240370.0,
+      "end_time": 1246190.0,
+      "text": "so we're just going to rename this so right click and rename and I'm going to call this library context and"
+    },
+    {
+      "index": 249,
+      "start_time": 1246830.0,
+      "end_time": 1250059.0,
+      "text": "We'll say yes to rename references in the code, so it's going to say"
+    },
+    {
+      "index": 250,
+      "start_time": 1250310.0,
+      "end_time": 1254950.0,
+      "text": "public class library context here and so as I said we need to actually inherit from"
+    },
+    {
+      "index": 251,
+      "start_time": 1255860.0,
+      "end_time": 1257749.0,
+      "text": "the dbContext"
+    },
+    {
+      "index": 252,
+      "start_time": 1257750.0,
+      "end_time": 1263440.0,
+      "text": "Abstract base class that is provided by any framework, so if you hit control period Over dBContext"
+    },
+    {
+      "index": 253,
+      "start_time": 1264020.0,
+      "end_time": 1268509.0,
+      "text": "You'll see that you can implement this using that we need to include at the top floor file here, okay?"
+    },
+    {
+      "index": 254,
+      "start_time": 1268510.0,
+      "end_time": 1271600.0,
+      "text": "And now we're just going to create a constructor for this class"
+    },
+    {
+      "index": 255,
+      "start_time": 1271600.0,
+      "end_time": 1277659.0,
+      "text": "So it's a public library context and we're going to pass it DB contact options"
+    },
+    {
+      "index": 256,
+      "start_time": 1278150.0,
+      "end_time": 1280210.0,
+      "text": "so we can just call options and"
+    },
+    {
+      "index": 257,
+      "start_time": 1281420.0,
+      "end_time": 1287889.0,
+      "text": "Then we'll take these options and pass them to the base class constructor. So just do that. I think base options"
+    },
+    {
+      "index": 258,
+      "start_time": 1289790.0,
+      "end_time": 1291290.0,
+      "text": "and"
+    },
+    {
+      "index": 259,
+      "start_time": 1291290.0,
+      "end_time": 1295840.0,
+      "text": "It's really as simple as that in terms of just setting this class up, but the important thing here"
+    },
+    {
+      "index": 260,
+      "start_time": 1295840.0,
+      "end_time": 1299649.0,
+      "text": "Is that we're going to have a series of what are called DB sets?"
+    },
+    {
+      "index": 261,
+      "start_time": 1300470.0,
+      "end_time": 1306669.0,
+      "text": "And so it'll look something like this. It'll say Bb set and then we're going to specify the entity object here"
+    },
+    {
+      "index": 262,
+      "start_time": 1306670.0,
+      "end_time": 1313149.0,
+      "text": "so for instance if we have a patron object, and we'll use on property accessories -"
+    },
+    {
+      "index": 263,
+      "start_time": 1314240.0,
+      "end_time": 1316330.0,
+      "text": "Okay, so we don't have a patron object yet"
+    },
+    {
+      "index": 264,
+      "start_time": 1317780.0,
+      "end_time": 1325359.0,
+      "text": "but I just wanted to show you that this is how the library context will be structured and so our table is going to"
+    },
+    {
+      "index": 265,
+      "start_time": 1325550.0,
+      "end_time": 1328570.0,
+      "text": "map to our Patron object and then the"
+    },
+    {
+      "index": 266,
+      "start_time": 1329030.0,
+      "end_time": 1334239.0,
+      "text": "Properties on that patron object will map to the columns in that patrons table"
+    },
+    {
+      "index": 267,
+      "start_time": 1334240.0,
+      "end_time": 1338230.0,
+      "text": "So let's go ahead and actually create a patron object what I'll do actually is"
+    },
+    {
+      "index": 268,
+      "start_time": 1338930.0,
+      "end_time": 1340400.0,
+      "text": "right click on"
+    },
+    {
+      "index": 269,
+      "start_time": 1340400.0,
+      "end_time": 1347560.0,
+      "text": "Library Data, and we'll add a folder for all of our domain models here, so we'll call it models and in a moment"
+    },
+    {
+      "index": 270,
+      "start_time": 1347560.0,
+      "end_time": 1349810.0,
+      "text": "I'll go over all the different objects"
+    },
+    {
+      "index": 271,
+      "start_time": 1349810.0,
+      "end_time": 1355269.0,
+      "text": "I think we'll need to consider when creating an integrated library system, but for sure we'll need something to represent"
+    },
+    {
+      "index": 272,
+      "start_time": 1355790.0,
+      "end_time": 1360040.0,
+      "text": "The Patrons and so we'll just use that as our first example here"
+    },
+    {
+      "index": 273,
+      "start_time": 1360320.0,
+      "end_time": 1364059.0,
+      "text": "So I'm going to do is add a class, and it's just going to be called"
+    },
+    {
+      "index": 274,
+      "start_time": 1364700.0,
+      "end_time": 1366590.0,
+      "text": "Patron and"
+    },
+    {
+      "index": 275,
+      "start_time": 1366590.0,
+      "end_time": 1369399.0,
+      "text": "We'll make it public so that it can be accessed by"
+    },
+    {
+      "index": 276,
+      "start_time": 1369680.0,
+      "end_time": 1375220.0,
+      "text": "our library context and so the way this is going to work is we're just going to make this a"
+    },
+    {
+      "index": 277,
+      "start_time": 1375560.0,
+      "end_time": 1376721.0,
+      "text": "Plain Old C"
+    },
+    {
+      "index": 278,
+      "start_time": 1376720.0,
+      "end_time": 1380739.0,
+      "text": "Sharp object and so on each one of our classes here"
+    },
+    {
+      "index": 279,
+      "start_time": 1380740.0,
+      "end_time": 1385840.0,
+      "text": "We'll want to specify an id that's going to be mapped to the primary key on our sequel table"
+    },
+    {
+      "index": 280,
+      "start_time": 1386740.0,
+      "end_time": 1391510.0,
+      "text": "Then say the Patron will probably have a first and last name"
+    },
+    {
+      "index": 281,
+      "start_time": 1395660.0,
+      "end_time": 1402219.0,
+      "text": "And then maybe a simple field for an address probably like a telephone number which you could store"
+    },
+    {
+      "index": 282,
+      "start_time": 1403910.0,
+      "end_time": 1410649.0,
+      "text": "As a string or as a number, and then in fact the patron will have some other objects that are associated with it"
+    },
+    {
+      "index": 283,
+      "start_time": 1410960.0,
+      "end_time": 1413710.0,
+      "text": "so if you think of like foreign keys in a database"
+    },
+    {
+      "index": 284,
+      "start_time": 1414620.0,
+      "end_time": 1419199.0,
+      "text": "Will have some objects like say a library card which were which will create a little bit later"
+    },
+    {
+      "index": 285,
+      "start_time": 1419200.0,
+      "end_time": 1421990.0,
+      "text": "So we'll actually be able to do things like this as well"
+    },
+    {
+      "index": 286,
+      "start_time": 1422390.0,
+      "end_time": 1430390.0,
+      "text": "so say we have some library card object and any framework is actually going to be able to map our patron object then to a"
+    },
+    {
+      "index": 287,
+      "start_time": 1430760.0,
+      "end_time": 1431840.0,
+      "text": "library card"
+    },
+    {
+      "index": 288,
+      "start_time": 1431840.0,
+      "end_time": 1436990.0,
+      "text": "Object using a foreign key on say like the ID property of this library card object when it's created"
+    },
+    {
+      "index": 289,
+      "start_time": 1437090.0,
+      "end_time": 1441670.0,
+      "text": "So look at that in a little bit and in fact we can also called virtual on this which will allow us to lazy load"
+    },
+    {
+      "index": 290,
+      "start_time": 1442070.0,
+      "end_time": 1446500.0,
+      "text": "That library card object so any time we pull an instance of patron"
+    },
+    {
+      "index": 291,
+      "start_time": 1447020.0,
+      "end_time": 1453280.0,
+      "text": "We don't necessarily want all of the data that's on library library card to be loaded at that time"
+    },
+    {
+      "index": 292,
+      "start_time": 1453830.0,
+      "end_time": 1457660.0,
+      "text": "But we'll cover all of that in a little bit. I'm just going to comment this line out for now"
+    },
+    {
+      "index": 293,
+      "start_time": 1460160.0,
+      "end_time": 1462339.0,
+      "text": "So you want to make sure again that?"
+    },
+    {
+      "index": 294,
+      "start_time": 1463520.0,
+      "end_time": 1468400.0,
+      "text": "You have installed your microsoft and any framework or tools and sequel server"
+    },
+    {
+      "index": 295,
+      "start_time": 1468980.0,
+      "end_time": 1470570.0,
+      "text": "nuget packages"
+    },
+    {
+      "index": 296,
+      "start_time": 1470570.0,
+      "end_time": 1472600.0,
+      "text": "before moving on to this section"
+    },
+    {
+      "index": 297,
+      "start_time": 1472600.0,
+      "end_time": 1474699.0,
+      "text": "so if those aren't installed in this next part"
+    },
+    {
+      "index": 298,
+      "start_time": 1474980.0,
+      "end_time": 1480250.0,
+      "text": "isn't going to work what we'll do is head over to our app settings a jSon file and"
+    },
+    {
+      "index": 299,
+      "start_time": 1480980.0,
+      "end_time": 1484959.0,
+      "text": "We're going to add a new Key here called Connection strings"
+    },
+    {
+      "index": 300,
+      "start_time": 1485600.0,
+      "end_time": 1490089.0,
+      "text": "So it's going to be a new object here, and we can give it a name, so I'm just going to call this one"
+    },
+    {
+      "index": 301,
+      "start_time": 1490940.0,
+      "end_time": 1497530.0,
+      "text": "Highbury connection, and then the string should look something like this, so we'll have say server equal to"
+    },
+    {
+      "index": 302,
+      "start_time": 1498290.0,
+      "end_time": 1501489.0,
+      "text": "local Db xs backslash Microsoft sequel"
+    },
+    {
+      "index": 303,
+      "start_time": 1502670.0,
+      "end_time": 1510249.0,
+      "text": "Local DB and so first of all this local DB will exist if you have Microsoft local BB installed"
+    },
+    {
+      "index": 304,
+      "start_time": 1512030.0,
+      "end_time": 1513920.0,
+      "text": "and"
+    },
+    {
+      "index": 305,
+      "start_time": 1513920.0,
+      "end_time": 1516699.0,
+      "text": "Once it's installed. You should be able to confirm it at the command line"
+    },
+    {
+      "index": 306,
+      "start_time": 1516700.0,
+      "end_time": 1521769.0,
+      "text": "And I'll show you how here's I'm just going to open up command line, and if you just type in equal local DB"
+    },
+    {
+      "index": 307,
+      "start_time": 1522770.0,
+      "end_time": 1523880.0,
+      "text": "so"
+    },
+    {
+      "index": 308,
+      "start_time": 1523880.0,
+      "end_time": 1528700.0,
+      "text": "You should see a series of databases that will be running on your computer"
+    },
+    {
+      "index": 309,
+      "start_time": 1529220.0,
+      "end_time": 1532479.0,
+      "text": "If you don't see em f's equal local DB running here"
+    },
+    {
+      "index": 310,
+      "start_time": 1533060.0,
+      "end_time": 1534860.0,
+      "text": "You should be able to type"
+    },
+    {
+      "index": 311,
+      "start_time": 1534860.0,
+      "end_time": 1536860.0,
+      "text": "Sequel local DB"
+    },
+    {
+      "index": 312,
+      "start_time": 1537710.0,
+      "end_time": 1543549.0,
+      "text": "start and then LS sequel local DB and that will start an instance of"
+    },
+    {
+      "index": 313,
+      "start_time": 1544310.0,
+      "end_time": 1551169.0,
+      "text": "Ms. Sequel local DB on your computer it first amazed me to stop and delete the instance you would call"
+    },
+    {
+      "index": 314,
+      "start_time": 1551870.0,
+      "end_time": 1554800.0,
+      "text": "sequel local DB stop and the sequel local DB and"
+    },
+    {
+      "index": 315,
+      "start_time": 1555770.0,
+      "end_time": 1562180.0,
+      "text": "Delete but of course you want to be very careful if you are running either of those commands so back to our connection string here"
+    },
+    {
+      "index": 316,
+      "start_time": 1562310.0,
+      "end_time": 1564310.0,
+      "text": "we now just need to specify a"
+    },
+    {
+      "index": 317,
+      "start_time": 1564950.0,
+      "end_time": 1567099.0,
+      "text": "Database name so this can be whatever you like"
+    },
+    {
+      "index": 318,
+      "start_time": 1567100.0,
+      "end_time": 1573490.0,
+      "text": "But whatever you type in here is what any framework will create when when we do our first migration here?"
+    },
+    {
+      "index": 319,
+      "start_time": 1573490.0,
+      "end_time": 1575590.0,
+      "text": "So let's just call it like library"
+    },
+    {
+      "index": 320,
+      "start_time": 1576860.0,
+      "end_time": 1578750.0,
+      "text": "deb for instance"
+    },
+    {
+      "index": 321,
+      "start_time": 1578750.0,
+      "end_time": 1583359.0,
+      "text": "Then it's going to include two more parts in our connection string here the first is claude trusted connection"
+    },
+    {
+      "index": 322,
+      "start_time": 1583820.0,
+      "end_time": 1591340.0,
+      "text": "True that just going to allow us to use our windows authentication to connect that database and the second part is multiple"
+    },
+    {
+      "index": 323,
+      "start_time": 1592520.0,
+      "end_time": 1594520.0,
+      "text": "active result set"
+    },
+    {
+      "index": 324,
+      "start_time": 1595250.0,
+      "end_time": 1597250.0,
+      "text": "equal to true"
+    },
+    {
+      "index": 325,
+      "start_time": 1597260.0,
+      "end_time": 1599260.0,
+      "text": "Okay, so we'll just save that"
+    },
+    {
+      "index": 326,
+      "start_time": 1599960.0,
+      "end_time": 1604659.0,
+      "text": "And before I forget let's go back to our library contacts, and we want to make sure that we"
+    },
+    {
+      "index": 327,
+      "start_time": 1605630.0,
+      "end_time": 1610270.0,
+      "text": "Include the models that we created here, so I'm going to control period Here"
+    },
+    {
+      "index": 328,
+      "start_time": 1610270.0,
+      "end_time": 1616450.0,
+      "text": "And then make sure that we're using this library data models namespace so that we have access to this patron object"
+    },
+    {
+      "index": 329,
+      "start_time": 1616970.0,
+      "end_time": 1622929.0,
+      "text": "I'm actually going to control period Up here and remove unnecessary things as well save this file"
+    },
+    {
+      "index": 330,
+      "start_time": 1624020.0,
+      "end_time": 1627970.0,
+      "text": "Okay, and now to get any framework talking to our database"
+    },
+    {
+      "index": 331,
+      "start_time": 1627970.0,
+      "end_time": 1631899.0,
+      "text": "we need to actually add this library context to our services collection, so"
+    },
+    {
+      "index": 332,
+      "start_time": 1632000.0,
+      "end_time": 1635500.0,
+      "text": "In order to add a DB context we need to add entity framework"
+    },
+    {
+      "index": 333,
+      "start_time": 1636020.0,
+      "end_time": 1638020.0,
+      "text": "to our library"
+    },
+    {
+      "index": 334,
+      "start_time": 1638420.0,
+      "end_time": 1640629.0,
+      "text": "project, so I'm going to go ahead and"
+    },
+    {
+      "index": 335,
+      "start_time": 1641390.0,
+      "end_time": 1646930.0,
+      "text": "right click on library manage nuget packages, and we need to find any framework or"
+    },
+    {
+      "index": 336,
+      "start_time": 1649940.0,
+      "end_time": 1652300.0,
+      "text": "So I'm going to like this and we'll install it here"
+    },
+    {
+      "index": 337,
+      "start_time": 1652300.0,
+      "end_time": 1658180.0,
+      "text": "This is going to give us access to that ad dbContext method and now that entity framework core is installed"
+    },
+    {
+      "index": 338,
+      "start_time": 1658250.0,
+      "end_time": 1661329.0,
+      "text": "we'll also need to install entity framework or"
+    },
+    {
+      "index": 339,
+      "start_time": 1662150.0,
+      "end_time": 1664150.0,
+      "text": "sequel server"
+    },
+    {
+      "index": 340,
+      "start_time": 1665390.0,
+      "end_time": 1668200.0,
+      "text": "And I'll accept so we have these"
+    },
+    {
+      "index": 341,
+      "start_time": 1668660.0,
+      "end_time": 1673149.0,
+      "text": "New get packages installed in both of all in both our data layer as well as the web layer"
+    },
+    {
+      "index": 342,
+      "start_time": 1673220.0,
+      "end_time": 1676270.0,
+      "text": "So let's take a look at our dependencies and then under new Gap"
+    },
+    {
+      "index": 343,
+      "start_time": 1676790.0,
+      "end_time": 1679810.0,
+      "text": "Okay, so I can see that it has been installed here"
+    },
+    {
+      "index": 344,
+      "start_time": 1680540.0,
+      "end_time": 1682540.0,
+      "text": "I'm going to go ahead now and"
+    },
+    {
+      "index": 345,
+      "start_time": 1683090.0,
+      "end_time": 1685090.0,
+      "text": "We'll go into our"
+    },
+    {
+      "index": 346,
+      "start_time": 1685160.0,
+      "end_time": 1691180.0,
+      "text": "Startup class and if we come down to the configure services method as I said, we'll be revisiting"
+    },
+    {
+      "index": 347,
+      "start_time": 1691370.0,
+      "end_time": 1696190.0,
+      "text": "This method as we want to include services for application to use"
+    },
+    {
+      "index": 348,
+      "start_time": 1696800.0,
+      "end_time": 1698540.0,
+      "text": "we need to"
+    },
+    {
+      "index": 349,
+      "start_time": 1698540.0,
+      "end_time": 1703719.0,
+      "text": "Call add DB context on our service collection now, so add. VB"
+    },
+    {
+      "index": 350,
+      "start_time": 1704420.0,
+      "end_time": 1708249.0,
+      "text": "Context and we're going to use the library"
+    },
+    {
+      "index": 351,
+      "start_time": 1709130.0,
+      "end_time": 1713050.0,
+      "text": "Library context that we created earlier as the type so to do that"
+    },
+    {
+      "index": 352,
+      "start_time": 1713050.0,
+      "end_time": 1717609.0,
+      "text": "I actually need to reference the library Data project in the web project"
+    },
+    {
+      "index": 353,
+      "start_time": 1717610.0,
+      "end_time": 1722170.0,
+      "text": "I have here so we're going to right click here, and I'm going to go to add reference and"
+    },
+    {
+      "index": 354,
+      "start_time": 1722720.0,
+      "end_time": 1728860.0,
+      "text": "We'll add a reference to our library data project from our solution. So say ok this will allow me to"
+    },
+    {
+      "index": 355,
+      "start_time": 1729290.0,
+      "end_time": 1731769.0,
+      "text": "control period On library context here and"
+    },
+    {
+      "index": 356,
+      "start_time": 1733100.0,
+      "end_time": 1737709.0,
+      "text": "Pull in the using library Data statement at the top of our file and here"
+    },
+    {
+      "index": 357,
+      "start_time": 1737710.0,
+      "end_time": 1742150.0,
+      "text": "I'm just going to pass a lambda function that will call options options dot"
+    },
+    {
+      "index": 358,
+      "start_time": 1743030.0,
+      "end_time": 1745030.0,
+      "text": "Use sequel server"
+    },
+    {
+      "index": 359,
+      "start_time": 1745670.0,
+      "end_time": 1748479.0,
+      "text": "And doesn't click we're getting intelligence on this"
+    },
+    {
+      "index": 360,
+      "start_time": 1749000.0,
+      "end_time": 1753760.0,
+      "text": "So let's go to the top of the file here and manually type in new things"
+    },
+    {
+      "index": 361,
+      "start_time": 1754730.0,
+      "end_time": 1756730.0,
+      "text": "Microsoft at any Framework or"
+    },
+    {
+      "index": 362,
+      "start_time": 1757760.0,
+      "end_time": 1759140.0,
+      "text": "and"
+    },
+    {
+      "index": 363,
+      "start_time": 1759140.0,
+      "end_time": 1765190.0,
+      "text": "Ok so that gives us access to the use sequel server method here, and I'm going to put the land on one line down"
+    },
+    {
+      "index": 364,
+      "start_time": 1765190.0,
+      "end_time": 1769359.0,
+      "text": "So we can read it all and then we need to pass the use sequel server our"
+    },
+    {
+      "index": 365,
+      "start_time": 1769730.0,
+      "end_time": 1773140.0,
+      "text": "Connection string and we can get that again through this configuration"
+    },
+    {
+      "index": 366,
+      "start_time": 1773960.0,
+      "end_time": 1777940.0,
+      "text": "Object that we had built and we'll call get connection string there"
+    },
+    {
+      "index": 367,
+      "start_time": 1778860.0,
+      "end_time": 1780210.0,
+      "text": "and"
+    },
+    {
+      "index": 368,
+      "start_time": 1780210.0,
+      "end_time": 1784399.0,
+      "text": "We just need to specify the name of the connection string that we just added to our"
+    },
+    {
+      "index": 369,
+      "start_time": 1785250.0,
+      "end_time": 1790640.0,
+      "text": "app settings that Json which if you recall was just library connection"
+    },
+    {
+      "index": 370,
+      "start_time": 1790640.0,
+      "end_time": 1794390.0,
+      "text": "So we're going to go ahead and throw that here, and we're missing a single parens"
+    },
+    {
+      "index": 371,
+      "start_time": 1797010.0,
+      "end_time": 1804589.0,
+      "text": "okay, so you can see I feel like that structures really nicely just having this configuration object that gets built here and"
+    },
+    {
+      "index": 372,
+      "start_time": 1804630.0,
+      "end_time": 1808910.0,
+      "text": "Then being able to call a single method get to get connection string"
+    },
+    {
+      "index": 373,
+      "start_time": 1809430.0,
+      "end_time": 1811909.0,
+      "text": "Passing that the key from our JSon object"
+    },
+    {
+      "index": 374,
+      "start_time": 1811910.0,
+      "end_time": 1818479.0,
+      "text": "And this is going to provide entity framework with the context that we are creating for our library application"
+    },
+    {
+      "index": 375,
+      "start_time": 1819090.0,
+      "end_time": 1823160.0,
+      "text": "So now let's run our first database migration and create our first database"
+    },
+    {
+      "index": 376,
+      "start_time": 1823200.0,
+      "end_time": 1825090.0,
+      "text": "so database migration is"
+    },
+    {
+      "index": 377,
+      "start_time": 1825090.0,
+      "end_time": 1831500.0,
+      "text": "essentially just a way of moving a database schema from one state to another and so anytime we make"
+    },
+    {
+      "index": 378,
+      "start_time": 1831630.0,
+      "end_time": 1839420.0,
+      "text": "Changes to our schema which would be say like adding a table or dropping a table or altering some columns and so"
+    },
+    {
+      "index": 379,
+      "start_time": 1839850.0,
+      "end_time": 1845990.0,
+      "text": "Migrations make that possible, so let's take a look at what happens when we create our first migration"
+    },
+    {
+      "index": 380,
+      "start_time": 1846570.0,
+      "end_time": 1852439.0,
+      "text": "So if you head down to the package manager console here and set your default project to library data"
+    },
+    {
+      "index": 381,
+      "start_time": 1853260.0,
+      "end_time": 1855260.0,
+      "text": "first Command, we'll run is"
+    },
+    {
+      "index": 382,
+      "start_time": 1855480.0,
+      "end_time": 1859520.0,
+      "text": "Add - migration and we'll say initial migration"
+    },
+    {
+      "index": 383,
+      "start_time": 1860040.0,
+      "end_time": 1862219.0,
+      "text": "and we just need to put that in quotes, so"
+    },
+    {
+      "index": 384,
+      "start_time": 1862740.0,
+      "end_time": 1869599.0,
+      "text": "I'll hit return and the output we get is simply a remark that if we'd like to undo this action use remove migration"
+    },
+    {
+      "index": 385,
+      "start_time": 1869760.0,
+      "end_time": 1875330.0,
+      "text": "But more importantly we see a new folder that was created in our library Data project called migrations"
+    },
+    {
+      "index": 386,
+      "start_time": 1875330.0,
+      "end_time": 1878239.0,
+      "text": "And it contains this initial migration"
+    },
+    {
+      "index": 387,
+      "start_time": 1879120.0,
+      "end_time": 1881900.0,
+      "text": "That Cs. File, so this is just a C-Sharp file"
+    },
+    {
+      "index": 388,
+      "start_time": 1882630.0,
+      "end_time": 1887330.0,
+      "text": "That is going to go to migration for us for our sequel database, so you can see in this case"
+    },
+    {
+      "index": 389,
+      "start_time": 1887330.0,
+      "end_time": 1891379.0,
+      "text": "It's actually going to create our patrons table for us and create columns"
+    },
+    {
+      "index": 390,
+      "start_time": 1893010.0,
+      "end_time": 1897560.0,
+      "text": "Corresponding to all the properties that are on our patrons domain object, okay?"
+    },
+    {
+      "index": 391,
+      "start_time": 1897560.0,
+      "end_time": 1903560.0,
+      "text": "So if we want to commit this to the database if you will we just need to say update - database"
+    },
+    {
+      "index": 392,
+      "start_time": 1904080.0,
+      "end_time": 1905340.0,
+      "text": "and"
+    },
+    {
+      "index": 393,
+      "start_time": 1905340.0,
+      "end_time": 1910340.0,
+      "text": "The first time that you run this since we don't have a database created. It's going to take just extra seconds"
+    },
+    {
+      "index": 394,
+      "start_time": 1910920.0,
+      "end_time": 1916939.0,
+      "text": "but what any framework is doing that is it's going out you are using our connection train going out to an instance of"
+    },
+    {
+      "index": 395,
+      "start_time": 1917190.0,
+      "end_time": 1920690.0,
+      "text": "Local DB and saying I don't have a database called library' Dev here"
+    },
+    {
+      "index": 396,
+      "start_time": 1920690.0,
+      "end_time": 1925100.0,
+      "text": "I'm going to go ahead and create one, and then I'm going to create those table patrons because it doesn't exist either"
+    },
+    {
+      "index": 397,
+      "start_time": 1925770.0,
+      "end_time": 1931729.0,
+      "text": "Okay, and so you see that when it's complete you just get done here on the console now"
+    },
+    {
+      "index": 398,
+      "start_time": 1932400.0,
+      "end_time": 1938749.0,
+      "text": "If we go to the sequel server object explorer in visual studio. You don't see this you can click view"
+    },
+    {
+      "index": 399,
+      "start_time": 1939450.0,
+      "end_time": 1942500.0,
+      "text": "sequel server object explorer here, and if we look under"
+    },
+    {
+      "index": 400,
+      "start_time": 1943110.0,
+      "end_time": 1948110.0,
+      "text": "Local Db /Ms sequel local DB and then under databases in my case"
+    },
+    {
+      "index": 401,
+      "start_time": 1948110.0,
+      "end_time": 1952189.0,
+      "text": "I have two databases here once the demo that we looked at earlier"
+    },
+    {
+      "index": 402,
+      "start_time": 1952620.0,
+      "end_time": 1960020.0,
+      "text": "but in our library underscore Dev database and then in the tables folder you can see that we have a"
+    },
+    {
+      "index": 403,
+      "start_time": 1960390.0,
+      "end_time": 1961280.0,
+      "text": "Patrons table"
+    },
+    {
+      "index": 404,
+      "start_time": 1961280.0,
+      "end_time": 1966589.0,
+      "text": "And the patrons table contains columns for all the properties that were on our domain object"
+    },
+    {
+      "index": 405,
+      "start_time": 1966900.0,
+      "end_time": 1971810.0,
+      "text": "And so it looks like this migration was successful. So if you've gotten this far already, I would say"
+    },
+    {
+      "index": 406,
+      "start_time": 1972330.0,
+      "end_time": 1977990.0,
+      "text": "Congratulations, because you now basically have a database using code first"
+    },
+    {
+      "index": 407,
+      "start_time": 1978510.0,
+      "end_time": 1980510.0,
+      "text": "hooked up to your"
+    },
+    {
+      "index": 408,
+      "start_time": 1980730.0,
+      "end_time": 1985189.0,
+      "text": "Application and so we can now begin to think about how we're going to"
+    },
+    {
+      "index": 409,
+      "start_time": 1985650.0,
+      "end_time": 1991099.0,
+      "text": "Construct the Data that will represent the various objects that we'll need to use in our"
+    },
+    {
+      "index": 410,
+      "start_time": 1991290.0,
+      "end_time": 1993349.0,
+      "text": "Integrated library system one thing"
+    },
+    {
+      "index": 411,
+      "start_time": 1993350.0,
+      "end_time": 1999949.0,
+      "text": "I would highly suggest doing is if you don't have Microsoft sequel server management studio installed"
+    },
+    {
+      "index": 412,
+      "start_time": 1999950.0,
+      "end_time": 2004900.0,
+      "text": "I would go ahead and install that and if you open it up, it'll look like this"
+    },
+    {
+      "index": 413,
+      "start_time": 2005840.0,
+      "end_time": 2013360.0,
+      "text": "It will ask you when you first open it to connect to a particular server name. We'll be able to use windows authentication"
+    },
+    {
+      "index": 414,
+      "start_time": 2014000.0,
+      "end_time": 2021489.0,
+      "text": "You'll just need to type in parens local DB. And then backslash and that sequel locally be and then you'll be able to click connect"
+    },
+    {
+      "index": 415,
+      "start_time": 2023390.0,
+      "end_time": 2029979.0,
+      "text": "and if you don't see your database in the list of databases here just click this refresh button and"
+    },
+    {
+      "index": 416,
+      "start_time": 2030740.0,
+      "end_time": 2034990.0,
+      "text": "Then re Expand the databases folder, and you should see it here now, so I see library Dev"
+    },
+    {
+      "index": 417,
+      "start_time": 2035570.0,
+      "end_time": 2038980.0,
+      "text": "Now if we right-click on this and select new query"
+    },
+    {
+      "index": 418,
+      "start_time": 2040220.0,
+      "end_time": 2044180.0,
+      "text": "Now we can actually run raw sequel against the bass that we created"
+    },
+    {
+      "index": 419,
+      "start_time": 2044400.0,
+      "end_time": 2048499.0,
+      "text": "So for instance although we don't have any did it and now I can select star from Patrons"
+    },
+    {
+      "index": 420,
+      "start_time": 2049290.0,
+      "end_time": 2053060.0,
+      "text": "If I run this I can see an empty table here and again now"
+    },
+    {
+      "index": 421,
+      "start_time": 2053060.0,
+      "end_time": 2057499.0,
+      "text": "You can see the columns that map to our C. Sharp object that we created earlier"
+    },
+    {
+      "index": 422,
+      "start_time": 2058230.0,
+      "end_time": 2059580.0,
+      "text": "okay, so"
+    },
+    {
+      "index": 423,
+      "start_time": 2059580.0,
+      "end_time": 2060950.0,
+      "text": "fantastic so far now"
+    },
+    {
+      "index": 424,
+      "start_time": 2060949.9999999998,
+      "end_time": 2065539.9999999998,
+      "text": "I'd like to take a short step back and let's just think for a minute about"
+    },
+    {
+      "index": 425,
+      "start_time": 2065820.0000000002,
+      "end_time": 2070459.0000000002,
+      "text": "The objects that will need to be represented in an integrative library system"
+    },
+    {
+      "index": 426,
+      "start_time": 2071190.0,
+      "end_time": 2073070.0,
+      "text": "so if we think about a library"
+    },
+    {
+      "index": 427,
+      "start_time": 2073070.0000000002,
+      "end_time": 2076189.0000000002,
+      "text": "It's basically a place where people go to"
+    },
+    {
+      "index": 428,
+      "start_time": 2076590.0000000002,
+      "end_time": 2083299.0000000002,
+      "text": "checkout media yet books or video or magazines and as a library what I might want to do is manage the"
+    },
+    {
+      "index": 429,
+      "start_time": 2084120.0,
+      "end_time": 2087919.0,
+      "text": "Patrons that come to my library to check out those assets and the assets"
+    },
+    {
+      "index": 430,
+      "start_time": 2088050.0000000002,
+      "end_time": 2088550.0000000002,
+      "text": "themselves"
+    },
+    {
+      "index": 431,
+      "start_time": 2088550.0000000002,
+      "end_time": 2093769.0000000002,
+      "text": "So I can see you know where they're going if you help frequently they're getting checked out whether or not they've been lost"
+    },
+    {
+      "index": 432,
+      "start_time": 2094100.0,
+      "end_time": 2099350.0,
+      "text": "Whether or not they are being returned late, and I need to charge a particular Patron some fees"
+    },
+    {
+      "index": 433,
+      "start_time": 2099350.0,
+      "end_time": 2104689.0,
+      "text": "And then I also might want to get some understanding of the various branches that are in my system"
+    },
+    {
+      "index": 434,
+      "start_time": 2104690.0,
+      "end_time": 2109460.0,
+      "text": "So what library buildings contain what assets what Patrons are?"
+    },
+    {
+      "index": 435,
+      "start_time": 2110100.0,
+      "end_time": 2114379.0,
+      "text": "associated with what library branches and so you can see we kind of have a"
+    },
+    {
+      "index": 436,
+      "start_time": 2114870.0,
+      "end_time": 2121039.0,
+      "text": "system of objects that all kind of interact together here and on top of that we need to also develop some type of"
+    },
+    {
+      "index": 437,
+      "start_time": 2121260.0,
+      "end_time": 2122990.0,
+      "text": "Checking in and checking out system"
+    },
+    {
+      "index": 438,
+      "start_time": 2122990.0,
+      "end_time": 2126080.0,
+      "text": "So that we can actually manage the flow of our assets"
+    },
+    {
+      "index": 439,
+      "start_time": 2126080.0,
+      "end_time": 2132350.0,
+      "text": "And so I think it's fairly safe to assume that we should create objects that represent our library assets"
+    },
+    {
+      "index": 440,
+      "start_time": 2132660.0,
+      "end_time": 2138260.0,
+      "text": "Our patrons and our branches let's think first about what a library asset"
+    },
+    {
+      "index": 441,
+      "start_time": 2138260.0,
+      "end_time": 2139970.0,
+      "text": "Object would look like well"
+    },
+    {
+      "index": 442,
+      "start_time": 2139970.0,
+      "end_time": 2145010.0,
+      "text": "We would know that it would have some data associated with it like a title and author the year"
+    },
+    {
+      "index": 443,
+      "start_time": 2145010.0,
+      "end_time": 2151159.0,
+      "text": "It was published its cost and any number of other sort of Metadata that are essentially properties on a library asset"
+    },
+    {
+      "index": 444,
+      "start_time": 2151160.0,
+      "end_time": 2156830.0,
+      "text": "But we also need to think about how that asset relates to things like our branch locations in other words"
+    },
+    {
+      "index": 445,
+      "start_time": 2156830.0,
+      "end_time": 2159319.0,
+      "text": "Where's that asset typically stored when it's checked in?"
+    },
+    {
+      "index": 446,
+      "start_time": 2160080.0,
+      "end_time": 2167299.0,
+      "text": "And then we also need to think about its state in terms of like if it's currently checked out by a patron if it's lost"
+    },
+    {
+      "index": 447,
+      "start_time": 2167610.0,
+      "end_time": 2172420.0,
+      "text": "At time did all these things occur so on one hand we have some sort of Metadata"
+    },
+    {
+      "index": 448,
+      "start_time": 2172420.0,
+      "end_time": 2179079.0,
+      "text": "That's directly associated with this object and on the other we have some data that will represent this objects"
+    },
+    {
+      "index": 449,
+      "start_time": 2179420.0,
+      "end_time": 2182829.0,
+      "text": "Relationship or state with other objects in our system, okay?"
+    },
+    {
+      "index": 450,
+      "start_time": 2182830.0,
+      "end_time": 2188620.0,
+      "text": "And so let's think about the patron now well similar to the library app that the Patron will have some Metadata if you will"
+    },
+    {
+      "index": 451,
+      "start_time": 2188840.0,
+      "end_time": 2192610.0,
+      "text": "sort of like person's name and their address or telephone number"
+    },
+    {
+      "index": 452,
+      "start_time": 2192920.0,
+      "end_time": 2198339.0,
+      "text": "Anything that sort of describes this patron and then on the other hand we have data associated with"
+    },
+    {
+      "index": 453,
+      "start_time": 2198650.0,
+      "end_time": 2202089.0,
+      "text": "This Patrons relationship to other objects in our database"
+    },
+    {
+      "index": 454,
+      "start_time": 2202490.0,
+      "end_time": 2206439.0,
+      "text": "So we can imagine this patron having a library card which has an ID"
+    },
+    {
+      "index": 455,
+      "start_time": 2206510.0,
+      "end_time": 2211689.0,
+      "text": "And maybe a home library branch that this patron belongs to if you will and then finally our third"
+    },
+    {
+      "index": 456,
+      "start_time": 2211910.0,
+      "end_time": 2219579.0,
+      "text": "Big object in the system will be a library branch and similarly the properties that might describe that library branch include its name telephone number"
+    },
+    {
+      "index": 457,
+      "start_time": 2219580.0,
+      "end_time": 2227019.0,
+      "text": "And address and some the data that it relates to might be the total cost of assets that it controls or stores the total number"
+    },
+    {
+      "index": 458,
+      "start_time": 2227020.0,
+      "end_time": 2231640.0,
+      "text": "Of its patrons and finally we should think about a checkout system"
+    },
+    {
+      "index": 459,
+      "start_time": 2231920.0,
+      "end_time": 2235599.0,
+      "text": "So we need to associate an asset with a library card"
+    },
+    {
+      "index": 460,
+      "start_time": 2235610.0,
+      "end_time": 2242380.0,
+      "text": "so we're going to associate assets with library cards as opposed to patrons so that we have one layer of"
+    },
+    {
+      "index": 461,
+      "start_time": 2242840.0,
+      "end_time": 2250539.0,
+      "text": "removal if you will from our patrons with the items that they're checking out that's going to be represented with this library card object and"
+    },
+    {
+      "index": 462,
+      "start_time": 2250850.0,
+      "end_time": 2256870.0,
+      "text": "Then we'll want to define a time that an asset was checked out at a time that the essay was due for instance and so"
+    },
+    {
+      "index": 463,
+      "start_time": 2256940.0,
+      "end_time": 2263440.0,
+      "text": "Now let's think about this library card object so a library card will have a one-To-one relationship with a patron"
+    },
+    {
+      "index": 464,
+      "start_time": 2263720.0,
+      "end_time": 2267070.0,
+      "text": "And in the sense it will represent a sort of layer of abstraction"
+    },
+    {
+      "index": 465,
+      "start_time": 2267440.0,
+      "end_time": 2268630.0,
+      "text": "Between the ss"
+    },
+    {
+      "index": 466,
+      "start_time": 2268630.0,
+      "end_time": 2276579.0,
+      "text": "That a patron checked out and the patron him or herself the library card will also be used as the object that contains information about"
+    },
+    {
+      "index": 467,
+      "start_time": 2276770.0,
+      "end_time": 2278540.0,
+      "text": "overdue fees and"
+    },
+    {
+      "index": 468,
+      "start_time": 2278540.0,
+      "end_time": 2283900.0,
+      "text": "Assets that are checked out to the particular patron who has the relationship with the card, okay?"
+    },
+    {
+      "index": 469,
+      "start_time": 2283900.0,
+      "end_time": 2285900.0,
+      "text": "And then finally we'll have some additional"
+    },
+    {
+      "index": 470,
+      "start_time": 2286220.0,
+      "end_time": 2291970.0,
+      "text": "Functionality to incorporate this idea of holds, and we'll talk about that in more detail as we develop that feature"
+    },
+    {
+      "index": 471,
+      "start_time": 2291970.0,
+      "end_time": 2297040.0,
+      "text": "But that's going to allow patrons to put holds on items while they're checked out by other Patrons"
+    },
+    {
+      "index": 472,
+      "start_time": 2297350.0,
+      "end_time": 2300189.0,
+      "text": "Such that when the patron who has the item checked out?"
+    },
+    {
+      "index": 473,
+      "start_time": 2300520.0,
+      "end_time": 2304840.0,
+      "text": "Turns it. It will automatically get checked out to the patron with the earliest hold"
+    },
+    {
+      "index": 474,
+      "start_time": 2305420.0,
+      "end_time": 2311620.0,
+      "text": "And then we'll have a concept of checkout history, so we'll keep an audit of every checkout that occurs in the system"
+    },
+    {
+      "index": 475,
+      "start_time": 2311870.0,
+      "end_time": 2312620.0,
+      "text": "and"
+    },
+    {
+      "index": 476,
+      "start_time": 2312620.0,
+      "end_time": 2317439.0,
+      "text": "we'll have a concept of assets status and so that will be a table of static data that just"
+    },
+    {
+      "index": 477,
+      "start_time": 2317540.0,
+      "end_time": 2323529.0,
+      "text": "Contains all the different statuses that the library SI could have so like checked out checked in lost"
+    },
+    {
+      "index": 478,
+      "start_time": 2324230.0,
+      "end_time": 2325720.0,
+      "text": "ETC alright awesome"
+    },
+    {
+      "index": 479,
+      "start_time": 2325720.0,
+      "end_time": 2328780.0,
+      "text": "So now that we have a kind of big picture view of what our?"
+    },
+    {
+      "index": 480,
+      "start_time": 2329120.0,
+      "end_time": 2333130.0,
+      "text": "Objects will be let's go ahead and create some domain models for them"
+    },
+    {
+      "index": 481,
+      "start_time": 2333130.0,
+      "end_time": 2338140.0,
+      "text": "And then we can run a new database migration so that we have a database schema created for us"
+    },
+    {
+      "index": 482,
+      "start_time": 2338140.0,
+      "end_time": 2341949.0,
+      "text": "So I'm going to go back to the code and then I close the sequel server object explorer for now"
+    },
+    {
+      "index": 483,
+      "start_time": 2341950.0,
+      "end_time": 2345220.0,
+      "text": "and I'm also going to minimize our migrations folder and"
+    },
+    {
+      "index": 484,
+      "start_time": 2345680.0,
+      "end_time": 2347600.0,
+      "text": "just rearrange our"
+    },
+    {
+      "index": 485,
+      "start_time": 2347600.0,
+      "end_time": 2352539.0,
+      "text": "Layout a little bit here to make it easier to see and what I'd like to do is in our models directory"
+    },
+    {
+      "index": 486,
+      "start_time": 2352540.0,
+      "end_time": 2359679.0,
+      "text": "I'm just going to create classes for all the different objects that we just talked about so I'm going to click add new class and"
+    },
+    {
+      "index": 487,
+      "start_time": 2360020.0,
+      "end_time": 2364149.0,
+      "text": "For Brevity I'm going to create a class for each of the objects here"
+    },
+    {
+      "index": 488,
+      "start_time": 2364150.0,
+      "end_time": 2369940.0,
+      "text": "And then we'll look at the properties on each of them in a moment and after all the classes will are created"
+    },
+    {
+      "index": 489,
+      "start_time": 2369940.0,
+      "end_time": 2371940.0,
+      "text": "We'll look at them individually"
+    },
+    {
+      "index": 490,
+      "start_time": 2376750.0,
+      "end_time": 2384479.0,
+      "text": "Okay, so I've gone ahead and created all of our entity models here in separate classes that we'll need to use for our application notice"
+    },
+    {
+      "index": 491,
+      "start_time": 2384480.0,
+      "end_time": 2391139.0,
+      "text": "That I can have supply this required attribute on any of the attributes that I want to specify as non-null in our sequel database"
+    },
+    {
+      "index": 492,
+      "start_time": 2391240.0,
+      "end_time": 2393449.0,
+      "text": "So notice that I have a class book"
+    },
+    {
+      "index": 493,
+      "start_time": 2394150.0,
+      "end_time": 2397680.0,
+      "text": "Which is inheriting from an abstract base class library asset?"
+    },
+    {
+      "index": 494,
+      "start_time": 2397680.0,
+      "end_time": 2401520.0,
+      "text": "Which has a model in our models folder and the reason I'm doing this is because"
+    },
+    {
+      "index": 495,
+      "start_time": 2402010.0,
+      "end_time": 2403000.0,
+      "text": "you can"
+    },
+    {
+      "index": 496,
+      "start_time": 2403000.0,
+      "end_time": 2409500.0,
+      "text": "Imagine our library will control a number of different types of things which still have many of the same properties that are relevant to us"
+    },
+    {
+      "index": 497,
+      "start_time": 2409720.0,
+      "end_time": 2415889.0,
+      "text": "so anything that a library will provide as an asset will have a title a year the"
+    },
+    {
+      "index": 498,
+      "start_time": 2416290.0,
+      "end_time": 2422399.0,
+      "text": "Status which we'll take a look at in a minute the cost an image that we can use for presentation in our views"
+    },
+    {
+      "index": 499,
+      "start_time": 2422740.0,
+      "end_time": 2424050.0,
+      "text": "May be a number of copies"
+    },
+    {
+      "index": 500,
+      "start_time": 2424050.0,
+      "end_time": 2426839.0,
+      "text": "And it will be associated with a library branch"
+    },
+    {
+      "index": 501,
+      "start_time": 2427270.0,
+      "end_time": 2432989.0,
+      "text": "so notice that I have this public virtual library Branch property on our library asset class and"
+    },
+    {
+      "index": 502,
+      "start_time": 2433090.0,
+      "end_time": 2436890.0,
+      "text": "so this is going to create a sort of foreign key relationship between"
+    },
+    {
+      "index": 503,
+      "start_time": 2437740.0,
+      "end_time": 2441899.0,
+      "text": "Anything that is a library asset and a particular library Branch"
+    },
+    {
+      "index": 504,
+      "start_time": 2441900.0,
+      "end_time": 2447210.0,
+      "text": "And so when we look at the sequel table after we do our migration. We'll see a library Branch"
+    },
+    {
+      "index": 505,
+      "start_time": 2447210.0,
+      "end_time": 2450780.0,
+      "text": "Id on the library asset table now"
+    },
+    {
+      "index": 506,
+      "start_time": 2450780.0,
+      "end_time": 2454409.0,
+      "text": "You may be wondering also how this inheritance is going to work?"
+    },
+    {
+      "index": 507,
+      "start_time": 2454870.0,
+      "end_time": 2460079.0,
+      "text": "So we can actually set it up to work a number of different ways by default"
+    },
+    {
+      "index": 508,
+      "start_time": 2460080.0,
+      "end_time": 2462990.0,
+      "text": "I think entity framework core is going to implement"
+    },
+    {
+      "index": 509,
+      "start_time": 2462990.0,
+      "end_time": 2467790.0,
+      "text": "what's called a table Hierarchy strategy which just means that it's going to"
+    },
+    {
+      "index": 510,
+      "start_time": 2468040.0,
+      "end_time": 2474869.0,
+      "text": "create a single table called library asset and so any concrete class that inherits from"
+    },
+    {
+      "index": 511,
+      "start_time": 2475000.0,
+      "end_time": 2481649.0,
+      "text": "Library asset will be represented using a column called discriminator on the library asset table now"
+    },
+    {
+      "index": 512,
+      "start_time": 2482320.0,
+      "end_time": 2486299.0,
+      "text": "Now to be quite honest with you, that's not necessarily my favorite way to represent data"
+    },
+    {
+      "index": 513,
+      "start_time": 2486300.0,
+      "end_time": 2489990.0,
+      "text": "I don't think it's necessarily bad, but in any framework"
+    },
+    {
+      "index": 514,
+      "start_time": 2489990.0,
+      "end_time": 2493889.0,
+      "text": "We can't actually directly select on that discriminator column"
+    },
+    {
+      "index": 515,
+      "start_time": 2493890.0,
+      "end_time": 2500280.0,
+      "text": "It can make it a little bit tricky to think about how to use these concrete classes that inherit from the abstract type"
+    },
+    {
+      "index": 516,
+      "start_time": 2500280.0,
+      "end_time": 2502589.0,
+      "text": "but it is nice on the other hand that all the"
+    },
+    {
+      "index": 517,
+      "start_time": 2502870.0,
+      "end_time": 2507480.0,
+      "text": "Assets the library controls will be contained in a single table and not spread out across"
+    },
+    {
+      "index": 518,
+      "start_time": 2508150.0,
+      "end_time": 2512200.0,
+      "text": "any number of any arbitrary number of other tables like book and video or"
+    },
+    {
+      "index": 519,
+      "start_time": 2512300.0,
+      "end_time": 2516310.0,
+      "text": "Periodical or whatever other types that you might include in your system, so we're going to work with it"
+    },
+    {
+      "index": 520,
+      "start_time": 2516310.0,
+      "end_time": 2522370.0,
+      "text": "And it's going to work out. Just fine next I've got a branch hours class and this is actually going to be used to"
+    },
+    {
+      "index": 521,
+      "start_time": 2522890.0,
+      "end_time": 2529809.0,
+      "text": "Store the hours that are various branches are opened, and so on like say a branch details page. We'll be able to"
+    },
+    {
+      "index": 522,
+      "start_time": 2530420.0,
+      "end_time": 2532420.0,
+      "text": "ControL what is shown per Branch?"
+    },
+    {
+      "index": 523,
+      "start_time": 2533030.0,
+      "end_time": 2535180.0,
+      "text": "By something we store in the database"
+    },
+    {
+      "index": 524,
+      "start_time": 2535180.0,
+      "end_time": 2537609.0,
+      "text": "Which is a lot nicer than updating like some static HtML"
+    },
+    {
+      "index": 525,
+      "start_time": 2537800.0,
+      "end_time": 2544000.0,
+      "text": "And so of course we are going to need an iD column and then we're going to need the library branch that each"
+    },
+    {
+      "index": 526,
+      "start_time": 2544070.0,
+      "end_time": 2550390.0,
+      "text": "Set of hours are associated with and then we'll have a column for day of week and an opening close time and so each Branch"
+    },
+    {
+      "index": 527,
+      "start_time": 2550700.0,
+      "end_time": 2556720.0,
+      "text": "Will have up to seven rows representing each day of the week and then an open and close time for each of those days"
+    },
+    {
+      "index": 528,
+      "start_time": 2557600.0,
+      "end_time": 2559600.0,
+      "text": "next we look at the checkout table and"
+    },
+    {
+      "index": 529,
+      "start_time": 2560210.0,
+      "end_time": 2566500.0,
+      "text": "Each of our checkout objects as mentioned when we were thinking about the sort of model structure of our application"
+    },
+    {
+      "index": 530,
+      "start_time": 2566810.0,
+      "end_time": 2569500.0,
+      "text": "We'll have a library asset, so in other words"
+    },
+    {
+      "index": 531,
+      "start_time": 2569500.0,
+      "end_time": 2574839.0,
+      "text": "they like a book and a library card which again has a one-to-one relationship with the Patron and"
+    },
+    {
+      "index": 532,
+      "start_time": 2575330.0,
+      "end_time": 2579970.0,
+      "text": "then we'll have a day time object represent the boe fee sense and"
+    },
+    {
+      "index": 533,
+      "start_time": 2580070.0,
+      "end_time": 2583270.0,
+      "text": "Until dates which will let us know when an item was checked out"
+    },
+    {
+      "index": 534,
+      "start_time": 2583270.0,
+      "end_time": 2586839.0,
+      "text": "And when it was due then we'll have a simple checkout history table"
+    },
+    {
+      "index": 535,
+      "start_time": 2587090.0,
+      "end_time": 2592690.0,
+      "text": "Which will be a sort of audit table that again just shows when an item was checked out"
+    },
+    {
+      "index": 536,
+      "start_time": 2592690.0,
+      "end_time": 2598960.0,
+      "text": "And when it was checked in We can make the day time Column explicit explicitly knowable here with a question mark"
+    },
+    {
+      "index": 537,
+      "start_time": 2599180.0,
+      "end_time": 2606849.0,
+      "text": "then we'll have a hold table and the hold is going to represent the library asset for which a hold has been requested a"
+    },
+    {
+      "index": 538,
+      "start_time": 2607550.0,
+      "end_time": 2612880.0,
+      "text": "library card which will represent the library card that has requested the hold and"
+    },
+    {
+      "index": 539,
+      "start_time": 2613160.0,
+      "end_time": 2618609.0,
+      "text": "Then a date that the hold was placed and this will allow us to set up a sort of cue structure"
+    },
+    {
+      "index": 540,
+      "start_time": 2618980.0,
+      "end_time": 2625419.0,
+      "text": "Such that for any library asset. We have a series of library cards that we know"
+    },
+    {
+      "index": 541,
+      "start_time": 2626330.0,
+      "end_time": 2629950.0,
+      "text": "requested the whole at a certain date and then so if we order that by"
+    },
+    {
+      "index": 542,
+      "start_time": 2630080.0,
+      "end_time": 2634029.0,
+      "text": "the day time we have this cue where we can see who came first and"
+    },
+    {
+      "index": 543,
+      "start_time": 2634430.0,
+      "end_time": 2639730.0,
+      "text": "Thus who we owe the library asset to when it's checked in ok and then?"
+    },
+    {
+      "index": 544,
+      "start_time": 2640030.0,
+      "end_time": 2642509.0,
+      "text": "Finally down to the library asset class"
+    },
+    {
+      "index": 545,
+      "start_time": 2642510.0,
+      "end_time": 2645749.0,
+      "text": "Which is sort of one of the core classes of our application?"
+    },
+    {
+      "index": 546,
+      "start_time": 2645750.0,
+      "end_time": 2652290.0,
+      "text": "And you'll see that I have defined it as an abstract class which means that we will need it to be inherited by these concrete"
+    },
+    {
+      "index": 547,
+      "start_time": 2652780.0,
+      "end_time": 2657900.0,
+      "text": "Child classes like book and end video which we'll see in a minute here, but again"
+    },
+    {
+      "index": 548,
+      "start_time": 2657900.0,
+      "end_time": 2661920.0,
+      "text": "It's going to contain all the properties that any asset controllable by the library would have"
+    },
+    {
+      "index": 549,
+      "start_time": 2664330.0,
+      "end_time": 2669330.0,
+      "text": "And then we have a library branch and you'll notice I have some other attributes here on these properties"
+    },
+    {
+      "index": 550,
+      "start_time": 2669610.0,
+      "end_time": 2673470.0,
+      "text": "In this case I can define a maximum string length and some error message"
+    },
+    {
+      "index": 551,
+      "start_time": 2673470.0,
+      "end_time": 2675029.0,
+      "text": "I'm going to take the error message out"
+    },
+    {
+      "index": 552,
+      "start_time": 2675030.0,
+      "end_time": 2679620.0,
+      "text": "But I put here just to show you how you can pass an error message to this string length, attribute"
+    },
+    {
+      "index": 553,
+      "start_time": 2681850.0,
+      "end_time": 2685410.0,
+      "text": "okay, so we've got an address telephone number description and"
+    },
+    {
+      "index": 554,
+      "start_time": 2686260.0,
+      "end_time": 2689940.0,
+      "text": "open date in other words say when the branch was founded and"
+    },
+    {
+      "index": 555,
+      "start_time": 2690400.0,
+      "end_time": 2692319.0,
+      "text": "then I have a collection of"
+    },
+    {
+      "index": 556,
+      "start_time": 2692320.0,
+      "end_time": 2697200.0,
+      "text": "Patrons and a collection of assets that belong to that library and then we can store an image url"
+    },
+    {
+      "index": 557,
+      "start_time": 2697330.0,
+      "end_time": 2700890.0,
+      "text": "Which will contain an image that we can put on the branch detail page"
+    },
+    {
+      "index": 558,
+      "start_time": 2700890.0,
+      "end_time": 2707249.0,
+      "text": "and we've got the library card asset which again is another simple class which contains the overdue fees a"
+    },
+    {
+      "index": 559,
+      "start_time": 2708190.0,
+      "end_time": 2715529.0,
+      "text": "Created date and a collection of checkouts that are associated with that card you have the patron class which has all the patrons"
+    },
+    {
+      "index": 560,
+      "start_time": 2715810.0,
+      "end_time": 2720299.0,
+      "text": "Metadata and what I'll do now is uncomment our virtual library card property and"
+    },
+    {
+      "index": 561,
+      "start_time": 2721030.0,
+      "end_time": 2723239.0,
+      "text": "create a library Branch property on it -"
+    },
+    {
+      "index": 562,
+      "start_time": 2726910.0,
+      "end_time": 2729149.0,
+      "text": "we'll call that home library Branch and"
+    },
+    {
+      "index": 563,
+      "start_time": 2729970.0,
+      "end_time": 2734309.0,
+      "text": "If you want to put attributes to specify like a max length on any of these other"
+    },
+    {
+      "index": 564,
+      "start_time": 2734620.0,
+      "end_time": 2738989.0,
+      "text": "Properties you may want to implement that as well, then we've got our status table"
+    },
+    {
+      "index": 565,
+      "start_time": 2739000.0,
+      "end_time": 2746160.0,
+      "text": "which again is just some static data that will represent the name in the description of the various states that our assets can have and"
+    },
+    {
+      "index": 566,
+      "start_time": 2746890.0,
+      "end_time": 2752940.0,
+      "text": "Then finally I've got this small video class. Which is just under another type of asset"
+    },
+    {
+      "index": 567,
+      "start_time": 2753070.0,
+      "end_time": 2757559.0,
+      "text": "So in our library asset discriminator Column. We'll have books and videos"
+    },
+    {
+      "index": 568,
+      "start_time": 2758110.0,
+      "end_time": 2761460.0,
+      "text": "If you're creating this app for yourself you might also consider adding"
+    },
+    {
+      "index": 569,
+      "start_time": 2761740.0,
+      "end_time": 2768910.0,
+      "text": "Concrete classes for say like Magazines or newspapers or again any other type of asset that your library branch might to offer?"
+    },
+    {
+      "index": 570,
+      "start_time": 2769880.0,
+      "end_time": 2772000.0,
+      "text": "Okay, now that we've added all of our models"
+    },
+    {
+      "index": 571,
+      "start_time": 2772000.0,
+      "end_time": 2776859.0,
+      "text": "Let's go back into our context and we need to add DV sets for each of these tables"
+    },
+    {
+      "index": 572,
+      "start_time": 2778940.0,
+      "end_time": 2780500.0,
+      "text": "and"
+    },
+    {
+      "index": 573,
+      "start_time": 2780500.0,
+      "end_time": 2788049.0,
+      "text": "Now let's go ahead and run our next migration. So we'll say add - migration, and we'll call it"
+    },
+    {
+      "index": 574,
+      "start_time": 2789590.0,
+      "end_time": 2792760.0,
+      "text": "add initial entity models"
+    },
+    {
+      "index": 575,
+      "start_time": 2794180.0,
+      "end_time": 2795890.0,
+      "text": "and"
+    },
+    {
+      "index": 576,
+      "start_time": 2795890.0,
+      "end_time": 2798549.0,
+      "text": "You can see that our migration gets created this time"
+    },
+    {
+      "index": 577,
+      "start_time": 2798550.0,
+      "end_time": 2804910.0,
+      "text": "It's going to be quite large compared to the initial migration that we ran and we'll just go ahead and type in update - database"
+    },
+    {
+      "index": 578,
+      "start_time": 2808250.0,
+      "end_time": 2809829.0,
+      "text": "Okay, and it says done"
+    },
+    {
+      "index": 579,
+      "start_time": 2809830.0,
+      "end_time": 2816250.0,
+      "text": "So it means that we have actually successfully created a database schema to represent all the data that we'll need to"
+    },
+    {
+      "index": 580,
+      "start_time": 2816650.0,
+      "end_time": 2822879.0,
+      "text": "control in our system, and that's a really huge first step towards developing our application, so"
+    },
+    {
+      "index": 581,
+      "start_time": 2823910.0,
+      "end_time": 2825910.0,
+      "text": "Congratulations again if you have made it this far"
+    },
+    {
+      "index": 582,
+      "start_time": 2825910.0,
+      "end_time": 2832389.0,
+      "text": "And now what we'll cover in the next video is how we'll write some services that will get used by our"
+    },
+    {
+      "index": 583,
+      "start_time": 2832940.0,
+      "end_time": 2840849.0,
+      "text": "Controllers in our web application to query and add an update and work with all the data that we'll store in our database"
+    },
+    {
+      "index": 584,
+      "start_time": 2841250.0,
+      "end_time": 2843459.0,
+      "text": "we'll also provide some scripts to"
+    },
+    {
+      "index": 585,
+      "start_time": 2843650.0,
+      "end_time": 2849369.0,
+      "text": "populate the database with a bunch of sample data so that it's a little bit more interesting to work with as we develop and"
+    },
+    {
+      "index": 586,
+      "start_time": 2849530.0,
+      "end_time": 2854109.0,
+      "text": "From there, we'll actually implement our view models and implement the Model view controller"
+    },
+    {
+      "index": 587,
+      "start_time": 2854750.0,
+      "end_time": 2859659.0,
+      "text": "design Pattern in our web app, so this video was all about Data and"
+    },
+    {
+      "index": 588,
+      "start_time": 2860150.0,
+      "end_time": 2863680.0,
+      "text": "Architecture and kind of thinking about how we're going to structure our application"
+    },
+    {
+      "index": 589,
+      "start_time": 2863680.0,
+      "end_time": 2868030.0,
+      "text": "How we're going to structure the data that doesn't always make for the most exciting code"
+    },
+    {
+      "index": 590,
+      "start_time": 2868310.0,
+      "end_time": 2875440.0,
+      "text": "but it is probably the most important step and starting a new project is just stepping back and"
+    },
+    {
+      "index": 591,
+      "start_time": 2875810.0,
+      "end_time": 2878799.0,
+      "text": "Taking it a little bit slow at first and kind of thinking about okay"
+    },
+    {
+      "index": 592,
+      "start_time": 2878800.0,
+      "end_time": 2880930.0,
+      "text": "How is this all going to fit together? And how is it going to work?"
+    },
+    {
+      "index": 593,
+      "start_time": 2880930.0,
+      "end_time": 2886270.0,
+      "text": "And it makes all the difference on slightly larger projects to take the time and do that upfront"
+    },
+    {
+      "index": 594,
+      "start_time": 2886730.0,
+      "end_time": 2891730.0,
+      "text": "Makes your life a whole lot easier each step of the way thereafter, so thanks for watching this video"
+    },
+    {
+      "index": 595,
+      "start_time": 2891730.0,
+      "end_time": 2898209.0,
+      "text": "I hope you enjoyed it stay tuned for the next video when we dive deep into creating services and laying out our"
+    },
+    {
+      "index": 596,
+      "start_time": 2898750.0,
+      "end_time": 2900550.0,
+      "text": "Model-View-controller design"
+    },
+    {
+      "index": 597,
+      "start_time": 2900550.0,
+      "end_time": 2906659.0,
+      "text": "Pattern if you liked this video. I'd really appreciate it if you liked and subscribe, and I'll see you next time"
+    }
+  ]
+}

@@ -1,0 +1,4356 @@
+{
+  "video_id": "VdIURAu1-aU",
+  "title": "Recent Developments in Deep Learning",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 23340.0,
+      "text": "&gt;&gt;"
+    },
+    {
+      "index": 2,
+      "start_time": 23340.0,
+      "end_time": 34530.0,
+      "text": "So it&#39;s my pleasure to introduce to you Geoff Hinton, who is a pioneer in machine learning"
+    },
+    {
+      "index": 3,
+      "start_time": 34530.0,
+      "end_time": 39600.0,
+      "text": "and neural nets, and more recently [INDISTINCT] architectures. And then, I think that&#39;s going"
+    },
+    {
+      "index": 4,
+      "start_time": 39600.0,
+      "end_time": 41410.0,
+      "text": "to be topic of today. So take it over. &gt;&gt; HINTON: Okay. So I gave it to Okeer a couple"
+    },
+    {
+      "index": 5,
+      "start_time": 41410.0,
+      "end_time": 45760.0,
+      "text": "of years ago. And the first 10 minutes or so will be an overview of what I said there,"
+    },
+    {
+      "index": 6,
+      "start_time": 45760.0,
+      "end_time": 53730.0,
+      "text": "and then I&#39;ll talk about the new stuff. The new stuff consists of a better learning module."
+    },
+    {
+      "index": 7,
+      "start_time": 53730.0,
+      "end_time": 59420.0,
+      "text": "It allows you to learn better in all sorts of different things, like, learning how images"
+    },
+    {
+      "index": 8,
+      "start_time": 59420.0,
+      "end_time": 67470.0,
+      "text": "transform, learning how people walk, and learning object recognition. So the basic learning"
+    },
+    {
+      "index": 9,
+      "start_time": 67470.0,
+      "end_time": 72570.0,
+      "text": "module consists of some variables that represent things like pixels, and these will be binary"
+    },
+    {
+      "index": 10,
+      "start_time": 72570.0,
+      "end_time": 77320.0,
+      "text": "variables for that. Some variables that represent--these are latent variables, they&#39;re also going to"
+    },
+    {
+      "index": 11,
+      "start_time": 77320.0,
+      "end_time": 83280.0,
+      "text": "be binary. And there&#39;s a bipartite connectivity, so these guys are connected to each other."
+    },
+    {
+      "index": 12,
+      "start_time": 83280.0,
+      "end_time": 87920.0,
+      "text": "And that makes it very easy if I give you the states of the visible variables to infer"
+    },
+    {
+      "index": 13,
+      "start_time": 87920.0,
+      "end_time": 91899.0,
+      "text": "the states of the hidden variables. They&#39;re all independent given the visible variables"
+    },
+    {
+      "index": 14,
+      "start_time": 91899.0,
+      "end_time": 97429.0,
+      "text": "because it&#39;s a non-directed graph. And the input procedure just says, the probability"
+    },
+    {
+      "index": 15,
+      "start_time": 97429.0,
+      "end_time": 102920.0,
+      "text": "of turning on hidden unit &quot;hj&quot; given this visible vector &quot;v&quot; is the logistic function"
+    },
+    {
+      "index": 16,
+      "start_time": 102920.0,
+      "end_time": 108179.0,
+      "text": "of the total what he gets from his audience, so very simple for the hidden variables. Given"
+    },
+    {
+      "index": 17,
+      "start_time": 108179.0,
+      "end_time": 112259.0,
+      "text": "the hidden variables, we can also infer the visible variables very simply. And if we want"
+    },
+    {
+      "index": 18,
+      "start_time": 112259.0,
+      "end_time": 116240.0,
+      "text": "some--if we put some weights on the connections and we want to know what this model believes,"
+    },
+    {
+      "index": 19,
+      "start_time": 116240.0,
+      "end_time": 119690.0,
+      "text": "we can just go back and then forward inferring all the hidden variables in parallel than"
+    },
+    {
+      "index": 20,
+      "start_time": 119690.0,
+      "end_time": 122840.0,
+      "text": "all the visible ones. Do that for a long a time, and then you&#39;ll see examples of the"
+    },
+    {
+      "index": 21,
+      "start_time": 122840.0,
+      "end_time": 126970.0,
+      "text": "kinds of things it likes to believe. And the end of learning is going to be to get it to"
+    },
+    {
+      "index": 22,
+      "start_time": 126970.0,
+      "end_time": 133650.0,
+      "text": "like to believe the kinds of things that actually happen. So this thing is governed by an energy"
+    },
+    {
+      "index": 23,
+      "start_time": 133650.0,
+      "end_time": 138420.0,
+      "text": "function that has given the weights on the connections. The energy of a visible plus"
+    },
+    {
+      "index": 24,
+      "start_time": 138420.0,
+      "end_time": 145340.0,
+      "text": "a hidden vector is the sum overall connections of the weight if both the visible and hidden"
+    },
+    {
+      "index": 25,
+      "start_time": 145340.0,
+      "end_time": 148510.0,
+      "text": "units are active. So I&#39;m going to pick some of the features that are active, you adding"
+    },
+    {
+      "index": 26,
+      "start_time": 148510.0,
+      "end_time": 152430.0,
+      "text": "the weight, and if it&#39;s a big positive weight, that&#39;s low energy, which is good. So, it&#39;s"
+    },
+    {
+      "index": 27,
+      "start_time": 152430.0,
+      "end_time": 156060.0,
+      "text": "a happy network. This has nice derivatives. If you differentiate it with respect to the"
+    },
+    {
+      "index": 28,
+      "start_time": 156060.0,
+      "end_time": 160349.0,
+      "text": "weights, you get this product of the visible and hidden activity. And so, that the derivative"
+    },
+    {
+      "index": 29,
+      "start_time": 160349.0,
+      "end_time": 163739.0,
+      "text": "is going to show up a lot in the learning because that derivative is how you change"
+    },
+    {
+      "index": 30,
+      "start_time": 163739.0,
+      "end_time": 172099.0,
+      "text": "the energy of a combined configuration of visible and hidden units. The probability"
+    },
+    {
+      "index": 31,
+      "start_time": 172099.0,
+      "end_time": 176069.0,
+      "text": "of a combined configuration, given the energy function, is E to the minus the energy of"
+    },
+    {
+      "index": 32,
+      "start_time": 176069.0,
+      "end_time": 177319.0,
+      "text": "that combined configuration normalized by the partition function. And if you want to"
+    },
+    {
+      "index": 33,
+      "start_time": 177319.0,
+      "end_time": 183680.0,
+      "text": "know the probability of a particular visible vector, you have to sum all the hidden vectors"
+    },
+    {
+      "index": 34,
+      "start_time": 183680.0,
+      "end_time": 188879.0,
+      "text": "that might go with it and that&#39;s the probability of visible vector. If you want to change the"
+    },
+    {
+      "index": 35,
+      "start_time": 188879.0,
+      "end_time": 194000.0,
+      "text": "weights to make this probability higher, you always need to lower the energies of combinations"
+    },
+    {
+      "index": 36,
+      "start_time": 194000.0,
+      "end_time": 198170.0,
+      "text": "of visible vector on the hidden vector that would like to go with it and raise the energies"
+    },
+    {
+      "index": 37,
+      "start_time": 198170.0,
+      "end_time": 206620.0,
+      "text": "of all other combinations, so you decrease the computation. The correct maximum likelihood"
+    },
+    {
+      "index": 38,
+      "start_time": 206620.0,
+      "end_time": 214439.0,
+      "text": "learning rule that is if I want to change the weights so as to increase the log probability,"
+    },
+    {
+      "index": 39,
+      "start_time": 214439.0,
+      "end_time": 218760.0,
+      "text": "that this network would generate the vector &quot;v&quot; when I let it just sort of fantasize the"
+    },
+    {
+      "index": 40,
+      "start_time": 218760.0,
+      "end_time": 225090.0,
+      "text": "things it like to believe in is a nice simple form. It&#39;s just the difference of two correlations."
+    },
+    {
+      "index": 41,
+      "start_time": 225090.0,
+      "end_time": 228420.0,
+      "text": "So even though it depends on all the other weights, it shows up this is difference of"
+    },
+    {
+      "index": 42,
+      "start_time": 228420.0,
+      "end_time": 235120.0,
+      "text": "correlations. And what you do is you take your data, you activate the hidden units,"
+    },
+    {
+      "index": 43,
+      "start_time": 235120.0,
+      "end_time": 239469.0,
+      "text": "that&#39;s to classify the units, and then we construct, activate, we construct activate."
+    },
+    {
+      "index": 44,
+      "start_time": 239469.0,
+      "end_time": 244030.0,
+      "text": "So this is a mark of chain. You run it for a long time, so you forgot where you started."
+    },
+    {
+      "index": 45,
+      "start_time": 244030.0,
+      "end_time": 248060.0,
+      "text": "And then you measure the correlation there, start with the correlation here. And what"
+    },
+    {
+      "index": 46,
+      "start_time": 248060.0,
+      "end_time": 252939.0,
+      "text": "you&#39;re really doing is saying, &quot;By changing the weights in proportion to that, I&#39;m lowering"
+    },
+    {
+      "index": 47,
+      "start_time": 252939.0,
+      "end_time": 259250.0,
+      "text": "the energy of this visible vector with whatever hidden vector it chose. By doing the opposite"
+    },
+    {
+      "index": 48,
+      "start_time": 259250.0,
+      "end_time": 264670.0,
+      "text": "here, I&#39;m raising the energy, the things I fantasize.&quot; And so, what I&#39;m trying to do"
+    },
+    {
+      "index": 49,
+      "start_time": 264670.0,
+      "end_time": 268660.0,
+      "text": "is believe in the data and not believe in what the model believes in. Eventually, this"
+    },
+    {
+      "index": 50,
+      "start_time": 268660.0,
+      "end_time": 272430.0,
+      "text": "correlation will be the same as that one. In most case, nothing will happen because"
+    },
+    {
+      "index": 51,
+      "start_time": 272430.0,
+      "end_time": 280000.0,
+      "text": "it will believe in the data. In terms that you can get a much quicker learning algorithm"
+    },
+    {
+      "index": 52,
+      "start_time": 280000.0,
+      "end_time": 285150.0,
+      "text": "where you can just go on and [INDISTINCT] again, and you take this difference of correlations."
+    },
+    {
+      "index": 53,
+      "start_time": 285150.0,
+      "end_time": 295340.0,
+      "text": "Justifying that is hard but the main justification is it works and it&#39;s quick. The reason this"
+    },
+    {
+      "index": 54,
+      "start_time": 295340.0,
+      "end_time": 299710.0,
+      "text": "module is interesting, the main reason it&#39;s interesting is you can stack them up. That"
+    },
+    {
+      "index": 55,
+      "start_time": 299710.0,
+      "end_time": 303849.0,
+      "text": "is for accompanied reason you&#39;re not going to go into it, it works very well to train"
+    },
+    {
+      "index": 56,
+      "start_time": 303849.0,
+      "end_time": 308580.0,
+      "text": "the module then take that activities of the feature detectors, treat them as so they were"
+    },
+    {
+      "index": 57,
+      "start_time": 308580.0,
+      "end_time": 314979.0,
+      "text": "data, and train another module on top of that. So the first module is trying to model what&#39;s"
+    },
+    {
+      "index": 58,
+      "start_time": 314979.0,
+      "end_time": 318539.0,
+      "text": "going on in the pixels by using these feature detectors. And the feature detectors would"
+    },
+    {
+      "index": 59,
+      "start_time": 318539.0,
+      "end_time": 323160.0,
+      "text": "tend to be highly correlated. The second model is trying to model a correlation among feature"
+    },
+    {
+      "index": 60,
+      "start_time": 323160.0,
+      "end_time": 327919.0,
+      "text": "detectors. And you can guarantee that if you do that right, every time you go up a level,"
+    },
+    {
+      "index": 61,
+      "start_time": 327919.0,
+      "end_time": 331889.0,
+      "text": "you get a better model of the data. Actually, you can guarantee that the first time you"
+    },
+    {
+      "index": 62,
+      "start_time": 331889.0,
+      "end_time": 336530.0,
+      "text": "go up a level. For further levels, all you can guarantee is that there&#39;s a bound on how"
+    },
+    {
+      "index": 63,
+      "start_time": 336530.0,
+      "end_time": 342050.0,
+      "text": "good your model of the data is. And every time we add another level, that bound improves"
+    },
+    {
+      "index": 64,
+      "start_time": 342050.0,
+      "end_time": 346220.0,
+      "text": "if we had it right. Having got this guarantee that something good is happening as we add"
+    },
+    {
+      "index": 65,
+      "start_time": 346220.0,
+      "end_time": 351060.0,
+      "text": "more levels, we then violate all the conditions of mathematics and just add more levels in"
+    },
+    {
+      "index": 66,
+      "start_time": 351060.0,
+      "end_time": 354440.0,
+      "text": "sort of [INDISTINCT] way because we know good things are going to happen and then we justify"
+    },
+    {
+      "index": 67,
+      "start_time": 354440.0,
+      "end_time": 364039.0,
+      "text": "by the fact that good things do happen. This allows us to learn many lesser feature detectors"
+    },
+    {
+      "index": 68,
+      "start_time": 364039.0,
+      "end_time": 369860.0,
+      "text": "entirely unsupervised just to model instruction of the data. Once we&#39;ve done that, you can&#39;t"
+    },
+    {
+      "index": 69,
+      "start_time": 369860.0,
+      "end_time": 373199.0,
+      "text": "get that accepted in a machine learning conference because you have to do discrimination to be"
+    },
+    {
+      "index": 70,
+      "start_time": 373199.0,
+      "end_time": 377960.0,
+      "text": "accepted in a machine learning conference. So once you&#39;ve done that, you add some decision"
+    },
+    {
+      "index": 71,
+      "start_time": 377960.0,
+      "end_time": 383080.0,
+      "text": "units to the top and you learn the connections discriminatively between the top-layer features"
+    },
+    {
+      "index": 72,
+      "start_time": 383080.0,
+      "end_time": 387169.0,
+      "text": "and the decision units, and then if you want you can go back and fine-tune all of the connections"
+    },
+    {
+      "index": 73,
+      "start_time": 387169.0,
+      "end_time": 392750.0,
+      "text": "using backpropagation. That overcomes the limit of backpropagation which is there&#39;s"
+    },
+    {
+      "index": 74,
+      "start_time": 392750.0,
+      "end_time": 396900.0,
+      "text": "not much information in the label and it can only learn on label data. These things can"
+    },
+    {
+      "index": 75,
+      "start_time": 396900.0,
+      "end_time": 402449.0,
+      "text": "learn on large amounts of unlabeled data. After they&#39;ve learned, they you add these"
+    },
+    {
+      "index": 76,
+      "start_time": 402449.0,
+      "end_time": 408139.0,
+      "text": "units at the top and backpropagate from this small amount of label data, and that&#39;s not"
+    },
+    {
+      "index": 77,
+      "start_time": 408139.0,
+      "end_time": 412970.0,
+      "text": "designing the feature detectors anymore. As you probably know at Google, designing feature"
+    },
+    {
+      "index": 78,
+      "start_time": 412970.0,
+      "end_time": 417289.0,
+      "text": "detectors is the art of things and you&#39;d like to design feature detectors based on what&#39;s"
+    },
+    {
+      "index": 79,
+      "start_time": 417289.0,
+      "end_time": 422349.0,
+      "text": "in the data, not based on having to produce labeled data. So the edge of backpropagation"
+    },
+    {
+      "index": 80,
+      "start_time": 422349.0,
+      "end_time": 425870.0,
+      "text": "was design your feature detectors so you&#39;re good at getting the right answer. The idea"
+    },
+    {
+      "index": 81,
+      "start_time": 425870.0,
+      "end_time": 429879.0,
+      "text": "here is design your feature detectors to be good at modeling whatever is going on in the"
+    },
+    {
+      "index": 82,
+      "start_time": 429879.0,
+      "end_time": 434849.0,
+      "text": "data. Once you&#39;ve done that, just have a so slightly fine-tune and so you better get right"
+    },
+    {
+      "index": 83,
+      "start_time": 434849.0,
+      "end_time": 442800.0,
+      "text": "answer. But don&#39;t try and use the answer to design feature detectors. And Yoshua Bengio&#39;s"
+    },
+    {
+      "index": 84,
+      "start_time": 442800.0,
+      "end_time": 449259.0,
+      "text": "lab has done lots of work showing that this gives you better minima than just doing backpropagation."
+    },
+    {
+      "index": 85,
+      "start_time": 449259.0,
+      "end_time": 457349.0,
+      "text": "And what&#39;s more minima in completing different part of the space? So just to summarize this"
+    },
+    {
+      "index": 86,
+      "start_time": 457349.0,
+      "end_time": 463379.0,
+      "text": "section, I think this is the most important slide in the talk because it says, &quot;What&#39;s"
+    },
+    {
+      "index": 87,
+      "start_time": 463379.0,
+      "end_time": 468520.0,
+      "text": "wrong with million machine learning up to a few years ago.&quot; What people in machine learning"
+    },
+    {
+      "index": 88,
+      "start_time": 468520.0,
+      "end_time": 472419.0,
+      "text": "would try to do is learn the mapping from an image to a label. And now, it would be"
+    },
+    {
+      "index": 89,
+      "start_time": 472419.0,
+      "end_time": 477060.0,
+      "text": "a fine thing to do if you felt that images and labels are rows in the following way."
+    },
+    {
+      "index": 90,
+      "start_time": 477060.0,
+      "end_time": 481610.0,
+      "text": "The stuff and it gives rise to images and then the images give rise to the labels. Given"
+    },
+    {
+      "index": 91,
+      "start_time": 481610.0,
+      "end_time": 485680.0,
+      "text": "the image, the labels don&#39;t depend on the stuff. But you don&#39;t really believe that."
+    },
+    {
+      "index": 92,
+      "start_time": 485680.0,
+      "end_time": 489560.0,
+      "text": "You only believe that if a label is something like the parity of the pixels in the image."
+    },
+    {
+      "index": 93,
+      "start_time": 489560.0,
+      "end_time": 493830.0,
+      "text": "What you really believe is the stuff that gives rise to images and then the labels that"
+    },
+    {
+      "index": 94,
+      "start_time": 493830.0,
+      "end_time": 498289.0,
+      "text": "goes with images because of the stuff not because of the image. So it&#39;s a cow in a field"
+    },
+    {
+      "index": 95,
+      "start_time": 498289.0,
+      "end_time": 503520.0,
+      "text": "and you say cow. Now, if I just say cow to you, you don&#39;t know whether the cow is brown"
+    },
+    {
+      "index": 96,
+      "start_time": 503520.0,
+      "end_time": 509810.0,
+      "text": "or black, or upright or dead, or far way. If I show an image of the cow, you know all"
+    },
+    {
+      "index": 97,
+      "start_time": 509810.0,
+      "end_time": 515469.0,
+      "text": "those things. So this is a very high bandwidth path, this is a very low bandwidth path. On"
+    },
+    {
+      "index": 98,
+      "start_time": 515469.00000000006,
+      "end_time": 520360.00000000006,
+      "text": "the right way to associate labels with images is to first learn to invert this high bandwidth"
+    },
+    {
+      "index": 99,
+      "start_time": 520360.0,
+      "end_time": 524240.0,
+      "text": "path. And we can currently do that because vision works basically. The first store you"
+    },
+    {
+      "index": 100,
+      "start_time": 524240.0,
+      "end_time": 527990.0,
+      "text": "look at then, you see things. And it&#39;s not like it might be a cow, it might be an elephant,"
+    },
+    {
+      "index": 101,
+      "start_time": 527990.0,
+      "end_time": 533180.0,
+      "text": "it might be electric theater. Basically, you get it right nearly all the time. And so we"
+    },
+    {
+      "index": 102,
+      "start_time": 533180.0,
+      "end_time": 536580.0,
+      "text": "can invert that pathway. Having learned to do that, we can then learn what things are"
+    },
+    {
+      "index": 103,
+      "start_time": 536580.0,
+      "end_time": 542520.0,
+      "text": "called. But you get the concept of a cow not from the name, but from seeing what&#39;s going"
+    },
+    {
+      "index": 104,
+      "start_time": 542520.0,
+      "end_time": 550680.0,
+      "text": "on in the world. And that&#39;s what we&#39;re doing and then later as I say from the label. Now,"
+    },
+    {
+      "index": 105,
+      "start_time": 550680.0,
+      "end_time": 556860.0,
+      "text": "I need to do one slight modification to the basic module which is I had binary units as"
+    },
+    {
+      "index": 106,
+      "start_time": 556860.0,
+      "end_time": 562470.0,
+      "text": "the observables. Now, we want to have linear units with Gaussian noise. So we just change"
+    },
+    {
+      "index": 107,
+      "start_time": 562470.0,
+      "end_time": 567460.0,
+      "text": "the energy function of it. And the energy now says, &quot;I got a kind of parabolic containment"
+    },
+    {
+      "index": 108,
+      "start_time": 567460.0,
+      "end_time": 572230.0,
+      "text": "here.&quot; Each of these linear visible units has a bias which is like its mean. And it"
+    },
+    {
+      "index": 109,
+      "start_time": 572230.0,
+      "end_time": 576230.0,
+      "text": "would like to sit here and moving away from that [INDISTINCT] energy. The parabola is"
+    },
+    {
+      "index": 110,
+      "start_time": 576230.0,
+      "end_time": 582250.0,
+      "text": "the negative log of the Gaussian [INDISTINCT]. And then the input that comes from the hidden"
+    },
+    {
+      "index": 111,
+      "start_time": 582250.0,
+      "end_time": 588730.0,
+      "text": "units, this is just vi, hj, wij, but Vs have to be scaled by the standard deviation of"
+    },
+    {
+      "index": 112,
+      "start_time": 588730.0,
+      "end_time": 597230.0,
+      "text": "the Gaussian there. If I ask--if I differentiate that with respect to a visible activity, then"
+    },
+    {
+      "index": 113,
+      "start_time": 597230.0,
+      "end_time": 603650.0,
+      "text": "what I get is hj, wij divided by the sigma I. And that&#39;s like an energy gradient. And"
+    },
+    {
+      "index": 114,
+      "start_time": 603650.0,
+      "end_time": 608580.0,
+      "text": "what the visible unit does when you reconstruct is it tries to compromise between wanting"
+    },
+    {
+      "index": 115,
+      "start_time": 608580.0,
+      "end_time": 613240.0,
+      "text": "to sit around here and wanting to satisfy this energy gradient, so it goes to the place"
+    },
+    {
+      "index": 116,
+      "start_time": 613240.0,
+      "end_time": 617650.0,
+      "text": "where this two gradients [INDISTINCT] opposite and you have--that&#39;s the most likely value"
+    },
+    {
+      "index": 117,
+      "start_time": 617650.0,
+      "end_time": 623320.0,
+      "text": "and then you [INDISTINCT] there. So with that small modification we can now deal with real"
+    },
+    {
+      "index": 118,
+      "start_time": 623320.0,
+      "end_time": 628010.0,
+      "text": "value data with binary latent variables and we have an efficient learning algorithm that&#39;s"
+    },
+    {
+      "index": 119,
+      "start_time": 628010.0,
+      "end_time": 634160.0,
+      "text": "an approximation of [INDISTINCT]. And so we can apply it to something. So it&#39;s a nice"
+    },
+    {
+      "index": 120,
+      "start_time": 634160.0,
+      "end_time": 639400.0,
+      "text": "speech recognition task that&#39;s been well organized by the speech people where there&#39;s an old"
+    },
+    {
+      "index": 121,
+      "start_time": 639400.0,
+      "end_time": 645380.0,
+      "text": "database called TIMIT, it&#39;s got a very well-defined task for phone recognition where what you"
+    },
+    {
+      "index": 122,
+      "start_time": 645380.0,
+      "end_time": 650280.0,
+      "text": "have to do is you&#39;re given the short window speech, you have to predict the distribution,"
+    },
+    {
+      "index": 123,
+      "start_time": 650280.0,
+      "end_time": 655880.0,
+      "text": "the probability for the central frame of the various different phones. Actually, each phone"
+    },
+    {
+      "index": 124,
+      "start_time": 655880.0,
+      "end_time": 661190.0,
+      "text": "is modeled by 3-state HMMs, sort of beginning middle and end, so you have to predict for"
+    },
+    {
+      "index": 125,
+      "start_time": 661190.0,
+      "end_time": 666470.0,
+      "text": "each frame is it the beginning middle or end of each with the possible phones, there&#39;s"
+    },
+    {
+      "index": 126,
+      "start_time": 666470.0,
+      "end_time": 672590.0,
+      "text": "a 183 of those things. If you give it a good distribution there to sort of focus on the"
+    },
+    {
+      "index": 127,
+      "start_time": 672590.0,
+      "end_time": 678250.0,
+      "text": "right thing then all the post-processing will give you back where the phoning bandwidth"
+    },
+    {
+      "index": 128,
+      "start_time": 678250.0,
+      "end_time": 682530.0,
+      "text": "should be and what your phone arrow radius, and that&#39;s all very standard. Some people"
+    },
+    {
+      "index": 129,
+      "start_time": 682530.0,
+      "end_time": 689210.0,
+      "text": "use tri-phone models. We&#39;re using bi-phone models which aren&#39;t quite as powerful. So"
+    },
+    {
+      "index": 130,
+      "start_time": 689210.0,
+      "end_time": 695010.0,
+      "text": "now we can test high goodwill by taking 11 frame of speech. It&#39;s 10 milliseconds per"
+    },
+    {
+      "index": 131,
+      "start_time": 695010.0,
+      "end_time": 699460.0,
+      "text": "frame but each frame is looking at like 25 milliseconds of speech and predicting the"
+    },
+    {
+      "index": 132,
+      "start_time": 699460.0,
+      "end_time": 704910.0,
+      "text": "phone at the middle frame. We use the standard speech representation which is mel-cepstral"
+    },
+    {
+      "index": 133,
+      "start_time": 704910.0,
+      "end_time": 708170.0,
+      "text": "coefficients. There&#39;s 30 of those, and there are differences and differences and difference,"
+    },
+    {
+      "index": 134,
+      "start_time": 708170.0,
+      "end_time": 716600.0,
+      "text": "differences; and we feed them in to one of these deep nets so. So here&#39;s your input,"
+    },
+    {
+      "index": 135,
+      "start_time": 716600.0,
+      "end_time": 722880.0,
+      "text": "11 frames and 39 coefficients. And then--I was away when the student did this and he"
+    },
+    {
+      "index": 136,
+      "start_time": 722880.0,
+      "end_time": 726740.0,
+      "text": "actually believed what I said. So he thought adding lots and lots of hidden units was a"
+    },
+    {
+      "index": 137,
+      "start_time": 726740.0,
+      "end_time": 731710.0,
+      "text": "good idea. I&#39;ve started it too. But he added lots of hidden units all unsupervised, so"
+    },
+    {
+      "index": 138,
+      "start_time": 731710.0,
+      "end_time": 739300.0,
+      "text": "all this green connections are learned without any use of the labels. He used to bottleneck"
+    },
+    {
+      "index": 139,
+      "start_time": 739300.0,
+      "end_time": 745750.0,
+      "text": "there, so the number of Reg connections will be relatively small. These are not--these"
+    },
+    {
+      "index": 140,
+      "start_time": 745750.0,
+      "end_time": 751390.0,
+      "text": "have to be learned using discriminative information. And now you&#39;re back propagating the correct"
+    },
+    {
+      "index": 141,
+      "start_time": 751390.0,
+      "end_time": 760700.0,
+      "text": "answers through this whole net for about a day on a GPU board or a month on a core, and"
+    },
+    {
+      "index": 142,
+      "start_time": 760700.0,
+      "end_time": 766550.0,
+      "text": "it does very well. That is the best phone error rate we got was 23%. But the important"
+    },
+    {
+      "index": 143,
+      "start_time": 766550.0,
+      "end_time": 770320.0,
+      "text": "thing is whatever configuration you use, how many hidden layers as long as they are plenty"
+    },
+    {
+      "index": 144,
+      "start_time": 770320.0,
+      "end_time": 775080.0,
+      "text": "and whatever widths and whether you use this bottleneck or not, it gets between 23% and"
+    },
+    {
+      "index": 145,
+      "start_time": 775080.0,
+      "end_time": 780300.0,
+      "text": "24%. So it&#39;s very robust to the exact details of how many layers and how wide they are."
+    },
+    {
+      "index": 146,
+      "start_time": 780300.0,
+      "end_time": 786580.0,
+      "text": "On the best previous result on TIMIT for things that didn&#39;t use speaker adaptation is 24.4%"
+    },
+    {
+      "index": 147,
+      "start_time": 786580.0,
+      "end_time": 790770.0,
+      "text": "and that was averaging together on lots of models, so this is good."
+    },
+    {
+      "index": 148,
+      "start_time": 790770.0,
+      "end_time": 796940.0,
+      "text": "&gt;&gt; So each of these layers that&#39;s four million weights?"
+    },
+    {
+      "index": 149,
+      "start_time": 796940.0,
+      "end_time": 803170.0,
+      "text": "&gt;&gt; HINTON: Yup, four million weights. So we&#39;re only training one, two, three, one, two, three,"
+    },
+    {
+      "index": 150,
+      "start_time": 803170.0,
+      "end_time": 812180.0,
+      "text": "we&#39;re training, you know, about 20 million weights. Twenty million weights is about 2%"
+    },
+    {
+      "index": 151,
+      "start_time": 812180.0,
+      "end_time": 817900.0,
+      "text": "of a cubic millimeter of cortex. I think so, this is a tiny brain. The last, probably,"
+    },
+    {
+      "index": 152,
+      "start_time": 817900.0,
+      "end_time": 823200.0,
+      "text": "all you need for [INDISTINCT] recognition. &gt;&gt; Why did they start with the differences"
+    },
+    {
+      "index": 153,
+      "start_time": 823200.0,
+      "end_time": 829020.0,
+      "text": "and double differences of the MFCCs that you&#39;re going into a thing that could learn to do"
+    },
+    {
+      "index": 154,
+      "start_time": 829020.0,
+      "end_time": 830310.0,
+      "text": "that itself if they wanted to? &gt;&gt; HINTON: That&#39;s a very good question &#39;cause"
+    },
+    {
+      "index": 155,
+      "start_time": 830310.0,
+      "end_time": 834600.0,
+      "text": "you are sitting at the end. It&#39;s an extremely good question because the reason I put the"
+    },
+    {
+      "index": 156,
+      "start_time": 834600.0,
+      "end_time": 841110.0,
+      "text": "differences and double differences is so they can model a data with a diagonal co-variance"
+    },
+    {
+      "index": 157,
+      "start_time": 841110.0,
+      "end_time": 844620.0,
+      "text": "metric--diagonal co-variance model--and you can&#39;t model the fact that overtime two things"
+    },
+    {
+      "index": 158,
+      "start_time": 844620.0,
+      "end_time": 849890.0,
+      "text": "turn to be very much the same where modeling co-variance is, unless you actually put the"
+    },
+    {
+      "index": 159,
+      "start_time": 849890.0,
+      "end_time": 853490.0,
+      "text": "differences into the data and you model the differences directly. So it allows you to"
+    },
+    {
+      "index": 160,
+      "start_time": 853490.0,
+      "end_time": 858170.0,
+      "text": "use a model that conquered with co-variances. Later on we&#39;re going to show a model that"
+    },
+    {
+      "index": 161,
+      "start_time": 858170.0,
+      "end_time": 862830.0,
+      "text": "conquered with co-variances and then we are going to do what the client always said you"
+    },
+    {
+      "index": 162,
+      "start_time": 862830.0,
+      "end_time": 866140.0,
+      "text": "should do, which is throw away the mel-cepstral representation and use the better representation"
+    },
+    {
+      "index": 163,
+      "start_time": 866140.0,
+      "end_time": 866390.0,
+      "text": "in speech. &gt;&gt; I said that?"
+    },
+    {
+      "index": 164,
+      "start_time": 866390.0,
+      "end_time": 870860.0,
+      "text": "&gt;&gt; HINTON: Yes, you said that to me the last time [INDISTINCT]."
+    },
+    {
+      "index": 165,
+      "start_time": 870860.0,
+      "end_time": 877730.0,
+      "text": "&gt;&gt; Smart guy. &gt;&gt; HINTON: Okay, so the new idea is to use"
+    },
+    {
+      "index": 166,
+      "start_time": 877730.0,
+      "end_time": 882010.0,
+      "text": "a better kind of module. This module already works pretty well, right? You know, it does"
+    },
+    {
+      "index": 167,
+      "start_time": 882010.0,
+      "end_time": 886830.0,
+      "text": "well at forming recognition, it does well in all sort of things. It can&#39;t model multiplicative"
+    },
+    {
+      "index": 168,
+      "start_time": 886830.0,
+      "end_time": 892330.0,
+      "text": "interactions very well. It can model anything with enough training data, but its not happy"
+    },
+    {
+      "index": 169,
+      "start_time": 892330.0,
+      "end_time": 900470.0,
+      "text": "modeling multiplies. It multiplies all over the place. I&#39;ll show you a bunch of place"
+    },
+    {
+      "index": 170,
+      "start_time": 900470.0,
+      "end_time": 906440.0,
+      "text": "where you need multiplies. Here&#39;s the sort of main example of why you need multiplies."
+    },
+    {
+      "index": 171,
+      "start_time": 906440.0,
+      "end_time": 914140.0,
+      "text": "Supposed I want to, from a high level of description of an object the name of the shape and it&#39;s"
+    },
+    {
+      "index": 172,
+      "start_time": 914140.0,
+      "end_time": 917490.0,
+      "text": "pose, size, position orientation. So, first of all, I want to generate the parts of an"
+    },
+    {
+      "index": 173,
+      "start_time": 917490.0,
+      "end_time": 924670.0,
+      "text": "object and I want them to be related correctly to each other. I could use very accurately"
+    },
+    {
+      "index": 174,
+      "start_time": 924670.0,
+      "end_time": 929080.0,
+      "text": "top down model that says none of this square and none pose gram, because I generate each"
+    },
+    {
+      "index": 175,
+      "start_time": 929080.0,
+      "end_time": 933690.0,
+      "text": "piece in exactly the right position; that would require high bandwidth. Or I could be"
+    },
+    {
+      "index": 176,
+      "start_time": 933690.0,
+      "end_time": 937600.0,
+      "text": "sloppy and I could say, &quot;I need to generate this side, not sort of a representation and"
+    },
+    {
+      "index": 177,
+      "start_time": 937600.0,
+      "end_time": 942370.0,
+      "text": "distribution of where this side might be. And I&#39;ll generate corners and other sides"
+    },
+    {
+      "index": 178,
+      "start_time": 942370.0,
+      "end_time": 946530.0,
+      "text": "and they&#39;re all a bit sloppy. And if I picked one thing from each distribution, it would"
+    },
+    {
+      "index": 179,
+      "start_time": 946530.0,
+      "end_time": 951870.0,
+      "text": "make a nice square. But I could also top-down specify how these things should be pieced"
+    },
+    {
+      "index": 180,
+      "start_time": 951870.0,
+      "end_time": 957430.0,
+      "text": "together. In effect, I can specify a macro form of field; this is what goes with what?"
+    },
+    {
+      "index": 181,
+      "start_time": 957430.0,
+      "end_time": 963060.0,
+      "text": "And then I can clean this up knowing these distributions and pick a square like that."
+    },
+    {
+      "index": 182,
+      "start_time": 963060.0,
+      "end_time": 966230.0,
+      "text": "Of course, I might sometimes pick a square that has slightly different orientation or"
+    },
+    {
+      "index": 183,
+      "start_time": 966230.0,
+      "end_time": 971440.0,
+      "text": "slightly different size, but it&#39;ll be a nice clean square because I know how they go together."
+    },
+    {
+      "index": 184,
+      "start_time": 971440.0,
+      "end_time": 975320.0,
+      "text": "And so that&#39;s a much more powerful kind of generation model, and that&#39;s what we want"
+    },
+    {
+      "index": 185,
+      "start_time": 975320.0,
+      "end_time": 981100.0,
+      "text": "to learn to do, and so we are going to need hidden units up here to specify interactions"
+    },
+    {
+      "index": 186,
+      "start_time": 981100.0,
+      "end_time": 987820.0,
+      "text": "between visible units here, as opposed to just specifying input of visible units. There&#39;s"
+    },
+    {
+      "index": 187,
+      "start_time": 987820.0,
+      "end_time": 993000.0,
+      "text": "an analogy for this, which is, if I&#39;m an officer and there&#39;s a bunch of soldiers and I want"
+    },
+    {
+      "index": 188,
+      "start_time": 993000.0,
+      "end_time": 998450.0,
+      "text": "them to stand in the square, I could get out my GPS and I can say, &quot;Soldier number one,"
+    },
+    {
+      "index": 189,
+      "start_time": 998450.0,
+      "end_time": 1002470.0,
+      "text": "stand at this GPS coordinates. And soldier number two, stand at these GPS coordinates.&quot;"
+    },
+    {
+      "index": 190,
+      "start_time": 1002470.0,
+      "end_time": 1007640.0,
+      "text": "Now, if I use enough digits, I&#39;ll get a nice neat rectangle, or I could say, &quot;Soldier number"
+    },
+    {
+      "index": 191,
+      "start_time": 1007640.0,
+      "end_time": 1013730.0,
+      "text": "one, stand roughly around here. And then soldier number two, hold your arm out and stand this"
+    },
+    {
+      "index": 192,
+      "start_time": 1013730.0,
+      "end_time": 1018260.0,
+      "text": "distance from soldier number one.&quot; And that&#39;s a much better way to get a neat rectangle."
+    },
+    {
+      "index": 193,
+      "start_time": 1018260.0,
+      "end_time": 1022310.0,
+      "text": "It will cause far less communication. So what you&#39;re doing is you&#39;re downloading roughly"
+    },
+    {
+      "index": 194,
+      "start_time": 1022310.0,
+      "end_time": 1026819.0,
+      "text": "where people should stand and then how they should relate to each other. We have to specify"
+    },
+    {
+      "index": 195,
+      "start_time": 1026819.9999999999,
+      "end_time": 1033280.9999999999,
+      "text": "the relations not just where they should be. And that&#39;s what we&#39;d like in a powerful [INDISTINCT]"
+    },
+    {
+      "index": 196,
+      "start_time": 1033280.0,
+      "end_time": 1044280.0,
+      "text": "model. So, we&#39;re going to aim to get units in one layer to say how units in the layer"
+    },
+    {
+      "index": 197,
+      "start_time": 1044280.0,
+      "end_time": 1050289.0,
+      "text": "below should latterly interact when you generate it. It&#39;s going to turn out you don&#39;t need"
+    },
+    {
+      "index": 198,
+      "start_time": 1050290.0,
+      "end_time": 1053831.0,
+      "text": "to worry about these lateral interactions when you recognize it. When you generate,"
+    },
+    {
+      "index": 199,
+      "start_time": 1053830.0,
+      "end_time": 1060179.0,
+      "text": "you do. To do that, we&#39;re going to need things called third-order Boltzmann machines, which"
+    },
+    {
+      "index": 200,
+      "start_time": 1060180.0,
+      "end_time": 1068060.0,
+      "text": "has three lane tractions. So Terry Sejnowski, he pointed out a long time ago that we have"
+    },
+    {
+      "index": 201,
+      "start_time": 1068060.0,
+      "end_time": 1072920.0,
+      "text": "an energy function like this where this was V and this was H, but these are just binary"
+    },
+    {
+      "index": 202,
+      "start_time": 1072920.0,
+      "end_time": 1076130.0,
+      "text": "variables. And we could probably well write down an energy function like this with three"
+    },
+    {
+      "index": 203,
+      "start_time": 1076130.0,
+      "end_time": 1079841.0,
+      "text": "things in tract, then we have a three layer weight. And if you think about these three"
+    },
+    {
+      "index": 204,
+      "start_time": 1079840.0,
+      "end_time": 1086309.0,
+      "text": "things now, K, the state of K is acting like a switch. When K is on, you effectively have"
+    },
+    {
+      "index": 205,
+      "start_time": 1086310.0,
+      "end_time": 1092961.0,
+      "text": "this weight between I and J. When K is off, this weight disappears. And it happens every"
+    },
+    {
+      "index": 206,
+      "start_time": 1092960.0,
+      "end_time": 1098350.0,
+      "text": "which way because it&#39;s symmetric. So using an energy function like this, we can allow"
+    },
+    {
+      "index": 207,
+      "start_time": 1098350.0,
+      "end_time": 1103679.0,
+      "text": "one thing to specify how two other things should interact. So each hidden unit can specify"
+    },
+    {
+      "index": 208,
+      "start_time": 1103680.0,
+      "end_time": 1108050.0,
+      "text": "a whole mark of random field over the pixels if you want. But that sort of begins to make"
+    },
+    {
+      "index": 209,
+      "start_time": 1108050.0,
+      "end_time": 1111991.0,
+      "text": "you worry because a mark of random field has a lot of parameters in it. And if you start"
+    },
+    {
+      "index": 210,
+      "start_time": 1111990.0,
+      "end_time": 1116100.0,
+      "text": "counting in the sits here, if you have any of these and any of those and none of those,"
+    },
+    {
+      "index": 211,
+      "start_time": 1116100.0,
+      "end_time": 1123480.0,
+      "text": "you get enqueued to these parameters which is rather a lot. If you&#39;re willing to use"
+    },
+    {
+      "index": 212,
+      "start_time": 1123480.0,
+      "end_time": 1127789.0,
+      "text": "enqueued parameters, you can now make networks to look like this. Suppose I have two images"
+    },
+    {
+      "index": 213,
+      "start_time": 1127790.0,
+      "end_time": 1133800.0,
+      "text": "and I want to model how images transform over time, unless suppose I&#39;m just moving random"
+    },
+    {
+      "index": 214,
+      "start_time": 1133800.0,
+      "end_time": 1139441.0,
+      "text": "dots around, have a pan of random dots and I translate it. Well, if I see that dot and"
+    },
+    {
+      "index": 215,
+      "start_time": 1139440.0,
+      "end_time": 1145009.0,
+      "text": "I see that dot, that&#39;s some evidence for a particular translation. And so if I put a"
+    },
+    {
+      "index": 216,
+      "start_time": 1145010.0,
+      "end_time": 1149300.0,
+      "text": "big positive weight there, this triangle is meant to interrupt that big three-way weight."
+    },
+    {
+      "index": 217,
+      "start_time": 1149300.0,
+      "end_time": 1153810.0,
+      "text": "Then when this and this around, they&#39;ll say it&#39;s very good to have this guy up. It would"
+    },
+    {
+      "index": 218,
+      "start_time": 1153810.0,
+      "end_time": 1158880.0,
+      "text": "have been nice at low energy state. If I also see this pair of dots, I&#39;ll get more routes,"
+    },
+    {
+      "index": 219,
+      "start_time": 1158880.0,
+      "end_time": 1163731.0,
+      "text": "though, and this guy should be--and I will turn this guy on. If however this pixel went"
+    },
+    {
+      "index": 220,
+      "start_time": 1163730.0,
+      "end_time": 1167970.0,
+      "text": "to here, I&#39;ll go for this guy. And if this pixel also went to there but this guy--so"
+    },
+    {
+      "index": 221,
+      "start_time": 1167970.0,
+      "end_time": 1173279.0,
+      "text": "these guys are going to represent coherent translations of the image, and it&#39;s going"
+    },
+    {
+      "index": 222,
+      "start_time": 1173280.0,
+      "end_time": 1178790.0,
+      "text": "to be able to use these three-way weights to take two images and extract two units that"
+    },
+    {
+      "index": 223,
+      "start_time": 1178790.0,
+      "end_time": 1183650.0,
+      "text": "represent the coherent translation. It&#39;ll also be able to take the pre-image and the"
+    },
+    {
+      "index": 224,
+      "start_time": 1183650.0,
+      "end_time": 1191971.0,
+      "text": "translation, and compute with pixel should be on here. Now what we&#39;re going to do is"
+    },
+    {
+      "index": 225,
+      "start_time": 1191970.0,
+      "end_time": 1197379.0,
+      "text": "take that basic model and we&#39;re going to factorize it. We&#39;re going to say, &quot;I&#39;ve got these three-way"
+    },
+    {
+      "index": 226,
+      "start_time": 1197380.0,
+      "end_time": 1201900.0,
+      "text": "weights and I&#39;ve got too many of them.&quot; So, I&#39;m going to represent each three-way weight"
+    },
+    {
+      "index": 227,
+      "start_time": 1201900.0,
+      "end_time": 1209290.0,
+      "text": "as the product of three two-way things. I&#39;m going to introduce these factors and each"
+    },
+    {
+      "index": 228,
+      "start_time": 1209290.0,
+      "end_time": 1219300.0,
+      "text": "factor is going to have these many parameters which is just pro-factor, is just a linear"
+    },
+    {
+      "index": 229,
+      "start_time": 1219300.0,
+      "end_time": 1227250.0,
+      "text": "number of parameters. If I have about N factors, I end up with only N square of these weights."
+    },
+    {
+      "index": 230,
+      "start_time": 1227250.0,
+      "end_time": 1231670.0,
+      "text": "And if you think about how pixels transform in a new image, they don&#39;t do random permutations."
+    },
+    {
+      "index": 231,
+      "start_time": 1231670.0,
+      "end_time": 1236361.0,
+      "text": "It&#39;s not that this pixel goes on that one, goes here. Pixels do sort of consistent things,"
+    },
+    {
+      "index": 232,
+      "start_time": 1236360.0,
+      "end_time": 1240200.0,
+      "text": "so I don&#39;t really need enqueued parameters because I&#39;m just trying to model these fairly"
+    },
+    {
+      "index": 233,
+      "start_time": 1240200.0,
+      "end_time": 1244610.0,
+      "text": "consistent transformations, which is a limited number, and I should be able, too, in many"
+    },
+    {
+      "index": 234,
+      "start_time": 1244610.0,
+      "end_time": 1251850.0,
+      "text": "less parameters. And this is the way to do it. So, that&#39;s going to be our new energy"
+    },
+    {
+      "index": 235,
+      "start_time": 1251850.0,
+      "end_time": 1259159.0,
+      "text": "function given the bias terms. One way of thinking about how modeling a weight is I"
+    },
+    {
+      "index": 236,
+      "start_time": 1259160.0,
+      "end_time": 1265650.0,
+      "text": "want these tensor of three-way weights. If I take an IF product and two vectors like"
+    },
+    {
+      "index": 237,
+      "start_time": 1265650.0,
+      "end_time": 1271571.0,
+      "text": "this, I&#39;ll get a matrix that has rank one. So I get a three-way product. I&#39;ll get a tensor"
+    },
+    {
+      "index": 238,
+      "start_time": 1271570.0,
+      "end_time": 1278149.0,
+      "text": "that has rank one. And if I now add up a bunch of tensors like that so each factor now, each"
+    },
+    {
+      "index": 239,
+      "start_time": 1278150.0,
+      "end_time": 1282371.0,
+      "text": "F, specifies a rank one tensor, by adding up a bunch of them, I can model any tensor"
+    },
+    {
+      "index": 240,
+      "start_time": 1282370.0,
+      "end_time": 1288620.0,
+      "text": "I like if I use N square factors. If I use any N factors, I can model most regular tensors"
+    },
+    {
+      "index": 241,
+      "start_time": 1288620.0,
+      "end_time": 1296710.0,
+      "text": "but I can&#39;t model arbitrary permutations, and that&#39;s what we want. If you ask how does"
+    },
+    {
+      "index": 242,
+      "start_time": 1296710.0,
+      "end_time": 1302950.0,
+      "text": "inference works now, inference is still very simple in this model. So here&#39;s a factor."
+    },
+    {
+      "index": 243,
+      "start_time": 1302950.0,
+      "end_time": 1306259.0,
+      "text": "Here&#39;s the weights connecting it to, say, the pre-image. Here&#39;s the weights connecting"
+    },
+    {
+      "index": 244,
+      "start_time": 1306260.0,
+      "end_time": 1311991.0,
+      "text": "it to the post-image. Here&#39;s the weights connecting it to the hidden units. And to do inference"
+    },
+    {
+      "index": 245,
+      "start_time": 1311990.0,
+      "end_time": 1317919.0,
+      "text": "what I do is this. Supposed I only have that one factor. I would multiply the pixels by"
+    },
+    {
+      "index": 246,
+      "start_time": 1317920.0,
+      "end_time": 1324601.0,
+      "text": "these weights; add all that up so I get a sum of this vertex. I do the same here; I"
+    },
+    {
+      "index": 247,
+      "start_time": 1324600.0,
+      "end_time": 1329080.0,
+      "text": "get a sum of this vertex. Then I multiply these two sums together to get a message going"
+    },
+    {
+      "index": 248,
+      "start_time": 1329080.0,
+      "end_time": 1333870.0,
+      "text": "in the center of the hidden units. And as that message goes to the hidden unit, I multiply"
+    },
+    {
+      "index": 249,
+      "start_time": 1333870.0,
+      "end_time": 1338259.0,
+      "text": "it by the weight on my connection. And so what the hidden unit will see is this weight,"
+    },
+    {
+      "index": 250,
+      "start_time": 1338260.0,
+      "end_time": 1343540.0,
+      "text": "turns the product of these two sums, and that is the derivative of the energy with respect"
+    },
+    {
+      "index": 251,
+      "start_time": 1343540.0,
+      "end_time": 1346510.0,
+      "text": "to the state of this hidden unit, which is what it needs to know to decide whether to"
+    },
+    {
+      "index": 252,
+      "start_time": 1346510.0,
+      "end_time": 1351341.0,
+      "text": "be on or off, it wants to go into what other state below the image. And all the hidden"
+    },
+    {
+      "index": 253,
+      "start_time": 1351340.0,
+      "end_time": 1356159.0,
+      "text": "units remain independent even though I&#39;ve got these multipliers now. So this is much"
+    },
+    {
+      "index": 254,
+      "start_time": 1356160.0,
+      "end_time": 1360430.0,
+      "text": "better than putting in another stochastic binary unit here. If I put a stochastic binary"
+    },
+    {
+      "index": 255,
+      "start_time": 1360430.0,
+      "end_time": 1364260.0,
+      "text": "unit in here, the hidden units would cease to be independent and inference will get tough."
+    },
+    {
+      "index": 256,
+      "start_time": 1364260.0,
+      "end_time": 1368871.0,
+      "text": "But this way, whether a deterministic factor that&#39;s taking a part of these two sums, inference"
+    },
+    {
+      "index": 257,
+      "start_time": 1368870.0,
+      "end_time": 1377970.0,
+      "text": "remains easy. The learning also remains easy. So this is the message that goes from factor"
+    },
+    {
+      "index": 258,
+      "start_time": 1377970.0,
+      "end_time": 1384870.0,
+      "text": "F to hidden unit H, and that message is the product that we got of these two lower vertices;"
+    },
+    {
+      "index": 259,
+      "start_time": 1384870.0,
+      "end_time": 1390399.0,
+      "text": "the product of the sums, the compute on the pre-image and the post-image. And the way"
+    },
+    {
+      "index": 260,
+      "start_time": 1390400.0,
+      "end_time": 1397060.0,
+      "text": "you learn the weight on the connection from factor F to hidden unit H is by changing the"
+    },
+    {
+      "index": 261,
+      "start_time": 1397060.0,
+      "end_time": 1402560.0,
+      "text": "weight so as to lower the energy when you&#39;re looking at data, and raise the energy when"
+    },
+    {
+      "index": 262,
+      "start_time": 1402560.0,
+      "end_time": 1406821.0,
+      "text": "you&#39;re constructing these from the model or just reconstructing things from the hidden"
+    },
+    {
+      "index": 263,
+      "start_time": 1406820.0,
+      "end_time": 1411269.0,
+      "text": "units you got from data. And those energy groups, they just look like this. They&#39;re"
+    },
+    {
+      "index": 264,
+      "start_time": 1411270.0,
+      "end_time": 1415560.0,
+      "text": "just the product of the state of the hidden unit and the message that goes to it when"
+    },
+    {
+      "index": 265,
+      "start_time": 1415560.0,
+      "end_time": 1418721.0,
+      "text": "you&#39;re looking at data and the state of the hidden unit and the message that goes through"
+    },
+    {
+      "index": 266,
+      "start_time": 1418720.0,
+      "end_time": 1422639.0,
+      "text": "it when you&#39;re looking at samples from the model or reconstructions. So it&#39;s still a"
+    },
+    {
+      "index": 267,
+      "start_time": 1422640.0,
+      "end_time": 1430900.0,
+      "text": "nice pair-wise learning rule. So everything is pair-wise still, so you might fit into"
+    },
+    {
+      "index": 268,
+      "start_time": 1430900.0,
+      "end_time": 1437670.0,
+      "text": "the brain. Now, if we look what one of these factors does when I show random dot patterns"
+    },
+    {
+      "index": 269,
+      "start_time": 1437670.0,
+      "end_time": 1444270.0,
+      "text": "to translate, then we can look at the weights connecting it to the pre-image, and that&#39;s"
+    },
+    {
+      "index": 270,
+      "start_time": 1444270.0,
+      "end_time": 1448410.0,
+      "text": "a pattern of weights where white is a big positive weight, black is a big negative weight"
+    },
+    {
+      "index": 271,
+      "start_time": 1448410.0,
+      "end_time": 1451851.0,
+      "text": "because that would have a learned a great in connecting it to the pre-image and this"
+    },
+    {
+      "index": 272,
+      "start_time": 1451850.0,
+      "end_time": 1455320.0,
+      "text": "will have learned a great in connecting it to the post-image. With a hundred factors,"
+    },
+    {
+      "index": 273,
+      "start_time": 1455320.0,
+      "end_time": 1465460.0,
+      "text": "I&#39;ll show you what Roland learned. So, those are the hundred the hundred factors connecting--these"
+    },
+    {
+      "index": 274,
+      "start_time": 1465460.0,
+      "end_time": 1469929.0,
+      "text": "are the receptive fields at the factors in the pre-image. And remember it&#39;s looking at"
+    },
+    {
+      "index": 275,
+      "start_time": 1469930.0,
+      "end_time": 1476900.0,
+      "text": "translating dots, and these are the factors in the post-image. And you see, it&#39;s basically"
+    },
+    {
+      "index": 276,
+      "start_time": 1476900.0,
+      "end_time": 1481241.0,
+      "text": "learned the freer basis and it&#39;s learned to translate things by about 90 degrees. And"
+    },
+    {
+      "index": 277,
+      "start_time": 1481240.0,
+      "end_time": 1486580.0,
+      "text": "that&#39;s a very good way of handling translation. Mathematicians say things like, &quot;The freer"
+    },
+    {
+      "index": 278,
+      "start_time": 1486580.0,
+      "end_time": 1491429.0,
+      "text": "basis is a natural basis for modeling translation.&quot; I don&#39;t really know what that means, but just"
+    },
+    {
+      "index": 279,
+      "start_time": 1491430.0,
+      "end_time": 1498711.0,
+      "text": "learn the freer basis on that. And if you get rotations, it learned the different basis."
+    },
+    {
+      "index": 280,
+      "start_time": 1498710.0,
+      "end_time": 1506600.0,
+      "text": "So this is the basis that learns for rotations. You see it learns about yin and yang here."
+    },
+    {
+      "index": 281,
+      "start_time": 1506600.0,
+      "end_time": 1516600.0,
+      "text": "Oops [INDISTINCT]. Okay, that&#39;s the basis for rotations. One other thing you could do"
+    },
+    {
+      "index": 282,
+      "start_time": 1516600.0,
+      "end_time": 1525200.0,
+      "text": "is train it just on single dot pans and translating in a coherent way and then test it on two"
+    },
+    {
+      "index": 283,
+      "start_time": 1525200.0,
+      "end_time": 1530129.0,
+      "text": "overlaid dot patterns but they&#39;re translating different directions. It&#39;s never seen that"
+    },
+    {
+      "index": 284,
+      "start_time": 1530130.0,
+      "end_time": 1535491.0,
+      "text": "before. It&#39;s only been trained on coherent motion where we&#39;re going to test it on what&#39;s"
+    },
+    {
+      "index": 285,
+      "start_time": 1535490.0,
+      "end_time": 1541200.0,
+      "text": "called transparent motion. In order to see what it thinks, when we train the uncivilized,"
+    },
+    {
+      "index": 286,
+      "start_time": 1541200.0,
+      "end_time": 1544549.0,
+      "text": "there&#39;s no labels anywhere, we never tell it what the notions are, we need some way"
+    },
+    {
+      "index": 287,
+      "start_time": 1544550.0,
+      "end_time": 1549630.0,
+      "text": "to seeing what it&#39;s thinking, so we add a second hidden layer that looks at the hidden"
+    },
+    {
+      "index": 288,
+      "start_time": 1549630.0,
+      "end_time": 1553971.0,
+      "text": "units representing transformations and it&#39;s fairly sparse. So the units on that second"
+    },
+    {
+      "index": 289,
+      "start_time": 1553970.0,
+      "end_time": 1559499.0,
+      "text": "hidden layer will be tuned to particular directions of motion. And then to see what it&#39;s thinking,"
+    },
+    {
+      "index": 290,
+      "start_time": 1559500.0,
+      "end_time": 1565961.0,
+      "text": "we take the directions those units like weighted by how active those units are and I will tell"
+    },
+    {
+      "index": 291,
+      "start_time": 1565960.0,
+      "end_time": 1571119.0,
+      "text": "you what directions it thinks it&#39;s seeing. Now when you show it transparent motion and"
+    },
+    {
+      "index": 292,
+      "start_time": 1571120.0,
+      "end_time": 1575920.0,
+      "text": "you look at those units in the second hidden layer, if the two motions are within about"
+    },
+    {
+      "index": 293,
+      "start_time": 1575920.0,
+      "end_time": 1580321.0,
+      "text": "30 degrees, it sees a single motion of the average direction. If they&#39;re beyond about"
+    },
+    {
+      "index": 294,
+      "start_time": 1580320.0,
+      "end_time": 1584369.0,
+      "text": "30 degrees, it sees two different motions and once more they&#39;re repelled from each other."
+    },
+    {
+      "index": 295,
+      "start_time": 1584370.0,
+      "end_time": 1593000.0,
+      "text": "That&#39;s exactly when I was with people, and so this is exactly how the brain works. Okay."
+    },
+    {
+      "index": 296,
+      "start_time": 1593000.0,
+      "end_time": 1600341.0,
+      "text": "There&#39;s going to be a lot of that kind of reasoning in this talk. I&#39;m going to on to"
+    },
+    {
+      "index": 297,
+      "start_time": 1600340.0,
+      "end_time": 1606409.0,
+      "text": "time series models now. So, we&#39;d like to model not just static images, for example, we like"
+    },
+    {
+      "index": 298,
+      "start_time": 1606410.0,
+      "end_time": 1611731.0,
+      "text": "to model video. To be [INDISTINCT] we&#39;re going to try something a bit simpler. When people"
+    },
+    {
+      "index": 299,
+      "start_time": 1611730.0,
+      "end_time": 1618039.0,
+      "text": "do time series models, you would nearly always like to have a distributed non-linear representation,"
+    },
+    {
+      "index": 300,
+      "start_time": 1618040.0,
+      "end_time": 1622821.0,
+      "text": "but that&#39;s hard to learn. So people tend to do dumb things like Hidden Mark up Models"
+    },
+    {
+      "index": 301,
+      "start_time": 1622820.0,
+      "end_time": 1630769.0,
+      "text": "or Linear Dynamical Systems which either give up on the distributed or on the non-linear,"
+    },
+    {
+      "index": 302,
+      "start_time": 1630770.0,
+      "end_time": 1635111.0,
+      "text": "but are easy to doing inference. What we&#39;re going to come up with is something that has"
+    },
+    {
+      "index": 303,
+      "start_time": 1635110.0,
+      "end_time": 1639889.0,
+      "text": "the distributed and the non-linear and is easy to do inference, but the linear algorithm"
+    },
+    {
+      "index": 304,
+      "start_time": 1639890.0,
+      "end_time": 1644241.0,
+      "text": "isn&#39;t quite right but it&#39;s good enough. It&#39;s just an approximation to make some [INDISTINCT]."
+    },
+    {
+      "index": 305,
+      "start_time": 1644240.0,
+      "end_time": 1653019.0,
+      "text": "And the inference also is ignoring the future and just basing things on the past. So, here&#39;s"
+    },
+    {
+      "index": 306,
+      "start_time": 1653020.0,
+      "end_time": 1659211.0,
+      "text": "a basic module, and this is with just two-way interactions. This is the Restricted Boltzmann"
+    },
+    {
+      "index": 307,
+      "start_time": 1659210.0,
+      "end_time": 1666499.0,
+      "text": "Machine with visible units and hidden units. Here are the previous visible frames. These"
+    },
+    {
+      "index": 308,
+      "start_time": 1666500.0,
+      "end_time": 1671990.0,
+      "text": "are all going to be linear units. And so, these blue connections are conditioning the"
+    },
+    {
+      "index": 309,
+      "start_time": 1671990.0,
+      "end_time": 1677770.0,
+      "text": "current visible values on previous observed values in a linear way. So, it&#39;s called an"
+    },
+    {
+      "index": 310,
+      "start_time": 1677770.0,
+      "end_time": 1684130.0,
+      "text": "autoregressive model. The hidden units here are going to be binary hidden units; they&#39;re"
+    },
+    {
+      "index": 311,
+      "start_time": 1684130.0,
+      "end_time": 1690050.0,
+      "text": "also conditioned on previous visible frames, and learning is easy in this model. What you"
+    },
+    {
+      "index": 312,
+      "start_time": 1690050.0,
+      "end_time": 1695530.0,
+      "text": "do is you take your observed data, and then given the current visible frame and given"
+    },
+    {
+      "index": 313,
+      "start_time": 1695530.0,
+      "end_time": 1699760.0,
+      "text": "the previous visible frames, you got import to the hidden units, they&#39;re all independent"
+    },
+    {
+      "index": 314,
+      "start_time": 1699760.0,
+      "end_time": 1705591.0,
+      "text": "given the data, so you can separately decide what states they should be in. Once you fixed"
+    },
+    {
+      "index": 315,
+      "start_time": 1705590.0,
+      "end_time": 1711749.0,
+      "text": "states for them, you now reconstruct the current frame using the input you&#39;re getting from"
+    },
+    {
+      "index": 316,
+      "start_time": 1711750.0,
+      "end_time": 1716780.0,
+      "text": "previous frames and using the top you got in from the hidden units. After we construct,"
+    },
+    {
+      "index": 317,
+      "start_time": 1716780.0,
+      "end_time": 1721060.0,
+      "text": "you then activate the hidden units again. When you say the difference in the power statistics"
+    },
+    {
+      "index": 318,
+      "start_time": 1721060.0,
+      "end_time": 1725640.0,
+      "text": "with data here and the reconstructions here to learn these weights and you take the difference"
+    },
+    {
+      "index": 319,
+      "start_time": 1725640.0,
+      "end_time": 1730731.0,
+      "text": "on activities of these guys with data with reconstructions to get signal that you can"
+    },
+    {
+      "index": 320,
+      "start_time": 1730730.0,
+      "end_time": 1735909.0,
+      "text": "used to learn these weights or these weights. So learning is straightforward and it just"
+    },
+    {
+      "index": 321,
+      "start_time": 1735910.0,
+      "end_time": 1744050.0,
+      "text": "depends on differences, and you can learn a model like this. After you&#39;ve learned it,"
+    },
+    {
+      "index": 322,
+      "start_time": 1744050.0,
+      "end_time": 1752851.0,
+      "text": "you can generate from the model by taking some previous frames. These inputs, the conditioning"
+    },
+    {
+      "index": 323,
+      "start_time": 1752850.0,
+      "end_time": 1757499.0,
+      "text": "inputs, in effect, fixed the biases of these to depend on the previous frames. So, these"
+    },
+    {
+      "index": 324,
+      "start_time": 1757500.0,
+      "end_time": 1761930.0,
+      "text": "are the dynamic biases, and with these biases fixed, you just get backwards and forwards"
+    },
+    {
+      "index": 325,
+      "start_time": 1761930.0,
+      "end_time": 1767951.0,
+      "text": "for awhile and then pick a frame there, and that&#39;s your next frame you regenerated, then"
+    },
+    {
+      "index": 326,
+      "start_time": 1767950.0,
+      "end_time": 1771210.0,
+      "text": "you keep going. So, we can generate from the model once it learns so we can see what it"
+    },
+    {
+      "index": 327,
+      "start_time": 1771210.0,
+      "end_time": 1774549.0,
+      "text": "believes. &gt;&gt; You always go back two steps in time or"
+    },
+    {
+      "index": 328,
+      "start_time": 1774550.0,
+      "end_time": 1776830.0,
+      "text": "is that just an example? &gt;&gt; HINTON: Sorry."
+    },
+    {
+      "index": 329,
+      "start_time": 1776830.0,
+      "end_time": 1780430.0,
+      "text": "&gt;&gt; Oh, you were just going back only two steps in time?"
+    },
+    {
+      "index": 330,
+      "start_time": 1780430.0,
+      "end_time": 1782471.0,
+      "text": "&gt;&gt; HINTON: No, we&#39;re going to get back more sets in time."
+    },
+    {
+      "index": 331,
+      "start_time": 1782470.0,
+      "end_time": 1791100.0,
+      "text": "&gt;&gt; Okay, and you let... &gt;&gt; HINTON: I just got lazy with the PowerPoint."
+    },
+    {
+      "index": 332,
+      "start_time": 1791100.0,
+      "end_time": 1795559.0,
+      "text": "Now, one direction we could go from here is to higher level models. That is, having learned"
+    },
+    {
+      "index": 333,
+      "start_time": 1795560.0,
+      "end_time": 1800170.0,
+      "text": "this model where these hidden units are all independent given the data, we could say--well,"
+    },
+    {
+      "index": 334,
+      "start_time": 1800170.0,
+      "end_time": 1804601.0,
+      "text": "what I&#39;ve done is I&#39;ve turned the visible frames into the hidden frames map. And it"
+    },
+    {
+      "index": 335,
+      "start_time": 1804600.0,
+      "end_time": 1808440.0,
+      "text": "turns out you can get a better model if you take these hidden frames, a model what&#39;s going"
+    },
+    {
+      "index": 336,
+      "start_time": 1808440.0,
+      "end_time": 1814289.0,
+      "text": "here, and now you put in conditioning connections between the hidden frames and more hidden"
+    },
+    {
+      "index": 337,
+      "start_time": 1814290.0,
+      "end_time": 1817740.0,
+      "text": "units that don&#39;t have conditioning here that don&#39;t interact with other hidden unit. [INDISTINCT]"
+    },
+    {
+      "index": 338,
+      "start_time": 1817740.0,
+      "end_time": 1822611.0,
+      "text": "in this model. Then you can prove that if you do this right, then you&#39;ll get a better"
+    },
+    {
+      "index": 339,
+      "start_time": 1822610.0,
+      "end_time": 1827309.0,
+      "text": "model of the original sequences or your improver band on the model of the original sequences."
+    },
+    {
+      "index": 340,
+      "start_time": 1827310.0,
+      "end_time": 1830841.0,
+      "text": "So you can [INDISTINCT] lots of layers like that. And when you have more layers, it generates"
+    },
+    {
+      "index": 341,
+      "start_time": 1830840.0,
+      "end_time": 1838129.0,
+      "text": "better. But I&#39;m going to go in a different direction. I&#39;m going to show you how to do"
+    },
+    {
+      "index": 342,
+      "start_time": 1838130.0,
+      "end_time": 1842711.0,
+      "text": "it with three-way connections. And we&#39;re going to apply it to motion-capture data, so you"
+    },
+    {
+      "index": 343,
+      "start_time": 1842710.0,
+      "end_time": 1846529.0,
+      "text": "put reflective markers on the joints, you have lots of infrared cameras, you figure"
+    },
+    {
+      "index": 344,
+      "start_time": 1846530.0,
+      "end_time": 1849500.0,
+      "text": "out where the joints are in space. You know the shape of the body so you go backwards"
+    },
+    {
+      "index": 345,
+      "start_time": 1849500.0,
+      "end_time": 1853670.0,
+      "text": "through that to figure out the joint angles and then the frame of data is going to consist"
+    },
+    {
+      "index": 346,
+      "start_time": 1853670.0,
+      "end_time": 1860370.0,
+      "text": "of 50 numbers, about 50 numbers which are joint angles and the translations and rotations"
+    },
+    {
+      "index": 347,
+      "start_time": 1860370.0,
+      "end_time": 1865930.0,
+      "text": "of the base of the spine. Okay. So, imagine we got--one of these mannequins you see in"
+    },
+    {
+      "index": 348,
+      "start_time": 1865930.0,
+      "end_time": 1871591.0,
+      "text": "art shop windows, we got a pins stuck in the base of his spine and we can move him around"
+    },
+    {
+      "index": 349,
+      "start_time": 1871590.0,
+      "end_time": 1877200.0,
+      "text": "and rotate him using this pin and we can also wiggle his legs and arms. Okay. And what we"
+    },
+    {
+      "index": 350,
+      "start_time": 1877200.0,
+      "end_time": 1881289.0,
+      "text": "want him to do is as we move him around, we want him to wiggle his legs and arms so his"
+    },
+    {
+      "index": 351,
+      "start_time": 1881290.0,
+      "end_time": 1885030.0,
+      "text": "foot appears to be stationary on the ground and he appears to be walking. And he&#39;d better"
+    },
+    {
+      "index": 352,
+      "start_time": 1885030.0,
+      "end_time": 1888790.0,
+      "text": "wiggle his leg just right as we translate his pelvis, otherwise his foot will appear"
+    },
+    {
+      "index": 353,
+      "start_time": 1888790.0,
+      "end_time": 1897400.0,
+      "text": "to skid on the ground. And we&#39;re going to model him, we can do hierarchal model like"
+    },
+    {
+      "index": 354,
+      "start_time": 1897400.0,
+      "end_time": 1904670.0,
+      "text": "I just showed you or we can a three-way model like this where we condition six earlier of"
+    },
+    {
+      "index": 355,
+      "start_time": 1904670.0,
+      "end_time": 1906900.0,
+      "text": "frames, this is a current visible frame, here&#39;s basic bolts in the machine accept that it&#39;s"
+    },
+    {
+      "index": 356,
+      "start_time": 1906900.0,
+      "end_time": 1912260.0,
+      "text": "neither one of these 3-way things where these are factors. And we have a 1-of-N style variable."
+    },
+    {
+      "index": 357,
+      "start_time": 1912260.0,
+      "end_time": 1918030.0,
+      "text": "So, we have data and we tell it the style when we&#39;re training it, so that&#39;s sort of"
+    },
+    {
+      "index": 358,
+      "start_time": 1918030.0,
+      "end_time": 1922760.0,
+      "text": "semi-supervise. It learns to convert that 1-of-N representation in to a bunch of real"
+    },
+    {
+      "index": 359,
+      "start_time": 1922760.0,
+      "end_time": 1928500.0,
+      "text": "value features and then it uses this real value features as one of the inputs to a factor."
+    },
+    {
+      "index": 360,
+      "start_time": 1928500.0,
+      "end_time": 1934150.0,
+      "text": "And what the factor are really doing is saying, these real value features are modulating the"
+    },
+    {
+      "index": 361,
+      "start_time": 1934150.0,
+      "end_time": 1939941.0,
+      "text": "weight matrixes that use for conditioning and also this weight matrix that use in your"
+    },
+    {
+      "index": 362,
+      "start_time": 1939940.0,
+      "end_time": 1945989.0,
+      "text": "parallel linear model. So, these are modulating an auto aggressive model. That&#39;s very different"
+    },
+    {
+      "index": 363,
+      "start_time": 1945990.0,
+      "end_time": 1950410.0,
+      "text": "from switching between auto aggressive model it&#39;s much more powerful. Yeah?"
+    },
+    {
+      "index": 364,
+      "start_time": 1950410.0,
+      "end_time": 1954050.0,
+      "text": "&gt;&gt; I missed with what this one event is...? &gt;&gt; HINTON: So, we&#39;re going to have data of"
+    },
+    {
+      "index": 365,
+      "start_time": 1954050.0,
+      "end_time": 1957470.0,
+      "text": "someone walking in various different styles. &gt;&gt; Styles of walking."
+    },
+    {
+      "index": 366,
+      "start_time": 1957470.0,
+      "end_time": 1960030.0,
+      "text": "&gt;&gt; HINTON: The style of walking. Yeah. &gt;&gt; So you mean your earlier diagram when you"
+    },
+    {
+      "index": 367,
+      "start_time": 1960030.0,
+      "end_time": 1965581.0,
+      "text": "can&#39;t beat history, it looked like there was nothing to keep track in the relative order"
+    },
+    {
+      "index": 368,
+      "start_time": 1965580.0,
+      "end_time": 1969039.0,
+      "text": "of the earlier direct delta direct link because... &gt;&gt; HINTON: Yes."
+    },
+    {
+      "index": 369,
+      "start_time": 1969040.0,
+      "end_time": 1973191.0,
+      "text": "&gt;&gt; ... is there anything in the model that cares about that relative...?"
+    },
+    {
+      "index": 370,
+      "start_time": 1973190.0,
+      "end_time": 1975419.0,
+      "text": "&gt;&gt; HINTON: Yeah. Yeah. The weights on the connections will tell you which frame it&#39;s"
+    },
+    {
+      "index": 371,
+      "start_time": 1975420.0,
+      "end_time": 1979670.0,
+      "text": "coming from. Right. In the earlier model, there were two blue lines, they&#39;re different"
+    },
+    {
+      "index": 372,
+      "start_time": 1979670.0,
+      "end_time": 1982010.0,
+      "text": "matrixes and they have different weights on. &gt;&gt; There&#39;s nothing from two steps to previews"
+    },
+    {
+      "index": 373,
+      "start_time": 1982010.0,
+      "end_time": 1986510.0,
+      "text": "to ones step previews, right, it just skip all the way?"
+    },
+    {
+      "index": 374,
+      "start_time": 1986510.0,
+      "end_time": 1987491.0,
+      "text": "&gt;&gt; HINTON: It just skipped all the way, right. You just..."
+    },
+    {
+      "index": 375,
+      "start_time": 1987490.0,
+      "end_time": 1991600.0,
+      "text": "&gt;&gt; Will that continue to happen? &gt;&gt; HINTON: Yes. In other words there&#39;s direct"
+    },
+    {
+      "index": 376,
+      "start_time": 1991600.0,
+      "end_time": 1997119.0,
+      "text": "connections from all six previous frames to the current frame for determining the current"
+    },
+    {
+      "index": 377,
+      "start_time": 1997120.0,
+      "end_time": 1997201.0,
+      "text": "frame. &gt;&gt; Right. And then what links from the six"
+    },
+    {
+      "index": 378,
+      "start_time": 1997200.0,
+      "end_time": 2004669.0,
+      "text": "frames of the fifth earliest report? &gt;&gt; HINTON: Well, there where when you were"
+    },
+    {
+      "index": 379,
+      "start_time": 2004670.0,
+      "end_time": 2006591.0,
+      "text": "computing what the fifth frame was doing, right?"
+    },
+    {
+      "index": 380,
+      "start_time": 2006590.0,
+      "end_time": 2008559.0,
+      "text": "&gt;&gt; Okay. &gt;&gt; HINTON: But when we&#39;re computing this frame"
+    },
+    {
+      "index": 381,
+      "start_time": 2008560.0,
+      "end_time": 2014890.0,
+      "text": "we have direct connections from it. Okay. So, we&#39;re now going to train this model, it&#39;s"
+    },
+    {
+      "index": 382,
+      "start_time": 2014890.0,
+      "end_time": 2018971.0,
+      "text": "relatively easy to train especially on the GPU board, and then we&#39;re going to generate"
+    },
+    {
+      "index": 383,
+      "start_time": 2018970.0,
+      "end_time": 2024340.0,
+      "text": "from it, so we can see sort of what it learned and we can judge if it&#39;s doing well by whether"
+    },
+    {
+      "index": 384,
+      "start_time": 2024340.0,
+      "end_time": 2036399.0,
+      "text": "the feet slip on the ground. All right. &gt;&gt; [INDISTINCT]"
+    },
+    {
+      "index": 385,
+      "start_time": 2036400.0,
+      "end_time": 2054550.0,
+      "text": "&gt;&gt; HINTON: We&#39;ll get there. &gt;&gt; Sorry."
+    },
+    {
+      "index": 386,
+      "start_time": 2054550.0000000002,
+      "end_time": 2068241.0000000002,
+      "text": "&gt;&gt; HINTON: Here&#39;s a normal walk. Maybe, at least they&#39;re willing. Okay. So I was generating"
+    },
+    {
+      "index": 387,
+      "start_time": 2068239.9999999998,
+      "end_time": 2074279.9999999998,
+      "text": "from the model--he&#39;s deciding which direction to turn in, and he&#39;s deciding, you know, he"
+    },
+    {
+      "index": 388,
+      "start_time": 2074280.0000000002,
+      "end_time": 2082300.0000000002,
+      "text": "needs to make the outside leg go farther than the inside leg and so on. If we--we have one"
+    },
+    {
+      "index": 389,
+      "start_time": 2082300.0000000002,
+      "end_time": 2093250.0000000002,
+      "text": "model but if we flip the style label to say, gangly teenager, he definitely looks awkward."
+    },
+    {
+      "index": 390,
+      "start_time": 2093250.0,
+      "end_time": 2101950.0,
+      "text": "Right. We&#39;ve all been there. I think this is a computer science student. My main reason"
+    },
+    {
+      "index": 391,
+      "start_time": 2101950.0,
+      "end_time": 2109090.0,
+      "text": "for thinking that is if you asked him do a graceful walk, it looks like this. And that&#39;s"
+    },
+    {
+      "index": 392,
+      "start_time": 2109090.0,
+      "end_time": 2111530.0,
+      "text": "definitely C3PO. &gt;&gt; [INDISTINCT]."
+    },
+    {
+      "index": 393,
+      "start_time": 2111530.0,
+      "end_time": 2121690.0,
+      "text": "&gt;&gt; HINTON: Now, I think this was a student [INDISTINCT]--but he&#39;s very good. You can"
+    },
+    {
+      "index": 394,
+      "start_time": 2121690.0,
+      "end_time": 2129140.0,
+      "text": "ask him to walk softly like a cat. We&#39;re asking to model at present, right? The model looks"
+    },
+    {
+      "index": 395,
+      "start_time": 2129140.0,
+      "end_time": 2133140.0,
+      "text": "pretty much like the real data the real data obviously the feet are planted better but"
+    },
+    {
+      "index": 396,
+      "start_time": 2133140.0,
+      "end_time": 2139350.0,
+      "text": "notice, he can slow down then speed up again. Auto aggressive models can&#39;t do things like"
+    },
+    {
+      "index": 397,
+      "start_time": 2139350.0,
+      "end_time": 2143270.0,
+      "text": "that, Auto aggressive models have a biggest size in value, the size is bigger than one"
+    },
+    {
+      "index": 398,
+      "start_time": 2143270.0,
+      "end_time": 2147760.0,
+      "text": "in which case they explode or a smaller one in which case they die and the way to keep"
+    },
+    {
+      "index": 399,
+      "start_time": 2147760.0,
+      "end_time": 2152240.0,
+      "text": "them alive is by keep--you keep injecting random noise so that they stay alive and that&#39;s"
+    },
+    {
+      "index": 400,
+      "start_time": 2152240.0,
+      "end_time": 2158150.0,
+      "text": "like making a horse walk by taking a dead horse and jiggling it, it&#39;s kind of--it&#39;s"
+    },
+    {
+      "index": 401,
+      "start_time": 2158150.0,
+      "end_time": 2167420.0,
+      "text": "not good. Now, he doesn&#39;t have any model of the physics so, in order to do this kinds"
+    },
+    {
+      "index": 402,
+      "start_time": 2167420.0,
+      "end_time": 2171870.0,
+      "text": "of stumbles, there had to be stumble similar to that in the data but when he stop in which"
+    },
+    {
+      "index": 403,
+      "start_time": 2171870.0,
+      "end_time": 2181240.0,
+      "text": "he stumble he did when, he&#39;s entirely determining. We could make him do a sexy walk but you&#39;re"
+    },
+    {
+      "index": 404,
+      "start_time": 2181240.0,
+      "end_time": 2184350.0,
+      "text": "probably not interested in that. &gt;&gt; I just order a chicken."
+    },
+    {
+      "index": 405,
+      "start_time": 2184350.0,
+      "end_time": 2186830.0,
+      "text": "&gt;&gt; HINTON: You want dinosaur the chicken? Where&#39;s dinosaur the chicken?"
+    },
+    {
+      "index": 406,
+      "start_time": 2186830.0,
+      "end_time": 2189100.0,
+      "text": "&gt;&gt; And chicken, number five. &gt;&gt; At number five."
+    },
+    {
+      "index": 407,
+      "start_time": 2189100.0,
+      "end_time": 2206860.0,
+      "text": "&gt;&gt; HINTON: Oh, no, that&#39;s dinosaur and chicken. That&#39;s a blend. Maybe a switch. He&#39;s got quite a lot of foot"
+    },
+    {
+      "index": 408,
+      "start_time": 2206860.0,
+      "end_time": 2212140.0,
+      "text": "[INDISTINCT] that&#39;s probably a blend. This is doing a sexy walk and then you flip the"
+    },
+    {
+      "index": 409,
+      "start_time": 2212140.0,
+      "end_time": 2216390.0,
+      "text": "label to normal and then you flip it back to sexy. It&#39;s never seen any transitions but"
+    },
+    {
+      "index": 410,
+      "start_time": 2216390.0,
+      "end_time": 2218300.0,
+      "text": "because all one model, it can do reasonable for transitions."
+    },
+    {
+      "index": 411,
+      "start_time": 2218300.0,
+      "end_time": 2221040.0,
+      "text": "&gt;&gt; So you have these hundred style variables, can you de-couple those form the one event"
+    },
+    {
+      "index": 412,
+      "start_time": 2221040.0,
+      "end_time": 2235560.0,
+      "text": "style and just make up new styles by playing with those..."
+    },
+    {
+      "index": 413,
+      "start_time": 2235560.0,
+      "end_time": 2242540.0,
+      "text": "&gt;&gt; HINTON: Yup. Yup. Now, you can also give it many more labels when you train, you can"
+    },
+    {
+      "index": 414,
+      "start_time": 2242540.0,
+      "end_time": 2246150.0,
+      "text": "give it speed, stride length all sorts of things then you can control it very well,"
+    },
+    {
+      "index": 415,
+      "start_time": 2246150.0,
+      "end_time": 2255130.0,
+      "text": "yeah. Okay. So, you can learn time series at least for 50 dimensional data and obviously"
+    },
+    {
+      "index": 416,
+      "start_time": 2255130.0,
+      "end_time": 2265910.0,
+      "text": "what we all want to do is apply that to video but we haven&#39;t done that yet. Except for some"
+    },
+    {
+      "index": 417,
+      "start_time": 2265910.0,
+      "end_time": 2273840.0,
+      "text": "very simple cases. The last thing I&#39;m going to show is the most complicated use of these"
+    },
+    {
+      "index": 418,
+      "start_time": 2273840.0,
+      "end_time": 2279760.0,
+      "text": "3-way models. One way of thinking of it, so that it&#39;s similar to the previous uses, is"
+    },
+    {
+      "index": 419,
+      "start_time": 2279760.0,
+      "end_time": 2285400.0,
+      "text": "that we take an image and we make two copies of it but they have to be same. And then we"
+    },
+    {
+      "index": 420,
+      "start_time": 2285400.0,
+      "end_time": 2289210.0,
+      "text": "insist the weights that go from a factor of this copy are the same as the weights that"
+    },
+    {
+      "index": 421,
+      "start_time": 2289210.0,
+      "end_time": 2298730.0,
+      "text": "go from the factor of this copy. So if I=J, WI=WJF. Inference is still easy in fact inference"
+    },
+    {
+      "index": 422,
+      "start_time": 2298730.0,
+      "end_time": 2304650.0,
+      "text": "here will consist of--you take these pixels times these weights to get a weighted sum,"
+    },
+    {
+      "index": 423,
+      "start_time": 2304650.0,
+      "end_time": 2308850.0,
+      "text": "and then you square it because this is going to be the same weighted sum. So, inference"
+    },
+    {
+      "index": 424,
+      "start_time": 2308850.0,
+      "end_time": 2314080.0,
+      "text": "consist--take linear filter, square its output, and send it by these weights to the hidden"
+    },
+    {
+      "index": 425,
+      "start_time": 2314080.0,
+      "end_time": 2321300.0,
+      "text": "units. That&#39;s exactly the model called the [INDISTINCT] energy model, is right, kind"
+    },
+    {
+      "index": 426,
+      "start_time": 2321300.0,
+      "end_time": 2326150.0,
+      "text": "of linear filter. This is being proposed both by Vision people by Adelson and Bergen, a"
+    },
+    {
+      "index": 427,
+      "start_time": 2326150.0,
+      "end_time": 2331980.0,
+      "text": "long time ago in the &#39;80s, and by neuroscientists. So, neuroscientists had tried to take simple"
+    },
+    {
+      "index": 428,
+      "start_time": 2331980.0,
+      "end_time": 2338490.0,
+      "text": "cells, my point vaguely about, and look at what polynomial they&#39;re output is of their"
+    },
+    {
+      "index": 429,
+      "start_time": 2338490.0,
+      "end_time": 2348850.0,
+      "text": "input, and Yang Dan at Berkeley says it&#39;s between 1.7 and 2.3, and that&#39;s means two."
+    },
+    {
+      "index": 430,
+      "start_time": 2348850.0,
+      "end_time": 2353860.0,
+      "text": "So, this looks quite like models that were proposed for quite different reasons and it"
+    },
+    {
+      "index": 431,
+      "start_time": 2353860.0,
+      "end_time": 2359230.0,
+      "text": "just drops out of taking a 3-way imaging model and factorizing it. The advantage we have"
+    },
+    {
+      "index": 432,
+      "start_time": 2359230.0,
+      "end_time": 2370630.0,
+      "text": "is that we have a learning algorithm for all these weighs now, when we generative model."
+    },
+    {
+      "index": 433,
+      "start_time": 2370630.0,
+      "end_time": 2376010.0,
+      "text": "So now we can model covariances between pixels, and the reason that&#39;s good is–-well, here&#39;s"
+    },
+    {
+      "index": 434,
+      "start_time": 2376010.0,
+      "end_time": 2382050.0,
+      "text": "one reason why it&#39;s good. Suppose I asked you to define a vertical edge. Most people"
+    },
+    {
+      "index": 435,
+      "start_time": 2382050.0,
+      "end_time": 2385430.0,
+      "text": "will say, &quot;Well, vertical edge is something that light on the side and dark on that side."
+    },
+    {
+      "index": 436,
+      "start_time": 2385430.0,
+      "end_time": 2388840.0,
+      "text": "Well no, maybe it&#39;s light on this side and dark on that side, but you know. Well, it"
+    },
+    {
+      "index": 437,
+      "start_time": 2388840.0,
+      "end_time": 2391980.0,
+      "text": "could be light up here and dark down there, and dark up here and light down there.&quot; Okay."
+    },
+    {
+      "index": 438,
+      "start_time": 2391980.0,
+      "end_time": 2397630.0,
+      "text": "Or it could be texture edge. It&#39;s getting--oh, it might actually be a disparity edge. Well,"
+    },
+    {
+      "index": 439,
+      "start_time": 2397630.0,
+      "end_time": 2401290.0,
+      "text": "the manner should be motion this side and no motion that side. That&#39;s a vertical edge"
+    },
+    {
+      "index": 440,
+      "start_time": 2401290.0,
+      "end_time": 2406180.0,
+      "text": "too. So, a vertical edge is a big assortment of things, and what all those things have"
+    },
+    {
+      "index": 441,
+      "start_time": 2406180.0,
+      "end_time": 2411860.0,
+      "text": "in common is vertical edge is something where you shouldn&#39;t do horizontal interpolation."
+    },
+    {
+      "index": 442,
+      "start_time": 2411860.0,
+      "end_time": 2416430.0,
+      "text": "Generally new image, horizontal interpolation works really well. A pixel is the average"
+    },
+    {
+      "index": 443,
+      "start_time": 2416430.0,
+      "end_time": 2420440.0,
+      "text": "of its right and left neighbors, pretty accurately almost all the time. Occasionally it breakdowns,"
+    },
+    {
+      "index": 444,
+      "start_time": 2420440.0,
+      "end_time": 2426110.0,
+      "text": "and the place it breaks down is where there is a vertical edge. So, a real abstract definition"
+    },
+    {
+      "index": 445,
+      "start_time": 2426110.0,
+      "end_time": 2431420.0,
+      "text": "of vertical edge is breakdown of horizontal interpolation. And that&#39;s what our models"
+    },
+    {
+      "index": 446,
+      "start_time": 2431420.0,
+      "end_time": 2437500.0,
+      "text": "are going to do. A hidden unit is going to be putting in interpolation, and it&#39;s actually"
+    },
+    {
+      "index": 447,
+      "start_time": 2437500.0,
+      "end_time": 2442370.0,
+      "text": "going to turn-off sort of reverse logic, when that breaks down its going to turn-off, so"
+    },
+    {
+      "index": 448,
+      "start_time": 2442370.0,
+      "end_time": 2450300.0,
+      "text": "one way of seeing it is this. If this hidden unit here is on, it puts in a weigh between"
+    },
+    {
+      "index": 449,
+      "start_time": 2450300.0,
+      "end_time": 2458500.0,
+      "text": "pixel I and pixel J that&#39;s equal to this weight times this weight, times this weight. Okay."
+    },
+    {
+      "index": 450,
+      "start_time": 2458500.0,
+      "end_time": 2469380.0,
+      "text": "Since these–okay, that&#39;s good enough. So, these are controlling affectively the mark"
+    },
+    {
+      "index": 451,
+      "start_time": 2469380.0,
+      "end_time": 2479490.0,
+      "text": "of random field between the pixels, so we can model covariances nicely. Because the"
+    },
+    {
+      "index": 452,
+      "start_time": 2479490.0,
+      "end_time": 2484540.0,
+      "text": "hidden units are creating correlations between the visible units reconstruction is now more"
+    },
+    {
+      "index": 453,
+      "start_time": 2484540.0,
+      "end_time": 2489170.0,
+      "text": "difficult. We could reconstruct one image given the other image, like we did with motion,"
+    },
+    {
+      "index": 454,
+      "start_time": 2489170.0,
+      "end_time": 2493490.0,
+      "text": "but if you want to reconstruct them both and make them identical it gets to be harder."
+    },
+    {
+      "index": 455,
+      "start_time": 2493490.0,
+      "end_time": 2497500.0,
+      "text": "So, we have to use a different mathical Hybrid Monte Carlo. Essentially you start where the"
+    },
+    {
+      "index": 456,
+      "start_time": 2497500.0,
+      "end_time": 2501650.0,
+      "text": "data was and let it wonder away from where it was but keeping both images the same. And"
+    },
+    {
+      "index": 457,
+      "start_time": 2501650.0,
+      "end_time": 2505810.0,
+      "text": "I&#39;m not going to go to Hybrid Monte Carlo, but it works just fine for doing the learning."
+    },
+    {
+      "index": 458,
+      "start_time": 2505810.0,
+      "end_time": 2509920.0,
+      "text": "And the Hybrid Monte Carlo is used just to get the reconstructions and the learning algorithm"
+    },
+    {
+      "index": 459,
+      "start_time": 2509920.0,
+      "end_time": 2517550.0,
+      "text": "just the same as before. And what we&#39;re going to do is we&#39;re going to have some hidden units"
+    },
+    {
+      "index": 460,
+      "start_time": 2517550.0,
+      "end_time": 2521850.0,
+      "text": "that are using these 3-way interactions to model covariances between pixels, and other"
+    },
+    {
+      "index": 461,
+      "start_time": 2521850.0,
+      "end_time": 2525800.0,
+      "text": "hidden units are just modeling the means. And so we call-–for meaning covariance,"
+    },
+    {
+      "index": 462,
+      "start_time": 2525800.0,
+      "end_time": 2536280.0,
+      "text": "we call this mcRBM. Here&#39;s an example of what happens after it&#39;s learned on black and white"
+    },
+    {
+      "index": 463,
+      "start_time": 2536280.0,
+      "end_time": 2541420.0,
+      "text": "images. Here&#39;s an image patch. Here&#39;s its reconstruction of the image patch, if you"
+    },
+    {
+      "index": 464,
+      "start_time": 2541420.0,
+      "end_time": 2546720.0,
+      "text": "don&#39;t have noise, which is very good, from the mean and covariance units. Here&#39;s the"
+    },
+    {
+      "index": 465,
+      "start_time": 2546720.0,
+      "end_time": 2551330.0,
+      "text": "stochastic reconstruction which is also pretty good. But now we&#39;re going to do something"
+    },
+    {
+      "index": 466,
+      "start_time": 2551330.0,
+      "end_time": 2556080.0,
+      "text": "funny, we&#39;re going to take the activations of the covariance units. The things that are"
+    },
+    {
+      "index": 467,
+      "start_time": 2556080.0,
+      "end_time": 2560690.0,
+      "text": "modeling which pixels are the same with which other pixels and we&#39;re going to keep those."
+    },
+    {
+      "index": 468,
+      "start_time": 2560690.0,
+      "end_time": 2564000.0,
+      "text": "But we are going to take the activations of the mean units, so we&#39;re going to throw those"
+    },
+    {
+      "index": 469,
+      "start_time": 2564000.0,
+      "end_time": 2568770.0,
+      "text": "away, and pretend that the means from the pixels look like this. Well, let&#39;s take this"
+    },
+    {
+      "index": 470,
+      "start_time": 2568770.0,
+      "end_time": 2572400.0,
+      "text": "one first. We tell all the pixels have the same value, except these are which are much"
+    },
+    {
+      "index": 471,
+      "start_time": 2572400.0,
+      "end_time": 2578080.0,
+      "text": "darker and it now tries to make that information about means fit in with these information"
+    },
+    {
+      "index": 472,
+      "start_time": 2578080.0,
+      "end_time": 2581820.0,
+      "text": "about covariances which is of these guys should be the same but very different from these"
+    },
+    {
+      "index": 473,
+      "start_time": 2581820.0,
+      "end_time": 2587020.0,
+      "text": "guys. And so, it comes up with the reconstruction that it looks like that. Where you see it&#39;s"
+    },
+    {
+      "index": 474,
+      "start_time": 2587020.0,
+      "end_time": 2592860.0,
+      "text": "taken this dark stuff and blurred across this region here. If we just give it four dots"
+    },
+    {
+      "index": 475,
+      "start_time": 2592860.0,
+      "end_time": 2598030.0,
+      "text": "like that, and the covariance matrix you&#39;ve got from there, it&#39;ll blur those dots out"
+    },
+    {
+      "index": 476,
+      "start_time": 2598030.0,
+      "end_time": 2602340.0,
+      "text": "to make an image that looks quite like that one. So this is very like what&#39;s called the,"
+    },
+    {
+      "index": 477,
+      "start_time": 2602340.0,
+      "end_time": 2606940.0,
+      "text": "kind of watercolor model of images, where you know about where the boundaries are and"
+    },
+    {
+      "index": 478,
+      "start_time": 2606940.0,
+      "end_time": 2610100.0,
+      "text": "you just, sort of, roughly sketching the colors of the regions and it all looks fine to us,"
+    },
+    {
+      "index": 479,
+      "start_time": 2610100.0,
+      "end_time": 2616550.0,
+      "text": "because we sort of slaved the color boundaries to the actual--where the edges are. If you"
+    },
+    {
+      "index": 480,
+      "start_time": 2616550.0,
+      "end_time": 2620610.0,
+      "text": "reversed the colors of these it produce the reversed image because the covariance doesn&#39;t"
+    },
+    {
+      "index": 481,
+      "start_time": 2620610.0,
+      "end_time": 2627720.0,
+      "text": "care at all about the signs of things. If you look at the filters at your lens, the"
+    },
+    {
+      "index": 482,
+      "start_time": 2627720.0,
+      "end_time": 2633330.0,
+      "text": "mean units which are for sort of coloring in regions, learn these blurry filters--and"
+    },
+    {
+      "index": 483,
+      "start_time": 2633330.0,
+      "end_time": 2637000.0,
+      "text": "by taking some combination of a few dozen of those you can make more or less of what"
+    },
+    {
+      "index": 484,
+      "start_time": 2637000.0,
+      "end_time": 2643640.0,
+      "text": "other colors you like anywhere. So, very blur there-–smooth, blurry, and multicolored"
+    },
+    {
+      "index": 485,
+      "start_time": 2643640.0,
+      "end_time": 2648250.0,
+      "text": "and you can make roughly the right colors. The covariance units learn something completely"
+    },
+    {
+      "index": 486,
+      "start_time": 2648250.0,
+      "end_time": 2655470.0,
+      "text": "different. So, these are what the filters learned and you&#39;ll see that, those factors,"
+    },
+    {
+      "index": 487,
+      "start_time": 2655470.0,
+      "end_time": 2663070.0,
+      "text": "they learn high frequency black and white edges. And then a small number of them, turning"
+    },
+    {
+      "index": 488,
+      "start_time": 2663070.0,
+      "end_time": 2667950.0,
+      "text": "to low frequency color edges that are either red, green, or yellow blue and what&#39;s more"
+    },
+    {
+      "index": 489,
+      "start_time": 2667950.0,
+      "end_time": 2672550.0,
+      "text": "when you make it from a topographic map using a technique I&#39;ll describe on the next slide."
+    },
+    {
+      "index": 490,
+      "start_time": 2672550.0,
+      "end_time": 2677450.0,
+      "text": "You get this color blob, this low frequency color blob in with the low frequency black"
+    },
+    {
+      "index": 491,
+      "start_time": 2677450.0,
+      "end_time": 2681330.0,
+      "text": "and white filters. And that&#39;s just what you see in a monkey&#39;s brain, pretty much. If you"
+    },
+    {
+      "index": 492,
+      "start_time": 2681330.0,
+      "end_time": 2685550.0,
+      "text": "go into a monkey&#39;s brain you&#39;ll see these high frequency filters whose orientation changes"
+    },
+    {
+      "index": 493,
+      "start_time": 2685550.0,
+      "end_time": 2691910.0,
+      "text": "smoothly as you go through the cortex tangentially, and you&#39;ll see these low frequency color blobs."
+    },
+    {
+      "index": 494,
+      "start_time": 2691910.0,
+      "end_time": 2697210.0,
+      "text": "Most neuroscientists thought that at least must be innate. What this is saying is, &quot;Nope."
+    },
+    {
+      "index": 495,
+      "start_time": 2697210.0,
+      "end_time": 2702040.0,
+      "text": "Just the structure of images is, and the idea of forming a topographic map, is enough to"
+    },
+    {
+      "index": 496,
+      "start_time": 2702040.0,
+      "end_time": 2708320.0,
+      "text": "get this.&quot; That doesn&#39;t mean it&#39;s not innate, it just means it doesn&#39;t need to be. So the"
+    },
+    {
+      "index": 497,
+      "start_time": 2708320.0,
+      "end_time": 2717420.0,
+      "text": "way we get the topographic map is by this global connectivity from the pixels to the"
+    },
+    {
+      "index": 498,
+      "start_time": 2717420.0,
+      "end_time": 2721610.0,
+      "text": "factors. So the factors really are learning local filters. And the local filters start"
+    },
+    {
+      "index": 499,
+      "start_time": 2721610.0,
+      "end_time": 2728230.0,
+      "text": "off colored and gradually learn to be exactly black and white. Then there&#39;s local connectivity"
+    },
+    {
+      "index": 500,
+      "start_time": 2728230.0,
+      "end_time": 2732190.0,
+      "text": "between the factors in the hidden units. So one of these hidden units will connect to"
+    },
+    {
+      "index": 501,
+      "start_time": 2732190.0,
+      "end_time": 2738410.0,
+      "text": "a little square of factors and that induces a topography here and the energy function"
+    },
+    {
+      "index": 502,
+      "start_time": 2738410.0,
+      "end_time": 2746190.0,
+      "text": "is such that when you turn off one of these hidden units to say smoothness no longer applies,"
+    },
+    {
+      "index": 503,
+      "start_time": 2746190.0,
+      "end_time": 2752260.0,
+      "text": "you pay a penalty. And you derive to just pay the penalty once. And so two factors is"
+    },
+    {
+      "index": 504,
+      "start_time": 2752260.0,
+      "end_time": 2755640.0,
+      "text": "going to come on at the same time, it&#39;s best to connect them to the same hidden unit so"
+    },
+    {
+      "index": 505,
+      "start_time": 2755640.0,
+      "end_time": 2759910.0,
+      "text": "you only pay the penalty once. And so that will cause similar factors to go to similar"
+    },
+    {
+      "index": 506,
+      "start_time": 2759910.0,
+      "end_time": 2768350.0,
+      "text": "places in here when we get a topographic map. For people who know about modeling images,"
+    },
+    {
+      "index": 507,
+      "start_time": 2768350.0,
+      "end_time": 2774920.0,
+      "text": "as far as I know, nobody has yet produced a good model of patches of color images. That"
+    },
+    {
+      "index": 508,
+      "start_time": 2774920.0,
+      "end_time": 2779570.0,
+      "text": "is the genres of model that generates stuff that looks like the real data. So, here&#39;s"
+    },
+    {
+      "index": 509,
+      "start_time": 2779570.0,
+      "end_time": 2784370.0,
+      "text": "a model that was learned on 16x16 color images from the Berkeley database and here&#39;s these"
+    },
+    {
+      "index": 510,
+      "start_time": 2784370.0,
+      "end_time": 2790070.0,
+      "text": "generated from the model. And they look pretty similar. Now, it&#39;s a partly a trick, the color"
+    },
+    {
+      "index": 511,
+      "start_time": 2790070.0,
+      "end_time": 2793980.0,
+      "text": "balance here is like the color balance and it makes you think they are similar. But,"
+    },
+    {
+      "index": 512,
+      "start_time": 2793980.0,
+      "end_time": 2798890.0,
+      "text": "it&#39;s partly real. I mean, most of these are smooth patches of roughly uniform color as"
+    },
+    {
+      "index": 513,
+      "start_time": 2798890.0,
+      "end_time": 2803980.0,
+      "text": "are most of these. These are few more of these as smooth than those. But you also get these"
+    },
+    {
+      "index": 514,
+      "start_time": 2803980.0,
+      "end_time": 2808910.0,
+      "text": "things where you get fairly sharp edges, so you get smoothness than a sharp edge than"
+    },
+    {
+      "index": 515,
+      "start_time": 2808910.0,
+      "end_time": 2813220.0,
+      "text": "more smoothness, like you do in the real data. You even get things like corners here. We&#39;re"
+    },
+    {
+      "index": 516,
+      "start_time": 2813220.0,
+      "end_time": 2818140.0,
+      "text": "not quite there yet but this is the best model there is in patches of color images. And it&#39;s"
+    },
+    {
+      "index": 517,
+      "start_time": 2818140.0,
+      "end_time": 2822630.0,
+      "text": "because it&#39;s modeling both the covariance and the means, so it&#39;s capable of saying,"
+    },
+    {
+      "index": 518,
+      "start_time": 2822630.0,
+      "end_time": 2828010.0,
+      "text": "&quot;What&#39;s the same as what?&quot; As well as, &quot;What the intensities are?&quot; You can apply it for"
+    },
+    {
+      "index": 519,
+      "start_time": 2828010.0,
+      "end_time": 2834660.0,
+      "text": "doing recognition. So this is a difficult object recognition to ask where this 80 million"
+    },
+    {
+      "index": 520,
+      "start_time": 2834660.0,
+      "end_time": 2840110.0,
+      "text": "unlabelled training images; not only of these classes but of thousands and thousand of classes."
+    },
+    {
+      "index": 521,
+      "start_time": 2840110.0,
+      "end_time": 2845740.0,
+      "text": "They were collected by people at MIT. It&#39;s called the Tiny Images database. They&#39;re 32x32"
+    },
+    {
+      "index": 522,
+      "start_time": 2845740.0,
+      "end_time": 2851880.0,
+      "text": "color images. But it&#39;s surprising what you can see in a 32x32 color image. And since"
+    },
+    {
+      "index": 523,
+      "start_time": 2851880.0,
+      "end_time": 2855750.0,
+      "text": "the biggest model we&#39;re going to use has about a hundred million connections, that&#39;s about"
+    },
+    {
+      "index": 524,
+      "start_time": 2855750.0,
+      "end_time": 2860700.0,
+      "text": "0.1 of a cubic in ratio of cortex in terms of the number of parameters, and so we have"
+    },
+    {
+      "index": 525,
+      "start_time": 2860700.0,
+      "end_time": 2865090.0,
+      "text": "to somehow give our computer model some way of keeping up with the brain which has a lot"
+    },
+    {
+      "index": 526,
+      "start_time": 2865090.0,
+      "end_time": 2869400.0,
+      "text": "more hub, right? And so we do it by giving it a very small retina. We say, &quot;Suppose the"
+    },
+    {
+      "index": 527,
+      "start_time": 2869400.0,
+      "end_time": 2876530.0,
+      "text": "input was only 32x32, maybe we can actually do something reasonable there.&quot; So as you&#39;ll"
+    },
+    {
+      "index": 528,
+      "start_time": 2876530.0,
+      "end_time": 2880260.0,
+      "text": "see there are a lot of variations. If you look birds, that&#39;s a close up of an ostrich,"
+    },
+    {
+      "index": 529,
+      "start_time": 2880260.0,
+      "end_time": 2886890.0,
+      "text": "this is a much more typical picture of a bird. And it&#39;s hard to tell the difference within"
+    },
+    {
+      "index": 530,
+      "start_time": 2886890.0,
+      "end_time": 2891170.0,
+      "text": "these tiny categories. Particularly things like deer and horse. We deliberately chose"
+    },
+    {
+      "index": 531,
+      "start_time": 2891170.0,
+      "end_time": 2899620.0,
+      "text": "some very similar categories like truck and car, deer and horse. People are pretty good"
+    },
+    {
+      "index": 532,
+      "start_time": 2899620.0,
+      "end_time": 2903350.0,
+      "text": "at these. People won&#39;t make very many errors. That&#39;s partly because these were hand-labeled"
+    },
+    {
+      "index": 533,
+      "start_time": 2903350.0,
+      "end_time": 2912340.0,
+      "text": "by people, so. But even people make some of errors. We only have 50,000 training examples."
+    },
+    {
+      "index": 534,
+      "start_time": 2912340.0,
+      "end_time": 2916310.0,
+      "text": "Five thousand of each class and ten thousand test examples, because we have to hand-label"
+    },
+    {
+      "index": 535,
+      "start_time": 2916310.0,
+      "end_time": 2920540.0,
+      "text": "them, but we have a lot of untrained--unlabelled data. So we can do all these pre-training"
+    },
+    {
+      "index": 536,
+      "start_time": 2920540.0,
+      "end_time": 2926230.0,
+      "text": "on lots of unlabelled data and then take out covariance units on our mean units and just"
+    },
+    {
+      "index": 537,
+      "start_time": 2926230.0,
+      "end_time": 2931690.0,
+      "text": "try doing multi-[INDISTINCT] on top of those, or maybe add another hidden layer and do it"
+    },
+    {
+      "index": 538,
+      "start_time": 2931690.0,
+      "end_time": 2941290.0,
+      "text": "on top of that. So, what Marc&#39;Aurelio Ranzato actually did since he worked in Yann LeCun&#39;s"
+    },
+    {
+      "index": 539,
+      "start_time": 2941290.0,
+      "end_time": 2945640.0,
+      "text": "lab, he actually took smaller patches learned the model and then strode them across the"
+    },
+    {
+      "index": 540,
+      "start_time": 2945640.0,
+      "end_time": 2949610.0,
+      "text": "image and replicated them. So it&#39;s a sort of a semi-convolutional. And then took the"
+    },
+    {
+      "index": 541,
+      "start_time": 2949610.0,
+      "end_time": 2953730.0,
+      "text": "hidden units of all of these little patches and just concatenated them to make a great"
+    },
+    {
+      "index": 542,
+      "start_time": 2953730.0,
+      "end_time": 2960370.0,
+      "text": "big vector of 11,000 hidden units which are both the means on the covariances. And then"
+    },
+    {
+      "index": 543,
+      "start_time": 2960370.0,
+      "end_time": 2967600.0,
+      "text": "we&#39;re going to use that as our features and see how well we can do. And we&#39;re going to"
+    },
+    {
+      "index": 544,
+      "start_time": 2967600.0,
+      "end_time": 2974710.0,
+      "text": "compare it with various other methods. So the sort of first comparison, you just take"
+    },
+    {
+      "index": 545,
+      "start_time": 2974710.0,
+      "end_time": 2980650.0,
+      "text": "the pixels and do logistic ration on the pixels to slide on the tiny glasses. You get 36%"
+    },
+    {
+      "index": 546,
+      "start_time": 2980650.0,
+      "end_time": 2986460.0,
+      "text": "right. If you take GIST features which has developed by Torralba and the people at MIT,"
+    },
+    {
+      "index": 547,
+      "start_time": 2986460.0,
+      "end_time": 2989400.0,
+      "text": "which were meant to capture what&#39;s going on under the image quite well, but they&#39;re fairly"
+    },
+    {
+      "index": 548,
+      "start_time": 2989400.0,
+      "end_time": 2996000.0,
+      "text": "low dimensional, you get 54%. So they&#39;re much better than pixels. If you take a normal RBM"
+    },
+    {
+      "index": 549,
+      "start_time": 2996000.0,
+      "end_time": 3001350.0,
+      "text": "which has linear units with glass and noises input variables and then binary hidden units,"
+    },
+    {
+      "index": 550,
+      "start_time": 3001350.0,
+      "end_time": 3008480.0,
+      "text": "and then you use those binary hidden units to do castigation, you get 60%. If you use"
+    },
+    {
+      "index": 551,
+      "start_time": 3008480.0,
+      "end_time": 3013770.0,
+      "text": "one of these RBMs with both the units like these once for doing the means, and then these"
+    },
+    {
+      "index": 552,
+      "start_time": 3013770.0,
+      "end_time": 3018920.0,
+      "text": "units with the three range interaction for modeling covariances, you got 69%; as long"
+    },
+    {
+      "index": 553,
+      "start_time": 3018920.0,
+      "end_time": 3024140.0,
+      "text": "as you use a lot of these factors. And if you then learn an extra hidden layer of 8,000"
+    },
+    {
+      "index": 554,
+      "start_time": 3024140.0,
+      "end_time": 3028550.0,
+      "text": "units--so now it&#39;s just that times that is a hundred million, so there&#39;s an extra hundred"
+    },
+    {
+      "index": 555,
+      "start_time": 3028550.0,
+      "end_time": 3031700.0,
+      "text": "million connections you learn there. But that&#39;s fine because it&#39;s unsupervised then you just"
+    },
+    {
+      "index": 556,
+      "start_time": 3031700.0,
+      "end_time": 3037930.0,
+      "text": "learn it on lots of data. You get up to 72%. And that&#39;s the best result so far on this"
+    },
+    {
+      "index": 557,
+      "start_time": 3037930.0,
+      "end_time": 3049900.0,
+      "text": "database. One final thing, you can take this model that was develop for image patches and"
+    },
+    {
+      "index": 558,
+      "start_time": 3049900.0,
+      "end_time": 3053520.0,
+      "text": "the student that&#39;ll be doing framing recognition just took that code and applied it to log"
+    },
+    {
+      "index": 559,
+      "start_time": 3053520.0,
+      "end_time": 3058870.0,
+      "text": "spectrograms, which is sort of more close to what they would like to see, you&#39;re not"
+    },
+    {
+      "index": 560,
+      "start_time": 3058870.0,
+      "end_time": 3062040.0,
+      "text": "using all these mark up fool stuff, which is designed to throw away stuff you think"
+    },
+    {
+      "index": 561,
+      "start_time": 3062040.0,
+      "end_time": 3066320.0,
+      "text": "you don&#39;t need and get rid of lots of correlations. Instead you&#39;re going to take data that has"
+    },
+    {
+      "index": 562,
+      "start_time": 3066320.0,
+      "end_time": 3071850.0,
+      "text": "lots of correlations in but we got a model that can deal with that stuff now. And the"
+    },
+    {
+      "index": 563,
+      "start_time": 3071850.0,
+      "end_time": 3076990.0,
+      "text": "first thing George tried on February the 20th, which was four layers of a thousand hidden"
+    },
+    {
+      "index": 564,
+      "start_time": 3076990.0,
+      "end_time": 3084670.0,
+      "text": "units on top of this, he got 22.7 correct--percent correct; which was the record for phoneme"
+    },
+    {
+      "index": 565,
+      "start_time": 3084670.0,
+      "end_time": 3089970.0,
+      "text": "recognition on the TIMIT database where your not trying to do a model adapted to each speaker."
+    },
+    {
+      "index": 566,
+      "start_time": 3089970.0,
+      "end_time": 3095210.0,
+      "text": "And then a week later when he did that to TIMIT and use more frames, he was down to"
+    },
+    {
+      "index": 567,
+      "start_time": 3095210.0,
+      "end_time": 3100030.0,
+      "text": "21.6%. So this--all this stuff was designed to do vision. It wasn&#39;t designed to do phonemes."
+    },
+    {
+      "index": 568,
+      "start_time": 3100030.0,
+      "end_time": 3104930.0,
+      "text": "And if we treat phoneme recognition, it&#39;s just a vision problem on a lot of spectral"
+    },
+    {
+      "index": 569,
+      "start_time": 3104930.0,
+      "end_time": 3111490.0,
+      "text": "ground. We can wipe out the speech class, at least on small vocabulary. Another student"
+    },
+    {
+      "index": 570,
+      "start_time": 3111490.0,
+      "end_time": 3114690.0,
+      "text": "is now, at Microsoft, is seeing if this will work on big recovery as well."
+    },
+    {
+      "index": 571,
+      "start_time": 3114690.0,
+      "end_time": 3118910.0,
+      "text": "&gt;&gt; [INDISTINCT] &gt;&gt; HINTONS: Yes. Yes, right."
+    },
+    {
+      "index": 572,
+      "start_time": 3118910.0,
+      "end_time": 3126580.0,
+      "text": "&gt;&gt; We can give them new better tools. &gt;&gt; HINTONS: We can give them new and better"
+    },
+    {
+      "index": 573,
+      "start_time": 3126580.0,
+      "end_time": 3131450.0,
+      "text": "tools. So here&#39;s phoneme recognition over the years. Backprop from the 80&#39;s got 26.1"
+    },
+    {
+      "index": 574,
+      "start_time": 3131450.0,
+      "end_time": 3138670.0,
+      "text": "percent correct. Over the next 20 years or so, they got that down to 24.4 percent, using"
+    },
+    {
+      "index": 575,
+      "start_time": 3138670.0,
+      "end_time": 3144810.0,
+      "text": "methods that weren&#39;t learning-inspired so we&#39;ll call them artificial. We then got down"
+    },
+    {
+      "index": 576,
+      "start_time": 3144810.0,
+      "end_time": 3149790.0,
+      "text": "to 21.6 percent; an estimate of human performance is about 15 percent. I don&#39;t know much about"
+    },
+    {
+      "index": 577,
+      "start_time": 3149790.0,
+      "end_time": 3153720.0,
+      "text": "how they did this estimate, I&#39;m afraid. But we&#39;re about--we&#39;re nearly a third of the way"
+    },
+    {
+      "index": 578,
+      "start_time": 3153720.0,
+      "end_time": 3160090.0,
+      "text": "from artificial TIMIT. And so we need two more ideas and we&#39;re there. Okay, I&#39;m done."
+    },
+    {
+      "index": 579,
+      "start_time": 3160090.0,
+      "end_time": 3168839.0,
+      "text": "I&#39;m finished. &gt;&gt; Questions?"
+    },
+    {
+      "index": 580,
+      "start_time": 3168840.0,
+      "end_time": 3176371.0,
+      "text": "&gt;&gt; HINTONS: Yes? &gt;&gt; You mentioned YouTube recently announced"
+    },
+    {
+      "index": 581,
+      "start_time": 3176370.0,
+      "end_time": 3183350.0,
+      "text": "that the [INDISTINCT] have broken the world record on the end list of data sets of phoneme"
+    },
+    {
+      "index": 582,
+      "start_time": 3183350.0,
+      "end_time": 3188690.0,
+      "text": "recognition by simply using a seven layered feed forward network trained with backprop,"
+    },
+    {
+      "index": 583,
+      "start_time": 3188690.0,
+      "end_time": 3195700.0,
+      "text": "but doing it on a GPU with lots and lots of cycles."
+    },
+    {
+      "index": 584,
+      "start_time": 3195700.0,
+      "end_time": 3202320.0,
+      "text": "&gt;&gt; HINTONS: Yes, he did indeed announce that. What he didn&#39;t announce was--he&#39;s got a spectacular"
+    },
+    {
+      "index": 585,
+      "start_time": 3202320.0,
+      "end_time": 3210080.0,
+      "text": "result. He gets timed to 35 errors. What he didn&#39;t announce was there&#39;s two tricks involved."
+    },
+    {
+      "index": 586,
+      "start_time": 3210080.0,
+      "end_time": 3216440.0,
+      "text": "One trick is to use a big net with lot of layers in a GPU board. That trick by itself"
+    },
+    {
+      "index": 587,
+      "start_time": 3216440.0,
+      "end_time": 3221750.0,
+      "text": "wouldn&#39;t give you 35 errors. There&#39;s a second trick which was sort of pioneered by people"
+    },
+    {
+      "index": 588,
+      "start_time": 3221750.0,
+      "end_time": 3227760.0,
+      "text": "at Microsoft in fact, which is to put a lots of work into producing distortions of the"
+    },
+    {
+      "index": 589,
+      "start_time": 3227760.0,
+      "end_time": 3234160.0,
+      "text": "data so you have lots and lots of labeled data. So you take a labeled image of a two"
+    },
+    {
+      "index": 590,
+      "start_time": 3234160.0,
+      "end_time": 3238480.0,
+      "text": "and you distort it in clever ways and make it still look like a two but be translated"
+    },
+    {
+      "index": 591,
+      "start_time": 3238480.0,
+      "end_time": 3243010.0,
+      "text": "so people can then get down to about 40 errors. &gt;&gt; I think they patented that already."
+    },
+    {
+      "index": 592,
+      "start_time": 3243010.0,
+      "end_time": 3246420.0,
+      "text": "&gt;&gt; HINTONS: Good. So Dick&#39;s already patented that. So you get down to--you can get down"
+    },
+    {
+      "index": 593,
+      "start_time": 3246420.0,
+      "end_time": 3251760.0,
+      "text": "to by 40 errors by doing these distortions. What he did was even better distortions, or"
+    },
+    {
+      "index": 594,
+      "start_time": 3251760.0,
+      "end_time": 3258510.0,
+      "text": "more of them, and a much bigger net on a GPU and he got from a 40 to 35, which is impressive"
+    },
+    {
+      "index": 595,
+      "start_time": 3258510.0,
+      "end_time": 3262260.0,
+      "text": "because it is hard to make any progress there. But it won&#39;t work unless you have a lot of"
+    },
+    {
+      "index": 596,
+      "start_time": 3262260.0,
+      "end_time": 3267360.0,
+      "text": "labeled data. And what&#39;s--the disguised thing is the work went into--if you look in the"
+    },
+    {
+      "index": 597,
+      "start_time": 3267360.0,
+      "end_time": 3271760.0,
+      "text": "paper, it&#39;s always straightforward, its just backprop, except when you get to the section"
+    },
+    {
+      "index": 598,
+      "start_time": 3271760.0,
+      "end_time": 3275480.0,
+      "text": "of how they generated all those sector labeled data where there&#39;s very careful things, like"
+    },
+    {
+      "index": 599,
+      "start_time": 3275480.0,
+      "end_time": 3279650.0,
+      "text": "if it&#39;s a one or a seven they&#39;d only rotate it a certain number of degrees but if it&#39;s"
+    },
+    {
+      "index": 600,
+      "start_time": 3279650.0,
+      "end_time": 3283170.0,
+      "text": "something else they rotate it in more degrees. I&#39;m actually the referee for this paper but"
+    },
+    {
+      "index": 601,
+      "start_time": 3283170.0,
+      "end_time": 3288680.0,
+      "text": "I don&#39;t mind him knowing. I think it&#39;s a very important work. But he should emphasize that"
+    },
+    {
+      "index": 602,
+      "start_time": 3288680.0,
+      "end_time": 3295050.0,
+      "text": "they have to have labeled data to do that, and they have to put work into distortions."
+    },
+    {
+      "index": 603,
+      "start_time": 3295050.0,
+      "end_time": 3302540.0,
+      "text": "So for me the lesson of that paper is when we small computers, you should put your effort"
+    },
+    {
+      "index": 604,
+      "start_time": 3302540.0,
+      "end_time": 3306560.0,
+      "text": "into things like weight constraints so you don&#39;t have too many parameters because you"
+    },
+    {
+      "index": 605,
+      "start_time": 3306560.0,
+      "end_time": 3312300.0,
+      "text": "only got a small computer. As computer gets bigger and faster, you can transfer your effort"
+    },
+    {
+      "index": 606,
+      "start_time": 3312300.0,
+      "end_time": 3316870.0,
+      "text": "from, instead of tying the weights together, like Yann was doing in the early days, put"
+    },
+    {
+      "index": 607,
+      "start_time": 3316870.0,
+      "end_time": 3321790.0,
+      "text": "your effort into generating more distortions so you can inject your prior knowledge in"
+    },
+    {
+      "index": 608,
+      "start_time": 3321790.0,
+      "end_time": 3326820.0,
+      "text": "the form of distortions and that&#39;s much less complication-efficient over the big computers,"
+    },
+    {
+      "index": 609,
+      "start_time": 3326820.0,
+      "end_time": 3331160.0,
+      "text": "it&#39;s fine and it&#39;s more flexible. So I think that&#39;s the lesson of that paper."
+    },
+    {
+      "index": 610,
+      "start_time": 3331160.0,
+      "end_time": 3350380.0,
+      "text": "&gt;&gt; I shouldn&#39;t even need to ask you a question, you answered it. Thank you."
+    },
+    {
+      "index": 611,
+      "start_time": 3350380.0,
+      "end_time": 3354730.0,
+      "text": "&gt;&gt; HINTON: Any other long question? &gt;&gt; It seems like you&#39;ve invented some kind"
+    },
+    {
+      "index": 612,
+      "start_time": 3354730.0,
+      "end_time": 3357210.0,
+      "text": "of a cortex here that house you expect the property that if it does vision it&#39;ll do sound."
+    },
+    {
+      "index": 613,
+      "start_time": 3357210.0,
+      "end_time": 3358500.0,
+      "text": "&gt;&gt; HINTONS: Yes. &gt;&gt; What other problems you going to apply"
+    },
+    {
+      "index": 614,
+      "start_time": 3358500.0,
+      "end_time": 3360410.0,
+      "text": "it to? &gt;&gt; HINTONS: Maybe it&#39;d be quicker to say the"
+    },
+    {
+      "index": 615,
+      "start_time": 3360410.0,
+      "end_time": 3366050.0,
+      "text": "problems we&#39;re not going apply. &gt;&gt; Okay."
+    },
+    {
+      "index": 616,
+      "start_time": 3366050.0,
+      "end_time": 3372460.0,
+      "text": "&gt;&gt; HINTONS: I can&#39;t think of any. I mean--okay, let me say what the main limitation of this"
+    },
+    {
+      "index": 617,
+      "start_time": 3372460.0,
+      "end_time": 3379930.0,
+      "text": "is for vision. We got at least 10 billion neurons for doing visual things; or at least"
+    },
+    {
+      "index": 618,
+      "start_time": 3379930.0,
+      "end_time": 3385570.0,
+      "text": "a billion anyway, probably, 10 billion. And even if we got that many neurons and about"
+    },
+    {
+      "index": 619,
+      "start_time": 3385570.0,
+      "end_time": 3390770.0,
+      "text": "10 to the 13 connections for doing vision, we still have a retina that&#39;s got a very small"
+    },
+    {
+      "index": 620,
+      "start_time": 3390770.0,
+      "end_time": 3396140.0,
+      "text": "phoneme the size of my thumb there at arms length. And so we still take almost everything"
+    },
+    {
+      "index": 621,
+      "start_time": 3396140.0,
+      "end_time": 3400030.0,
+      "text": "and don&#39;t look at it. I mean, the essence of vision is not to look at almost everything"
+    },
+    {
+      "index": 622,
+      "start_time": 3400030.0,
+      "end_time": 3407090.0,
+      "text": "intelligently; and that&#39;s why you got all this funny illusions where you don&#39;t see things."
+    },
+    {
+      "index": 623,
+      "start_time": 3407090.0,
+      "end_time": 3410910.0,
+      "text": "We have to do that in these models. These models are completely crazy. And all of computer"
+    },
+    {
+      "index": 624,
+      "start_time": 3410910.0,
+      "end_time": 3414020.0,
+      "text": "visions are completely crazy, almost all of it. Because they take a uniform resolution"
+    },
+    {
+      "index": 625,
+      "start_time": 3414020.0,
+      "end_time": 3419040.0,
+      "text": "image, and quite a big one like a thousand by thousand, and they try and deal with it"
+    },
+    {
+      "index": 626,
+      "start_time": 3419040.0,
+      "end_time": 3423780.0,
+      "text": "all at once with filters all over the image. And if they going to do a selection, they"
+    },
+    {
+      "index": 627,
+      "start_time": 3423780.0,
+      "end_time": 3428940.0,
+      "text": "either do it by running off their face to get to everywhere, with no intelligence, or"
+    },
+    {
+      "index": 628,
+      "start_time": 3428940.0,
+      "end_time": 3433050.0,
+      "text": "they do sort of interest point detection at a very low level to decide what to attend"
+    },
+    {
+      "index": 629,
+      "start_time": 3433050.0,
+      "end_time": 3437500.0,
+      "text": "to. What we do is we fixate somewhere. Then on the basis of what our retina gives us,"
+    },
+    {
+      "index": 630,
+      "start_time": 3437500.0,
+      "end_time": 3441860.0,
+      "text": "with these big pixels around the edges and small pixels in the middle, we sort of decide"
+    },
+    {
+      "index": 631,
+      "start_time": 3441860.0,
+      "end_time": 3445700.0,
+      "text": "what we seeing and where to look next and by the second or third fixation we&#39;ve fixating"
+    },
+    {
+      "index": 632,
+      "start_time": 3445700.0,
+      "end_time": 3451970.0,
+      "text": "very intelligently and the essence of it is that vision is sampling, it&#39;s not processing"
+    },
+    {
+      "index": 633,
+      "start_time": 3451970.0,
+      "end_time": 3457320.0,
+      "text": "everything; and that&#39;s completely missing from what I said. Now in order to do that,"
+    },
+    {
+      "index": 634,
+      "start_time": 3457320.0,
+      "end_time": 3460590.0,
+      "text": "you have to be able to do take what you saw and where you saw it and combined them and"
+    },
+    {
+      "index": 635,
+      "start_time": 3460590.0,
+      "end_time": 3464220.0,
+      "text": "that will multiply. So this module, it can do multiply. It&#39;s very good in combining what&#39;s"
+    },
+    {
+      "index": 636,
+      "start_time": 3464220.0,
+      "end_time": 3468220.0,
+      "text": "and where&#39;s, to integrate information at a time. And that&#39;s one of the things, we&#39;re"
+    },
+    {
+      "index": 637,
+      "start_time": 3468220.0,
+      "end_time": 3472980.0,
+      "text": "working on that. But that&#39;s probably the biggest thing missing. But that is an example of having"
+    },
+    {
+      "index": 638,
+      "start_time": 3472980.0,
+      "end_time": 3477650.0,
+      "text": "a module is quite good but now it&#39;s never good enough, so you have to put it together"
+    },
+    {
+      "index": 639,
+      "start_time": 3477650.0,
+      "end_time": 3481370.0,
+      "text": "over time and use it many times. And that&#39;s what sequential reasoning in all this stuff"
+    },
+    {
+      "index": 640,
+      "start_time": 3481370.0,
+      "end_time": 3487620.0,
+      "text": "are. So basically, as soon people become sequential we&#39;re not modeling that at all. We&#39;re modeling"
+    },
+    {
+      "index": 641,
+      "start_time": 3487620.0,
+      "end_time": 3493880.0,
+      "text": "what you can do in hundred milliseconds. And so that&#39;s what&#39;s missing. But I believe that"
+    },
+    {
+      "index": 642,
+      "start_time": 3493880.0,
+      "end_time": 3498060.0,
+      "text": "to model that sequential stuff we need to understand what is the sequence of, is the"
+    },
+    {
+      "index": 643,
+      "start_time": 3498060.0,
+      "end_time": 3502330.0,
+      "text": "sequence of these very powerful operations. And we&#39;re in a better shape now to try and"
+    },
+    {
+      "index": 644,
+      "start_time": 3502330.0,
+      "end_time": 3506700.0,
+      "text": "model sequential AI, than we were if we didn&#39;t know what a primitive operation is. So this"
+    },
+    {
+      "index": 645,
+      "start_time": 3506700.0,
+      "end_time": 3510540.0,
+      "text": "sort of primitive operation was just deciding whether two symbols are the same. We&#39;re going"
+    },
+    {
+      "index": 646,
+      "start_time": 3510540.0,
+      "end_time": 3510960.0,
+      "text": "to be out of luck for understanding how people do sequential stuff. Yeah."
+    },
+    {
+      "index": 647,
+      "start_time": 3510960.0,
+      "end_time": 3520100.0,
+      "text": "&gt;&gt; This is a [INDISTINCT] question as he said he wanted to do everything if it connects."
+    },
+    {
+      "index": 648,
+      "start_time": 3520100.0,
+      "end_time": 3533450.0,
+      "text": "Are you going to do [INDISTINCT] logic like there exists a God and every girl has a boy"
+    },
+    {
+      "index": 649,
+      "start_time": 3533450.0,
+      "end_time": 3535630.0,
+      "text": "she loves? &gt;&gt; HINTON: Hang on, I&#39;m still processing that."
+    },
+    {
+      "index": 650,
+      "start_time": 3535630.0,
+      "end_time": 3538070.0,
+      "text": "Right. Right, I&#39;m making the point that people find &quot;quantifies&quot; quite difficult."
+    },
+    {
+      "index": 651,
+      "start_time": 3538070.0,
+      "end_time": 3542250.0,
+      "text": "&gt;&gt; Oh, yeah. If you [INDISTINCT] quantifiers... &gt;&gt; HINTON: I would love to do that. I have"
+    },
+    {
+      "index": 652,
+      "start_time": 3542250.0,
+      "end_time": 3547620.0,
+      "text": "not got a clue how to do it. And you will notice that in old-fashioned AI that you used"
+    },
+    {
+      "index": 653,
+      "start_time": 3547620.0,
+      "end_time": 3551880.0,
+      "text": "to point out to [INDISTINCT] people, then you can&#39;t do quantifiers, so forget it. Nowadays,"
+    },
+    {
+      "index": 654,
+      "start_time": 3551880.0,
+      "end_time": 3555390.0,
+      "text": "when they all do graphical models, they didn&#39;t mention that anymore because the graphical"
+    },
+    {
+      "index": 655,
+      "start_time": 3555390.0,
+      "end_time": 3559580.0,
+      "text": "models have difficulty of it too. Some people has got [INDISTINCT] some people do. Right."
+    },
+    {
+      "index": 656,
+      "start_time": 3559580.0,
+      "end_time": 3564300.0,
+      "text": "Yeah, some people do. But most of the graphical models of, like, five years ago, they do quantifiers"
+    },
+    {
+      "index": 657,
+      "start_time": 3564300.0,
+      "end_time": 3571600.0,
+      "text": "either. And so, a pretty good division line would be what you can do without having to"
+    },
+    {
+      "index": 658,
+      "start_time": 3571600.0,
+      "end_time": 3575020.0,
+      "text": "deal with really sophisticated problems like that. I would love to know how we deal with"
+    },
+    {
+      "index": 659,
+      "start_time": 3575020.0,
+      "end_time": 3576470.0,
+      "text": "that, but I don&#39;t. &gt;&gt; Thank you."
+    },
+    {
+      "index": 660,
+      "start_time": 3576470.0,
+      "end_time": 3588420.0,
+      "text": "&gt;&gt; HINTON: So, yeah, I&#39;m going to give up on that right now."
+    },
+    {
+      "index": 661,
+      "start_time": 3588420.0,
+      "end_time": 3591370.0,
+      "text": "&gt;&gt; So if you had 80 million labeled images and no extra unlabeled ones, would you do"
+    },
+    {
+      "index": 662,
+      "start_time": 3591370.0,
+      "end_time": 3591920.0,
+      "text": "your pre-training... &gt;&gt; HINTON: Yes. Yes"
+    },
+    {
+      "index": 663,
+      "start_time": 3591920.0,
+      "end_time": 3592500.0,
+      "text": "&gt;&gt; ...and then fine tuning to make us better? &gt;&gt; HINTON: In TIMIT, that&#39;s what we have."
+    },
+    {
+      "index": 664,
+      "start_time": 3592500.0,
+      "end_time": 3600320.0,
+      "text": "In TIMIT, all the examples we have labels. It stirs a big wind to do the pre-training."
+    },
+    {
+      "index": 665,
+      "start_time": 3600320.0,
+      "end_time": 3603880.0,
+      "text": "&gt;&gt; But you didn&#39;t sneak this result I&#39;m just hearing about? It seems to suggest..."
+    },
+    {
+      "index": 666,
+      "start_time": 3603880.0,
+      "end_time": 3606630.0,
+      "text": "&gt;&gt; HINTON: Well, the audience switched it but I haven&#39;t tried with all these distortions"
+    },
+    {
+      "index": 667,
+      "start_time": 3606630.0,
+      "end_time": 3610830.0,
+      "text": "during pre-training. Now, I&#39;ve assumed student called [INDISTINCT] who just produced a thesis."
+    },
+    {
+      "index": 668,
+      "start_time": 3610830.0,
+      "end_time": 3616860.0,
+      "text": "Well, he tries things like that. He tries distortions in earnest and he uses special"
+    },
+    {
+      "index": 669,
+      "start_time": 3616860.0,
+      "end_time": 3622640.0,
+      "text": "distortions of his own. And the fact is distortions helped a lot. But if you do pre-training,"
+    },
+    {
+      "index": 670,
+      "start_time": 3622640.0,
+      "end_time": 3628330.0,
+      "text": "that helps some more too. And [INDISTINCT] results, yes, [INDISTINCT] results, suggest"
+    },
+    {
+      "index": 671,
+      "start_time": 3628330.0,
+      "end_time": 3631700.0,
+      "text": "that pre-training will get you through different part of the space even if you have all these"
+    },
+    {
+      "index": 672,
+      "start_time": 3631700.0,
+      "end_time": 3636400.0,
+      "text": "labeled data. So clearly, one thing that needs to be done is to try the pre-training and"
+    },
+    {
+      "index": 673,
+      "start_time": 3636400.0,
+      "end_time": 3639750.0,
+      "text": "combine with these labels. You don&#39;t have to have the pre-training, but I bet you, it"
+    },
+    {
+      "index": 674,
+      "start_time": 3639750.0,
+      "end_time": 3647820.0,
+      "text": "still helps. And I bet you, it&#39;s more efficient too. It&#39;s faster because the pre-training"
+    },
+    {
+      "index": 675,
+      "start_time": 3647820.0,
+      "end_time": 3651150.0,
+      "text": "is rather pretty fast, you always have to learn a very good model. You got lots of its"
+    },
+    {
+      "index": 676,
+      "start_time": 3651150.0,
+      "end_time": 3655840.0,
+      "text": "features. And starting from there, I think, you&#39;ll do better than he does just started"
+    },
+    {
+      "index": 677,
+      "start_time": 3655840.0,
+      "end_time": 3664620.0,
+      "text": "from random, and faster. That&#39;s just a prediction. You might even get done to 34 out of this."
+    },
+    {
+      "index": 678,
+      "start_time": 3664620.0,
+      "end_time": 3669140.0,
+      "text": "The problem with [INDISTINCT] you can&#39;t get significance. TIMIT is really nice that way."
+    },
+    {
+      "index": 679,
+      "start_time": 3669140.0,
+      "end_time": 3671849.0,
+      "text": "They designed it well, so you get higher rates. So you can see differences."
+    },
+    {
+      "index": 680,
+      "start_time": 3671850.0,
+      "end_time": 3684821.0,
+      "text": "&gt;&gt; On the time series aspect, did you see anything that would you get inferences or"
+    },
+    {
+      "index": 681,
+      "start_time": 3684820.0,
+      "end_time": 3691620.0,
+      "text": "alterations that are beyond the size of the time window you&#39;re using?"
+    },
+    {
+      "index": 682,
+      "start_time": 3691620.0,
+      "end_time": 3696630.0,
+      "text": "&gt;&gt; HINTON: Sorry, I didn&#39;t understand the question. We have a limited time. We don&#39;t..."
+    },
+    {
+      "index": 683,
+      "start_time": 3696630.0,
+      "end_time": 3705270.0,
+      "text": "&gt;&gt; You have limited time, after training is there anything of a model that picks up..."
+    },
+    {
+      "index": 684,
+      "start_time": 3705270.0,
+      "end_time": 3707580.0,
+      "text": "&gt;&gt; HINTON: Nothing. &gt;&gt; Nothing."
+    },
+    {
+      "index": 685,
+      "start_time": 3707580.0,
+      "end_time": 3711950.0,
+      "text": "&gt;&gt; HINTON: Nothing. It cannot deal with--it can&#39;t model host..."
+    },
+    {
+      "index": 686,
+      "start_time": 3711950.0,
+      "end_time": 3715730.0,
+      "text": "&gt;&gt; It has an internal state. It has an internal state."
+    },
+    {
+      "index": 687,
+      "start_time": 3715730.0,
+      "end_time": 3721300.0,
+      "text": "&gt;&gt; HINTON: Right. But if sort of what happened 15 times steps ago really tells you what should"
+    },
+    {
+      "index": 688,
+      "start_time": 3721300.0,
+      "end_time": 3725010.0,
+      "text": "happen now, and it only tells you what you should happen now. It doesn&#39;t tell you what"
+    },
+    {
+      "index": 689,
+      "start_time": 3725010.0,
+      "end_time": 3729250.0,
+      "text": "should happen in TIMIT 14 times steps. It just contains information across 15 times"
+    },
+    {
+      "index": 690,
+      "start_time": 3729250.0,
+      "end_time": 3734960.0,
+      "text": "steps without having a signature of smaller time scales. You can&#39;t pick up on that."
+    },
+    {
+      "index": 691,
+      "start_time": 3734960.0,
+      "end_time": 3737000.0,
+      "text": "&gt;&gt; Okay. &gt;&gt; HINTON: Because it&#39;s not got a hidden forward-backward"
+    },
+    {
+      "index": 692,
+      "start_time": 3737000.0,
+      "end_time": 3739860.0,
+      "text": "algorithm. A forward-backward algorithm potentially could pick up a lot of load, actually can&#39;t."
+    },
+    {
+      "index": 693,
+      "start_time": 3739860.0,
+      "end_time": 3742940.0,
+      "text": "&gt;&gt; So this one wouldn&#39;t pick up on things like object permanence or all rules behind"
+    },
+    {
+      "index": 694,
+      "start_time": 3742940.0,
+      "end_time": 3750150.0,
+      "text": "the box and comes out of the other side and they&#39;re not going to be able to..."
+    },
+    {
+      "index": 695,
+      "start_time": 3750150.0,
+      "end_time": 3756560.0,
+      "text": "&gt;&gt; HINTON: Not over a long time scale, no, no. Unless you say that there&#39;s a memory involved"
+    },
+    {
+      "index": 696,
+      "start_time": 3756560.0,
+      "end_time": 3761560.0,
+      "text": "when you go back to a previous--it gets more complicated, right? Now, it is true that when"
+    },
+    {
+      "index": 697,
+      "start_time": 3761560.0,
+      "end_time": 3764330.0,
+      "text": "you build the multilevel one, which you can do with the three interconnections as well"
+    },
+    {
+      "index": 698,
+      "start_time": 3764330.0,
+      "end_time": 3767670.0,
+      "text": "as with the three-way connections, at every level you&#39;re getting a bigger time span because"
+    },
+    {
+      "index": 699,
+      "start_time": 3767670.0,
+      "end_time": 3771970.0,
+      "text": "your time window, it&#39;s going further back into the past with each level. So you get"
+    },
+    {
+      "index": 700,
+      "start_time": 3771970.0,
+      "end_time": 3778620.0,
+      "text": "a bit high, but that&#39;s just sort of linear. &gt;&gt; Can you say--do you have any rules of thumb"
+    },
+    {
+      "index": 701,
+      "start_time": 3778620.0,
+      "end_time": 3785700.0,
+      "text": "of how much unlabeled data you need to train each of the different levels and how it would"
+    },
+    {
+      "index": 702,
+      "start_time": 3785700.0,
+      "end_time": 3789740.0,
+      "text": "change, like, is it just linear with the number of rates or as you go up levels the things"
+    },
+    {
+      "index": 703,
+      "start_time": 3789740.0,
+      "end_time": 3793280.0,
+      "text": "changed? &gt;&gt; HINTON: I have one sort of important thing"
+    },
+    {
+      "index": 704,
+      "start_time": 3793280.0,
+      "end_time": 3798490.0,
+      "text": "to say about that, which is that if you&#39;re modeling high-dimensional data and you&#39;re"
+    },
+    {
+      "index": 705,
+      "start_time": 3798490.0,
+      "end_time": 3804380.0,
+      "text": "trying to build an unsupervised model of the data, you need many less trainings on [INDISTINCT]"
+    },
+    {
+      "index": 706,
+      "start_time": 3804380.0,
+      "end_time": 3808420.0,
+      "text": "than you would have thought if you use the discriminative learning. When you&#39;re doing"
+    },
+    {
+      "index": 707,
+      "start_time": 3808420.0,
+      "end_time": 3813690.0,
+      "text": "discriminative learning, there&#39;s typically a very few bits per training case to constrain"
+    },
+    {
+      "index": 708,
+      "start_time": 3813690.0,
+      "end_time": 3817460.0,
+      "text": "the parameters. You&#39;re going to constrain--you got many new parameters for a training case"
+    },
+    {
+      "index": 709,
+      "start_time": 3817460.0,
+      "end_time": 3822000.0,
+      "text": "is the number of bits it takes to specify the answer, not the number it takes to specify"
+    },
+    {
+      "index": 710,
+      "start_time": 3822000.0,
+      "end_time": 3828290.0,
+      "text": "the input. So within this, you get 3.3 bits per case. If you&#39;re modeling the image, the"
+    },
+    {
+      "index": 711,
+      "start_time": 3828290.0,
+      "end_time": 3832140.0,
+      "text": "number of bits per case is the number of bits it takes to specify to image which is about"
+    },
+    {
+      "index": 712,
+      "start_time": 3832140.0,
+      "end_time": 3838280.0,
+      "text": "a hundred bits. So you need far fewer cases per parameter. In other words what I&#39;m saying"
+    },
+    {
+      "index": 713,
+      "start_time": 3838280.0,
+      "end_time": 3844300.0,
+      "text": "is you&#39;re modeling much which are things, and so each case is giving you much more information."
+    },
+    {
+      "index": 714,
+      "start_time": 3844300.0,
+      "end_time": 3849040.0,
+      "text": "So actually, we can typically model many more parameters than we have training cases. And"
+    },
+    {
+      "index": 715,
+      "start_time": 3849040.0,
+      "end_time": 3854330.0,
+      "text": "discriminative people aren&#39;t used to that. Many less parameters than we have pixels and"
+    },
+    {
+      "index": 716,
+      "start_time": 3854330.0,
+      "end_time": 3860220.0,
+      "text": "many more than training cases. And in fact, he used about two million cases for doing"
+    },
+    {
+      "index": 717,
+      "start_time": 3860220.0,
+      "end_time": 3866480.0,
+      "text": "the image stuff, and it wasn&#39;t enough, it was over fitting. He should have used more."
+    },
+    {
+      "index": 718,
+      "start_time": 3866480.0,
+      "end_time": 3873820.0,
+      "text": "But he was fitting 100 million parameters. But the--basically, the only rule of thumb"
+    },
+    {
+      "index": 719,
+      "start_time": 3873820.0,
+      "end_time": 3879530.0,
+      "text": "is many less parameters and the number of total number of pixels in your training data,"
+    },
+    {
+      "index": 720,
+      "start_time": 3879530.0,
+      "end_time": 3884580.0,
+      "text": "but you can typically use many more parameters in the number of training cases. And you can&#39;t"
+    },
+    {
+      "index": 721,
+      "start_time": 3884580.0,
+      "end_time": 3889970.0,
+      "text": "do that with normal discriminative learning. Now, if you do do that, when you start discriminative"
+    },
+    {
+      "index": 722,
+      "start_time": 3889970.0,
+      "end_time": 3895260.0,
+      "text": "training, it quickly improves things and then very quickly over fits. So you have to stop"
+    },
+    {
+      "index": 723,
+      "start_time": 3895260.0,
+      "end_time": 3900300.0,
+      "text": "it early. Okay. &gt;&gt; Okay?"
+    },
+    {
+      "index": 724,
+      "start_time": 3900300.0,
+      "end_time": 3909120.0,
+      "text": "&gt;&gt; HINTON: Thanks. &gt;&gt; Let&#39;s thank the speaker again."
+    },
+    {
+      "index": 725,
+      "start_time": 3909120.0,
+      "end_time": 3919120.0,
+      "text": "&gt;&gt; Thank you."
+    }
+  ]
+}

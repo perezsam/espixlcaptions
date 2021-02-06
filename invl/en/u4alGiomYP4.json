@@ -1,0 +1,6426 @@
+{
+  "video_id": "u4alGiomYP4",
+  "title": "TensorFlow and Deep Learning without a PhD, Part 1 (Google Cloud Next '17)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 2450.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 2,
+      "start_time": 3245.0,
+      "end_time": 4120.0,
+      "text": "MARTIN GORNER: Hello."
+    },
+    {
+      "index": 3,
+      "start_time": 4120.0,
+      "end_time": 6070.0,
+      "text": "Hi, everyone."
+    },
+    {
+      "index": 4,
+      "start_time": 6070.0,
+      "end_time": 10930.0,
+      "text": "So thank you for coming in such great numbers"
+    },
+    {
+      "index": 5,
+      "start_time": 10930.0,
+      "end_time": 13070.0,
+      "text": "to this TensorFlow session."
+    },
+    {
+      "index": 6,
+      "start_time": 13070.0,
+      "end_time": 15760.0,
+      "text": "Apologies, it&#39;s quite late in the afternoon."
+    },
+    {
+      "index": 7,
+      "start_time": 15760.0,
+      "end_time": 20530.0,
+      "text": "I will need all your brains for this session because today,"
+    },
+    {
+      "index": 8,
+      "start_time": 20530.0,
+      "end_time": 24470.0,
+      "text": "I want with you to build a neural network."
+    },
+    {
+      "index": 9,
+      "start_time": 24470.0,
+      "end_time": 27640.0,
+      "text": "So no, I don&#39;t need your brains to build on, no brain"
+    },
+    {
+      "index": 10,
+      "start_time": 27640.0,
+      "end_time": 31300.0,
+      "text": "surgery in the session."
+    },
+    {
+      "index": 11,
+      "start_time": 31300.0,
+      "end_time": 35470.0,
+      "text": "But it&#39;s a crash course to get developers up"
+    },
+    {
+      "index": 12,
+      "start_time": 35470.0,
+      "end_time": 38050.0,
+      "text": "to speed on machine learning and deep learning and neural"
+    },
+    {
+      "index": 13,
+      "start_time": 38050.0,
+      "end_time": 39530.0,
+      "text": "networks."
+    },
+    {
+      "index": 14,
+      "start_time": 39530.0,
+      "end_time": 42060.0,
+      "text": "So I need all your attention."
+    },
+    {
+      "index": 15,
+      "start_time": 42060.0,
+      "end_time": 45190.0,
+      "text": "The dataset we will be using is a very classical one."
+    },
+    {
+      "index": 16,
+      "start_time": 45190.0,
+      "end_time": 48910.0,
+      "text": "It&#39;s this one here, hand-written digits."
+    },
+    {
+      "index": 17,
+      "start_time": 48910.0,
+      "end_time": 52270.0,
+      "text": "Academia has been working on this dataset for the past 20"
+    },
+    {
+      "index": 18,
+      "start_time": 52270.0,
+      "end_time": 53120.0,
+      "text": "years."
+    },
+    {
+      "index": 19,
+      "start_time": 53120.0,
+      "end_time": 56400.0,
+      "text": "So you should go to the website where it&#39;s hosted."
+    },
+    {
+      "index": 20,
+      "start_time": 56400.0,
+      "end_time": 59500.0,
+      "text": "You will actually see 20 years of research papers"
+    },
+    {
+      "index": 21,
+      "start_time": 59500.0,
+      "end_time": 61370.0,
+      "text": "and that&#39;s what we will do together today."
+    },
+    {
+      "index": 22,
+      "start_time": 61370.0,
+      "end_time": 64870.0,
+      "text": "We&#39;ll go on this dataset trying to build a network that"
+    },
+    {
+      "index": 23,
+      "start_time": 64870.00000000001,
+      "end_time": 68950.0,
+      "text": "recognizes this hand-written digits from the simplest"
+    },
+    {
+      "index": 24,
+      "start_time": 68950.0,
+      "end_time": 73840.0,
+      "text": "possible network all the way to 99% accuracy."
+    },
+    {
+      "index": 25,
+      "start_time": 73840.0,
+      "end_time": 75790.0,
+      "text": "So let&#39;s start."
+    },
+    {
+      "index": 26,
+      "start_time": 75790.0,
+      "end_time": 78010.0,
+      "text": "Just a question, beforehand."
+    },
+    {
+      "index": 27,
+      "start_time": 78010.0,
+      "end_time": 82570.0,
+      "text": "Who has done some work with neural networks before?"
+    },
+    {
+      "index": 28,
+      "start_time": 82570.0,
+      "end_time": 83271.0,
+      "text": "Oh, wow."
+    },
+    {
+      "index": 29,
+      "start_time": 83271.0,
+      "end_time": 83770.0,
+      "text": "OK."
+    },
+    {
+      "index": 30,
+      "start_time": 83770.0,
+      "end_time": 85080.0,
+      "text": "Quite a few people."
+    },
+    {
+      "index": 31,
+      "start_time": 85080.0,
+      "end_time": 90285.0,
+      "text": "So feel free to help me and I hope this will not"
+    },
+    {
+      "index": 32,
+      "start_time": 90285.0,
+      "end_time": 92150.0,
+      "text": "be too basic for you and I hope it"
+    },
+    {
+      "index": 33,
+      "start_time": 92150.0,
+      "end_time": 95640.0,
+      "text": "will at least be a good introduction to TensorFlow."
+    },
+    {
+      "index": 34,
+      "start_time": 95640.0,
+      "end_time": 100290.0,
+      "text": "But if you have never done anything with neural networks,"
+    },
+    {
+      "index": 35,
+      "start_time": 100290.0,
+      "end_time": 105510.0,
+      "text": "that&#39;s fine and I will explain everything from the start."
+    },
+    {
+      "index": 36,
+      "start_time": 105510.0,
+      "end_time": 108360.0,
+      "text": "So this is the simplest possible neural network"
+    },
+    {
+      "index": 37,
+      "start_time": 108360.0,
+      "end_time": 112150.0,
+      "text": "we can imagine to recognize our hand-written digits."
+    },
+    {
+      "index": 38,
+      "start_time": 112150.0,
+      "end_time": 116130.0,
+      "text": "So the digits, they come as 28 by 28 pixel images"
+    },
+    {
+      "index": 39,
+      "start_time": 116130.0,
+      "end_time": 118350.0,
+      "text": "and the first thing we do is that we flatten"
+    },
+    {
+      "index": 40,
+      "start_time": 118350.0,
+      "end_time": 121380.0,
+      "text": "all those pixels into one big vector of pixels"
+    },
+    {
+      "index": 41,
+      "start_time": 121380.0,
+      "end_time": 123900.0,
+      "text": "and these will be our inputs."
+    },
+    {
+      "index": 42,
+      "start_time": 123900.0,
+      "end_time": 128620.0,
+      "text": "Now, we will use exactly 10 neurons."
+    },
+    {
+      "index": 43,
+      "start_time": 128620.0,
+      "end_time": 130919.0,
+      "text": "The neurons are the white circles."
+    },
+    {
+      "index": 44,
+      "start_time": 130919.00000000001,
+      "end_time": 133950.0,
+      "text": "What a neuron does is always the same thing."
+    },
+    {
+      "index": 45,
+      "start_time": 133950.0,
+      "end_time": 138330.0,
+      "text": "A neuron does a weighted sum of all of its inputs,"
+    },
+    {
+      "index": 46,
+      "start_time": 138330.0,
+      "end_time": 139890.0,
+      "text": "here the pixels."
+    },
+    {
+      "index": 47,
+      "start_time": 139890.0,
+      "end_time": 143460.0,
+      "text": "It adds another constant that is called a bias."
+    },
+    {
+      "index": 48,
+      "start_time": 143460.0,
+      "end_time": 146130.0,
+      "text": "That&#39;s just an additional degree of freedom."
+    },
+    {
+      "index": 49,
+      "start_time": 146130.0,
+      "end_time": 151710.0,
+      "text": "And then it will feed this sum through an activation function."
+    },
+    {
+      "index": 50,
+      "start_time": 151710.0,
+      "end_time": 154890.0,
+      "text": "And that is just a function-- number in, transform,"
+    },
+    {
+      "index": 51,
+      "start_time": 154890.0,
+      "end_time": 156630.0,
+      "text": "number out."
+    },
+    {
+      "index": 52,
+      "start_time": 156630.0,
+      "end_time": 159030.0,
+      "text": "We will see several of those activation functions"
+    },
+    {
+      "index": 53,
+      "start_time": 159030.0,
+      "end_time": 162150.0,
+      "text": "and the one thing they have in common in neural networks"
+    },
+    {
+      "index": 54,
+      "start_time": 162150.0,
+      "end_time": 165600.0,
+      "text": "is that they are non-linear."
+    },
+    {
+      "index": 55,
+      "start_time": 165600.0,
+      "end_time": 166890.0,
+      "text": "So why 10 neurons?"
+    },
+    {
+      "index": 56,
+      "start_time": 166890.0,
+      "end_time": 169680.0,
+      "text": "Well, simply because we are classifying those digits"
+    },
+    {
+      "index": 57,
+      "start_time": 169680.0,
+      "end_time": 171850.0,
+      "text": "in 10 categories."
+    },
+    {
+      "index": 58,
+      "start_time": 171850.0,
+      "end_time": 174290.0,
+      "text": "We are trying to recognize a zero, a one, a two,"
+    },
+    {
+      "index": 59,
+      "start_time": 174290.0,
+      "end_time": 175296.0,
+      "text": "on to the nine."
+    },
+    {
+      "index": 60,
+      "start_time": 175296.0,
+      "end_time": 179760.0,
+      "text": "So what we are hoping for here is that one of those neurons"
+    },
+    {
+      "index": 61,
+      "start_time": 179760.0,
+      "end_time": 183660.0,
+      "text": "will light up and tell us, with a very strong output,"
+    },
+    {
+      "index": 62,
+      "start_time": 183660.0,
+      "end_time": 186810.0,
+      "text": "that I have recognized here an eight."
+    },
+    {
+      "index": 63,
+      "start_time": 186810.0,
+      "end_time": 187740.0,
+      "text": "All right."
+    },
+    {
+      "index": 64,
+      "start_time": 187740.0,
+      "end_time": 191160.0,
+      "text": "And for that, since this is a classification problem,"
+    },
+    {
+      "index": 65,
+      "start_time": 191160.0,
+      "end_time": 193470.0,
+      "text": "we are going to use a very specific activation"
+    },
+    {
+      "index": 66,
+      "start_time": 193470.0,
+      "end_time": 197790.0,
+      "text": "function, one that, well, researchers"
+    },
+    {
+      "index": 67,
+      "start_time": 197790.0,
+      "end_time": 200780.0,
+      "text": "tell us works really well on classification problems."
+    },
+    {
+      "index": 68,
+      "start_time": 200780.0,
+      "end_time": 204450.0,
+      "text": "It&#39;s called softmax and it&#39;s simply"
+    },
+    {
+      "index": 69,
+      "start_time": 204450.0,
+      "end_time": 206580.0,
+      "text": "an exponential normalized."
+    },
+    {
+      "index": 70,
+      "start_time": 206580.0,
+      "end_time": 210060.0,
+      "text": "So what you do is that you make all those weighted sums,"
+    },
+    {
+      "index": 71,
+      "start_time": 210060.0,
+      "end_time": 212390.0,
+      "text": "then you elevate that to the exponential."
+    },
+    {
+      "index": 72,
+      "start_time": 212390.0,
+      "end_time": 215100.0,
+      "text": "And once you have your 10 exponentials,"
+    },
+    {
+      "index": 73,
+      "start_time": 215100.0,
+      "end_time": 217350.0,
+      "text": "you compute the norm of this vector"
+    },
+    {
+      "index": 74,
+      "start_time": 217350.0,
+      "end_time": 219840.0,
+      "text": "and divide it by its norm so that you get"
+    },
+    {
+      "index": 75,
+      "start_time": 219840.0,
+      "end_time": 221910.0,
+      "text": "values between zero and one."
+    },
+    {
+      "index": 76,
+      "start_time": 221910.0,
+      "end_time": 225240.0,
+      "text": "And those values, you will be able to interpret them"
+    },
+    {
+      "index": 77,
+      "start_time": 225240.0,
+      "end_time": 229980.0,
+      "text": "as probabilities, probabilities of this being an eight, a one,"
+    },
+    {
+      "index": 78,
+      "start_time": 229980.0,
+      "end_time": 232290.0,
+      "text": "or something else."
+    },
+    {
+      "index": 79,
+      "start_time": 232290.0,
+      "end_time": 235250.0,
+      "text": "You will be asking which norm?"
+    },
+    {
+      "index": 80,
+      "start_time": 235250.0,
+      "end_time": 237240.0,
+      "text": "Any norm, doesn&#39;t matter--"
+    },
+    {
+      "index": 81,
+      "start_time": 237240.0,
+      "end_time": 238950.0,
+      "text": "the length of the vector."
+    },
+    {
+      "index": 82,
+      "start_time": 238950.0,
+      "end_time": 242770.0,
+      "text": "You pick your favorite norm."
+    },
+    {
+      "index": 83,
+      "start_time": 242770.0,
+      "end_time": 244500.0,
+      "text": "There are several."
+    },
+    {
+      "index": 84,
+      "start_time": 244500.0,
+      "end_time": 247860.0,
+      "text": "Usually, for softmax, we use L1, but L2"
+    },
+    {
+      "index": 85,
+      "start_time": 247860.0,
+      "end_time": 251290.0,
+      "text": "which is the Euclidean normal would work just as well."
+    },
+    {
+      "index": 86,
+      "start_time": 251290.0,
+      "end_time": 253620.0,
+      "text": "So what does softmax do actually?"
+    },
+    {
+      "index": 87,
+      "start_time": 253620.0,
+      "end_time": 256470.0,
+      "text": "You see, it&#39;s an exponential so it&#39;s a very steeply increasing"
+    },
+    {
+      "index": 88,
+      "start_time": 256470.00000000003,
+      "end_time": 257370.00000000003,
+      "text": "function."
+    },
+    {
+      "index": 89,
+      "start_time": 257370.0,
+      "end_time": 262079.0,
+      "text": "It will pull the data apart, increase the differences,"
+    },
+    {
+      "index": 90,
+      "start_time": 262079.0,
+      "end_time": 264960.0,
+      "text": "and when you divide all of that, when you normalize"
+    },
+    {
+      "index": 91,
+      "start_time": 264960.0,
+      "end_time": 268800.0,
+      "text": "the whole vector, you usually end up with one of the values"
+    },
+    {
+      "index": 92,
+      "start_time": 268800.0,
+      "end_time": 271170.0,
+      "text": "being very close to one and all the other values"
+    },
+    {
+      "index": 93,
+      "start_time": 271170.0,
+      "end_time": 273060.0,
+      "text": "being very close to zero."
+    },
+    {
+      "index": 94,
+      "start_time": 273060.0,
+      "end_time": 276870.0,
+      "text": "So it&#39;s a way of pulling the winner out on top"
+    },
+    {
+      "index": 95,
+      "start_time": 276870.0,
+      "end_time": 280691.0,
+      "text": "without actually destroying the information."
+    },
+    {
+      "index": 96,
+      "start_time": 280691.0,
+      "end_time": 281190.0,
+      "text": "All right."
+    },
+    {
+      "index": 97,
+      "start_time": 281190.0,
+      "end_time": 287070.0,
+      "text": "So now we need to formalize this using a matrix multiply."
+    },
+    {
+      "index": 98,
+      "start_time": 287070.0,
+      "end_time": 291130.0,
+      "text": "I will remind you of what a matrix multiply is,"
+    },
+    {
+      "index": 99,
+      "start_time": 291130.0,
+      "end_time": 293340.0,
+      "text": "but we will do it not one image, we"
+    },
+    {
+      "index": 100,
+      "start_time": 293340.0,
+      "end_time": 297900.0,
+      "text": "are going to do this for a batch of 100 images at a time."
+    },
+    {
+      "index": 101,
+      "start_time": 297900.0,
+      "end_time": 299670.0,
+      "text": "So what we have here in my matrix"
+    },
+    {
+      "index": 102,
+      "start_time": 299670.0,
+      "end_time": 303830.0,
+      "text": "is 100 images, one image per line."
+    },
+    {
+      "index": 103,
+      "start_time": 303830.0,
+      "end_time": 308440.0,
+      "text": "The images are flattened, all the pixels on one line."
+    },
+    {
+      "index": 104,
+      "start_time": 308440.0,
+      "end_time": 311350.0,
+      "text": "So I take my matrix of weights, for the time being,"
+    },
+    {
+      "index": 105,
+      "start_time": 311350.0,
+      "end_time": 312850.0,
+      "text": "I don&#39;t know what these weights are,"
+    },
+    {
+      "index": 106,
+      "start_time": 312850.0,
+      "end_time": 315540.0,
+      "text": "it&#39;s just weights so I&#39;m doing weighted sums."
+    },
+    {
+      "index": 107,
+      "start_time": 315540.0,
+      "end_time": 318460.0,
+      "text": "And I start the matrix multiplication."
+    },
+    {
+      "index": 108,
+      "start_time": 318460.0,
+      "end_time": 322460.0,
+      "text": "So I do a weighted sum of all the pixels of the first image."
+    },
+    {
+      "index": 109,
+      "start_time": 322460.0,
+      "end_time": 324120.0,
+      "text": "Here it is."
+    },
+    {
+      "index": 110,
+      "start_time": 324120.0,
+      "end_time": 326280.0,
+      "text": "And then if I continue this matrix multiply"
+    },
+    {
+      "index": 111,
+      "start_time": 326280.0,
+      "end_time": 328710.0,
+      "text": "using the second column of weights,"
+    },
+    {
+      "index": 112,
+      "start_time": 328710.0,
+      "end_time": 330690.0,
+      "text": "I get a weighted sum of all the pixels"
+    },
+    {
+      "index": 113,
+      "start_time": 330690.0,
+      "end_time": 333210.0,
+      "text": "of the first image for the second neuron and then"
+    },
+    {
+      "index": 114,
+      "start_time": 333210.0,
+      "end_time": 337410.0,
+      "text": "for the third neuron and the fourth and so on."
+    },
+    {
+      "index": 115,
+      "start_time": 337410.0,
+      "end_time": 341370.0,
+      "text": "What is left is to add the bias&#39;s,"
+    },
+    {
+      "index": 116,
+      "start_time": 341370.0,
+      "end_time": 342790.0,
+      "text": "just an additional constant."
+    },
+    {
+      "index": 117,
+      "start_time": 342790.0,
+      "end_time": 345750.0,
+      "text": "Again, we don&#39;t know what it is for the time being."
+    },
+    {
+      "index": 118,
+      "start_time": 345750.0,
+      "end_time": 348060.0,
+      "text": "And there is one bias per neuron,"
+    },
+    {
+      "index": 119,
+      "start_time": 348060.0,
+      "end_time": 350460.0,
+      "text": "that&#39;s why we have 10 biases."
+    },
+    {
+      "index": 120,
+      "start_time": 350460.0,
+      "end_time": 353640.0,
+      "text": "And now if I continue this matrix multiply,"
+    },
+    {
+      "index": 121,
+      "start_time": 353640.0,
+      "end_time": 356730.0,
+      "text": "I&#39;m going to obtain these weighted sums"
+    },
+    {
+      "index": 122,
+      "start_time": 356730.0,
+      "end_time": 359550.0,
+      "text": "for the second image, and the third image,"
+    },
+    {
+      "index": 123,
+      "start_time": 359550.0,
+      "end_time": 362910.0,
+      "text": "and so on, until I have processed all my images."
+    },
+    {
+      "index": 124,
+      "start_time": 365710.0,
+      "end_time": 369750.0,
+      "text": "I would like to write this as a simple formula there."
+    },
+    {
+      "index": 125,
+      "start_time": 369750.0,
+      "end_time": 373290.0,
+      "text": "You see there is a problem, x times w,"
+    },
+    {
+      "index": 126,
+      "start_time": 373290.0,
+      "end_time": 377940.0,
+      "text": "you know that&#39;s a matrix of 10 columns by 100 images,"
+    },
+    {
+      "index": 127,
+      "start_time": 377940.0,
+      "end_time": 380200.0,
+      "text": "and I have only 10 biases."
+    },
+    {
+      "index": 128,
+      "start_time": 380200.0,
+      "end_time": 382850.0,
+      "text": "I can&#39;t simply add them together."
+    },
+    {
+      "index": 129,
+      "start_time": 382850.0,
+      "end_time": 384080.0,
+      "text": "Well, never mind."
+    },
+    {
+      "index": 130,
+      "start_time": 384080.0,
+      "end_time": 388800.0,
+      "text": "We will redefine addition and it&#39;s OK"
+    },
+    {
+      "index": 131,
+      "start_time": 388800.0,
+      "end_time": 391900.0,
+      "text": "if everybody accepts it."
+    },
+    {
+      "index": 132,
+      "start_time": 391900.0,
+      "end_time": 393820.0,
+      "text": "And actually, people have already accepted it."
+    },
+    {
+      "index": 133,
+      "start_time": 393820.0,
+      "end_time": 395850.0,
+      "text": "It&#39;s called a broadcasting add and that&#39;s"
+    },
+    {
+      "index": 134,
+      "start_time": 395850.0,
+      "end_time": 397680.0,
+      "text": "the way you do additions in NumPy,"
+    },
+    {
+      "index": 135,
+      "start_time": 397680.0,
+      "end_time": 402090.0,
+      "text": "for instance, which is the numerical library for Python."
+    },
+    {
+      "index": 136,
+      "start_time": 402090.0,
+      "end_time": 405660.0,
+      "text": "The way a broadcasting add works is"
+    },
+    {
+      "index": 137,
+      "start_time": 405660.0,
+      "end_time": 409440.0,
+      "text": "that if you&#39;re trying to add two things which don&#39;t match, not"
+    },
+    {
+      "index": 138,
+      "start_time": 409440.0,
+      "end_time": 412050.0,
+      "text": "the same dimensions, you can&#39;t do the addition,"
+    },
+    {
+      "index": 139,
+      "start_time": 412050.0,
+      "end_time": 415500.0,
+      "text": "you try to replicate the small one as much"
+    },
+    {
+      "index": 140,
+      "start_time": 415500.0,
+      "end_time": 418350.0,
+      "text": "as needed to make the sizes match"
+    },
+    {
+      "index": 141,
+      "start_time": 418350.0,
+      "end_time": 420636.0,
+      "text": "and then you do the addition."
+    },
+    {
+      "index": 142,
+      "start_time": 420636.0,
+      "end_time": 422260.0,
+      "text": "That&#39;s exactly what we need to do here."
+    },
+    {
+      "index": 143,
+      "start_time": 422260.0,
+      "end_time": 424050.0,
+      "text": "We have only those 10 biases."
+    },
+    {
+      "index": 144,
+      "start_time": 424050.0,
+      "end_time": 427260.0,
+      "text": "So it&#39;s the same biases on all the lines."
+    },
+    {
+      "index": 145,
+      "start_time": 427260.0,
+      "end_time": 430890.0,
+      "text": "We just need to replicate this bias vector on all the lines,"
+    },
+    {
+      "index": 146,
+      "start_time": 430890.0,
+      "end_time": 434070.0,
+      "text": "and that&#39;s exactly what this generalized broadcasting"
+    },
+    {
+      "index": 147,
+      "start_time": 434070.0,
+      "end_time": 435270.0,
+      "text": "add does."
+    },
+    {
+      "index": 148,
+      "start_time": 435270.0,
+      "end_time": 438630.0,
+      "text": "So we will just write it as a plus."
+    },
+    {
+      "index": 149,
+      "start_time": 438630.0,
+      "end_time": 441920.0,
+      "text": "And this is where I wanted to get to."
+    },
+    {
+      "index": 150,
+      "start_time": 441920.0,
+      "end_time": 445950.0,
+      "text": "I want you to remember this as the formula describing"
+    },
+    {
+      "index": 151,
+      "start_time": 445950.0,
+      "end_time": 449770.0,
+      "text": "one layer in a neural network."
+    },
+    {
+      "index": 152,
+      "start_time": 449770.0,
+      "end_time": 451620.0,
+      "text": "So let&#39;s go through this again."
+    },
+    {
+      "index": 153,
+      "start_time": 451620.0,
+      "end_time": 455250.0,
+      "text": "In x, we have a batch of images, 100 images,"
+    },
+    {
+      "index": 154,
+      "start_time": 455250.0,
+      "end_time": 457350.0,
+      "text": "all the pixels on one line."
+    },
+    {
+      "index": 155,
+      "start_time": 457350.0,
+      "end_time": 460410.0,
+      "text": "In w, we have all of our weights for the 10 neurons,"
+    },
+    {
+      "index": 156,
+      "start_time": 460410.0,
+      "end_time": 463920.0,
+      "text": "all the weights in the system."
+    },
+    {
+      "index": 157,
+      "start_time": 463920.0,
+      "end_time": 466950.0,
+      "text": "x times w are all about weighted sums."
+    },
+    {
+      "index": 158,
+      "start_time": 466950.0,
+      "end_time": 469800.0,
+      "text": "We add the biases, and then we feed this"
+    },
+    {
+      "index": 159,
+      "start_time": 469800.0,
+      "end_time": 474690.0,
+      "text": "through our activation function, in this case softmax, the way"
+    },
+    {
+      "index": 160,
+      "start_time": 474690.0,
+      "end_time": 476700.0,
+      "text": "it works is lined by line."
+    },
+    {
+      "index": 161,
+      "start_time": 476700.0,
+      "end_time": 478680.0,
+      "text": "Line by line, we take the 10 values,"
+    },
+    {
+      "index": 162,
+      "start_time": 478680.0,
+      "end_time": 482190.0,
+      "text": "elevate them to the exponential, normalize the line."
+    },
+    {
+      "index": 163,
+      "start_time": 482190.0,
+      "end_time": 484620.0,
+      "text": "Next line, 10 values, elevate them to the exponential,"
+    },
+    {
+      "index": 164,
+      "start_time": 484620.0,
+      "end_time": 486810.0,
+      "text": "normalize the line, and so on."
+    },
+    {
+      "index": 165,
+      "start_time": 486810.0,
+      "end_time": 493380.0,
+      "text": "So what we get in the output is, for each image, 10 values"
+    },
+    {
+      "index": 166,
+      "start_time": 493380.0,
+      "end_time": 499690.0,
+      "text": "which look like probabilities and which are our predictions."
+    },
+    {
+      "index": 167,
+      "start_time": 499690.0,
+      "end_time": 501510.0,
+      "text": "So, of course, we still don&#39;t know"
+    },
+    {
+      "index": 168,
+      "start_time": 501510.0,
+      "end_time": 504000.0,
+      "text": "what those weights and biases are"
+    },
+    {
+      "index": 169,
+      "start_time": 504000.0,
+      "end_time": 506950.0,
+      "text": "and that&#39;s where the trick is in neural networks."
+    },
+    {
+      "index": 170,
+      "start_time": 506950.0,
+      "end_time": 510930.0,
+      "text": "We are going to train this neural network"
+    },
+    {
+      "index": 171,
+      "start_time": 510930.0,
+      "end_time": 513900.0,
+      "text": "to actually figure out the correct weights"
+    },
+    {
+      "index": 172,
+      "start_time": 513900.0,
+      "end_time": 515130.0,
+      "text": "and biases by itself."
+    },
+    {
+      "index": 173,
+      "start_time": 518190.00000000006,
+      "end_time": 521130.00000000006,
+      "text": "Well, this is how we write this in TensorFlow."
+    },
+    {
+      "index": 174,
+      "start_time": 521130.0,
+      "end_time": 524431.0,
+      "text": "You see, not very different."
+    },
+    {
+      "index": 175,
+      "start_time": 524431.0,
+      "end_time": 524930.0,
+      "text": "OK."
+    },
+    {
+      "index": 176,
+      "start_time": 524930.0,
+      "end_time": 528660.0,
+      "text": "TensorFlow has this in n library for neural network"
+    },
+    {
+      "index": 177,
+      "start_time": 528660.0,
+      "end_time": 530760.0,
+      "text": "which has all sorts of very useful functions"
+    },
+    {
+      "index": 178,
+      "start_time": 530760.0,
+      "end_time": 534580.0,
+      "text": "for neural networks, for example, softmax and so on."
+    },
+    {
+      "index": 179,
+      "start_time": 534580.0,
+      "end_time": 538860.0,
+      "text": "So let&#39;s go train."
+    },
+    {
+      "index": 180,
+      "start_time": 538860.0,
+      "end_time": 540780.0,
+      "text": "When you train, you&#39;ve got images,"
+    },
+    {
+      "index": 181,
+      "start_time": 540780.0,
+      "end_time": 543600.0,
+      "text": "but you know what those images are."
+    },
+    {
+      "index": 182,
+      "start_time": 543600.0,
+      "end_time": 547260.0,
+      "text": "So your network, you initialize your weights and biases"
+    },
+    {
+      "index": 183,
+      "start_time": 547260.0,
+      "end_time": 552660.0,
+      "text": "at random value and your network will output some probability."
+    },
+    {
+      "index": 184,
+      "start_time": 552660.0,
+      "end_time": 556230.0,
+      "text": "Since you know what this image is,"
+    },
+    {
+      "index": 185,
+      "start_time": 556230.0,
+      "end_time": 561510.0,
+      "text": "you can tell it that it&#39;s not this, it should be that."
+    },
+    {
+      "index": 186,
+      "start_time": 561510.0,
+      "end_time": 565800.0,
+      "text": "So that is called a one-hot encoded vector."
+    },
+    {
+      "index": 187,
+      "start_time": 565800.0,
+      "end_time": 570660.0,
+      "text": "It&#39;s a not very fancy way of encoding numbers."
+    },
+    {
+      "index": 188,
+      "start_time": 570660.0,
+      "end_time": 572970.0,
+      "text": "Basically, here are our numbers from zero to nine."
+    },
+    {
+      "index": 189,
+      "start_time": 572970.0,
+      "end_time": 577260.0,
+      "text": "We encode them as 10 bits, all at zero and just one of them"
+    },
+    {
+      "index": 190,
+      "start_time": 577260.0,
+      "end_time": 580566.0,
+      "text": "is a one at the index of the number we want to encode."
+    },
+    {
+      "index": 191,
+      "start_time": 580566.0,
+      "end_time": 582510.0,
+      "text": "Here are six."
+    },
+    {
+      "index": 192,
+      "start_time": 582510.0,
+      "end_time": 583010.0,
+      "text": "Why?"
+    },
+    {
+      "index": 193,
+      "start_time": 583010.0,
+      "end_time": 586710.0,
+      "text": "Well, because then, it&#39;s in the same shape as our predictions"
+    },
+    {
+      "index": 194,
+      "start_time": 586710.0,
+      "end_time": 591180.0,
+      "text": "and we can compute a distance between those two."
+    },
+    {
+      "index": 195,
+      "start_time": 591180.0,
+      "end_time": 595440.0,
+      "text": "So again, many ways of computing distances."
+    },
+    {
+      "index": 196,
+      "start_time": 595440.0,
+      "end_time": 598410.0,
+      "text": "The Euclidean distance, the normal distance, sum"
+    },
+    {
+      "index": 197,
+      "start_time": 598410.0,
+      "end_time": 602820.0,
+      "text": "of differences squared would work, not a problem."
+    },
+    {
+      "index": 198,
+      "start_time": 602820.0,
+      "end_time": 606990.0,
+      "text": "But scientists tell us that for classification problems,"
+    },
+    {
+      "index": 199,
+      "start_time": 606990.0,
+      "end_time": 610380.0,
+      "text": "this distance, the cross entropy, works slightly better."
+    },
+    {
+      "index": 200,
+      "start_time": 610380.0,
+      "end_time": 611760.0,
+      "text": "So we&#39;ll use this one."
+    },
+    {
+      "index": 201,
+      "start_time": 611760.0,
+      "end_time": 613210.0,
+      "text": "How does it work?"
+    },
+    {
+      "index": 202,
+      "start_time": 613210.0,
+      "end_time": 616500.0,
+      "text": "It&#39;s the sum across the vectors of the values"
+    },
+    {
+      "index": 203,
+      "start_time": 616500.0,
+      "end_time": 620460.0,
+      "text": "on the top multiplied by the logarithms of the values"
+    },
+    {
+      "index": 204,
+      "start_time": 620460.0,
+      "end_time": 622869.0,
+      "text": "on the bottom, and then we add in minus sign"
+    },
+    {
+      "index": 205,
+      "start_time": 622869.0,
+      "end_time": 625160.0,
+      "text": "because all the values on the bottom are less than one,"
+    },
+    {
+      "index": 206,
+      "start_time": 625160.0,
+      "end_time": 627570.0,
+      "text": "so all the logarithms are negative."
+    },
+    {
+      "index": 207,
+      "start_time": 627570.0,
+      "end_time": 629460.0,
+      "text": "So that&#39;s the distance."
+    },
+    {
+      "index": 208,
+      "start_time": 629460.0,
+      "end_time": 633660.0,
+      "text": "And of course, we will tell the system"
+    },
+    {
+      "index": 209,
+      "start_time": 633660.0,
+      "end_time": 637500.0,
+      "text": "to minimize the distance between what it thinks is the truth"
+    },
+    {
+      "index": 210,
+      "start_time": 637500.0,
+      "end_time": 639520.0,
+      "text": "and what we know to be true."
+    },
+    {
+      "index": 211,
+      "start_time": 639520.0,
+      "end_time": 641910.0,
+      "text": "So this we will call our error function"
+    },
+    {
+      "index": 212,
+      "start_time": 641910.0,
+      "end_time": 645150.0,
+      "text": "and the training will be guided by an effort"
+    },
+    {
+      "index": 213,
+      "start_time": 645150.0,
+      "end_time": 647144.0,
+      "text": "to minimize the error function."
+    },
+    {
+      "index": 214,
+      "start_time": 647144.0,
+      "end_time": 648810.0,
+      "text": "So let&#39;s see how this works in practice."
+    },
+    {
+      "index": 215,
+      "start_time": 656370.0,
+      "end_time": 659120.0,
+      "text": "So in this little visualization, I&#39;m"
+    },
+    {
+      "index": 216,
+      "start_time": 659120.0,
+      "end_time": 663180.0,
+      "text": "showing you over there, my training images."
+    },
+    {
+      "index": 217,
+      "start_time": 663180.0,
+      "end_time": 668540.0,
+      "text": "You see it&#39;s training so you see this batches of 100 training"
+    },
+    {
+      "index": 218,
+      "start_time": 668540.0,
+      "end_time": 671177.0,
+      "text": "images being fed into the system."
+    },
+    {
+      "index": 219,
+      "start_time": 671177.0,
+      "end_time": 673010.0,
+      "text": "On the white background, you have the images"
+    },
+    {
+      "index": 220,
+      "start_time": 673010.0,
+      "end_time": 676940.0,
+      "text": "that have been already correctly recognized by the system."
+    },
+    {
+      "index": 221,
+      "start_time": 676940.0,
+      "end_time": 682130.0,
+      "text": "On a red background, images that are still missed."
+    },
+    {
+      "index": 222,
+      "start_time": 682130.0,
+      "end_time": 684710.0,
+      "text": "So then, on the middle graph, you"
+    },
+    {
+      "index": 223,
+      "start_time": 684710.0,
+      "end_time": 690240.0,
+      "text": "see our error function, computed both on the training dataset"
+    },
+    {
+      "index": 224,
+      "start_time": 690240.0,
+      "end_time": 697130.0,
+      "text": "and we also kept aside a set of images which we have never seen"
+    },
+    {
+      "index": 225,
+      "start_time": 697130.0,
+      "end_time": 699260.0,
+      "text": "during training for testing."
+    },
+    {
+      "index": 226,
+      "start_time": 699260.0,
+      "end_time": 701840.0,
+      "text": "Of course, if you want to test the real world"
+    },
+    {
+      "index": 227,
+      "start_time": 701840.0,
+      "end_time": 703940.0,
+      "text": "performance of your neural network,"
+    },
+    {
+      "index": 228,
+      "start_time": 703940.0,
+      "end_time": 706790.0,
+      "text": "you have to do this on a set of images which you have never"
+    },
+    {
+      "index": 229,
+      "start_time": 706790.0,
+      "end_time": 708810.0,
+      "text": "seen during training."
+    },
+    {
+      "index": 230,
+      "start_time": 708810.0,
+      "end_time": 712600.0,
+      "text": "So here we have 60,000 training images"
+    },
+    {
+      "index": 231,
+      "start_time": 712600.0,
+      "end_time": 716180.0,
+      "text": "and I set aside 10,000 test images which you see"
+    },
+    {
+      "index": 232,
+      "start_time": 716180.0,
+      "end_time": 717520.0,
+      "text": "in the bottom graph over there."
+    },
+    {
+      "index": 233,
+      "start_time": 717520.0,
+      "end_time": 719870.0,
+      "text": "They are a bit small."
+    },
+    {
+      "index": 234,
+      "start_time": 719870.0,
+      "end_time": 724070.0,
+      "text": "You see only 1,000 of them here."
+    },
+    {
+      "index": 235,
+      "start_time": 724070.0,
+      "end_time": 728820.0,
+      "text": "So imagine, there are nine more screens of pictures like that."
+    },
+    {
+      "index": 236,
+      "start_time": 728820.0,
+      "end_time": 733340.0,
+      "text": "But I sorted all the badly recognized one at the top."
+    },
+    {
+      "index": 237,
+      "start_time": 733340.0,
+      "end_time": 736130.0,
+      "text": "So you see all the ones that have been badly recognized"
+    },
+    {
+      "index": 238,
+      "start_time": 736130.0,
+      "end_time": 740360.0,
+      "text": "and below are nine screens of correctly recognized images,"
+    },
+    {
+      "index": 239,
+      "start_time": 740360.0,
+      "end_time": 743510.0,
+      "text": "here after 2,000 rounds of training."
+    },
+    {
+      "index": 240,
+      "start_time": 743510.0,
+      "end_time": 746540.0,
+      "text": "So there is a little scale on the side here."
+    },
+    {
+      "index": 241,
+      "start_time": 746540.0,
+      "end_time": 750020.0,
+      "text": "It shows you that it&#39;s already capable of recognizing"
+    },
+    {
+      "index": 242,
+      "start_time": 750020.0,
+      "end_time": 754550.0,
+      "text": "92% of our images with this very simple model, just 10 neuron&#39;s,"
+    },
+    {
+      "index": 243,
+      "start_time": 754550.0,
+      "end_time": 755210.0,
+      "text": "nothing else."
+    },
+    {
+      "index": 244,
+      "start_time": 759260.0,
+      "end_time": 762481.0,
+      "text": "And that&#39;s what you get on the top graph, the accuracy graph,"
+    },
+    {
+      "index": 245,
+      "start_time": 762481.0,
+      "end_time": 762980.0,
+      "text": "as well."
+    },
+    {
+      "index": 246,
+      "start_time": 762980.0,
+      "end_time": 766760.0,
+      "text": "That&#39;s simply the percentage of correctly recognized images,"
+    },
+    {
+      "index": 247,
+      "start_time": 766760.0,
+      "end_time": 770630.0,
+      "text": "both on test and training data."
+    },
+    {
+      "index": 248,
+      "start_time": 770630.0,
+      "end_time": 772370.0,
+      "text": "So what else do we have?"
+    },
+    {
+      "index": 249,
+      "start_time": 772370.0,
+      "end_time": 776460.0,
+      "text": "We have our weights and biases, those two diagrams are simply"
+    },
+    {
+      "index": 250,
+      "start_time": 776460.0,
+      "end_time": 779060.0,
+      "text": "percentiles, so it shows you the spread"
+    },
+    {
+      "index": 251,
+      "start_time": 779060.0,
+      "end_time": 781220.0,
+      "text": "of all the weights and biases."
+    },
+    {
+      "index": 252,
+      "start_time": 781220.0,
+      "end_time": 785390.0,
+      "text": "And that&#39;s just useful to see that they are moving."
+    },
+    {
+      "index": 253,
+      "start_time": 785390.0,
+      "end_time": 791000.0,
+      "text": "They both started at zero and they took some values"
+    },
+    {
+      "index": 254,
+      "start_time": 791000.0,
+      "end_time": 792770.0,
+      "text": "for the weights between one and minus one"
+    },
+    {
+      "index": 255,
+      "start_time": 792770.0,
+      "end_time": 795770.0,
+      "text": "for biasses between two and minus two."
+    },
+    {
+      "index": 256,
+      "start_time": 795770.0,
+      "end_time": 797990.0,
+      "text": "It&#39;s helpful to keep an eye on those diagrams"
+    },
+    {
+      "index": 257,
+      "start_time": 797990.0,
+      "end_time": 801680.0,
+      "text": "and see that we are not diverging completely."
+    },
+    {
+      "index": 258,
+      "start_time": 801680.0,
+      "end_time": 804490.0,
+      "text": "So that&#39;s the training algorithm."
+    },
+    {
+      "index": 259,
+      "start_time": 804490.0,
+      "end_time": 807620.0,
+      "text": "You give it training images, it gives you a prediction,"
+    },
+    {
+      "index": 260,
+      "start_time": 807620.0,
+      "end_time": 809810.0,
+      "text": "you compute the distance between the prediction"
+    },
+    {
+      "index": 261,
+      "start_time": 809810.0,
+      "end_time": 811560.0,
+      "text": "and what you know to be true."
+    },
+    {
+      "index": 262,
+      "start_time": 811560.0,
+      "end_time": 813320.0,
+      "text": "You use that distance as an error"
+    },
+    {
+      "index": 263,
+      "start_time": 813320.0,
+      "end_time": 818540.0,
+      "text": "function to guide a mechanism that will drive the error down"
+    },
+    {
+      "index": 264,
+      "start_time": 818540.0,
+      "end_time": 819895.0,
+      "text": "by modifying weights and biases."
+    },
+    {
+      "index": 265,
+      "start_time": 825430.0,
+      "end_time": 832690.0,
+      "text": "So now let&#39;s write this in TensorFlow."
+    },
+    {
+      "index": 266,
+      "start_time": 832690.0,
+      "end_time": 835690.0,
+      "text": "And I&#39;ll get more explicit about exactly how"
+    },
+    {
+      "index": 267,
+      "start_time": 835690.0,
+      "end_time": 838750.0,
+      "text": "this training works."
+    },
+    {
+      "index": 268,
+      "start_time": 838750.0,
+      "end_time": 841850.0,
+      "text": "So we need to write this in TensorFlow."
+    },
+    {
+      "index": 269,
+      "start_time": 841850.0,
+      "end_time": 843910.0,
+      "text": "The first thing you do in TensorFlow"
+    },
+    {
+      "index": 270,
+      "start_time": 843910.0,
+      "end_time": 847480.0,
+      "text": "is define variables and placeholders."
+    },
+    {
+      "index": 271,
+      "start_time": 847480.0,
+      "end_time": 851050.0,
+      "text": "A variable is a degree of freedom"
+    },
+    {
+      "index": 272,
+      "start_time": 851050.0,
+      "end_time": 855670.0,
+      "text": "of our system, something we are asking TensorFlow to compute"
+    },
+    {
+      "index": 273,
+      "start_time": 855670.0,
+      "end_time": 858100.0,
+      "text": "for us through training."
+    },
+    {
+      "index": 274,
+      "start_time": 858100.0,
+      "end_time": 860945.0,
+      "text": "So in our case, those are our weights and biases."
+    },
+    {
+      "index": 275,
+      "start_time": 863450.0,
+      "end_time": 868430.0,
+      "text": "And we will need to feed in training data."
+    },
+    {
+      "index": 276,
+      "start_time": 868430.0,
+      "end_time": 872210.0,
+      "text": "So for this data that will be fed in at training time,"
+    },
+    {
+      "index": 277,
+      "start_time": 872210.0,
+      "end_time": 874330.0,
+      "text": "we define a placeholder."
+    },
+    {
+      "index": 278,
+      "start_time": 874330.0,
+      "end_time": 882960.0,
+      "text": "You see here x is a placeholder for our training images."
+    },
+    {
+      "index": 279,
+      "start_time": 882960.0,
+      "end_time": 885230.0,
+      "text": "Let&#39;s look at the shape in brackets."
+    },
+    {
+      "index": 280,
+      "start_time": 885230.0,
+      "end_time": 889170.0,
+      "text": "What you have is the shape of this multidimensional matrix,"
+    },
+    {
+      "index": 281,
+      "start_time": 889170.0,
+      "end_time": 891110.0,
+      "text": "which we call a tensor."
+    },
+    {
+      "index": 282,
+      "start_time": 891110.0,
+      "end_time": 893720.0,
+      "text": "So the first dimension is none."
+    },
+    {
+      "index": 283,
+      "start_time": 893720.0,
+      "end_time": 896480.0,
+      "text": "It says I don&#39;t know yet so this will be the number of images"
+    },
+    {
+      "index": 284,
+      "start_time": 896480.0,
+      "end_time": 897830.0,
+      "text": "in a batch."
+    },
+    {
+      "index": 285,
+      "start_time": 897830.0,
+      "end_time": 900790.0,
+      "text": "This will be determined at training time."
+    },
+    {
+      "index": 286,
+      "start_time": 900790.0,
+      "end_time": 904100.0,
+      "text": "If we give 100 images, this will be 100."
+    },
+    {
+      "index": 287,
+      "start_time": 904100.0,
+      "end_time": 907710.0,
+      "text": "Then 28 by 28 is the size of our images"
+    },
+    {
+      "index": 288,
+      "start_time": 907710.0,
+      "end_time": 910670.0,
+      "text": "and one is the number of values per pixel."
+    },
+    {
+      "index": 289,
+      "start_time": 910670.0,
+      "end_time": 912760.0,
+      "text": "So that&#39;s not useful at all because we"
+    },
+    {
+      "index": 290,
+      "start_time": 912760.0,
+      "end_time": 914060.0,
+      "text": "are handling grayscale images."
+    },
+    {
+      "index": 291,
+      "start_time": 914060.0,
+      "end_time": 915050.0,
+      "text": "I just put it there."
+    },
+    {
+      "index": 292,
+      "start_time": 915050.0,
+      "end_time": 918380.0,
+      "text": "In case you wanted to handle color images, that would"
+    },
+    {
+      "index": 293,
+      "start_time": 918380.0,
+      "end_time": 922160.0,
+      "text": "be three values per pixel."
+    },
+    {
+      "index": 294,
+      "start_time": 922160.0,
+      "end_time": 922970.0,
+      "text": "So OK."
+    },
+    {
+      "index": 295,
+      "start_time": 922970.0,
+      "end_time": 928620.0,
+      "text": "We have our placeholders, we have our variables,"
+    },
+    {
+      "index": 296,
+      "start_time": 928620.0,
+      "end_time": 931850.0,
+      "text": "now we are ready to write our model."
+    },
+    {
+      "index": 297,
+      "start_time": 931850.0,
+      "end_time": 935330.0,
+      "text": "So that line you see on the top is our model."
+    },
+    {
+      "index": 298,
+      "start_time": 935330.0,
+      "end_time": 938390.0,
+      "text": "It&#39;s what we have determined to be the line representing"
+    },
+    {
+      "index": 299,
+      "start_time": 938390.0,
+      "end_time": 940820.0,
+      "text": "one layer of a neural network."
+    },
+    {
+      "index": 300,
+      "start_time": 940820.0,
+      "end_time": 944620.0,
+      "text": "The only change is that reshape operation."
+    },
+    {
+      "index": 301,
+      "start_time": 944620.0,
+      "end_time": 947740.0,
+      "text": "You remember, our images, they come in as 28"
+    },
+    {
+      "index": 302,
+      "start_time": 947740.0,
+      "end_time": 950900.0,
+      "text": "by 28 pixel images and we want to flatten them"
+    },
+    {
+      "index": 303,
+      "start_time": 950900.0,
+      "end_time": 953610.0,
+      "text": "as one big vector of pixels."
+    },
+    {
+      "index": 304,
+      "start_time": 953610.0,
+      "end_time": 955600.0,
+      "text": "So that&#39;s what reshape does."
+    },
+    {
+      "index": 305,
+      "start_time": 955600.0,
+      "end_time": 958680.0,
+      "text": "784 is 28 by 28."
+    },
+    {
+      "index": 306,
+      "start_time": 958680.0,
+      "end_time": 960801.0,
+      "text": "It&#39;s all the pixels in one line."
+    },
+    {
+      "index": 307,
+      "start_time": 960801.0,
+      "end_time": 961300.0,
+      "text": "All right."
+    },
+    {
+      "index": 308,
+      "start_time": 961300.0,
+      "end_time": 964610.0,
+      "text": "I need a second placeholder for the known answers,"
+    },
+    {
+      "index": 309,
+      "start_time": 964610.0,
+      "end_time": 966500.0,
+      "text": "the labels of my training images,"
+    },
+    {
+      "index": 310,
+      "start_time": 966500.0,
+      "end_time": 969050.0,
+      "text": "labels like this is a one, this is a zero, this is a seven,"
+    },
+    {
+      "index": 311,
+      "start_time": 969050.0,
+      "end_time": 970700.0,
+      "text": "this is a five."
+    },
+    {
+      "index": 312,
+      "start_time": 970700.0,
+      "end_time": 973305.0,
+      "text": "And now that I have my predictions and my known"
+    },
+    {
+      "index": 313,
+      "start_time": 973305.0,
+      "end_time": 977900.0,
+      "text": "labels, I&#39;m ready to compute my error function, which"
+    },
+    {
+      "index": 314,
+      "start_time": 977900.0,
+      "end_time": 982480.0,
+      "text": "is the cross entropy using the formula we&#39;ve seen before."
+    },
+    {
+      "index": 315,
+      "start_time": 982480.0,
+      "end_time": 988040.0,
+      "text": "So the sum across the vector of the elements of the labels"
+    },
+    {
+      "index": 316,
+      "start_time": 988040.0,
+      "end_time": 992750.0,
+      "text": "multiplied by elements of the logarithm of the predictions."
+    },
+    {
+      "index": 317,
+      "start_time": 992750.0,
+      "end_time": 994550.0,
+      "text": "So now I have my error function."
+    },
+    {
+      "index": 318,
+      "start_time": 994550.0,
+      "end_time": 996230.0,
+      "text": "What do I do with it?"
+    },
+    {
+      "index": 319,
+      "start_time": 996230.0,
+      "end_time": 999140.0,
+      "text": "What you have on the bottom, I won&#39;t go into that."
+    },
+    {
+      "index": 320,
+      "start_time": 999140.0,
+      "end_time": 1002020.0,
+      "text": "That is simply the computation of the percentage"
+    },
+    {
+      "index": 321,
+      "start_time": 1002020.0,
+      "end_time": 1005110.0,
+      "text": "of correctly recognized images."
+    },
+    {
+      "index": 322,
+      "start_time": 1005110.0,
+      "end_time": 1007011.0,
+      "text": "You can skip that."
+    },
+    {
+      "index": 323,
+      "start_time": 1007010.0,
+      "end_time": 1007509.0,
+      "text": "OK."
+    },
+    {
+      "index": 324,
+      "start_time": 1007510.0,
+      "end_time": 1011070.0,
+      "text": "Now we get to the actual heart of what"
+    },
+    {
+      "index": 325,
+      "start_time": 1011070.0,
+      "end_time": 1013250.0,
+      "text": "TensorFlow will do for you."
+    },
+    {
+      "index": 326,
+      "start_time": 1013250.0,
+      "end_time": 1014950.0,
+      "text": "So we have our error function."
+    },
+    {
+      "index": 327,
+      "start_time": 1014950.0,
+      "end_time": 1016930.0,
+      "text": "We pick an optimizer."
+    },
+    {
+      "index": 328,
+      "start_time": 1016930.0,
+      "end_time": 1019340.0,
+      "text": "There is a full library of them."
+    },
+    {
+      "index": 329,
+      "start_time": 1019340.0,
+      "end_time": 1021400.0,
+      "text": "They have different characteristics."
+    },
+    {
+      "index": 330,
+      "start_time": 1021400.0,
+      "end_time": 1027770.0,
+      "text": "And we ask the optimizer to minimize our error function."
+    },
+    {
+      "index": 331,
+      "start_time": 1027770.0,
+      "end_time": 1030849.0,
+      "text": "So what is this going to do?"
+    },
+    {
+      "index": 332,
+      "start_time": 1030849.9999999999,
+      "end_time": 1034420.9999999999,
+      "text": "When you do this, TensorFlow takes your error function"
+    },
+    {
+      "index": 333,
+      "start_time": 1034420.0000000001,
+      "end_time": 1036960.0000000001,
+      "text": "and computes the partial derivatives of that error"
+    },
+    {
+      "index": 334,
+      "start_time": 1036960.0,
+      "end_time": 1041109.0,
+      "text": "function relatively to all the weights and all the biases"
+    },
+    {
+      "index": 335,
+      "start_time": 1041109.9999999999,
+      "end_time": 1042700.9999999999,
+      "text": "in the system."
+    },
+    {
+      "index": 336,
+      "start_time": 1042700.0,
+      "end_time": 1044740.0,
+      "text": "That&#39;s a big vector because there are lots"
+    },
+    {
+      "index": 337,
+      "start_time": 1044740.0,
+      "end_time": 1046579.0,
+      "text": "of weights and lots of biases."
+    },
+    {
+      "index": 338,
+      "start_time": 1046579.9999999999,
+      "end_time": 1047109.9999999999,
+      "text": "How many?"
+    },
+    {
+      "index": 339,
+      "start_time": 1050500.0,
+      "end_time": 1061400.0,
+      "text": "w, the weights, is a variable of almost 8,000 values."
+    },
+    {
+      "index": 340,
+      "start_time": 1061400.0,
+      "end_time": 1065030.0,
+      "text": "So this vector we get mathematically"
+    },
+    {
+      "index": 341,
+      "start_time": 1065030.0,
+      "end_time": 1067760.0,
+      "text": "is called a gradient."
+    },
+    {
+      "index": 342,
+      "start_time": 1067760.0,
+      "end_time": 1072214.0,
+      "text": "And the gradient has one nice property."
+    },
+    {
+      "index": 343,
+      "start_time": 1072210.0,
+      "end_time": 1074376.0,
+      "text": "Who knows what is the nice property of the gradient?"
+    },
+    {
+      "index": 344,
+      "start_time": 1074380.0,
+      "end_time": 1077980.0,
+      "text": "It points-- Yeah."
+    },
+    {
+      "index": 345,
+      "start_time": 1081210.0,
+      "end_time": 1081709.0,
+      "text": "Almost."
+    },
+    {
+      "index": 346,
+      "start_time": 1081710.0,
+      "end_time": 1085670.0,
+      "text": "It points up, we had a minus sign, it points down, exactly."
+    },
+    {
+      "index": 347,
+      "start_time": 1085670.0,
+      "end_time": 1087110.0,
+      "text": "Down in which space?"
+    },
+    {
+      "index": 348,
+      "start_time": 1087110.0,
+      "end_time": 1090326.0,
+      "text": "We are in the space of all the weight and all the variables"
+    },
+    {
+      "index": 349,
+      "start_time": 1090330.0,
+      "end_time": 1091704.0,
+      "text": "and the function we are computing"
+    },
+    {
+      "index": 350,
+      "start_time": 1091700.0,
+      "end_time": 1093750.0,
+      "text": "is our error function."
+    },
+    {
+      "index": 351,
+      "start_time": 1093750.0,
+      "end_time": 1095750.0,
+      "text": "So when we say down in this space,"
+    },
+    {
+      "index": 352,
+      "start_time": 1095750.0,
+      "end_time": 1101060.0,
+      "text": "it means it gives us a direction in the space of weights"
+    },
+    {
+      "index": 353,
+      "start_time": 1101060.0,
+      "end_time": 1105170.0,
+      "text": "and biases into which to go to modify our weights"
+    },
+    {
+      "index": 354,
+      "start_time": 1105170.0,
+      "end_time": 1109640.0,
+      "text": "and biases in order to make our error function smaller."
+    },
+    {
+      "index": 355,
+      "start_time": 1109640.0,
+      "end_time": 1111530.0,
+      "text": "So that is the training."
+    },
+    {
+      "index": 356,
+      "start_time": 1111530.0,
+      "end_time": 1114320.0,
+      "text": "You compute this gradient and it gives you an arrow."
+    },
+    {
+      "index": 357,
+      "start_time": 1114320.0,
+      "end_time": 1116680.0,
+      "text": "You take a little step along this arrow."
+    },
+    {
+      "index": 358,
+      "start_time": 1116680.0,
+      "end_time": 1119070.0,
+      "text": "Well, you are in the space of weights and biases,"
+    },
+    {
+      "index": 359,
+      "start_time": 1119070.0,
+      "end_time": 1121460.0,
+      "text": "so taking a little step means you modify your weights"
+    },
+    {
+      "index": 360,
+      "start_time": 1121460.0,
+      "end_time": 1125780.0,
+      "text": "and biases by this little delta, and you get into a location"
+    },
+    {
+      "index": 361,
+      "start_time": 1125780.0,
+      "end_time": 1128182.0,
+      "text": "where the error is now smaller."
+    },
+    {
+      "index": 362,
+      "start_time": 1128180.0,
+      "end_time": 1129138.0,
+      "text": "Well, that&#39;s fantastic."
+    },
+    {
+      "index": 363,
+      "start_time": 1129140.0,
+      "end_time": 1130348.0,
+      "text": "That&#39;s exactly what you want."
+    },
+    {
+      "index": 364,
+      "start_time": 1130350.0,
+      "end_time": 1133222.0,
+      "text": "Then you repeat this using a second batch"
+    },
+    {
+      "index": 365,
+      "start_time": 1133220.0,
+      "end_time": 1134760.0,
+      "text": "of training images."
+    },
+    {
+      "index": 366,
+      "start_time": 1134760.0,
+      "end_time": 1139370.0,
+      "text": "And again, using a third batch of training images, and so on."
+    },
+    {
+      "index": 367,
+      "start_time": 1139370.0,
+      "end_time": 1141590.0,
+      "text": "So it&#39;s called gradient descent because you follow"
+    },
+    {
+      "index": 368,
+      "start_time": 1141590.0,
+      "end_time": 1145250.0,
+      "text": "the gradient to head down."
+    },
+    {
+      "index": 369,
+      "start_time": 1145250.0,
+      "end_time": 1149540.0,
+      "text": "And so we are ready to write our training loop."
+    },
+    {
+      "index": 370,
+      "start_time": 1149540.0,
+      "end_time": 1151430.0,
+      "text": "There is one more thing I need to explain"
+    },
+    {
+      "index": 371,
+      "start_time": 1151430.0,
+      "end_time": 1154350.0,
+      "text": "to you about TensorFlow."
+    },
+    {
+      "index": 372,
+      "start_time": 1154350.0,
+      "end_time": 1157250.0,
+      "text": "TensorFlow has a deferred execution model."
+    },
+    {
+      "index": 373,
+      "start_time": 1157250.0,
+      "end_time": 1160780.0,
+      "text": "So everything we wrote up to now,"
+    },
+    {
+      "index": 374,
+      "start_time": 1160780.0,
+      "end_time": 1166280.0,
+      "text": "all the tf dot something here commands,"
+    },
+    {
+      "index": 375,
+      "start_time": 1166280.0,
+      "end_time": 1168730.0,
+      "text": "does not actually-- when that is executed,"
+    },
+    {
+      "index": 376,
+      "start_time": 1168730.0,
+      "end_time": 1171470.0,
+      "text": "it doesn&#39;t produce values."
+    },
+    {
+      "index": 377,
+      "start_time": 1171470.0,
+      "end_time": 1175460.0,
+      "text": "It builds a graph, a computation graph, in memory."
+    },
+    {
+      "index": 378,
+      "start_time": 1175460.0,
+      "end_time": 1176640.0,
+      "text": "Why is that important?"
+    },
+    {
+      "index": 379,
+      "start_time": 1176640.0,
+      "end_time": 1184090.0,
+      "text": "Well, first of all, this derivation trick here,"
+    },
+    {
+      "index": 380,
+      "start_time": 1184090.0,
+      "end_time": 1186100.0,
+      "text": "the computation of the gradient, that"
+    },
+    {
+      "index": 381,
+      "start_time": 1186100.0,
+      "end_time": 1188530.0,
+      "text": "is actually a formal derivation."
+    },
+    {
+      "index": 382,
+      "start_time": 1188530.0,
+      "end_time": 1190900.0,
+      "text": "TensorFlow takes the formula that you"
+    },
+    {
+      "index": 383,
+      "start_time": 1190900.0,
+      "end_time": 1192670.0,
+      "text": "give it to define your error function"
+    },
+    {
+      "index": 384,
+      "start_time": 1192670.0,
+      "end_time": 1194800.0,
+      "text": "and does a formal derivation on it."
+    },
+    {
+      "index": 385,
+      "start_time": 1194800.0,
+      "end_time": 1200140.0,
+      "text": "So it needs to know the full graph of how you computed this"
+    },
+    {
+      "index": 386,
+      "start_time": 1200140.0,
+      "end_time": 1202240.0,
+      "text": "to do this formal derivation."
+    },
+    {
+      "index": 387,
+      "start_time": 1202240.0,
+      "end_time": 1204640.0,
+      "text": "And the second thing it will use this graph for"
+    },
+    {
+      "index": 388,
+      "start_time": 1204640.0,
+      "end_time": 1208430.0,
+      "text": "is that TensorFlow is built for distributed computing."
+    },
+    {
+      "index": 389,
+      "start_time": 1208430.0,
+      "end_time": 1210730.0,
+      "text": "And there, as well, to distribute a graph"
+    },
+    {
+      "index": 390,
+      "start_time": 1210730.0,
+      "end_time": 1214870.0,
+      "text": "on multiple machine, it helps to know what the graph is."
+    },
+    {
+      "index": 391,
+      "start_time": 1214870.0,
+      "end_time": 1216950.0,
+      "text": "OK."
+    },
+    {
+      "index": 392,
+      "start_time": 1216950.0,
+      "end_time": 1220390.0,
+      "text": "So this is all very useful, but it means for us"
+    },
+    {
+      "index": 393,
+      "start_time": 1220390.0,
+      "end_time": 1222850.0,
+      "text": "that we have to go through an additional loop"
+    },
+    {
+      "index": 394,
+      "start_time": 1222850.0,
+      "end_time": 1226900.0,
+      "text": "to actually get values from our computations."
+    },
+    {
+      "index": 395,
+      "start_time": 1226900.0,
+      "end_time": 1228430.0,
+      "text": "The way you do this in TensorFlow"
+    },
+    {
+      "index": 396,
+      "start_time": 1228430.0,
+      "end_time": 1232300.0,
+      "text": "is that you define a session and then in the session,"
+    },
+    {
+      "index": 397,
+      "start_time": 1232300.0,
+      "end_time": 1238090.0,
+      "text": "you call sess.run on one edge of your computation graph."
+    },
+    {
+      "index": 398,
+      "start_time": 1240940.0,
+      "end_time": 1243130.0,
+      "text": "That will give you actual values,"
+    },
+    {
+      "index": 399,
+      "start_time": 1243130.0,
+      "end_time": 1245350.0,
+      "text": "but of course, for this to work, you"
+    },
+    {
+      "index": 400,
+      "start_time": 1245350.0,
+      "end_time": 1248020.0,
+      "text": "have to fill in all the placeholders"
+    },
+    {
+      "index": 401,
+      "start_time": 1248020.0,
+      "end_time": 1251570.0,
+      "text": "that you have defined now with real values."
+    },
+    {
+      "index": 402,
+      "start_time": 1251570.0,
+      "end_time": 1256210.0,
+      "text": "So for this to work, I will need to fill in the training images"
+    },
+    {
+      "index": 403,
+      "start_time": 1256210.0,
+      "end_time": 1258040.0,
+      "text": "and the training labels for which"
+    },
+    {
+      "index": 404,
+      "start_time": 1258040.0,
+      "end_time": 1260320.0,
+      "text": "I have defined placeholders."
+    },
+    {
+      "index": 405,
+      "start_time": 1260320.0,
+      "end_time": 1264880.0,
+      "text": "And the syntax is simply the train_data dictionary there."
+    },
+    {
+      "index": 406,
+      "start_time": 1264880.0,
+      "end_time": 1268780.0,
+      "text": "You see the keys of the dictionary, x and y underscore,"
+    },
+    {
+      "index": 407,
+      "start_time": 1268780.0,
+      "end_time": 1272170.0,
+      "text": "are the placeholders that I have defined."
+    },
+    {
+      "index": 408,
+      "start_time": 1272170.0,
+      "end_time": 1274880.0,
+      "text": "And then I can sess.run on my training step."
+    },
+    {
+      "index": 409,
+      "start_time": 1274880.0,
+      "end_time": 1277660.0,
+      "text": "I pass in this training data and that is"
+    },
+    {
+      "index": 410,
+      "start_time": 1277660.0,
+      "end_time": 1279950.0,
+      "text": "where the actual magic happens."
+    },
+    {
+      "index": 411,
+      "start_time": 1279950.0,
+      "end_time": 1283510.0,
+      "text": "Just a reminder, what is this training step?"
+    },
+    {
+      "index": 412,
+      "start_time": 1283510.0,
+      "end_time": 1288460.0,
+      "text": "Well it&#39;s what you got when you asked the optimizer to minimize"
+    },
+    {
+      "index": 413,
+      "start_time": 1288460.0,
+      "end_time": 1290090.0,
+      "text": "your error function."
+    },
+    {
+      "index": 414,
+      "start_time": 1290090.0,
+      "end_time": 1292930.0,
+      "text": "So the training step, when executed,"
+    },
+    {
+      "index": 415,
+      "start_time": 1292930.0,
+      "end_time": 1296110.0,
+      "text": "is actually what computes this gradient using"
+    },
+    {
+      "index": 416,
+      "start_time": 1296110.0,
+      "end_time": 1299500.0,
+      "text": "the current batch of images, training images and labels,"
+    },
+    {
+      "index": 417,
+      "start_time": 1299500.0,
+      "end_time": 1304360.0,
+      "text": "and follows it a little to modify the weights and biases"
+    },
+    {
+      "index": 418,
+      "start_time": 1304360.0,
+      "end_time": 1307480.0,
+      "text": "and end up with better weights and biases."
+    },
+    {
+      "index": 419,
+      "start_time": 1307480.0,
+      "end_time": 1308990.0,
+      "text": "I said a little."
+    },
+    {
+      "index": 420,
+      "start_time": 1308990.0,
+      "end_time": 1310810.0,
+      "text": "I come back to this."
+    },
+    {
+      "index": 421,
+      "start_time": 1310810.0,
+      "end_time": 1314560.0,
+      "text": "What is that learning rate over there?"
+    },
+    {
+      "index": 422,
+      "start_time": 1314560.0,
+      "end_time": 1321070.0,
+      "text": "Well, I can&#39;t make a big step along the gradient."
+    },
+    {
+      "index": 423,
+      "start_time": 1321070.0,
+      "end_time": 1322540.0,
+      "text": "Why not?"
+    },
+    {
+      "index": 424,
+      "start_time": 1322540.0,
+      "end_time": 1326200.0,
+      "text": "Imagine you&#39;re in the mountains, you know where down is."
+    },
+    {
+      "index": 425,
+      "start_time": 1326200.0,
+      "end_time": 1327460.0,
+      "text": "We have senses for that."
+    },
+    {
+      "index": 426,
+      "start_time": 1327460.0,
+      "end_time": 1328840.0,
+      "text": "We don&#39;t know to derive anything."
+    },
+    {
+      "index": 427,
+      "start_time": 1328840.0,
+      "end_time": 1330550.0,
+      "text": "We know where down is."
+    },
+    {
+      "index": 428,
+      "start_time": 1330550.0,
+      "end_time": 1333160.0,
+      "text": "And you want to reach the bottom of the valley."
+    },
+    {
+      "index": 429,
+      "start_time": 1333160.0,
+      "end_time": 1338410.0,
+      "text": "Now, if every step you make is a 10 mile step,"
+    },
+    {
+      "index": 430,
+      "start_time": 1338410.0,
+      "end_time": 1341050.0,
+      "text": "you will probably be jumping from one side of the valley"
+    },
+    {
+      "index": 431,
+      "start_time": 1341050.0,
+      "end_time": 1344050.0,
+      "text": "to the other without ever reaching the bottom."
+    },
+    {
+      "index": 432,
+      "start_time": 1344050.0,
+      "end_time": 1345850.0,
+      "text": "So if you want to reach the bottom,"
+    },
+    {
+      "index": 433,
+      "start_time": 1345850.0,
+      "end_time": 1347530.0,
+      "text": "even if you know where a down is,"
+    },
+    {
+      "index": 434,
+      "start_time": 1347530.0,
+      "end_time": 1351470.0,
+      "text": "you have to make small steps in that direction,"
+    },
+    {
+      "index": 435,
+      "start_time": 1351470.0,
+      "end_time": 1353200.0,
+      "text": "and then you will reach the bottom."
+    },
+    {
+      "index": 436,
+      "start_time": 1353200.0,
+      "end_time": 1356690.0,
+      "text": "So the same here, when we compute this gradient,"
+    },
+    {
+      "index": 437,
+      "start_time": 1356690.0,
+      "end_time": 1362800.0,
+      "text": "we multiplied by this very small value so as to take small steps"
+    },
+    {
+      "index": 438,
+      "start_time": 1362800.0,
+      "end_time": 1365650.0,
+      "text": "and be sure that we not jumping from one side of the valley"
+    },
+    {
+      "index": 439,
+      "start_time": 1365650.0,
+      "end_time": 1367820.0,
+      "text": "to the other."
+    },
+    {
+      "index": 440,
+      "start_time": 1367820.0,
+      "end_time": 1368320.0,
+      "text": "All right."
+    },
+    {
+      "index": 441,
+      "start_time": 1368320.0,
+      "end_time": 1370000.0,
+      "text": "So let&#39;s finish our training."
+    },
+    {
+      "index": 442,
+      "start_time": 1370000.0,
+      "end_time": 1375520.0,
+      "text": "Basically, in a loop, we load a batch of 100 training images"
+    },
+    {
+      "index": 443,
+      "start_time": 1375520.0,
+      "end_time": 1377080.0,
+      "text": "and labels."
+    },
+    {
+      "index": 444,
+      "start_time": 1377080.0,
+      "end_time": 1382690.0,
+      "text": "We run this training step which adjusts our weights and biases."
+    },
+    {
+      "index": 445,
+      "start_time": 1382690.0,
+      "end_time": 1385300.0,
+      "text": "And we repeat."
+    },
+    {
+      "index": 446,
+      "start_time": 1385300.0,
+      "end_time": 1389340.0,
+      "text": "All the rest of the stuff on the bottom, it&#39;s just for display."
+    },
+    {
+      "index": 447,
+      "start_time": 1389340.0,
+      "end_time": 1392710.0,
+      "text": "I&#39;m computing the accuracy and the cross entropy"
+    },
+    {
+      "index": 448,
+      "start_time": 1392710.0,
+      "end_time": 1396670.0,
+      "text": "on my training data and again, on my test data"
+    },
+    {
+      "index": 449,
+      "start_time": 1396670.0,
+      "end_time": 1401140.0,
+      "text": "so that I can show you four curves over there."
+    },
+    {
+      "index": 450,
+      "start_time": 1401140.0,
+      "end_time": 1402524.0,
+      "text": "It is just for display."
+    },
+    {
+      "index": 451,
+      "start_time": 1402520.0,
+      "end_time": 1404436.0,
+      "text": "It has nothing to do with the training itself."
+    },
+    {
+      "index": 452,
+      "start_time": 1407050.0,
+      "end_time": 1408520.0,
+      "text": "All right."
+    },
+    {
+      "index": 453,
+      "start_time": 1408520.0,
+      "end_time": 1409510.0,
+      "text": "So that was it."
+    },
+    {
+      "index": 454,
+      "start_time": 1409510.0,
+      "end_time": 1413240.0,
+      "text": "That&#39;s the entire code here on one slide."
+    },
+    {
+      "index": 455,
+      "start_time": 1413240.0,
+      "end_time": 1416530.0,
+      "text": "Let&#39;s go through this again."
+    },
+    {
+      "index": 456,
+      "start_time": 1416530.0,
+      "end_time": 1420610.0,
+      "text": "At the beginning, you define variables for everything"
+    },
+    {
+      "index": 457,
+      "start_time": 1420610.0,
+      "end_time": 1423550.0,
+      "text": "that you want TensorFlow to compute for you."
+    },
+    {
+      "index": 458,
+      "start_time": 1423550.0,
+      "end_time": 1426460.0,
+      "text": "So here are our weights and biasses."
+    },
+    {
+      "index": 459,
+      "start_time": 1426460.0,
+      "end_time": 1428890.0,
+      "text": "You define placeholders for everything"
+    },
+    {
+      "index": 460,
+      "start_time": 1428890.0,
+      "end_time": 1434200.0,
+      "text": "that you will be feeding during the training, namely our images"
+    },
+    {
+      "index": 461,
+      "start_time": 1434200.0,
+      "end_time": 1436900.0,
+      "text": "and our training labels."
+    },
+    {
+      "index": 462,
+      "start_time": 1436900.0,
+      "end_time": 1439060.0,
+      "text": "Then you define your model."
+    },
+    {
+      "index": 463,
+      "start_time": 1439060.0,
+      "end_time": 1441160.0,
+      "text": "Your model gives you predictions."
+    },
+    {
+      "index": 464,
+      "start_time": 1441160.0,
+      "end_time": 1442810.0,
+      "text": "You can compare those predictions"
+    },
+    {
+      "index": 465,
+      "start_time": 1442810.0,
+      "end_time": 1445570.0,
+      "text": "with your known labels, compare the distance"
+    },
+    {
+      "index": 466,
+      "start_time": 1445570.0,
+      "end_time": 1449050.0,
+      "text": "between the two, which is the cross entropy here,"
+    },
+    {
+      "index": 467,
+      "start_time": 1449050.0,
+      "end_time": 1451940.0,
+      "text": "and use that as an error function."
+    },
+    {
+      "index": 468,
+      "start_time": 1451940.0,
+      "end_time": 1456340.0,
+      "text": "So you pick an optimizer and you ask the optimizer to minimize"
+    },
+    {
+      "index": 469,
+      "start_time": 1456340.0,
+      "end_time": 1458170.0,
+      "text": "your error function."
+    },
+    {
+      "index": 470,
+      "start_time": 1458170.0,
+      "end_time": 1459880.0,
+      "text": "That gives all the gradients and all"
+    },
+    {
+      "index": 471,
+      "start_time": 1459880.0,
+      "end_time": 1462390.0,
+      "text": "that, it gives you a training step."
+    },
+    {
+      "index": 472,
+      "start_time": 1462390.0,
+      "end_time": 1466380.0,
+      "text": "And now, in a loop, you load a batch of images."
+    },
+    {
+      "index": 473,
+      "start_time": 1466380.0,
+      "end_time": 1467710.0,
+      "text": "You&#39;re on your training step."
+    },
+    {
+      "index": 474,
+      "start_time": 1467710.0,
+      "end_time": 1469330.0,
+      "text": "You load a batch of images and labels,"
+    },
+    {
+      "index": 475,
+      "start_time": 1469330.0,
+      "end_time": 1472750.0,
+      "text": "you run your training step, and you do this in a loop,"
+    },
+    {
+      "index": 476,
+      "start_time": 1472750.0,
+      "end_time": 1477220.0,
+      "text": "and hoping this will converge, and usually it does."
+    },
+    {
+      "index": 477,
+      "start_time": 1477220.0,
+      "end_time": 1481450.0,
+      "text": "You see here, it did converge and with this approach,"
+    },
+    {
+      "index": 478,
+      "start_time": 1481450.0,
+      "end_time": 1486820.0,
+      "text": "we got 92% accuracy."
+    },
+    {
+      "index": 479,
+      "start_time": 1486820.0,
+      "end_time": 1490980.0,
+      "text": "Small recap of all the ingredients we put in our pot"
+    },
+    {
+      "index": 480,
+      "start_time": 1490980.0,
+      "end_time": 1492510.0,
+      "text": "so far."
+    },
+    {
+      "index": 481,
+      "start_time": 1492510.0,
+      "end_time": 1495090.0,
+      "text": "We have a softmax activation function."
+    },
+    {
+      "index": 482,
+      "start_time": 1495090.0,
+      "end_time": 1498150.0,
+      "text": "We have the cross entropy as an error function."
+    },
+    {
+      "index": 483,
+      "start_time": 1498150.0,
+      "end_time": 1500040.0,
+      "text": "And we did this mini batching thing"
+    },
+    {
+      "index": 484,
+      "start_time": 1500040.0,
+      "end_time": 1503970.0,
+      "text": "where we train on 100 images at a time, do one step,"
+    },
+    {
+      "index": 485,
+      "start_time": 1503970.0,
+      "end_time": 1508470.0,
+      "text": "and then load another batch of images."
+    },
+    {
+      "index": 486,
+      "start_time": 1508470.0,
+      "end_time": 1514350.0,
+      "text": "So is 92% accuracy good?"
+    },
+    {
+      "index": 487,
+      "start_time": 1514350.0,
+      "end_time": 1516689.0,
+      "text": "No, it&#39;s horrible."
+    },
+    {
+      "index": 488,
+      "start_time": 1516690.0,
+      "end_time": 1518731.0,
+      "text": "Imagine you&#39;re actually using this in production."
+    },
+    {
+      "index": 489,
+      "start_time": 1518730.0,
+      "end_time": 1522030.0,
+      "text": "I don&#39;t know, in the post office, your decoding zip"
+    },
+    {
+      "index": 490,
+      "start_time": 1522030.0,
+      "end_time": 1523770.0,
+      "text": "codes."
+    },
+    {
+      "index": 491,
+      "start_time": 1523770.0,
+      "end_time": 1529580.0,
+      "text": "92% out of 100 digits, you have eight bad values?"
+    },
+    {
+      "index": 492,
+      "start_time": 1529580.0,
+      "end_time": 1531810.0,
+      "text": "No, not usable in production."
+    },
+    {
+      "index": 493,
+      "start_time": 1531810.0,
+      "end_time": 1533160.0,
+      "text": "Forget it."
+    },
+    {
+      "index": 494,
+      "start_time": 1533160.0,
+      "end_time": 1534340.0,
+      "text": "So how do we fix it?"
+    },
+    {
+      "index": 495,
+      "start_time": 1534340.0,
+      "end_time": 1536200.0,
+      "text": "Well deep learning."
+    },
+    {
+      "index": 496,
+      "start_time": 1536200.0,
+      "end_time": 1537060.0,
+      "text": "We&#39;ll go deep."
+    },
+    {
+      "index": 497,
+      "start_time": 1537060.0,
+      "end_time": 1539730.0,
+      "text": "We can just stack those layers."
+    },
+    {
+      "index": 498,
+      "start_time": 1539730.0,
+      "end_time": 1540550.0,
+      "text": "How do we do that?"
+    },
+    {
+      "index": 499,
+      "start_time": 1540550.0,
+      "end_time": 1542730.0,
+      "text": "Well, it&#39;s very simple."
+    },
+    {
+      "index": 500,
+      "start_time": 1542730.0,
+      "end_time": 1545010.0,
+      "text": "Look at the top layer of neurons."
+    },
+    {
+      "index": 501,
+      "start_time": 1545010.0,
+      "end_time": 1546690.0,
+      "text": "It does what we just did."
+    },
+    {
+      "index": 502,
+      "start_time": 1546690.0,
+      "end_time": 1551550.0,
+      "text": "It computes weighted sums of pixels."
+    },
+    {
+      "index": 503,
+      "start_time": 1551550.0,
+      "end_time": 1554370.0,
+      "text": "But we can just as easily add a second layer"
+    },
+    {
+      "index": 504,
+      "start_time": 1554370.0,
+      "end_time": 1557670.0,
+      "text": "of neurons that will compute weighted sums all"
+    },
+    {
+      "index": 505,
+      "start_time": 1557670.0,
+      "end_time": 1560070.0,
+      "text": "the outputs of the first layer."
+    },
+    {
+      "index": 506,
+      "start_time": 1560070.0,
+      "end_time": 1562800.0,
+      "text": "And that&#39;s how you stack layers to produce"
+    },
+    {
+      "index": 507,
+      "start_time": 1562800.0,
+      "end_time": 1566520.0,
+      "text": "a deep neural network."
+    },
+    {
+      "index": 508,
+      "start_time": 1566520.0,
+      "end_time": 1568860.0,
+      "text": "Now we are going to change our activation function."
+    },
+    {
+      "index": 509,
+      "start_time": 1568860.0,
+      "end_time": 1571980.0,
+      "text": "We keep softmax for the output layer"
+    },
+    {
+      "index": 510,
+      "start_time": 1571980.0,
+      "end_time": 1574260.0,
+      "text": "because softmax has these nice properties"
+    },
+    {
+      "index": 511,
+      "start_time": 1574260.0,
+      "end_time": 1577650.0,
+      "text": "of pulling a winner apart and producing"
+    },
+    {
+      "index": 512,
+      "start_time": 1577650.0,
+      "end_time": 1580600.0,
+      "text": "numbers between zero and one."
+    },
+    {
+      "index": 513,
+      "start_time": 1580600.0,
+      "end_time": 1585810.0,
+      "text": "But for the rest, we use a very classical activation function."
+    },
+    {
+      "index": 514,
+      "start_time": 1585810.0,
+      "end_time": 1588540.0,
+      "text": "In neural networks, it&#39;s called the sigmoid,"
+    },
+    {
+      "index": 515,
+      "start_time": 1588540.0,
+      "end_time": 1592890.0,
+      "text": "and it&#39;s basically, the simplest possible continuous function"
+    },
+    {
+      "index": 516,
+      "start_time": 1592890.0,
+      "end_time": 1595040.0,
+      "text": "that goes from zero to one."
+    },
+    {
+      "index": 517,
+      "start_time": 1595040.0,
+      "end_time": 1596561.0,
+      "text": "OK."
+    },
+    {
+      "index": 518,
+      "start_time": 1596560.0,
+      "end_time": 1597059.0,
+      "text": "All right."
+    },
+    {
+      "index": 519,
+      "start_time": 1597060.0,
+      "end_time": 1599010.0,
+      "text": "Let&#39;s write this model."
+    },
+    {
+      "index": 520,
+      "start_time": 1599010.0,
+      "end_time": 1605490.0,
+      "text": "So we have now one set of weights and one set of biasses"
+    },
+    {
+      "index": 521,
+      "start_time": 1605490.0,
+      "end_time": 1607170.0,
+      "text": "per layer."
+    },
+    {
+      "index": 522,
+      "start_time": 1607170.0,
+      "end_time": 1610890.0,
+      "text": "That&#39;s why we use C5 pairs here."
+    },
+    {
+      "index": 523,
+      "start_time": 1610890.0,
+      "end_time": 1615060.0,
+      "text": "And our model will actually look very familiar to you."
+    },
+    {
+      "index": 524,
+      "start_time": 1615060.0,
+      "end_time": 1616410.0,
+      "text": "Look at the first line."
+    },
+    {
+      "index": 525,
+      "start_time": 1616410.0,
+      "end_time": 1619530.0,
+      "text": "It&#39;s exactly what we have seen before for one"
+    },
+    {
+      "index": 526,
+      "start_time": 1619530.0,
+      "end_time": 1621930.0,
+      "text": "layer of a neural network."
+    },
+    {
+      "index": 527,
+      "start_time": 1621930.0,
+      "end_time": 1625080.0,
+      "text": "Now what we do with the output, Y1,"
+    },
+    {
+      "index": 528,
+      "start_time": 1625080.0,
+      "end_time": 1629100.0,
+      "text": "is that we use it as the input in the second line,"
+    },
+    {
+      "index": 529,
+      "start_time": 1629100.0,
+      "end_time": 1631500.0,
+      "text": "and so on, we chain those."
+    },
+    {
+      "index": 530,
+      "start_time": 1631500.0,
+      "end_time": 1633930.0,
+      "text": "It&#39;s just that on the last line, the activation"
+    },
+    {
+      "index": 531,
+      "start_time": 1633930.0,
+      "end_time": 1637140.0,
+      "text": "function we use is the softmax."
+    },
+    {
+      "index": 532,
+      "start_time": 1637140.0,
+      "end_time": 1640830.0,
+      "text": "So that&#39;s all the changes we did."
+    },
+    {
+      "index": 533,
+      "start_time": 1640830.0,
+      "end_time": 1644820.0,
+      "text": "And we can try to run this again."
+    },
+    {
+      "index": 534,
+      "start_time": 1644820.0,
+      "end_time": 1647695.0,
+      "text": "So oops."
+    },
+    {
+      "index": 535,
+      "start_time": 1653030.0,
+      "end_time": 1656140.0,
+      "text": "This one."
+    },
+    {
+      "index": 536,
+      "start_time": 1656140.0,
+      "end_time": 1659002.0,
+      "text": "Run."
+    },
+    {
+      "index": 537,
+      "start_time": 1659000.0,
+      "end_time": 1661422.0,
+      "text": "Run."
+    },
+    {
+      "index": 538,
+      "start_time": 1661420.0,
+      "end_time": 1663856.0,
+      "text": "Run."
+    },
+    {
+      "index": 539,
+      "start_time": 1663860.0,
+      "end_time": 1670020.0,
+      "text": "And it&#39;s coming."
+    },
+    {
+      "index": 540,
+      "start_time": 1670020.0,
+      "end_time": 1673300.0,
+      "text": "Well, I don&#39;t like this slope here."
+    },
+    {
+      "index": 541,
+      "start_time": 1673300.0,
+      "end_time": 1675330.0,
+      "text": "It shouldn&#39;t be shooting up really sharp."
+    },
+    {
+      "index": 542,
+      "start_time": 1675330.0,
+      "end_time": 1677110.0,
+      "text": "It&#39;s a bit slow."
+    },
+    {
+      "index": 543,
+      "start_time": 1677110.0,
+      "end_time": 1681340.0,
+      "text": "Actually, I have a solution for that."
+    },
+    {
+      "index": 544,
+      "start_time": 1681340.0,
+      "end_time": 1685200.0,
+      "text": "I lied to you when I said that the sigmoid was the most widely"
+    },
+    {
+      "index": 545,
+      "start_time": 1685200.0,
+      "end_time": 1687600.0,
+      "text": "used activation function."
+    },
+    {
+      "index": 546,
+      "start_time": 1687600.0,
+      "end_time": 1691080.0,
+      "text": "That was true in the past, and today, people"
+    },
+    {
+      "index": 547,
+      "start_time": 1691080.0,
+      "end_time": 1694170.0,
+      "text": "invented a new activation function, which is called"
+    },
+    {
+      "index": 548,
+      "start_time": 1694170.0,
+      "end_time": 1696670.0,
+      "text": "the Relu, and this is a relu."
+    },
+    {
+      "index": 549,
+      "start_time": 1696670.0,
+      "end_time": 1698710.0,
+      "text": "It&#39;s even simpler."
+    },
+    {
+      "index": 550,
+      "start_time": 1698710.0,
+      "end_time": 1702630.0,
+      "text": "It&#39;s just zero for all negative values and identity"
+    },
+    {
+      "index": 551,
+      "start_time": 1702630.0,
+      "end_time": 1705890.0,
+      "text": "for all positive values."
+    },
+    {
+      "index": 552,
+      "start_time": 1705890.0,
+      "end_time": 1707960.0,
+      "text": "Now this actually works better."
+    },
+    {
+      "index": 553,
+      "start_time": 1707960.0,
+      "end_time": 1709940.0,
+      "text": "It has lots of advantages."
+    },
+    {
+      "index": 554,
+      "start_time": 1709940.0,
+      "end_time": 1713330.0,
+      "text": "Why does it work better?"
+    },
+    {
+      "index": 555,
+      "start_time": 1713330.0,
+      "end_time": 1714260.0,
+      "text": "We don&#39;t know."
+    },
+    {
+      "index": 556,
+      "start_time": 1714260.0,
+      "end_time": 1716662.0,
+      "text": "People tried it, it worked better."
+    },
+    {
+      "index": 557,
+      "start_time": 1716660.0,
+      "end_time": 1719368.0,
+      "text": "[LAUGHTER]"
+    },
+    {
+      "index": 558,
+      "start_time": 1719370.0,
+      "end_time": 1720670.0,
+      "text": "I&#39;m being honest here."
+    },
+    {
+      "index": 559,
+      "start_time": 1720670.0,
+      "end_time": 1723090.0,
+      "text": "If you had a researcher here, he would"
+    },
+    {
+      "index": 560,
+      "start_time": 1723090.0,
+      "end_time": 1725580.0,
+      "text": "fill your head with equations and prove it,"
+    },
+    {
+      "index": 561,
+      "start_time": 1725580.0,
+      "end_time": 1728970.0,
+      "text": "but he would have done those equations after the fact."
+    },
+    {
+      "index": 562,
+      "start_time": 1728970.0,
+      "end_time": 1731050.0,
+      "text": "People already tried it, it worked better."
+    },
+    {
+      "index": 563,
+      "start_time": 1731050.0,
+      "end_time": 1734310.0,
+      "text": "Actually, they got inspiration from biology."
+    },
+    {
+      "index": 564,
+      "start_time": 1734310.0,
+      "end_time": 1736440.0,
+      "text": "It is said, I don&#39;t know if it is true,"
+    },
+    {
+      "index": 565,
+      "start_time": 1736440.0,
+      "end_time": 1740340.0,
+      "text": "but I heard that the sigmoid was the preferred"
+    },
+    {
+      "index": 566,
+      "start_time": 1740340.0,
+      "end_time": 1744800.0,
+      "text": "model of biologists for our actual biological neurons"
+    },
+    {
+      "index": 567,
+      "start_time": 1744800.0,
+      "end_time": 1749340.0,
+      "text": "and that today, biologist thinks that neurons in our head"
+    },
+    {
+      "index": 568,
+      "start_time": 1749340.0,
+      "end_time": 1752040.0,
+      "text": "work more like this."
+    },
+    {
+      "index": 569,
+      "start_time": 1752040.0,
+      "end_time": 1754080.0,
+      "text": "And the guys in computer science got"
+    },
+    {
+      "index": 570,
+      "start_time": 1754080.0,
+      "end_time": 1757740.0,
+      "text": "inspiration from that, tried it, works better."
+    },
+    {
+      "index": 571,
+      "start_time": 1757740.0,
+      "end_time": 1758400.0,
+      "text": "How better?"
+    },
+    {
+      "index": 572,
+      "start_time": 1758400.0,
+      "end_time": 1762600.0,
+      "text": "Well, this is just the beginning of the training."
+    },
+    {
+      "index": 573,
+      "start_time": 1762600.0,
+      "end_time": 1766440.0,
+      "text": "This is what we get with our sigmoids, just 300 iterations,"
+    },
+    {
+      "index": 574,
+      "start_time": 1766440.0,
+      "end_time": 1768570.0,
+      "text": "so just the beginning."
+    },
+    {
+      "index": 575,
+      "start_time": 1768570.0,
+      "end_time": 1770930.0,
+      "text": "And this is what we get from relus."
+    },
+    {
+      "index": 576,
+      "start_time": 1770930.0,
+      "end_time": 1772710.0,
+      "text": "Well, I prefer this."
+    },
+    {
+      "index": 577,
+      "start_time": 1772710.0,
+      "end_time": 1775590.0,
+      "text": "The accuracy shoots up really sharp."
+    },
+    {
+      "index": 578,
+      "start_time": 1775590.0,
+      "end_time": 1777990.0,
+      "text": "The cross entropy goes down really sharp."
+    },
+    {
+      "index": 579,
+      "start_time": 1777990.0,
+      "end_time": 1780060.0,
+      "text": "It&#39;s much faster."
+    },
+    {
+      "index": 580,
+      "start_time": 1780060.0,
+      "end_time": 1783150.0,
+      "text": "And actually, here on this very simple problem,"
+    },
+    {
+      "index": 581,
+      "start_time": 1783150.0,
+      "end_time": 1787170.0,
+      "text": "the sigmoid would have recovered, it&#39;s not an issue,"
+    },
+    {
+      "index": 582,
+      "start_time": 1787170.0,
+      "end_time": 1793110.0,
+      "text": "but in very deep networks, sometimes with the sigmoid,"
+    },
+    {
+      "index": 583,
+      "start_time": 1793110.0,
+      "end_time": 1794820.0,
+      "text": "you don&#39;t converge at all."
+    },
+    {
+      "index": 584,
+      "start_time": 1794820.0,
+      "end_time": 1798600.0,
+      "text": "And the relu solves that problem to some extent."
+    },
+    {
+      "index": 585,
+      "start_time": 1798600.0,
+      "end_time": 1801760.0,
+      "text": "So the relu it is for most of our issues."
+    },
+    {
+      "index": 586,
+      "start_time": 1801760.0,
+      "end_time": 1802260.0,
+      "text": "OK."
+    },
+    {
+      "index": 587,
+      "start_time": 1802260.0,
+      "end_time": 1803940.0,
+      "text": "So now let&#39;s train."
+    },
+    {
+      "index": 588,
+      "start_time": 1803940.0,
+      "end_time": 1808140.0,
+      "text": "Let&#39;s do this for 10,000 iterations, five layers,"
+    },
+    {
+      "index": 589,
+      "start_time": 1808140.0,
+      "end_time": 1809130.0,
+      "text": "look at that."
+    },
+    {
+      "index": 590,
+      "start_time": 1809130.0,
+      "end_time": 1811470.0,
+      "text": "98% accuracy."
+    },
+    {
+      "index": 591,
+      "start_time": 1811470.0,
+      "end_time": 1813420.0,
+      "text": "First of all, oh, yeah."
+    },
+    {
+      "index": 592,
+      "start_time": 1813420.0,
+      "end_time": 1816240.0,
+      "text": "We went from 92 to 98 just by adding layers."
+    },
+    {
+      "index": 593,
+      "start_time": 1816240.0,
+      "end_time": 1818130.0,
+      "text": "That&#39;s fantastic."
+    },
+    {
+      "index": 594,
+      "start_time": 1818130.0,
+      "end_time": 1820870.0,
+      "text": "But look at those curves."
+    },
+    {
+      "index": 595,
+      "start_time": 1820870.0,
+      "end_time": 1822150.0,
+      "text": "They&#39;re all messy."
+    },
+    {
+      "index": 596,
+      "start_time": 1822150.0,
+      "end_time": 1824040.0,
+      "text": "What is all this noise?"
+    },
+    {
+      "index": 597,
+      "start_time": 1824040.0,
+      "end_time": 1825960.0,
+      "text": "Well, when you see noise like that,"
+    },
+    {
+      "index": 598,
+      "start_time": 1825960.0,
+      "end_time": 1828540.0,
+      "text": "it means that you are going too fast."
+    },
+    {
+      "index": 599,
+      "start_time": 1828540.0,
+      "end_time": 1830820.0,
+      "text": "You&#39;re actually jumping from one side of the valley"
+    },
+    {
+      "index": 600,
+      "start_time": 1830820.0,
+      "end_time": 1834060.0,
+      "text": "to the other, without critically reaching the bottom"
+    },
+    {
+      "index": 601,
+      "start_time": 1834060.0,
+      "end_time": 1836500.0,
+      "text": "of your error function."
+    },
+    {
+      "index": 602,
+      "start_time": 1836500.0,
+      "end_time": 1839490.0,
+      "text": "So we have a solution for that, but it&#39;s not just"
+    },
+    {
+      "index": 603,
+      "start_time": 1839490.0,
+      "end_time": 1846180.0,
+      "text": "to go slower, because then you would spend 10 times more time"
+    },
+    {
+      "index": 604,
+      "start_time": 1846180.0,
+      "end_time": 1848130.0,
+      "text": "training."
+    },
+    {
+      "index": 605,
+      "start_time": 1848130.0,
+      "end_time": 1852100.0,
+      "text": "The solution, actually, is to start fast and then"
+    },
+    {
+      "index": 606,
+      "start_time": 1852100.0,
+      "end_time": 1856080.0,
+      "text": "slow down as you train."
+    },
+    {
+      "index": 607,
+      "start_time": 1856080.0,
+      "end_time": 1857490.0,
+      "text": "It&#39;s called learning rate decay."
+    },
+    {
+      "index": 608,
+      "start_time": 1857490.0,
+      "end_time": 1862030.0,
+      "text": "We usually decay the learning rates on an exponential curve."
+    },
+    {
+      "index": 609,
+      "start_time": 1862030.0,
+      "end_time": 1863550.0,
+      "text": "So yes, I hear you."
+    },
+    {
+      "index": 610,
+      "start_time": 1863550.0,
+      "end_time": 1866730.0,
+      "text": "It sounds very simple, why this little"
+    },
+    {
+      "index": 611,
+      "start_time": 1866730.0,
+      "end_time": 1871620.0,
+      "text": "trick, but let me play you the video of what this does."
+    },
+    {
+      "index": 612,
+      "start_time": 1871620.0,
+      "end_time": 1873220.0,
+      "text": "It&#39;s actually quite spectacular."
+    },
+    {
+      "index": 613,
+      "start_time": 1876890.0,
+      "end_time": 1878640.0,
+      "text": "So it&#39;s almost there."
+    },
+    {
+      "index": 614,
+      "start_time": 1878640.0,
+      "end_time": 1883400.0,
+      "text": "Should I have the end of it on a slide."
+    },
+    {
+      "index": 615,
+      "start_time": 1883400.0,
+      "end_time": 1884340.0,
+      "text": "Yeah, that&#39;s it."
+    },
+    {
+      "index": 616,
+      "start_time": 1884340.0,
+      "end_time": 1888920.0,
+      "text": "So this is what we had using a fixed learning rate"
+    },
+    {
+      "index": 617,
+      "start_time": 1888920.0,
+      "end_time": 1892670.0,
+      "text": "and just by switching to a decaying learning rate, look,"
+    },
+    {
+      "index": 618,
+      "start_time": 1892670.0,
+      "end_time": 1893840.0,
+      "text": "it&#39;s spectacular."
+    },
+    {
+      "index": 619,
+      "start_time": 1893840.0,
+      "end_time": 1896030.0,
+      "text": "All the noise is gone."
+    },
+    {
+      "index": 620,
+      "start_time": 1896030.0,
+      "end_time": 1897110.0,
+      "text": "And for the first--"
+    },
+    {
+      "index": 621,
+      "start_time": 1897110.0,
+      "end_time": 1898680.0,
+      "text": "just with this little trick--"
+    },
+    {
+      "index": 622,
+      "start_time": 1898680.0,
+      "end_time": 1900485.0,
+      "text": "really, this is not rocket science,"
+    },
+    {
+      "index": 623,
+      "start_time": 1900480.0,
+      "end_time": 1903275.0,
+      "text": "it&#39;s just going slightly slower towards the end"
+    },
+    {
+      "index": 624,
+      "start_time": 1903280.0,
+      "end_time": 1904530.0,
+      "text": "and all the noise is gone."
+    },
+    {
+      "index": 625,
+      "start_time": 1904530.0,
+      "end_time": 1909440.0,
+      "text": "And look at the blue curve, the training accuracy curve."
+    },
+    {
+      "index": 626,
+      "start_time": 1909440.0,
+      "end_time": 1912950.0,
+      "text": "Towards the end, it&#39;s stuck at 100%."
+    },
+    {
+      "index": 627,
+      "start_time": 1912950.0,
+      "end_time": 1916550.0,
+      "text": "So here, for the first time, we built a neural network"
+    },
+    {
+      "index": 628,
+      "start_time": 1916550.0,
+      "end_time": 1922770.0,
+      "text": "that was capable of learning all of our training set perfectly."
+    },
+    {
+      "index": 629,
+      "start_time": 1922770.0,
+      "end_time": 1926780.0,
+      "text": "It doesn&#39;t make one single mistake in the entire training"
+    },
+    {
+      "index": 630,
+      "start_time": 1926780.0,
+      "end_time": 1931070.0,
+      "text": "set which doesn&#39;t mean that it&#39;s perfect in the real world."
+    },
+    {
+      "index": 631,
+      "start_time": 1931070.0,
+      "end_time": 1939020.0,
+      "text": "As you see on the test dataset, it has a 98% accuracy."
+    },
+    {
+      "index": 632,
+      "start_time": 1939020.0,
+      "end_time": 1940640.0,
+      "text": "But, well, it&#39;s something."
+    },
+    {
+      "index": 633,
+      "start_time": 1940640.0,
+      "end_time": 1945550.0,
+      "text": "We got 100% at least on the training."
+    },
+    {
+      "index": 634,
+      "start_time": 1945550.0,
+      "end_time": 1946820.0,
+      "text": "All right."
+    },
+    {
+      "index": 635,
+      "start_time": 1946820.0,
+      "end_time": 1951830.0,
+      "text": "So we still have something that is a bit bizarre."
+    },
+    {
+      "index": 636,
+      "start_time": 1951830.0,
+      "end_time": 1953840.0,
+      "text": "Look at those two curves."
+    },
+    {
+      "index": 637,
+      "start_time": 1953840.0,
+      "end_time": 1956010.0,
+      "text": "This is our error function."
+    },
+    {
+      "index": 638,
+      "start_time": 1956010.0,
+      "end_time": 1959070.0,
+      "text": "So the blue curve, the test error function,"
+    },
+    {
+      "index": 639,
+      "start_time": 1959070.0,
+      "end_time": 1960900.0,
+      "text": "that is what we minimize."
+    },
+    {
+      "index": 640,
+      "start_time": 1960900.0,
+      "end_time": 1961880.0,
+      "text": "OK?"
+    },
+    {
+      "index": 641,
+      "start_time": 1961880.0,
+      "end_time": 1965660.0,
+      "text": "So as expected, it goes down."
+    },
+    {
+      "index": 642,
+      "start_time": 1965660.0,
+      "end_time": 1969620.0,
+      "text": "And the error function computed on our test data"
+    },
+    {
+      "index": 643,
+      "start_time": 1969620.0,
+      "end_time": 1971840.0,
+      "text": "at the beginning, well, it follows."
+    },
+    {
+      "index": 644,
+      "start_time": 1971840.0,
+      "end_time": 1973560.0,
+      "text": "That&#39;s quite nice."
+    },
+    {
+      "index": 645,
+      "start_time": 1973560.0,
+      "end_time": 1976310.0,
+      "text": "And then it disconnects."
+    },
+    {
+      "index": 646,
+      "start_time": 1976310.0,
+      "end_time": 1979910.0,
+      "text": "So this is not completely unexpected, you know."
+    },
+    {
+      "index": 647,
+      "start_time": 1979910.0,
+      "end_time": 1984330.0,
+      "text": "We are minimizing the training at our function."
+    },
+    {
+      "index": 648,
+      "start_time": 1984330.0,
+      "end_time": 1986540.0,
+      "text": "That&#39;s what we are actively minimizing."
+    },
+    {
+      "index": 649,
+      "start_time": 1986540.0,
+      "end_time": 1991250.0,
+      "text": "We are not doing anything at all on the test side."
+    },
+    {
+      "index": 650,
+      "start_time": 1991250.0,
+      "end_time": 1994850.0,
+      "text": "It&#39;s just a byproduct of the way neural networks work"
+    },
+    {
+      "index": 651,
+      "start_time": 1994850.0,
+      "end_time": 1998660.0,
+      "text": "that the training you do on your training data,"
+    },
+    {
+      "index": 652,
+      "start_time": 1998660.0,
+      "end_time": 2004090.0,
+      "text": "actually carries over to your test data to the real world."
+    },
+    {
+      "index": 653,
+      "start_time": 2004090.0,
+      "end_time": 2006550.0,
+      "text": "Well, it carries over or it doesn&#39;t."
+    },
+    {
+      "index": 654,
+      "start_time": 2006550.0,
+      "end_time": 2008890.0,
+      "text": "So as you see here, until some point,"
+    },
+    {
+      "index": 655,
+      "start_time": 2008890.0,
+      "end_time": 2011330.0,
+      "text": "it does and then, there is a disconnect,"
+    },
+    {
+      "index": 656,
+      "start_time": 2011330.0,
+      "end_time": 2014470.0,
+      "text": "it doesn&#39;t carry over anymore."
+    },
+    {
+      "index": 657,
+      "start_time": 2014470.0,
+      "end_time": 2017830.0,
+      "text": "You keep optimizing the error on the training data,"
+    },
+    {
+      "index": 658,
+      "start_time": 2017830.0,
+      "end_time": 2020170.0,
+      "text": "but it has no positive effect on the test"
+    },
+    {
+      "index": 659,
+      "start_time": 2020170.0,
+      "end_time": 2023840.0,
+      "text": "performance, the real work performance, anymore."
+    },
+    {
+      "index": 660,
+      "start_time": 2023840.0,
+      "end_time": 2027460.0,
+      "text": "So if you see curves like this, you take the textbook,"
+    },
+    {
+      "index": 661,
+      "start_time": 2027460.0,
+      "end_time": 2030070.0,
+      "text": "you look it up, it&#39;s called overfitting."
+    },
+    {
+      "index": 662,
+      "start_time": 2030070.0,
+      "end_time": 2032740.0,
+      "text": "You look at the solutions, they tell you overfitting,"
+    },
+    {
+      "index": 663,
+      "start_time": 2032740.0,
+      "end_time": 2033940.0,
+      "text": "you need regularization."
+    },
+    {
+      "index": 664,
+      "start_time": 2033940.0,
+      "end_time": 2034440.0,
+      "text": "OK."
+    },
+    {
+      "index": 665,
+      "start_time": 2034440.0,
+      "end_time": 2035680.0,
+      "text": "Let&#39;s regularize."
+    },
+    {
+      "index": 666,
+      "start_time": 2035680.0,
+      "end_time": 2038020.0,
+      "text": "What regularization options do we have?"
+    },
+    {
+      "index": 667,
+      "start_time": 2038020.0,
+      "end_time": 2041440.0,
+      "text": "My preferred one is called dropout."
+    },
+    {
+      "index": 668,
+      "start_time": 2041440.0,
+      "end_time": 2043570.0,
+      "text": "It&#39;s quite dramatic."
+    },
+    {
+      "index": 669,
+      "start_time": 2043570.0,
+      "end_time": 2046540.0,
+      "text": "You shoot the neurons."
+    },
+    {
+      "index": 670,
+      "start_time": 2046540.0,
+      "end_time": 2048250.0,
+      "text": "No, really."
+    },
+    {
+      "index": 671,
+      "start_time": 2048250.0,
+      "end_time": 2050110.0,
+      "text": "So this is how it works."
+    },
+    {
+      "index": 672,
+      "start_time": 2050110.0000000002,
+      "end_time": 2053409.0000000002,
+      "text": "You take your neural network, and pick a probability,"
+    },
+    {
+      "index": 673,
+      "start_time": 2053409.9999999998,
+      "end_time": 2055210.9999999998,
+      "text": "let&#39;s say 50%."
+    },
+    {
+      "index": 674,
+      "start_time": 2055210.0,
+      "end_time": 2059560.0,
+      "text": "So at each training iteration, you"
+    },
+    {
+      "index": 675,
+      "start_time": 2059560.0,
+      "end_time": 2062179.0,
+      "text": "will shoot, physically remove from the network,"
+    },
+    {
+      "index": 676,
+      "start_time": 2062179.9999999998,
+      "end_time": 2064420.9999999998,
+      "text": "50% percent of your neurons."
+    },
+    {
+      "index": 677,
+      "start_time": 2064420.0,
+      "end_time": 2068290.0,
+      "text": "Do the pass, then put them back, next iteration, again, randomly"
+    },
+    {
+      "index": 678,
+      "start_time": 2068290.0,
+      "end_time": 2070480.0,
+      "text": "shoot 50% of your neurons."
+    },
+    {
+      "index": 679,
+      "start_time": 2070480.0,
+      "end_time": 2076000.0,
+      "text": "Of course, when you test , you don&#39;t test with a half brain"
+    },
+    {
+      "index": 680,
+      "start_time": 2076000.0,
+      "end_time": 2079540.0,
+      "text": "dead neural network, you put all the neurons back."
+    },
+    {
+      "index": 681,
+      "start_time": 2079540.0,
+      "end_time": 2081580.0,
+      "text": "But that&#39;s what you do for training."
+    },
+    {
+      "index": 682,
+      "start_time": 2081580.0,
+      "end_time": 2084520.0,
+      "text": "So in TensorFlow, there is a very simple function"
+    },
+    {
+      "index": 683,
+      "start_time": 2084520.0,
+      "end_time": 2088840.0,
+      "text": "to do that, which is called dropout, That you apply"
+    },
+    {
+      "index": 684,
+      "start_time": 2088840.0000000002,
+      "end_time": 2090880.0000000002,
+      "text": "at the outputs of the layer."
+    },
+    {
+      "index": 685,
+      "start_time": 2090880.0,
+      "end_time": 2093659.0,
+      "text": "And what it simply does is it takes the probability"
+    },
+    {
+      "index": 686,
+      "start_time": 2093659.9999999998,
+      "end_time": 2096100.9999999998,
+      "text": "and in the output of that layer, it"
+    },
+    {
+      "index": 687,
+      "start_time": 2096100.0,
+      "end_time": 2100300.0,
+      "text": "will replace randomly some values by zeros"
+    },
+    {
+      "index": 688,
+      "start_time": 2100300.0,
+      "end_time": 2102940.0,
+      "text": "and small technicality, it will actually"
+    },
+    {
+      "index": 689,
+      "start_time": 2102940.0,
+      "end_time": 2105910.0,
+      "text": "boost the remaining values proportionally"
+    },
+    {
+      "index": 690,
+      "start_time": 2105910.0,
+      "end_time": 2108100.0,
+      "text": "so that the average stays constant,"
+    },
+    {
+      "index": 691,
+      "start_time": 2108100.0,
+      "end_time": 2111160.0,
+      "text": "that&#39;s a technicality."
+    },
+    {
+      "index": 692,
+      "start_time": 2111160.0,
+      "end_time": 2116810.0,
+      "text": "So why does shooting neurons help?"
+    },
+    {
+      "index": 693,
+      "start_time": 2116810.0,
+      "end_time": 2120370.0,
+      "text": "Well, first of all, let&#39;s see if it helps."
+    },
+    {
+      "index": 694,
+      "start_time": 2120370.0,
+      "end_time": 2124960.0,
+      "text": "So let&#39;s try to recap all the tricks we tried to play"
+    },
+    {
+      "index": 695,
+      "start_time": 2124960.0,
+      "end_time": 2126980.0,
+      "text": "with our neural network."
+    },
+    {
+      "index": 696,
+      "start_time": 2126980.0,
+      "end_time": 2131530.0,
+      "text": "This is what we had initially with our five layers"
+    },
+    {
+      "index": 697,
+      "start_time": 2131530.0,
+      "end_time": 2135820.0,
+      "text": "using the sigmoid as an activation function."
+    },
+    {
+      "index": 698,
+      "start_time": 2135820.0,
+      "end_time": 2141040.0,
+      "text": "The accuracy got up to 97.9% using five layers."
+    },
+    {
+      "index": 699,
+      "start_time": 2141040.0,
+      "end_time": 2144100.0,
+      "text": "So first, we replaced the sigmoid by the relu activation"
+    },
+    {
+      "index": 700,
+      "start_time": 2144100.0,
+      "end_time": 2145120.0,
+      "text": "function."
+    },
+    {
+      "index": 701,
+      "start_time": 2145120.0,
+      "end_time": 2149320.0,
+      "text": "You see, it&#39;s faster to converge at the beginning"
+    },
+    {
+      "index": 702,
+      "start_time": 2149320.0,
+      "end_time": 2152710.0,
+      "text": "and we actually gained a couple of fractions"
+    },
+    {
+      "index": 703,
+      "start_time": 2152710.0,
+      "end_time": 2155610.0,
+      "text": "of percentage of accuracy."
+    },
+    {
+      "index": 704,
+      "start_time": 2155610.0,
+      "end_time": 2157330.0,
+      "text": "But we have these messy curves."
+    },
+    {
+      "index": 705,
+      "start_time": 2157330.0,
+      "end_time": 2163990.0,
+      "text": "So we train slower using the exponential learning rate decay"
+    },
+    {
+      "index": 706,
+      "start_time": 2163990.0,
+      "end_time": 2168490.0,
+      "text": "and we get rid of the noise, and now we are stable or above 98%"
+    },
+    {
+      "index": 707,
+      "start_time": 2168490.0,
+      "end_time": 2169690.0,
+      "text": "accuracy."
+    },
+    {
+      "index": 708,
+      "start_time": 2169690.0,
+      "end_time": 2172030.0,
+      "text": "But we have that weird disconnect"
+    },
+    {
+      "index": 709,
+      "start_time": 2172030.0,
+      "end_time": 2175840.0,
+      "text": "between the error on our test data"
+    },
+    {
+      "index": 710,
+      "start_time": 2175840.0,
+      "end_time": 2178960.0,
+      "text": "and the error on our training data."
+    },
+    {
+      "index": 711,
+      "start_time": 2178960.0,
+      "end_time": 2182860.0,
+      "text": "So let us try to add dropout."
+    },
+    {
+      "index": 712,
+      "start_time": 2182860.0,
+      "end_time": 2185470.0,
+      "text": "This is what you get with dropout."
+    },
+    {
+      "index": 713,
+      "start_time": 2185470.0,
+      "end_time": 2188770.0,
+      "text": "And actually, the cross entropy function,"
+    },
+    {
+      "index": 714,
+      "start_time": 2188770.0,
+      "end_time": 2190930.0,
+      "text": "the test cross entropy function, the red one"
+    },
+    {
+      "index": 715,
+      "start_time": 2190930.0,
+      "end_time": 2194470.0,
+      "text": "over there on the right, has been largely brought"
+    },
+    {
+      "index": 716,
+      "start_time": 2194470.0,
+      "end_time": 2196060.0,
+      "text": "under control."
+    },
+    {
+      "index": 717,
+      "start_time": 2196060.0,
+      "end_time": 2198130.0,
+      "text": "You see, there is still some disconnect,"
+    },
+    {
+      "index": 718,
+      "start_time": 2198130.0,
+      "end_time": 2200800.0,
+      "text": "but it&#39;s not shooting up as it was before."
+    },
+    {
+      "index": 719,
+      "start_time": 2200800.0,
+      "end_time": 2202520.0,
+      "text": "That&#39;s very positive."
+    },
+    {
+      "index": 720,
+      "start_time": 2202520.0,
+      "end_time": 2204033.0,
+      "text": "Let&#39;s look at the accuracy."
+    },
+    {
+      "index": 721,
+      "start_time": 2208290.0,
+      "end_time": 2210950.0,
+      "text": "No improvement."
+    },
+    {
+      "index": 722,
+      "start_time": 2210950.0,
+      "end_time": 2215010.0,
+      "text": "Actually, I&#39;m even amazed that it hasn&#39;t gone down"
+    },
+    {
+      "index": 723,
+      "start_time": 2215010.0,
+      "end_time": 2218560.0,
+      "text": "seeing how brutal this technique is, you shoot neurons"
+    },
+    {
+      "index": 724,
+      "start_time": 2218560.0,
+      "end_time": 2220430.0,
+      "text": "while you train."
+    },
+    {
+      "index": 725,
+      "start_time": 2220430.0,
+      "end_time": 2225085.0,
+      "text": "But here, I was very hopeful to get it up."
+    },
+    {
+      "index": 726,
+      "start_time": 2225080.0,
+      "end_time": 2228035.0,
+      "text": "No, nothing."
+    },
+    {
+      "index": 727,
+      "start_time": 2228040.0,
+      "end_time": 2230740.0,
+      "text": "We have to keep digging."
+    },
+    {
+      "index": 728,
+      "start_time": 2230740.0,
+      "end_time": 2237490.0,
+      "text": "So what is really overfitting?"
+    },
+    {
+      "index": 729,
+      "start_time": 2237490.0,
+      "end_time": 2241640.0,
+      "text": "Let&#39;s go beyond the simple recipe in the textbook."
+    },
+    {
+      "index": 730,
+      "start_time": 2241640.0,
+      "end_time": 2243960.0,
+      "text": "Overfitting, in a neural network,"
+    },
+    {
+      "index": 731,
+      "start_time": 2243960.0,
+      "end_time": 2249040.0,
+      "text": "is primarily when you give it too many degrees of freedom."
+    },
+    {
+      "index": 732,
+      "start_time": 2249040.0,
+      "end_time": 2251630.0,
+      "text": "Imagine you have so many neurons and so many"
+    },
+    {
+      "index": 733,
+      "start_time": 2251630.0,
+      "end_time": 2254530.0,
+      "text": "weights in a neural network that it&#39;s somehow"
+    },
+    {
+      "index": 734,
+      "start_time": 2254530.0,
+      "end_time": 2258100.0,
+      "text": "feasible to simply store all the training images"
+    },
+    {
+      "index": 735,
+      "start_time": 2258100.0,
+      "end_time": 2259730.0,
+      "text": "in those weights and variables."
+    },
+    {
+      "index": 736,
+      "start_time": 2259730.0,
+      "end_time": 2262050.0,
+      "text": "You have enough room for that."
+    },
+    {
+      "index": 737,
+      "start_time": 2262050.0,
+      "end_time": 2265810.0,
+      "text": "And the neural network could figure out some cheap trick"
+    },
+    {
+      "index": 738,
+      "start_time": 2265810.0,
+      "end_time": 2269650.0,
+      "text": "to pattern match the training images in what it has stored"
+    },
+    {
+      "index": 739,
+      "start_time": 2269650.0,
+      "end_time": 2272950.0,
+      "text": "and just perfectly recognize your training images"
+    },
+    {
+      "index": 740,
+      "start_time": 2272950.0,
+      "end_time": 2275810.0,
+      "text": "because it has stored copies of all of them."
+    },
+    {
+      "index": 741,
+      "start_time": 2275810.0,
+      "end_time": 2279580.0,
+      "text": "Well, if it has enough space to do that,"
+    },
+    {
+      "index": 742,
+      "start_time": 2279580.0,
+      "end_time": 2283720.0,
+      "text": "that would not translate to any kind of recognition performance"
+    },
+    {
+      "index": 743,
+      "start_time": 2283720.0,
+      "end_time": 2285860.0,
+      "text": "in the real world."
+    },
+    {
+      "index": 744,
+      "start_time": 2285860.0,
+      "end_time": 2289210.0,
+      "text": "And that&#39;s the trick about neural networks."
+    },
+    {
+      "index": 745,
+      "start_time": 2289210.0,
+      "end_time": 2292840.0,
+      "text": "You have to constrain their degrees of freedom"
+    },
+    {
+      "index": 746,
+      "start_time": 2292840.0,
+      "end_time": 2296140.0,
+      "text": "to force them to generalize."
+    },
+    {
+      "index": 747,
+      "start_time": 2296140.0,
+      "end_time": 2298300.0,
+      "text": "And mostly, when you get overfitting"
+    },
+    {
+      "index": 748,
+      "start_time": 2298300.0,
+      "end_time": 2300040.0,
+      "text": "is because you have too many neurons."
+    },
+    {
+      "index": 749,
+      "start_time": 2300040.0,
+      "end_time": 2303760.0,
+      "text": "You need to get that number down to force the network"
+    },
+    {
+      "index": 750,
+      "start_time": 2303760.0,
+      "end_time": 2306550.0,
+      "text": "to produce generalizations that will then"
+    },
+    {
+      "index": 751,
+      "start_time": 2306550.0,
+      "end_time": 2310810.0,
+      "text": "produce good predictions, even in the real world."
+    },
+    {
+      "index": 752,
+      "start_time": 2310810.0,
+      "end_time": 2314770.0,
+      "text": "So either you get the number of neurons down"
+    },
+    {
+      "index": 753,
+      "start_time": 2314770.0,
+      "end_time": 2317890.0,
+      "text": "or you apply some trick, like dropout,"
+    },
+    {
+      "index": 754,
+      "start_time": 2317890.0,
+      "end_time": 2322210.0,
+      "text": "that is supposed to mitigate the consequences of too"
+    },
+    {
+      "index": 755,
+      "start_time": 2322210.0,
+      "end_time": 2325960.0,
+      "text": "many degrees of freedom."
+    },
+    {
+      "index": 756,
+      "start_time": 2325960.0,
+      "end_time": 2330130.0,
+      "text": "The opposite of too many neurons if you have a very small"
+    },
+    {
+      "index": 757,
+      "start_time": 2330130.0,
+      "end_time": 2335320.0,
+      "text": "dataset, well, even if you have only a small number of neurons,"
+    },
+    {
+      "index": 758,
+      "start_time": 2335320.0,
+      "end_time": 2338140.0,
+      "text": "if the dataset, the training dataset is very small,"
+    },
+    {
+      "index": 759,
+      "start_time": 2338140.0,
+      "end_time": 2340180.0,
+      "text": "it can still fit it all in."
+    },
+    {
+      "index": 760,
+      "start_time": 2340180.0,
+      "end_time": 2343810.0,
+      "text": "So that&#39;s a general truth in neural networks."
+    },
+    {
+      "index": 761,
+      "start_time": 2343810.0,
+      "end_time": 2347840.0,
+      "text": "You need big datasets for training."
+    },
+    {
+      "index": 762,
+      "start_time": 2347840.0,
+      "end_time": 2350440.0,
+      "text": "And then what happened here?"
+    },
+    {
+      "index": 763,
+      "start_time": 2350440.0,
+      "end_time": 2354280.0,
+      "text": "We have a big data set, 60,000 digits, that&#39;s enough."
+    },
+    {
+      "index": 764,
+      "start_time": 2354280.0,
+      "end_time": 2357940.0,
+      "text": "We know that we don&#39;t have too many neurons because we added"
+    },
+    {
+      "index": 765,
+      "start_time": 2357940.0,
+      "end_time": 2361060.0,
+      "text": "five layers, that&#39;s a bit overkill, but I tried,"
+    },
+    {
+      "index": 766,
+      "start_time": 2361060.0,
+      "end_time": 2364240.0,
+      "text": "I promise, with four and three and two."
+    },
+    {
+      "index": 767,
+      "start_time": 2364240.0,
+      "end_time": 2366760.0,
+      "text": "And we tried dropout which is supposed"
+    },
+    {
+      "index": 768,
+      "start_time": 2366760.0,
+      "end_time": 2370010.0,
+      "text": "to mitigate the fact that you have too many neurons."
+    },
+    {
+      "index": 769,
+      "start_time": 2370010.0,
+      "end_time": 2373420.0,
+      "text": "And it didn&#39;t do anything to the accuracy."
+    },
+    {
+      "index": 770,
+      "start_time": 2373420.0,
+      "end_time": 2377050.0,
+      "text": "So the conclusion here that we come to"
+    },
+    {
+      "index": 771,
+      "start_time": 2377050.0,
+      "end_time": 2383290.0,
+      "text": "is that our network, the way it is built, is inadequate."
+    },
+    {
+      "index": 772,
+      "start_time": 2383290.0,
+      "end_time": 2386650.0,
+      "text": "It&#39;s not capable by its architecture"
+    },
+    {
+      "index": 773,
+      "start_time": 2386650.0,
+      "end_time": 2390890.0,
+      "text": "to extract the necessary information from our data."
+    },
+    {
+      "index": 774,
+      "start_time": 2390890.0,
+      "end_time": 2396580.0,
+      "text": "And maybe someone here can pinpoint something really"
+    },
+    {
+      "index": 775,
+      "start_time": 2396580.0,
+      "end_time": 2399417.0,
+      "text": "stupid we did at the beginning."
+    },
+    {
+      "index": 776,
+      "start_time": 2399420.0,
+      "end_time": 2400253.0,
+      "text": "Someone has an idea?"
+    },
+    {
+      "index": 777,
+      "start_time": 2402920.0,
+      "end_time": 2405560.0,
+      "text": "Remember, we have images?"
+    },
+    {
+      "index": 778,
+      "start_time": 2405560.0,
+      "end_time": 2410910.0,
+      "text": "Images with shapes like curves and lines."
+    },
+    {
+      "index": 779,
+      "start_time": 2410910.0,
+      "end_time": 2414750.0,
+      "text": "And we flattened all the pixels in one big vector."
+    },
+    {
+      "index": 780,
+      "start_time": 2414750.0,
+      "end_time": 2417580.0,
+      "text": "So all that shape information is lost."
+    },
+    {
+      "index": 781,
+      "start_time": 2417580.0,
+      "end_time": 2418710.0,
+      "text": "This is terrible."
+    },
+    {
+      "index": 782,
+      "start_time": 2418710.0,
+      "end_time": 2420960.0,
+      "text": "That&#39;s why we are performing so badly."
+    },
+    {
+      "index": 783,
+      "start_time": 2420960.0,
+      "end_time": 2424770.0,
+      "text": "We lost all of the shape information."
+    },
+    {
+      "index": 784,
+      "start_time": 2424770.0,
+      "end_time": 2426360.0,
+      "text": "So what is the solution?"
+    },
+    {
+      "index": 785,
+      "start_time": 2426360.0,
+      "end_time": 2429540.0,
+      "text": "Well, people have invented a different type"
+    },
+    {
+      "index": 786,
+      "start_time": 2429540.0,
+      "end_time": 2432090.0,
+      "text": "of neural networks to handle specifically"
+    },
+    {
+      "index": 787,
+      "start_time": 2432090.0,
+      "end_time": 2435850.0,
+      "text": "images and problems where shape is important."
+    },
+    {
+      "index": 788,
+      "start_time": 2435850.0,
+      "end_time": 2439290.0,
+      "text": "It&#39;s called convolutional networks."
+    },
+    {
+      "index": 789,
+      "start_time": 2439290.0,
+      "end_time": 2442540.0,
+      "text": "Here we go back to the general case of an image,"
+    },
+    {
+      "index": 790,
+      "start_time": 2442540.0,
+      "end_time": 2444430.0,
+      "text": "of a color image."
+    },
+    {
+      "index": 791,
+      "start_time": 2444430.0,
+      "end_time": 2450000.0,
+      "text": "So that&#39;s why it has red, green, and blue components."
+    },
+    {
+      "index": 792,
+      "start_time": 2450000.0,
+      "end_time": 2454080.0,
+      "text": "And in a convolutional network, one neuron"
+    },
+    {
+      "index": 793,
+      "start_time": 2454080.0,
+      "end_time": 2457710.0,
+      "text": "will still be doing weighted sums of pixels,"
+    },
+    {
+      "index": 794,
+      "start_time": 2457710.0,
+      "end_time": 2462210.0,
+      "text": "but only a small patch of pixels above its head, only"
+    },
+    {
+      "index": 795,
+      "start_time": 2462210.0,
+      "end_time": 2464690.0,
+      "text": "a small patch."
+    },
+    {
+      "index": 796,
+      "start_time": 2464690.0,
+      "end_time": 2468300.0,
+      "text": "And the next neuron would, again,"
+    },
+    {
+      "index": 797,
+      "start_time": 2468300.0,
+      "end_time": 2471900.0,
+      "text": "be doing weighted sum of the small patch of pixels"
+    },
+    {
+      "index": 798,
+      "start_time": 2471900.0,
+      "end_time": 2479351.0,
+      "text": "above itself, but using the same weights."
+    },
+    {
+      "index": 799,
+      "start_time": 2479350.0,
+      "end_time": 2479849.0,
+      "text": "OK?"
+    },
+    {
+      "index": 800,
+      "start_time": 2479850.0,
+      "end_time": 2481710.0,
+      "text": "That&#39;s the fundamental difference"
+    },
+    {
+      "index": 801,
+      "start_time": 2481710.0,
+      "end_time": 2483300.0,
+      "text": "from what we have seen before."
+    },
+    {
+      "index": 802,
+      "start_time": 2483300.0,
+      "end_time": 2485340.0,
+      "text": "The second neuron is using the same weights"
+    },
+    {
+      "index": 803,
+      "start_time": 2485340.0,
+      "end_time": 2486780.0,
+      "text": "as the first neuron."
+    },
+    {
+      "index": 804,
+      "start_time": 2486780.0,
+      "end_time": 2489560.0,
+      "text": "So we are actually taking just one set of weights"
+    },
+    {
+      "index": 805,
+      "start_time": 2489560.0,
+      "end_time": 2493260.0,
+      "text": "and we are scanning the image in both directions,"
+    },
+    {
+      "index": 806,
+      "start_time": 2493260.0,
+      "end_time": 2497400.0,
+      "text": "using that set of weights and producing weighted sums."
+    },
+    {
+      "index": 807,
+      "start_time": 2497400.0,
+      "end_time": 2501420.0,
+      "text": "So we scan it in both directions and we obtain"
+    },
+    {
+      "index": 808,
+      "start_time": 2501420.0,
+      "end_time": 2503550.0,
+      "text": "one layer of weighted sums."
+    },
+    {
+      "index": 809,
+      "start_time": 2503550.0,
+      "end_time": 2505630.0,
+      "text": "So how many weights do we have?"
+    },
+    {
+      "index": 810,
+      "start_time": 2505630.0,
+      "end_time": 2507860.0,
+      "text": "Well, as many weights as we have input values"
+    },
+    {
+      "index": 811,
+      "start_time": 2507860.0,
+      "end_time": 2511500.0,
+      "text": "in that little highlighted cube, that&#39;s 4 times 4 times"
+    },
+    {
+      "index": 812,
+      "start_time": 2511500.0,
+      "end_time": 2515300.0,
+      "text": "3, which is around 48."
+    },
+    {
+      "index": 813,
+      "start_time": 2515300.0,
+      "end_time": 2516180.0,
+      "text": "What?"
+    },
+    {
+      "index": 814,
+      "start_time": 2516180.0,
+      "end_time": 2517470.0,
+      "text": "48?"
+    },
+    {
+      "index": 815,
+      "start_time": 2517470.0,
+      "end_time": 2522420.0,
+      "text": "We had 8,000 degrees of freedom in our simplest network"
+    },
+    {
+      "index": 816,
+      "start_time": 2522420.0,
+      "end_time": 2524700.0,
+      "text": "with just 10 neurons."
+    },
+    {
+      "index": 817,
+      "start_time": 2524700.0,
+      "end_time": 2527940.0,
+      "text": "How can it work with such a drastic reduction"
+    },
+    {
+      "index": 818,
+      "start_time": 2527940.0,
+      "end_time": 2529860.0,
+      "text": "in the number of weights?"
+    },
+    {
+      "index": 819,
+      "start_time": 2529860.0,
+      "end_time": 2531510.0,
+      "text": "Well, it won&#39;t work."
+    },
+    {
+      "index": 820,
+      "start_time": 2531510.0,
+      "end_time": 2534300.0,
+      "text": "We need more degrees of freedom."
+    },
+    {
+      "index": 821,
+      "start_time": 2534300.0,
+      "end_time": 2536020.0,
+      "text": "How do we do that?"
+    },
+    {
+      "index": 822,
+      "start_time": 2536020.0,
+      "end_time": 2540090.0,
+      "text": "Well, we pick a second set of weights and do this again."
+    },
+    {
+      "index": 823,
+      "start_time": 2540090.0,
+      "end_time": 2542280.0,
+      "text": "And we obtain the second--"
+    },
+    {
+      "index": 824,
+      "start_time": 2542280.0,
+      "end_time": 2548000.0,
+      "text": "let&#39;s call it a channel of values using different weights."
+    },
+    {
+      "index": 825,
+      "start_time": 2548000.0,
+      "end_time": 2551010.0,
+      "text": "Now since those are multi-dimensional matrices,"
+    },
+    {
+      "index": 826,
+      "start_time": 2551010.0,
+      "end_time": 2555030.0,
+      "text": "it&#39;s fairly easy to write those two matrices as one"
+    },
+    {
+      "index": 827,
+      "start_time": 2555030.0,
+      "end_time": 2557820.0,
+      "text": "by simply adding a dimension of dimension two"
+    },
+    {
+      "index": 828,
+      "start_time": 2557820.0,
+      "end_time": 2560100.0,
+      "text": "because we have two sets of values."
+    },
+    {
+      "index": 829,
+      "start_time": 2560100.0,
+      "end_time": 2565590.0,
+      "text": "And this here will be the shape of the weight made matrix"
+    },
+    {
+      "index": 830,
+      "start_time": 2565590.0,
+      "end_time": 2569960.0,
+      "text": "for one convolutional layer in a neural network."
+    },
+    {
+      "index": 831,
+      "start_time": 2574220.0,
+      "end_time": 2577610.0,
+      "text": "Now, we still have one problem left"
+    },
+    {
+      "index": 832,
+      "start_time": 2577610.0,
+      "end_time": 2582530.0,
+      "text": "which is that we need to bring the amount of information down."
+    },
+    {
+      "index": 833,
+      "start_time": 2582530.0,
+      "end_time": 2584990.0,
+      "text": "At the end, we still want only 10 outputs"
+    },
+    {
+      "index": 834,
+      "start_time": 2584990.0,
+      "end_time": 2588930.0,
+      "text": "with our 10 probabilities to recognize what this number is."
+    },
+    {
+      "index": 835,
+      "start_time": 2588930.0,
+      "end_time": 2593660.0,
+      "text": "So traditionally, this was achieved by what"
+    },
+    {
+      "index": 836,
+      "start_time": 2593660.0,
+      "end_time": 2597230.0,
+      "text": "we call a subsampling layer."
+    },
+    {
+      "index": 837,
+      "start_time": 2597230.0,
+      "end_time": 2599900.0,
+      "text": "I think it&#39;s quite useful to understand"
+    },
+    {
+      "index": 838,
+      "start_time": 2599900.0,
+      "end_time": 2602990.0,
+      "text": "how this works because it gives you a good feeling for what"
+    },
+    {
+      "index": 839,
+      "start_time": 2602990.0,
+      "end_time": 2604580.0,
+      "text": "this network is doing."
+    },
+    {
+      "index": 840,
+      "start_time": 2604580.0,
+      "end_time": 2607100.0,
+      "text": "So basically, we were scanning the image using"
+    },
+    {
+      "index": 841,
+      "start_time": 2607100.0,
+      "end_time": 2612050.0,
+      "text": "a set of weights and during training, these weights"
+    },
+    {
+      "index": 842,
+      "start_time": 2612050.0,
+      "end_time": 2615239.0,
+      "text": "will actually specialize in some kind of shape recognizer."
+    },
+    {
+      "index": 843,
+      "start_time": 2615240.0,
+      "end_time": 2617031.0,
+      "text": "There will be some weights that will become"
+    },
+    {
+      "index": 844,
+      "start_time": 2617030.0,
+      "end_time": 2618770.0,
+      "text": "very sensitive to horizontal lines"
+    },
+    {
+      "index": 845,
+      "start_time": 2618770.0,
+      "end_time": 2620210.0,
+      "text": "and some weights that will become"
+    },
+    {
+      "index": 846,
+      "start_time": 2620210.0,
+      "end_time": 2623210.0,
+      "text": "very sensitive to vertical lines, and so on."
+    },
+    {
+      "index": 847,
+      "start_time": 2623210.0,
+      "end_time": 2627000.0,
+      "text": "So basically, when you scan the image, if you simplify,"
+    },
+    {
+      "index": 848,
+      "start_time": 2627000.0,
+      "end_time": 2630299.0,
+      "text": "you get an output which is mostly I&#39;ve seen nothing,"
+    },
+    {
+      "index": 849,
+      "start_time": 2630300.0,
+      "end_time": 2631841.0,
+      "text": "I&#39;ve seen nothing, I&#39;ve seen nothing,"
+    },
+    {
+      "index": 850,
+      "start_time": 2631840.0,
+      "end_time": 2633631.0,
+      "text": "oh, I&#39;ve seen something, I&#39;ve seen nothing,"
+    },
+    {
+      "index": 851,
+      "start_time": 2633630.0,
+      "end_time": 2635699.0,
+      "text": "I&#39;ve seen nothing, oh, I&#39;ve seen something."
+    },
+    {
+      "index": 852,
+      "start_time": 2635700.0,
+      "end_time": 2639770.0,
+      "text": "The subsampling basically takes four of those outputs, two"
+    },
+    {
+      "index": 853,
+      "start_time": 2639770.0,
+      "end_time": 2643430.0,
+      "text": "by two, and it takes the maximum value."
+    },
+    {
+      "index": 854,
+      "start_time": 2643430.0,
+      "end_time": 2647090.0,
+      "text": "So it retains the biggest signal of I&#39;ve seen something"
+    },
+    {
+      "index": 855,
+      "start_time": 2647090.0,
+      "end_time": 2650610.0,
+      "text": "and passes that down to the layer below."
+    },
+    {
+      "index": 856,
+      "start_time": 2653150.0,
+      "end_time": 2655760.0,
+      "text": "But actually, there&#39;s a much simpler way"
+    },
+    {
+      "index": 857,
+      "start_time": 2655760.0,
+      "end_time": 2659930.0,
+      "text": "of condensing information."
+    },
+    {
+      "index": 858,
+      "start_time": 2659930.0,
+      "end_time": 2667010.0,
+      "text": "What if we simply play with the stride of the convolution?"
+    },
+    {
+      "index": 859,
+      "start_time": 2667010.0,
+      "end_time": 2671410.0,
+      "text": "Instead of scanning the image pixel by pixel,"
+    },
+    {
+      "index": 860,
+      "start_time": 2671410.0,
+      "end_time": 2674720.0,
+      "text": "we scan it every two pixels, we jumped by two pixels"
+    },
+    {
+      "index": 861,
+      "start_time": 2674720.0,
+      "end_time": 2676460.0,
+      "text": "between each weighted sum."
+    },
+    {
+      "index": 862,
+      "start_time": 2676460.0,
+      "end_time": 2679820.0,
+      "text": "Well, mechanically, instead of obtaining 28"
+    },
+    {
+      "index": 863,
+      "start_time": 2679820.0,
+      "end_time": 2684110.0,
+      "text": "by 28 output values, we obtain only 14 by 14 output values."
+    },
+    {
+      "index": 864,
+      "start_time": 2684110.0,
+      "end_time": 2686720.0,
+      "text": "So we have condensed our information."
+    },
+    {
+      "index": 865,
+      "start_time": 2686720.0,
+      "end_time": 2691010.0,
+      "text": "And mostly today, I&#39;m not saying this is better,"
+    },
+    {
+      "index": 866,
+      "start_time": 2691010.0,
+      "end_time": 2692950.0,
+      "text": "but it&#39;s just simpler."
+    },
+    {
+      "index": 867,
+      "start_time": 2692950.0,
+      "end_time": 2696650.0,
+      "text": "And mostly today, people who build convolutional networks"
+    },
+    {
+      "index": 868,
+      "start_time": 2696650.0,
+      "end_time": 2700370.0,
+      "text": "just use convolutional layers and play"
+    },
+    {
+      "index": 869,
+      "start_time": 2700370.0,
+      "end_time": 2706900.0,
+      "text": "with the step to condense the information and it&#39;s simpler."
+    },
+    {
+      "index": 870,
+      "start_time": 2706900.0,
+      "end_time": 2711600.0,
+      "text": "You don&#39;t need, in this way, to have these subsampling layers."
+    },
+    {
+      "index": 871,
+      "start_time": 2711600.0,
+      "end_time": 2715170.0,
+      "text": "So this is the network that I would like to build with you."
+    },
+    {
+      "index": 872,
+      "start_time": 2715170.0,
+      "end_time": 2716405.0,
+      "text": "Let&#39;s go through it."
+    },
+    {
+      "index": 873,
+      "start_time": 2716410.0,
+      "end_time": 2721855.0,
+      "text": "There is a first convolutional layer that uses patches of five"
+    },
+    {
+      "index": 874,
+      "start_time": 2721850.0,
+      "end_time": 2722510.0,
+      "text": "by five."
+    },
+    {
+      "index": 875,
+      "start_time": 2722510.0,
+      "end_time": 2725840.0,
+      "text": "I&#39;m reading through the W1 tensor."
+    },
+    {
+      "index": 876,
+      "start_time": 2725840.0,
+      "end_time": 2728030.0,
+      "text": "And we have seen that in this shape,"
+    },
+    {
+      "index": 877,
+      "start_time": 2728030.0,
+      "end_time": 2732410.0,
+      "text": "the two first digits is the size of the patch you pass."
+    },
+    {
+      "index": 878,
+      "start_time": 2732410.0,
+      "end_time": 2736340.0,
+      "text": "The third digits is the number of channels"
+    },
+    {
+      "index": 879,
+      "start_time": 2736340.0,
+      "end_time": 2737780.0,
+      "text": "it&#39;s reading from the input."
+    },
+    {
+      "index": 880,
+      "start_time": 2737780.0,
+      "end_time": 2740340.0,
+      "text": "So here I&#39;m back to my real example."
+    },
+    {
+      "index": 881,
+      "start_time": 2740340.0,
+      "end_time": 2741830.0,
+      "text": "This is a grayscale image."
+    },
+    {
+      "index": 882,
+      "start_time": 2741830.0,
+      "end_time": 2744160.0,
+      "text": "It has one value per pixel."
+    },
+    {
+      "index": 883,
+      "start_time": 2744160.0,
+      "end_time": 2747720.0,
+      "text": "So I&#39;m reading one channel of information."
+    },
+    {
+      "index": 884,
+      "start_time": 2747720.0,
+      "end_time": 2752600.0,
+      "text": "And I will be applying four of those patches to my image."
+    },
+    {
+      "index": 885,
+      "start_time": 2752600.0,
+      "end_time": 2756390.0,
+      "text": "So I obtain four channels of output values."
+    },
+    {
+      "index": 886,
+      "start_time": 2756390.0,
+      "end_time": 2757610.0,
+      "text": "OK?"
+    },
+    {
+      "index": 887,
+      "start_time": 2757610.0,
+      "end_time": 2763970.0,
+      "text": "Now second convolutional later, this time, my stride is two."
+    },
+    {
+      "index": 888,
+      "start_time": 2763970.0,
+      "end_time": 2769650.0,
+      "text": "So here, my outputs become plains of 14 by 14 values."
+    },
+    {
+      "index": 889,
+      "start_time": 2769650.0,
+      "end_time": 2770930.0,
+      "text": "So let&#39;s go through it."
+    },
+    {
+      "index": 890,
+      "start_time": 2770930.0,
+      "end_time": 2773310.0,
+      "text": "I&#39;m applying patches of four by four."
+    },
+    {
+      "index": 891,
+      "start_time": 2773310.0,
+      "end_time": 2776210.0,
+      "text": "I&#39;m reading in four channels of values"
+    },
+    {
+      "index": 892,
+      "start_time": 2776210.0,
+      "end_time": 2778580.0,
+      "text": "because that&#39;s why I output in the first layer."
+    },
+    {
+      "index": 893,
+      "start_time": 2778580.0,
+      "end_time": 2782840.0,
+      "text": "And this time, I will be using eight different batches,"
+    },
+    {
+      "index": 894,
+      "start_time": 2782840.0,
+      "end_time": 2786290.0,
+      "text": "so I will actually produce eight different channels"
+    },
+    {
+      "index": 895,
+      "start_time": 2786290.0,
+      "end_time": 2788350.0,
+      "text": "of weighted sums."
+    },
+    {
+      "index": 896,
+      "start_time": 2788350.0,
+      "end_time": 2790190.0,
+      "text": "Nextly, again, a stride of two."
+    },
+    {
+      "index": 897,
+      "start_time": 2790190.0,
+      "end_time": 2795170.0,
+      "text": "That&#39;s why I&#39;m getting down from 14 by 14 to seven by seven."
+    },
+    {
+      "index": 898,
+      "start_time": 2795170.0,
+      "end_time": 2797510.0,
+      "text": "Batch is of four by four, reading"
+    },
+    {
+      "index": 899,
+      "start_time": 2797510.0,
+      "end_time": 2799850.0,
+      "text": "in eight channels of values because that&#39;s"
+    },
+    {
+      "index": 900,
+      "start_time": 2799850.0,
+      "end_time": 2801260.0,
+      "text": "what I had in the previous layer,"
+    },
+    {
+      "index": 901,
+      "start_time": 2801260.0,
+      "end_time": 2805640.0,
+      "text": "and outputting 12 channels of values"
+    },
+    {
+      "index": 902,
+      "start_time": 2805640.0,
+      "end_time": 2809340.0,
+      "text": "this time because I used 12 different batches."
+    },
+    {
+      "index": 903,
+      "start_time": 2809340.0,
+      "end_time": 2813590.0,
+      "text": "And now I apply a fully connected layer."
+    },
+    {
+      "index": 904,
+      "start_time": 2813590.0,
+      "end_time": 2816080.0,
+      "text": "So the kind of layer we&#39;ve seen before."
+    },
+    {
+      "index": 905,
+      "start_time": 2816080.0,
+      "end_time": 2817040.0,
+      "text": "OK?"
+    },
+    {
+      "index": 906,
+      "start_time": 2817040.0,
+      "end_time": 2821510.0,
+      "text": "This fully connected layer, I remember the differences"
+    },
+    {
+      "index": 907,
+      "start_time": 2821510.0,
+      "end_time": 2824840.0,
+      "text": "in this one, each neuron does a weighted sum"
+    },
+    {
+      "index": 908,
+      "start_time": 2824840.0,
+      "end_time": 2830300.0,
+      "text": "of all the values in the little cube of values above,"
+    },
+    {
+      "index": 909,
+      "start_time": 2830300.0,
+      "end_time": 2832610.0,
+      "text": "not just a batch, all the values."
+    },
+    {
+      "index": 910,
+      "start_time": 2832610.0,
+      "end_time": 2836380.0,
+      "text": "In the next neuron in the fully connected network does,"
+    },
+    {
+      "index": 911,
+      "start_time": 2836380.0,
+      "end_time": 2839990.0,
+      "text": "again, a weighted sum of all the values using its own weights."
+    },
+    {
+      "index": 912,
+      "start_time": 2839990.0,
+      "end_time": 2841760.0,
+      "text": "It&#39;s not sharing weights."
+    },
+    {
+      "index": 913,
+      "start_time": 2841760.0,
+      "end_time": 2847790.0,
+      "text": "That&#39;s the normal neural network layer as we have seen before."
+    },
+    {
+      "index": 914,
+      "start_time": 2847790.0,
+      "end_time": 2853260.0,
+      "text": "And finally, I apply my softmax layer with my 10 outputs."
+    },
+    {
+      "index": 915,
+      "start_time": 2853260.0,
+      "end_time": 2854510.0,
+      "text": "All right."
+    },
+    {
+      "index": 916,
+      "start_time": 2854510.0,
+      "end_time": 2858140.0,
+      "text": "So can we write this in TensorFlow?"
+    },
+    {
+      "index": 917,
+      "start_time": 2858140.0,
+      "end_time": 2863450.0,
+      "text": "Well, we need one set of weights and biases for each layer."
+    },
+    {
+      "index": 918,
+      "start_time": 2863450.0,
+      "end_time": 2869220.0,
+      "text": "The only difference is that for the convolutional layers,"
+    },
+    {
+      "index": 919,
+      "start_time": 2869220.0,
+      "end_time": 2872950.0,
+      "text": "our weights will have this specific shape"
+    },
+    {
+      "index": 920,
+      "start_time": 2872950.0,
+      "end_time": 2874190.0,
+      "text": "that we have seen before."
+    },
+    {
+      "index": 921,
+      "start_time": 2874190.0,
+      "end_time": 2877570.0,
+      "text": "So choose numbers for the filter size,"
+    },
+    {
+      "index": 922,
+      "start_time": 2877570.0,
+      "end_time": 2879700.0,
+      "text": "one number for the number of input channels,"
+    },
+    {
+      "index": 923,
+      "start_time": 2879700.0,
+      "end_time": 2881637.0,
+      "text": "and one number for the number of batches"
+    },
+    {
+      "index": 924,
+      "start_time": 2881640.0,
+      "end_time": 2883723.0,
+      "text": "which corresponds to the number of output channels"
+    },
+    {
+      "index": 925,
+      "start_time": 2883720.0,
+      "end_time": 2885940.0,
+      "text": "that you produce."
+    },
+    {
+      "index": 926,
+      "start_time": 2885940.0,
+      "end_time": 2889900.0,
+      "text": "For our normal layers, we have the weights and bias as"
+    },
+    {
+      "index": 927,
+      "start_time": 2889900.0,
+      "end_time": 2891730.0,
+      "text": "defined as before."
+    },
+    {
+      "index": 928,
+      "start_time": 2891730.0,
+      "end_time": 2896680.0,
+      "text": "And so you see this truncated normal thingy up there?"
+    },
+    {
+      "index": 929,
+      "start_time": 2896680.0,
+      "end_time": 2897980.0,
+      "text": "That&#39;s just random."
+    },
+    {
+      "index": 930,
+      "start_time": 2897980.0,
+      "end_time": 2898690.0,
+      "text": "OK?"
+    },
+    {
+      "index": 931,
+      "start_time": 2898690.0,
+      "end_time": 2901150.0,
+      "text": "Its a complicated way of saying random."
+    },
+    {
+      "index": 932,
+      "start_time": 2901150.0,
+      "end_time": 2906150.0,
+      "text": "So we initialize those weights to random values, initially."
+    },
+    {
+      "index": 933,
+      "start_time": 2906150.0,
+      "end_time": 2910340.0,
+      "text": "And now this is what our model will look like."
+    },
+    {
+      "index": 934,
+      "start_time": 2910340.0,
+      "end_time": 2914680.0,
+      "text": "So TensorFlow has these helpful conv2d function."
+    },
+    {
+      "index": 935,
+      "start_time": 2914680.0,
+      "end_time": 2918700.0,
+      "text": "If you give it the weights&#39; matrix and a batch of images,"
+    },
+    {
+      "index": 936,
+      "start_time": 2918700.0,
+      "end_time": 2920770.0,
+      "text": "it will scan them in both directions."
+    },
+    {
+      "index": 937,
+      "start_time": 2920770.0,
+      "end_time": 2923800.0,
+      "text": "Its just a double loop to scan the image in both directions"
+    },
+    {
+      "index": 938,
+      "start_time": 2923800.0,
+      "end_time": 2926530.0,
+      "text": "and produce the weighted sums."
+    },
+    {
+      "index": 939,
+      "start_time": 2926530.0,
+      "end_time": 2928090.0,
+      "text": "So we do those weighted sums."
+    },
+    {
+      "index": 940,
+      "start_time": 2928090.0,
+      "end_time": 2929080.0,
+      "text": "We had a bias ."
+    },
+    {
+      "index": 941,
+      "start_time": 2929080.0,
+      "end_time": 2932530.0,
+      "text": "We feed this through an activation function,"
+    },
+    {
+      "index": 942,
+      "start_time": 2932530.0,
+      "end_time": 2936110.0,
+      "text": "in this case, the relu, and that&#39;s our outputs."
+    },
+    {
+      "index": 943,
+      "start_time": 2936110.0,
+      "end_time": 2938755.0,
+      "text": "And again, the way of stacking these layers"
+    },
+    {
+      "index": 944,
+      "start_time": 2938750.0,
+      "end_time": 2941975.0,
+      "text": "is to feed why one, the first output,"
+    },
+    {
+      "index": 945,
+      "start_time": 2941980.0,
+      "end_time": 2943990.0,
+      "text": "has the input of the next layer."
+    },
+    {
+      "index": 946,
+      "start_time": 2947020.0,
+      "end_time": 2948310.0,
+      "text": "All right."
+    },
+    {
+      "index": 947,
+      "start_time": 2948310.0,
+      "end_time": 2952570.0,
+      "text": "After our three convolutional layers,"
+    },
+    {
+      "index": 948,
+      "start_time": 2952570.0,
+      "end_time": 2958300.0,
+      "text": "we need to do a weighted sum this time"
+    },
+    {
+      "index": 949,
+      "start_time": 2958300.0,
+      "end_time": 2963220.0,
+      "text": "of all the values in this seven by seven by 12 little cube."
+    },
+    {
+      "index": 950,
+      "start_time": 2963220.0,
+      "end_time": 2965970.0,
+      "text": "So to achieve that, we will flatten this cube"
+    },
+    {
+      "index": 951,
+      "start_time": 2965970.0,
+      "end_time": 2969040.0,
+      "text": "as one big vector of values."
+    },
+    {
+      "index": 952,
+      "start_time": 2969040.0,
+      "end_time": 2971740.0,
+      "text": "That&#39;s what the Reshape here does."
+    },
+    {
+      "index": 953,
+      "start_time": 2971740.0,
+      "end_time": 2975690.0,
+      "text": "And then, two additional lines that you should recognize,"
+    },
+    {
+      "index": 954,
+      "start_time": 2975690.0,
+      "end_time": 2981430.0,
+      "text": "those are normal neural network layers as we have seen before."
+    },
+    {
+      "index": 955,
+      "start_time": 2981430.0,
+      "end_time": 2983140.0,
+      "text": "All right."
+    },
+    {
+      "index": 956,
+      "start_time": 2983140.0,
+      "end_time": 2985400.0,
+      "text": "How does this work?"
+    },
+    {
+      "index": 957,
+      "start_time": 2985400.0,
+      "end_time": 2988720.0,
+      "text": "So this time, it takes a little bit more time"
+    },
+    {
+      "index": 958,
+      "start_time": 2988720.0,
+      "end_time": 2993490.0,
+      "text": "to process so I have a video."
+    },
+    {
+      "index": 959,
+      "start_time": 2993490.0,
+      "end_time": 2995870.0,
+      "text": "You see the accuracy&#39;s shooting up really fast."
+    },
+    {
+      "index": 960,
+      "start_time": 2995870.0,
+      "end_time": 2997030.0,
+      "text": "I will have to zoom."
+    },
+    {
+      "index": 961,
+      "start_time": 2997030.0,
+      "end_time": 3001770.0,
+      "text": "And the promise to 99% accuracy is actually not too far."
+    },
+    {
+      "index": 962,
+      "start_time": 3001770.0,
+      "end_time": 3003100.0,
+      "text": "We&#39;re getting there."
+    },
+    {
+      "index": 963,
+      "start_time": 3003100.0,
+      "end_time": 3005185.0,
+      "text": "We&#39;re getting there."
+    },
+    {
+      "index": 964,
+      "start_time": 3005190.0,
+      "end_time": 3006065.0,
+      "text": "Are we getting there?"
+    },
+    {
+      "index": 965,
+      "start_time": 3008960.0,
+      "end_time": 3011400.0,
+      "text": "We&#39;re not getting there."
+    },
+    {
+      "index": 966,
+      "start_time": 3011400.0,
+      "end_time": 3012530.0,
+      "text": "Oh, damn."
+    },
+    {
+      "index": 967,
+      "start_time": 3012530.0,
+      "end_time": 3014910.0,
+      "text": "I&#39;m so disappointed again."
+    },
+    {
+      "index": 968,
+      "start_time": 3014910.0,
+      "end_time": 3019520.0,
+      "text": "I really wanted to bring this to 99% accuracy."
+    },
+    {
+      "index": 969,
+      "start_time": 3019520.0,
+      "end_time": 3023540.0,
+      "text": "We&#39;ll have to do something more, 98.9."
+    },
+    {
+      "index": 970,
+      "start_time": 3023540.0,
+      "end_time": 3026360.0,
+      "text": "Dammit, that was so close."
+    },
+    {
+      "index": 971,
+      "start_time": 3026360.0,
+      "end_time": 3026940.0,
+      "text": "All right."
+    },
+    {
+      "index": 972,
+      "start_time": 3030470.0,
+      "end_time": 3031580.0,
+      "text": "Yes."
+    },
+    {
+      "index": 973,
+      "start_time": 3031580.0,
+      "end_time": 3032900.0,
+      "text": "Exactly."
+    },
+    {
+      "index": 974,
+      "start_time": 3032900.0,
+      "end_time": 3035600.0,
+      "text": "This should be your WTF moment."
+    },
+    {
+      "index": 975,
+      "start_time": 3035600.0,
+      "end_time": 3036740.0,
+      "text": "What is that?"
+    },
+    {
+      "index": 976,
+      "start_time": 3036740.0,
+      "end_time": 3039960.0,
+      "text": "On the cross entropy loss curve."
+    },
+    {
+      "index": 977,
+      "start_time": 3039960.0,
+      "end_time": 3041370.0,
+      "text": "OK, let me zoom on it."
+    },
+    {
+      "index": 978,
+      "start_time": 3044520.0,
+      "end_time": 3045270.0,
+      "text": "You see that?"
+    },
+    {
+      "index": 979,
+      "start_time": 3045270.0,
+      "end_time": 3047370.0,
+      "text": "That disconnect?"
+    },
+    {
+      "index": 980,
+      "start_time": 3047370.0,
+      "end_time": 3048780.0,
+      "text": "Do we have a solution for this?"
+    },
+    {
+      "index": 981,
+      "start_time": 3051730.0,
+      "end_time": 3052830.0,
+      "text": "Dropout."
+    },
+    {
+      "index": 982,
+      "start_time": 3052830.0,
+      "end_time": 3053490.0,
+      "text": "Yes."
+    },
+    {
+      "index": 983,
+      "start_time": 3053490.0,
+      "end_time": 3054980.0,
+      "text": "Let&#39;s go shooting our neurons."
+    },
+    {
+      "index": 984,
+      "start_time": 3054980.0,
+      "end_time": 3058720.0,
+      "text": "It didn&#39;t work last time, maybe this time it will."
+    },
+    {
+      "index": 985,
+      "start_time": 3058720.0,
+      "end_time": 3063980.0,
+      "text": "So actually, what we will do here, it&#39;s a little trick."
+    },
+    {
+      "index": 986,
+      "start_time": 3063980.0,
+      "end_time": 3066630.0,
+      "text": "It&#39;s almost a methodology for coming up"
+    },
+    {
+      "index": 987,
+      "start_time": 3066630.0,
+      "end_time": 3070350.0,
+      "text": "with the ideal neural network for a given situation."
+    },
+    {
+      "index": 988,
+      "start_time": 3070350.0,
+      "end_time": 3074220.0,
+      "text": "And what I like doing is to restrict the degrees of freedom"
+    },
+    {
+      "index": 989,
+      "start_time": 3074220.0,
+      "end_time": 3078390.0,
+      "text": "until it&#39;s apparent that it&#39;s not optimal."
+    },
+    {
+      "index": 990,
+      "start_time": 3078390.0,
+      "end_time": 3079740.0,
+      "text": "It&#39;s hurting the performance."
+    },
+    {
+      "index": 991,
+      "start_time": 3079740.0,
+      "end_time": 3083670.0,
+      "text": "Here, I know that I can get about 99%."
+    },
+    {
+      "index": 992,
+      "start_time": 3083670.0,
+      "end_time": 3086490.0,
+      "text": "So I erased a little bit too much."
+    },
+    {
+      "index": 993,
+      "start_time": 3086490.0,
+      "end_time": 3090610.0,
+      "text": "And from that point, I give it a little bit more freedom"
+    },
+    {
+      "index": 994,
+      "start_time": 3090610.0,
+      "end_time": 3095220.0,
+      "text": "and apply dropout to make sure that this additional freedom"
+    },
+    {
+      "index": 995,
+      "start_time": 3095220.0,
+      "end_time": 3098100.0,
+      "text": "will not result in overfitting."
+    },
+    {
+      "index": 996,
+      "start_time": 3098100.0,
+      "end_time": 3100320.0,
+      "text": "And that&#39;s basically how you obtain"
+    },
+    {
+      "index": 997,
+      "start_time": 3100320.0,
+      "end_time": 3103780.0,
+      "text": "a pretty optimal neural network for a given problem."
+    },
+    {
+      "index": 998,
+      "start_time": 3103780.0,
+      "end_time": 3105600.0,
+      "text": "So that&#39;s what I have done here."
+    },
+    {
+      "index": 999,
+      "start_time": 3105600.0,
+      "end_time": 3108990.0,
+      "text": "You see, the batches are a slightly bigger, six, six,"
+    },
+    {
+      "index": 1000,
+      "start_time": 3108990.0,
+      "end_time": 3110820.0,
+      "text": "five, five, four, four, instead of five,"
+    },
+    {
+      "index": 1001,
+      "start_time": 3110820.0,
+      "end_time": 3113240.0,
+      "text": "five, four, four, and so on."
+    },
+    {
+      "index": 1002,
+      "start_time": 3113240.0,
+      "end_time": 3117150.0,
+      "text": "And I&#39;ve used a lot more batches."
+    },
+    {
+      "index": 1003,
+      "start_time": 3117150.0,
+      "end_time": 3123240.0,
+      "text": "So six patches in the first layer, 12 in the second layer,"
+    },
+    {
+      "index": 1004,
+      "start_time": 3123240.0,
+      "end_time": 3129370.0,
+      "text": "and 24 in the third layer, instead of four, eight, and 12."
+    },
+    {
+      "index": 1005,
+      "start_time": 3129370.0,
+      "end_time": 3132930.0,
+      "text": "And, I applied dropout in the fully connected layer."
+    },
+    {
+      "index": 1006,
+      "start_time": 3132930.0,
+      "end_time": 3136650.0,
+      "text": "So why not in the other layers?"
+    },
+    {
+      "index": 1007,
+      "start_time": 3136650.0,
+      "end_time": 3139290.0,
+      "text": "I tried both, it&#39;s possible to apply dropout"
+    },
+    {
+      "index": 1008,
+      "start_time": 3139290.0,
+      "end_time": 3141120.0,
+      "text": "in convolutional layers."
+    },
+    {
+      "index": 1009,
+      "start_time": 3141120.0,
+      "end_time": 3144720.0,
+      "text": "But actually, if you count the number of neurons,"
+    },
+    {
+      "index": 1010,
+      "start_time": 3144720.0,
+      "end_time": 3149160.0,
+      "text": "there is a lot more neurons in the fully connected layer."
+    },
+    {
+      "index": 1011,
+      "start_time": 3149160.0,
+      "end_time": 3152610.0,
+      "text": "So it&#39;s a lot more efficient to be shooting them there."
+    },
+    {
+      "index": 1012,
+      "start_time": 3152610.0,
+      "end_time": 3154950.0,
+      "text": "I mean, it hurts a little bit too much"
+    },
+    {
+      "index": 1013,
+      "start_time": 3154950.0,
+      "end_time": 3158110.0,
+      "text": "to shoot neurons where you have only a few of them."
+    },
+    {
+      "index": 1014,
+      "start_time": 3158110.0,
+      "end_time": 3164040.0,
+      "text": "So with this, let&#39;s run this again."
+    },
+    {
+      "index": 1015,
+      "start_time": 3164040.0,
+      "end_time": 3166770.0,
+      "text": "So again, the accuracy shoots up very fast."
+    },
+    {
+      "index": 1016,
+      "start_time": 3166770.0,
+      "end_time": 3168090.0,
+      "text": "I will have to zoom in."
+    },
+    {
+      "index": 1017,
+      "start_time": 3168090.0,
+      "end_time": 3171510.0,
+      "text": "Look where the 99% is and we are above!"
+    },
+    {
+      "index": 1018,
+      "start_time": 3171510.0,
+      "end_time": 3173220.0,
+      "text": "Yes!"
+    },
+    {
+      "index": 1019,
+      "start_time": 3173220.0,
+      "end_time": 3176190.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 1020,
+      "start_time": 3176190.0,
+      "end_time": 3178800.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 1021,
+      "start_time": 3178800.0,
+      "end_time": 3182820.0,
+      "text": "I promised you will get above 99 and we are actually"
+    },
+    {
+      "index": 1022,
+      "start_time": 3182820.0,
+      "end_time": 3184860.0,
+      "text": "quite comfortably above."
+    },
+    {
+      "index": 1023,
+      "start_time": 3184860.0,
+      "end_time": 3188160.0,
+      "text": "We get to 99.3%."
+    },
+    {
+      "index": 1024,
+      "start_time": 3188160.0,
+      "end_time": 3193920.0,
+      "text": "In this time, let&#39;s see what our dropout actually did."
+    },
+    {
+      "index": 1025,
+      "start_time": 3193920.0,
+      "end_time": 3197790.0,
+      "text": "So this is what we had with a five layer network"
+    },
+    {
+      "index": 1026,
+      "start_time": 3197790.0,
+      "end_time": 3200650.0,
+      "text": "and already a little more degrees of freedom."
+    },
+    {
+      "index": 1027,
+      "start_time": 3200650.0,
+      "end_time": 3205080.0,
+      "text": "So more patches in each layer."
+    },
+    {
+      "index": 1028,
+      "start_time": 3205080.0,
+      "end_time": 3208290.0,
+      "text": "You see, we are already above 99%."
+    },
+    {
+      "index": 1029,
+      "start_time": 3208290.0,
+      "end_time": 3215550.0,
+      "text": "But we have this big disconnect between the test"
+    },
+    {
+      "index": 1030,
+      "start_time": 3215550.0,
+      "end_time": 3217820.0,
+      "text": "and the training cross entropy."
+    },
+    {
+      "index": 1031,
+      "start_time": 3217820.0,
+      "end_time": 3221460.0,
+      "text": "Letters apply dropout, boom."
+    },
+    {
+      "index": 1032,
+      "start_time": 3221460.0,
+      "end_time": 3225240.0,
+      "text": "The test cross entropy function is brought in under control."
+    },
+    {
+      "index": 1033,
+      "start_time": 3225240.0,
+      "end_time": 3227040.0,
+      "text": "It&#39;s not shooting up as much."
+    },
+    {
+      "index": 1034,
+      "start_time": 3227040.0,
+      "end_time": 3229620.0,
+      "text": "And look, this time, we actually had"
+    },
+    {
+      "index": 1035,
+      "start_time": 3229620.0,
+      "end_time": 3231720.0,
+      "text": "a problem and this fixed it."
+    },
+    {
+      "index": 1036,
+      "start_time": 3231720.0,
+      "end_time": 3238290.0,
+      "text": "With just applying dropout, we got 2/10 of a percent"
+    },
+    {
+      "index": 1037,
+      "start_time": 3238290.0,
+      "end_time": 3239620.0,
+      "text": "more accuracy."
+    },
+    {
+      "index": 1038,
+      "start_time": 3239620.0,
+      "end_time": 3244380.0,
+      "text": "And here, we are fighting for the last percent,"
+    },
+    {
+      "index": 1039,
+      "start_time": 3244380.0,
+      "end_time": 3245910.0,
+      "text": "between 99 and 100."
+    },
+    {
+      "index": 1040,
+      "start_time": 3245910.0,
+      "end_time": 3252330.0,
+      "text": "So getting 2/10 is enormous with just a little trick."
+    },
+    {
+      "index": 1041,
+      "start_time": 3252330.0,
+      "end_time": 3253150.0,
+      "text": "All right."
+    },
+    {
+      "index": 1042,
+      "start_time": 3253150.0,
+      "end_time": 3254860.0,
+      "text": "So there we have it."
+    },
+    {
+      "index": 1043,
+      "start_time": 3254860.0,
+      "end_time": 3257730.0,
+      "text": "We built this network and brought it all the way"
+    },
+    {
+      "index": 1044,
+      "start_time": 3257730.0,
+      "end_time": 3261090.0,
+      "text": "to 99% accuracy."
+    },
+    {
+      "index": 1045,
+      "start_time": 3261090.0,
+      "end_time": 3266460.0,
+      "text": "The Cliff&#39;s Notes is just a summary."
+    },
+    {
+      "index": 1046,
+      "start_time": 3266460.0,
+      "end_time": 3273510.0,
+      "text": "And to finish, so this was mostly about TensorFlow."
+    },
+    {
+      "index": 1047,
+      "start_time": 3273510.0,
+      "end_time": 3276600.0,
+      "text": "We also have a couple of pre-trained APIs, which"
+    },
+    {
+      "index": 1048,
+      "start_time": 3276600.0,
+      "end_time": 3280530.0,
+      "text": "you can use just as APIs if your problem is standard enough"
+    },
+    {
+      "index": 1049,
+      "start_time": 3280530.0,
+      "end_time": 3283860.0,
+      "text": "to fit into one of those Cloud Vision, Cloud Speech, Natural"
+    },
+    {
+      "index": 1050,
+      "start_time": 3283860.0,
+      "end_time": 3286810.0,
+      "text": "Language, or Translate APIs."
+    },
+    {
+      "index": 1051,
+      "start_time": 3286810.0,
+      "end_time": 3291960.0,
+      "text": "And if you want to run your TensorFlow jobs in the cloud,"
+    },
+    {
+      "index": 1052,
+      "start_time": 3291960.0,
+      "end_time": 3297570.0,
+      "text": "we also have this Cloud ML Engine service"
+    },
+    {
+      "index": 1053,
+      "start_time": 3297570.0,
+      "end_time": 3299820.0,
+      "text": "that allows you to execute your TensorFlow"
+    },
+    {
+      "index": 1054,
+      "start_time": 3299820.0,
+      "end_time": 3302010.0,
+      "text": "jobs in the cloud for training."
+    },
+    {
+      "index": 1055,
+      "start_time": 3302010.0,
+      "end_time": 3304920.0,
+      "text": "And what is even more important, with just the click"
+    },
+    {
+      "index": 1056,
+      "start_time": 3304920.0,
+      "end_time": 3307890.0,
+      "text": "of a button, you can take a train model"
+    },
+    {
+      "index": 1057,
+      "start_time": 3307890.0,
+      "end_time": 3311040.0,
+      "text": "and push it to production behind an API"
+    },
+    {
+      "index": 1058,
+      "start_time": 3311040.0,
+      "end_time": 3315420.0,
+      "text": "and start serving predictions from the model in the cloud."
+    },
+    {
+      "index": 1059,
+      "start_time": 3315420.0,
+      "end_time": 3318135.0,
+      "text": "So I think that&#39;s a little technical detail,"
+    },
+    {
+      "index": 1060,
+      "start_time": 3318140.0,
+      "end_time": 3319835.0,
+      "text": "but from an engineering perspective,"
+    },
+    {
+      "index": 1061,
+      "start_time": 3319830.0,
+      "end_time": 3323040.0,
+      "text": "it&#39;s quite significant that you have a very easy way of pushing"
+    },
+    {
+      "index": 1062,
+      "start_time": 3323040.0,
+      "end_time": 3325200.0,
+      "text": "something to prod."
+    },
+    {
+      "index": 1063,
+      "start_time": 3325200.0,
+      "end_time": 3325980.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 1064,
+      "start_time": 3325980.0,
+      "end_time": 3329580.0,
+      "text": "You have the code on GitHub and this slide deck is freely"
+    },
+    {
+      "index": 1065,
+      "start_time": 3329580.0,
+      "end_time": 3331740.0,
+      "text": "available at that URL."
+    },
+    {
+      "index": 1066,
+      "start_time": 3331740.0,
+      "end_time": 3333990.0,
+      "text": "And with that, we have five minutes for questions,"
+    },
+    {
+      "index": 1067,
+      "start_time": 3333990.0,
+      "end_time": 3335280.0,
+      "text": "if you have any."
+    },
+    {
+      "index": 1068,
+      "start_time": 3335280.0,
+      "end_time": 3336580.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 1069,
+      "start_time": 3336580.0,
+      "end_time": 3337080.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 1070,
+      "start_time": 3341580.0,
+      "end_time": 3344330.0,
+      "text": "[MUSIC PLAYING]"
+    }
+  ]
+}

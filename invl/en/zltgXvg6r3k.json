@@ -1,0 +1,1092 @@
+{
+  "video_id": "zltgXvg6r3k",
+  "title": "Instructions & Programs: Crash Course Computer Science #8",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3020.0,
+      "end_time": 6140.0,
+      "text": "Hi, I’m Carrie Anne and this is Crash Course Computer Science!"
+    },
+    {
+      "index": 2,
+      "start_time": 6140.0,
+      "end_time": 10070.0,
+      "text": "Last episode, we combined an ALU, control unit, some memory, and a clock together to"
+    },
+    {
+      "index": 3,
+      "start_time": 10070.0,
+      "end_time": 14780.0,
+      "text": "make a basic, but functional Central Processing Unit – or CPU – the beating, ticking heart"
+    },
+    {
+      "index": 4,
+      "start_time": 14780.0,
+      "end_time": 15800.0,
+      "text": "of a computer."
+    },
+    {
+      "index": 5,
+      "start_time": 15800.0,
+      "end_time": 19529.0,
+      "text": "We’ve done all the hard work of building many of these components from the electronic"
+    },
+    {
+      "index": 6,
+      "start_time": 19529.0,
+      "end_time": 23900.0,
+      "text": "circuits up, and now it’s time to give our CPU some actual instructions to process!"
+    },
+    {
+      "index": 7,
+      "start_time": 23900.0,
+      "end_time": 28189.0,
+      "text": "The thing that makes a CPU powerful is the fact that it is programmable – if you write"
+    },
+    {
+      "index": 8,
+      "start_time": 28189.0,
+      "end_time": 31860.0,
+      "text": "a different sequence of instructions, then the CPU will perform a different task."
+    },
+    {
+      "index": 9,
+      "start_time": 31860.0,
+      "end_time": 36200.0,
+      "text": "So the CPU is a piece of hardware which is controlled by easy-to-modify software!"
+    },
+    {
+      "index": 10,
+      "start_time": 36200.0,
+      "end_time": 44880.0,
+      "text": "INTRO"
+    },
+    {
+      "index": 11,
+      "start_time": 44880.0,
+      "end_time": 48610.0,
+      "text": "Let’s quickly revisit the simple program that we stepped through last episode."
+    },
+    {
+      "index": 12,
+      "start_time": 48610.0,
+      "end_time": 50740.0,
+      "text": "The computer memory looked like this."
+    },
+    {
+      "index": 13,
+      "start_time": 50740.0,
+      "end_time": 52370.0,
+      "text": "Each address contained 8 bits of data."
+    },
+    {
+      "index": 14,
+      "start_time": 52370.0,
+      "end_time": 57970.0,
+      "text": "For our hypothetical CPU, the first four bits specified the operation code, or opcode, and"
+    },
+    {
+      "index": 15,
+      "start_time": 57970.0,
+      "end_time": 60920.0,
+      "text": "the second set of four bits specified an address or registers."
+    },
+    {
+      "index": 16,
+      "start_time": 60920.0,
+      "end_time": 64530.0,
+      "text": "In memory address zero we have 0010 1110."
+    },
+    {
+      "index": 17,
+      "start_time": 64530.0,
+      "end_time": 70229.0,
+      "text": "Again, those first four bits are our opcode which corresponds to a “LOAD_A” instruction."
+    },
+    {
+      "index": 18,
+      "start_time": 70229.0,
+      "end_time": 74969.0,
+      "text": "This instruction reads data from a location of memory specified in those last four bits"
+    },
+    {
+      "index": 19,
+      "start_time": 74969.0,
+      "end_time": 81240.0,
+      "text": "of the instruction and saves it into Register A. In this case, 1110, or 14 in decimal."
+    },
+    {
+      "index": 20,
+      "start_time": 81240.0,
+      "end_time": 87680.0,
+      "text": "So let’s not think of this of memory address 0 as “0010 1110”, but rather as the instruction"
+    },
+    {
+      "index": 21,
+      "start_time": 87680.0,
+      "end_time": 88680.0,
+      "text": "“LOAD_A 14”."
+    },
+    {
+      "index": 22,
+      "start_time": 88680.0,
+      "end_time": 90689.0,
+      "text": "That’s much easier to read and understand!"
+    },
+    {
+      "index": 23,
+      "start_time": 90689.0,
+      "end_time": 91920.0,
+      "text": "And for me to say!"
+    },
+    {
+      "index": 24,
+      "start_time": 91920.0,
+      "end_time": 95140.0,
+      "text": "And we can do the same thing for the rest of the data in memory."
+    },
+    {
+      "index": 25,
+      "start_time": 95140.0,
+      "end_time": 99250.0,
+      "text": "In this case, our program is just four instructions long, and we’ve put some numbers into memory"
+    },
+    {
+      "index": 26,
+      "start_time": 99250.0,
+      "end_time": 101499.0,
+      "text": "too, 3 and 14."
+    },
+    {
+      "index": 27,
+      "start_time": 101499.0,
+      "end_time": 102819.0,
+      "text": "So now let’s step through this program:"
+    },
+    {
+      "index": 28,
+      "start_time": 102819.0,
+      "end_time": 107709.0,
+      "text": "First is LOAD_A 14, which takes the value in address 14, which is the number 3, and"
+    },
+    {
+      "index": 29,
+      "start_time": 107709.0,
+      "end_time": 109069.0,
+      "text": "stores it into Register A."
+    },
+    {
+      "index": 30,
+      "start_time": 109069.0,
+      "end_time": 114039.0,
+      "text": "Then we have a “LOAD_B 15” instruction, which takes the value in memory location 15,"
+    },
+    {
+      "index": 31,
+      "start_time": 114039.0,
+      "end_time": 116540.0,
+      "text": "which is the number 14, and saves it into Register B."
+    },
+    {
+      "index": 32,
+      "start_time": 116540.0,
+      "end_time": 117540.0,
+      "text": "Okay."
+    },
+    {
+      "index": 33,
+      "start_time": 117540.0,
+      "end_time": 118620.0,
+      "text": "Easy enough."
+    },
+    {
+      "index": 34,
+      "start_time": 118620.0,
+      "end_time": 120320.0,
+      "text": "But now we have an “ADD” instruction."
+    },
+    {
+      "index": 35,
+      "start_time": 120320.0,
+      "end_time": 124940.0,
+      "text": "This tells the processor to use the ALU to add two registers together, in this case,"
+    },
+    {
+      "index": 36,
+      "start_time": 124940.0,
+      "end_time": 126640.0,
+      "text": "B and A are specified."
+    },
+    {
+      "index": 37,
+      "start_time": 126640.0,
+      "end_time": 131840.0,
+      "text": "The ordering is important, because the resulting sum is saved into the second register that’s specified."
+    },
+    {
+      "index": 38,
+      "start_time": 131840.0,
+      "end_time": 135200.0,
+      "text": "So in this case, the resulting sum is saved into Register A."
+    },
+    {
+      "index": 39,
+      "start_time": 135200.0,
+      "end_time": 139810.0,
+      "text": "And finally, our last instruction is “STORE_A 13”, which instructs the CPU to write whatever"
+    },
+    {
+      "index": 40,
+      "start_time": 139810.0,
+      "end_time": 143450.0,
+      "text": "value is in Register A into memory location 13."
+    },
+    {
+      "index": 41,
+      "start_time": 143450.0,
+      "end_time": 144450.0,
+      "text": "Yesss!"
+    },
+    {
+      "index": 42,
+      "start_time": 144450.0,
+      "end_time": 146000.0,
+      "text": "Our program adds two numbers together."
+    },
+    {
+      "index": 43,
+      "start_time": 146000.0,
+      "end_time": 150170.0,
+      "text": "That’s about as exciting as it gets when we only have four instructions to play with."
+    },
+    {
+      "index": 44,
+      "start_time": 150170.0,
+      "end_time": 151180.0,
+      "text": "So let’s add some more!"
+    },
+    {
+      "index": 45,
+      "start_time": 151180.0,
+      "end_time": 155720.0,
+      "text": "Now we’ve got a subtract function, which like ADD, specifies two registers to operate on."
+    },
+    {
+      "index": 46,
+      "start_time": 155720.0,
+      "end_time": 158300.0,
+      "text": "We’ve also got a fancy new instruction called JUMP."
+    },
+    {
+      "index": 47,
+      "start_time": 158300.0,
+      "end_time": 162040.0,
+      "text": "As the name implies, this causes the program to “jump” to a new location."
+    },
+    {
+      "index": 48,
+      "start_time": 162040.0,
+      "end_time": 165380.0,
+      "text": "This is useful if we want to change the order of instructions, or choose to skip some instructions."
+    },
+    {
+      "index": 49,
+      "start_time": 165380.0,
+      "end_time": 168950.0,
+      "text": "For example, a JUMP 0, would cause the program to go back to the beginning."
+    },
+    {
+      "index": 50,
+      "start_time": 168950.0,
+      "end_time": 173280.0,
+      "text": "At a low level, this is done by writing the value specified in the last four bits into"
+    },
+    {
+      "index": 51,
+      "start_time": 173280.0,
+      "end_time": 176570.0,
+      "text": "the instruction address register, overwriting the current value."
+    },
+    {
+      "index": 52,
+      "start_time": 176570.0,
+      "end_time": 180400.0,
+      "text": "We’ve also added a special version of JUMP called JUMP_NEGATIVE."
+    },
+    {
+      "index": 53,
+      "start_time": 180400.0,
+      "end_time": 184170.0,
+      "text": "This only jumps the program if the ALU’s negative flag is set to true."
+    },
+    {
+      "index": 54,
+      "start_time": 184170.0,
+      "end_time": 188900.0,
+      "text": "As we talked about in Episode 5, the negative flag is only set when the result of an arithmetic"
+    },
+    {
+      "index": 55,
+      "start_time": 188900.0,
+      "end_time": 190580.0,
+      "text": "operation is negative."
+    },
+    {
+      "index": 56,
+      "start_time": 190580.0,
+      "end_time": 194140.0,
+      "text": "If the result of the arithmetic was zero or positive, the negative flag would not be set."
+    },
+    {
+      "index": 57,
+      "start_time": 194140.0,
+      "end_time": 199320.0,
+      "text": "So the JUMP NEGATIVE won’t jump anywhere, and the CPU will just continue on to the next instruction."
+    },
+    {
+      "index": 58,
+      "start_time": 199320.0,
+      "end_time": 204220.0,
+      "text": "And finally, computers need to be told when to stop processing, so we need a HALT instruction."
+    },
+    {
+      "index": 59,
+      "start_time": 204220.0,
+      "end_time": 208090.0,
+      "text": "Our previous program really should have looked like this to be correct, otherwise the CPU"
+    },
+    {
+      "index": 60,
+      "start_time": 208090.0,
+      "end_time": 212430.0,
+      "text": "would have just continued on after the STORE instruction, processing all those 0’s."
+    },
+    {
+      "index": 61,
+      "start_time": 212430.0,
+      "end_time": 216580.0,
+      "text": "But there is no instruction with an opcode of 0, and so the computer would have crashed!"
+    },
+    {
+      "index": 62,
+      "start_time": 216580.0,
+      "end_time": 220420.0,
+      "text": "It’s important to point out here that we’re storing both instructions and data in the"
+    },
+    {
+      "index": 63,
+      "start_time": 220420.0,
+      "end_time": 221420.0,
+      "text": "same memory."
+    },
+    {
+      "index": 64,
+      "start_time": 221420.0,
+      "end_time": 223850.0,
+      "text": "There is no difference fundamentally -- it’s all just binary numbers."
+    },
+    {
+      "index": 65,
+      "start_time": 223850.0,
+      "end_time": 227680.0,
+      "text": "So the HALT instruction is really important because it allows us to separate the two."
+    },
+    {
+      "index": 66,
+      "start_time": 227680.0,
+      "end_time": 231640.0,
+      "text": "Okay, so let’s make our program a bit more interesting, by adding a JUMP."
+    },
+    {
+      "index": 67,
+      "start_time": 231640.0,
+      "end_time": 235480.0,
+      "text": "We’ll also modify our two starting values in memory to 1 and 1."
+    },
+    {
+      "index": 68,
+      "start_time": 235480.0,
+      "end_time": 238290.0,
+      "text": "Lets step through this program just as our CPU would."
+    },
+    {
+      "index": 69,
+      "start_time": 238290.0,
+      "end_time": 241480.0,
+      "text": "First, LOAD_A 14 loads the value 1 into Register A."
+    },
+    {
+      "index": 70,
+      "start_time": 241480.0,
+      "end_time": 245370.0,
+      "text": "Next, LOAD_B 15 loads the value 1 into Register B."
+    },
+    {
+      "index": 71,
+      "start_time": 245370.0,
+      "end_time": 251020.0,
+      "text": "As before, we ADD registers B and A together, with the sum going into Register A. 1+1 = 2,"
+    },
+    {
+      "index": 72,
+      "start_time": 251020.0,
+      "end_time": 255160.0,
+      "text": "so now Register A has the value 2 in it (stored in binary of course)"
+    },
+    {
+      "index": 73,
+      "start_time": 255160.0,
+      "end_time": 258720.0,
+      "text": "Then the STORE instruction saves that into memory location 13."
+    },
+    {
+      "index": 74,
+      "start_time": 258720.00000000003,
+      "end_time": 260780.00000000003,
+      "text": "Now we hit a “JUMP 2” instruction."
+    },
+    {
+      "index": 75,
+      "start_time": 260779.99999999997,
+      "end_time": 264850.0,
+      "text": "This causes the processor to overwrite the value in the instruction address register,"
+    },
+    {
+      "index": 76,
+      "start_time": 264850.0,
+      "end_time": 267050.0,
+      "text": "which is currently 4, with the new value, 2."
+    },
+    {
+      "index": 77,
+      "start_time": 267050.0,
+      "end_time": 271470.0,
+      "text": "Now, on the processor’s next fetch cycle, we don’t fetch HALT, instead we fetch the"
+    },
+    {
+      "index": 78,
+      "start_time": 271470.0,
+      "end_time": 274140.0,
+      "text": "instruction at memory location 2, which is ADD B A."
+    },
+    {
+      "index": 79,
+      "start_time": 274140.0,
+      "end_time": 275160.0,
+      "text": "We’ve jumped!"
+    },
+    {
+      "index": 80,
+      "start_time": 275160.0,
+      "end_time": 278900.0,
+      "text": "Register A contains the value 2, and register B contains the value 1."
+    },
+    {
+      "index": 81,
+      "start_time": 278900.0,
+      "end_time": 282930.0,
+      "text": "So 1+2 = 3, so now Register A has the value 3."
+    },
+    {
+      "index": 82,
+      "start_time": 282930.0,
+      "end_time": 284520.0,
+      "text": "We store that into memory."
+    },
+    {
+      "index": 83,
+      "start_time": 284520.0,
+      "end_time": 287540.0,
+      "text": "And we’ve hit the JUMP again, back to ADD B A."
+    },
+    {
+      "index": 84,
+      "start_time": 287540.0,
+      "end_time": 289040.0,
+      "text": "1+3 = 4."
+    },
+    {
+      "index": 85,
+      "start_time": 289040.0,
+      "end_time": 291190.0,
+      "text": "So now register A has the value 4."
+    },
+    {
+      "index": 86,
+      "start_time": 291190.0,
+      "end_time": 292420.0,
+      "text": "See what&#39;s happening here?"
+    },
+    {
+      "index": 87,
+      "start_time": 292420.0,
+      "end_time": 293870.0,
+      "text": "Every loop, we’re adding one."
+    },
+    {
+      "index": 88,
+      "start_time": 293870.0,
+      "end_time": 294870.0,
+      "text": "Its counting up!"
+    },
+    {
+      "index": 89,
+      "start_time": 294870.0,
+      "end_time": 295870.0,
+      "text": "Cooooool."
+    },
+    {
+      "index": 90,
+      "start_time": 295870.0,
+      "end_time": 297470.0,
+      "text": "But notice there’s no way to ever escape."
+    },
+    {
+      "index": 91,
+      "start_time": 297470.0,
+      "end_time": 301190.0,
+      "text": "We’re never.. ever.. going to get to that halt instruction, because we’re always going"
+    },
+    {
+      "index": 92,
+      "start_time": 301190.0,
+      "end_time": 302350.0,
+      "text": "to hit that JUMP."
+    },
+    {
+      "index": 93,
+      "start_time": 302350.0,
+      "end_time": 307270.0,
+      "text": "This is called an infinite loop – a program that runs forever… ever… ever… ever…"
+    },
+    {
+      "index": 94,
+      "start_time": 307270.0,
+      "end_time": 308000.0,
+      "text": "ever"
+    },
+    {
+      "index": 95,
+      "start_time": 308000.0,
+      "end_time": 310040.0,
+      "text": "To break the loop, we need a conditional jump."
+    },
+    {
+      "index": 96,
+      "start_time": 310040.0,
+      "end_time": 313190.0,
+      "text": "A jump that only happens if a certain condition is met."
+    },
+    {
+      "index": 97,
+      "start_time": 313190.0,
+      "end_time": 318560.0,
+      "text": "Our JUMP_NEGATIVE is one example of a conditional jump, but computers have other types too - like"
+    },
+    {
+      "index": 98,
+      "start_time": 318560.0,
+      "end_time": 320840.0,
+      "text": "JUMP IF EQUAL and JUMP IF GREATER."
+    },
+    {
+      "index": 99,
+      "start_time": 320840.0,
+      "end_time": 324390.0,
+      "text": "So let’s make our code a little fancier and step through it."
+    },
+    {
+      "index": 100,
+      "start_time": 324390.0,
+      "end_time": 328720.0,
+      "text": "Just like before, the program starts by loading values from memory into registers A and B."
+    },
+    {
+      "index": 101,
+      "start_time": 328720.0,
+      "end_time": 334100.0,
+      "text": "In this example, the number 11 gets loaded into Register A, and 5 gets loaded into Register B."
+    },
+    {
+      "index": 102,
+      "start_time": 334100.0,
+      "end_time": 339620.0,
+      "text": "Now we subtract register B from register A. That’s 11 minus 5, which is 6, and so 6"
+    },
+    {
+      "index": 103,
+      "start_time": 339620.0,
+      "end_time": 340850.0,
+      "text": "gets saved into Register A."
+    },
+    {
+      "index": 104,
+      "start_time": 340850.0,
+      "end_time": 342550.0,
+      "text": "Now we hit our JUMP NEGATIVE."
+    },
+    {
+      "index": 105,
+      "start_time": 342550.0,
+      "end_time": 344380.0,
+      "text": "The last ALU result was 6."
+    },
+    {
+      "index": 106,
+      "start_time": 344380.0,
+      "end_time": 347660.0,
+      "text": "That’s a positive number, so the the negative flag is false."
+    },
+    {
+      "index": 107,
+      "start_time": 347660.0,
+      "end_time": 349620.0,
+      "text": "That means the processor does not jump."
+    },
+    {
+      "index": 108,
+      "start_time": 349620.0,
+      "end_time": 351580.0,
+      "text": "So we continue on to the next instruction..."
+    },
+    {
+      "index": 109,
+      "start_time": 351580.0,
+      "end_time": 352640.0,
+      "text": "...which is a JUMP 2."
+    },
+    {
+      "index": 110,
+      "start_time": 352640.0,
+      "end_time": 356440.0,
+      "text": "No conditional on this one, so we jump to instruction 2 no matter what."
+    },
+    {
+      "index": 111,
+      "start_time": 356440.0,
+      "end_time": 361420.0,
+      "text": "Ok, so we’re back at our SUBTRACT Register B from Register A. 6 minus 5 equals 1."
+    },
+    {
+      "index": 112,
+      "start_time": 361420.0,
+      "end_time": 363260.0,
+      "text": "So 1 gets saved into register A."
+    },
+    {
+      "index": 113,
+      "start_time": 363260.0,
+      "end_time": 364260.0,
+      "text": "Next instruction."
+    },
+    {
+      "index": 114,
+      "start_time": 364260.0,
+      "end_time": 366040.0,
+      "text": "We’re back again at our JUMP NEGATIVE."
+    },
+    {
+      "index": 115,
+      "start_time": 366040.0,
+      "end_time": 371930.0,
+      "text": "1 is also a positive number, so the CPU continues on to the JUMP 2, looping back around again"
+    },
+    {
+      "index": 116,
+      "start_time": 371930.0,
+      "end_time": 373680.0,
+      "text": "to the SUBTRACT instruction."
+    },
+    {
+      "index": 117,
+      "start_time": 373680.0,
+      "end_time": 374970.0,
+      "text": "This time is different though."
+    },
+    {
+      "index": 118,
+      "start_time": 374970.0,
+      "end_time": 377350.0,
+      "text": "1 minus 5 is negative 4."
+    },
+    {
+      "index": 119,
+      "start_time": 377350.0,
+      "end_time": 380690.0,
+      "text": "And so the ALU sets its negative flag to true for the first time."
+    },
+    {
+      "index": 120,
+      "start_time": 380690.0,
+      "end_time": 383260.0,
+      "text": "Now, when we advance to the next instruction,"
+    },
+    {
+      "index": 121,
+      "start_time": 383260.0,
+      "end_time": 387400.0,
+      "text": "JUMP_NEGATIVE 5, the CPU executes the jump to memory location 5."
+    },
+    {
+      "index": 122,
+      "start_time": 387400.0,
+      "end_time": 389160.0,
+      "text": "We’re out of the infinite loop!"
+    },
+    {
+      "index": 123,
+      "start_time": 389160.0,
+      "end_time": 395500.0,
+      "text": "Now we have a ADD B to A. Negative 4 plus 5, is positive 1, and we save that into Register A."
+    },
+    {
+      "index": 124,
+      "start_time": 395500.0,
+      "end_time": 399760.0,
+      "text": "Next we have a STORE instruction that saves Register A into memory address 13."
+    },
+    {
+      "index": 125,
+      "start_time": 399760.0,
+      "end_time": 403660.0,
+      "text": "Lastly, we hit our HALT instruction and the computer rests."
+    },
+    {
+      "index": 126,
+      "start_time": 403660.0,
+      "end_time": 409750.0,
+      "text": "So even though this program is only 7 instructions long, the CPU ended up executing 13 instructions,"
+    },
+    {
+      "index": 127,
+      "start_time": 409750.0,
+      "end_time": 412040.0,
+      "text": "and that&#39;s because it looped twice internally."
+    },
+    {
+      "index": 128,
+      "start_time": 412040.0,
+      "end_time": 416380.0,
+      "text": "This code calculated the remainder if we divide 5 into 11, which is one."
+    },
+    {
+      "index": 129,
+      "start_time": 416380.0,
+      "end_time": 420660.0,
+      "text": "With a few extra lines of code, we could also keep track of how many loops we did, the count"
+    },
+    {
+      "index": 130,
+      "start_time": 420660.0,
+      "end_time": 425729.0,
+      "text": "of which would be how many times 5 went into 11… we did two loops, so that means 5 goes"
+    },
+    {
+      "index": 131,
+      "start_time": 425729.0,
+      "end_time": 428470.0,
+      "text": "into 11 two times... with a remainder of 1."
+    },
+    {
+      "index": 132,
+      "start_time": 428470.0,
+      "end_time": 432449.0,
+      "text": "And of course this code could work for any two numbers, which we can just change in memory"
+    },
+    {
+      "index": 133,
+      "start_time": 432449.0,
+      "end_time": 437280.0,
+      "text": "to whatever we want: 7 and 81, 18 and 54, it doesn’t matter -- that’s the power"
+    },
+    {
+      "index": 134,
+      "start_time": 437280.0,
+      "end_time": 438280.0,
+      "text": "of software!"
+    },
+    {
+      "index": 135,
+      "start_time": 438280.0,
+      "end_time": 441480.0,
+      "text": "Software also allowed us to do something our hardware could not."
+    },
+    {
+      "index": 136,
+      "start_time": 441480.0,
+      "end_time": 446240.0,
+      "text": "Remember, our ALU didn’t have the functionality to divide two numbers, instead it’s the"
+    },
+    {
+      "index": 137,
+      "start_time": 446240.0,
+      "end_time": 448770.0,
+      "text": "program we made that gave us that functionality."
+    },
+    {
+      "index": 138,
+      "start_time": 448770.0,
+      "end_time": 452729.0,
+      "text": "And then other programs can use our divide program to do even fancier things."
+    },
+    {
+      "index": 139,
+      "start_time": 452729.0,
+      "end_time": 454140.0,
+      "text": "And you know what that means."
+    },
+    {
+      "index": 140,
+      "start_time": 454140.0,
+      "end_time": 461780.0,
+      "text": "New levels of abstraction!"
+    },
+    {
+      "index": 141,
+      "start_time": 461780.0,
+      "end_time": 466521.0,
+      "text": "So, our hypothetical CPU is very basic – all of its instructions are 8 bits long, with"
+    },
+    {
+      "index": 142,
+      "start_time": 466521.0,
+      "end_time": 469700.0,
+      "text": "the opcode occupying only the first four bits."
+    },
+    {
+      "index": 143,
+      "start_time": 469700.0,
+      "end_time": 474370.0,
+      "text": "So even if we used every combination of 4 bits, our CPU would only be able to support"
+    },
+    {
+      "index": 144,
+      "start_time": 474370.0,
+      "end_time": 476790.0,
+      "text": "a maximum of 16 different instructions."
+    },
+    {
+      "index": 145,
+      "start_time": 476790.0,
+      "end_time": 481720.0,
+      "text": "On top of that, several of our instructions used the last 4 bits to specify a memory location."
+    },
+    {
+      "index": 146,
+      "start_time": 481720.0,
+      "end_time": 486640.0,
+      "text": "But again, 4 bits can only encode 16 different values, meaning we can address a maximum of"
+    },
+    {
+      "index": 147,
+      "start_time": 486640.0,
+      "end_time": 490210.0,
+      "text": "16 memory locations - that’s not a lot to work with."
+    },
+    {
+      "index": 148,
+      "start_time": 490210.0,
+      "end_time": 495120.0,
+      "text": "For example, we couldn’t even JUMP to location 17, because we literally can’t fit the number"
+    },
+    {
+      "index": 149,
+      "start_time": 495120.0,
+      "end_time": 496830.0,
+      "text": "17 into 4 bits."
+    },
+    {
+      "index": 150,
+      "start_time": 496830.0,
+      "end_time": 499840.0,
+      "text": "For this reason, real, modern CPUs use two strategies."
+    },
+    {
+      "index": 151,
+      "start_time": 499840.0,
+      "end_time": 503850.0,
+      "text": "The most straightforward approach is just to have bigger instructions, with more bits,"
+    },
+    {
+      "index": 152,
+      "start_time": 503850.0,
+      "end_time": 505920.0,
+      "text": "like 32 or 64 bits."
+    },
+    {
+      "index": 153,
+      "start_time": 505920.0,
+      "end_time": 508240.0,
+      "text": "This is called the instruction length."
+    },
+    {
+      "index": 154,
+      "start_time": 508240.0,
+      "end_time": 509240.0,
+      "text": "Unsurprisingly."
+    },
+    {
+      "index": 155,
+      "start_time": 509240.0,
+      "end_time": 512130.0,
+      "text": "The second approach is to use variable length instructions."
+    },
+    {
+      "index": 156,
+      "start_time": 512130.0,
+      "end_time": 515539.0,
+      "text": "For example, imagine a CPU that uses 8 bit opcodes."
+    },
+    {
+      "index": 157,
+      "start_time": 515539.0,
+      "end_time": 520050.0,
+      "text": "When the CPU sees an instruction that needs no extra values, like the HALT instruction,"
+    },
+    {
+      "index": 158,
+      "start_time": 520049.99999999994,
+      "end_time": 521639.99999999994,
+      "text": "it can just execute it immediately."
+    },
+    {
+      "index": 159,
+      "start_time": 521640.0,
+      "end_time": 525430.0,
+      "text": "However, if it sees something like a JUMP instruction, it knows it must also fetch"
+    },
+    {
+      "index": 160,
+      "start_time": 525430.0,
+      "end_time": 530090.0,
+      "text": "the address to jump to, which is saved immediately behind the JUMP instruction in memory."
+    },
+    {
+      "index": 161,
+      "start_time": 530090.0,
+      "end_time": 532890.0,
+      "text": "This is called, logically enough, an Immediate Value."
+    },
+    {
+      "index": 162,
+      "start_time": 532890.0,
+      "end_time": 536850.0,
+      "text": "In such processor designs, instructions can be any number of bytes long, which makes the"
+    },
+    {
+      "index": 163,
+      "start_time": 536850.0,
+      "end_time": 539160.0,
+      "text": "fetch cycle of the CPU a tad more complicated."
+    },
+    {
+      "index": 164,
+      "start_time": 539160.0,
+      "end_time": 544520.0,
+      "text": "Now, our example CPU and instruction set is hypothetical, designed to illustrate key working"
+    },
+    {
+      "index": 165,
+      "start_time": 544520.0,
+      "end_time": 545520.0,
+      "text": "principles."
+    },
+    {
+      "index": 166,
+      "start_time": 545520.0,
+      "end_time": 547860.0,
+      "text": "So I want to leave you with a real CPU example."
+    },
+    {
+      "index": 167,
+      "start_time": 547860.0,
+      "end_time": 551150.0,
+      "text": "In 1971, Intel released the 4004 processor."
+    },
+    {
+      "index": 168,
+      "start_time": 551150.0,
+      "end_time": 555880.0,
+      "text": "It was the first CPU put all into a single chip and paved the path to the intel processors"
+    },
+    {
+      "index": 169,
+      "start_time": 555880.0,
+      "end_time": 557160.0,
+      "text": "we know and love today."
+    },
+    {
+      "index": 170,
+      "start_time": 557160.0,
+      "end_time": 559740.0,
+      "text": "It supported 46 instructions, shown here."
+    },
+    {
+      "index": 171,
+      "start_time": 559740.0,
+      "end_time": 562230.0,
+      "text": "Which was enough to build an entire working computer."
+    },
+    {
+      "index": 172,
+      "start_time": 562230.0,
+      "end_time": 566860.0,
+      "text": "And it used many of the instructions we’ve talked about like JUMP ADD SUBTRACT and LOAD."
+    },
+    {
+      "index": 173,
+      "start_time": 566860.0,
+      "end_time": 571710.0,
+      "text": "It also uses 8-bit immediate values, like we just talked about, for things like JUMPs,"
+    },
+    {
+      "index": 174,
+      "start_time": 571710.0,
+      "end_time": 573260.0,
+      "text": "in order to address more memory."
+    },
+    {
+      "index": 175,
+      "start_time": 573260.0,
+      "end_time": 576310.0,
+      "text": "And processors have come a long way since 1971."
+    },
+    {
+      "index": 176,
+      "start_time": 576310.0,
+      "end_time": 581130.0,
+      "text": "A modern computer processor, like an Intel Core i7, has thousands of different instructions"
+    },
+    {
+      "index": 177,
+      "start_time": 581130.0,
+      "end_time": 584360.0,
+      "text": "and instruction variants, ranging from one to fifteen bytes long."
+    },
+    {
+      "index": 178,
+      "start_time": 584360.0,
+      "end_time": 588010.0,
+      "text": "For example, there’s over a dozens different opcodes just for variants of ADD!"
+    },
+    {
+      "index": 179,
+      "start_time": 588010.0,
+      "end_time": 592510.0,
+      "text": "And this huge growth in instruction set size is due in large part to extra bells and whistles"
+    },
+    {
+      "index": 180,
+      "start_time": 592510.0,
+      "end_time": 597520.0,
+      "text": "that have been added to processor designs overtime, which we’ll talk about next episode."
+    },
+    {
+      "index": 181,
+      "start_time": 597520.0,
+      "end_time": 607520.0,
+      "text": "See you next week!"
+    }
+  ]
+}

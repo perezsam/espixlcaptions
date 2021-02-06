@@ -1,0 +1,708 @@
+{
+  "video_id": "QFGqM1H0bQ0",
+  "title": "Java Exception Handling - 041",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 1690.0,
+      "end_time": 6309.0,
+      "text": "In any computer program, bad things can happen despite our awesome code. Bad things can be"
+    },
+    {
+      "index": 2,
+      "start_time": 6309.0,
+      "end_time": 10690.0,
+      "text": "errors like trying to access an element in array that doesn&#39;t exist. Or dividing a number"
+    },
+    {
+      "index": 3,
+      "start_time": 10690.0,
+      "end_time": 15820.0,
+      "text": "by zero. These failure events are called Java exceptions."
+    },
+    {
+      "index": 4,
+      "start_time": 15820.0,
+      "end_time": 21119.0,
+      "text": "An exception in Java is an unexpected event that happens and the program cannot continue"
+    },
+    {
+      "index": 5,
+      "start_time": 21119.0,
+      "end_time": 25230.0,
+      "text": "normal behavior until the problem is addressed. These exception events are something that"
+    },
+    {
+      "index": 6,
+      "start_time": 25230.0,
+      "end_time": 31390.0,
+      "text": "shouldn&#39;t, but in some rare cases, do happen. When an exception does happen, we say the"
+    },
+    {
+      "index": 7,
+      "start_time": 31390.0,
+      "end_time": 33239.0,
+      "text": "exception is thrown."
+    },
+    {
+      "index": 8,
+      "start_time": 33239.0,
+      "end_time": 38578.0,
+      "text": "We can also provide code to run if an exception happens. This is called catching the exception."
+    },
+    {
+      "index": 9,
+      "start_time": 38579.0,
+      "end_time": 43390.0,
+      "text": "When we catch a thrown exception, we&#39;re telling Java our catch block code makes every thing"
+    },
+    {
+      "index": 10,
+      "start_time": 43390.0,
+      "end_time": 47730.0,
+      "text": "better and handles the problem gracefully. Catching exceptions gives our program a chance"
+    },
+    {
+      "index": 11,
+      "start_time": 47730.0,
+      "end_time": 52640.0,
+      "text": "to recover from a problem, and continue normal execution."
+    },
+    {
+      "index": 12,
+      "start_time": 52640.0,
+      "end_time": 57539.0,
+      "text": "All exceptions are represented with a class that are subtypes of the java.lang.Exception"
+    },
+    {
+      "index": 13,
+      "start_time": 57539.0,
+      "end_time": 62859.0,
+      "text": "class. Exceptions are also subtypes of Throwable. Throwable is the superclass class for all"
+    },
+    {
+      "index": 14,
+      "start_time": 62859.0,
+      "end_time": 67700.0,
+      "text": "types of errors and includes the Error class. The Error class represents something that"
+    },
+    {
+      "index": 15,
+      "start_time": 67700.0,
+      "end_time": 72450.0,
+      "text": "happens which we can&#39;t do anything about. An example is the JVM is out of memory. In"
+    },
+    {
+      "index": 16,
+      "start_time": 72450.0,
+      "end_time": 77320.0,
+      "text": "this video, we&#39;re looking at exceptions only. Not the errors."
+    },
+    {
+      "index": 17,
+      "start_time": 77320.0,
+      "end_time": 82699.0,
+      "text": "There are two types of exceptions. runtime exceptions and checked exceptions. runtime"
+    },
+    {
+      "index": 18,
+      "start_time": 82700.0,
+      "end_time": 86400.0,
+      "text": "exceptions are exceptions that we should have prevented. We should never use a variable"
+    },
+    {
+      "index": 19,
+      "start_time": 86400.0,
+      "end_time": 90439.0,
+      "text": "before it&#39;s assigned, so we should never get a NullPointerException. We should iterate"
+    },
+    {
+      "index": 20,
+      "start_time": 90439.0,
+      "end_time": 96590.0,
+      "text": "over arrays, so we should never get an ArrayIndexOutOfBoundsException. These are problems we should prevent using"
+    },
+    {
+      "index": 21,
+      "start_time": 96600.0,
+      "end_time": 101689.0,
+      "text": "solid programming practices. Java will not force us to provide code to run if a runtime"
+    },
+    {
+      "index": 22,
+      "start_time": 101689.0,
+      "end_time": 106669.0,
+      "text": "exception is thrown. Instead, the program will likely crash."
+    },
+    {
+      "index": 23,
+      "start_time": 106670.0,
+      "end_time": 111560.0,
+      "text": "Checked exceptions are different. Java forces us to deal with these exceptional conditions."
+    },
+    {
+      "index": 24,
+      "start_time": 111560.0,
+      "end_time": 115820.0,
+      "text": "These are unlikely things that could happen in our application, no matter what we do."
+    },
+    {
+      "index": 25,
+      "start_time": 115820.0,
+      "end_time": 121200.0,
+      "text": "An example is FileNotFoundException. We could write everything perfectly, but someone might"
+    },
+    {
+      "index": 26,
+      "start_time": 121200.0,
+      "end_time": 126449.0,
+      "text": "delete the file when we&#39;re not looking. Java asks us to provide code to catch this exception"
+    },
+    {
+      "index": 27,
+      "start_time": 126450.0,
+      "end_time": 129860.0,
+      "text": "when it&#39;s thrown. We&#39;ll cover how to catch exceptions soon."
+    },
+    {
+      "index": 28,
+      "start_time": 129860.00000000001,
+      "end_time": 135380.0,
+      "text": "For now, let’s look at exceptions and how we trace them back to the problem. Let&#39;s create"
+    },
+    {
+      "index": 29,
+      "start_time": 135380.0,
+      "end_time": 140310.0,
+      "text": "an array with three numbers but try to print out four. This creates the runtime exception"
+    },
+    {
+      "index": 30,
+      "start_time": 140310.0,
+      "end_time": 145640.0,
+      "text": "java.lang.ArrayIndexOutOfBoundsException. In this code, we&#39;re forcing the error as an"
+    },
+    {
+      "index": 31,
+      "start_time": 145640.0,
+      "end_time": 149420.0,
+      "text": "example. We know this isn&#39;t how we should iterate over an array."
+    },
+    {
+      "index": 32,
+      "start_time": 149420.0,
+      "end_time": 156790.0,
+      "text": "When Java hits this error, it throws an exception and exits the program. This is a very simple"
+    },
+    {
+      "index": 33,
+      "start_time": 156800.0,
+      "end_time": 161890.0,
+      "text": "stack trace. It states the runtime exception, in this case an ArrayIndexOutOfBoundsException."
+    },
+    {
+      "index": 34,
+      "start_time": 161890.0,
+      "end_time": 168100.0,
+      "text": "It also tells us which index this exception happened, so in this case 3. The only way"
+    },
+    {
+      "index": 35,
+      "start_time": 168100.0,
+      "end_time": 172829.0,
+      "text": "we can tell this is from experience and knowing the exception message. We&#39;ll look at other"
+    },
+    {
+      "index": 36,
+      "start_time": 172830.0,
+      "end_time": 179600.0,
+      "text": "exception messages later in the video. The stack trace tells us the line in our code"
+    },
+    {
+      "index": 37,
+      "start_time": 179600.0,
+      "end_time": 184980.0,
+      "text": "where things went bad. That&#39;s where it says \"at com.deegeu.constructors.NewClass.main\""
+    },
+    {
+      "index": 38,
+      "start_time": 184980.0,
+      "end_time": 187600.0,
+      "text": "and the line number is 20."
+    },
+    {
+      "index": 39,
+      "start_time": 187600.0,
+      "end_time": 192560.0,
+      "text": "If we go back to our code we can find line 20. Reading the stack trace for this case,"
+    },
+    {
+      "index": 40,
+      "start_time": 192560.0,
+      "end_time": 197160.0,
+      "text": "we can see the exception, the bad value, and the line number. That should be enough to"
+    },
+    {
+      "index": 41,
+      "start_time": 197160.0,
+      "end_time": 198549.0,
+      "text": "pin point the error."
+    },
+    {
+      "index": 42,
+      "start_time": 198550.0,
+      "end_time": 203870.0,
+      "text": "We can make our call stack deeper by moving the error to a method outside the main method."
+    },
+    {
+      "index": 43,
+      "start_time": 203870.0,
+      "end_time": 208690.0,
+      "text": "Now the stack trace is deeper by one. As we call methods within methods, the stack trace"
+    },
+    {
+      "index": 44,
+      "start_time": 208690.0,
+      "end_time": 213950.0,
+      "text": "will grow deeper. For some Java programs, this stack trace can be very deep. It really"
+    },
+    {
+      "index": 45,
+      "start_time": 213950.0,
+      "end_time": 217320.0,
+      "text": "depends on where in our program we are."
+    },
+    {
+      "index": 46,
+      "start_time": 217320.0,
+      "end_time": 224269.0,
+      "text": "Not all stack traces are as kind our simple one. Some look like this. The \"caused by\""
+    },
+    {
+      "index": 47,
+      "start_time": 224270.0,
+      "end_time": 229740.0,
+      "text": "tells us that the exception we received above was really caused by this exception. We want"
+    },
+    {
+      "index": 48,
+      "start_time": 229740.0,
+      "end_time": 233480.0,
+      "text": "to look at this line of code to solve the problem. You can have multiple \"caused by\""
+    },
+    {
+      "index": 49,
+      "start_time": 233480.0,
+      "end_time": 238950.0,
+      "text": "sections in a stack trace, but the last one will likely be your problem. In this long"
+    },
+    {
+      "index": 50,
+      "start_time": 238950.0,
+      "end_time": 243510.0,
+      "text": "example, the final exception isn’t even in our code. What we want to do in this case"
+    },
+    {
+      "index": 51,
+      "start_time": 243510.0,
+      "end_time": 248370.0,
+      "text": "is look for the last stack trace message that is coming from our code. The first line that"
+    },
+    {
+      "index": 52,
+      "start_time": 248370.0,
+      "end_time": 251320.0,
+      "text": "references our code is likely the problem. In this case, our problem is actually in this"
+    },
+    {
+      "index": 53,
+      "start_time": 251320.0,
+      "end_time": 251459.0,
+      "text": "code."
+    },
+    {
+      "index": 54,
+      "start_time": 251460.0,
+      "end_time": 256720.0,
+      "text": "Our next question is how to we handle checked exceptions? I say \"checked exceptions\" because"
+    },
+    {
+      "index": 55,
+      "start_time": 256720.00000000003,
+      "end_time": 261780.00000000003,
+      "text": "we rarely, if ever, try to catch runtime exceptions. If we&#39;re trying to catch a runtime exception,"
+    },
+    {
+      "index": 56,
+      "start_time": 261779.0,
+      "end_time": 264830.0,
+      "text": "we really need to think about what we&#39;re trying to accomplish."
+    },
+    {
+      "index": 57,
+      "start_time": 264830.0,
+      "end_time": 270300.0,
+      "text": "However, Java does force us to handle all checked exceptions. In Java, we can either"
+    },
+    {
+      "index": 58,
+      "start_time": 270300.0,
+      "end_time": 274780.0,
+      "text": "\"catch\" checked exceptions using something called a \"try-catch\" block in code, or specify"
+    },
+    {
+      "index": 59,
+      "start_time": 274780.0,
+      "end_time": 280320.0,
+      "text": "a requirement that any method calling our method must handle the exception."
+    },
+    {
+      "index": 60,
+      "start_time": 280320.0,
+      "end_time": 284650.0,
+      "text": "If our method has the possibility of throwing an exception, we can specify the exception"
+    },
+    {
+      "index": 61,
+      "start_time": 284650.0,
+      "end_time": 290340.0,
+      "text": "in the method declaration. We add the keyword \"throws\" and the exception class. We only"
+    },
+    {
+      "index": 62,
+      "start_time": 290340.0,
+      "end_time": 295400.0,
+      "text": "need to do this for checked exceptions. Runtime exceptions do not need to be declared. When"
+    },
+    {
+      "index": 63,
+      "start_time": 295400.0,
+      "end_time": 301789.0,
+      "text": "we add this code, we&#39;re telling anyone calling our method they need to catch this exception."
+    },
+    {
+      "index": 64,
+      "start_time": 301790.0,
+      "end_time": 305410.0,
+      "text": "Exceptions work like this. The exception is thrown in a method somewhere in our code."
+    },
+    {
+      "index": 65,
+      "start_time": 305410.0,
+      "end_time": 310440.0,
+      "text": "If we don&#39;t catch the exception in this method, we declare our method throws the exception"
+    },
+    {
+      "index": 66,
+      "start_time": 310440.0,
+      "end_time": 316120.0,
+      "text": "and Java passes the exception up to the calling method. If there&#39;s code to catch the exception"
+    },
+    {
+      "index": 67,
+      "start_time": 316120.0,
+      "end_time": 320400.0,
+      "text": "here, it will run the handling code. Otherwise it will keep working it&#39;s way up the call"
+    },
+    {
+      "index": 68,
+      "start_time": 320400.0,
+      "end_time": 325780.0,
+      "text": "stack until it reaches the main method, or a method that does catch the exception. If"
+    },
+    {
+      "index": 69,
+      "start_time": 325780.0,
+      "end_time": 331869.0,
+      "text": "nothing catches the exception, the program crashes and reports the problem."
+    },
+    {
+      "index": 70,
+      "start_time": 331870.0,
+      "end_time": 337400.0,
+      "text": "How do we catch an exception? We use a try-catch block. It starts with the keyword try, a code"
+    },
+    {
+      "index": 71,
+      "start_time": 337400.0,
+      "end_time": 341590.0,
+      "text": "block to try, and then the keyword catch, the exception type, and the code to handle"
+    },
+    {
+      "index": 72,
+      "start_time": 341590.0,
+      "end_time": 347210.0,
+      "text": "the exception. This code says, \"try this code block, and if there&#39;s an exception of this"
+    },
+    {
+      "index": 73,
+      "start_time": 347210.0,
+      "end_time": 352400.0,
+      "text": "type catch it with this code block\". Once the exception is caught, we execute the next"
+    },
+    {
+      "index": 74,
+      "start_time": 352400.0,
+      "end_time": 355310.0,
+      "text": "line of code after the catch."
+    },
+    {
+      "index": 75,
+      "start_time": 355310.0,
+      "end_time": 361210.0,
+      "text": "The exception type is important. Our catch block applies only for the exception type"
+    },
+    {
+      "index": 76,
+      "start_time": 361210.0,
+      "end_time": 366989.0,
+      "text": "we state after the catch keyword. So if we put FileNotFoundException, it will only apply"
+    },
+    {
+      "index": 77,
+      "start_time": 366990.0,
+      "end_time": 374960.0,
+      "text": "for FileNotFoundExceptions and any possible FileNotFountException subclasses."
+    },
+    {
+      "index": 78,
+      "start_time": 374960.0,
+      "end_time": 379400.0,
+      "text": "We can put different catch blocks for a single try block. This allows us to provide handling"
+    },
+    {
+      "index": 79,
+      "start_time": 379400.0,
+      "end_time": 385109.0,
+      "text": "code specific to the exception. The exceptions we handle must be ordered from specific exceptions"
+    },
+    {
+      "index": 80,
+      "start_time": 385110.0,
+      "end_time": 390180.0,
+      "text": "to general exceptions. The reason is Java will try to match the exception class from"
+    },
+    {
+      "index": 81,
+      "start_time": 390180.0,
+      "end_time": 396570.0,
+      "text": "top to bottom. As soon as Java hits an exception it matches, it stop looking."
+    },
+    {
+      "index": 82,
+      "start_time": 396570.0,
+      "end_time": 400860.0,
+      "text": "So if we put Exception as the first class like this, it doesn&#39;t matter if there is a"
+    },
+    {
+      "index": 83,
+      "start_time": 400860.0,
+      "end_time": 406139.0,
+      "text": "more specific Exception class later. Exception is the superclass, so this catch applies to"
+    },
+    {
+      "index": 84,
+      "start_time": 406139.0,
+      "end_time": 415240.0,
+      "text": "Exception and any subtype - which is everything. Java will only run one catch block per exception."
+    },
+    {
+      "index": 85,
+      "start_time": 415240.0,
+      "end_time": 420990.0,
+      "text": "Catching just the Exception type is a bad practice. The reason is, we&#39;re telling Java"
+    },
+    {
+      "index": 86,
+      "start_time": 420990.0,
+      "end_time": 425710.0,
+      "text": "this code handles this exception type. If we use the Exception superclass, that means"
+    },
+    {
+      "index": 87,
+      "start_time": 425710.0,
+      "end_time": 430830.0,
+      "text": "we&#39;re saying our code handles any error that can happen. There are not many cases where"
+    },
+    {
+      "index": 88,
+      "start_time": 430830.0,
+      "end_time": 435359.0,
+      "text": "this is true. It&#39;s not Pokemon, we don&#39;t want to catch them all. Usually we&#39;d want to recover"
+    },
+    {
+      "index": 89,
+      "start_time": 435360.0,
+      "end_time": 439120.0,
+      "text": "from a file not found differently than a an error from parsing."
+    },
+    {
+      "index": 90,
+      "start_time": 439120.0,
+      "end_time": 444850.0,
+      "text": "It&#39;s very important we put our application back into a runnable state after catching"
+    },
+    {
+      "index": 91,
+      "start_time": 444850.0,
+      "end_time": 449350.0,
+      "text": "exceptions. When we catch an exception, our catch block is run, and then the very next"
+    },
+    {
+      "index": 92,
+      "start_time": 449350.0,
+      "end_time": 454440.0,
+      "text": "line of code is executed. So if we don&#39;t completely recover from what ever problem threw the exception,"
+    },
+    {
+      "index": 93,
+      "start_time": 454440.0,
+      "end_time": 458120.0,
+      "text": "we&#39;re just going to create more problems."
+    },
+    {
+      "index": 94,
+      "start_time": 458120.0,
+      "end_time": 463100.0,
+      "text": "There are three things we might see in code we&#39;re maintaining. The first is a blank catch"
+    },
+    {
+      "index": 95,
+      "start_time": 463100.0,
+      "end_time": 468169.0,
+      "text": "block. This hides the problem, as if it never happened. It&#39;s saying, \"try this code, and"
+    },
+    {
+      "index": 96,
+      "start_time": 468169.0,
+      "end_time": 473109.0,
+      "text": "if it fails, ignore the problem and hope no one notices\". What almost always happens is"
+    },
+    {
+      "index": 97,
+      "start_time": 473110.0,
+      "end_time": 477300.0,
+      "text": "our application is now in an invalid state, and something bad will happen again later"
+    },
+    {
+      "index": 98,
+      "start_time": 477300.0,
+      "end_time": 481980.0,
+      "text": "down the road in a completely different location. This makes the problem very hard to diagnose"
+    },
+    {
+      "index": 99,
+      "start_time": 481980.0,
+      "end_time": 487900.0,
+      "text": "and fix. Don&#39;t ever do it. If you don&#39;t know how to handle the exception, specify the requirement"
+    },
+    {
+      "index": 100,
+      "start_time": 487900.0,
+      "end_time": 490400.0,
+      "text": "for the calling class to handle it."
+    },
+    {
+      "index": 101,
+      "start_time": 490400.0,
+      "end_time": 497448.0,
+      "text": "The next worse thing is, some developers will say \"since I can&#39;t have a blank catch block,"
+    },
+    {
+      "index": 102,
+      "start_time": 497449.0,
+      "end_time": 502740.0,
+      "text": "I&#39;ll add a log message\", or worse write a message to the console. That&#39;s the same thing"
+    },
+    {
+      "index": 103,
+      "start_time": 502740.0,
+      "end_time": 506660.0,
+      "text": "as a blank catch block. In this case, we are writing a note that no one is likely to see,"
+    },
+    {
+      "index": 104,
+      "start_time": 506660.0,
+      "end_time": 511639.0,
+      "text": "and then putting the application in a state where something bad can happen later on. Again,"
+    },
+    {
+      "index": 105,
+      "start_time": 511639.0,
+      "end_time": 515450.0,
+      "text": "if you don&#39;t know how to handle the exception, specify the requirement for the calling class"
+    },
+    {
+      "index": 106,
+      "start_time": 515450.00000000006,
+      "end_time": 517130.00000000006,
+      "text": "to handle it."
+    },
+    {
+      "index": 107,
+      "start_time": 517130.0,
+      "end_time": 522729.0,
+      "text": "Finally, we might see code like this. This is called catching and throwing a new exception."
+    },
+    {
+      "index": 108,
+      "start_time": 522729.00000000006,
+      "end_time": 527200.0,
+      "text": "The problem with this is we are losing the stack trace. The exception in our try block"
+    },
+    {
+      "index": 109,
+      "start_time": 527200.0,
+      "end_time": 531100.0,
+      "text": "is handled, and then we are throwing a new exception with a stack trace starting from"
+    },
+    {
+      "index": 110,
+      "start_time": 531100.0,
+      "end_time": 536250.0,
+      "text": "here. If you want to log a message, and then rethrow an exception, this is how you want"
+    },
+    {
+      "index": 111,
+      "start_time": 536250.0,
+      "end_time": 540790.0,
+      "text": "to do it. Just use the keyword throw with the same exception object. This will preserve"
+    },
+    {
+      "index": 112,
+      "start_time": 540790.0,
+      "end_time": 542620.0,
+      "text": "the stack trace."
+    },
+    {
+      "index": 113,
+      "start_time": 542620.0,
+      "end_time": 547700.0,
+      "text": "And that&#39;s a whirlwind tour of Java exceptions. In the next video we&#39;ll look at diagnosing"
+    },
+    {
+      "index": 114,
+      "start_time": 547700.0,
+      "end_time": 549920.0,
+      "text": "common exceptions, and how to fix them."
+    },
+    {
+      "index": 115,
+      "start_time": 549920.0,
+      "end_time": 553930.0,
+      "text": "Put any questions you have in the comments below. Liking the video helps me know what"
+    },
+    {
+      "index": 116,
+      "start_time": 553930.0,
+      "end_time": 557100.0,
+      "text": "I&#39;m doing right, so if you liked the video... you know what to do."
+    },
+    {
+      "index": 117,
+      "start_time": 557100.0,
+      "end_time": 567140.0,
+      "text": "And with that, I’ll see you in the next tutorial!"
+    }
+  ]
+}

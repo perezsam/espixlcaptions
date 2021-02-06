@@ -1,0 +1,3300 @@
+{
+  "video_id": "jBHZwY1WBzs",
+  "title": "Mod-03 Lec-08 Bayesian Estimation examples; the exponential family of densities and ML estimates",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 15110.0,
+      "end_time": 22090.0,
+      "text": "Welcome to this next class in Pattern Recognition, we have been looking at density estimation."
+    },
+    {
+      "index": 2,
+      "start_time": 22090.0,
+      "end_time": 26349.0,
+      "text": "So, let us briefly recall, what we have been doing in the last couple of classes."
+    },
+    {
+      "index": 3,
+      "start_time": 26349.0,
+      "end_time": 34860.0,
+      "text": "We have been looking at, how to estimate densities for given IID samples, for a particular density."
+    },
+    {
+      "index": 4,
+      "start_time": 34860.0,
+      "end_time": 40640.0,
+      "text": "We first looked at the maximum likelihood estimation method. For the last couple of"
+    },
+    {
+      "index": 5,
+      "start_time": 40640.0,
+      "end_time": 44239.0,
+      "text": "classes, we have been considering the Bayesian estimation of density function. So, given"
+    },
+    {
+      "index": 6,
+      "start_time": 44239.0,
+      "end_time": 51460.0,
+      "text": "a density function f x given theta where, theta is the parameter, we are considering"
+    },
+    {
+      "index": 7,
+      "start_time": 51460.0,
+      "end_time": 58960.0,
+      "text": "Bayesian estimate for the parameter theta. As I have already told you, the main difference"
+    },
+    {
+      "index": 8,
+      "start_time": 58960.0,
+      "end_time": 63870.0,
+      "text": "between the maximum likelihood estimation and the Bayesian estimation is that, in the"
+    },
+    {
+      "index": 9,
+      "start_time": 63870.0,
+      "end_time": 69280.0,
+      "text": "Bayesian estimation, we look at the parameter theta, which may be a vector or a scalar,"
+    },
+    {
+      "index": 10,
+      "start_time": 69280.0,
+      "end_time": 75820.0,
+      "text": "the parameter theta itself is viewed as a random variable. And because, we view it as"
+    },
+    {
+      "index": 11,
+      "start_time": 75820.0,
+      "end_time": 82280.0,
+      "text": "a random variable, it has a prior density, which captures our initial uncertainty."
+    },
+    {
+      "index": 12,
+      "start_time": 82280.0,
+      "end_time": 87680.0,
+      "text": "Our knowledge or lack of knowledge about the specific value of the parameter is captured"
+    },
+    {
+      "index": 13,
+      "start_time": 87680.0,
+      "end_time": 93420.0,
+      "text": "through a prior density f theta. So, f theta gives us some idea about, what we think or"
+    },
+    {
+      "index": 14,
+      "start_time": 93420.0,
+      "end_time": 103080.0,
+      "text": "the possible values for the parameter. Given the given the prior density, we are going"
+    },
+    {
+      "index": 15,
+      "start_time": 103080.0,
+      "end_time": 108970.0,
+      "text": "to use the data likelihood that is, f D given theta to calculate the posterior density f"
+    },
+    {
+      "index": 16,
+      "start_time": 108970.0,
+      "end_time": 113430.0,
+      "text": "theta given D. Once again, I would like to drive your attention"
+    },
+    {
+      "index": 17,
+      "start_time": 113430.0,
+      "end_time": 122630.0,
+      "text": "to a caution on the notation, for simplicity, the densities of all kind of random variables"
+    },
+    {
+      "index": 18,
+      "start_time": 122630.0,
+      "end_time": 129479.0,
+      "text": "we are using the same symbol f. So, f of theta, f of D given theta, f of theta given D, all"
+    },
+    {
+      "index": 19,
+      "start_time": 129479.00000000001,
+      "end_time": 134220.0,
+      "text": "these are densities, purely as mathematical notation looks same because, f is the same"
+    },
+    {
+      "index": 20,
+      "start_time": 134220.0,
+      "end_time": 140019.0,
+      "text": "function. But, we are we are using f as a notation to denote density and density of,"
+    },
+    {
+      "index": 21,
+      "start_time": 140019.0,
+      "end_time": 142360.0,
+      "text": "which random variable it is, is clear from context."
+    },
+    {
+      "index": 22,
+      "start_time": 142360.0,
+      "end_time": 147849.0,
+      "text": "Thus, f x given theta is the density of x conditioned on theta, which is the parameter"
+    },
+    {
+      "index": 23,
+      "start_time": 147849.0,
+      "end_time": 154760.0,
+      "text": "f of theta, is the density of the parameter theta and so on, f theta given D is the conditional"
+    },
+    {
+      "index": 24,
+      "start_time": 154760.0,
+      "end_time": 159050.0,
+      "text": "density of theta, conditioned on data D. So, even though we are using the same symbol f,"
+    },
+    {
+      "index": 25,
+      "start_time": 159050.0,
+      "end_time": 165760.0,
+      "text": "for all densities so, I hope you understand that, the f used in different times is a different"
+    },
+    {
+      "index": 26,
+      "start_time": 165760.0,
+      "end_time": 170310.0,
+      "text": "function. It refers to densities of different random variables and just to keep the notation"
+    },
+    {
+      "index": 27,
+      "start_time": 170310.0,
+      "end_time": 176440.0,
+      "text": "uncluttered, we are calling it as the f. So, once again, essentially we start with a prior"
+    },
+    {
+      "index": 28,
+      "start_time": 176440.0,
+      "end_time": 181830.0,
+      "text": "density f of theta, for the parameter theta then, use the data likelihood of D given theta"
+    },
+    {
+      "index": 29,
+      "start_time": 181830.0,
+      "end_time": 187280.0,
+      "text": "to calculate the posterior f theta given D, we have seen a couple of examples of this"
+    },
+    {
+      "index": 30,
+      "start_time": 187280.0,
+      "end_time": 189770.0,
+      "text": "process earlier."
+    },
+    {
+      "index": 31,
+      "start_time": 189770.0,
+      "end_time": 198459.0,
+      "text": "And the idea of Bayesian estimation by now, you would have seen is, to choose a right"
+    },
+    {
+      "index": 32,
+      "start_time": 198459.0,
+      "end_time": 203099.0,
+      "text": "kind of prior, the right kind of prior for us is, what is called the conjugate prior."
+    },
+    {
+      "index": 33,
+      "start_time": 203099.0,
+      "end_time": 208129.0,
+      "text": "The conjugate prior is that prior density, which results in the posterior density belonging"
+    },
+    {
+      "index": 34,
+      "start_time": 208129.0,
+      "end_time": 212410.0,
+      "text": "to the same class of densities. For example, as we saw when, we are estimating the mean"
+    },
+    {
+      "index": 35,
+      "start_time": 212410.0,
+      "end_time": 220360.0,
+      "text": "of a Gaussian random variable or mean of a Gaussian density where, the variance is assumed"
+    },
+    {
+      "index": 36,
+      "start_time": 220360.0,
+      "end_time": 225800.0,
+      "text": "known, we choose Gaussian density for the prior then, the posterior is also Gaussian"
+    },
+    {
+      "index": 37,
+      "start_time": 225800.0,
+      "end_time": 229060.0,
+      "text": "density. So, for that particular estimation problem,"
+    },
+    {
+      "index": 38,
+      "start_time": 229060.0,
+      "end_time": 233599.0,
+      "text": "the prior density happens to be Gaussian similarly, for a Bernoulli problem where, we have to"
+    },
+    {
+      "index": 39,
+      "start_time": 233599.0,
+      "end_time": 239010.0,
+      "text": "estimate the parameter p namely, the probability of the random variability taken value 1. For"
+    },
+    {
+      "index": 40,
+      "start_time": 239010.0,
+      "end_time": 243909.0,
+      "text": "parameter p, the appropriate prior density turns out to be beta appropriate in the sense"
+    },
+    {
+      "index": 41,
+      "start_time": 243909.0,
+      "end_time": 249379.0,
+      "text": "that, if I take prior density to be beta then, the posterior also becomes beta, so such a"
+    },
+    {
+      "index": 42,
+      "start_time": 249379.0,
+      "end_time": 253180.0,
+      "text": "prior is called a conjugate prior right. The conjugate prior is that prior density,"
+    },
+    {
+      "index": 43,
+      "start_time": 253180.0,
+      "end_time": 260239.0,
+      "text": "which results in the posterior density also, to be of the same class of densities, the"
+    },
+    {
+      "index": 44,
+      "start_time": 260238.99999999997,
+      "end_time": 263509.0,
+      "text": "use is of conjugate prior makes the process of calculation of posterior density easier."
+    },
+    {
+      "index": 45,
+      "start_time": 263509.0,
+      "end_time": 269250.0,
+      "text": "As we have seen let us say, in the case of the Bernoulli parameter, that we have seen"
+    },
+    {
+      "index": 46,
+      "start_time": 269250.0,
+      "end_time": 283259.0,
+      "text": "earlier, if we start with some beta a 0, for the beta a 0 b 0 for the prior then, the posterior"
+    },
+    {
+      "index": 47,
+      "start_time": 283259.0,
+      "end_time": 286270.0,
+      "text": "is also beta density with possibly some other parameters a and b n."
+    },
+    {
+      "index": 48,
+      "start_time": 286270.0,
+      "end_time": 291960.0,
+      "text": "So, calculation of the posterior density is simply a matter of parameter updation, given"
+    },
+    {
+      "index": 49,
+      "start_time": 291960.0,
+      "end_time": 297639.0,
+      "text": "the parameters of the prior now, we update them into parameters of the posterior. Having"
+    },
+    {
+      "index": 50,
+      "start_time": 297639.0,
+      "end_time": 305180.0,
+      "text": "obtained the posterior density, we can finally use either the mean or the mode of the posterior"
+    },
+    {
+      "index": 51,
+      "start_time": 305180.0,
+      "end_time": 309900.0,
+      "text": "density at the final estimate. We have seen examples of both or we can also calculate"
+    },
+    {
+      "index": 52,
+      "start_time": 309900.0,
+      "end_time": 315330.0,
+      "text": "f of x given D, that is the actual class conditional density, conditioned on data by integrating"
+    },
+    {
+      "index": 53,
+      "start_time": 315330.0,
+      "end_time": 320249.0,
+      "text": "the posterior density and we have seen example of that also. So, this class, we will look"
+    },
+    {
+      "index": 54,
+      "start_time": 320249.0,
+      "end_time": 326909.0,
+      "text": "at a couple of more examples of Bayesian estimation and then, closed Bayesian estimation. As you"
+    },
+    {
+      "index": 55,
+      "start_time": 326909.0,
+      "end_time": 332270.0,
+      "text": "would have by now seen, Bayesian estimation is a little more complicated mainly because,"
+    },
+    {
+      "index": 56,
+      "start_time": 332270.0,
+      "end_time": 338830.0,
+      "text": "you have to choose the right kind of prior and different kind of estimation problems"
+    },
+    {
+      "index": 57,
+      "start_time": 338830.0,
+      "end_time": 341039.0,
+      "text": "make different priors of the conjugate."
+    },
+    {
+      "index": 58,
+      "start_time": 341039.0,
+      "end_time": 348819.0,
+      "text": "So, we will start with another example, this is the multinomial example that is, we consider"
+    },
+    {
+      "index": 59,
+      "start_time": 348819.0,
+      "end_time": 355300.0,
+      "text": "estimating the mass function of a discrete random variable, which takes one of M possible"
+    },
+    {
+      "index": 60,
+      "start_time": 355300.0,
+      "end_time": 366270.0,
+      "text": "values say, a 1 to a M where, p i is probability Z takes the value a i. So, essentially Z takes"
+    },
+    {
+      "index": 61,
+      "start_time": 366270.0,
+      "end_time": 373289.0,
+      "text": "value a 1 with probability p 1, a 2 with probability p 2, a M with probability p M and we want"
+    },
+    {
+      "index": 62,
+      "start_time": 373289.0,
+      "end_time": 380219.0,
+      "text": "to estimate this p 1, p 2, p M, given a sample of n iid realizations of Z. We already considered"
+    },
+    {
+      "index": 63,
+      "start_time": 380219.0,
+      "end_time": 386249.0,
+      "text": "this problem in in the maximum likelihood case and there we told you, this is particularly"
+    },
+    {
+      "index": 64,
+      "start_time": 386249.0,
+      "end_time": 391469.0,
+      "text": "important in certain class of pattern recognition problem. Especially those to do with say,"
+    },
+    {
+      "index": 65,
+      "start_time": 391469.0,
+      "end_time": 399869.0,
+      "text": "the text classification and so on where, the discrete random variables for feature that"
+    },
+    {
+      "index": 66,
+      "start_time": 399869.0,
+      "end_time": 402899.0,
+      "text": "is, features that take only finitely many values are important."
+    },
+    {
+      "index": 67,
+      "start_time": 402899.0,
+      "end_time": 408759.0,
+      "text": "We have seen, how to do the maximum likelihood estimation for obtaining this p 1, p 2’s"
+    },
+    {
+      "index": 68,
+      "start_time": 408759.0,
+      "end_time": 412999.0,
+      "text": "that, p 1, p 2, p M that characterize the mass function of this discrete random variable"
+    },
+    {
+      "index": 69,
+      "start_time": 412999.0,
+      "end_time": 419550.0,
+      "text": "Z. Now, we will look at, how to do the same thing using Bayesian estimation, I hope the"
+    },
+    {
+      "index": 70,
+      "start_time": 419550.0,
+      "end_time": 425129.0,
+      "text": "problem is clear, this already is done earlier so, we will we will quickly review the notation"
+    },
+    {
+      "index": 71,
+      "start_time": 425129.0,
+      "end_time": 426259.0,
+      "text": "that we used earlier."
+    },
+    {
+      "index": 72,
+      "start_time": 426259.0,
+      "end_time": 432199.0,
+      "text": "So, as earlier, we represent any realization of Z by M-dimensional Boolean vector x, x"
+    },
+    {
+      "index": 73,
+      "start_time": 432199.0,
+      "end_time": 437909.0,
+      "text": "has M components x superscript 1, x superscript M. The transpose there is because, as I said,"
+    },
+    {
+      "index": 74,
+      "start_time": 437909.0,
+      "end_time": 443369.0,
+      "text": "all vectors for us are column vectors, each of these components of this vector x, x superscript"
+    },
+    {
+      "index": 75,
+      "start_time": 443369.0,
+      "end_time": 448899.0,
+      "text": "i is either 0 or 1, and summation of all of them is 1. That means, essentially x takes"
+    },
+    {
+      "index": 76,
+      "start_time": 448899.0,
+      "end_time": 455240.0,
+      "text": "only the unit vectors 1 0 0 0, 0 1 0 0’s and so on, the idea is that, if z takes the"
+    },
+    {
+      "index": 77,
+      "start_time": 455240.0,
+      "end_time": 460599.0,
+      "text": "i th value a i then, we represent it by a vector where, i th component is 1 and all"
+    },
+    {
+      "index": 78,
+      "start_time": 460599.0,
+      "end_time": 465770.0,
+      "text": "others are 0. We have already seen that, this is a interesting"
+    },
+    {
+      "index": 79,
+      "start_time": 465770.0,
+      "end_time": 469679.0,
+      "text": "and useful representation for maximum likelihood with this same, we use the same representation"
+    },
+    {
+      "index": 80,
+      "start_time": 469679.0,
+      "end_time": 474439.0,
+      "text": "here. And now, p i turn out to be, the probability that the i th component of this vector is"
+    },
+    {
+      "index": 81,
+      "start_time": 474439.0,
+      "end_time": 478050.0,
+      "text": "1 that is what, I wrote there p x subscript i is equal to 1. Because, p i is the probability"
+    },
+    {
+      "index": 82,
+      "start_time": 478050.0,
+      "end_time": 483249.0,
+      "text": "with where, Z takes the i th value a i and when Z takes the i th value a i, the i th"
+    },
+    {
+      "index": 83,
+      "start_time": 483249.0,
+      "end_time": 487439.0,
+      "text": "component of x i becomes 1 where, i th component of x becomes 1."
+    },
+    {
+      "index": 84,
+      "start_time": 487439.0,
+      "end_time": 493069.0,
+      "text": "Also, as I told you last time, the reason, why we use the superscripts to denote the"
+    },
+    {
+      "index": 85,
+      "start_time": 493069.0,
+      "end_time": 500029.0,
+      "text": "components of x is because, subscripts of x are used as to denote different data or"
+    },
+    {
+      "index": 86,
+      "start_time": 500029.0,
+      "end_time": 506179.0,
+      "text": "data is x 1 to x n that is why, we are using superscripts to denote the components of particular"
+    },
+    {
+      "index": 87,
+      "start_time": 506179.0,
+      "end_time": 515430.0,
+      "text": "data. So, we also seen last time that, for this x, the mass function with the single"
+    },
+    {
+      "index": 88,
+      "start_time": 515429.99999999994,
+      "end_time": 522449.99999999994,
+      "text": "vector parameter p, is product i is equal to 1 to M p i x i because, in any given x,"
+    },
+    {
+      "index": 89,
+      "start_time": 522450.00000000006,
+      "end_time": 529470.0,
+      "text": "only one component of x is 1 and that is the one that, survives this product. So, if x"
+    },
+    {
+      "index": 90,
+      "start_time": 529470.0,
+      "end_time": 535970.0,
+      "text": "is 1 0 0 0 then, for that x, f of x given p will become p 1 to the power 1 and p to"
+    },
+    {
+      "index": 91,
+      "start_time": 535970.0,
+      "end_time": 541639.0,
+      "text": "the power 0 and so on that is, p 1. So thus, this correctly represents the mass function,"
+    },
+    {
+      "index": 92,
+      "start_time": 541639.0,
+      "end_time": 546199.0,
+      "text": "that we are interested in and p is the parameter of the mass , that we need to estimate."
+    },
+    {
+      "index": 93,
+      "start_time": 546199.0,
+      "end_time": 556709.0,
+      "text": "As usual, our data has n samples x 1 to x n, and each sample x i is a vector of M components,"
+    },
+    {
+      "index": 94,
+      "start_time": 556709.0,
+      "end_time": 562199.0,
+      "text": "the components are shown by superscripts. And each component is either 0 or 1, and in"
+    },
+    {
+      "index": 95,
+      "start_time": 562199.0,
+      "end_time": 567500.0,
+      "text": "each data it is M x i that is, each M vector x i, if I sum all the components, it becomes"
+    },
+    {
+      "index": 96,
+      "start_time": 567500.0,
+      "end_time": 571639.0,
+      "text": "1. That simply means, because, each component is on 0 1 and sum is 1 means, exactly one"
+    },
+    {
+      "index": 97,
+      "start_time": 571639.0,
+      "end_time": 576819.0,
+      "text": "component is 1 and all others are 0 so, this is the nature of our representation and we"
+    },
+    {
+      "index": 98,
+      "start_time": 576819.0,
+      "end_time": 583170.0,
+      "text": "have n such data items. So, given such data, we want to estimate p"
+    },
+    {
+      "index": 99,
+      "start_time": 583170.0,
+      "end_time": 588639.0,
+      "text": "1, p 2, p M thus essentially, what we are doing is, we are estimating the parameters"
+    },
+    {
+      "index": 100,
+      "start_time": 588639.0,
+      "end_time": 593300.0,
+      "text": "of a multinomial distribution. As you know, a multinomial binomial takes only binomial"
+    },
+    {
+      "index": 101,
+      "start_time": 593300.0,
+      "end_time": 598149.0,
+      "text": "is important, when there is a random experiment that is repeated, which takes only two values"
+    },
+    {
+      "index": 102,
+      "start_time": 598149.0,
+      "end_time": 603269.0,
+      "text": "success or failure. In the multinomial case, it is the same thing independent realizations"
+    },
+    {
+      "index": 103,
+      "start_time": 603269.0,
+      "end_time": 608490.0,
+      "text": "of a random experiment that takes more than two values say, M values."
+    },
+    {
+      "index": 104,
+      "start_time": 608490.0,
+      "end_time": 612029.0,
+      "text": "If a random variable takes M different values, I can think of it as a random experiment,"
+    },
+    {
+      "index": 105,
+      "start_time": 612029.0,
+      "end_time": 619220.0,
+      "text": "which can result in one of M possible outcomes right. So, many samples from that random variable"
+    },
+    {
+      "index": 106,
+      "start_time": 619220.0,
+      "end_time": 622910.0,
+      "text": "are like, I have a multinomial distribution that is, I repeat a random experiment, that"
+    },
+    {
+      "index": 107,
+      "start_time": 622910.0,
+      "end_time": 628490.0,
+      "text": "can take one of M possible outcomes, n number of times. So, some of which will be well result"
+    },
+    {
+      "index": 108,
+      "start_time": 628490.0,
+      "end_time": 632040.0,
+      "text": "in first outcome and so on, some of which will results in second outcome and so on."
+    },
+    {
+      "index": 109,
+      "start_time": 632040.0,
+      "end_time": 638170.0,
+      "text": "So, I know for each repetition, what outcome has come and given those things, we want to"
+    },
+    {
+      "index": 110,
+      "start_time": 638170.0,
+      "end_time": 643860.0,
+      "text": "estimate the multinomial parameters p 1, p 2, p M. Now because, we are in the Bayesian"
+    },
+    {
+      "index": 111,
+      "start_time": 643860.0,
+      "end_time": 647569.0,
+      "text": "context, the first question we have to answer is, what is the conjugate prior in this case"
+    },
+    {
+      "index": 112,
+      "start_time": 647569.0,
+      "end_time": 652569.0,
+      "text": "right. Now, as we have already seen from our earlier examples, for this we should examine"
+    },
+    {
+      "index": 113,
+      "start_time": 652569.0,
+      "end_time": 661019.0,
+      "text": "the form of the data likelihood. So, we already have our model, we for this x, we have the"
+    },
+    {
+      "index": 114,
+      "start_time": 661019.0,
+      "end_time": 670180.0,
+      "text": "mass function, that we that we have seen earlier that is the mass function so, given this mass"
+    },
+    {
+      "index": 115,
+      "start_time": 670180.0,
+      "end_time": 676360.0,
+      "text": "function, what is the data likelihood, that is easy to calculate."
+    },
+    {
+      "index": 116,
+      "start_time": 676360.0,
+      "end_time": 682720.0,
+      "text": "So, f D given p, p is product of this over i is equal to 1 to n now, we can substitute"
+    },
+    {
+      "index": 117,
+      "start_time": 682720.0,
+      "end_time": 691360.0,
+      "text": "for f of x i, if I substitute for f of x i, f of x i is once again product p j x i j."
+    },
+    {
+      "index": 118,
+      "start_time": 691360.0,
+      "end_time": 701560.0,
+      "text": "Now, if I interchange i and j summation then, p j to the power x i j product over i can"
+    },
+    {
+      "index": 119,
+      "start_time": 701560.0,
+      "end_time": 709670.0,
+      "text": "be written as product over j p j to the power n j where, n j is summation over i x i j."
+    },
+    {
+      "index": 120,
+      "start_time": 709670.0,
+      "end_time": 717430.0,
+      "text": "What does that mean, in any given x i, the j th component is 1, if that particular outcome"
+    },
+    {
+      "index": 121,
+      "start_time": 717430.0,
+      "end_time": 724860.0,
+      "text": "of Z represents the j th value of Z. So, this n j tells you, out of the n, how"
+    },
+    {
+      "index": 122,
+      "start_time": 724860.0,
+      "end_time": 731839.0,
+      "text": "many times Z taken the j th value so, for example, n 1 plus n 2 plus n M will be equal"
+    },
+    {
+      "index": 123,
+      "start_time": 731839.0,
+      "end_time": 735240.0,
+      "text": "to n, the total number of samples. So, out of n samples, n 1 times the first value of"
+    },
+    {
+      "index": 124,
+      "start_time": 735240.0,
+      "end_time": 743209.0,
+      "text": "Z has come, n 2 times the second value of Z has come or looking at as a multinomial"
+    },
+    {
+      "index": 125,
+      "start_time": 743209.0,
+      "end_time": 746939.0,
+      "text": "distribution, n 1 times the first outcome has occurred, n 2 times the second outcome"
+    },
+    {
+      "index": 126,
+      "start_time": 746939.0,
+      "end_time": 752720.0,
+      "text": "has occurred and so on. So, now, in terms of this n’s, the data likelihood is given"
+    },
+    {
+      "index": 127,
+      "start_time": 752720.0,
+      "end_time": 760670.0,
+      "text": "by product over j, p j to the power n j. Now, if this is the data likelihood, we multiply"
+    },
+    {
+      "index": 128,
+      "start_time": 760670.0,
+      "end_time": 765910.0,
+      "text": "this with a prior and we should get another expression of the same form, as the prior"
+    },
+    {
+      "index": 129,
+      "start_time": 765910.0,
+      "end_time": 768889.0,
+      "text": "so, what should be our prior."
+    },
+    {
+      "index": 130,
+      "start_time": 768889.0,
+      "end_time": 776269.0,
+      "text": "So, this is the data likelihood so, we expect the prior to have a some density, this proportional"
+    },
+    {
+      "index": 131,
+      "start_time": 776269.0,
+      "end_time": 782019.0,
+      "text": "to a product of p j to the power a j. If the prior is proportional to product of p j to"
+    },
+    {
+      "index": 132,
+      "start_time": 782019.0,
+      "end_time": 786949.0,
+      "text": "the power a j and then, I multiply with data likelihood, I get another product of p j to"
+    },
+    {
+      "index": 133,
+      "start_time": 786949.0,
+      "end_time": 791999.0,
+      "text": "the power some a j prime so, once again that posterior will belong to the same density"
+    },
+    {
+      "index": 134,
+      "start_time": 791999.0,
+      "end_time": 798620.0,
+      "text": "of the prior right. Let us still remember that, p is a vector parameter, p has M components"
+    },
+    {
+      "index": 135,
+      "start_time": 798620.0,
+      "end_time": 803230.0,
+      "text": "with all of them are probabilities so, they are greater than or equal to 0. And sum of"
+    },
+    {
+      "index": 136,
+      "start_time": 803230.0,
+      "end_time": 807300.0,
+      "text": "p a is equal to 1 because, p 1 is the probability of that Z takes first value and so on so,"
+    },
+    {
+      "index": 137,
+      "start_time": 807300.0,
+      "end_time": 816269.0,
+      "text": "this is needed for the mass function of Z. So, we need a density, which which is a density"
+    },
+    {
+      "index": 138,
+      "start_time": 816269.0,
+      "end_time": 820839.0,
+      "text": "defined over all p, that satisfy this and that should have a form, which is product"
+    },
+    {
+      "index": 139,
+      "start_time": 820839.0,
+      "end_time": 822720.0,
+      "text": "p j to the power a j."
+    },
+    {
+      "index": 140,
+      "start_time": 822720.0,
+      "end_time": 828769.0,
+      "text": "Now, such a density is, what is known as a Dirichlet density, if you remember when there"
+    },
+    {
+      "index": 141,
+      "start_time": 828769.0,
+      "end_time": 835509.0,
+      "text": "are only two outcomes when you looking at Bernoulli, the the prior happen to be what"
+    },
+    {
+      "index": 142,
+      "start_time": 835509.0,
+      "end_time": 841879.0,
+      "text": "is called the beta density. So, we will see that, the Dirichlet density is a kind of generalization"
+    },
+    {
+      "index": 143,
+      "start_time": 841879.0,
+      "end_time": 848439.0,
+      "text": "of the beta density so, the Dirichlet density is given by f of p, is gamma of a 1 plus a"
+    },
+    {
+      "index": 144,
+      "start_time": 848439.0,
+      "end_time": 854459.0,
+      "text": "2 plus a M by gamma of a 1 into gamma of a 2 into gamma of a M, product j is equal to"
+    },
+    {
+      "index": 145,
+      "start_time": 854459.0,
+      "end_time": 859790.0,
+      "text": "1 to M p j to the power a j minus 1. Where, this gamma is the gamma function, that"
+    },
+    {
+      "index": 146,
+      "start_time": 859790.0,
+      "end_time": 866180.0,
+      "text": "we already seen when we discuss the beta function the beta density, gamma function gamma of"
+    },
+    {
+      "index": 147,
+      "start_time": 866180.0,
+      "end_time": 876949.0,
+      "text": "a is integral 0 to infinity x to the power a minus 1, e power minus x d x. In this, the"
+    },
+    {
+      "index": 148,
+      "start_time": 876949.0,
+      "end_time": 882220.0,
+      "text": "the parameters of this Dirichlet density or this a j’s that is that is, a 1 a 2 a M,"
+    },
+    {
+      "index": 149,
+      "start_time": 882220.0,
+      "end_time": 886100.0,
+      "text": "all of them are assumed to be greater than equal to 1."
+    },
+    {
+      "index": 150,
+      "start_time": 886100.0,
+      "end_time": 891720.0,
+      "text": "Also, this density has this value, only for those p that satisfy all components greater"
+    },
+    {
+      "index": 151,
+      "start_time": 891720.0,
+      "end_time": 895959.0,
+      "text": "than or equal to 0 or some of the components is 1, outside of those p’s the density is"
+    },
+    {
+      "index": 152,
+      "start_time": 895959.0,
+      "end_time": 902389.0,
+      "text": "0. That means, the density is concentrated on that subset of power M, which satisfies"
+    },
+    {
+      "index": 153,
+      "start_time": 902389.0,
+      "end_time": 905879.0,
+      "text": "p i greater than or equal to 0 and summation p equal to 1, which is essentially called"
+    },
+    {
+      "index": 154,
+      "start_time": 905879.0,
+      "end_time": 909649.0,
+      "text": "as simplex. Those you know what is simplex is, they are simplex but, anyway even, if"
+    },
+    {
+      "index": 155,
+      "start_time": 909649.0,
+      "end_time": 916009.0,
+      "text": "you do not know what is simplex is, this density is non-zero only for those p’s that satisfy"
+    },
+    {
+      "index": 156,
+      "start_time": 916009.0,
+      "end_time": 920019.0,
+      "text": "p i greater than or equal to 0, summation p i is equal to 1 otherwise, the density value"
+    },
+    {
+      "index": 157,
+      "start_time": 920019.0,
+      "end_time": 921569.0,
+      "text": "is 0."
+    },
+    {
+      "index": 158,
+      "start_time": 921569.0,
+      "end_time": 927339.0,
+      "text": "So, that is the Dirichlet density so, if M is equal to 2, this becomes gamma a 1 plus"
+    },
+    {
+      "index": 159,
+      "start_time": 927339.0,
+      "end_time": 932949.0,
+      "text": "a 2 by gamma a 1 into gamma a 2, and p 1 to the power a 1 minus 1 and p 2 to the power"
+    },
+    {
+      "index": 160,
+      "start_time": 932949.0,
+      "end_time": 939620.0,
+      "text": "a 2 minus 1 and that is the beta density. So, when M is equal to 2, this density becomes"
+    },
+    {
+      "index": 161,
+      "start_time": 939620.0,
+      "end_time": 943559.0,
+      "text": "the beta density and this Dirichlet density happens to be the conjugate prior here. So,"
+    },
+    {
+      "index": 162,
+      "start_time": 943559.0,
+      "end_time": 953189.0,
+      "text": "as you can see, if I am estimating the parameter of a Bernoulli density then, my conjugate"
+    },
+    {
+      "index": 163,
+      "start_time": 953189.0,
+      "end_time": 958519.0,
+      "text": "prior happens to be beta. Whereas, if Iam estimating parameters for"
+    },
+    {
+      "index": 164,
+      "start_time": 958519.0,
+      "end_time": 966009.0,
+      "text": "a multinomial distribution rather than binomial one then, the prior happens to be Dirichlet,"
+    },
+    {
+      "index": 165,
+      "start_time": 966009.0,
+      "end_time": 975930.0,
+      "text": "which is a kind of a neat generalization of the beta density to, a to more than two case."
+    },
+    {
+      "index": 166,
+      "start_time": 975930.0,
+      "end_time": 980839.0,
+      "text": "Of course, this is a strange expression and we have first show that, this is a density"
+    },
+    {
+      "index": 167,
+      "start_time": 980839.0,
+      "end_time": 987449.0,
+      "text": "on that particular set of p, that we we mentioned. Using the using similar methods, as in the"
+    },
+    {
+      "index": 168,
+      "start_time": 987449.0,
+      "end_time": 995670.0,
+      "text": "case of beta density we can show that, this is a density, the other thing that we want"
+    },
+    {
+      "index": 169,
+      "start_time": 995670.0,
+      "end_time": 999949.0,
+      "text": "is, just like in the beta density case, ultimately because, my posterior will be a Dirichlet"
+    },
+    {
+      "index": 170,
+      "start_time": 999949.0,
+      "end_time": 1004980.0,
+      "text": "density. We need to know the movements of the Dirichlet density so that, I I can correctly"
+    },
+    {
+      "index": 171,
+      "start_time": 1004980.0,
+      "end_time": 1007879.0,
+      "text": "use my posterior to get my estimates."
+    },
+    {
+      "index": 172,
+      "start_time": 1007880.0,
+      "end_time": 1013840.0,
+      "text": "Once again without proofs, I I just put down these movements so, if p 1, p 2, p M have"
+    },
+    {
+      "index": 173,
+      "start_time": 1013840.0,
+      "end_time": 1020120.0,
+      "text": "joint densities as Dirichlet, with parameters a 1, a 2, a M then, expected value of any"
+    },
+    {
+      "index": 174,
+      "start_time": 1020120.0,
+      "end_time": 1027710.0,
+      "text": "component say, p j is a j by a 0 where, a 0 is a 1 plus a 2 plus a M. Variance of p"
+    },
+    {
+      "index": 175,
+      "start_time": 1027710.0,
+      "end_time": 1035531.0,
+      "text": "j happens to be a 0 into a j into a 0 minus a j, by a 0 square into a 0 plus 1 and similarly,"
+    },
+    {
+      "index": 176,
+      "start_time": 1035530.0,
+      "end_time": 1039919.0,
+      "text": "this is the co variance. We do not know the co variance but, this kind of gives us all"
+    },
+    {
+      "index": 177,
+      "start_time": 1039920.0000000001,
+      "end_time": 1047361.0000000001,
+      "text": "the movements upto the up to order 2. So, for example, if you are going to use the use"
+    },
+    {
+      "index": 178,
+      "start_time": 1047359.9999999999,
+      "end_time": 1055039.0,
+      "text": "the mean of the posterior rather or final estimate, we would need this formula."
+    },
+    {
+      "index": 179,
+      "start_time": 1055040.0,
+      "end_time": 1065001.0,
+      "text": "So, with this let us now go on in this case, compute the posterior density, if by taking"
+    },
+    {
+      "index": 180,
+      "start_time": 1065000.0,
+      "end_time": 1069039.0,
+      "text": "prior as Dirichlet, the posterior density we have, to for the posterior density, as"
+    },
+    {
+      "index": 181,
+      "start_time": 1069040.0,
+      "end_time": 1074150.0,
+      "text": "we know is f p given D is proportional to the product of f D given p, into f p f D given"
+    },
+    {
+      "index": 182,
+      "start_time": 1074150.0,
+      "end_time": 1080721.0,
+      "text": "p is the data likelihood, f p is the prior we have taken prior to be Dirichlet. We already"
+    },
+    {
+      "index": 183,
+      "start_time": 1080720.0,
+      "end_time": 1086620.0,
+      "text": "have an expression for the likelihood so, if you substitute those two so, this is the"
+    },
+    {
+      "index": 184,
+      "start_time": 1086620.0,
+      "end_time": 1090270.0,
+      "text": "expression for the likelihood, product p j to the power n j."
+    },
+    {
+      "index": 185,
+      "start_time": 1090270.0,
+      "end_time": 1098000.0,
+      "text": "And let us say, we have taken the we have taken the prior to be Dirichlet with parameters"
+    },
+    {
+      "index": 186,
+      "start_time": 1098000.0,
+      "end_time": 1104260.0,
+      "text": "a 1, a 2, a M then, this becomes the prior so, this product can now be written as, product"
+    },
+    {
+      "index": 187,
+      "start_time": 1104260.0,
+      "end_time": 1112340.0,
+      "text": "over p j of n j plus a j minus 1. So, obviously the reason, why we chosen this particular"
+    },
+    {
+      "index": 188,
+      "start_time": 1112340.0,
+      "end_time": 1116240.0,
+      "text": "prior is that, the posterior will belong to same class. So, indeed posterior belongs to"
+    },
+    {
+      "index": 189,
+      "start_time": 1116240.0,
+      "end_time": 1121610.0,
+      "text": "the same class right, this is product is proportional to product of p j to the power something."
+    },
+    {
+      "index": 190,
+      "start_time": 1121610.0,
+      "end_time": 1127980.0,
+      "text": "So, if my prior is Dirichlet with parameters a 1, a 2, a M then, the posterior is Dirichlet"
+    },
+    {
+      "index": 191,
+      "start_time": 1127980.0,
+      "end_time": 1134770.0,
+      "text": "with parameters n j plus a j where, the n j’s come from the data, This is once again"
+    },
+    {
+      "index": 192,
+      "start_time": 1134770.0,
+      "end_time": 1139200.0,
+      "text": "very similar to, what happened in the Bernoulli case."
+    },
+    {
+      "index": 193,
+      "start_time": 1139200.0,
+      "end_time": 1149330.0,
+      "text": "Thus, the posterior is also Dirich let with parameters n j plus a j so, if we take for"
+    },
+    {
+      "index": 194,
+      "start_time": 1149330.0,
+      "end_time": 1153690.0,
+      "text": "example, the mean of the posterior as our final Bayesian estimate, we already seen,"
+    },
+    {
+      "index": 195,
+      "start_time": 1153690.0,
+      "end_time": 1163309.0,
+      "text": "what the mean is a j by sum so, we know summation n j. So, it will be n j plus a j by summation"
+    },
+    {
+      "index": 196,
+      "start_time": 1163310.0,
+      "end_time": 1169951.0,
+      "text": "over j n j plus a j, summation over j n j is n, that we have already seen and a 0 is"
+    },
+    {
+      "index": 197,
+      "start_time": 1169950.0,
+      "end_time": 1172779.0,
+      "text": "the notation we have given for summation a j’s."
+    },
+    {
+      "index": 198,
+      "start_time": 1172780.0,
+      "end_time": 1178081.0,
+      "text": "So, the the bayesian density, which is taken as the mean of the posterior turns out to"
+    },
+    {
+      "index": 199,
+      "start_time": 1178080.0,
+      "end_time": 1189809.0,
+      "text": "be n j plus a j by n plus a 0. Let us recall, that the ML estimate for this was n j by n"
+    },
+    {
+      "index": 200,
+      "start_time": 1189810.0,
+      "end_time": 1194641.0,
+      "text": "right. And the ML estimate is very easy to see, we are asking, what is the probability"
+    },
+    {
+      "index": 201,
+      "start_time": 1194640.0,
+      "end_time": 1199830.0,
+      "text": "that Z takes the j th value or what is the probability that, the j th outcome occurs"
+    },
+    {
+      "index": 202,
+      "start_time": 1199830.0,
+      "end_time": 1202940.0,
+      "text": "that is, equal to the number of times j th outcome occurred by the total number of samples"
+    },
+    {
+      "index": 203,
+      "start_time": 1202940.0,
+      "end_time": 1209580.0,
+      "text": "right, n j means summation over i, x i j is the number of times the j th value has occurred."
+    },
+    {
+      "index": 204,
+      "start_time": 1209580.0,
+      "end_time": 1215960.0,
+      "text": "So, n j by n was, as we have already derived was the ML estimate here, instead of it being"
+    },
+    {
+      "index": 205,
+      "start_time": 1215960.0,
+      "end_time": 1222429.0,
+      "text": "n j by n, it becomes n j plus a j by n plus a 0 where, a j and a 0, which is a 1 plus"
+    },
+    {
+      "index": 206,
+      "start_time": 1222430.0,
+      "end_time": 1229361.0,
+      "text": "a 2 plus a M are determined by our choice of the prior right, our choice of prior determines,"
+    },
+    {
+      "index": 207,
+      "start_time": 1229360.0,
+      "end_time": 1239059.0,
+      "text": "what the value a j are. So, just like in the case of the Bernoulli parameters, the nature"
+    },
+    {
+      "index": 208,
+      "start_time": 1239060.0,
+      "end_time": 1246351.0,
+      "text": "of the Bayesian estimate is same so, you can think of the prior as saying, that before"
+    },
+    {
+      "index": 209,
+      "start_time": 1246350.0,
+      "end_time": 1253720.0,
+      "text": "I collect data in my mind because, I have some idea of, what the values of p j’s are."
+    },
+    {
+      "index": 210,
+      "start_time": 1253720.0,
+      "end_time": 1262169.0,
+      "text": "I have coded them to say that, if I have done a zero repetitions of Z, they are fictitious"
+    },
+    {
+      "index": 211,
+      "start_time": 1262170.0,
+      "end_time": 1265741.0,
+      "text": "repetitions a 1 of them would give me first value, a 2 of them will give me second value,"
+    },
+    {
+      "index": 212,
+      "start_time": 1265740.0,
+      "end_time": 1271610.0,
+      "text": "a M of them will give me third value. So, I can choose the a 0 as well as a 1 to a M"
+    },
+    {
+      "index": 213,
+      "start_time": 1271610.0,
+      "end_time": 1279740.0,
+      "text": "based on my idea of, what these numbers p 1 to p M are. So then, the final estimate"
+    },
+    {
+      "index": 214,
+      "start_time": 1279740.0,
+      "end_time": 1284460.0,
+      "text": "is the actual in the data, how many times j has occurred plus how many time j has occurred"
+    },
+    {
+      "index": 215,
+      "start_time": 1284460.0,
+      "end_time": 1289080.0,
+      "text": "in the fictitious trials, divided by the total number of actual trials and the fictitious"
+    },
+    {
+      "index": 216,
+      "start_time": 1289080.0,
+      "end_time": 1293760.0,
+      "text": "trials. So, when data when the like in the Bernoulli"
+    },
+    {
+      "index": 217,
+      "start_time": 1293760.0,
+      "end_time": 1301600.0,
+      "text": "case, if the data is small then, we do not go very wrong because, our paired beliefs"
+    },
+    {
+      "index": 218,
+      "start_time": 1301600.0,
+      "end_time": 1307350.0,
+      "text": "we will ensure that, p j’s do not go into unnatural values. For example, p j breaking"
+    },
+    {
+      "index": 219,
+      "start_time": 1307350.0,
+      "end_time": 1316250.0,
+      "text": "1 or 0, when data is very small but, as n increases for any fixed a j and a 0, as n"
+    },
+    {
+      "index": 220,
+      "start_time": 1316250.0,
+      "end_time": 1322730.0,
+      "text": "increases ultimately, this becomes n j by n. So, asymptotically the Bayesian estimate"
+    },
+    {
+      "index": 221,
+      "start_time": 1322730.0,
+      "end_time": 1328840.0,
+      "text": "will be same as the maximum likelihood estimate and hence, it will be consistent. But, once"
+    },
+    {
+      "index": 222,
+      "start_time": 1328840.0,
+      "end_time": 1336260.0,
+      "text": "again like in the Bernoulli case, the the prior allows me, to allow my initial beliefs"
+    },
+    {
+      "index": 223,
+      "start_time": 1336260.0,
+      "end_time": 1343970.0,
+      "text": "to properly moderate data especially, when data is not very large."
+    },
+    {
+      "index": 224,
+      "start_time": 1343970.0,
+      "end_time": 1352230.0,
+      "text": "Now, let us look at another example, last class we considered the example of estimating"
+    },
+    {
+      "index": 225,
+      "start_time": 1352230.0,
+      "end_time": 1358880.0,
+      "text": "mean of a normal distribution where, we assumed the variance to be known right. Now, let us"
+    },
+    {
+      "index": 226,
+      "start_time": 1358880.0,
+      "end_time": 1363140.0,
+      "text": "do it the other way round, we want to estimate the variance of a normal distribution and"
+    },
+    {
+      "index": 227,
+      "start_time": 1363140.0,
+      "end_time": 1368740.0,
+      "text": "we assume mean to be known. It might look a little strange to you, when we did the ML"
+    },
+    {
+      "index": 228,
+      "start_time": 1368740.0,
+      "end_time": 1375390.0,
+      "text": "estimate, we did not have to do so much trouble, we directly did only one example to estimate"
+    },
+    {
+      "index": 229,
+      "start_time": 1375390.0,
+      "end_time": 1379260.0,
+      "text": "both mean and variance of a one dimensional Gaussian distribution."
+    },
+    {
+      "index": 230,
+      "start_time": 1379260.0,
+      "end_time": 1386669.0,
+      "text": "Because, in the ML case, it is a very straight forward thing here, for each kind of parameter,"
+    },
+    {
+      "index": 231,
+      "start_time": 1386670.0,
+      "end_time": 1391101.0,
+      "text": "the corresponding prior would be different for example, when we wanted to estimate the"
+    },
+    {
+      "index": 232,
+      "start_time": 1391100.0,
+      "end_time": 1397190.0,
+      "text": "mean, the conjugate prior was Gaussian right. Some of you may be thinking that, because"
+    },
+    {
+      "index": 233,
+      "start_time": 1397190.0,
+      "end_time": 1400649.0,
+      "text": "we were estimating Gaussian density, the conjugate what happened to be Gaussian, that is not"
+    },
+    {
+      "index": 234,
+      "start_time": 1400650.0,
+      "end_time": 1403581.0,
+      "text": "true. If you want to estimate the variance of a"
+    },
+    {
+      "index": 235,
+      "start_time": 1403580.0,
+      "end_time": 1410070.0,
+      "text": "Gaussian where, I assume mean known, the conjugate prior cannot be Gaussian right because, variance"
+    },
+    {
+      "index": 236,
+      "start_time": 1410070.0,
+      "end_time": 1416640.0,
+      "text": "as a parameter can take only non-zero values. So, it is density cannot be Gaussian then,"
+    },
+    {
+      "index": 237,
+      "start_time": 1416640.0,
+      "end_time": 1424600.0,
+      "text": "we may jump to the conclusion say, may be it is a exponential, exponential is a density"
+    },
+    {
+      "index": 238,
+      "start_time": 1424600.0,
+      "end_time": 1433659.0,
+      "text": "that is 0 only only when the random variables takes positive values, it is the density is"
+    },
+    {
+      "index": 239,
+      "start_time": 1433660.0,
+      "end_time": 1438571.0,
+      "text": "non-zero, only when the random variable takes positive values."
+    },
+    {
+      "index": 240,
+      "start_time": 1438570.0,
+      "end_time": 1447389.0,
+      "text": "But, exponential is only a special case right, we will see that in general, the the prior"
+    },
+    {
+      "index": 241,
+      "start_time": 1447390.0,
+      "end_time": 1455020.0,
+      "text": "is not exponential, exponential is only very special case of the prior. Also, the prior"
+    },
+    {
+      "index": 242,
+      "start_time": 1455020.0,
+      "end_time": 1461280.0,
+      "text": "will not be unvariance, as it turns out for this case, is better to take 1 by variance"
+    },
+    {
+      "index": 243,
+      "start_time": 1461280.0,
+      "end_time": 1467800.0,
+      "text": "at the parameter, it is often denoted by nu and is often called the precision. While I"
+    },
+    {
+      "index": 244,
+      "start_time": 1467800.0,
+      "end_time": 1474881.0,
+      "text": "have not done the vector case, in the vector case, the inverse of the sigma matrix is called"
+    },
+    {
+      "index": 245,
+      "start_time": 1474880.0,
+      "end_time": 1478240.0,
+      "text": "the lambda matrix and that is called the precision matrix."
+    },
+    {
+      "index": 246,
+      "start_time": 1478240.0,
+      "end_time": 1483649.0,
+      "text": "In the in the scalar case of course, we simply take the 1 by variance at the precision, which"
+    },
+    {
+      "index": 247,
+      "start_time": 1483650.0,
+      "end_time": 1489241.0,
+      "text": "is often denoted by nu so, in terms of the parameter nu, the normal density model is"
+    },
+    {
+      "index": 248,
+      "start_time": 1489240.0,
+      "end_time": 1497600.0,
+      "text": "given by 1 root nu. Because, is normally 1 by sigma root 2 pi, 1 by sigma is root nu"
+    },
+    {
+      "index": 249,
+      "start_time": 1497600.0,
+      "end_time": 1503529.0,
+      "text": "so, this root nu by root 2 pi exponential minus half normally, x minus mu whole square"
+    },
+    {
+      "index": 250,
+      "start_time": 1503530.0,
+      "end_time": 1508081.0,
+      "text": "by sigma square and 1 by sigma square is nu. So, it is written as exponential minus nu"
+    },
+    {
+      "index": 251,
+      "start_time": 1508080.0,
+      "end_time": 1512570.0,
+      "text": "by 2 into x minus mu whole square. Note that, we are assuming mu is known and that is why,"
+    },
+    {
+      "index": 252,
+      "start_time": 1512570.0,
+      "end_time": 1523019.0,
+      "text": "only mu is shown as the conditioning parameter. And we need to find nu said that, nu is always"
+    },
+    {
+      "index": 253,
+      "start_time": 1523020.0,
+      "end_time": 1526810.0,
+      "text": "positive so, for example, when we choose a prior density, we choose density that is,"
+    },
+    {
+      "index": 254,
+      "start_time": 1526810.0,
+      "end_time": 1533530.0,
+      "text": "the that is 0 on the negative nu and you have to find, what is the prior density, you have"
+    },
+    {
+      "index": 255,
+      "start_time": 1533530.0,
+      "end_time": 1539481.0,
+      "text": "to look at the data likelihood. So, let us look at the data likelihood, the"
+    },
+    {
+      "index": 256,
+      "start_time": 1539480.0,
+      "end_time": 1546470.0,
+      "text": "data likelihood is given by in terms of nu, as equal to 1 to n, f of x i given nu, f of"
+    },
+    {
+      "index": 257,
+      "start_time": 1546470.0,
+      "end_time": 1553029.0,
+      "text": "x given nu is this. So, if I take a product, this will give me nu to the power root nu"
+    },
+    {
+      "index": 258,
+      "start_time": 1553030.0,
+      "end_time": 1558140.0,
+      "text": "to the power n that is, nu to the power n by 2. This 1 by root 2 pi to the power n that"
+    },
+    {
+      "index": 259,
+      "start_time": 1558140.0,
+      "end_time": 1565941.0,
+      "text": "is, 2 pi to the power minus n by 2 so, I have a two pi to the power minus n by 2 term, I"
+    },
+    {
+      "index": 260,
+      "start_time": 1565940.0,
+      "end_time": 1571880.0,
+      "text": "have a nu to the power n by 2 term. And then, when I take a product of this over x i, it"
+    },
+    {
+      "index": 261,
+      "start_time": 1571880.0,
+      "end_time": 1575269.0,
+      "text": "will become exponential minus nu by 2 into sum of this."
+    },
+    {
+      "index": 262,
+      "start_time": 1575270.0,
+      "end_time": 1584111.0,
+      "text": "So, exponential minus nu by 2 into sum over i x i minus mu whole square so now ,to ask"
+    },
+    {
+      "index": 263,
+      "start_time": 1584110.0,
+      "end_time": 1588539.0,
+      "text": "what should be the right prior, we should ask what kind of function is this of nu, viewed"
+    },
+    {
+      "index": 264,
+      "start_time": 1588540.0,
+      "end_time": 1595640.0,
+      "text": "as a function of nu, what kind of function is this. So, we essentially have an exponential"
+    },
+    {
+      "index": 265,
+      "start_time": 1595640.0,
+      "end_time": 1603560.0,
+      "text": "nu into something term and we have a nu to the power something term right. So, the conjugate"
+    },
+    {
+      "index": 266,
+      "start_time": 1603560.0,
+      "end_time": 1610221.0,
+      "text": "prior should be something, this proportional to nu power something and that, should be"
+    },
+    {
+      "index": 267,
+      "start_time": 1610220.0,
+      "end_time": 1617570.0,
+      "text": "proportional to product of a power of nu and an exponential of a linear function of nu."
+    },
+    {
+      "index": 268,
+      "start_time": 1617570.0,
+      "end_time": 1622740.0,
+      "text": "Because, the data density is some constant into nu to the power something and exponential"
+    },
+    {
+      "index": 269,
+      "start_time": 1622740.0,
+      "end_time": 1629769.0,
+      "text": "minus some some k times nu. So, if the prior also has nu to the power something and exponential"
+    },
+    {
+      "index": 270,
+      "start_time": 1629770.0,
+      "end_time": 1636971.0,
+      "text": "some constant into nu, I mean then, the product will once again be nu to the power something"
+    },
+    {
+      "index": 271,
+      "start_time": 1636970.0,
+      "end_time": 1641570.0,
+      "text": "into exponentials of constant nu. So, the prior should be proportional to a product"
+    },
+    {
+      "index": 272,
+      "start_time": 1641570.0,
+      "end_time": 1648409.0,
+      "text": "of a power of nu and an exponential of a linear function in nu. And such a density transfer"
+    },
+    {
+      "index": 273,
+      "start_time": 1648410.0,
+      "end_time": 1654540.0,
+      "text": "to be, what is known as a gamma density, such a prior would be what is called the gamma"
+    },
+    {
+      "index": 274,
+      "start_time": 1654540.0,
+      "end_time": 1654810.0,
+      "text": "density."
+    },
+    {
+      "index": 275,
+      "start_time": 1654810.0,
+      "end_time": 1660701.0,
+      "text": "So, let us look at the gamma density, the gamma density is given by the density function"
+    },
+    {
+      "index": 276,
+      "start_time": 1660700.0,
+      "end_time": 1666669.0,
+      "text": "f nu is 1 by gamma a, b to the power of a nu to the power a minus one e to the power"
+    },
+    {
+      "index": 277,
+      "start_time": 1666670.0,
+      "end_time": 1677091.0,
+      "text": "of b nu where, a and b are parameters. So, the gamma is once again the gamma function,"
+    },
+    {
+      "index": 278,
+      "start_time": 1677090.0,
+      "end_time": 1683240.0,
+      "text": "as a matter of fact, the actual gamma function comes from making this to be a density. By"
+    },
+    {
+      "index": 279,
+      "start_time": 1683240.0,
+      "end_time": 1688639.0,
+      "text": "a simple integration, we can show that this to be a density because, this integral will"
+    },
+    {
+      "index": 280,
+      "start_time": 1688640.0,
+      "end_time": 1701111.0,
+      "text": "turn out to be the gamma function. The the gamma density has two parameters a"
+    },
+    {
+      "index": 281,
+      "start_time": 1701110.0,
+      "end_time": 1708350.0,
+      "text": "and b, the a comes in nu to the power of a minus one and b comes in e power minus b nu,"
+    },
+    {
+      "index": 282,
+      "start_time": 1708350.0,
+      "end_time": 1715169.0,
+      "text": "this b power a is needed so that, the density integrates to 1. So, the nu to the power is"
+    },
+    {
+      "index": 283,
+      "start_time": 1715170.0,
+      "end_time": 1721591.0,
+      "text": "controlled by a and exponential of the linear function in nu is controlled by b, these two"
+    },
+    {
+      "index": 284,
+      "start_time": 1721590.0,
+      "end_time": 1729289.0,
+      "text": "are the parameters and the mean of gamma density is a by b and the mode is a minus 1 by b."
+    },
+    {
+      "index": 285,
+      "start_time": 1729290.0,
+      "end_time": 1737510.0,
+      "text": "If I actually choose a to be 1 then, the density turns out to be b e power minus b nu right"
+    },
+    {
+      "index": 286,
+      "start_time": 1737510.0,
+      "end_time": 1746101.0,
+      "text": "now, when a is 1, as you know gamma of a is a minus gamma, if one is one turns out to"
+    },
+    {
+      "index": 287,
+      "start_time": 1746100.0,
+      "end_time": 1754019.0,
+      "text": "be 1 by straight forward integration. So, when a is equal to 1 is simply b e power minus"
+    },
+    {
+      "index": 288,
+      "start_time": 1754020.0,
+      "end_time": 1759310.0,
+      "text": "b nu that is nothing but, the exponential density so, exponential density is a special"
+    },
+    {
+      "index": 289,
+      "start_time": 1759310.0,
+      "end_time": 1766930.0,
+      "text": "case of gamma density with a is equal to 1. So, let us take the prior to be gamma with"
+    },
+    {
+      "index": 290,
+      "start_time": 1766930.0,
+      "end_time": 1771410.0,
+      "text": "parameters a 0 and b 0 that means, it becomes nu the power of a 0 minus 1 e to the power"
+    },
+    {
+      "index": 291,
+      "start_time": 1771410.0,
+      "end_time": 1777140.0,
+      "text": "of minus b 0 nu, those are the two important terms, the rest is constant."
+    },
+    {
+      "index": 292,
+      "start_time": 1777140.0,
+      "end_time": 1784540.0,
+      "text": "So, the posterior density becomes f of nu given D is proportional f of D given nu into"
+    },
+    {
+      "index": 293,
+      "start_time": 1784540.0,
+      "end_time": 1797890.0,
+      "text": "f nu f of D given nu is this and f of nu is this with a as a 0 and b as b 0."
+    },
+    {
+      "index": 294,
+      "start_time": 1797890.0,
+      "end_time": 1804241.0,
+      "text": "So, we get this, f of D given nu is nu to the power forgetting the constants keeping"
+    },
+    {
+      "index": 295,
+      "start_time": 1804240.0,
+      "end_time": 1808950.0,
+      "text": "only the nu terms; it become nu to the power n by 2 exponential minus nu by 2 into summation"
+    },
+    {
+      "index": 296,
+      "start_time": 1808950.0,
+      "end_time": 1815159.0,
+      "text": "x i minus mu whole square; and from f nu, I get nu to the power of a 0 minus 1 exponential"
+    },
+    {
+      "index": 297,
+      "start_time": 1815160.0,
+      "end_time": 1820930.0,
+      "text": "minus b 0 nu. For the reason we chose this as the prior is now, these two new terms will"
+    },
+    {
+      "index": 298,
+      "start_time": 1820930.0,
+      "end_time": 1824601.0,
+      "text": "become nu to the power something and these exponential terms will become exponential"
+    },
+    {
+      "index": 299,
+      "start_time": 1824600.0,
+      "end_time": 1827870.0,
+      "text": "something into nu. So, if you do that, it becomes nu to the power"
+    },
+    {
+      "index": 300,
+      "start_time": 1827870.0,
+      "end_time": 1834799.0,
+      "text": "of a 0 plus n by 2 minus 1 into exponential minus b 0 nu minus nu by 2 into this. So,"
+    },
+    {
+      "index": 301,
+      "start_time": 1834800.0,
+      "end_time": 1838530.0,
+      "text": "we once again have nu to the power something exponential minus a linear function of nu"
+    },
+    {
+      "index": 302,
+      "start_time": 1838530.0,
+      "end_time": 1845451.0,
+      "text": "so, the posterior as expected, is once again a gamma density. Now, what kind of gamma density"
+    },
+    {
+      "index": 303,
+      "start_time": 1845450.0,
+      "end_time": 1861429.0,
+      "text": "is it. The the gamma density is two parameters a and b essentially, forgetting the constants"
+    },
+    {
+      "index": 304,
+      "start_time": 1861430.0,
+      "end_time": 1868091.0,
+      "text": "is proportional to nu to the power of a minus 1 e to the power minus b nu right. So for"
+    },
+    {
+      "index": 305,
+      "start_time": 1868090.0,
+      "end_time": 1878549.0,
+      "text": "the posterior density, the a parameter is a 0 plus n by 2 and the b parameter is b 0"
+    },
+    {
+      "index": 306,
+      "start_time": 1878550.0,
+      "end_time": 1881121.0,
+      "text": "plus half into this sum right."
+    },
+    {
+      "index": 307,
+      "start_time": 1881120.0,
+      "end_time": 1887789.0,
+      "text": "So, if we think that the posterior is a gamma density with parameters a a n and b n right"
+    },
+    {
+      "index": 308,
+      "start_time": 1887790.0,
+      "end_time": 1893571.0,
+      "text": "then, this is what we will get. If the posterior is a is a gamma density with parameters a"
+    },
+    {
+      "index": 309,
+      "start_time": 1893570.0,
+      "end_time": 1903570.0,
+      "text": "n and b n. Then a n will be a 0 plus n by 2, 0 plus n by 2 and what will be b n, b n"
+    },
+    {
+      "index": 310,
+      "start_time": 1903570.0,
+      "end_time": 1913100.0,
+      "text": "will be b 0 plus half into this summation b 0 plus half into the summation. I can write"
+    },
+    {
+      "index": 311,
+      "start_time": 1913100.0,
+      "end_time": 1918480.0,
+      "text": "this summation as, I know 1 by n summation is equal to 1 to n, x n minus mu whole square"
+    },
+    {
+      "index": 312,
+      "start_time": 1918480.0,
+      "end_time": 1925500.0,
+      "text": "will be the maximum likelihood estimate for variance plus call it sigma square hat ML."
+    },
+    {
+      "index": 313,
+      "start_time": 1925500.0,
+      "end_time": 1932110.0,
+      "text": "Then, this summation is n times sigma square hat ML so, I can write b n as, b 0 plus n"
+    },
+    {
+      "index": 314,
+      "start_time": 1932110.0,
+      "end_time": 1939360.0,
+      "text": "by 2 sigma square hat ML. So, if I chosen the prior to be gamma with parameters a 0"
+    },
+    {
+      "index": 315,
+      "start_time": 1939360.0,
+      "end_time": 1946960.0,
+      "text": "and b 0 then, the posterior will become a gamma with parameters a n and b n. Where a"
+    },
+    {
+      "index": 316,
+      "start_time": 1946960.0,
+      "end_time": 1957960.0,
+      "text": "n turns out to be a 0 plus n by 2 and b n turns out to be b 0 plus n by 2 times, sigma"
+    },
+    {
+      "index": 317,
+      "start_time": 1957960.0,
+      "end_time": 1963620.0,
+      "text": "square hat ML where, sigma square hat ML is the maximum likelihood estimator for variance"
+    },
+    {
+      "index": 318,
+      "start_time": 1963620.0,
+      "end_time": 1964820.0,
+      "text": "in this case."
+    },
+    {
+      "index": 319,
+      "start_time": 1964820.0,
+      "end_time": 1971240.0,
+      "text": "So, recall that sigma square hat ML is the estimate for variance, is the maximum likelihood"
+    },
+    {
+      "index": 320,
+      "start_time": 1971240.0,
+      "end_time": 1972590.0,
+      "text": "estimate for variance."
+    },
+    {
+      "index": 321,
+      "start_time": 1972590.0,
+      "end_time": 1978970.0,
+      "text": "So now, if I want to take the mean of the posterior as the final estimate, as we know"
+    },
+    {
+      "index": 322,
+      "start_time": 1978970.0,
+      "end_time": 1986259.0,
+      "text": "for the gamma density with parameters a and b, the mean is a by b. So, here the posterior"
+    },
+    {
+      "index": 323,
+      "start_time": 1986260.0,
+      "end_time": 1992550.0,
+      "text": "density is gamma with parameters a n and b n so, the mean will be a n by b n. So, our"
+    },
+    {
+      "index": 324,
+      "start_time": 1992550.0,
+      "end_time": 1998351.0,
+      "text": "Bayesian estimate for nu nu hat would be a n by b n that is, a 0 plus n by 2 or b 0 plus"
+    },
+    {
+      "index": 325,
+      "start_time": 1998350.0,
+      "end_time": 2008159.0,
+      "text": "n by 2 sigma square hat ML right. Remember that, nu is 1 by sigma square right"
+    },
+    {
+      "index": 326,
+      "start_time": 2008160.0,
+      "end_time": 2015160.0,
+      "text": "so, if I do not did not have the a 0 and b 0, nu hat is 1 by sigma square Ml so, it is"
+    },
+    {
+      "index": 327,
+      "start_time": 2015160.0,
+      "end_time": 2019650.0,
+      "text": "same as the maximum likelihood estimate. Because, nu is actually 1 by sigma square so, the estimate"
+    },
+    {
+      "index": 328,
+      "start_time": 2019650.0,
+      "end_time": 2027560.0,
+      "text": "for 1 by sigma square will be 1 by sigma square hat ML. Now, the a 0 and b 0 are determined"
+    },
+    {
+      "index": 329,
+      "start_time": 2027560.0,
+      "end_time": 2032170.0,
+      "text": "by our choice of prior right, we are choosing a gamma density at the prior so, the kind"
+    },
+    {
+      "index": 330,
+      "start_time": 2032170.0,
+      "end_time": 2037341.0,
+      "text": "of gamma density we want, is what determines the values a 0 and b 0."
+    },
+    {
+      "index": 331,
+      "start_time": 2037340.0,
+      "end_time": 2043320.0,
+      "text": "Now, what can we say about this density, once I have this estimate, once again as n tends"
+    },
+    {
+      "index": 332,
+      "start_time": 2043320.0,
+      "end_time": 2051200.0,
+      "text": "to infinity, nu hat converges to sigma square ML right because, as n tends to infinity,"
+    },
+    {
+      "index": 333,
+      "start_time": 2051199.9999999998,
+      "end_time": 2057259.9999999998,
+      "text": "n by 2 will be greater than both a 0 and b 0. So, this fraction essentially becomes n"
+    },
+    {
+      "index": 334,
+      "start_time": 2057260.0000000002,
+      "end_time": 2063940.0000000002,
+      "text": "by 2 by n by two sigma square hat ML so, I am I am sorry about to the typo nu hat converges"
+    },
+    {
+      "index": 335,
+      "start_time": 2063940.0,
+      "end_time": 2068300.0,
+      "text": "to 1 by sigma square hat ML. I am sorry, it is not nu hat converges to sigma square ML"
+    },
+    {
+      "index": 336,
+      "start_time": 2068300.0000000002,
+      "end_time": 2071570.0000000002,
+      "text": "but, nu hat converges to 1 by sigma square hat ML."
+    },
+    {
+      "index": 337,
+      "start_time": 2071570.0000000002,
+      "end_time": 2077540.0000000002,
+      "text": "Also note, that the variance of the posterior right for a gamma density with parameters"
+    },
+    {
+      "index": 338,
+      "start_time": 2077540.0,
+      "end_time": 2085540.0,
+      "text": "a n and b n, the posterior the variance is a n by b n square. So, this is a n, this is"
+    },
+    {
+      "index": 339,
+      "start_time": 2085540.0,
+      "end_time": 2090850.0,
+      "text": "b n so, if you take the square, the numerator goes as n whereas, denominator increases as"
+    },
+    {
+      "index": 340,
+      "start_time": 2090850.0,
+      "end_time": 2095740.0,
+      "text": "n square so, that the variance goes to 0, as n tends to infinity. So, as n tends to"
+    },
+    {
+      "index": 341,
+      "start_time": 2095739.9999999998,
+      "end_time": 2100870.0,
+      "text": "infinity, the posterior essentially becomes same as the mean and the mean is 1 by sigma"
+    },
+    {
+      "index": 342,
+      "start_time": 2100870.0,
+      "end_time": 2108630.0,
+      "text": "square hat ML so, once again just as we expect, the the Bayesian estimate is consistent. But,"
+    },
+    {
+      "index": 343,
+      "start_time": 2108630.0,
+      "end_time": 2118050.0,
+      "text": "at any small sample size, it is not only determined by the data thus, 1 by sigma square hat ML"
+    },
+    {
+      "index": 344,
+      "start_time": 2118050.0,
+      "end_time": 2127280.0,
+      "text": "but, is also determined by the initial a 0 and b 0, we choose for the prior prior density,"
+    },
+    {
+      "index": 345,
+      "start_time": 2127280.0,
+      "end_time": 2132530.0,
+      "text": "which is gaussian with parameters a 0 and b 0."
+    },
+    {
+      "index": 346,
+      "start_time": 2132530.0,
+      "end_time": 2138270.0,
+      "text": "So, we have seen both Bayesian estimation for either the mean or the variance of the"
+    },
+    {
+      "index": 347,
+      "start_time": 2138270.0,
+      "end_time": 2143550.0,
+      "text": "Gaussian, mean we seen last time, for variance we are seeing just now. So, when I want to"
+    },
+    {
+      "index": 348,
+      "start_time": 2143550.0,
+      "end_time": 2149970.0,
+      "text": "estimate only the mean, assuming that the variance is known then, the prior turns out"
+    },
+    {
+      "index": 349,
+      "start_time": 2149970.0,
+      "end_time": 2155450.0,
+      "text": "to be a a Gaussian. When I want to estimate only the variance, assuming that the mean"
+    },
+    {
+      "index": 350,
+      "start_time": 2155450.0,
+      "end_time": 2161130.0,
+      "text": "is known, the prior turns out to be gamma. So, if I want to estimate both mean and variance"
+    },
+    {
+      "index": 351,
+      "start_time": 2161130.0,
+      "end_time": 2166740.0,
+      "text": "now, I have two parameters once again, from my experience in estimating variance, we will"
+    },
+    {
+      "index": 352,
+      "start_time": 2166740.0,
+      "end_time": 2169840.0,
+      "text": "choose nu as the parameter, for parameters in the density model."
+    },
+    {
+      "index": 353,
+      "start_time": 2169840.0,
+      "end_time": 2176490.0,
+      "text": "So, my density model now is f of x given mu nu is this remember, that nu is 1 by sigma"
+    },
+    {
+      "index": 354,
+      "start_time": 2176490.0,
+      "end_time": 2182790.0,
+      "text": "square so, if both mu and nu are unknown, we need a prior, there is a joint density"
+    },
+    {
+      "index": 355,
+      "start_time": 2182790.0,
+      "end_time": 2188160.0,
+      "text": "on mu and nu. We already know that, if nu is known, only mu is unknown then, the prior"
+    },
+    {
+      "index": 356,
+      "start_time": 2188160.0,
+      "end_time": 2194740.0,
+      "text": "density is Gaussian, if mu is known and nu is unknown then, I know the prior density"
+    },
+    {
+      "index": 357,
+      "start_time": 2194740.0,
+      "end_time": 2202210.0,
+      "text": "is gamma. So, the joint density should be some combination of Gaussian and gamma, the"
+    },
+    {
+      "index": 358,
+      "start_time": 2202210.0,
+      "end_time": 2206220.0,
+      "text": "the algebra turns out be a little cumbersome so, I do not give you all the algebra, I will"
+    },
+    {
+      "index": 359,
+      "start_time": 2206220.0,
+      "end_time": 2208030.0,
+      "text": "just give you the final expression."
+    },
+    {
+      "index": 360,
+      "start_time": 2208030.0,
+      "end_time": 2212560.0,
+      "text": "So, then the conjugate prior would be, what is called as Gaussian gamma density, the Gaussian"
+    },
+    {
+      "index": 361,
+      "start_time": 2212560.0,
+      "end_time": 2218850.0,
+      "text": "gamma density this, any joint density of any two random variables mu and nu here, can be"
+    },
+    {
+      "index": 362,
+      "start_time": 2218850.0,
+      "end_time": 2224080.0,
+      "text": "written as a product of the marginal of nu multiplied by the conditional of mu given"
+    },
+    {
+      "index": 363,
+      "start_time": 2224080.0,
+      "end_time": 2229560.0,
+      "text": "nu that is, true of anything. So, this is how, we will model this so, the the Gaussian"
+    },
+    {
+      "index": 364,
+      "start_time": 2229560.0,
+      "end_time": 2235090.0,
+      "text": "gamma density model is given here, as you can see what we are saying is, f nu is the"
+    },
+    {
+      "index": 365,
+      "start_time": 2235090.0,
+      "end_time": 2239860.0,
+      "text": "first term here, upto here first meaning, the first two terms so, this is the density"
+    },
+    {
+      "index": 366,
+      "start_time": 2239860.0,
+      "end_time": 2245140.0,
+      "text": "what we already seen, this is a gamma right. So, f nu is gamma with parameters a 0 and"
+    },
+    {
+      "index": 367,
+      "start_time": 2245140.0,
+      "end_time": 2261780.0,
+      "text": "b 0 and the density mu given nu is essentially a Gaussian density with nu as it is precision"
+    },
+    {
+      "index": 368,
+      "start_time": 2261780.0,
+      "end_time": 2272430.0,
+      "text": "or 1 by nu as it is variance. So, the conditional of mu given nu is Gaussian, with this is a"
+    },
+    {
+      "index": 369,
+      "start_time": 2272430.0,
+      "end_time": 2278610.0,
+      "text": "Gaussian in the in the variable mu with it is own mean mu 0 and the variance being a"
+    },
+    {
+      "index": 370,
+      "start_time": 2278610.0,
+      "end_time": 2284520.0,
+      "text": "function of the conditioning random variable. That is, this is not just directly 1 by nu"
+    },
+    {
+      "index": 371,
+      "start_time": 2284520.0,
+      "end_time": 2296360.0,
+      "text": "but it is 1 by c 0 nu so that is, the marginal for nu is a gamma density and the conditional"
+    },
+    {
+      "index": 372,
+      "start_time": 2296360.0,
+      "end_time": 2308440.0,
+      "text": "density of mu, conditioned on nu is a Gaussian. Actually, by looking at the at the data likelihood,"
+    },
+    {
+      "index": 373,
+      "start_time": 2308440.0,
+      "end_time": 2315820.0,
+      "text": "we can find that, this is the kind of dependence we need that, nu can always be expressed in"
+    },
+    {
+      "index": 374,
+      "start_time": 2315820.0,
+      "end_time": 2319290.0,
+      "text": "terms of nu to the power something and exponential linear in nu."
+    },
+    {
+      "index": 375,
+      "start_time": 2319290.0,
+      "end_time": 2324000.0,
+      "text": "Whereas, the mu dependence can only be expressed by something that is the function of both"
+    },
+    {
+      "index": 376,
+      "start_time": 2324000.0,
+      "end_time": 2329550.0,
+      "text": "nu and mu that is why, we have to model this in this kind of a factorization. When I put"
+    },
+    {
+      "index": 377,
+      "start_time": 2329550.0,
+      "end_time": 2335850.0,
+      "text": "equality hereby now, we know, that we do not need the actual constants, we are only looking"
+    },
+    {
+      "index": 378,
+      "start_time": 2335850.0,
+      "end_time": 2341630.0,
+      "text": "at the form of this densities. So, by now, we have seen enough examples so, I started"
+    },
+    {
+      "index": 379,
+      "start_time": 2341630.0,
+      "end_time": 2347130.0,
+      "text": "misusing the abusing the notation, I just put equality even though, it is not really"
+    },
+    {
+      "index": 380,
+      "start_time": 2347130.0,
+      "end_time": 2349030.0,
+      "text": "equal. Because, this thing is not really a density,"
+    },
+    {
+      "index": 381,
+      "start_time": 2349030.0,
+      "end_time": 2355160.0,
+      "text": "there will always be a, in the second thing there will be some normalizing constant. There"
+    },
+    {
+      "index": 382,
+      "start_time": 2355160.0,
+      "end_time": 2363420.0,
+      "text": "will be one constant to make this gamma density a density, another constant to make this into"
+    },
+    {
+      "index": 383,
+      "start_time": 2363420.0,
+      "end_time": 2368480.0,
+      "text": "a proper normal density so, there will be some constant. But by now, we know this constants"
+    },
+    {
+      "index": 384,
+      "start_time": 2368480.0,
+      "end_time": 2376970.0,
+      "text": "do not matter so, I just, we are abusing notation by not putting that constant. And also, actually"
+    },
+    {
+      "index": 385,
+      "start_time": 2376970.0,
+      "end_time": 2382570.0,
+      "text": "we would have some relation between c 0 and b 0 and a 0 but, it really does not matter,"
+    },
+    {
+      "index": 386,
+      "start_time": 2382570.0,
+      "end_time": 2388410.0,
+      "text": "we can choose a slightly bigger class of densities at the conjugate prior."
+    },
+    {
+      "index": 387,
+      "start_time": 2388410.0,
+      "end_time": 2397440.0,
+      "text": "Of course, this prior density is quite involved and doing the Bayesian estimation with this"
+    },
+    {
+      "index": 388,
+      "start_time": 2397440.0,
+      "end_time": 2403130.0,
+      "text": "prior density is not easy so, I will skip the details, you people can sit and do the"
+    },
+    {
+      "index": 389,
+      "start_time": 2403130.0,
+      "end_time": 2409640.0,
+      "text": "algebra, the algebra is more complicated. But ultimately, you get similar looking final"
+    },
+    {
+      "index": 390,
+      "start_time": 2409640.0,
+      "end_time": 2418120.0,
+      "text": "essentially, what we get is a convex combination of the sample mean plus something that depends"
+    },
+    {
+      "index": 391,
+      "start_time": 2418120.0,
+      "end_time": 2424700.0,
+      "text": "on the on the prior parameters for the for the estimate of nu."
+    },
+    {
+      "index": 392,
+      "start_time": 2424700.0,
+      "end_time": 2430240.0,
+      "text": "And similarly, for the estimate of nu right, it will be some factor involving 1 by sigma"
+    },
+    {
+      "index": 393,
+      "start_time": 2430240.0,
+      "end_time": 2437690.0,
+      "text": "square hat ML and something that, depends on your a 0 b 0 in such a way that, as n tends"
+    },
+    {
+      "index": 394,
+      "start_time": 2437690.0,
+      "end_time": 2445730.0,
+      "text": "to infinity, once again the ML estimates and the Bayesian estimates will be same. So, we"
+    },
+    {
+      "index": 395,
+      "start_time": 2445730.0,
+      "end_time": 2451170.0,
+      "text": "will we will we, I have just given you the prior for this but, we will not actually derive"
+    },
+    {
+      "index": 396,
+      "start_time": 2451170.0,
+      "end_time": 2461410.0,
+      "text": "the final estimates. I have not done any of multidimensional examples, they are not conceptually"
+    },
+    {
+      "index": 397,
+      "start_time": 2461410.0,
+      "end_time": 2466520.0,
+      "text": "any more difficult than the one dimensional normally we did. But obviously, as you can"
+    },
+    {
+      "index": 398,
+      "start_time": 2466520.0,
+      "end_time": 2473570.0,
+      "text": "see compared to maximum likelihood, obtaining Bayesian estimates has lot more algebra so,"
+    },
+    {
+      "index": 399,
+      "start_time": 2473570.0,
+      "end_time": 2481770.0,
+      "text": "just the algebraic notation will be more cumbersome so, we will we will skip that."
+    },
+    {
+      "index": 400,
+      "start_time": 2481770.0,
+      "end_time": 2486960.0,
+      "text": "So, we will simply say that, we can obtain Bayesian estimates like this for many standard"
+    },
+    {
+      "index": 401,
+      "start_time": 2486960.0,
+      "end_time": 2493950.0,
+      "text": "densities but, there is one part that is, by now evident, obtaining maximum likelihood"
+    },
+    {
+      "index": 402,
+      "start_time": 2493950.0,
+      "end_time": 2498680.0,
+      "text": "estimates and Bayesian estimates is not the same. For maximum likelihood estimates, for"
+    },
+    {
+      "index": 403,
+      "start_time": 2498680.0,
+      "end_time": 2505310.0,
+      "text": "almost mechanically, I can calculate the likelihood function, differentiate, equate to 0, find"
+    },
+    {
+      "index": 404,
+      "start_time": 2505310.0,
+      "end_time": 2512390.0,
+      "text": "the maximum and I get the estimates. For Bayesian estimate, I have to properly choose the right"
+    },
+    {
+      "index": 405,
+      "start_time": 2512390.0,
+      "end_time": 2519320.0,
+      "text": "kind of prior, which is the conjugate prior for that particular problem and only then,"
+    },
+    {
+      "index": 406,
+      "start_time": 2519320.0,
+      "end_time": 2524340.0,
+      "text": "right the the expressions are amenable to simplification."
+    },
+    {
+      "index": 407,
+      "start_time": 2524340.0,
+      "end_time": 2529250.0,
+      "text": "And then, I have to look at the look at the parameters of the posterior density and based"
+    },
+    {
+      "index": 408,
+      "start_time": 2529250.0,
+      "end_time": 2537210.0,
+      "text": "on that, I I have to obtain my Bayesian estimates. As we have seen the conjugate prior would"
+    },
+    {
+      "index": 409,
+      "start_time": 2537210.0,
+      "end_time": 2542490.0,
+      "text": "depend on the form of x given theta as a matter of fact, for the same density in our mind"
+    },
+    {
+      "index": 410,
+      "start_time": 2542490.0,
+      "end_time": 2547340.0,
+      "text": "say, Gaussian depending on what is the parameterization that we think, what are the unknown parameters"
+    },
+    {
+      "index": 411,
+      "start_time": 2547340.0,
+      "end_time": 2551170.0,
+      "text": "that we think, the prior changes. For example, if we think only the mean of"
+    },
+    {
+      "index": 412,
+      "start_time": 2551170.0,
+      "end_time": 2557760.0,
+      "text": "the Gaussian is unknown then, the conjugate prior is Gaussian, if we think only the variance"
+    },
+    {
+      "index": 413,
+      "start_time": 2557760.0,
+      "end_time": 2563230.0,
+      "text": "is unknown and we choose the variance in terms of the precision parameter then, the density"
+    },
+    {
+      "index": 414,
+      "start_time": 2563230.0,
+      "end_time": 2570410.0,
+      "text": "happens to be gamma. If we think both mean and the precision are unknown then, the prior"
+    },
+    {
+      "index": 415,
+      "start_time": 2570410.0,
+      "end_time": 2574420.0,
+      "text": "density, the conjugate prior density turns out to be that gaussian gamma, I told you."
+    },
+    {
+      "index": 416,
+      "start_time": 2574420.0,
+      "end_time": 2581910.0,
+      "text": "So, the conjugate prior would depend very much on the form of f of x given theta, the"
+    },
+    {
+      "index": 417,
+      "start_time": 2581910.0,
+      "end_time": 2586950.0,
+      "text": "procedure little more involves certainly than the maximum likelihood estimate."
+    },
+    {
+      "index": 418,
+      "start_time": 2586950.0,
+      "end_time": 2591540.0,
+      "text": "So, what is that we gain with it, why is not maximum likelihood estimate sufficient, that"
+    },
+    {
+      "index": 419,
+      "start_time": 2591540.0,
+      "end_time": 2599310.0,
+      "text": "we have already seen, when we when we started the Bayesian estimate, that the reason why"
+    },
+    {
+      "index": 420,
+      "start_time": 2599310.0,
+      "end_time": 2604340.0,
+      "text": "we came to Bayesian estimate is that, maximum likelihood estimate blindly believes the data."
+    },
+    {
+      "index": 421,
+      "start_time": 2604340.0,
+      "end_time": 2611000.0,
+      "text": "So, if we have some prior information about the kind of values the parameter can take"
+    },
+    {
+      "index": 422,
+      "start_time": 2611000.0,
+      "end_time": 2614190.0,
+      "text": "or because, our first few data are bad and we have very little data."
+    },
+    {
+      "index": 423,
+      "start_time": 2614190.0,
+      "end_time": 2621690.0,
+      "text": "There is no way, we can make any incomplete information we have about the parameter to"
+    },
+    {
+      "index": 424,
+      "start_time": 2621690.0,
+      "end_time": 2627990.0,
+      "text": "to bear on the final estimate we get. Whereas, the prior density allows us this the this"
+    },
+    {
+      "index": 425,
+      "start_time": 2627990.0,
+      "end_time": 2633630.0,
+      "text": "flexibility so, essentially the prior density allows us to incorporate knowledge, that we"
+    },
+    {
+      "index": 426,
+      "start_time": 2633630.0,
+      "end_time": 2641140.0,
+      "text": "may have about the parameter that is, in the form of a conjugate prior. And as we seen"
+    },
+    {
+      "index": 427,
+      "start_time": 2641140.0,
+      "end_time": 2648850.0,
+      "text": "in the final expressions, it always comes up with an expression whereby, this small"
+    },
+    {
+      "index": 428,
+      "start_time": 2648850.0,
+      "end_time": 2661240.0,
+      "text": "sample problems are automatically handled by trading the part that I get only from data,"
+    },
+    {
+      "index": 429,
+      "start_time": 2661240.0,
+      "end_time": 2665790.0,
+      "text": "not trading by combining the part, that I get only from the data, with the part I get"
+    },
+    {
+      "index": 430,
+      "start_time": 2665790.0,
+      "end_time": 2673180.0,
+      "text": "from the prior. So, at small sample, our beliefs, kind of moderators in not jumping to too drastic"
+    },
+    {
+      "index": 431,
+      "start_time": 2673180.0,
+      "end_time": 2680050.0,
+      "text": "at conclusions based on data, that is the essence of the Bayesian estimation."
+    },
+    {
+      "index": 432,
+      "start_time": 2680050.0,
+      "end_time": 2690330.0,
+      "text": "Now, we will slightly move to a few more related issues in estimation, we seen two specific"
+    },
+    {
+      "index": 433,
+      "start_time": 2690330.0,
+      "end_time": 2694410.0,
+      "text": "methods of estimation, we have seen how to do the estimation for different densities."
+    },
+    {
+      "index": 434,
+      "start_time": 2694410.0,
+      "end_time": 2699760.0,
+      "text": "For example, we have derived ML and Bayesian estimates for a few standard densities now,"
+    },
+    {
+      "index": 435,
+      "start_time": 2699760.0,
+      "end_time": 2705970.0,
+      "text": "let us look at a few more generic issues about estimation. The first thing that we will do"
+    },
+    {
+      "index": 436,
+      "start_time": 2705970.0,
+      "end_time": 2712970.0,
+      "text": "is, to look at what is what is a generic representation for many densities so, there is one form for"
+    },
+    {
+      "index": 437,
+      "start_time": 2712970.0,
+      "end_time": 2716850.0,
+      "text": "a density. By by now, I suppose you become familiar to"
+    },
+    {
+      "index": 438,
+      "start_time": 2716850.0,
+      "end_time": 2722250.0,
+      "text": "this, that as i said right in the beginning, when we started on our estimation, we use"
+    },
+    {
+      "index": 439,
+      "start_time": 2722250.0,
+      "end_time": 2727480.0,
+      "text": "this the word density to mean either density or mass function. Depending on the random"
+    },
+    {
+      "index": 440,
+      "start_time": 2727480.0,
+      "end_time": 2732640.0,
+      "text": "variable is discrete or continuous so, we use density in a generic sense so, we are"
+    },
+    {
+      "index": 441,
+      "start_time": 2732640.0,
+      "end_time": 2740160.0,
+      "text": "saying, we will look first at at the representation of a density function in terms of some parameters,"
+    },
+    {
+      "index": 442,
+      "start_time": 2740160.0,
+      "end_time": 2746690.0,
+      "text": "that captures most of the standard densities, such a form is called the exponential family"
+    },
+    {
+      "index": 443,
+      "start_time": 2746690.0,
+      "end_time": 2749230.0,
+      "text": "of densities. It is a it is a very important thing because,"
+    },
+    {
+      "index": 444,
+      "start_time": 2749230.0,
+      "end_time": 2754740.0,
+      "text": "as we shall see later on, for exponential family of densities ML estimates become very"
+    },
+    {
+      "index": 445,
+      "start_time": 2754740.0,
+      "end_time": 2761690.0,
+      "text": "straight forward. So, we get generic ML estimates for all densities within the exponential family,"
+    },
+    {
+      "index": 446,
+      "start_time": 2761690.0,
+      "end_time": 2767030.0,
+      "text": "given the exponential family, for all of them, we can write one kind of generic set of equations"
+    },
+    {
+      "index": 447,
+      "start_time": 2767030.0,
+      "end_time": 2774830.0,
+      "text": "to solve, to get the ML estimates, we do not have to do individually. And equally importantly,"
+    },
+    {
+      "index": 448,
+      "start_time": 2774830.0,
+      "end_time": 2782440.0,
+      "text": "looking at this, kind of generic notion of a density function allows us to introduce"
+    },
+    {
+      "index": 449,
+      "start_time": 2782440.0,
+      "end_time": 2786790.0,
+      "text": "an important notion estimation, which is called the sufficient statistic."
+    },
+    {
+      "index": 450,
+      "start_time": 2786790.0,
+      "end_time": 2793070.0,
+      "text": "So, first let us look at, what we call exponential family of densities suppose, you have a density"
+    },
+    {
+      "index": 451,
+      "start_time": 2793070.0,
+      "end_time": 2801640.0,
+      "text": "model for a random variable x with parameters eta. Eta could be a single parameter or many"
+    },
+    {
+      "index": 452,
+      "start_time": 2801640.0,
+      "end_time": 2805380.0,
+      "text": "parameters, with many parameter we will think of it as a parameter vector. We will write"
+    },
+    {
+      "index": 453,
+      "start_time": 2805380.0,
+      "end_time": 2811270.0,
+      "text": "the the density model as f x given eta as h of x that is, some function with only of"
+    },
+    {
+      "index": 454,
+      "start_time": 2811270.0,
+      "end_time": 2818400.0,
+      "text": "x multiplied by some function g of eta, is some function only of the parameter eta multiplied"
+    },
+    {
+      "index": 455,
+      "start_time": 2818400.0,
+      "end_time": 2826410.0,
+      "text": "by the exponential of eta transpose u x where u x is a vector of functions of the data."
+    },
+    {
+      "index": 456,
+      "start_time": 2826410.0,
+      "end_time": 2832030.0,
+      "text": "So, given data I can make some new functions of data u 1 x, u 2 x for example, data is"
+    },
+    {
+      "index": 457,
+      "start_time": 2832030.0,
+      "end_time": 2838590.0,
+      "text": "x 1, x 2, x n, u 1 x could be summation x i, u 2 x could be summation x i square and"
+    },
+    {
+      "index": 458,
+      "start_time": 2838590.0,
+      "end_time": 2848070.0,
+      "text": "so on, you have sorry u 1 x could be x, u 2 x could be x square and so on. So, u x are"
+    },
+    {
+      "index": 459,
+      "start_time": 2848070.0,
+      "end_time": 2855930.0,
+      "text": "some vector functions of x; so if the density can be written as a product of a time involving"
+    },
+    {
+      "index": 460,
+      "start_time": 2855930.0,
+      "end_time": 2863330.0,
+      "text": "only x and a time involving only eta and a time that involves both eta and u and x in"
+    },
+    {
+      "index": 461,
+      "start_time": 2863330.0,
+      "end_time": 2869030.0,
+      "text": "a very special way, exponential eta transpose u x where u is a vector of predefined, a vector"
+    },
+    {
+      "index": 462,
+      "start_time": 2869030.0,
+      "end_time": 2873870.0,
+      "text": "of given functions of x. The reason, why it is called the exponential"
+    },
+    {
+      "index": 463,
+      "start_time": 2873870.0,
+      "end_time": 2880630.0,
+      "text": "family is that, I can always write it as exponential of something all right. I can write the exponential"
+    },
+    {
+      "index": 464,
+      "start_time": 2880630.0,
+      "end_time": 2885820.0,
+      "text": "of eta transpose u x plus this h x factor can be brought inside the exponential by writing"
+    },
+    {
+      "index": 465,
+      "start_time": 2885820.0,
+      "end_time": 2893690.0,
+      "text": "it as l n h x similarly, this as l n g x. Because, exponential of l n h x will be h"
+    },
+    {
+      "index": 466,
+      "start_time": 2893690.0,
+      "end_time": 2898850.0,
+      "text": "x, exponential of l n g x will be g x because, I can write it like this, it is called a exponential"
+    },
+    {
+      "index": 467,
+      "start_time": 2898850.0,
+      "end_time": 2904010.0,
+      "text": "family. The important thing is that, many standard"
+    },
+    {
+      "index": 468,
+      "start_time": 2904010.0,
+      "end_time": 2912600.0,
+      "text": "densities Bernoulli, binomial, Poisson, gamma, beta, Gaussian, exponential everything can"
+    },
+    {
+      "index": 469,
+      "start_time": 2912600.0,
+      "end_time": 2917510.0,
+      "text": "be put in this form. Of course, among these standard densities, the notable one that cannot"
+    },
+    {
+      "index": 470,
+      "start_time": 2917510.0,
+      "end_time": 2923540.0,
+      "text": "be written in this form is, uniform density except from uniform density, almost all the"
+    },
+    {
+      "index": 471,
+      "start_time": 2923540.0,
+      "end_time": 2928100.0,
+      "text": "standard densities can be put in this form."
+    },
+    {
+      "index": 472,
+      "start_time": 2928100.0,
+      "end_time": 2936050.0,
+      "text": "So, let us look at a simple example of, how to put a density in in the standard exponential"
+    },
+    {
+      "index": 473,
+      "start_time": 2936050.0,
+      "end_time": 2941390.0,
+      "text": "let us consider, the Bernoulli distribution so, the mass function with parameter p is"
+    },
+    {
+      "index": 474,
+      "start_time": 2941390.0,
+      "end_time": 2946750.0,
+      "text": "given in terms of p power x into 1 minus p to the power 1 minus x. This is obviously,"
+    },
+    {
+      "index": 475,
+      "start_time": 2946750.0,
+      "end_time": 2955950.0,
+      "text": "not in the form of a factor involving only a x, multiplied factor involving only the"
+    },
+    {
+      "index": 476,
+      "start_time": 2955950.0,
+      "end_time": 2962400.0,
+      "text": "parameter multiplied by a factor like this right. But the point is, by not thinking of"
+    },
+    {
+      "index": 477,
+      "start_time": 2962400.0,
+      "end_time": 2965760.0,
+      "text": "p as the parameter but, something else as the parameter, we would be able to put it"
+    },
+    {
+      "index": 478,
+      "start_time": 2965760.0,
+      "end_time": 2966280.0,
+      "text": "in this form."
+    },
+    {
+      "index": 479,
+      "start_time": 2966280.0,
+      "end_time": 2972210.0,
+      "text": "So, let us look at that so, starting with this, we can write this as, I can always write"
+    },
+    {
+      "index": 480,
+      "start_time": 2972210.0,
+      "end_time": 2977330.0,
+      "text": "anything so, I want you, I can write this p x into1e minus p to the power 1 minus x"
+    },
+    {
+      "index": 481,
+      "start_time": 2977330.0,
+      "end_time": 2984280.0,
+      "text": "as exponential l n of that. So, if I if I take l n and put inside exponential, the l"
+    },
+    {
+      "index": 482,
+      "start_time": 2984280.0,
+      "end_time": 2989890.0,
+      "text": "n of this will become x l n p plus 1 minus x l n 1 minus p so, that is what I did, exponential"
+    },
+    {
+      "index": 483,
+      "start_time": 2989890.0,
+      "end_time": 2998250.0,
+      "text": "x l n p plus 1 minus x l n 1 minus p. Now, there is, this 1 into l n 1 minus p, exponential"
+    },
+    {
+      "index": 484,
+      "start_time": 2998250.0,
+      "end_time": 3004420.0,
+      "text": "of l n 1 minus p will be 1 minus p so, let us let me take that factor out that is, 1"
+    },
+    {
+      "index": 485,
+      "start_time": 3004420.0,
+      "end_time": 3008120.0,
+      "text": "minus p. Now, I have got x l n p and minus x l n one"
+    },
+    {
+      "index": 486,
+      "start_time": 3008120.0,
+      "end_time": 3014150.0,
+      "text": "minus p, I can write it as, x into l n p by 1 minus p so, I can write this as 1 minus"
+    },
+    {
+      "index": 487,
+      "start_time": 3014150.0,
+      "end_time": 3021070.0,
+      "text": "p exponential of x l n p by 1 minus p. Now, this I can further write as, 1 by 1 plus p"
+    },
+    {
+      "index": 488,
+      "start_time": 3021070.0,
+      "end_time": 3039180.0,
+      "text": "by 1 minus p right. So this now, one can immediately see, if I think of p by 1 minus p as a parameter"
+    },
+    {
+      "index": 489,
+      "start_time": 3039180.0,
+      "end_time": 3046060.0,
+      "text": "then, I can write this as let us say, that is what I want to call eta then, this is some"
+    },
+    {
+      "index": 490,
+      "start_time": 3046060.0,
+      "end_time": 3051830.0,
+      "text": "factor that is dependent only on eta. And this is a factor that depend exponential"
+    },
+    {
+      "index": 491,
+      "start_time": 3051830.0,
+      "end_time": 3058430.0,
+      "text": "of let us say, l n p into 1 minus p is my eta then, eta times a function of x namely,"
+    },
+    {
+      "index": 492,
+      "start_time": 3058430.0,
+      "end_time": 3064820.0,
+      "text": "x. So, I have to somehow, write this as also l n p by 1 minus p, this is very easy I can"
+    },
+    {
+      "index": 493,
+      "start_time": 3064820.0,
+      "end_time": 3070510.0,
+      "text": "always write p by 1 minus p as exponential l n p by 1 minus p. So, I can write this as,"
+    },
+    {
+      "index": 494,
+      "start_time": 3070510.0,
+      "end_time": 3077930.0,
+      "text": "1 by 1 plus exponential eta into exponential eta x where, eta is l n p by 1 minus p right."
+    },
+    {
+      "index": 495,
+      "start_time": 3077930.0,
+      "end_time": 3085720.0,
+      "text": "So, I can write my Bernoulli mass function in as, 1 by 1 plus exponential eta into exponential"
+    },
+    {
+      "index": 496,
+      "start_time": 3085720.0,
+      "end_time": 3089470.0,
+      "text": "eta x where, eta is l n p by 1 minus p."
+    },
+    {
+      "index": 497,
+      "start_time": 3089470.0,
+      "end_time": 3096680.0,
+      "text": "So, what does this mean, this is exactly in the form h x into g eta into exponential eta"
+    },
+    {
+      "index": 498,
+      "start_time": 3096680.0,
+      "end_time": 3102910.0,
+      "text": "transpose u x right h x is 1, there’ i no factor, there is only dependent on x right"
+    },
+    {
+      "index": 499,
+      "start_time": 3102910.0,
+      "end_time": 3111170.0,
+      "text": "so, h x is 1. What is g eta, g eta is this factor 1 by 1 plus exponential eta right that"
+    },
+    {
+      "index": 500,
+      "start_time": 3111170.0,
+      "end_time": 3119280.0,
+      "text": "is, g eta and I want exponential eta transpose u x, I have got eta times x. So, eta is a"
+    },
+    {
+      "index": 501,
+      "start_time": 3119280.0,
+      "end_time": 3128740.0,
+      "text": "scalar here so, I can simply take u x to be x right. So, if I take eta as l n p by 1 minus"
+    },
+    {
+      "index": 502,
+      "start_time": 3128740.0,
+      "end_time": 3136440.0,
+      "text": "p, h x as 1, g eta as 1 by 1 plus exponential eta and u x is equal to x then, it is in this"
+    },
+    {
+      "index": 503,
+      "start_time": 3136440.0,
+      "end_time": 3141160.0,
+      "text": "form where, this transpose is of course, is redundant here because, eta happens to be"
+    },
+    {
+      "index": 504,
+      "start_time": 3141160.0,
+      "end_time": 3142290.0,
+      "text": "one dimensional."
+    },
+    {
+      "index": 505,
+      "start_time": 3142290.0,
+      "end_time": 3151340.0,
+      "text": "Whereas this means, that the Bernoulli density belongs to the exponential family in the same"
+    },
+    {
+      "index": 506,
+      "start_time": 3151340.0,
+      "end_time": 3159740.0,
+      "text": "way, for all the standard densities, we can put them in this general frame work. Sometimes"
+    },
+    {
+      "index": 507,
+      "start_time": 3159740.0,
+      "end_time": 3165190.0,
+      "text": "see for example, if I want to represent the Bernoulli mass function with p as the parameter"
+    },
+    {
+      "index": 508,
+      "start_time": 3165190.0,
+      "end_time": 3171040.0,
+      "text": "then, it is not in this generic form, h x into g eta into this. But, if I u instead"
+    },
+    {
+      "index": 509,
+      "start_time": 3171040.0,
+      "end_time": 3176390.0,
+      "text": "of using p as the parameter, I use l n p by 1 minus p as the parameter then, I can put"
+    },
+    {
+      "index": 510,
+      "start_time": 3176390.0,
+      "end_time": 3179830.0,
+      "text": "in this. After all, if you give me eta that is, l n"
+    },
+    {
+      "index": 511,
+      "start_time": 3179830.0,
+      "end_time": 3184630.0,
+      "text": "p by 1 minus p, I can calculate p or if you give me p, I can calculate l n p by 1 minus"
+    },
+    {
+      "index": 512,
+      "start_time": 3184630.0,
+      "end_time": 3189110.0,
+      "text": "p so, the eta to p transformation is one to one and invertible. So, by that I think of"
+    },
+    {
+      "index": 513,
+      "start_time": 3189110.0,
+      "end_time": 3192770.0,
+      "text": "eta as the parameter, as p as the parameter it does not matter but, if I think of eta"
+    },
+    {
+      "index": 514,
+      "start_time": 3192770.0,
+      "end_time": 3200290.0,
+      "text": "as the parameter, the mass function comes to a very standard form so, sometimes eta"
+    },
+    {
+      "index": 515,
+      "start_time": 3200290.0,
+      "end_time": 3205610.0,
+      "text": "is called the natural parameter for Bernoulli, this particular eta."
+    },
+    {
+      "index": 516,
+      "start_time": 3205610.0,
+      "end_time": 3211800.0,
+      "text": "In the same, many other densities can be put in the exponential form so, for example, for"
+    },
+    {
+      "index": 517,
+      "start_time": 3211800.0,
+      "end_time": 3216660.0,
+      "text": "the Gaussian, the normally I will write it with, mu and sigma square as the two parameters"
+    },
+    {
+      "index": 518,
+      "start_time": 3216660.0,
+      "end_time": 3222930.0,
+      "text": "like this. But we can also write it like this, some function represents only acts essentially"
+    },
+    {
+      "index": 519,
+      "start_time": 3222930.0,
+      "end_time": 3228900.0,
+      "text": "a constant function, some factor that depends only on some parameters, which I call eta"
+    },
+    {
+      "index": 520,
+      "start_time": 3228900.0,
+      "end_time": 3232720.0,
+      "text": "1 and eta 2. And then, exponential eta 1 time some function"
+    },
+    {
+      "index": 521,
+      "start_time": 3232720.0,
+      "end_time": 3239200.0,
+      "text": "of x plus eta 2 times some function of x where, eta 1 happens to be mu by sigma square, eta"
+    },
+    {
+      "index": 522,
+      "start_time": 3239200.0,
+      "end_time": 3244460.0,
+      "text": "2 happens to be minus 1 by 2 sigma square, u 1 x happens to be x and u 2 x happens to"
+    },
+    {
+      "index": 523,
+      "start_time": 3244460.0,
+      "end_time": 3250150.0,
+      "text": "be x square. The algebra involved is a little more than the algebra involved in showing"
+    },
+    {
+      "index": 524,
+      "start_time": 3250150.0,
+      "end_time": 3253910.0,
+      "text": "this by the Bernoulli density but, once again it is just algebra. So, starting from this"
+    },
+    {
+      "index": 525,
+      "start_time": 3253910.0,
+      "end_time": 3258580.0,
+      "text": "expression, one can show that, this is same as this expression where, I make this following"
+    },
+    {
+      "index": 526,
+      "start_time": 3258580.0,
+      "end_time": 3267330.0,
+      "text": "changes eta 1 is mu by sigma square, eta 2 is minus 1 by sigma square, u 1 x is equal"
+    },
+    {
+      "index": 527,
+      "start_time": 3267330.0,
+      "end_time": 3272130.0,
+      "text": "to x, u 2 x is equal to x square."
+    },
+    {
+      "index": 528,
+      "start_time": 3272130.0,
+      "end_time": 3278150.0,
+      "text": "So, under these things, this density once again recommends the form x h g eta exponential"
+    },
+    {
+      "index": 529,
+      "start_time": 3278150.0,
+      "end_time": 3287140.0,
+      "text": "eta transpose u x right. As I said h x can be thought of as it is constant function,"
+    },
+    {
+      "index": 530,
+      "start_time": 3287140.0,
+      "end_time": 3294160.0,
+      "text": "this is the g eta function and this is exponential eta 1 u 1 x plus eta 2 u 2 x where, eta 1,"
+    },
+    {
+      "index": 531,
+      "start_time": 3294160.0,
+      "end_time": 3302130.0,
+      "text": "eta 2, u 1, u 2 are given right. So, once again these are the form h x g eta exponential"
+    },
+    {
+      "index": 532,
+      "start_time": 3302130.0,
+      "end_time": 3306880.0,
+      "text": "eta transpose u x so, Gaussian is also in the exponential family and like this, we can"
+    },
+    {
+      "index": 533,
+      "start_time": 3306880.0,
+      "end_time": 3311320.0,
+      "text": "show that almost all standard densities belong to exponential class of densities. Now, what"
+    },
+    {
+      "index": 534,
+      "start_time": 3311320.0,
+      "end_time": 3318120.0,
+      "text": "is the use of showing many of these densities belong to the exponential family of densities,"
+    },
+    {
+      "index": 535,
+      "start_time": 3318120.0,
+      "end_time": 3326600.0,
+      "text": "the the main utility is that, as I said, we get a very standard generic form for the maximum"
+    },
+    {
+      "index": 536,
+      "start_time": 3326600.0,
+      "end_time": 3327480.0,
+      "text": "likelihood estimate."
+    },
+    {
+      "index": 537,
+      "start_time": 3327480.0,
+      "end_time": 3337040.0,
+      "text": "And also, what it would mean is the following now. When a density is in this form, if i"
+    },
+    {
+      "index": 538,
+      "start_time": 3337040.0,
+      "end_time": 3345710.0,
+      "text": "take the data likelihood right, the data likelihood will depend on n fold product of this that"
+    },
+    {
+      "index": 539,
+      "start_time": 3345710.0,
+      "end_time": 3353230.0,
+      "text": "is, product of x h i g eta to the power n. And when I multiply exponential eta transpose"
+    },
+    {
+      "index": 540,
+      "start_time": 3353230.0,
+      "end_time": 3357840.0,
+      "text": "u x 1 into exponential transpose u x 2 and so on ultimately, I get exponential eta transpose"
+    },
+    {
+      "index": 541,
+      "start_time": 3357840.0,
+      "end_time": 3366360.0,
+      "text": "summation u x i. So, these functions u x or the quantity summation u x i are the only"
+    },
+    {
+      "index": 542,
+      "start_time": 3366360.0,
+      "end_time": 3375010.0,
+      "text": "way, the data affects the data likelihood. So, this form gives us a very interesting"
+    },
+    {
+      "index": 543,
+      "start_time": 3375010.0,
+      "end_time": 3381340.0,
+      "text": "generic way, in which data affects the data likelihood and hence, gives us a standard"
+    },
+    {
+      "index": 544,
+      "start_time": 3381340.0,
+      "end_time": 3385660.0,
+      "text": "method for calculating maximum likelihood estimates for all such densities."
+    },
+    {
+      "index": 545,
+      "start_time": 3385660.0,
+      "end_time": 3395560.0,
+      "text": "So, in the next class, we will we will look at a few of the examples of the exponential"
+    },
+    {
+      "index": 546,
+      "start_time": 3395560.0,
+      "end_time": 3401400.0,
+      "text": "family of densities. And how, looking at all of them as exponential family of densities,"
+    },
+    {
+      "index": 547,
+      "start_time": 3401400.0,
+      "end_time": 3406310.0,
+      "text": "allows us to obtain maximum likelihood estimates in a in a generic fashion and then, we will"
+    },
+    {
+      "index": 548,
+      "start_time": 3406310.0,
+      "end_time": 3410610.0,
+      "text": "introduce the notion of, what is called a sufficient statistic."
+    },
+    {
+      "index": 549,
+      "start_time": 3410610.0,
+      "end_time": 3420610.0,
+      "text": "Thank you."
+    }
+  ]
+}

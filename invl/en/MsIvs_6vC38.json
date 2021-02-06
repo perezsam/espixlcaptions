@@ -1,0 +1,3480 @@
+{
+  "video_id": "MsIvs_6vC38",
+  "title": "4. Factorization into A = LU",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 12380.0,
+      "end_time": 16800.0,
+      "text": "Okay, this is linear algebra, lecture four."
+    },
+    {
+      "index": 2,
+      "start_time": 16800.0,
+      "end_time": 24800.0,
+      "text": "And, the first thing I have to do is something\nthat was on the list for last time, but here"
+    },
+    {
+      "index": 3,
+      "start_time": 24810.0,
+      "end_time": 26169.0,
+      "text": "it is now."
+    },
+    {
+      "index": 4,
+      "start_time": 26169.0,
+      "end_time": 29369.0,
+      "text": "What's the inverse of a product?"
+    },
+    {
+      "index": 5,
+      "start_time": 29369.0,
+      "end_time": 36300.0,
+      "text": "If I multiply two matrices together and I\nknow their inverses, how do I get the inverse"
+    },
+    {
+      "index": 6,
+      "start_time": 36300.0,
+      "end_time": 39559.0,
+      "text": "of A times B?"
+    },
+    {
+      "index": 7,
+      "start_time": 39559.0,
+      "end_time": 46760.0,
+      "text": "So I know what inverses mean for a single\nmatrix A and for a matrix B."
+    },
+    {
+      "index": 8,
+      "start_time": 46760.0,
+      "end_time": 53229.0,
+      "text": "What matrix do I multiply by to get the identity\nif I have A B?"
+    },
+    {
+      "index": 9,
+      "start_time": 53229.0,
+      "end_time": 57100.0,
+      "text": "Okay, that'll be simple but so basic."
+    },
+    {
+      "index": 10,
+      "start_time": 57100.0,
+      "end_time": 66120.0,
+      "text": "Then I'm going to use that to -- I will have\na product of matrices and the product that"
+    },
+    {
+      "index": 11,
+      "start_time": 66120.0,
+      "end_time": 73659.0,
+      "text": "we'll meet will be these elimination matrices\nand the net result of today's lectures is"
+    },
+    {
+      "index": 12,
+      "start_time": 73660.0,
+      "end_time": 82960.0,
+      "text": "the big formula for elimination, so the net\nresult of today's lecture is this great way"
+    },
+    {
+      "index": 13,
+      "start_time": 82960.0,
+      "end_time": 87700.0,
+      "text": "to look at Gaussian elimination."
+    },
+    {
+      "index": 14,
+      "start_time": 87710.0,
+      "end_time": 91400.0,
+      "text": "We know that we get from A to U by elimination."
+    },
+    {
+      "index": 15,
+      "start_time": 91400.0,
+      "end_time": 98060.0,
+      "text": "We know the steps -- but now we get the right\nway to look at it, A equals L U."
+    },
+    {
+      "index": 16,
+      "start_time": 98060.0,
+      "end_time": 100800.0,
+      "text": "So that's the high point for today."
+    },
+    {
+      "index": 17,
+      "start_time": 100800.0,
+      "end_time": 101800.0,
+      "text": "Okay."
+    },
+    {
+      "index": 18,
+      "start_time": 101800.0,
+      "end_time": 107320.0,
+      "text": "Can I take the easy part, the first step first?"
+    },
+    {
+      "index": 19,
+      "start_time": 107320.0,
+      "end_time": 114560.0,
+      "text": "So, suppose A is invertible -- and of course\nit's going to be a big question, when is the"
+    },
+    {
+      "index": 20,
+      "start_time": 114560.0,
+      "end_time": 115860.0,
+      "text": "matrix invertible?"
+    },
+    {
+      "index": 21,
+      "start_time": 115860.0,
+      "end_time": 124920.0,
+      "text": "But let's say A is invertible and B is invertible,\nthen what matrix gives me the inverse of A B?"
+    },
+    {
+      "index": 22,
+      "start_time": 124920.0,
+      "end_time": 127460.0,
+      "text": "So that's the direct question."
+    },
+    {
+      "index": 23,
+      "start_time": 127470.0,
+      "end_time": 128869.0,
+      "text": "What's the inverse of A B?"
+    },
+    {
+      "index": 24,
+      "start_time": 128869.0,
+      "end_time": 132120.0,
+      "text": "Do I multiply those separate inverses?"
+    },
+    {
+      "index": 25,
+      "start_time": 132120.0,
+      "end_time": 141220.0,
+      "text": "Yes. I multiply the two matrices A inverse\nand B inverse, but what order do I multiply?"
+    },
+    {
+      "index": 26,
+      "start_time": 141230.0,
+      "end_time": 142290.0,
+      "text": "In reverse order."
+    },
+    {
+      "index": 27,
+      "start_time": 142290.0,
+      "end_time": 144020.0,
+      "text": "And you see why."
+    },
+    {
+      "index": 28,
+      "start_time": 144020.0,
+      "end_time": 149780.0,
+      "text": "So the right thing to put here is B inverse\nA inverse."
+    },
+    {
+      "index": 29,
+      "start_time": 149780.0,
+      "end_time": 151820.0,
+      "text": "That's the inverse I'm after."
+    },
+    {
+      "index": 30,
+      "start_time": 151820.0,
+      "end_time": 158940.0,
+      "text": "We can just check that A B times that matrix\ngives the identity."
+    },
+    {
+      "index": 31,
+      "start_time": 158950.0,
+      "end_time": 159950.0,
+      "text": "Okay."
+    },
+    {
+      "index": 32,
+      "start_time": 159950.0,
+      "end_time": 166480.0,
+      "text": "So why -- once again, it's this fact that\nI can move parentheses around."
+    },
+    {
+      "index": 33,
+      "start_time": 166480.0,
+      "end_time": 172320.0,
+      "text": "I can just erase them all and do the multiplications\nany way I want to."
+    },
+    {
+      "index": 34,
+      "start_time": 172329.0,
+      "end_time": 176209.0,
+      "text": "So what's the right multiplication to do first?"
+    },
+    {
+      "index": 35,
+      "start_time": 176209.0,
+      "end_time": 178220.0,
+      "text": "B times B inverse."
+    },
+    {
+      "index": 36,
+      "start_time": 178220.0,
+      "end_time": 182400.0,
+      "text": "This product here I is the identity."
+    },
+    {
+      "index": 37,
+      "start_time": 182400.0,
+      "end_time": 188100.0,
+      "text": "Then A times the identity is the identity\nand then finally A times A inverse gives the"
+    },
+    {
+      "index": 38,
+      "start_time": 188100.0,
+      "end_time": 190060.0,
+      "text": "identity."
+    },
+    {
+      "index": 39,
+      "start_time": 190060.0,
+      "end_time": 195680.0,
+      "text": "So forgive the dumb example in the book."
+    },
+    {
+      "index": 40,
+      "start_time": 195680.0,
+      "end_time": 201180.0,
+      "text": "Why do you, do the inverse things in reverse\norder?"
+    },
+    {
+      "index": 41,
+      "start_time": 201189.0,
+      "end_time": 207019.0,
+      "text": "It's just like -- you take off your shoes,\nyou take off your socks, then the good way"
+    },
+    {
+      "index": 42,
+      "start_time": 207020.0,
+      "end_time": 215060.0,
+      "text": "to invert that process is socks back on first,\nthen shoes."
+    },
+    {
+      "index": 43,
+      "start_time": 215060.0,
+      "end_time": 216660.0,
+      "text": "Sorry, okay."
+    },
+    {
+      "index": 44,
+      "start_time": 216660.0,
+      "end_time": 221320.0,
+      "text": "I'm sorry that's on the tape."
+    },
+    {
+      "index": 45,
+      "start_time": 221320.0,
+      "end_time": 226460.0,
+      "text": "And, of course, on the other side we should\nreally just check -- on the other side I have"
+    },
+    {
+      "index": 46,
+      "start_time": 226460.0,
+      "end_time": 227480.0,
+      "text": "B inverse,"
+    },
+    {
+      "index": 47,
+      "start_time": 227480.0,
+      "end_time": 234099.0,
+      "text": "A inverse. That does multiply A B, and this\ntime it's these guys that give the identity,"
+    },
+    {
+      "index": 48,
+      "start_time": 234099.0,
+      "end_time": 238040.0,
+      "text": "squeeze down, they give the identity, we're\nin shape."
+    },
+    {
+      "index": 49,
+      "start_time": 238040.0,
+      "end_time": 241700.0,
+      "text": "Okay. So there's the inverse."
+    },
+    {
+      "index": 50,
+      "start_time": 241700.0,
+      "end_time": 248480.0,
+      "text": "Good. While we're at it, let me do a transpose,\nbecause the next lecture has got a lot to"
+    },
+    {
+      "index": 51,
+      "start_time": 248480.0,
+      "end_time": 249779.0,
+      "text": "-- involves transposes."
+    },
+    {
+      "index": 52,
+      "start_time": 249780.0,
+      "end_time": 256860.0,
+      "text": "So how do I -- if I transpose a matrix, I'm\ntalking about square, invertible matrices"
+    },
+    {
+      "index": 53,
+      "start_time": 256860.0,
+      "end_time": 258298.0,
+      "text": "right now."
+    },
+    {
+      "index": 54,
+      "start_time": 258300.0,
+      "end_time": 263500.0,
+      "text": "If I transpose one, what's its inverse?"
+    },
+    {
+      "index": 55,
+      "start_time": 263500.0,
+      "end_time": 267640.0,
+      "text": "Well, the nice formula is -- let's see."
+    },
+    {
+      "index": 56,
+      "start_time": 267640.0,
+      "end_time": 274760.0,
+      "text": "Let me start from A, A inverse equal the identity."
+    },
+    {
+      "index": 57,
+      "start_time": 274760.0,
+      "end_time": 279780.0,
+      "text": "And let me transpose both sides."
+    },
+    {
+      "index": 58,
+      "start_time": 279790.0,
+      "end_time": 283199.0,
+      "text": "That will bring a transpose into the picture."
+    },
+    {
+      "index": 59,
+      "start_time": 283199.0,
+      "end_time": 288300.0,
+      "text": "So if I transpose the identity matrix, what\ndo I have?"
+    },
+    {
+      "index": 60,
+      "start_time": 288300.0,
+      "end_time": 289600.0,
+      "text": "The identity, right?"
+    },
+    {
+      "index": 61,
+      "start_time": 289600.0,
+      "end_time": 294990.0,
+      "text": "If I exchange rows and columns, the identity\nis a symmetric matrix."
+    },
+    {
+      "index": 62,
+      "start_time": 294990.0,
+      "end_time": 296940.0,
+      "text": "It doesn't know the difference."
+    },
+    {
+      "index": 63,
+      "start_time": 296940.0,
+      "end_time": 307780.0,
+      "text": "If I transpose these guys, that product, then\nagain it turns out that I have to reverse"
+    },
+    {
+      "index": 64,
+      "start_time": 307780.0,
+      "end_time": 309160.0,
+      "text": "the order."
+    },
+    {
+      "index": 65,
+      "start_time": 309160.0,
+      "end_time": 315260.0,
+      "text": "I can transpose them separately, but when\nI multiply, those transposes come in the opposite"
+    },
+    {
+      "index": 66,
+      "start_time": 315260.0,
+      "end_time": 316220.0,
+      "text": "order."
+    },
+    {
+      "index": 67,
+      "start_time": 316220.0,
+      "end_time": 323600.0,
+      "text": "So it's A inverse transpose times A transpose\ngiving the identity."
+    },
+    {
+      "index": 68,
+      "start_time": 323600.0,
+      "end_time": 326700.0,
+      "text": "So that's -- this equation is -- just comes\ndirectly from that"
+    },
+    {
+      "index": 69,
+      "start_time": 326700.0,
+      "end_time": 332690.0,
+      "text": "one. But this equation tells me what I wanted\nto know, namely what is the inverse of this"
+    },
+    {
+      "index": 70,
+      "start_time": 332690.0,
+      "end_time": 335700.0,
+      "text": "guy A transpose?"
+    },
+    {
+      "index": 71,
+      "start_time": 335700.0,
+      "end_time": 343180.0,
+      "text": "What's the inverse of that -- if I transpose\na matrix, what'ss the inverse of the result?"
+    },
+    {
+      "index": 72,
+      "start_time": 343180.0,
+      "end_time": 347000.0,
+      "text": "And this equation tells me that here it is."
+    },
+    {
+      "index": 73,
+      "start_time": 347000.0,
+      "end_time": 356659.0,
+      "text": "This is the inverse of A transpose."
+    },
+    {
+      "index": 74,
+      "start_time": 356659.0,
+      "end_time": 362220.0,
+      "text": "Inverse of A transpose."
+    },
+    {
+      "index": 75,
+      "start_time": 362220.0,
+      "end_time": 368100.0,
+      "text": "Of A transpose."
+    },
+    {
+      "index": 76,
+      "start_time": 368100.0,
+      "end_time": 373480.0,
+      "text": "So I'll put a big circle around that, because\nthat's the answer, that's the best answer"
+    },
+    {
+      "index": 77,
+      "start_time": 373480.0,
+      "end_time": 376560.0,
+      "text": "we could hope for."
+    },
+    {
+      "index": 78,
+      "start_time": 376560.0,
+      "end_time": 384640.0,
+      "text": "That if you want to know the inverse of A\ntranspose and you know the inverse of A, then"
+    },
+    {
+      "index": 79,
+      "start_time": 384640.0,
+      "end_time": 386640.0,
+      "text": "you just transpose that."
+    },
+    {
+      "index": 80,
+      "start_time": 386640.0,
+      "end_time": 393790.0,
+      "text": "So in a -- to put it another way, transposing\nand inversing you can do in either order for"
+    },
+    {
+      "index": 81,
+      "start_time": 393790.0,
+      "end_time": 395390.0,
+      "text": "a single matrix."
+    },
+    {
+      "index": 82,
+      "start_time": 395390.0,
+      "end_time": 402770.0,
+      "text": "Okay. So these are like basic facts that we\ncan now use, all right -- so now I put it"
+    },
+    {
+      "index": 83,
+      "start_time": 402770.0,
+      "end_time": 404920.0,
+      "text": "to use."
+    },
+    {
+      "index": 84,
+      "start_time": 404920.0,
+      "end_time": 412980.0,
+      "text": "I put it to use by thinking -- we're really\ncompleting, the subject of elimination."
+    },
+    {
+      "index": 85,
+      "start_time": 412980.0,
+      "end_time": 425920.0,
+      "text": "Actually, -- the thing about elimination is\nit's the right way to understand what the"
+    },
+    {
+      "index": 86,
+      "start_time": 425930.0,
+      "end_time": 426930.0,
+      "text": "matrix has got."
+    },
+    {
+      "index": 87,
+      "start_time": 426930.0,
+      "end_time": 435550.0,
+      "text": "This A equal L U is the most basic factorization\nof a matrix."
+    },
+    {
+      "index": 88,
+      "start_time": 435550.0,
+      "end_time": 443960.0,
+      "text": "I always worry that you will think this course\nis all elimination."
+    },
+    {
+      "index": 89,
+      "start_time": 443960.0,
+      "end_time": 447100.0,
+      "text": "It's just row operations."
+    },
+    {
+      "index": 90,
+      "start_time": 447100.0,
+      "end_time": 449420.0,
+      "text": "And please don't."
+    },
+    {
+      "index": 91,
+      "start_time": 449420.0,
+      "end_time": 461120.0,
+      "text": "We'll be beyond that, but it's the right algebra\nto do first."
+    },
+    {
+      "index": 92,
+      "start_time": 461120.0,
+      "end_time": 468630.0,
+      "text": "Okay. So, now I'm coming near the end of it,\nbut I want to get it in a decent form."
+    },
+    {
+      "index": 93,
+      "start_time": 468630.0,
+      "end_time": 472270.0,
+      "text": "So my decent form is matrix form."
+    },
+    {
+      "index": 94,
+      "start_time": 472270.0,
+      "end_time": 479360.0,
+      "text": "I have a matrix A, let's suppose it's a good\nmatrix, I can do elimination, no row exchanges"
+    },
+    {
+      "index": 95,
+      "start_time": 479360.0,
+      "end_time": 483220.0,
+      "text": "-- So no row exchanges for now."
+    },
+    {
+      "index": 96,
+      "start_time": 483220.0,
+      "end_time": 487640.0,
+      "text": "Pivots all fine, nothing zero in the pivot\nposition."
+    },
+    {
+      "index": 97,
+      "start_time": 487640.0,
+      "end_time": 490240.0,
+      "text": "I get to the very end, which is U."
+    },
+    {
+      "index": 98,
+      "start_time": 490240.0,
+      "end_time": 492000.0,
+      "text": "So I get from A to U."
+    },
+    {
+      "index": 99,
+      "start_time": 492000.0,
+      "end_time": 495220.0,
+      "text": "And I want to know what's the connection?"
+    },
+    {
+      "index": 100,
+      "start_time": 495220.0,
+      "end_time": 497680.0,
+      "text": "How is A related to U?"
+    },
+    {
+      "index": 101,
+      "start_time": 497690.0,
+      "end_time": 501991.0,
+      "text": "And this is going to tell me that there's\na matrix L that connects them."
+    },
+    {
+      "index": 102,
+      "start_time": 501991.0,
+      "end_time": 502991.0,
+      "text": "Okay."
+    },
+    {
+      "index": 103,
+      "start_time": 503000.0,
+      "end_time": 508700.0,
+      "text": "Can I do it for a two by two first?"
+    },
+    {
+      "index": 104,
+      "start_time": 508700.0,
+      "end_time": 512679.0,
+      "text": "Okay. Two by two, elimination."
+    },
+    {
+      "index": 105,
+      "start_time": 512679.0,
+      "end_time": 517179.0,
+      "text": "Okay, so I'll do it under here."
+    },
+    {
+      "index": 106,
+      "start_time": 517186.00000000006,
+      "end_time": 526680.0,
+      "text": "Okay. So let my matrix A be -- We'll keep\nit simple, say two and an eight, so we know"
+    },
+    {
+      "index": 107,
+      "start_time": 526680.0,
+      "end_time": 534029.0,
+      "text": "that the first pivot is a two, and the multiplier's\ngoing to be a four and then let me put a one"
+    },
+    {
+      "index": 108,
+      "start_time": 534029.0,
+      "end_time": 538720.0,
+      "text": "here and what number do I not want to put\nthere?"
+    },
+    {
+      "index": 109,
+      "start_time": 538720.0,
+      "end_time": 545780.0,
+      "text": "Four. I don't want a four there, because in\nthat case, the second pivot would not -- we"
+    },
+    {
+      "index": 110,
+      "start_time": 545780.0,
+      "end_time": 547642.0,
+      "text": "wouldn't have a second pivot."
+    },
+    {
+      "index": 111,
+      "start_time": 547642.0,
+      "end_time": 551360.0,
+      "text": "The matrix would be singular, general screw-up.\nOkay."
+    },
+    {
+      "index": 112,
+      "start_time": 551360.0,
+      "end_time": 555090.0,
+      "text": "So let me put some other number here like\nseven."
+    },
+    {
+      "index": 113,
+      "start_time": 555090.0,
+      "end_time": 556580.0,
+      "text": "Okay."
+    },
+    {
+      "index": 114,
+      "start_time": 556580.0,
+      "end_time": 564680.0,
+      "text": "Okay. Now I want to operate on that with my\nelementary matrix."
+    },
+    {
+      "index": 115,
+      "start_time": 564680.0,
+      "end_time": 568340.0,
+      "text": "So what's the elementary matrix?"
+    },
+    {
+      "index": 116,
+      "start_time": 568340.0,
+      "end_time": 574560.0,
+      "text": "Strictly speaking, it's E21, because it's\nthe guy that's going to produce a zero in"
+    },
+    {
+      "index": 117,
+      "start_time": 574560.0,
+      "end_time": 575560.0,
+      "text": "that position."
+    },
+    {
+      "index": 118,
+      "start_time": 575560.0,
+      "end_time": 583310.0,
+      "text": "And it's going to produce U in one shot, because\nit's just a two by two matrix."
+    },
+    {
+      "index": 119,
+      "start_time": 583310.0,
+      "end_time": 590150.0,
+      "text": "So two one and I'm going to take four of those\naway from those, produce that zero and leave"
+    },
+    {
+      "index": 120,
+      "start_time": 590150.0,
+      "end_time": 591580.0,
+      "text": "a three there."
+    },
+    {
+      "index": 121,
+      "start_time": 591580.0,
+      "end_time": 593080.0,
+      "text": "And that's U."
+    },
+    {
+      "index": 122,
+      "start_time": 593080.0,
+      "end_time": 595140.0,
+      "text": "And what's the matrix that did it?"
+    },
+    {
+      "index": 123,
+      "start_time": 595140.0,
+      "end_time": 596900.0,
+      "text": "Quick review, then."
+    },
+    {
+      "index": 124,
+      "start_time": 596900.0,
+      "end_time": 603060.0,
+      "text": "What's the elimination elementary matrix E21\n-- it's one zero, thanks."
+    },
+    {
+      "index": 125,
+      "start_time": 603060.0,
+      "end_time": 605760.0,
+      "text": "And -- negative four one,"
+    },
+    {
+      "index": 126,
+      "start_time": 605760.0,
+      "end_time": 607880.0,
+      "text": "right. Good."
+    },
+    {
+      "index": 127,
+      "start_time": 607880.0,
+      "end_time": 614100.0,
+      "text": "Okay. So that -- you see the difference between\nthis and what I'm shooting for."
+    },
+    {
+      "index": 128,
+      "start_time": 614100.0,
+      "end_time": 621980.0,
+      "text": "I'm shooting for A on one side and the other\nmatrices on the other side of the equation."
+    },
+    {
+      "index": 129,
+      "start_time": 621990.0,
+      "end_time": 622990.0,
+      "text": "Okay."
+    },
+    {
+      "index": 130,
+      "start_time": 622990.0,
+      "end_time": 625940.0,
+      "text": "So I can do that right away."
+    },
+    {
+      "index": 131,
+      "start_time": 625940.0,
+      "end_time": 629500.0,
+      "text": "Now here's going to be my A equals L U."
+    },
+    {
+      "index": 132,
+      "start_time": 629500.0,
+      "end_time": 638160.0,
+      "text": "And you won't have any trouble telling me\nwhat -- so A is still two one eight seven."
+    },
+    {
+      "index": 133,
+      "start_time": 638160.0,
+      "end_time": 644940.0,
+      "text": "L is what you're going to tell me and U is\nstill two one zero three."
+    },
+    {
+      "index": 134,
+      "start_time": 644940.0,
+      "end_time": 649800.0,
+      "text": "Okay. So what's L in this case?"
+    },
+    {
+      "index": 135,
+      "start_time": 649800.0,
+      "end_time": 657220.0,
+      "text": "Well, first -- so how is L related to this\nE guy?"
+    },
+    {
+      "index": 136,
+      "start_time": 657220.0,
+      "end_time": 662650.0,
+      "text": "It's the inverse, because I want to multiply\nthrough by the inverse of this, which will"
+    },
+    {
+      "index": 137,
+      "start_time": 662650.0,
+      "end_time": 668570.0,
+      "text": "put the identity here, and the inverse will\nshow up there and I'll call it L."
+    },
+    {
+      "index": 138,
+      "start_time": 668570.0,
+      "end_time": 671360.0,
+      "text": "So what is the inverse of this?"
+    },
+    {
+      "index": 139,
+      "start_time": 671360.0,
+      "end_time": 677640.0,
+      "text": "Remember those elimination matrices are easy\nto invert."
+    },
+    {
+      "index": 140,
+      "start_time": 677650.0,
+      "end_time": 690130.0,
+      "text": "The inverse matrix for this one is 1 0 4 1,\nit has the plus sign because it adds back"
+    },
+    {
+      "index": 141,
+      "start_time": 690130.0,
+      "end_time": 692200.0,
+      "text": "what this removes."
+    },
+    {
+      "index": 142,
+      "start_time": 692200.0,
+      "end_time": 699860.0,
+      "text": "Okay. Do you want -- if we did the numbers\nright, we must -- this should be correct."
+    },
+    {
+      "index": 143,
+      "start_time": 699860.0,
+      "end_time": 702380.0,
+      "text": "Okay. And of course it is."
+    },
+    {
+      "index": 144,
+      "start_time": 702390.0,
+      "end_time": 707730.0,
+      "text": "That says the first row's right, four times\nthe first row plus the second row is eight"
+    },
+    {
+      "index": 145,
+      "start_time": 707730.0,
+      "end_time": 709700.0,
+      "text": "seven. Good. Okay."
+    },
+    {
+      "index": 146,
+      "start_time": 709720.0,
+      "end_time": 711920.0,
+      "text": "That's simple, two by two."
+    },
+    {
+      "index": 147,
+      "start_time": 711920.0,
+      "end_time": 717380.0,
+      "text": "But it already shows the form that we're headed\nfor."
+    },
+    {
+      "index": 148,
+      "start_time": 717390.0,
+      "end_time": 721190.0,
+      "text": "It shows -- so what's the L stand for?"
+    },
+    {
+      "index": 149,
+      "start_time": 721190.0,
+      "end_time": 722640.0,
+      "text": "Why the letter L?"
+    },
+    {
+      "index": 150,
+      "start_time": 722640.0,
+      "end_time": 729860.0,
+      "text": "If U stood for upper triangular, then of course\nL stands for lower triangular."
+    },
+    {
+      "index": 151,
+      "start_time": 729860.0,
+      "end_time": 736920.0,
+      "text": "And actually, it has ones on the diagonal,\nwhere this thing has the pivots on the diagonal."
+    },
+    {
+      "index": 152,
+      "start_time": 736920.0,
+      "end_time": 747080.0,
+      "text": "Oh, sometimes we may want to separate out\nthe pivots, so can I just mention that sometimes"
+    },
+    {
+      "index": 153,
+      "start_time": 747089.0,
+      "end_time": 754339.0,
+      "text": "we could also write this as -- we could have\nthis one zero four one -- I'll just show you"
+    },
+    {
+      "index": 154,
+      "start_time": 754340.0,
+      "end_time": 759160.0,
+      "text": "how I would divide out this matrix of pivots\n-- two three."
+    },
+    {
+      "index": 155,
+      "start_time": 759160.0,
+      "end_time": 761880.0,
+      "text": "There's a diagonal matrix."
+    },
+    {
+      "index": 156,
+      "start_time": 761880.0,
+      "end_time": 765980.0,
+      "text": "And I just -- whatever is left is here."
+    },
+    {
+      "index": 157,
+      "start_time": 765980.0,
+      "end_time": 769620.0,
+      "text": "Now what's left?"
+    },
+    {
+      "index": 158,
+      "start_time": 769630.0,
+      "end_time": 777140.0,
+      "text": "If I divide this first row by two to pull\nout the two, then I have a one and a one half."
+    },
+    {
+      "index": 159,
+      "start_time": 777140.0,
+      "end_time": 782580.0,
+      "text": "And if I divide the second row by three to\npull out the three, then I have a one."
+    },
+    {
+      "index": 160,
+      "start_time": 782580.0,
+      "end_time": 791180.0,
+      "text": "So if this is L\nU, this is maybe called L D or pivot U."
+    },
+    {
+      "index": 161,
+      "start_time": 791180.0,
+      "end_time": 801100.0,
+      "text": "And now it's a little more balanced, because\nwe have ones on the diagonal here and here."
+    },
+    {
+      "index": 162,
+      "start_time": 801100.0,
+      "end_time": 802920.0,
+      "text": "And the diagonal matrix in the middle."
+    },
+    {
+      "index": 163,
+      "start_time": 802920.0,
+      "end_time": 804380.0,
+      "text": "So both of those..."
+    },
+    {
+      "index": 164,
+      "start_time": 804380.0,
+      "end_time": 809400.0,
+      "text": "Matlab would produce either one."
+    },
+    {
+      "index": 165,
+      "start_time": 809400.0,
+      "end_time": 812860.0,
+      "text": "I'll basically stay with L U."
+    },
+    {
+      "index": 166,
+      "start_time": 812860.0,
+      "end_time": 819960.0,
+      "text": "Okay. Now I have to think about bigger than\ntwo by two."
+    },
+    {
+      "index": 167,
+      "start_time": 819960.0,
+      "end_time": 823780.0,
+      "text": "But right now, this was just like easy exercise."
+    },
+    {
+      "index": 168,
+      "start_time": 823780.0,
+      "end_time": 830920.0,
+      "text": "And, to tell the truth, this one was a minus\nsign and this one was a plus sign."
+    },
+    {
+      "index": 169,
+      "start_time": 830920.0,
+      "end_time": 834740.0,
+      "text": "I mean, that's the only difference."
+    },
+    {
+      "index": 170,
+      "start_time": 834740.0,
+      "end_time": 842700.0,
+      "text": "But, with three by three, there's a more significant\ndifference."
+    },
+    {
+      "index": 171,
+      "start_time": 842700.0,
+      "end_time": 845740.0,
+      "text": "Let me show you how that works."
+    },
+    {
+      "index": 172,
+      "start_time": 845740.0,
+      "end_time": 857760.0,
+      "text": "Let me move up to a three by three, let's\nsay some matrix A, okay?"
+    },
+    {
+      "index": 173,
+      "start_time": 857760.0,
+      "end_time": 860120.0,
+      "text": "Let's imagine it's three by three."
+    },
+    {
+      "index": 174,
+      "start_time": 860130.0,
+      "end_time": 863050.0,
+      "text": "I won't write numbers down for now."
+    },
+    {
+      "index": 175,
+      "start_time": 863050.0,
+      "end_time": 869351.0,
+      "text": "So what's the first elimination step that\nI do, the first matrix I multiply it by, what"
+    },
+    {
+      "index": 176,
+      "start_time": 869351.0,
+      "end_time": 870870.0,
+      "text": "letter will I use for"
+    },
+    {
+      "index": 177,
+      "start_time": 870870.0,
+      "end_time": 881490.0,
+      "text": "that? It'll be E two one, because it's -- the\nfirst step will be to get a zero in that two"
+    },
+    {
+      "index": 178,
+      "start_time": 881490.0,
+      "end_time": 883520.0,
+      "text": "one position. right?"
+    },
+    {
+      "index": 179,
+      "start_time": 883520.0,
+      "end_time": 888260.0,
+      "text": "And then the next step will be to get a zero\nin the three one position."
+    },
+    {
+      "index": 180,
+      "start_time": 888260.0,
+      "end_time": 893560.0,
+      "text": "And the final step will be to get a zero in\nthe three two"
+    },
+    {
+      "index": 181,
+      "start_time": 893560.0,
+      "end_time": 897089.0,
+      "text": "That's what elimination is, and it produced\nU. position."
+    },
+    {
+      "index": 182,
+      "start_time": 897089.0,
+      "end_time": 906820.0,
+      "text": "And again, no row exchanges."
+    },
+    {
+      "index": 183,
+      "start_time": 906820.0,
+      "end_time": 913180.0,
+      "text": "I'm taking the nice case, now, the typical\ncase, too -- when I don't have to do any row"
+    },
+    {
+      "index": 184,
+      "start_time": 913180.0,
+      "end_time": 915920.0,
+      "text": "exchange, all I do is these elimination steps."
+    },
+    {
+      "index": 185,
+      "start_time": 915920.0,
+      "end_time": 916900.0,
+      "text": "Okay."
+    },
+    {
+      "index": 186,
+      "start_time": 916900.0,
+      "end_time": 922880.0,
+      "text": "Now, suppose I want that stuff over on the\nright-hand side, as I really do."
+    },
+    {
+      "index": 187,
+      "start_time": 922880.0,
+      "end_time": 925470.0,
+      "text": "That's, like, my point here."
+    },
+    {
+      "index": 188,
+      "start_time": 925470.0,
+      "end_time": 930300.0,
+      "text": "I can multiply these together to get a matrix\nE, but I want it over on the right."
+    },
+    {
+      "index": 189,
+      "start_time": 930300.0,
+      "end_time": 933670.0,
+      "text": "I want its inverse over there."
+    },
+    {
+      "index": 190,
+      "start_time": 933670.0,
+      "end_time": 939160.0,
+      "text": "So what's the right expression now?"
+    },
+    {
+      "index": 191,
+      "start_time": 939160.0,
+      "end_time": 946440.0,
+      "text": "If I write A and U, what goes there?"
+    },
+    {
+      "index": 192,
+      "start_time": 946440.0,
+      "end_time": 947060.0,
+      "text": "Okay."
+    },
+    {
+      "index": 193,
+      "start_time": 947060.0,
+      "end_time": 950040.0,
+      "text": "So I've got the inverse of this, I've got\nthree matrices in"
+    },
+    {
+      "index": 194,
+      "start_time": 950040.0,
+      "end_time": 952020.0,
+      "text": "a row now."
+    },
+    {
+      "index": 195,
+      "start_time": 952020.0,
+      "end_time": 958300.0,
+      "text": "And it's their inverses that are going to\nshow up, because each one is easy to invert."
+    },
+    {
+      "index": 196,
+      "start_time": 958300.0,
+      "end_time": 961460.0,
+      "text": "Question is, what about the whole bunch?"
+    },
+    {
+      "index": 197,
+      "start_time": 961460.0,
+      "end_time": 964780.0,
+      "text": "How easy is it to invert the whole bunch?"
+    },
+    {
+      "index": 198,
+      "start_time": 964780.0,
+      "end_time": 968630.0,
+      "text": "So, that's what we know how to do."
+    },
+    {
+      "index": 199,
+      "start_time": 968630.0,
+      "end_time": 972840.0,
+      "text": "We know how to invert, we should take the\nseparate inverses, but they go in the opposite"
+    },
+    {
+      "index": 200,
+      "start_time": 972840.0,
+      "end_time": 973840.0,
+      "text": "order."
+    },
+    {
+      "index": 201,
+      "start_time": 973840.0,
+      "end_time": 975800.0,
+      "text": "So what goes here?"
+    },
+    {
+      "index": 202,
+      "start_time": 975800.0,
+      "end_time": 981640.0,
+      "text": "E three two inverse, right, because I'll multiply\nfrom the left by E three two inverse, then"
+    },
+    {
+      "index": 203,
+      "start_time": 981640.0,
+      "end_time": 986600.0,
+      "text": "I'll pop it up next to U."
+    },
+    {
+      "index": 204,
+      "start_time": 986600.0,
+      "end_time": 990880.0,
+      "text": "And then will come E three one inverse."
+    },
+    {
+      "index": 205,
+      "start_time": 990880.0,
+      "end_time": 1000900.0,
+      "text": "And then this'll be the only guy left standing\nand that's gone when I do an E two one inverse."
+    },
+    {
+      "index": 206,
+      "start_time": 1000910.0,
+      "end_time": 1003590.0,
+      "text": "So there is L."
+    },
+    {
+      "index": 207,
+      "start_time": 1003590.0,
+      "end_time": 1007300.0,
+      "text": "That's L U."
+    },
+    {
+      "index": 208,
+      "start_time": 1007300.0,
+      "end_time": 1010860.0,
+      "text": "L is product of inverses."
+    },
+    {
+      "index": 209,
+      "start_time": 1010860.0,
+      "end_time": 1017680.0,
+      "text": "Now you still can ask why is this guy preferring\ninverses?"
+    },
+    {
+      "index": 210,
+      "start_time": 1017680.0,
+      "end_time": 1019570.0,
+      "text": "And let me explain why."
+    },
+    {
+      "index": 211,
+      "start_time": 1019570.0,
+      "end_time": 1025619.0,
+      "text": "Let me explain why is this product nicer than\nthis one?"
+    },
+    {
+      "index": 212,
+      "start_time": 1025619.9999999999,
+      "end_time": 1030380.9999999999,
+      "text": "This product turns out to be better than this\none."
+    },
+    {
+      "index": 213,
+      "start_time": 1030380.0000000001,
+      "end_time": 1035060.0000000001,
+      "text": "Let me take a typical case here."
+    },
+    {
+      "index": 214,
+      "start_time": 1035060.0,
+      "end_time": 1037250.0,
+      "text": "Let me take a typical case."
+    },
+    {
+      "index": 215,
+      "start_time": 1037250.0,
+      "end_time": 1043000.0,
+      "text": "So let me -- I have to do three by three for\nyou to see the improvement."
+    },
+    {
+      "index": 216,
+      "start_time": 1043000.0,
+      "end_time": 1047400.0,
+      "text": "Two by two, it was just one E, no problem."
+    },
+    {
+      "index": 217,
+      "start_time": 1047400.0000000001,
+      "end_time": 1049960.0,
+      "text": "But let me go up to this case."
+    },
+    {
+      "index": 218,
+      "start_time": 1049960.0,
+      "end_time": 1061460.0,
+      "text": "Suppose my matrices E21 -- suppose E21 has\na minus two in there."
+    },
+    {
+      "index": 219,
+      "start_time": 1061460.0,
+      "end_time": 1069840.0,
+      "text": "Suppose that -- and now suppose -- oh, I'll\neven suppose E31 is the identity."
+    },
+    {
+      "index": 220,
+      "start_time": 1069840.0,
+      "end_time": 1074360.0,
+      "text": "I'm going to make the point with just a couple\nof these."
+    },
+    {
+      "index": 221,
+      "start_time": 1074360.0,
+      "end_time": 1074900.0,
+      "text": "Okay."
+    },
+    {
+      "index": 222,
+      "start_time": 1074900.0,
+      "end_time": 1082720.0,
+      "text": "Now this guy will have -- do something -- now\nlet's suppose minus five one."
+    },
+    {
+      "index": 223,
+      "start_time": 1082720.0,
+      "end_time": 1087560.0,
+      "text": "Okay. There's typical."
+    },
+    {
+      "index": 224,
+      "start_time": 1087560.0,
+      "end_time": 1092760.0,
+      "text": "That's a typical case in which we didn't need\nan E31. Maybe we already had a zero in that"
+    },
+    {
+      "index": 225,
+      "start_time": 1092760.0,
+      "end_time": 1094660.0,
+      "text": "three one position."
+    },
+    {
+      "index": 226,
+      "start_time": 1094660.0,
+      "end_time": 1097560.0,
+      "text": "Okay."
+    },
+    {
+      "index": 227,
+      "start_time": 1097560.0,
+      "end_time": 1104700.0,
+      "text": "Let me see -- is that going to be enough to,\nshow my point?"
+    },
+    {
+      "index": 228,
+      "start_time": 1104700.0,
+      "end_time": 1109500.0,
+      "text": "Let me do that multiplication."
+    },
+    {
+      "index": 229,
+      "start_time": 1109500.0,
+      "end_time": 1112640.0,
+      "text": "So if I do that multiplication it's like good\npractice to"
+    },
+    {
+      "index": 230,
+      "start_time": 1112640.0,
+      "end_time": 1115000.0,
+      "text": "multiply these matrices."
+    },
+    {
+      "index": 231,
+      "start_time": 1115000.0,
+      "end_time": 1119900.0,
+      "text": "Tell me what's above the diagonal when I do\nthis multiplication?"
+    },
+    {
+      "index": 232,
+      "start_time": 1119900.0,
+      "end_time": 1124500.0,
+      "text": "All zeroes. When I do this multiplication,\nI'm going to get ones on the diagonal and"
+    },
+    {
+      "index": 233,
+      "start_time": 1124500.0,
+      "end_time": 1128280.0,
+      "text": "zeroes above."
+    },
+    {
+      "index": 234,
+      "start_time": 1128280.0,
+      "end_time": 1130140.0,
+      "text": "Because -- what does that say?"
+    },
+    {
+      "index": 235,
+      "start_time": 1130140.0,
+      "end_time": 1134540.0,
+      "text": "That says that I'm subtracting rows from lower\nrows."
+    },
+    {
+      "index": 236,
+      "start_time": 1134550.0,
+      "end_time": 1140971.0,
+      "text": "So nothing is moving upwards as it did last\ntime in Gauss-Jordan. Okay."
+    },
+    {
+      "index": 237,
+      "start_time": 1140970.0,
+      "end_time": 1150280.0,
+      "text": "Now -- so really, what I have to do is check\nthis minus two one zero, now this is -- what's"
+    },
+    {
+      "index": 238,
+      "start_time": 1150280.0,
+      "end_time": 1151240.0,
+      "text": "that number?"
+    },
+    {
+      "index": 239,
+      "start_time": 1151240.0,
+      "end_time": 1155740.0,
+      "text": "This is the number that I'm really have in\nmind."
+    },
+    {
+      "index": 240,
+      "start_time": 1155740.0,
+      "end_time": 1159900.0,
+      "text": "That number is ten."
+    },
+    {
+      "index": 241,
+      "start_time": 1159900.0,
+      "end_time": 1165620.0,
+      "text": "And this one is -- what goes here?"
+    },
+    {
+      "index": 242,
+      "start_time": 1165620.0,
+      "end_time": 1168960.0,
+      "text": "Row three against column two, it looks like\nthe minus five."
+    },
+    {
+      "index": 243,
+      "start_time": 1172000.0,
+      "end_time": 1175100.0,
+      "text": "What – it's that ten."
+    },
+    {
+      "index": 244,
+      "start_time": 1175100.0,
+      "end_time": 1177020.0,
+      "text": "How did that ten get in there?"
+    },
+    {
+      "index": 245,
+      "start_time": 1177020.0,
+      "end_time": 1179040.0,
+      "text": "I don't like that ten."
+    },
+    {
+      "index": 246,
+      "start_time": 1179040.0,
+      "end_time": 1182220.0,
+      "text": "I mean -- of course, I don't want to erase\nit, because it's right."
+    },
+    {
+      "index": 247,
+      "start_time": 1182220.0,
+      "end_time": 1185840.0,
+      "text": "But I don't want it there."
+    },
+    {
+      "index": 248,
+      "start_time": 1185840.0,
+      "end_time": 1193800.0,
+      "text": "It's because -- the ten got in there because\nI subtracted two of row one from row two,"
+    },
+    {
+      "index": 249,
+      "start_time": 1193800.0,
+      "end_time": 1198760.0,
+      "text": "and then I subtracted five of that new row\ntwo from row three."
+    },
+    {
+      "index": 250,
+      "start_time": 1198760.0,
+      "end_time": 1204920.0,
+      "text": "So doing it in that order, how did row one\neffect row three?"
+    },
+    {
+      "index": 251,
+      "start_time": 1204920.0,
+      "end_time": 1210480.0,
+      "text": "Well, it did, because two of it got removed\nfrom row two and then five of those got removed"
+    },
+    {
+      "index": 252,
+      "start_time": 1210480.0,
+      "end_time": 1211590.0,
+      "text": "from row three."
+    },
+    {
+      "index": 253,
+      "start_time": 1211590.0,
+      "end_time": 1217800.0,
+      "text": "So altogether ten of row one got thrown into\nrow three."
+    },
+    {
+      "index": 254,
+      "start_time": 1217800.0,
+      "end_time": 1227540.0,
+      "text": "Now my point is in the reverse direction -- so\nnow I can do it -- below it I'll do the inverses."
+    },
+    {
+      "index": 255,
+      "start_time": 1227540.0,
+      "end_time": 1228100.0,
+      "text": "Okay."
+    },
+    {
+      "index": 256,
+      "start_time": 1228100.0,
+      "end_time": 1229820.0,
+      "text": "And, of course, opposite order."
+    },
+    {
+      "index": 257,
+      "start_time": 1229820.0,
+      "end_time": 1231660.0,
+      "text": "Reverse order."
+    },
+    {
+      "index": 258,
+      "start_time": 1231660.0,
+      "end_time": 1235960.0,
+      "text": "Reverse order."
+    },
+    {
+      "index": 259,
+      "start_time": 1235960.0,
+      "end_time": 1244020.0,
+      "text": "Okay. So now this is going to -- this is the\nE that goes on the left side."
+    },
+    {
+      "index": 260,
+      "start_time": 1244020.0,
+      "end_time": 1247790.0,
+      "text": "Left of A."
+    },
+    {
+      "index": 261,
+      "start_time": 1247790.0,
+      "end_time": 1254340.0,
+      "text": "Now I'm going to do the inverses in the opposite\norder, so what's the -- So the opposite order"
+    },
+    {
+      "index": 262,
+      "start_time": 1254340.0,
+      "end_time": 1257530.0,
+      "text": "means I put this inverse first."
+    },
+    {
+      "index": 263,
+      "start_time": 1257530.0,
+      "end_time": 1258890.0,
+      "text": "And what is its inverse?"
+    },
+    {
+      "index": 264,
+      "start_time": 1258890.0,
+      "end_time": 1264660.0,
+      "text": "What's the inverse of E21? Same thing with\na plus sign, right?"
+    },
+    {
+      "index": 265,
+      "start_time": 1264660.0,
+      "end_time": 1272730.0,
+      "text": "For the individual matrices, instead of taking\naway two I add back two of row one to row"
+    },
+    {
+      "index": 266,
+      "start_time": 1272730.0,
+      "end_time": 1276620.0,
+      "text": "two, so no problem."
+    },
+    {
+      "index": 267,
+      "start_time": 1276620.0,
+      "end_time": 1281400.0,
+      "text": "And now, in reverse order, I want to invert\nthat."
+    },
+    {
+      "index": 268,
+      "start_time": 1281400.0,
+      "end_time": 1282840.0,
+      "text": "Just right?"
+    },
+    {
+      "index": 269,
+      "start_time": 1282840.0,
+      "end_time": 1285540.0,
+      "text": "I'm doing just this, this."
+    },
+    {
+      "index": 270,
+      "start_time": 1285540.0,
+      "end_time": 1296320.0,
+      "text": "So now the inverse is again the same thing,\nbut add in the five."
+    },
+    {
+      "index": 271,
+      "start_time": 1296320.0,
+      "end_time": 1305460.0,
+      "text": "And now I'll do that multiplication and I'll\nget a happy result."
+    },
+    {
+      "index": 272,
+      "start_time": 1305460.0,
+      "end_time": 1307800.0,
+      "text": "I hope."
+    },
+    {
+      "index": 273,
+      "start_time": 1307800.0,
+      "end_time": 1310220.0,
+      "text": "Did I do it right so far?"
+    },
+    {
+      "index": 274,
+      "start_time": 1310220.0,
+      "end_time": 1310960.0,
+      "text": "Yes, okay."
+    },
+    {
+      "index": 275,
+      "start_time": 1310960.0,
+      "end_time": 1311640.0,
+      "text": "Let me do the multiplication."
+    },
+    {
+      "index": 276,
+      "start_time": 1311650.0,
+      "end_time": 1313350.0,
+      "text": "I believe this comes out."
+    },
+    {
+      "index": 277,
+      "start_time": 1313350.0,
+      "end_time": 1316660.0,
+      "text": "So row one of the answer is one zero zero."
+    },
+    {
+      "index": 278,
+      "start_time": 1316660.0,
+      "end_time": 1319300.0,
+      "text": "Oh, I know that all this is going to be left,"
+    },
+    {
+      "index": 279,
+      "start_time": 1319300.0,
+      "end_time": 1324080.0,
+      "text": "right? Then I have two one zero."
+    },
+    {
+      "index": 280,
+      "start_time": 1324090.0,
+      "end_time": 1327559.0,
+      "text": "So I get two one zero there, right?"
+    },
+    {
+      "index": 281,
+      "start_time": 1327560.0,
+      "end_time": 1330060.0,
+      "text": "And what's the third row?"
+    },
+    {
+      "index": 282,
+      "start_time": 1330060.0,
+      "end_time": 1335160.0,
+      "text": "What's the third row in this product?"
+    },
+    {
+      "index": 283,
+      "start_time": 1335160.0,
+      "end_time": 1338620.0,
+      "text": "Just read it out to me, the third row?"
+    },
+    {
+      "index": 284,
+      "start_time": 1338640.0,
+      "end_time": 1342980.0,
+      "text": "0 5 1"
+    },
+    {
+      "index": 285,
+      "start_time": 1342980.0,
+      "end_time": 1347240.0,
+      "text": "Because one way to say is –\nthis is saying take one of the"
+    },
+    {
+      "index": 286,
+      "start_time": 1347240.0,
+      "end_time": 1349640.0,
+      "text": "last row and there it is."
+    },
+    {
+      "index": 287,
+      "start_time": 1349640.0,
+      "end_time": 1352580.0,
+      "text": "And this is my matrix L."
+    },
+    {
+      "index": 288,
+      "start_time": 1352590.0,
+      "end_time": 1358450.0,
+      "text": "And it's the one that goes on the left of\nU."
+    },
+    {
+      "index": 289,
+      "start_time": 1358450.0,
+      "end_time": 1365190.0,
+      "text": "It goes into -- what do I mean here?"
+    },
+    {
+      "index": 290,
+      "start_time": 1365190.0,
+      "end_time": 1372040.0,
+      "text": "Maybe rather than saying left of A, left of\nU, let me right down again what I mean."
+    },
+    {
+      "index": 291,
+      "start_time": 1372040.0,
+      "end_time": 1378600.0,
+      "text": "E A is U, whereas A is L U."
+    },
+    {
+      "index": 292,
+      "start_time": 1378600.0,
+      "end_time": 1381560.0,
+      "text": "Okay."
+    },
+    {
+      "index": 293,
+      "start_time": 1381560.0,
+      "end_time": 1386280.0,
+      "text": "Let me make the point now in words."
+    },
+    {
+      "index": 294,
+      "start_time": 1386300.0,
+      "end_time": 1391090.0,
+      "text": "The order that the matrices come for L is\nthe right order."
+    },
+    {
+      "index": 295,
+      "start_time": 1391090.0,
+      "end_time": 1401780.0,
+      "text": "The two and the five don't sort of interfere\nto produce this ten one. In the"
+    },
+    {
+      "index": 296,
+      "start_time": 1401800.0,
+      "end_time": 1406919.0,
+      "text": "right order, the multipliers just sit in the\nmatrix L."
+    },
+    {
+      "index": 297,
+      "start_time": 1406920.0,
+      "end_time": 1415531.0,
+      "text": "That's the point -- that if I want to know\nL, I have no work to do."
+    },
+    {
+      "index": 298,
+      "start_time": 1415530.0,
+      "end_time": 1421370.0,
+      "text": "I just keep a record of what those multipliers\nwere, and that gives me L."
+    },
+    {
+      "index": 299,
+      "start_time": 1421370.0,
+      "end_time": 1432610.0,
+      "text": "So I'll draw the -- let me say it."
+    },
+    {
+      "index": 300,
+      "start_time": 1432610.0,
+      "end_time": 1436320.0,
+      "text": "So this is the A=L U."
+    },
+    {
+      "index": 301,
+      "start_time": 1436320.0,
+      "end_time": 1454010.0,
+      "text": "So if no row exchanges, the multipliers that\nthose numbers that we multiplied rows by and"
+    },
+    {
+      "index": 302,
+      "start_time": 1454010.0,
+      "end_time": 1467550.0,
+      "text": "subtracted, when we did an elimination step\n-- the multipliers go directly into L."
+    },
+    {
+      "index": 303,
+      "start_time": 1467550.0,
+      "end_time": 1469950.0,
+      "text": "Okay."
+    },
+    {
+      "index": 304,
+      "start_time": 1469950.0,
+      "end_time": 1482770.0,
+      "text": "So L is -- this is the way, to look at elimination."
+    },
+    {
+      "index": 305,
+      "start_time": 1482770.0,
+      "end_time": 1491510.0,
+      "text": "You go through the elimination steps, and\nactually if you do it right, you can throw"
+    },
+    {
+      "index": 306,
+      "start_time": 1491510.0,
+      "end_time": 1497120.0,
+      "text": "away A as you create L U."
+    },
+    {
+      "index": 307,
+      "start_time": 1497120.0,
+      "end_time": 1508520.0,
+      "text": "If you think about it, those steps of elimination,\nas when you've finished with row two of A,"
+    },
+    {
+      "index": 308,
+      "start_time": 1508520.0,
+      "end_time": 1516540.0,
+      "text": "you've created a new row two of U, which you\nhave to save, and you've created the multipliers"
+    },
+    {
+      "index": 309,
+      "start_time": 1516540.0,
+      "end_time": 1522980.0,
+      "text": "that you used -- which you have to save,\nand then you can forget A."
+    },
+    {
+      "index": 310,
+      "start_time": 1522980.0,
+      "end_time": 1525919.0,
+      "text": "So because it's all there in L and U."
+    },
+    {
+      "index": 311,
+      "start_time": 1525920.0,
+      "end_time": 1541581.0,
+      "text": "So that's -- this moment is maybe the new\ninsight in elimination that comes from matrix"
+    },
+    {
+      "index": 312,
+      "start_time": 1541580.0,
+      "end_time": 1544070.0,
+      "text": "-- doing it in matrix form."
+    },
+    {
+      "index": 313,
+      "start_time": 1544070.0,
+      "end_time": 1552350.0,
+      "text": "So it was -- the product of Es is -- we can't\nsee what that product of Es is."
+    },
+    {
+      "index": 314,
+      "start_time": 1552350.0,
+      "end_time": 1556350.0,
+      "text": "The matrix E is not a particularly attractive\none."
+    },
+    {
+      "index": 315,
+      "start_time": 1556350.0,
+      "end_time": 1562130.0,
+      "text": "What's great is when we put them on the other\nside -- their inverses in the opposite order,"
+    },
+    {
+      "index": 316,
+      "start_time": 1562130.0,
+      "end_time": 1566210.0,
+      "text": "there the L comes out just right. Okay."
+    },
+    {
+      "index": 317,
+      "start_time": 1566210.0,
+      "end_time": 1569580.0,
+      "text": "Now -- oh gosh, so today's a sort of,"
+    },
+    {
+      "index": 318,
+      "start_time": 1569580.0,
+      "end_time": 1574160.0,
+      "text": "like, practical day."
+    },
+    {
+      "index": 319,
+      "start_time": 1574160.0,
+      "end_time": 1580670.0,
+      "text": "Can we think together how expensive is elimination?"
+    },
+    {
+      "index": 320,
+      "start_time": 1580670.0,
+      "end_time": 1584570.0,
+      "text": "How many operations do we do?"
+    },
+    {
+      "index": 321,
+      "start_time": 1584570.0,
+      "end_time": 1592520.0,
+      "text": "So this is now a kind of new topic which I\ndidn't list as -- on the program, but here"
+    },
+    {
+      "index": 322,
+      "start_time": 1592540.0,
+      "end_time": 1594980.0,
+      "text": "it came. Here it comes."
+    },
+    {
+      "index": 323,
+      "start_time": 1594980.0,
+      "end_time": 1615780.0,
+      "text": "How many operations on an n by n matrix A."
+    },
+    {
+      "index": 324,
+      "start_time": 1615780.0,
+      "end_time": 1618020.0,
+      "text": "I mean, it's a very practical question."
+    },
+    {
+      "index": 325,
+      "start_time": 1618020.0,
+      "end_time": 1628280.0,
+      "text": "Can we solve systems of order a thousand,\nin a second or a minute or a week?"
+    },
+    {
+      "index": 326,
+      "start_time": 1628280.0,
+      "end_time": 1636460.0,
+      "text": "Can we solve systems of order a million in\na second or an hour or a week?"
+    },
+    {
+      "index": 327,
+      "start_time": 1636460.0,
+      "end_time": 1645059.0,
+      "text": "I mean, what's the -- if it's n by n, we often\nwant to take n bigger."
+    },
+    {
+      "index": 328,
+      "start_time": 1645060.0,
+      "end_time": 1648701.0,
+      "text": "I mean, we've put in more information."
+    },
+    {
+      "index": 329,
+      "start_time": 1648700.0,
+      "end_time": 1653880.0,
+      "text": "We make the whole thing is more accurate for\nthe bigger matrix."
+    },
+    {
+      "index": 330,
+      "start_time": 1653880.0,
+      "end_time": 1659000.0,
+      "text": "But it's more expensive, too, and the question\nis how much more expensive?"
+    },
+    {
+      "index": 331,
+      "start_time": 1659000.0,
+      "end_time": 1661679.0,
+      "text": "If I have matrices of order a hundred."
+    },
+    {
+      "index": 332,
+      "start_time": 1661680.0,
+      "end_time": 1663151.0,
+      "text": "Let's say a hundred by a hundred."
+    },
+    {
+      "index": 333,
+      "start_time": 1663150.0,
+      "end_time": 1667660.0,
+      "text": "Let me take n to be a hundred."
+    },
+    {
+      "index": 334,
+      "start_time": 1667660.0,
+      "end_time": 1670840.0,
+      "text": "Say n equal a hundred."
+    },
+    {
+      "index": 335,
+      "start_time": 1670840.0,
+      "end_time": 1674860.0,
+      "text": "How many steps are we doing?"
+    },
+    {
+      "index": 336,
+      "start_time": 1674860.0,
+      "end_time": 1682770.0,
+      "text": "How many operations are we actually doing\nthat we -- And let's suppose there aren't"
+    },
+    {
+      "index": 337,
+      "start_time": 1682770.0,
+      "end_time": 1687799.0,
+      "text": "any zeroes, because of course if a matrix\nhas got a lot of zeroes in good places, we"
+    },
+    {
+      "index": 338,
+      "start_time": 1687800.0,
+      "end_time": 1689870.0,
+      "text": "don't have to do those operations, and,"
+    },
+    {
+      "index": 339,
+      "start_time": 1689870.0,
+      "end_time": 1693500.0,
+      "text": "it'll be much faster."
+    },
+    {
+      "index": 340,
+      "start_time": 1693500.0,
+      "end_time": 1701940.0,
+      "text": "But -- so just think for a moment about the\nfirst step."
+    },
+    {
+      "index": 341,
+      "start_time": 1701940.0,
+      "end_time": 1707179.0,
+      "text": "So here's our matrix A, hundred by a hundred."
+    },
+    {
+      "index": 342,
+      "start_time": 1707180.0,
+      "end_time": 1714880.0,
+      "text": "And the first step will be -- that column,\nis got zeroes down"
+    },
+    {
+      "index": 343,
+      "start_time": 1714880.0,
+      "end_time": 1721080.0,
+      "text": "here. So it's down to 99 by 99, right?"
+    },
+    {
+      "index": 344,
+      "start_time": 1721080.0,
+      "end_time": 1725920.0,
+      "text": "That's really like the first stage of elimination,"
+    },
+    {
+      "index": 345,
+      "start_time": 1725920.0,
+      "end_time": 1728480.0,
+      "text": "to get from this hundred"
+    },
+    {
+      "index": 346,
+      "start_time": 1728490.0,
+      "end_time": 1735600.0,
+      "text": "by hundred non-zero matrix to this stage where\nthe first pivot is sitting up here and the"
+    },
+    {
+      "index": 347,
+      "start_time": 1735600.0,
+      "end_time": 1739440.0,
+      "text": "first row's okay the first column is okay."
+    },
+    {
+      "index": 348,
+      "start_time": 1739440.0,
+      "end_time": 1745120.0,
+      "text": "So, eventually -- how many steps did that\ntake?"
+    },
+    {
+      "index": 349,
+      "start_time": 1745120.0,
+      "end_time": 1747400.0,
+      "text": "You see, I'm trying to get an idea."
+    },
+    {
+      "index": 350,
+      "start_time": 1747410.0,
+      "end_time": 1751861.0,
+      "text": "Is the answer proportional to n?"
+    },
+    {
+      "index": 351,
+      "start_time": 1751860.0,
+      "end_time": 1757260.0,
+      "text": "Is the total number of steps in elimination,\nthe total number, is it proportional to n"
+    },
+    {
+      "index": 352,
+      "start_time": 1757260.0,
+      "end_time": 1762520.0,
+      "text": "-- in which case if I double n from a hundred\nto two hundred -- does it take me twice as"
+    },
+    {
+      "index": 353,
+      "start_time": 1762520.0,
+      "end_time": 1764140.0,
+      "text": "long?"
+    },
+    {
+      "index": 354,
+      "start_time": 1764140.0,
+      "end_time": 1767340.0,
+      "text": "Does it square, so it would take me four times\nas long?"
+    },
+    {
+      "index": 355,
+      "start_time": 1767350.0,
+      "end_time": 1770600.0,
+      "text": "Does it cube so it would take me eight times\nas long?"
+    },
+    {
+      "index": 356,
+      "start_time": 1770600.0,
+      "end_time": 1777120.0,
+      "text": "Or is it n factorial, so it would take me\na hundred times as long?"
+    },
+    {
+      "index": 357,
+      "start_time": 1777120.0,
+      "end_time": 1781560.0,
+      "text": "I think, you know, from a practical point\nof view, we have to have some idea of the"
+    },
+    {
+      "index": 358,
+      "start_time": 1781560.0,
+      "end_time": 1784280.0,
+      "text": "cost, here."
+    },
+    {
+      "index": 359,
+      "start_time": 1784280.0,
+      "end_time": 1788720.0,
+      "text": "So these are the questions that I'm -- let\nme ask those questions again."
+    },
+    {
+      "index": 360,
+      "start_time": 1788720.0,
+      "end_time": 1794900.0,
+      "text": "Is it proportional -- does it go like n, like\nn squared, like n cubed -- or some higher"
+    },
+    {
+      "index": 361,
+      "start_time": 1794900.0,
+      "end_time": 1796420.0,
+      "text": "power of n?"
+    },
+    {
+      "index": 362,
+      "start_time": 1796420.0,
+      "end_time": 1804580.0,
+      "text": "Like n factorial where every step up multiplies\nby a hundred and then by a hundred and one"
+    },
+    {
+      "index": 363,
+      "start_time": 1804580.0,
+      "end_time": 1807980.0,
+      "text": "and then by a hundred and two -- which is\nit?"
+    },
+    {
+      "index": 364,
+      "start_time": 1807980.0,
+      "end_time": 1814320.0,
+      "text": "Okay, so that's the only way I know to answer\nthat is to think through what we actually"
+    },
+    {
+      "index": 365,
+      "start_time": 1814320.0,
+      "end_time": 1816100.0,
+      "text": "had to do."
+    },
+    {
+      "index": 366,
+      "start_time": 1816100.0,
+      "end_time": 1817100.0,
+      "text": "Okay."
+    },
+    {
+      "index": 367,
+      "start_time": 1817100.0,
+      "end_time": 1822680.0,
+      "text": "So what was the cost here?"
+    },
+    {
+      "index": 368,
+      "start_time": 1822680.0,
+      "end_time": 1823300.0,
+      "text": "Well, let's see."
+    },
+    {
+      "index": 369,
+      "start_time": 1823310.0,
+      "end_time": 1825701.0,
+      "text": "What do I mean by an operation?"
+    },
+    {
+      "index": 370,
+      "start_time": 1825700.0,
+      "end_time": 1832549.0,
+      "text": "I guess I mean, well an addition or -- yeah."
+    },
+    {
+      "index": 371,
+      "start_time": 1832550.0,
+      "end_time": 1833550.0,
+      "text": "No big deal."
+    },
+    {
+      "index": 372,
+      "start_time": 1833550.0,
+      "end_time": 1838981.0,
+      "text": "I guess I mean an addition or a subtraction\nor a multiplication or a division."
+    },
+    {
+      "index": 373,
+      "start_time": 1838980.0,
+      "end_time": 1841540.0,
+      "text": "Okay."
+    },
+    {
+      "index": 374,
+      "start_time": 1841540.0,
+      "end_time": 1848980.0,
+      "text": "And actually, what operation I doing all the\ntime?"
+    },
+    {
+      "index": 375,
+      "start_time": 1848980.0,
+      "end_time": 1858870.0,
+      "text": "When I multiply row one by multiplier L and\nI subtract from row six."
+    },
+    {
+      "index": 376,
+      "start_time": 1858870.0,
+      "end_time": 1861060.0,
+      "text": "What's happening there individually?"
+    },
+    {
+      "index": 377,
+      "start_time": 1861060.0,
+      "end_time": 1863460.0,
+      "text": "What's going on?"
+    },
+    {
+      "index": 378,
+      "start_time": 1863460.0,
+      "end_time": 1868490.0,
+      "text": "If I multiply -- I do a multiplication by\nL and then a subtraction."
+    },
+    {
+      "index": 379,
+      "start_time": 1868490.0,
+      "end_time": 1875610.0,
+      "text": "So I guess operation -- Can I count that for\nthe moment as, like, one operation?"
+    },
+    {
+      "index": 380,
+      "start_time": 1875610.0,
+      "end_time": 1878520.0,
+      "text": "Or you may want to count them separately."
+    },
+    {
+      "index": 381,
+      "start_time": 1878520.0,
+      "end_time": 1886740.0,
+      "text": "The typical operation is multiply plus a subtract."
+    },
+    {
+      "index": 382,
+      "start_time": 1886740.0,
+      "end_time": 1891420.0,
+      "text": "So if I count those together, my answer's\ngoing to come out"
+    },
+    {
+      "index": 383,
+      "start_time": 1891420.0,
+      "end_time": 1896540.0,
+      "text": "half as many as if -- I mean,\nif I count them separately, I'd have a certain"
+    },
+    {
+      "index": 384,
+      "start_time": 1896540.0,
+      "end_time": 1899000.0,
+      "text": "number of multiplies, certain number of subtracts."
+    },
+    {
+      "index": 385,
+      "start_time": 1899000.0,
+      "end_time": 1900580.0,
+      "text": "That's really want to do."
+    },
+    {
+      "index": 386,
+      "start_time": 1900580.0,
+      "end_time": 1903360.0,
+      "text": "Okay. How many have I got here?"
+    },
+    {
+      "index": 387,
+      "start_time": 1903360.0,
+      "end_time": 1909500.0,
+      "text": "So, I think -- let's see."
+    },
+    {
+      "index": 388,
+      "start_time": 1909500.0,
+      "end_time": 1916293.0,
+      "text": "It's about -- well, how many, roughly?"
+    },
+    {
+      "index": 389,
+      "start_time": 1916290.0,
+      "end_time": 1919349.0,
+      "text": "How many operations to get from here to here?"
+    },
+    {
+      "index": 390,
+      "start_time": 1919360.0,
+      "end_time": 1925800.0,
+      "text": "Well, maybe one way to look at it is all these\nnumbers had to get changed."
+    },
+    {
+      "index": 391,
+      "start_time": 1925800.0,
+      "end_time": 1931900.0,
+      "text": "The first row didn't get changed, but all\nthe other rows got changed at this step."
+    },
+    {
+      "index": 392,
+      "start_time": 1931900.0,
+      "end_time": 1945880.0,
+      "text": "So this step -- well, I guess maybe -- shall\nI say it cost about a hundred squared."
+    },
+    {
+      "index": 393,
+      "start_time": 1945880.0,
+      "end_time": 1952100.0,
+      "text": "I mean, if I had changed the first row, then\nit would have been exactly hundred squared,"
+    },
+    {
+      "index": 394,
+      "start_time": 1952110.0,
+      "end_time": 1955549.0,
+      "text": "because -- because that's how many numbers\nare here."
+    },
+    {
+      "index": 395,
+      "start_time": 1955550.0,
+      "end_time": 1962280.0,
+      "text": "A hundred squared numbers is the total count\nof the entry, and all but this insignificant"
+    },
+    {
+      "index": 396,
+      "start_time": 1962280.0,
+      "end_time": 1964300.0,
+      "text": "first row got changed."
+    },
+    {
+      "index": 397,
+      "start_time": 1964300.0,
+      "end_time": 1967660.0,
+      "text": "So I would say about a hundred squared."
+    },
+    {
+      "index": 398,
+      "start_time": 1967660.0,
+      "end_time": 1968620.0,
+      "text": "Okay."
+    },
+    {
+      "index": 399,
+      "start_time": 1968620.0,
+      "end_time": 1974150.0,
+      "text": "Now, what about the next step?"
+    },
+    {
+      "index": 400,
+      "start_time": 1974150.0,
+      "end_time": 1976960.0,
+      "text": "So now the first row is fine."
+    },
+    {
+      "index": 401,
+      "start_time": 1976960.0,
+      "end_time": 1980020.0,
+      "text": "The second row is fine."
+    },
+    {
+      "index": 402,
+      "start_time": 1980020.0,
+      "end_time": 1986700.0,
+      "text": "And I'm changing these zeroes are all fine,\nso what's up with the second step?"
+    },
+    {
+      "index": 403,
+      "start_time": 1986700.0,
+      "end_time": 1988620.0,
+      "text": "And then you're with me."
+    },
+    {
+      "index": 404,
+      "start_time": 1988620.0,
+      "end_time": 1990380.0,
+      "text": "Roughly, what's the cost?"
+    },
+    {
+      "index": 405,
+      "start_time": 1990390.0,
+      "end_time": 1997330.0,
+      "text": "If this first step cost a hundred squared,\nabout, operations then this one, which is"
+    },
+    {
+      "index": 406,
+      "start_time": 1997330.0,
+      "end_time": 2007490.0,
+      "text": "really working on this guy to produce this,\ncosts about what?"
+    },
+    {
+      "index": 407,
+      "start_time": 2007490.0,
+      "end_time": 2011250.0,
+      "text": "How many operations to fix?"
+    },
+    {
+      "index": 408,
+      "start_time": 2011250.0,
+      "end_time": 2016610.0,
+      "text": "About ninety-nine squared, or ninety-nine\ntimes ninety-eight. But less, right?"
+    },
+    {
+      "index": 409,
+      "start_time": 2016610.0,
+      "end_time": 2019590.0,
+      "text": "Less, because our problem's getting smaller."
+    },
+    {
+      "index": 410,
+      "start_time": 2019590.0,
+      "end_time": 2022280.0,
+      "text": "About ninety-nine squared."
+    },
+    {
+      "index": 411,
+      "start_time": 2022280.0,
+      "end_time": 2026160.0,
+      "text": "And then I go down and down and the next one\nwill be ninety-eight squared, the next ninety-seven"
+    },
+    {
+      "index": 412,
+      "start_time": 2026160.0,
+      "end_time": 2033750.0,
+      "text": "squared and finally I'm down around one squared\nor -- where it's just like the little numbers."
+    },
+    {
+      "index": 413,
+      "start_time": 2033750.0,
+      "end_time": 2035890.0,
+      "text": "The big numbers are here."
+    },
+    {
+      "index": 414,
+      "start_time": 2035890.0,
+      "end_time": 2046190.0,
+      "text": "So the number of operations is about n squared\nplus that was n, right? n was a hundred?"
+    },
+    {
+      "index": 415,
+      "start_time": 2046190.0,
+      "end_time": 2053589.0,
+      "text": "n squared for the first step, then n minus\none squared, then n minus two squared, finally"
+    },
+    {
+      "index": 416,
+      "start_time": 2053590.0000000002,
+      "end_time": 2063041.0000000002,
+      "text": "down to three squared and two squared and\neven one squared."
+    },
+    {
+      "index": 417,
+      "start_time": 2063040.0,
+      "end_time": 2067929.0,
+      "text": "No way I should have written that -- squeezed\nthat in."
+    },
+    {
+      "index": 418,
+      "start_time": 2067929.9999999998,
+      "end_time": 2077570.9999999998,
+      "text": "Let me try it so the count is n squared plus\nn minus one squared plus -- all the way down"
+    },
+    {
+      "index": 419,
+      "start_time": 2077570.0000000002,
+      "end_time": 2081980.0000000002,
+      "text": "to one squared."
+    },
+    {
+      "index": 420,
+      "start_time": 2081980.0,
+      "end_time": 2084899.0,
+      "text": "That's a pretty decent count."
+    },
+    {
+      "index": 421,
+      "start_time": 2084900.0,
+      "end_time": 2096041.0,
+      "text": "Admittedly, we didn't catch every single tiny\noperation, but we got the right leading term"
+    },
+    {
+      "index": 422,
+      "start_time": 2096040.0,
+      "end_time": 2097040.0,
+      "text": "here."
+    },
+    {
+      "index": 423,
+      "start_time": 2097040.0,
+      "end_time": 2101180.0,
+      "text": "And what do those add up to?"
+    },
+    {
+      "index": 424,
+      "start_time": 2101180.0,
+      "end_time": 2110030.0,
+      "text": "Okay, so now we're coming to the punch of\nthis, question, this operation count."
+    },
+    {
+      "index": 425,
+      "start_time": 2110030.0,
+      "end_time": 2119820.0,
+      "text": "So the operations on the left side, on the\nmatrix A to finally get to U."
+    },
+    {
+      "index": 426,
+      "start_time": 2119820.0,
+      "end_time": 2128540.0,
+      "text": "And anybody -- so which of these quantities\nis the right ballpark for that count?"
+    },
+    {
+      "index": 427,
+      "start_time": 2128540.0,
+      "end_time": 2134080.0,
+      "text": "If I add a hundred squared to ninety nine\nsquared to ninety eight squared -- ninety"
+    },
+    {
+      "index": 428,
+      "start_time": 2134080.0,
+      "end_time": 2144020.0,
+      "text": "seven squared, all the way down to two squared\nthen one squared, what have I got, about?"
+    },
+    {
+      "index": 429,
+      "start_time": 2144020.0,
+      "end_time": 2148100.0,
+      "text": "It's just one of these -- let's identify it\nfirst."
+    },
+    {
+      "index": 430,
+      "start_time": 2148100.0,
+      "end_time": 2149020.0,
+      "text": "Is it n?"
+    },
+    {
+      "index": 431,
+      "start_time": 2149020.0,
+      "end_time": 2152080.0,
+      "text": "Certainly not."
+    },
+    {
+      "index": 432,
+      "start_time": 2152080.0,
+      "end_time": 2155700.0,
+      "text": "Is it n factorial?"
+    },
+    {
+      "index": 433,
+      "start_time": 2155700.0,
+      "end_time": 2156460.0,
+      "text": "No."
+    },
+    {
+      "index": 434,
+      "start_time": 2156460.0,
+      "end_time": 2162020.0,
+      "text": "If it was n factorial, we would -- with determinants,\nit is n factorial."
+    },
+    {
+      "index": 435,
+      "start_time": 2162020.0,
+      "end_time": 2172400.0,
+      "text": "I'll put in a bad mark against determinants,\nbecause that -- okay, so what is it?"
+    },
+    {
+      "index": 436,
+      "start_time": 2172400.0,
+      "end_time": 2178580.0,
+      "text": "It's n -- well, this is the answer."
+    },
+    {
+      "index": 437,
+      "start_time": 2178580.0,
+      "end_time": 2181240.0,
+      "text": "It's this order -- n cubed."
+    },
+    {
+      "index": 438,
+      "start_time": 2181240.0,
+      "end_time": 2186380.0,
+      "text": "It's like I have n terms, right?"
+    },
+    {
+      "index": 439,
+      "start_time": 2186380.0,
+      "end_time": 2188680.0,
+      "text": "I've got n terms in this sum."
+    },
+    {
+      "index": 440,
+      "start_time": 2188690.0,
+      "end_time": 2191140.0,
+      "text": "And the biggest one is n squared."
+    },
+    {
+      "index": 441,
+      "start_time": 2191140.0,
+      "end_time": 2200750.0,
+      "text": "So the worst it could be would be n cubed,\nbut it's not as bad as -- it's n cubed times"
+    },
+    {
+      "index": 442,
+      "start_time": 2200750.0,
+      "end_time": 2205270.0,
+      "text": "-- it's about one third of n cubed."
+    },
+    {
+      "index": 443,
+      "start_time": 2205270.0,
+      "end_time": 2213690.0,
+      "text": "That's the magic operation count."
+    },
+    {
+      "index": 444,
+      "start_time": 2213690.0,
+      "end_time": 2222339.0,
+      "text": "Somehow that one third takes account of the\nfact that the numbers are getting smaller."
+    },
+    {
+      "index": 445,
+      "start_time": 2222340.0,
+      "end_time": 2226901.0,
+      "text": "If they weren't getting smaller, we would\nhave n terms times n squared, but it would"
+    },
+    {
+      "index": 446,
+      "start_time": 2226900.0,
+      "end_time": 2228240.0,
+      "text": "be exactly n cubed."
+    },
+    {
+      "index": 447,
+      "start_time": 2228240.0,
+      "end_time": 2230640.0,
+      "text": "But our numbers are getting smaller -- actually,\nrow two and row one moves down to row three."
+    },
+    {
+      "index": 448,
+      "start_time": 2230640.0,
+      "end_time": 2239400.0,
+      "text": "do you remember where does one third come\nin this -- I'll even allow a mention of calculus."
+    },
+    {
+      "index": 449,
+      "start_time": 2239400.0,
+      "end_time": 2245940.0,
+      "text": "So calculus can be mentioned, integration\ncan be mentioned now in the next minute and"
+    },
+    {
+      "index": 450,
+      "start_time": 2245940.0,
+      "end_time": 2248360.0,
+      "text": "not again for weeks."
+    },
+    {
+      "index": 451,
+      "start_time": 2248360.0,
+      "end_time": 2253440.0,
+      "text": "It's not that I don't like 18.01, but18.06\nis better."
+    },
+    {
+      "index": 452,
+      "start_time": 2253440.0,
+      "end_time": 2262340.0,
+      "text": "Okay. So, -- so what's -- what's the calculus\nformula that looks like?"
+    },
+    {
+      "index": 453,
+      "start_time": 2262350.0,
+      "end_time": 2270589.0,
+      "text": "It looks like -- if we were in calculus instead\nof summing stuff, we would integrate."
+    },
+    {
+      "index": 454,
+      "start_time": 2270590.0,
+      "end_time": 2276801.0,
+      "text": "So I would integrate x squared and I would\nget one third x"
+    },
+    {
+      "index": 455,
+      "start_time": 2276800.0,
+      "end_time": 2287430.0,
+      "text": "cubed. So if that was like an integral from\none to n, of x squared b x, if the answer"
+    },
+    {
+      "index": 456,
+      "start_time": 2287430.0,
+      "end_time": 2293690.0,
+      "text": "would be one third n cubed -- and it's correct\nfor the sum also, because that's, like, the"
+    },
+    {
+      "index": 457,
+      "start_time": 2293690.0,
+      "end_time": 2294900.0,
+      "text": "whole point of calculus."
+    },
+    {
+      "index": 458,
+      "start_time": 2294900.0,
+      "end_time": 2299315.0,
+      "text": "The whole point of calculus is -- oh, I don't\nwant to tell you the whole -- I mean, you"
+    },
+    {
+      "index": 459,
+      "start_time": 2299310.0,
+      "end_time": 2301275.0,
+      "text": "know the whole point of calculus."
+    },
+    {
+      "index": 460,
+      "start_time": 2301280.0,
+      "end_time": 2307990.0,
+      "text": "Calculus is like sums except it's continuous."
+    },
+    {
+      "index": 461,
+      "start_time": 2307990.0,
+      "end_time": 2311950.0,
+      "text": "Okay. And algebra is discreet."
+    },
+    {
+      "index": 462,
+      "start_time": 2311950.0,
+      "end_time": 2312950.0,
+      "text": "Okay."
+    },
+    {
+      "index": 463,
+      "start_time": 2312950.0,
+      "end_time": 2315010.0,
+      "text": "So the answer is one third n cubed."
+    },
+    {
+      "index": 464,
+      "start_time": 2315010.0,
+      "end_time": 2320080.0,
+      "text": "Now I'll just -- let me say one more thing\nabout operations."
+    },
+    {
+      "index": 465,
+      "start_time": 2320080.0,
+      "end_time": 2321920.0,
+      "text": "What about the right-hand side?"
+    },
+    {
+      "index": 466,
+      "start_time": 2321920.0,
+      "end_time": 2325250.0,
+      "text": "This was what it cost on the left side."
+    },
+    {
+      "index": 467,
+      "start_time": 2325250.0,
+      "end_time": 2330380.0,
+      "text": "This is on A."
+    },
+    {
+      "index": 468,
+      "start_time": 2330380.0,
+      "end_time": 2332180.0,
+      "text": "Because this is A that we're working with."
+    },
+    {
+      "index": 469,
+      "start_time": 2332180.0,
+      "end_time": 2340660.0,
+      "text": "But what's the cost on the extra column vector\nb that we're hanging around here?"
+    },
+    {
+      "index": 470,
+      "start_time": 2340660.0,
+      "end_time": 2347570.0,
+      "text": "So b costs a lot less, obviously, because\nit's just one column."
+    },
+    {
+      "index": 471,
+      "start_time": 2347570.0,
+      "end_time": 2354260.0,
+      "text": "We carry it through elimination and then actually\nwe do back substitution."
+    },
+    {
+      "index": 472,
+      "start_time": 2354260.0,
+      "end_time": 2356160.0,
+      "text": "Let me just tell you the answer there."
+    },
+    {
+      "index": 473,
+      "start_time": 2356160.0,
+      "end_time": 2358420.0,
+      "text": "It's n squared."
+    },
+    {
+      "index": 474,
+      "start_time": 2358420.0,
+      "end_time": 2363220.0,
+      "text": "So the cost for every right hand side is n\nsquared."
+    },
+    {
+      "index": 475,
+      "start_time": 2363220.0,
+      "end_time": 2377000.0,
+      "text": "So let me -- I'll just fit that in here -- for\nthe cost of b turns out to be n squared."
+    },
+    {
+      "index": 476,
+      "start_time": 2377000.0,
+      "end_time": 2389580.0,
+      "text": "So you see if we have, as we often have, a\na matrix A and several right-hand sides, then"
+    },
+    {
+      "index": 477,
+      "start_time": 2389580.0,
+      "end_time": 2397670.0,
+      "text": "we pay the price on A, the higher price on\nA to get it split up into L and U to do elimination"
+    },
+    {
+      "index": 478,
+      "start_time": 2397670.0,
+      "end_time": 2402810.0,
+      "text": "on A, but then we can process every right-hand\nside at low cost."
+    },
+    {
+      "index": 479,
+      "start_time": 2402810.0,
+      "end_time": 2403859.0,
+      "text": "Okay."
+    },
+    {
+      "index": 480,
+      "start_time": 2403860.0,
+      "end_time": 2416560.0,
+      "text": "So the -- We really have discussed the most\nfundamental algorithm for a system of equations."
+    },
+    {
+      "index": 481,
+      "start_time": 2416560.0,
+      "end_time": 2419700.0,
+      "text": "Okay."
+    },
+    {
+      "index": 482,
+      "start_time": 2419700.0,
+      "end_time": 2429500.0,
+      "text": "So, I'm ready to allow row exchanges."
+    },
+    {
+      "index": 483,
+      "start_time": 2429500.0,
+      "end_time": 2434220.0,
+      "text": "I'm ready to allow -- now what happens to\nthis whole -- today's lecture if there are"
+    },
+    {
+      "index": 484,
+      "start_time": 2434220.0,
+      "end_time": 2438400.0,
+      "text": "row exchanges?"
+    },
+    {
+      "index": 485,
+      "start_time": 2438400.0,
+      "end_time": 2442240.0,
+      "text": "When would there be row exchanges?"
+    },
+    {
+      "index": 486,
+      "start_time": 2442240.0,
+      "end_time": 2447840.0,
+      "text": "There are row -- we need to do row exchanges\nif a zero shows up in the pivot position."
+    },
+    {
+      "index": 487,
+      "start_time": 2447840.0,
+      "end_time": 2455820.0,
+      "text": "So moving then into the final section of this\nchapter, which is about transposes -- well,"
+    },
+    {
+      "index": 488,
+      "start_time": 2455820.0,
+      "end_time": 2468640.0,
+      "text": "we've already seen some transposes, and -- the\ntitle of this section is,"
+    },
+    {
+      "index": 489,
+      "start_time": 2468640.0,
+      "end_time": 2473700.0,
+      "text": "\"Transposes\nand Permutations.\""
+    },
+    {
+      "index": 490,
+      "start_time": 2473700.0,
+      "end_time": 2481160.0,
+      "text": "Okay. So can I say, now, where does a permutation\ncome in?"
+    },
+    {
+      "index": 491,
+      "start_time": 2481160.0,
+      "end_time": 2483300.0,
+      "text": "Let me talk a little about permutations."
+    },
+    {
+      "index": 492,
+      "start_time": 2483300.0,
+      "end_time": 2494620.0,
+      "text": "So that'll be up here, permutations."
+    },
+    {
+      "index": 493,
+      "start_time": 2494620.0,
+      "end_time": 2501420.0,
+      "text": "So these are the matrices that I need to do\nrow exchanges."
+    },
+    {
+      "index": 494,
+      "start_time": 2501420.0,
+      "end_time": 2504560.0,
+      "text": "And I may have to do two row exchanges."
+    },
+    {
+      "index": 495,
+      "start_time": 2504560.0,
+      "end_time": 2512320.0,
+      "text": "Can you invent a matrix where I would have\nto do two row exchanges and then would come"
+    },
+    {
+      "index": 496,
+      "start_time": 2512320.0,
+      "end_time": 2514180.0,
+      "text": "out fine?"
+    },
+    {
+      "index": 497,
+      "start_time": 2514180.0,
+      "end_time": 2521460.0,
+      "text": "Yeah let's just, for the heck of it -- so\nI'll put it here."
+    },
+    {
+      "index": 498,
+      "start_time": 2521460.0,
+      "end_time": 2524120.0,
+      "text": "Let me do three by threes."
+    },
+    {
+      "index": 499,
+      "start_time": 2524120.0,
+      "end_time": 2530480.0,
+      "text": "Actually, why don't I just plain list all\nthe three by three permutation matrices."
+    },
+    {
+      "index": 500,
+      "start_time": 2530480.0,
+      "end_time": 2533000.0,
+      "text": "There're a nice little group of them."
+    },
+    {
+      "index": 501,
+      "start_time": 2533010.0,
+      "end_time": 2540880.0,
+      "text": "What are all the matrices that exchange no\nrows at all?"
+    },
+    {
+      "index": 502,
+      "start_time": 2540880.0,
+      "end_time": 2546070.0,
+      "text": "Well, I'll include the identity."
+    },
+    {
+      "index": 503,
+      "start_time": 2546070.0,
+      "end_time": 2549710.0,
+      "text": "So that's a permutation matrix that doesn't\ndo anything."
+    },
+    {
+      "index": 504,
+      "start_time": 2549710.0,
+      "end_time": 2558680.0,
+      "text": "Now what's the permutation matrix that exchanges\n-- what is P12? The permutation matrix that"
+    },
+    {
+      "index": 505,
+      "start_time": 2558680.0,
+      "end_time": 2568540.0,
+      "text": "exchanges rows one and two would be -- 0 1\n0 -- 1 0 0, right."
+    },
+    {
+      "index": 506,
+      "start_time": 2568540.0,
+      "end_time": 2573360.0,
+      "text": "I just exchanged those rows of the identity\nand I've got it."
+    },
+    {
+      "index": 507,
+      "start_time": 2573360.0,
+      "end_time": 2576080.0,
+      "text": "Okay. Actually, I'll -- yes."
+    },
+    {
+      "index": 508,
+      "start_time": 2576080.0,
+      "end_time": 2581840.0,
+      "text": "Let me clutter this up."
+    },
+    {
+      "index": 509,
+      "start_time": 2581840.0,
+      "end_time": 2586340.0,
+      "text": "Okay. Give me a complete list of all the row\nexchange matrices."
+    },
+    {
+      "index": 510,
+      "start_time": 2586340.0,
+      "end_time": 2587540.0,
+      "text": "So what are they?"
+    },
+    {
+      "index": 511,
+      "start_time": 2587540.0,
+      "end_time": 2593780.0,
+      "text": "They're all the ways I can take the identity\nmatrix and rearrange its rows."
+    },
+    {
+      "index": 512,
+      "start_time": 2593780.0,
+      "end_time": 2596620.0,
+      "text": "How many will there be?"
+    },
+    {
+      "index": 513,
+      "start_time": 2596620.0,
+      "end_time": 2601820.0,
+      "text": "How many three by three permutation matrices?"
+    },
+    {
+      "index": 514,
+      "start_time": 2601820.0,
+      "end_time": 2604100.0,
+      "text": "Shall we keep going and get the answer?"
+    },
+    {
+      "index": 515,
+      "start_time": 2604100.0,
+      "end_time": 2607500.0,
+      "text": "So tell me some more."
+    },
+    {
+      "index": 516,
+      "start_time": 2607500.0,
+      "end_time": 2608580.0,
+      "text": "STUDENT: Zero one –"
+    },
+    {
+      "index": 517,
+      "start_time": 2608580.0,
+      "end_time": 2611000.0,
+      "text": "STRANG: Zero – What one\nare you going to do now?"
+    },
+    {
+      "index": 518,
+      "start_time": 2611000.0,
+      "end_time": 2612840.0,
+      "text": "STUDENT: I'm going to switch the –"
+    },
+    {
+      "index": 519,
+      "start_time": 2612840.0,
+      "end_time": 2623520.0,
+      "text": "STRANG: Switch rows one and -- One and\nthree, okay. One and three, leaving two alone."
+    },
+    {
+      "index": 520,
+      "start_time": 2623520.0,
+      "end_time": 2624460.0,
+      "text": "Okay."
+    },
+    {
+      "index": 521,
+      "start_time": 2624460.0,
+      "end_time": 2630780.0,
+      "text": "Now what else? Switch -- what would\nbe the next easy one -- is switch two and"
+    },
+    {
+      "index": 522,
+      "start_time": 2630780.0,
+      "end_time": 2637240.0,
+      "text": "three, good. So I'll leave one zero zero alone\nand I'll switch -- I'll move number three"
+    },
+    {
+      "index": 523,
+      "start_time": 2637250.0,
+      "end_time": 2640329.0,
+      "text": "up and number two down."
+    },
+    {
+      "index": 524,
+      "start_time": 2640330.0,
+      "end_time": 2645381.0,
+      "text": "Okay. Those are the ones that just exchange\nsingle -- a pair of"
+    },
+    {
+      "index": 525,
+      "start_time": 2645380.0,
+      "end_time": 2653339.0,
+      "text": "rows. This guy, this guy and this guy exchanges\na pair of rows, but now there are more possibilities."
+    },
+    {
+      "index": 526,
+      "start_time": 2653340.0,
+      "end_time": 2656080.0,
+      "text": "What's left?"
+    },
+    {
+      "index": 527,
+      "start_time": 2656080.0,
+      "end_time": 2659640.0,
+      "text": "So tell -- there is another one here."
+    },
+    {
+      "index": 528,
+      "start_time": 2659640.0,
+      "end_time": 2662260.0,
+      "text": "What's that?"
+    },
+    {
+      "index": 529,
+      "start_time": 2662260.0,
+      "end_time": 2666440.0,
+      "text": "It's going to move -- it's going\nto change all rows, right?"
+    },
+    {
+      "index": 530,
+      "start_time": 2666440.0,
+      "end_time": 2668160.0,
+      "text": "Where shall we put them?"
+    },
+    {
+      "index": 531,
+      "start_time": 2668160.0,
+      "end_time": 2669780.0,
+      "text": "So -- give me a first row."
+    },
+    {
+      "index": 532,
+      "start_time": 2669780.0,
+      "end_time": 2670800.0,
+      "text": "STUDENT: Zero one zero?"
+    },
+    {
+      "index": 533,
+      "start_time": 2670800.0,
+      "end_time": 2672740.0,
+      "text": "STRANG: Zero one zero."
+    },
+    {
+      "index": 534,
+      "start_time": 2672740.0,
+      "end_time": 2678000.0,
+      "text": "Okay, now a second row -- say zero zero one\nand the third guy"
+    },
+    {
+      "index": 535,
+      "start_time": 2678000.0,
+      "end_time": 2681960.0,
+      "text": "One zero zero."
+    },
+    {
+      "index": 536,
+      "start_time": 2681960.0,
+      "end_time": 2684420.0,
+      "text": "So that is like a cycle."
+    },
+    {
+      "index": 537,
+      "start_time": 2684420.0,
+      "end_time": 2689800.0,
+      "text": "That puts row two moves up to row one,\nrow three moves up to"
+    },
+    {
+      "index": 538,
+      "start_time": 2689800.0,
+      "end_time": 2693420.0,
+      "text": "row two and row one moves\ndown to row three."
+    },
+    {
+      "index": 539,
+      "start_time": 2693420.0,
+      "end_time": 2700180.0,
+      "text": "And there's one more, which is -- let's see."
+    },
+    {
+      "index": 540,
+      "start_time": 2700180.0,
+      "end_time": 2703280.0,
+      "text": "What's left?"
+    },
+    {
+      "index": 541,
+      "start_time": 2703280.0,
+      "end_time": 2704160.0,
+      "text": "I'm lost."
+    },
+    {
+      "index": 542,
+      "start_time": 2704160.0,
+      "end_time": 2705240.0,
+      "text": "STUDENT: Is it zero zero one?"
+    },
+    {
+      "index": 543,
+      "start_time": 2705240.0,
+      "end_time": 2706780.0,
+      "text": "STRANG: Is it zero zero one? Okay."
+    },
+    {
+      "index": 544,
+      "start_time": 2706780.0,
+      "end_time": 2708120.0,
+      "text": "STUDENT: One zero zero."
+    },
+    {
+      "index": 545,
+      "start_time": 2708120.0,
+      "end_time": 2711260.0,
+      "text": "STRANG: One zero zero, okay."
+    },
+    {
+      "index": 546,
+      "start_time": 2711260.0,
+      "end_time": 2716460.0,
+      "text": "Zero one zero, okay."
+    },
+    {
+      "index": 547,
+      "start_time": 2716460.0,
+      "end_time": 2717980.0,
+      "text": "Great."
+    },
+    {
+      "index": 548,
+      "start_time": 2717980.0,
+      "end_time": 2721780.0,
+      "text": "Six. Six of them."
+    },
+    {
+      "index": 549,
+      "start_time": 2721780.0,
+      "end_time": 2735580.0,
+      "text": "Six P. And they're sort of nice, because what\nhappens if I write, multiply two of them together?"
+    },
+    {
+      "index": 550,
+      "start_time": 2735580.0,
+      "end_time": 2742100.0,
+      "text": "If I multiply two of these matrices together,\nwhat can you tell me about the answer?"
+    },
+    {
+      "index": 551,
+      "start_time": 2742100.0,
+      "end_time": 2744360.0,
+      "text": "It's on the list."
+    },
+    {
+      "index": 552,
+      "start_time": 2744360.0,
+      "end_time": 2749220.0,
+      "text": "If I do some row exchanges and then I do some\nmore row exchanges, then all together I've"
+    },
+    {
+      "index": 553,
+      "start_time": 2749220.0,
+      "end_time": 2750520.0,
+      "text": "done row exchanges."
+    },
+    {
+      "index": 554,
+      "start_time": 2750520.0,
+      "end_time": 2754520.0,
+      "text": "So if I multiply -- but, I don't know."
+    },
+    {
+      "index": 555,
+      "start_time": 2754520.0,
+      "end_time": 2760340.0,
+      "text": "And if I invert, then I'm just doing row exchanges\nto get back again."
+    },
+    {
+      "index": 556,
+      "start_time": 2760350.0,
+      "end_time": 2761870.0,
+      "text": "So the inverses are all there."
+    },
+    {
+      "index": 557,
+      "start_time": 2761870.0,
+      "end_time": 2772791.0,
+      "text": "It's a little family of matrices that -- they've\ngot their own -- if I multiply, I'm still"
+    },
+    {
+      "index": 558,
+      "start_time": 2772790.0,
+      "end_time": 2774400.0,
+      "text": "inside this group."
+    },
+    {
+      "index": 559,
+      "start_time": 2774400.0,
+      "end_time": 2778920.0,
+      "text": "If I invert I'm inside this group -- actually,\ngroup is the right name for this subject."
+    },
+    {
+      "index": 560,
+      "start_time": 2778920.0,
+      "end_time": 2784320.0,
+      "text": "It's a group of six matrices, and what about\nthe inverses?"
+    },
+    {
+      "index": 561,
+      "start_time": 2784320.0,
+      "end_time": 2788160.0,
+      "text": "What's the inverse of this guy, for example?"
+    },
+    {
+      "index": 562,
+      "start_time": 2788160.0,
+      "end_time": 2794700.0,
+      "text": "What's the inverse -- if I exchange rows one\nand two, what's the inverse matrix?"
+    },
+    {
+      "index": 563,
+      "start_time": 2794700.0,
+      "end_time": 2796760.0,
+      "text": "Just tell me fast."
+    },
+    {
+      "index": 564,
+      "start_time": 2796760.0,
+      "end_time": 2806910.0,
+      "text": "The inverse of that matrix is -- if I exchange\nrows one and two, then what I should do to"
+    },
+    {
+      "index": 565,
+      "start_time": 2806910.0,
+      "end_time": 2811150.0,
+      "text": "get back to where I started is the same thing."
+    },
+    {
+      "index": 566,
+      "start_time": 2811150.0,
+      "end_time": 2814905.0,
+      "text": "So this thing is its own inverse."
+    },
+    {
+      "index": 567,
+      "start_time": 2814910.0,
+      "end_time": 2815910.0,
+      "text": "That's probably its own inverse."
+    },
+    {
+      "index": 568,
+      "start_time": 2815910.0,
+      "end_time": 2820385.0,
+      "text": "This is probably not -- actually, I think\nthese are inverses of each other."
+    },
+    {
+      "index": 569,
+      "start_time": 2820380.0,
+      "end_time": 2826320.0,
+      "text": "Oh, yeah, actually -- the inverse is the transpose."
+    },
+    {
+      "index": 570,
+      "start_time": 2826320.0,
+      "end_time": 2836020.0,
+      "text": "There's a curious fact about permutations\nmatrices, that the inverses are the transposes."
+    },
+    {
+      "index": 571,
+      "start_time": 2836020.0,
+      "end_time": 2841820.0,
+      "text": "And final moment -- how many are there if\nI -- how many four by four permutations?"
+    },
+    {
+      "index": 572,
+      "start_time": 2841820.0,
+      "end_time": 2849880.0,
+      "text": "So let me take four by four -- how many Ps?"
+    },
+    {
+      "index": 573,
+      "start_time": 2849880.0,
+      "end_time": 2852720.0,
+      "text": "Well, okay."
+    },
+    {
+      "index": 574,
+      "start_time": 2852720.0,
+      "end_time": 2854940.0,
+      "text": "Make a good guess."
+    },
+    {
+      "index": 575,
+      "start_time": 2854940.0,
+      "end_time": 2858020.0,
+      "text": "Twenty four, right. Twenty four Ps."
+    },
+    {
+      "index": 576,
+      "start_time": 2858020.0,
+      "end_time": 2868820.0,
+      "text": "Okay. So, we've got these permutation matrices,\nand in the next lecture, we'll use them."
+    },
+    {
+      "index": 577,
+      "start_time": 2868820.0,
+      "end_time": 2871660.0,
+      "text": "So the next lecture,\nfinishes Chapter 2"
+    },
+    {
+      "index": 578,
+      "start_time": 2871660.0,
+      "end_time": 2875160.0,
+      "text": "and moves to Chapter 3."
+    },
+    {
+      "index": 579,
+      "start_time": 2875160.0,
+      "end_time": 2877480.0,
+      "text": "Thank you."
+    }
+  ]
+}

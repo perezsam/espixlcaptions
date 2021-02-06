@@ -1,0 +1,5556 @@
+{
+  "video_id": "w1xNTLH1zlA",
+  "title": "Machine Learning APIs by Example (Google Cloud Next '17)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 2385.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 2,
+      "start_time": 4770.0,
+      "end_time": 6710.0,
+      "text": "SARA ROBINSON: Hi, everyone."
+    },
+    {
+      "index": 3,
+      "start_time": 6710.0,
+      "end_time": 8482.0,
+      "text": "Thank you for coming."
+    },
+    {
+      "index": 4,
+      "start_time": 8482.0,
+      "end_time": 10690.0,
+      "text": "Today we&#39;re going to talk about machine learning APIs"
+    },
+    {
+      "index": 5,
+      "start_time": 10690.0,
+      "end_time": 11524.0,
+      "text": "by example."
+    },
+    {
+      "index": 6,
+      "start_time": 11524.0,
+      "end_time": 12940.0,
+      "text": "I&#39;m going to teach you how you can"
+    },
+    {
+      "index": 7,
+      "start_time": 12940.0,
+      "end_time": 14860.0,
+      "text": "access pre-trained machine learning models"
+    },
+    {
+      "index": 8,
+      "start_time": 14860.0,
+      "end_time": 16780.0,
+      "text": "with a single API call."
+    },
+    {
+      "index": 9,
+      "start_time": 16780.0,
+      "end_time": 18100.0,
+      "text": "My name is Sara Robinson."
+    },
+    {
+      "index": 10,
+      "start_time": 18100.0,
+      "end_time": 20650.0,
+      "text": "I&#39;m a developer advocate on the Google Cloud Platform"
+    },
+    {
+      "index": 11,
+      "start_time": 20650.0,
+      "end_time": 23800.0,
+      "text": "team, which basically means I get to help build demos, give"
+    },
+    {
+      "index": 12,
+      "start_time": 23800.0,
+      "end_time": 26740.0,
+      "text": "talks about them, and bring product feedback back"
+    },
+    {
+      "index": 13,
+      "start_time": 26740.0,
+      "end_time": 28360.0,
+      "text": "to the engineering teams."
+    },
+    {
+      "index": 14,
+      "start_time": 28360.0,
+      "end_time": 30700.0,
+      "text": "You can find me on Twitter, @SRobTweets."
+    },
+    {
+      "index": 15,
+      "start_time": 30700.0,
+      "end_time": 34390.0,
+      "text": "And I live in New York."
+    },
+    {
+      "index": 16,
+      "start_time": 34390.0,
+      "end_time": 35890.0,
+      "text": "So before we get started, let&#39;s talk"
+    },
+    {
+      "index": 17,
+      "start_time": 35890.0,
+      "end_time": 38160.0,
+      "text": "about what machine learning is at a high level."
+    },
+    {
+      "index": 18,
+      "start_time": 38160.0,
+      "end_time": 40060.0,
+      "text": "So at a high level, machine learning"
+    },
+    {
+      "index": 19,
+      "start_time": 40060.0,
+      "end_time": 42220.0,
+      "text": "is teaching computers to recognize patterns"
+    },
+    {
+      "index": 20,
+      "start_time": 42220.0,
+      "end_time": 44200.0,
+      "text": "in the same way that our brains do."
+    },
+    {
+      "index": 21,
+      "start_time": 44200.0,
+      "end_time": 46150.0,
+      "text": "So it&#39;s really easy for a child to recognize"
+    },
+    {
+      "index": 22,
+      "start_time": 46150.0,
+      "end_time": 48542.0,
+      "text": "the difference between a picture of a cat and a dog,"
+    },
+    {
+      "index": 23,
+      "start_time": 48542.0,
+      "end_time": 50500.0,
+      "text": "but it&#39;s much more difficult to teach computers"
+    },
+    {
+      "index": 24,
+      "start_time": 50500.0,
+      "end_time": 51910.0,
+      "text": "to do the same thing, right?"
+    },
+    {
+      "index": 25,
+      "start_time": 51910.0,
+      "end_time": 54381.0,
+      "text": "So we could write rules to look for specific things,"
+    },
+    {
+      "index": 26,
+      "start_time": 54381.0,
+      "end_time": 56380.0,
+      "text": "but we can almost always find a condition that&#39;s"
+    },
+    {
+      "index": 27,
+      "start_time": 56380.0,
+      "end_time": 57795.0,
+      "text": "going to break those rules."
+    },
+    {
+      "index": 28,
+      "start_time": 57795.0,
+      "end_time": 59170.0,
+      "text": "So instead, what we want to do is"
+    },
+    {
+      "index": 29,
+      "start_time": 59170.0,
+      "end_time": 61570.0,
+      "text": "write code that finds these rules for us and improves"
+    },
+    {
+      "index": 30,
+      "start_time": 61570.0,
+      "end_time": 66040.0,
+      "text": "over time through examples and experience."
+    },
+    {
+      "index": 31,
+      "start_time": 66040.0,
+      "end_time": 68290.0,
+      "text": "Here we have a neural network that&#39;s"
+    },
+    {
+      "index": 32,
+      "start_time": 68290.0,
+      "end_time": 71246.0,
+      "text": "identifying a picture as either a picture of a cat or a dog."
+    },
+    {
+      "index": 33,
+      "start_time": 71246.0,
+      "end_time": 73120.0,
+      "text": "And we can think of the input to this network"
+    },
+    {
+      "index": 34,
+      "start_time": 73120.0,
+      "end_time": 74740.0,
+      "text": "as pixels in the image."
+    },
+    {
+      "index": 35,
+      "start_time": 74740.0,
+      "end_time": 76870.0,
+      "text": "And then each neuron is looking for"
+    },
+    {
+      "index": 36,
+      "start_time": 76870.0,
+      "end_time": 78820.0,
+      "text": "a specific identifying feature."
+    },
+    {
+      "index": 37,
+      "start_time": 78820.0,
+      "end_time": 81449.0,
+      "text": "Maybe it&#39;s the shape of the ear or the hair."
+    },
+    {
+      "index": 38,
+      "start_time": 81449.0,
+      "end_time": 82990.0,
+      "text": "And then the output is a prediction--"
+    },
+    {
+      "index": 39,
+      "start_time": 82990.0,
+      "end_time": 86405.0,
+      "text": "in this case, that is a dog."
+    },
+    {
+      "index": 40,
+      "start_time": 86405.0,
+      "end_time": 88280.0,
+      "text": "Let&#39;s take a step back from this for a moment"
+    },
+    {
+      "index": 41,
+      "start_time": 88280.0,
+      "end_time": 90650.0,
+      "text": "and let&#39;s try some human-powered image detection,"
+    },
+    {
+      "index": 42,
+      "start_time": 90650.0,
+      "end_time": 93290.0,
+      "text": "if we were to do this on our own."
+    },
+    {
+      "index": 43,
+      "start_time": 93290.0,
+      "end_time": 95660.0,
+      "text": "We&#39;ll take this picture of an apple and an orange."
+    },
+    {
+      "index": 44,
+      "start_time": 95660.0,
+      "end_time": 97160.0,
+      "text": "And let&#39;s say we were going to start"
+    },
+    {
+      "index": 45,
+      "start_time": 97160.0,
+      "end_time": 98840.0,
+      "text": "writing an algorithm that would identify"
+    },
+    {
+      "index": 46,
+      "start_time": 98840.0,
+      "end_time": 100420.0,
+      "text": "the difference between these two."
+    },
+    {
+      "index": 47,
+      "start_time": 100420.0,
+      "end_time": 102050.0,
+      "text": "What are some features that you might look for you?"
+    },
+    {
+      "index": 48,
+      "start_time": 102050.0,
+      "end_time": 103096.0,
+      "text": "You can shout it out."
+    },
+    {
+      "index": 49,
+      "start_time": 103096.0,
+      "end_time": 103870.0,
+      "text": "AUDIENCE: Color."
+    },
+    {
+      "index": 50,
+      "start_time": 103870.0,
+      "end_time": 105155.0,
+      "text": "SARA ROBINSON: Color."
+    },
+    {
+      "index": 51,
+      "start_time": 105155.0,
+      "end_time": 106280.0,
+      "text": "I heard a bunch of &quot;color.&quot;"
+    },
+    {
+      "index": 52,
+      "start_time": 106280.0,
+      "end_time": 106995.0,
+      "text": "AUDIENCE: Shape."
+    },
+    {
+      "index": 53,
+      "start_time": 106995.0,
+      "end_time": 107870.0,
+      "text": "SARA ROBINSON: Shape."
+    },
+    {
+      "index": 54,
+      "start_time": 107870.0,
+      "end_time": 109080.0,
+      "text": "AUDIENCE: Texture."
+    },
+    {
+      "index": 55,
+      "start_time": 109080.0,
+      "end_time": 110180.0,
+      "text": "SARA ROBINSON: Texture-- lots of good ones."
+    },
+    {
+      "index": 56,
+      "start_time": 110180.0,
+      "end_time": 111680.0,
+      "text": "So color&#39;s a good one, but then what"
+    },
+    {
+      "index": 57,
+      "start_time": 111680.0,
+      "end_time": 113640.0,
+      "text": "would happen if we had black and white images?"
+    },
+    {
+      "index": 58,
+      "start_time": 113640.0,
+      "end_time": 115590.0,
+      "text": "Then we might have to start all over again."
+    },
+    {
+      "index": 59,
+      "start_time": 115590.0,
+      "end_time": 118070.0,
+      "text": "So in that case, we could for a stem."
+    },
+    {
+      "index": 60,
+      "start_time": 118070.0,
+      "end_time": 120110.0,
+      "text": "Texture would be good."
+    },
+    {
+      "index": 61,
+      "start_time": 120110.0,
+      "end_time": 122900.0,
+      "text": "But then what happens if we add a third fruit?"
+    },
+    {
+      "index": 62,
+      "start_time": 122900.0,
+      "end_time": 126468.0,
+      "text": "If we add a mango, we have to start all over again as well."
+    },
+    {
+      "index": 63,
+      "start_time": 126468.0,
+      "end_time": 128509.0,
+      "text": "But these pictures are all pretty similar, right?"
+    },
+    {
+      "index": 64,
+      "start_time": 128508.99999999999,
+      "end_time": 133197.0,
+      "text": "So what would happen if we had pictures of two things that"
+    },
+    {
+      "index": 65,
+      "start_time": 133197.0,
+      "end_time": 134030.0,
+      "text": "were very different?"
+    },
+    {
+      "index": 66,
+      "start_time": 134030.0,
+      "end_time": 135446.0,
+      "text": "This should be really easy, right?"
+    },
+    {
+      "index": 67,
+      "start_time": 135446.0,
+      "end_time": 137600.0,
+      "text": "A dog and a mop have pretty much nothing in common"
+    },
+    {
+      "index": 68,
+      "start_time": 137600.0,
+      "end_time": 140330.0,
+      "text": "from these pictures that I can see."
+    },
+    {
+      "index": 69,
+      "start_time": 140330.0,
+      "end_time": 144540.0,
+      "text": "But it&#39;s actually a little tricky."
+    },
+    {
+      "index": 70,
+      "start_time": 144540.0,
+      "end_time": 148169.0,
+      "text": "So what we have here is pictures of sheep dogs and mops."
+    },
+    {
+      "index": 71,
+      "start_time": 148169.0,
+      "end_time": 150710.0,
+      "text": "And it&#39;s actually kind of hard to tell the difference, right?"
+    },
+    {
+      "index": 72,
+      "start_time": 150710.0,
+      "end_time": 153560.0,
+      "text": "If we were going to write code that identified these two,"
+    },
+    {
+      "index": 73,
+      "start_time": 153560.0,
+      "end_time": 157640.0,
+      "text": "it would be pretty tricky to do."
+    },
+    {
+      "index": 74,
+      "start_time": 157640.0,
+      "end_time": 160179.0,
+      "text": "And then what happens if we have photos of everything?"
+    },
+    {
+      "index": 75,
+      "start_time": 160179.0,
+      "end_time": 161720.0,
+      "text": "We don&#39;t want to write specific rules"
+    },
+    {
+      "index": 76,
+      "start_time": 161720.0,
+      "end_time": 165050.0,
+      "text": "to identify each little thing that we&#39;re trying to look for."
+    },
+    {
+      "index": 77,
+      "start_time": 165050.0,
+      "end_time": 168740.0,
+      "text": "And in addition to photos, we could have many other types"
+    },
+    {
+      "index": 78,
+      "start_time": 168740.0,
+      "end_time": 170090.0,
+      "text": "of unstructured data."
+    },
+    {
+      "index": 79,
+      "start_time": 170090.0,
+      "end_time": 172940.0,
+      "text": "We could have video, audio, text,"
+    },
+    {
+      "index": 80,
+      "start_time": 172940.0,
+      "end_time": 175587.0,
+      "text": "lots of different types of data we&#39;d be dealing with."
+    },
+    {
+      "index": 81,
+      "start_time": 175587.0,
+      "end_time": 177170.0,
+      "text": "And really, we want some tools to help"
+    },
+    {
+      "index": 82,
+      "start_time": 177170.0,
+      "end_time": 180920.0,
+      "text": "us make sense of all of this unstructured data."
+    },
+    {
+      "index": 83,
+      "start_time": 180920.0,
+      "end_time": 183200.0,
+      "text": "And Google Cloud Platform has several products"
+    },
+    {
+      "index": 84,
+      "start_time": 183200.0,
+      "end_time": 185720.0,
+      "text": "to help you benefit from machine learning."
+    },
+    {
+      "index": 85,
+      "start_time": 185720.0,
+      "end_time": 189260.0,
+      "text": "On the left-hand side here, you can use your own data"
+    },
+    {
+      "index": 86,
+      "start_time": 189260.0,
+      "end_time": 192060.0,
+      "text": "to build and train your own machine learning model."
+    },
+    {
+      "index": 87,
+      "start_time": 192060.0,
+      "end_time": 195680.0,
+      "text": "So we have TensorFlow and Cloud Machine Learning Engine for you"
+    },
+    {
+      "index": 88,
+      "start_time": 195680.0,
+      "end_time": 196502.0,
+      "text": "to do that."
+    },
+    {
+      "index": 89,
+      "start_time": 196502.0,
+      "end_time": 197960.0,
+      "text": "And on the right-hand side, this is"
+    },
+    {
+      "index": 90,
+      "start_time": 197960.0,
+      "end_time": 200460.0,
+      "text": "where I&#39;m going to focus today."
+    },
+    {
+      "index": 91,
+      "start_time": 200460.0,
+      "end_time": 202880.0,
+      "text": "This is what I like to call friendly machine learning."
+    },
+    {
+      "index": 92,
+      "start_time": 202880.0,
+      "end_time": 204890.0,
+      "text": "These are machine learning APIs that give you"
+    },
+    {
+      "index": 93,
+      "start_time": 204890.0,
+      "end_time": 208520.0,
+      "text": "access to a pre-trained machine learning model with one"
+    },
+    {
+      "index": 94,
+      "start_time": 208520.0,
+      "end_time": 210410.0,
+      "text": "single REST API request."
+    },
+    {
+      "index": 95,
+      "start_time": 210410.0,
+      "end_time": 211790.0,
+      "text": "So you make a request."
+    },
+    {
+      "index": 96,
+      "start_time": 211790.0,
+      "end_time": 213170.0,
+      "text": "You send it some data."
+    },
+    {
+      "index": 97,
+      "start_time": 213170.0,
+      "end_time": 215559.0,
+      "text": "You get some data back from this pre-trained model."
+    },
+    {
+      "index": 98,
+      "start_time": 215559.0,
+      "end_time": 217850.0,
+      "text": "And you don&#39;t have to worry about building and training"
+    },
+    {
+      "index": 99,
+      "start_time": 217850.0,
+      "end_time": 221019.0,
+      "text": "your own model or anything that&#39;s going on under the hood."
+    },
+    {
+      "index": 100,
+      "start_time": 221019.0,
+      "end_time": 222560.0,
+      "text": "I&#39;m going to give you an introduction"
+    },
+    {
+      "index": 101,
+      "start_time": 222560.0,
+      "end_time": 223970.0,
+      "text": "to each of these five APIs."
+    },
+    {
+      "index": 102,
+      "start_time": 223970.0,
+      "end_time": 225779.0,
+      "text": "I&#39;m going to start with Vision, and I&#39;m"
+    },
+    {
+      "index": 103,
+      "start_time": 225779.0,
+      "end_time": 227570.0,
+      "text": "going to end with Video Intelligence, which"
+    },
+    {
+      "index": 104,
+      "start_time": 227570.0,
+      "end_time": 232370.0,
+      "text": "is our newest API you may have seen in the keynote yesterday."
+    },
+    {
+      "index": 105,
+      "start_time": 232370.0,
+      "end_time": 234460.0,
+      "text": "So let&#39;s get started with Vision."
+    },
+    {
+      "index": 106,
+      "start_time": 234460.0,
+      "end_time": 237680.0,
+      "text": "The Vision API lets you do complex image detection"
+    },
+    {
+      "index": 107,
+      "start_time": 237680.0,
+      "end_time": 239522.0,
+      "text": "with a simple REST request."
+    },
+    {
+      "index": 108,
+      "start_time": 239522.0,
+      "end_time": 240980.0,
+      "text": "And I&#39;m going to start each section"
+    },
+    {
+      "index": 109,
+      "start_time": 240980.0,
+      "end_time": 243710.0,
+      "text": "by talking about a customer or customers"
+    },
+    {
+      "index": 110,
+      "start_time": 243710.0,
+      "end_time": 245840.0,
+      "text": "that are using each API."
+    },
+    {
+      "index": 111,
+      "start_time": 245840.0,
+      "end_time": 248690.0,
+      "text": "So for the Vision API, the first example on the left"
+    },
+    {
+      "index": 112,
+      "start_time": 248690.0,
+      "end_time": 251780.0,
+      "text": "is Disney used the Vision API for a game"
+    },
+    {
+      "index": 113,
+      "start_time": 251780.0,
+      "end_time": 254510.0,
+      "text": "to promote the movie &quot;Pete&#39;s Dragon.&quot;"
+    },
+    {
+      "index": 114,
+      "start_time": 254510.0,
+      "end_time": 257600.0,
+      "text": "And the way the game worked is that users were given a quest."
+    },
+    {
+      "index": 115,
+      "start_time": 257600.00000000003,
+      "end_time": 259790.00000000003,
+      "text": "So they had a clue, and they had to take"
+    },
+    {
+      "index": 116,
+      "start_time": 259790.00000000003,
+      "end_time": 261620.00000000003,
+      "text": "a picture of that word--"
+    },
+    {
+      "index": 117,
+      "start_time": 261620.0,
+      "end_time": 264650.0,
+      "text": "maybe couch, computer, everyday objects."
+    },
+    {
+      "index": 118,
+      "start_time": 264650.0,
+      "end_time": 266370.0,
+      "text": "And if they took the picture correctly,"
+    },
+    {
+      "index": 119,
+      "start_time": 266370.0,
+      "end_time": 270291.0,
+      "text": "they would superimpose an image of the dragon on that object."
+    },
+    {
+      "index": 120,
+      "start_time": 270291.0,
+      "end_time": 271790.0,
+      "text": "So the problem was they needed a way"
+    },
+    {
+      "index": 121,
+      "start_time": 271790.0,
+      "end_time": 275480.0,
+      "text": "to verify that the user took a picture of the correct object"
+    },
+    {
+      "index": 122,
+      "start_time": 275480.0,
+      "end_time": 277111.0,
+      "text": "that they were prompted for."
+    },
+    {
+      "index": 123,
+      "start_time": 277111.0,
+      "end_time": 279110.0,
+      "text": "And the Vision API was a perfect fit to do that."
+    },
+    {
+      "index": 124,
+      "start_time": 279110.0,
+      "end_time": 282320.0,
+      "text": "They used the label detection feature, which basically tells"
+    },
+    {
+      "index": 125,
+      "start_time": 282320.0,
+      "end_time": 283820.0,
+      "text": "you, what is this a picture of?"
+    },
+    {
+      "index": 126,
+      "start_time": 283820.0,
+      "end_time": 287040.0,
+      "text": "And they were able to verify images in the game that way."
+    },
+    {
+      "index": 127,
+      "start_time": 287040.0,
+      "end_time": 291350.0,
+      "text": "Realtor.com uses the Vision API for their mobile application."
+    },
+    {
+      "index": 128,
+      "start_time": 291350.0,
+      "end_time": 294260.0,
+      "text": "So its a real estate listing service, and people"
+    },
+    {
+      "index": 129,
+      "start_time": 294260.0,
+      "end_time": 296180.0,
+      "text": "can go around as they are looking for houses"
+    },
+    {
+      "index": 130,
+      "start_time": 296180.0,
+      "end_time": 298760.0,
+      "text": "and take pictures of a &quot;for sale&quot; sign."
+    },
+    {
+      "index": 131,
+      "start_time": 298760.0,
+      "end_time": 301580.0,
+      "text": "And they use the Vision API&#39;s OCR, Optical Character"
+    },
+    {
+      "index": 132,
+      "start_time": 301580.0,
+      "end_time": 304250.0,
+      "text": "Recognition, to read the text in the image"
+    },
+    {
+      "index": 133,
+      "start_time": 304250.0,
+      "end_time": 307790.0,
+      "text": "and then pull up the relevant listing for that house."
+    },
+    {
+      "index": 134,
+      "start_time": 307790.0,
+      "end_time": 312417.0,
+      "text": "So those are two examples of the Vision API in production."
+    },
+    {
+      "index": 135,
+      "start_time": 312417.0,
+      "end_time": 314750.0,
+      "text": "Let&#39;s talk a little bit more about the specific features"
+    },
+    {
+      "index": 136,
+      "start_time": 314750.0,
+      "end_time": 316259.0,
+      "text": "of the Vision API."
+    },
+    {
+      "index": 137,
+      "start_time": 316259.0,
+      "end_time": 318050.0,
+      "text": "So as I mentioned, we have label detection,"
+    },
+    {
+      "index": 138,
+      "start_time": 318050.0,
+      "end_time": 319675.0,
+      "text": "which is kind of the core feature which"
+    },
+    {
+      "index": 139,
+      "start_time": 319675.0,
+      "end_time": 320900.0,
+      "text": "tells-- you send it an image."
+    },
+    {
+      "index": 140,
+      "start_time": 320900.0,
+      "end_time": 322805.0,
+      "text": "In this case, it&#39;s a cheetah."
+    },
+    {
+      "index": 141,
+      "start_time": 322805.0,
+      "end_time": 324680.0,
+      "text": "And it&#39;ll tell you what this is a picture of."
+    },
+    {
+      "index": 142,
+      "start_time": 324680.0,
+      "end_time": 327460.0,
+      "text": "It&#39;ll give you a bunch of different labels back."
+    },
+    {
+      "index": 143,
+      "start_time": 327460.0,
+      "end_time": 330860.0,
+      "text": "Face detection will identify faces in an image."
+    },
+    {
+      "index": 144,
+      "start_time": 330860.0,
+      "end_time": 333490.0,
+      "text": "It&#39;ll tell you where those faces are in the image."
+    },
+    {
+      "index": 145,
+      "start_time": 333490.0,
+      "end_time": 336140.0,
+      "text": "And it&#39;ll even tell you if they&#39;re happy, sad, surprised,"
+    },
+    {
+      "index": 146,
+      "start_time": 336140.0,
+      "end_time": 337850.0,
+      "text": "or angry."
+    },
+    {
+      "index": 147,
+      "start_time": 337850.0,
+      "end_time": 342010.0,
+      "text": "OCR is what I mentioned with realtor.com&#39;s use case."
+    },
+    {
+      "index": 148,
+      "start_time": 342010.0,
+      "end_time": 343580.0,
+      "text": "This can identify text in an image."
+    },
+    {
+      "index": 149,
+      "start_time": 343580.0,
+      "end_time": 346460.0,
+      "text": "It will tell you where the text is, what the text says,"
+    },
+    {
+      "index": 150,
+      "start_time": 346460.0,
+      "end_time": 348500.0,
+      "text": "and what language it&#39;s in."
+    },
+    {
+      "index": 151,
+      "start_time": 348500.0,
+      "end_time": 351020.0,
+      "text": "Explicit content detection will tell you,"
+    },
+    {
+      "index": 152,
+      "start_time": 351020.0,
+      "end_time": 352814.0,
+      "text": "is this image appropriate or not--"
+    },
+    {
+      "index": 153,
+      "start_time": 352814.0,
+      "end_time": 354230.0,
+      "text": "really useful if you&#39;ve got a site"
+    },
+    {
+      "index": 154,
+      "start_time": 354230.0,
+      "end_time": 356210.0,
+      "text": "with a lot of user-generated content"
+    },
+    {
+      "index": 155,
+      "start_time": 356210.0,
+      "end_time": 358250.0,
+      "text": "and you don&#39;t want to manually filter images."
+    },
+    {
+      "index": 156,
+      "start_time": 358250.0,
+      "end_time": 362690.0,
+      "text": "You can use this API method to do that really easily."
+    },
+    {
+      "index": 157,
+      "start_time": 362690.0,
+      "end_time": 366080.0,
+      "text": "Landmark detection will tell you, is this a common landmark?"
+    },
+    {
+      "index": 158,
+      "start_time": 366080.0,
+      "end_time": 368510.0,
+      "text": "If so, what is the latitude and longitude?"
+    },
+    {
+      "index": 159,
+      "start_time": 368510.0,
+      "end_time": 370580.0,
+      "text": "And then logo detection, pretty self-explanatory,"
+    },
+    {
+      "index": 160,
+      "start_time": 370580.0,
+      "end_time": 373015.0,
+      "text": "will identify logos in an image."
+    },
+    {
+      "index": 161,
+      "start_time": 375900.0,
+      "end_time": 378570.0,
+      "text": "So a quick look at some of the JSON response"
+    },
+    {
+      "index": 162,
+      "start_time": 378570.0,
+      "end_time": 381510.0,
+      "text": "you might get back for these different features."
+    },
+    {
+      "index": 163,
+      "start_time": 381510.0,
+      "end_time": 382530.0,
+      "text": "This is face detection."
+    },
+    {
+      "index": 164,
+      "start_time": 382530.0,
+      "end_time": 385170.0,
+      "text": "This is actually a selfie that I took with two teammates"
+    },
+    {
+      "index": 165,
+      "start_time": 385170.0,
+      "end_time": 387480.0,
+      "text": "on a trip to Jordan last year."
+    },
+    {
+      "index": 166,
+      "start_time": 387480.0,
+      "end_time": 390890.0,
+      "text": "And the response you&#39;re looking at in the slide is on my face."
+    },
+    {
+      "index": 167,
+      "start_time": 390890.0,
+      "end_time": 392640.0,
+      "text": "So it&#39;ll return an object for each face"
+    },
+    {
+      "index": 168,
+      "start_time": 392640.0,
+      "end_time": 394410.0,
+      "text": "you find in the image."
+    },
+    {
+      "index": 169,
+      "start_time": 394410.0,
+      "end_time": 397467.0,
+      "text": "And we can see it says, headwear likelihood, very unlikely,"
+    },
+    {
+      "index": 170,
+      "start_time": 397467.0,
+      "end_time": 398050.0,
+      "text": "which is true."
+    },
+    {
+      "index": 171,
+      "start_time": 398050.0,
+      "end_time": 399240.0,
+      "text": "I&#39;m not wearing a hat."
+    },
+    {
+      "index": 172,
+      "start_time": 399240.0,
+      "end_time": 401970.0,
+      "text": "But for both of my teammates, it did return headwear likelihood,"
+    },
+    {
+      "index": 173,
+      "start_time": 401970.0,
+      "end_time": 402759.0,
+      "text": "very likely."
+    },
+    {
+      "index": 174,
+      "start_time": 402759.0,
+      "end_time": 404550.0,
+      "text": "And then we can see it&#39;s highlighted below."
+    },
+    {
+      "index": 175,
+      "start_time": 404550.0,
+      "end_time": 407970.0,
+      "text": "It says, joy likelihood is very likely, which is true."
+    },
+    {
+      "index": 176,
+      "start_time": 407970.0,
+      "end_time": 409240.0,
+      "text": "I am smiling in the picture."
+    },
+    {
+      "index": 177,
+      "start_time": 411844.0,
+      "end_time": 414010.0,
+      "text": "The next feature I want to show you the response for"
+    },
+    {
+      "index": 178,
+      "start_time": 414010.0,
+      "end_time": 415540.0,
+      "text": "is landmark detection."
+    },
+    {
+      "index": 179,
+      "start_time": 415540.0,
+      "end_time": 417760.0,
+      "text": "So we have a picture here of what"
+    },
+    {
+      "index": 180,
+      "start_time": 417760.0,
+      "end_time": 419230.0,
+      "text": "looks like the Eiffel Tower."
+    },
+    {
+      "index": 181,
+      "start_time": 419230.0,
+      "end_time": 422860.0,
+      "text": "It&#39;s actually the Paris Hotel and Casino in Las Vegas."
+    },
+    {
+      "index": 182,
+      "start_time": 422860.0,
+      "end_time": 426910.0,
+      "text": "I wanted to see if the Vision API was fooled."
+    },
+    {
+      "index": 183,
+      "start_time": 426910.0,
+      "end_time": 427780.0,
+      "text": "And it was not."
+    },
+    {
+      "index": 184,
+      "start_time": 427780.0,
+      "end_time": 432280.0,
+      "text": "It correctly identified this as the Paris Hotel and Casino."
+    },
+    {
+      "index": 185,
+      "start_time": 432280.0,
+      "end_time": 435310.0,
+      "text": "You can see that MID in the JSON response."
+    },
+    {
+      "index": 186,
+      "start_time": 435310.0,
+      "end_time": 437620.0,
+      "text": "That&#39;s an ID that maps to Google&#39;s Knowledge Graph"
+    },
+    {
+      "index": 187,
+      "start_time": 437620.0,
+      "end_time": 440290.0,
+      "text": "API, which will just give you a little more data"
+    },
+    {
+      "index": 188,
+      "start_time": 440290.0,
+      "end_time": 441900.0,
+      "text": "about the entity."
+    },
+    {
+      "index": 189,
+      "start_time": 441900.0,
+      "end_time": 445480.0,
+      "text": "And it also tells us the latitude and longitude of where"
+    },
+    {
+      "index": 190,
+      "start_time": 445480.0,
+      "end_time": 447730.0,
+      "text": "this Paris Hotel and Casino is."
+    },
+    {
+      "index": 191,
+      "start_time": 450420.0,
+      "end_time": 452920.0,
+      "text": "In addition to these features, we launched some new features"
+    },
+    {
+      "index": 192,
+      "start_time": 452920.0,
+      "end_time": 454378.0,
+      "text": "this week, which you may have heard"
+    },
+    {
+      "index": 193,
+      "start_time": 454378.0,
+      "end_time": 455950.0,
+      "text": "about in yesterday&#39;s keynote."
+    },
+    {
+      "index": 194,
+      "start_time": 455950.0,
+      "end_time": 457866.0,
+      "text": "I&#39;m going to quickly talk about what they are."
+    },
+    {
+      "index": 195,
+      "start_time": 457866.0,
+      "end_time": 459680.0,
+      "text": "And then I&#39;ll show you some examples."
+    },
+    {
+      "index": 196,
+      "start_time": 459680.0,
+      "end_time": 461350.0,
+      "text": "The first one is crop hints, which"
+    },
+    {
+      "index": 197,
+      "start_time": 461350.0,
+      "end_time": 464480.0,
+      "text": "will give you suggested crop dimensions for your photos."
+    },
+    {
+      "index": 198,
+      "start_time": 464480.0,
+      "end_time": 467399.0,
+      "text": "Web annotations-- I&#39;m super excited about this one."
+    },
+    {
+      "index": 199,
+      "start_time": 467399.0,
+      "end_time": 468940.0,
+      "text": "This will give you some granular data"
+    },
+    {
+      "index": 200,
+      "start_time": 468940.0,
+      "end_time": 472810.0,
+      "text": "on entities, web entities that are found in your image."
+    },
+    {
+      "index": 201,
+      "start_time": 472810.0,
+      "end_time": 475780.0,
+      "text": "It&#39;ll also tell you all the other pages where the image"
+    },
+    {
+      "index": 202,
+      "start_time": 475780.0,
+      "end_time": 477080.0,
+      "text": "exists on the internet."
+    },
+    {
+      "index": 203,
+      "start_time": 477080.0,
+      "end_time": 479410.0,
+      "text": "So if you need to do copyright detection,"
+    },
+    {
+      "index": 204,
+      "start_time": 479410.0,
+      "end_time": 482500.0,
+      "text": "it&#39;ll give you the URL of the image and the URL"
+    },
+    {
+      "index": 205,
+      "start_time": 482500.0,
+      "end_time": 485170.0,
+      "text": "of the page where the image is."
+    },
+    {
+      "index": 206,
+      "start_time": 485170.0,
+      "end_time": 489040.0,
+      "text": "And then finally, we announced document text annotations."
+    },
+    {
+      "index": 207,
+      "start_time": 489040.0,
+      "end_time": 492310.0,
+      "text": "So in addition to the OCR we had before, this is improved"
+    },
+    {
+      "index": 208,
+      "start_time": 492310.0,
+      "end_time": 494410.0,
+      "text": "OCR for large blocks of text."
+    },
+    {
+      "index": 209,
+      "start_time": 494410.0,
+      "end_time": 496894.0,
+      "text": "If you have an image of a receipt or something"
+    },
+    {
+      "index": 210,
+      "start_time": 496894.0,
+      "end_time": 498310.0,
+      "text": "with a lot of text, it&#39;ll give you"
+    },
+    {
+      "index": 211,
+      "start_time": 498310.0,
+      "end_time": 502060.0,
+      "text": "very granular data on the paragraphs and the words"
+    },
+    {
+      "index": 212,
+      "start_time": 502060.0,
+      "end_time": 505944.0,
+      "text": "and the symbols in that text."
+    },
+    {
+      "index": 213,
+      "start_time": 505944.0,
+      "end_time": 507360.0,
+      "text": "Some examples of the new features,"
+    },
+    {
+      "index": 214,
+      "start_time": 507360.0,
+      "end_time": 509310.0,
+      "text": "I want to highlight web annotations."
+    },
+    {
+      "index": 215,
+      "start_time": 509310.0,
+      "end_time": 512220.0,
+      "text": "So here we have a picture of a car."
+    },
+    {
+      "index": 216,
+      "start_time": 512220.0,
+      "end_time": 513547.0,
+      "text": "It&#39;s in a museum."
+    },
+    {
+      "index": 217,
+      "start_time": 513547.0,
+      "end_time": 515130.0,
+      "text": "I&#39;m actually a big &quot;Harry Potter&quot; fan,"
+    },
+    {
+      "index": 218,
+      "start_time": 515130.0,
+      "end_time": 517890.0,
+      "text": "so this is a car from one of the &quot;Harry Potter&quot; movies."
+    },
+    {
+      "index": 219,
+      "start_time": 517890.0,
+      "end_time": 519539.0,
+      "text": "And I wanted to see what the Vision"
+    },
+    {
+      "index": 220,
+      "start_time": 519539.0,
+      "end_time": 524625.0,
+      "text": "API was able to find from the web entities in this image."
+    },
+    {
+      "index": 221,
+      "start_time": 524625.0,
+      "end_time": 526250.0,
+      "text": "So it was able to identify it correctly"
+    },
+    {
+      "index": 222,
+      "start_time": 526250.0,
+      "end_time": 527850.0,
+      "text": "as a Ford Anglia, which is correct."
+    },
+    {
+      "index": 223,
+      "start_time": 527850.0,
+      "end_time": 530120.0,
+      "text": "This is from the second &quot;Harry Potter&quot; movie when they"
+    },
+    {
+      "index": 224,
+      "start_time": 530120.0,
+      "end_time": 533080.0,
+      "text": "tried to fly a car to school."
+    },
+    {
+      "index": 225,
+      "start_time": 533080.0,
+      "end_time": 536536.0,
+      "text": "Second entity it returned is art science museum."
+    },
+    {
+      "index": 226,
+      "start_time": 536536.0,
+      "end_time": 537910.0,
+      "text": "And this is a museum in Singapore"
+    },
+    {
+      "index": 227,
+      "start_time": 537910.0,
+      "end_time": 541666.0,
+      "text": "where this car is on display."
+    },
+    {
+      "index": 228,
+      "start_time": 541666.0,
+      "end_time": 543040.0,
+      "text": "And it is finally able to tell me"
+    },
+    {
+      "index": 229,
+      "start_time": 543040.0,
+      "end_time": 545620.0,
+      "text": "that this car is from &quot;Harry Potter,&quot; which"
+    },
+    {
+      "index": 230,
+      "start_time": 545620.0,
+      "end_time": 547360.0,
+      "text": "is a literary series."
+    },
+    {
+      "index": 231,
+      "start_time": 547360.0,
+      "end_time": 549720.0,
+      "text": "So lots of great metadata you can get back from web"
+    },
+    {
+      "index": 232,
+      "start_time": 549720.0,
+      "end_time": 552610.0,
+      "text": "annotations."
+    },
+    {
+      "index": 233,
+      "start_time": 552610.0,
+      "end_time": 554650.0,
+      "text": "Even more data that it returns--"
+    },
+    {
+      "index": 234,
+      "start_time": 554650.0,
+      "end_time": 556690.0,
+      "text": "it tells you the full matching image URLs."
+    },
+    {
+      "index": 235,
+      "start_time": 556690.0,
+      "end_time": 559960.0,
+      "text": "Where else does this image exists on the internet?"
+    },
+    {
+      "index": 236,
+      "start_time": 559960.0,
+      "end_time": 561860.0,
+      "text": "Partial matching images."
+    },
+    {
+      "index": 237,
+      "start_time": 561860.0,
+      "end_time": 564460.0,
+      "text": "And then finally, all the pages that point to this image."
+    },
+    {
+      "index": 238,
+      "start_time": 564460.0,
+      "end_time": 566890.0,
+      "text": "It&#39;s really useful information you get back"
+    },
+    {
+      "index": 239,
+      "start_time": 566890.0,
+      "end_time": 570127.0,
+      "text": "with web annotations."
+    },
+    {
+      "index": 240,
+      "start_time": 570127.0,
+      "end_time": 572460.0,
+      "text": "And you can try this in the browser with your own images"
+    },
+    {
+      "index": 241,
+      "start_time": 572460.0,
+      "end_time": 574260.0,
+      "text": "before writing any code."
+    },
+    {
+      "index": 242,
+      "start_time": 574260.0,
+      "end_time": 576930.0,
+      "text": "Just go to cloud.google.com/vision."
+    },
+    {
+      "index": 243,
+      "start_time": 576930.0,
+      "end_time": 578790.0,
+      "text": "You can upload your images, play around,"
+    },
+    {
+      "index": 244,
+      "start_time": 578790.0,
+      "end_time": 580207.0,
+      "text": "see all the responses you get back"
+    },
+    {
+      "index": 245,
+      "start_time": 580207.0,
+      "end_time": 581373.0,
+      "text": "from the different features."
+    },
+    {
+      "index": 246,
+      "start_time": 581373.0,
+      "end_time": 583560.0,
+      "text": "And you can actually do this with all of the APIs"
+    },
+    {
+      "index": 247,
+      "start_time": 583560.0,
+      "end_time": 584610.0,
+      "text": "that I&#39;m going to talk about today."
+    },
+    {
+      "index": 248,
+      "start_time": 584610.0,
+      "end_time": 586470.0,
+      "text": "There&#39;s a way to try them in the browser."
+    },
+    {
+      "index": 249,
+      "start_time": 589570.0,
+      "end_time": 591810.0,
+      "text": "And in case you were wondering how the Vision API did"
+    },
+    {
+      "index": 250,
+      "start_time": 591810.0,
+      "end_time": 595140.0,
+      "text": "with the sheep dogs and mops, so this is the response it got"
+    },
+    {
+      "index": 251,
+      "start_time": 595140.0,
+      "end_time": 596790.0,
+      "text": "from that picture on the right."
+    },
+    {
+      "index": 252,
+      "start_time": 596790.0,
+      "end_time": 598680.0,
+      "text": "So it&#39;s 99% sure it&#39;s a dog."
+    },
+    {
+      "index": 253,
+      "start_time": 598680.0,
+      "end_time": 601760.0,
+      "text": "It actually even is able to identify the breed of the dog--"
+    },
+    {
+      "index": 254,
+      "start_time": 601760.0,
+      "end_time": 602270.0,
+      "text": "Komondor."
+    },
+    {
+      "index": 255,
+      "start_time": 602270.0,
+      "end_time": 605510.0,
+      "text": "I may be saying that wrong."
+    },
+    {
+      "index": 256,
+      "start_time": 605510.0,
+      "end_time": 607550.0,
+      "text": "And the mops, it successfully identified this"
+    },
+    {
+      "index": 257,
+      "start_time": 607550.0,
+      "end_time": 609650.0,
+      "text": "as a broom or a tool."
+    },
+    {
+      "index": 258,
+      "start_time": 609650.0,
+      "end_time": 612560.0,
+      "text": "And skipping ahead, it did pretty well overall."
+    },
+    {
+      "index": 259,
+      "start_time": 612560.0,
+      "end_time": 615990.0,
+      "text": "In the top row, the third one, it didn&#39;t identify it as a dog."
+    },
+    {
+      "index": 260,
+      "start_time": 615990.0,
+      "end_time": 617200.0,
+      "text": "It just said &quot;fur.&quot;"
+    },
+    {
+      "index": 261,
+      "start_time": 617200.0,
+      "end_time": 619010.0,
+      "text": "So I don&#39;t know if that&#39;s a hit or a miss."
+    },
+    {
+      "index": 262,
+      "start_time": 619010.0,
+      "end_time": 621380.0,
+      "text": "And then the third mop, it said &quot;textile.&quot;"
+    },
+    {
+      "index": 263,
+      "start_time": 621380.0,
+      "end_time": 624920.0,
+      "text": "So it didn&#39;t quite get that it was a mop or a broom."
+    },
+    {
+      "index": 264,
+      "start_time": 624920.0,
+      "end_time": 627170.0,
+      "text": "But overall, Vision API performed pretty well"
+    },
+    {
+      "index": 265,
+      "start_time": 627170.0,
+      "end_time": 630950.0,
+      "text": "on these tricky images that are even hard for us to decipher"
+    },
+    {
+      "index": 266,
+      "start_time": 630950.0,
+      "end_time": 631985.0,
+      "text": "what they are exactly."
+    },
+    {
+      "index": 267,
+      "start_time": 634800.0,
+      "end_time": 636870.0,
+      "text": "So that was the Vision API showing you"
+    },
+    {
+      "index": 268,
+      "start_time": 636870.0,
+      "end_time": 639390.0,
+      "text": "how you can get a lot of data on your images"
+    },
+    {
+      "index": 269,
+      "start_time": 639390.0,
+      "end_time": 641560.0,
+      "text": "with a pre-trained machine learning model."
+    },
+    {
+      "index": 270,
+      "start_time": 641560.0,
+      "end_time": 644160.0,
+      "text": "Next I want to talk about audio data."
+    },
+    {
+      "index": 271,
+      "start_time": 644160.0,
+      "end_time": 647640.0,
+      "text": "And the Speech API essentially exposes the functionality"
+    },
+    {
+      "index": 272,
+      "start_time": 647640.0,
+      "end_time": 649615.0,
+      "text": "of &quot;OK, Google&quot; to developers."
+    },
+    {
+      "index": 273,
+      "start_time": 649615.0,
+      "end_time": 653220.0,
+      "text": "It lets you do speech-to-text transcription in over 80"
+    },
+    {
+      "index": 274,
+      "start_time": 653220.0,
+      "end_time": 656050.0,
+      "text": "languages."
+    },
+    {
+      "index": 275,
+      "start_time": 656050.0,
+      "end_time": 659020.0,
+      "text": "One app that&#39;s using the Speech API is called Azar."
+    },
+    {
+      "index": 276,
+      "start_time": 659020.0,
+      "end_time": 660820.0,
+      "text": "And they have connected 15 million"
+    },
+    {
+      "index": 277,
+      "start_time": 660820.0,
+      "end_time": 663910.0,
+      "text": "matches, an app to find friends and chat."
+    },
+    {
+      "index": 278,
+      "start_time": 663910.0,
+      "end_time": 667000.0,
+      "text": "And they use the Speech API for all of the messages"
+    },
+    {
+      "index": 279,
+      "start_time": 667000.0,
+      "end_time": 669370.0,
+      "text": "that involve audio snippets."
+    },
+    {
+      "index": 280,
+      "start_time": 669370.0,
+      "end_time": 671380.0,
+      "text": "And they&#39;re also using this in combination"
+    },
+    {
+      "index": 281,
+      "start_time": 671380.0,
+      "end_time": 673560.0,
+      "text": "with the Cloud Translation API, which I&#39;m"
+    },
+    {
+      "index": 282,
+      "start_time": 673560.0,
+      "end_time": 674915.0,
+      "text": "going to talk about later on."
+    },
+    {
+      "index": 283,
+      "start_time": 674915.0,
+      "end_time": 676540.0,
+      "text": "So there&#39;s a lot of potential use cases"
+    },
+    {
+      "index": 284,
+      "start_time": 676540.0,
+      "end_time": 678831.0,
+      "text": "where you could combine different machine learning APIs"
+    },
+    {
+      "index": 285,
+      "start_time": 678831.0,
+      "end_time": 679810.0,
+      "text": "together."
+    },
+    {
+      "index": 286,
+      "start_time": 679810.0,
+      "end_time": 683140.0,
+      "text": "So in cases where the matches don&#39;t speak the same language,"
+    },
+    {
+      "index": 287,
+      "start_time": 683140.0,
+      "end_time": 686050.0,
+      "text": "they&#39;ll use the Speech API to transcribe the audio"
+    },
+    {
+      "index": 288,
+      "start_time": 686050.0,
+      "end_time": 689035.0,
+      "text": "and then the Translation API to translate that text."
+    },
+    {
+      "index": 289,
+      "start_time": 691760.0,
+      "end_time": 694790.0,
+      "text": "The best way to experience a Speech API is with a demo."
+    },
+    {
+      "index": 290,
+      "start_time": 694790.0,
+      "end_time": 697800.0,
+      "text": "Before I get into it, I want to explain a bit how it works."
+    },
+    {
+      "index": 291,
+      "start_time": 697800.0,
+      "end_time": 699410.0,
+      "text": "So we&#39;re going to make a recording."
+    },
+    {
+      "index": 292,
+      "start_time": 699410.0,
+      "end_time": 701270.0,
+      "text": "I wrote a bash script."
+    },
+    {
+      "index": 293,
+      "start_time": 701270.0,
+      "end_time": 702950.0,
+      "text": "We&#39;re going to use SoX to do that."
+    },
+    {
+      "index": 294,
+      "start_time": 702950.0,
+      "end_time": 705530.0,
+      "text": "It&#39;s a command line utility for audio."
+    },
+    {
+      "index": 295,
+      "start_time": 705530.0,
+      "end_time": 707630.0,
+      "text": "So what we&#39;ll do is we&#39;ll record our audio."
+    },
+    {
+      "index": 296,
+      "start_time": 707630.0,
+      "end_time": 710090.0,
+      "text": "We&#39;ll create an API request in a JSON file."
+    },
+    {
+      "index": 297,
+      "start_time": 710090.0,
+      "end_time": 711980.0,
+      "text": "And we&#39;ll send it to the Speech API."
+    },
+    {
+      "index": 298,
+      "start_time": 711980.0,
+      "end_time": 714026.0,
+      "text": "And then we&#39;ll see the JSON response."
+    },
+    {
+      "index": 299,
+      "start_time": 714026.0,
+      "end_time": 716025.0,
+      "text": "So if we could go ahead and switch to the demo--"
+    },
+    {
+      "index": 300,
+      "start_time": 720502.0,
+      "end_time": 723350.0,
+      "text": "OK, let me make the font a little bigger."
+    },
+    {
+      "index": 301,
+      "start_time": 723350.0,
+      "end_time": 727440.0,
+      "text": "So I&#39;m going to call my file with bash request.sh."
+    },
+    {
+      "index": 302,
+      "start_time": 727440.0,
+      "end_time": 729820.0,
+      "text": "And it press &quot;Press Enter when you&#39;re ready to record.&quot;"
+    },
+    {
+      "index": 303,
+      "start_time": 729820.0,
+      "end_time": 733220.0,
+      "text": "It&#39;s going to ask me to record a five-second audio file."
+    },
+    {
+      "index": 304,
+      "start_time": 733220.0,
+      "end_time": 733810.0,
+      "text": "So here we go."
+    },
+    {
+      "index": 305,
+      "start_time": 736530.0,
+      "end_time": 739230.0,
+      "text": "I built a Cloud Speech API demo using SoX."
+    },
+    {
+      "index": 306,
+      "start_time": 742260.0,
+      "end_time": 745880.0,
+      "text": "OK, so this is the JSON request file that it just created."
+    },
+    {
+      "index": 307,
+      "start_time": 745880.0,
+      "end_time": 748380.0,
+      "text": "We need to tell the Speech API the encoding type."
+    },
+    {
+      "index": 308,
+      "start_time": 748380.0,
+      "end_time": 750750.0,
+      "text": "In this case, we&#39;re using FLAC encoding,"
+    },
+    {
+      "index": 309,
+      "start_time": 750750.0,
+      "end_time": 752880.0,
+      "text": "the sample rate in hertz."
+    },
+    {
+      "index": 310,
+      "start_time": 752880.0,
+      "end_time": 754210.0,
+      "text": "The language code is optional."
+    },
+    {
+      "index": 311,
+      "start_time": 754210.0,
+      "end_time": 756210.0,
+      "text": "If you leave it out, it will default to English."
+    },
+    {
+      "index": 312,
+      "start_time": 756210.0,
+      "end_time": 759127.0,
+      "text": "Otherwise, you need to tell it what language your audio is in."
+    },
+    {
+      "index": 313,
+      "start_time": 759127.0,
+      "end_time": 760710.0,
+      "text": "And then the speech context, I&#39;m going"
+    },
+    {
+      "index": 314,
+      "start_time": 760710.0,
+      "end_time": 763030.0,
+      "text": "to talk about that in a little bit."
+    },
+    {
+      "index": 315,
+      "start_time": 763030.0,
+      "end_time": 764850.0,
+      "text": "So I&#39;m going to call the Speech API."
+    },
+    {
+      "index": 316,
+      "start_time": 764850.0,
+      "end_time": 767040.0,
+      "text": "It&#39;s making a curl request."
+    },
+    {
+      "index": 317,
+      "start_time": 767040.0,
+      "end_time": 770740.0,
+      "text": "And let&#39;s see how it did."
+    },
+    {
+      "index": 318,
+      "start_time": 770740.0,
+      "end_time": 772160.0,
+      "text": "OK, so it did pretty good."
+    },
+    {
+      "index": 319,
+      "start_time": 772160.0,
+      "end_time": 775064.0,
+      "text": "It said, &quot;I built a Cloud Speech API demo using socks.&quot;"
+    },
+    {
+      "index": 320,
+      "start_time": 775064.0,
+      "end_time": 776730.0,
+      "text": "But you&#39;ll notice it got the wrong &quot;SoX&quot;"
+    },
+    {
+      "index": 321,
+      "start_time": 776730.0,
+      "end_time": 779230.0,
+      "text": "because &quot;SoX&quot; is a proper noun."
+    },
+    {
+      "index": 322,
+      "start_time": 779230.0,
+      "end_time": 782300.0,
+      "text": "It was 89% confident that it got this correct."
+    },
+    {
+      "index": 323,
+      "start_time": 782300.0,
+      "end_time": 786190.0,
+      "text": "That even was able to get &quot;API&quot; as an acronym."
+    },
+    {
+      "index": 324,
+      "start_time": 786190.0,
+      "end_time": 789459.0,
+      "text": "So I mentioned this speech context parameter before."
+    },
+    {
+      "index": 325,
+      "start_time": 789459.0,
+      "end_time": 791250.0,
+      "text": "And what this actually lets you do is let&#39;s"
+    },
+    {
+      "index": 326,
+      "start_time": 791250.0,
+      "end_time": 794100.0,
+      "text": "say you have a proper noun or a word"
+    },
+    {
+      "index": 327,
+      "start_time": 794100.0,
+      "end_time": 795990.0,
+      "text": "that you&#39;re expecting your application that&#39;s"
+    },
+    {
+      "index": 328,
+      "start_time": 795990.0,
+      "end_time": 799740.0,
+      "text": "unique that you wouldn&#39;t expect the API to recognize normally."
+    },
+    {
+      "index": 329,
+      "start_time": 799740.0,
+      "end_time": 801996.0,
+      "text": "You can actually pass it as a parameter,"
+    },
+    {
+      "index": 330,
+      "start_time": 801996.0,
+      "end_time": 803370.0,
+      "text": "and it&#39;ll look out for that word."
+    },
+    {
+      "index": 331,
+      "start_time": 803370.0,
+      "end_time": 806490.0,
+      "text": "So I&#39;m going to hop on over to Sublime,"
+    },
+    {
+      "index": 332,
+      "start_time": 806490.0,
+      "end_time": 810690.0,
+      "text": "and I&#39;m going to add &quot;SoX&quot; as a phrase so look out for."
+    },
+    {
+      "index": 333,
+      "start_time": 810690.0,
+      "end_time": 813180.0,
+      "text": "And let&#39;s see if it&#39;s able to identify it."
+    },
+    {
+      "index": 334,
+      "start_time": 813180.0,
+      "end_time": 816460.0,
+      "text": "I&#39;m going to say the same thing again."
+    },
+    {
+      "index": 335,
+      "start_time": 816460.0,
+      "end_time": 818650.0,
+      "text": "I&#39;m going to record."
+    },
+    {
+      "index": 336,
+      "start_time": 818650.0,
+      "end_time": 821160.0,
+      "text": "I built a Cloud Speech API demo using SoX."
+    },
+    {
+      "index": 337,
+      "start_time": 824640.0,
+      "end_time": 828250.0,
+      "text": "And we can see it&#39;s now got that phrase in there."
+    },
+    {
+      "index": 338,
+      "start_time": 828250.0,
+      "end_time": 829600.0,
+      "text": "And we will call the Speech API."
+    },
+    {
+      "index": 339,
+      "start_time": 834340.0,
+      "end_time": 835930.0,
+      "text": "And it was able to get it correctly"
+    },
+    {
+      "index": 340,
+      "start_time": 835930.0,
+      "end_time": 838720.0,
+      "text": "using the phrases parameter, which is pretty cool."
+    },
+    {
+      "index": 341,
+      "start_time": 838720.0,
+      "end_time": 841960.0,
+      "text": "Just one REST API request, and we are easily"
+    },
+    {
+      "index": 342,
+      "start_time": 841960.0,
+      "end_time": 845920.0,
+      "text": "transcribing an audio file, even with a unique entity."
+    },
+    {
+      "index": 343,
+      "start_time": 845920.0,
+      "end_time": 848379.0,
+      "text": "And you can also pass the API audio files"
+    },
+    {
+      "index": 344,
+      "start_time": 848379.0,
+      "end_time": 849670.0,
+      "text": "in over 80 different languages."
+    },
+    {
+      "index": 345,
+      "start_time": 849670.0,
+      "end_time": 852280.0,
+      "text": "You just need to tell it, again, the language code that you&#39;d"
+    },
+    {
+      "index": 346,
+      "start_time": 852280.0,
+      "end_time": 853600.0,
+      "text": "like it to transcribe."
+    },
+    {
+      "index": 347,
+      "start_time": 853600.0,
+      "end_time": 855970.0,
+      "text": "So that is the Speech API."
+    },
+    {
+      "index": 348,
+      "start_time": 855970.0,
+      "end_time": 857695.0,
+      "text": "You can hop back to the slides."
+    },
+    {
+      "index": 349,
+      "start_time": 861910.0,
+      "end_time": 864180.0,
+      "text": "So we&#39;ve just transcribed our audio."
+    },
+    {
+      "index": 350,
+      "start_time": 864180.0,
+      "end_time": 866040.0,
+      "text": "We have text."
+    },
+    {
+      "index": 351,
+      "start_time": 866040.0,
+      "end_time": 869700.0,
+      "text": "So what happens if you want to do more analysis on that text?"
+    },
+    {
+      "index": 352,
+      "start_time": 869700.0,
+      "end_time": 873320.0,
+      "text": "And that is where the Natural Language API comes into play."
+    },
+    {
+      "index": 353,
+      "start_time": 873320.0,
+      "end_time": 876870.0,
+      "text": "It lets you extract entities, sentiment, and syntax"
+    },
+    {
+      "index": 354,
+      "start_time": 876870.0,
+      "end_time": 879352.0,
+      "text": "from text."
+    },
+    {
+      "index": 355,
+      "start_time": 879352.0,
+      "end_time": 881310.0,
+      "text": "A company that&#39;s using the Natural Language API"
+    },
+    {
+      "index": 356,
+      "start_time": 881310.0,
+      "end_time": 882930.0,
+      "text": "is called Wootric."
+    },
+    {
+      "index": 357,
+      "start_time": 882930.0,
+      "end_time": 885570.0,
+      "text": "And they are a customer feedback platform"
+    },
+    {
+      "index": 358,
+      "start_time": 885570.0,
+      "end_time": 888420.0,
+      "text": "to help businesses improve their customer service."
+    },
+    {
+      "index": 359,
+      "start_time": 888420.0,
+      "end_time": 891630.0,
+      "text": "And they do this by collecting millions of survey responses"
+    },
+    {
+      "index": 360,
+      "start_time": 891630.0,
+      "end_time": 893340.0,
+      "text": "each week."
+    },
+    {
+      "index": 361,
+      "start_time": 893340.0,
+      "end_time": 895310.0,
+      "text": "A little more detail on how it works"
+    },
+    {
+      "index": 362,
+      "start_time": 895310.0,
+      "end_time": 898320.0,
+      "text": "is if you look at that box in the top right--"
+    },
+    {
+      "index": 363,
+      "start_time": 898320.0,
+      "end_time": 900386.0,
+      "text": "so a customer would place this on different pages"
+    },
+    {
+      "index": 364,
+      "start_time": 900386.0,
+      "end_time": 901260.0,
+      "text": "throughout their app."
+    },
+    {
+      "index": 365,
+      "start_time": 901260.0,
+      "end_time": 903135.0,
+      "text": "Maybe if you&#39;re a developer, you would see it"
+    },
+    {
+      "index": 366,
+      "start_time": 903135.0,
+      "end_time": 904260.0,
+      "text": "on a documentation page."
+    },
+    {
+      "index": 367,
+      "start_time": 904260.0,
+      "end_time": 907050.0,
+      "text": "And it would ask you to rate your experience on that page"
+    },
+    {
+      "index": 368,
+      "start_time": 907050.0,
+      "end_time": 910110.0,
+      "text": "from 0 to 10, which is what we call the Net Promoter"
+    },
+    {
+      "index": 369,
+      "start_time": 910110.0,
+      "end_time": 911700.0,
+      "text": "Score, NPS."
+    },
+    {
+      "index": 370,
+      "start_time": 911700.0,
+      "end_time": 913440.0,
+      "text": "So they gather that score, and then they"
+    },
+    {
+      "index": 371,
+      "start_time": 913440.0,
+      "end_time": 916380.0,
+      "text": "give you some open feedback to expand on what"
+    },
+    {
+      "index": 372,
+      "start_time": 916380.0,
+      "end_time": 918490.0,
+      "text": "you thought of the experience."
+    },
+    {
+      "index": 373,
+      "start_time": 918490.0,
+      "end_time": 920490.0,
+      "text": "So as you can imagine, it&#39;s pretty easy for them"
+    },
+    {
+      "index": 374,
+      "start_time": 920490.0,
+      "end_time": 923282.0,
+      "text": "to average out the Net Promoter Score among tons"
+    },
+    {
+      "index": 375,
+      "start_time": 923282.0,
+      "end_time": 924240.0,
+      "text": "of different responses."
+    },
+    {
+      "index": 376,
+      "start_time": 924240.0,
+      "end_time": 926370.0,
+      "text": "But what&#39;s much more difficult is looking"
+    },
+    {
+      "index": 377,
+      "start_time": 926370.0,
+      "end_time": 928026.0,
+      "text": "at that open-ended feedback."
+    },
+    {
+      "index": 378,
+      "start_time": 928026.0,
+      "end_time": 930150.0,
+      "text": "And that&#39;s where they use the Natural Language API."
+    },
+    {
+      "index": 379,
+      "start_time": 930150.0,
+      "end_time": 933090.0,
+      "text": "And they actually made use of all three methods"
+    },
+    {
+      "index": 380,
+      "start_time": 933090.0,
+      "end_time": 934260.0,
+      "text": "in the Natural Language API."
+    },
+    {
+      "index": 381,
+      "start_time": 934260.0,
+      "end_time": 939510.0,
+      "text": "They used intimate analysis to calibrate the numbered score"
+    },
+    {
+      "index": 382,
+      "start_time": 939510.0,
+      "end_time": 943540.0,
+      "text": "that users gave with their feedback to see if it aligned."
+    },
+    {
+      "index": 383,
+      "start_time": 943540.0,
+      "end_time": 947550.0,
+      "text": "And then they use the entity and syntax annotation to figure out"
+    },
+    {
+      "index": 384,
+      "start_time": 947550.0,
+      "end_time": 950460.0,
+      "text": "what the subject was of the feedback"
+    },
+    {
+      "index": 385,
+      "start_time": 950460.0,
+      "end_time": 952290.0,
+      "text": "and then route it accordingly."
+    },
+    {
+      "index": 386,
+      "start_time": 952290.0,
+      "end_time": 954942.0,
+      "text": "So maybe somebody was unhappy about pricing."
+    },
+    {
+      "index": 387,
+      "start_time": 954942.0,
+      "end_time": 956400.0,
+      "text": "Then they could route that feedback"
+    },
+    {
+      "index": 388,
+      "start_time": 956400.0,
+      "end_time": 960390.0,
+      "text": "to the necessary person and respond pretty fast."
+    },
+    {
+      "index": 389,
+      "start_time": 960390.0,
+      "end_time": 962370.0,
+      "text": "So using the Natural Language API,"
+    },
+    {
+      "index": 390,
+      "start_time": 962370.0,
+      "end_time": 964530.0,
+      "text": "they were able to route and respond to feedback"
+    },
+    {
+      "index": 391,
+      "start_time": 964530.0,
+      "end_time": 966690.0,
+      "text": "in near real-time rather than having"
+    },
+    {
+      "index": 392,
+      "start_time": 966690.0,
+      "end_time": 968700.0,
+      "text": "someone need to read each response,"
+    },
+    {
+      "index": 393,
+      "start_time": 968700.0,
+      "end_time": 970940.0,
+      "text": "classify it, and then route it."
+    },
+    {
+      "index": 394,
+      "start_time": 973930.0,
+      "end_time": 976450.0,
+      "text": "So let&#39;s look at each of the methods of the Natural Language"
+    },
+    {
+      "index": 395,
+      "start_time": 976450.0,
+      "end_time": 978325.0,
+      "text": "API in a bit more detail."
+    },
+    {
+      "index": 396,
+      "start_time": 978325.0,
+      "end_time": 980200.0,
+      "text": "As I mentioned, I&#39;m a big &quot;Harry Potter&quot; fan."
+    },
+    {
+      "index": 397,
+      "start_time": 980200.0,
+      "end_time": 983770.0,
+      "text": "So I took this sentence from JK Rowling&#39;s Wikipedia page."
+    },
+    {
+      "index": 398,
+      "start_time": 983770.0,
+      "end_time": 986860.0,
+      "text": "And let&#39;s see what happens if we send this to the entity"
+    },
+    {
+      "index": 399,
+      "start_time": 986860.0,
+      "end_time": 989650.0,
+      "text": "extraction endpoint."
+    },
+    {
+      "index": 400,
+      "start_time": 989650.0,
+      "end_time": 993820.0,
+      "text": "So it&#39;s able to pull these five entities from the sentence."
+    },
+    {
+      "index": 401,
+      "start_time": 993820.0,
+      "end_time": 997250.0,
+      "text": "And the JSON we get back looks like this."
+    },
+    {
+      "index": 402,
+      "start_time": 997250.0,
+      "end_time": 1000030.0,
+      "text": "So what&#39;s interesting here is JK Rowling&#39;s name"
+    },
+    {
+      "index": 403,
+      "start_time": 1000030.0,
+      "end_time": 1001620.0,
+      "text": "is written in three different ways."
+    },
+    {
+      "index": 404,
+      "start_time": 1001620.0,
+      "end_time": 1003300.0,
+      "text": "Robert Galbraith is actually a pen name"
+    },
+    {
+      "index": 405,
+      "start_time": 1003300.0,
+      "end_time": 1006140.0,
+      "text": "she used for a later book series."
+    },
+    {
+      "index": 406,
+      "start_time": 1006140.0,
+      "end_time": 1009280.0,
+      "text": "And it&#39;s able to point all of these to the same entity."
+    },
+    {
+      "index": 407,
+      "start_time": 1009280.0,
+      "end_time": 1011492.0,
+      "text": "So if you had things like &quot;San Francisco&quot; and &quot;SF,&quot;"
+    },
+    {
+      "index": 408,
+      "start_time": 1011490.0,
+      "end_time": 1013198.0,
+      "text": "it would point those to the same entities"
+    },
+    {
+      "index": 409,
+      "start_time": 1013200.0,
+      "end_time": 1015930.0,
+      "text": "so that you could count the different ways of mentioning"
+    },
+    {
+      "index": 410,
+      "start_time": 1015930.0,
+      "end_time": 1018190.0,
+      "text": "the same thing as the same entity."
+    },
+    {
+      "index": 411,
+      "start_time": 1018190.0,
+      "end_time": 1021180.0,
+      "text": "So we can see it finds her name, Joanne &quot;Jo&quot; Rowling."
+    },
+    {
+      "index": 412,
+      "start_time": 1021180.0,
+      "end_time": 1023310.0,
+      "text": "It tells you what type of entity it is--"
+    },
+    {
+      "index": 413,
+      "start_time": 1023310.0,
+      "end_time": 1024960.0,
+      "text": "a person."
+    },
+    {
+      "index": 414,
+      "start_time": 1024960.0,
+      "end_time": 1027060.0,
+      "text": "And then if the entity has metadata,"
+    },
+    {
+      "index": 415,
+      "start_time": 1027060.0,
+      "end_time": 1028750.0,
+      "text": "it&#39;ll give you more metadata about it."
+    },
+    {
+      "index": 416,
+      "start_time": 1028750.0,
+      "end_time": 1033569.0,
+      "text": "So here we get an MID, which maps to JK Rowling&#39;s Knowledge"
+    },
+    {
+      "index": 417,
+      "start_time": 1033569.9999999999,
+      "end_time": 1034890.9999999999,
+      "text": "Graph entry."
+    },
+    {
+      "index": 418,
+      "start_time": 1034890.0000000001,
+      "end_time": 1039040.0000000001,
+      "text": "And then we get the Wikipedia URL to the page about her."
+    },
+    {
+      "index": 419,
+      "start_time": 1039040.0,
+      "end_time": 1041670.0,
+      "text": "The JSON response look similar for the other entities"
+    },
+    {
+      "index": 420,
+      "start_time": 1041670.0000000001,
+      "end_time": 1042740.0000000001,
+      "text": "we found--"
+    },
+    {
+      "index": 421,
+      "start_time": 1042740.0,
+      "end_time": 1043280.0,
+      "text": "British."
+    },
+    {
+      "index": 422,
+      "start_time": 1043280.0,
+      "end_time": 1045030.0,
+      "text": "It maps it to a location."
+    },
+    {
+      "index": 423,
+      "start_time": 1045030.0,
+      "end_time": 1048581.0,
+      "text": "And then notice it connects it to the United Kingdom Wikipedia"
+    },
+    {
+      "index": 424,
+      "start_time": 1048580.0,
+      "end_time": 1049079.0,
+      "text": "URL."
+    },
+    {
+      "index": 425,
+      "start_time": 1049080.0,
+      "end_time": 1052590.0,
+      "text": "So if it had instead said &quot;UK&quot; or &quot;United Kingdom,&quot;"
+    },
+    {
+      "index": 426,
+      "start_time": 1052590.0,
+      "end_time": 1055980.0,
+      "text": "it would point it to the same page."
+    },
+    {
+      "index": 427,
+      "start_time": 1055980.0,
+      "end_time": 1058290.0,
+      "text": "And then for &quot;Harry Potter,&quot; we also get person."
+    },
+    {
+      "index": 428,
+      "start_time": 1058290.0,
+      "end_time": 1062494.0,
+      "text": "And we get the Wikipedia page for that entity as well."
+    },
+    {
+      "index": 429,
+      "start_time": 1062490.0,
+      "end_time": 1063656.0,
+      "text": "So that&#39;s entity extraction."
+    },
+    {
+      "index": 430,
+      "start_time": 1063660.0,
+      "end_time": 1068870.0,
+      "text": "That&#39;s one method you could use in the Natural Language API."
+    },
+    {
+      "index": 431,
+      "start_time": 1068870.0,
+      "end_time": 1071000.0,
+      "text": "The next one is sentiment analysis."
+    },
+    {
+      "index": 432,
+      "start_time": 1071000.0,
+      "end_time": 1072500.0,
+      "text": "So this is a review you might see."
+    },
+    {
+      "index": 433,
+      "start_time": 1072500.0,
+      "end_time": 1073875.0,
+      "text": "It says, &quot;The food was excellent,"
+    },
+    {
+      "index": 434,
+      "start_time": 1073880.0,
+      "end_time": 1075235.0,
+      "text": "I would definitely go back.&quot;"
+    },
+    {
+      "index": 435,
+      "start_time": 1075230.0,
+      "end_time": 1076610.0,
+      "text": "And we get two things here."
+    },
+    {
+      "index": 436,
+      "start_time": 1076610.0,
+      "end_time": 1079630.0,
+      "text": "We get a score value, which will tell us,"
+    },
+    {
+      "index": 437,
+      "start_time": 1079630.0,
+      "end_time": 1081680.0,
+      "text": "is the sentiment positive or negative?"
+    },
+    {
+      "index": 438,
+      "start_time": 1081680.0,
+      "end_time": 1085200.0,
+      "text": "It&#39;s a value ranging from negative 1 to 1."
+    },
+    {
+      "index": 439,
+      "start_time": 1085200.0,
+      "end_time": 1088070.0,
+      "text": "So we can see here it&#39;s almost completely positive."
+    },
+    {
+      "index": 440,
+      "start_time": 1088070.0,
+      "end_time": 1089570.0,
+      "text": "And then magnitude will tell you how"
+    },
+    {
+      "index": 441,
+      "start_time": 1089570.0,
+      "end_time": 1092270.0,
+      "text": "strong is the sentiment regardless of being"
+    },
+    {
+      "index": 442,
+      "start_time": 1092270.0,
+      "end_time": 1093970.0,
+      "text": "positive or negative."
+    },
+    {
+      "index": 443,
+      "start_time": 1093970.0,
+      "end_time": 1096350.0,
+      "text": "This can range from 0 to infinity."
+    },
+    {
+      "index": 444,
+      "start_time": 1096350.0,
+      "end_time": 1098330.0,
+      "text": "And it&#39;s based on the length of the text."
+    },
+    {
+      "index": 445,
+      "start_time": 1098330.0,
+      "end_time": 1100880.0,
+      "text": "So since this is a pretty short block of text,"
+    },
+    {
+      "index": 446,
+      "start_time": 1100880.0,
+      "end_time": 1102320.0,
+      "text": "the value is pretty low."
+    },
+    {
+      "index": 447,
+      "start_time": 1105740.0,
+      "end_time": 1107510.0,
+      "text": "And then finally, you can analyze syntax."
+    },
+    {
+      "index": 448,
+      "start_time": 1107510.0,
+      "end_time": 1109051.0,
+      "text": "So this method is a bit more complex."
+    },
+    {
+      "index": 449,
+      "start_time": 1109050.0,
+      "end_time": 1113799.0,
+      "text": "It gets into the linguistic details of a piece of text."
+    },
+    {
+      "index": 450,
+      "start_time": 1113800.0,
+      "end_time": 1115757.0,
+      "text": "It returns a bunch of different data here."
+    },
+    {
+      "index": 451,
+      "start_time": 1115760.0,
+      "end_time": 1117343.0,
+      "text": "This visualization is actually created"
+    },
+    {
+      "index": 452,
+      "start_time": 1117340.0,
+      "end_time": 1118417.0,
+      "text": "from the in-browser demo."
+    },
+    {
+      "index": 453,
+      "start_time": 1118420.0,
+      "end_time": 1120253.0,
+      "text": "So if you want to try it out in the browser,"
+    },
+    {
+      "index": 454,
+      "start_time": 1120250.0,
+      "end_time": 1122140.0,
+      "text": "you can create a similar visualization"
+    },
+    {
+      "index": 455,
+      "start_time": 1122140.0,
+      "end_time": 1123520.0,
+      "text": "with your own text."
+    },
+    {
+      "index": 456,
+      "start_time": 1123520.0,
+      "end_time": 1127810.0,
+      "text": "And what it returns is on that top row, those green arrows,"
+    },
+    {
+      "index": 457,
+      "start_time": 1127810.0,
+      "end_time": 1130385.0,
+      "text": "that&#39;s what we call a dependency parse tree."
+    },
+    {
+      "index": 458,
+      "start_time": 1130390.0,
+      "end_time": 1132765.0,
+      "text": "And that will tell us how each of the words in a sentence"
+    },
+    {
+      "index": 459,
+      "start_time": 1132760.0,
+      "end_time": 1136280.0,
+      "text": "relate to each other, which words they depend on."
+    },
+    {
+      "index": 460,
+      "start_time": 1136280.0,
+      "end_time": 1138530.0,
+      "text": "In the second row, we see the orange row."
+    },
+    {
+      "index": 461,
+      "start_time": 1138530.0,
+      "end_time": 1140187.0,
+      "text": "That&#39;s the parse label, which tells us"
+    },
+    {
+      "index": 462,
+      "start_time": 1140190.0,
+      "end_time": 1141773.0,
+      "text": "the role of each word in the sentence."
+    },
+    {
+      "index": 463,
+      "start_time": 1141770.0,
+      "end_time": 1143910.0,
+      "text": "So we can see that &quot;helps&quot;-- the sentence"
+    },
+    {
+      "index": 464,
+      "start_time": 1143910.0,
+      "end_time": 1147050.0,
+      "text": "is &quot;The natural language API helps us understand text.&quot;"
+    },
+    {
+      "index": 465,
+      "start_time": 1147050.0,
+      "end_time": 1149230.0,
+      "text": "&quot;Helps&quot; is the root verb."
+    },
+    {
+      "index": 466,
+      "start_time": 1149230.0,
+      "end_time": 1151234.0,
+      "text": "&quot;Us&quot; is the nominal subject."
+    },
+    {
+      "index": 467,
+      "start_time": 1151230.0,
+      "end_time": 1153646.0,
+      "text": "We can see the role of all the other words in the sentence"
+    },
+    {
+      "index": 468,
+      "start_time": 1153650.0,
+      "end_time": 1155130.0,
+      "text": "as well."
+    },
+    {
+      "index": 469,
+      "start_time": 1155130.0,
+      "end_time": 1158710.0,
+      "text": "That third row where we only have one word is the lemma."
+    },
+    {
+      "index": 470,
+      "start_time": 1158710.0,
+      "end_time": 1160790.0,
+      "text": "We can see here it says &quot;help.&quot;"
+    },
+    {
+      "index": 471,
+      "start_time": 1160790.0,
+      "end_time": 1164420.0,
+      "text": "And what that is is the canonical form of the word."
+    },
+    {
+      "index": 472,
+      "start_time": 1164420.0,
+      "end_time": 1167000.0,
+      "text": "So the canonical form of &quot;helps&quot; is &quot;help.&quot;"
+    },
+    {
+      "index": 473,
+      "start_time": 1167000.0,
+      "end_time": 1168770.0,
+      "text": "So this way, if you&#39;re trying to count"
+    },
+    {
+      "index": 474,
+      "start_time": 1168770.0,
+      "end_time": 1171710.0,
+      "text": "how many times a specific word occurs,"
+    },
+    {
+      "index": 475,
+      "start_time": 1171710.0,
+      "end_time": 1174150.0,
+      "text": "it won&#39;t count &quot;helps&quot; and &quot;help&quot; as two different words."
+    },
+    {
+      "index": 476,
+      "start_time": 1174150.0,
+      "end_time": 1177080.0,
+      "text": "It&#39;ll consolidate them into one word."
+    },
+    {
+      "index": 477,
+      "start_time": 1177080.0,
+      "end_time": 1179880.0,
+      "text": "And then in red, we have the part of speech,"
+    },
+    {
+      "index": 478,
+      "start_time": 1179880.0,
+      "end_time": 1183950.0,
+      "text": "whether it&#39;s a noun, verb, adjective, or punctuation."
+    },
+    {
+      "index": 479,
+      "start_time": 1183950.0,
+      "end_time": 1187640.0,
+      "text": "And then in blue, we have some additional morphology details"
+    },
+    {
+      "index": 480,
+      "start_time": 1187640.0,
+      "end_time": 1188847.0,
+      "text": "on the word."
+    },
+    {
+      "index": 481,
+      "start_time": 1188850.0,
+      "end_time": 1191183.0,
+      "text": "There&#39;s more of these returned for Spanish and Japanese,"
+    },
+    {
+      "index": 482,
+      "start_time": 1191180.0,
+      "end_time": 1193244.0,
+      "text": "which are the other two languages that the API"
+    },
+    {
+      "index": 483,
+      "start_time": 1193240.0,
+      "end_time": 1194031.0,
+      "text": "currently supports."
+    },
+    {
+      "index": 484,
+      "start_time": 1197360.0,
+      "end_time": 1199070.0,
+      "text": "So the syntax annotation feature might"
+    },
+    {
+      "index": 485,
+      "start_time": 1199070.0,
+      "end_time": 1200990.0,
+      "text": "be a little harder to grasp when you might"
+    },
+    {
+      "index": 486,
+      "start_time": 1200990.0,
+      "end_time": 1202676.0,
+      "text": "use this in an application."
+    },
+    {
+      "index": 487,
+      "start_time": 1202680.0,
+      "end_time": 1204804.0,
+      "text": "So I wanted to show you a demo specifically focused"
+    },
+    {
+      "index": 488,
+      "start_time": 1204800.0,
+      "end_time": 1206570.0,
+      "text": "on that feature."
+    },
+    {
+      "index": 489,
+      "start_time": 1206570.0,
+      "end_time": 1210950.0,
+      "text": "And for this demo, over the course of the past few days--"
+    },
+    {
+      "index": 490,
+      "start_time": 1210950.0,
+      "end_time": 1212280.0,
+      "text": "oh, I think the--"
+    },
+    {
+      "index": 491,
+      "start_time": 1212280.0,
+      "end_time": 1212890.0,
+      "text": "there we go."
+    },
+    {
+      "index": 492,
+      "start_time": 1212890.0,
+      "end_time": 1214040.0,
+      "text": "Mic is back."
+    },
+    {
+      "index": 493,
+      "start_time": 1214040.0,
+      "end_time": 1216040.0,
+      "text": "I&#39;ve been using the Twitter Streaming API"
+    },
+    {
+      "index": 494,
+      "start_time": 1216040.0,
+      "end_time": 1218730.0,
+      "text": "to stream tweet about Google Next."
+    },
+    {
+      "index": 495,
+      "start_time": 1218730.0,
+      "end_time": 1221840.0,
+      "text": "So I&#39;ve streamed tweets with the hashtag #googlenext17"
+    },
+    {
+      "index": 496,
+      "start_time": 1221840.0,
+      "end_time": 1224900.0,
+      "text": "and a couple other search terms that are put in node server"
+    },
+    {
+      "index": 497,
+      "start_time": 1224900.0,
+      "end_time": 1227149.0,
+      "text": "that&#39;s running on Compute Engine."
+    },
+    {
+      "index": 498,
+      "start_time": 1227150.0,
+      "end_time": 1228441.0,
+      "text": "And I&#39;m streaming those tweets."
+    },
+    {
+      "index": 499,
+      "start_time": 1228440.0,
+      "end_time": 1230300.0,
+      "text": "So the Streaming API gathers just a subset"
+    },
+    {
+      "index": 500,
+      "start_time": 1230300.0,
+      "end_time": 1232820.0,
+      "text": "of those tweets, not all the tweets with that hashtag."
+    },
+    {
+      "index": 501,
+      "start_time": 1232820.0,
+      "end_time": 1234590.0,
+      "text": "And I&#39;m sending the text of the tweet"
+    },
+    {
+      "index": 502,
+      "start_time": 1234590.0,
+      "end_time": 1236420.0,
+      "text": "to the Natural Language API."
+    },
+    {
+      "index": 503,
+      "start_time": 1236420.0,
+      "end_time": 1239380.0,
+      "text": "And then I&#39;m storing the response in BigQuery."
+    },
+    {
+      "index": 504,
+      "start_time": 1239380.0,
+      "end_time": 1242270.0,
+      "text": "BigQuery&#39;s our big data analytics warehouse tool."
+    },
+    {
+      "index": 505,
+      "start_time": 1242270.0,
+      "end_time": 1245110.0,
+      "text": "It let&#39;s you do analytics on really large data sets."
+    },
+    {
+      "index": 506,
+      "start_time": 1245110.0,
+      "end_time": 1247100.0,
+      "text": "So I&#39;m storing it in BigQuery."
+    },
+    {
+      "index": 507,
+      "start_time": 1247100.0,
+      "end_time": 1249140.0,
+      "text": "And then from there, I can gather some data"
+    },
+    {
+      "index": 508,
+      "start_time": 1249140.0,
+      "end_time": 1252020.0,
+      "text": "on the parts of speech in a sentence."
+    },
+    {
+      "index": 509,
+      "start_time": 1252020.0,
+      "end_time": 1254630.0,
+      "text": "So I can find, for example, the most common adjectives"
+    },
+    {
+      "index": 510,
+      "start_time": 1254630.0,
+      "end_time": 1257720.0,
+      "text": "that people are using to tweet about Google Next."
+    },
+    {
+      "index": 511,
+      "start_time": 1257720.0,
+      "end_time": 1259250.0,
+      "text": "So if we could go to the demo--"
+    },
+    {
+      "index": 512,
+      "start_time": 1262340.0,
+      "end_time": 1262840.0,
+      "text": "cool."
+    },
+    {
+      "index": 513,
+      "start_time": 1262840.0,
+      "end_time": 1266290.0,
+      "text": "So this is the BigQuery web UI which lets you run queries"
+    },
+    {
+      "index": 514,
+      "start_time": 1266290.0,
+      "end_time": 1268410.0,
+      "text": "directly in the browser."
+    },
+    {
+      "index": 515,
+      "start_time": 1268410.0,
+      "end_time": 1270160.0,
+      "text": "So here, I just did a limit 10 to show you"
+    },
+    {
+      "index": 516,
+      "start_time": 1270160.0,
+      "end_time": 1271630.0,
+      "text": "what the table looks like."
+    },
+    {
+      "index": 517,
+      "start_time": 1271630.0,
+      "end_time": 1275200.0,
+      "text": "I think I&#39;ve got about 6,000 to 7,000 tweets in here so far."
+    },
+    {
+      "index": 518,
+      "start_time": 1275200.0,
+      "end_time": 1278790.0,
+      "text": "So here I&#39;m collecting the ID of the tweet, the text,"
+    },
+    {
+      "index": 519,
+      "start_time": 1278790.0,
+      "end_time": 1282330.0,
+      "text": "the created at, how many followers the user has,"
+    },
+    {
+      "index": 520,
+      "start_time": 1282330.0,
+      "end_time": 1285430.0,
+      "text": "what hashtags it finds that&#39;s returned from the Twitter API."
+    },
+    {
+      "index": 521,
+      "start_time": 1285430.0,
+      "end_time": 1288580.0,
+      "text": "And then I&#39;ve got this giant JSON sring of the response"
+    },
+    {
+      "index": 522,
+      "start_time": 1288580.0,
+      "end_time": 1290590.0,
+      "text": "from the Natural Language API."
+    },
+    {
+      "index": 523,
+      "start_time": 1290590.0,
+      "end_time": 1292210.0,
+      "text": "So you&#39;re probably wondering, how"
+    },
+    {
+      "index": 524,
+      "start_time": 1292210.0,
+      "end_time": 1295340.0,
+      "text": "am I going to write a SQL query to parse that?"
+    },
+    {
+      "index": 525,
+      "start_time": 1295340.0,
+      "end_time": 1298240.0,
+      "text": "Well, BigQuery has a feature called user-defined functions,"
+    },
+    {
+      "index": 526,
+      "start_time": 1298240.0,
+      "end_time": 1300760.0,
+      "text": "which lets you write custom JavaScript functions that you"
+    },
+    {
+      "index": 527,
+      "start_time": 1300760.0,
+      "end_time": 1303310.0,
+      "text": "can run on rows in your table."
+    },
+    {
+      "index": 528,
+      "start_time": 1303310.0,
+      "end_time": 1307480.0,
+      "text": "So over here, I&#39;ve got a query that&#39;s"
+    },
+    {
+      "index": 529,
+      "start_time": 1307480.0,
+      "end_time": 1310120.0,
+      "text": "going to run on every tweet in this table."
+    },
+    {
+      "index": 530,
+      "start_time": 1310120.0,
+      "end_time": 1312285.0,
+      "text": "And my JavaScript function is right here."
+    },
+    {
+      "index": 531,
+      "start_time": 1312290.0,
+      "end_time": 1313665.0,
+      "text": "And what it&#39;s going to do is it&#39;s"
+    },
+    {
+      "index": 532,
+      "start_time": 1313660.0,
+      "end_time": 1316900.0,
+      "text": "going to count all of the adjectives"
+    },
+    {
+      "index": 533,
+      "start_time": 1316900.0,
+      "end_time": 1319790.0,
+      "text": "and then return that in my output table."
+    },
+    {
+      "index": 534,
+      "start_time": 1319790.0,
+      "end_time": 1322280.0,
+      "text": "So if I run this query here, it&#39;s"
+    },
+    {
+      "index": 535,
+      "start_time": 1322280.0,
+      "end_time": 1323930.0,
+      "text": "running this custom JavaScript function"
+    },
+    {
+      "index": 536,
+      "start_time": 1323930.0,
+      "end_time": 1325639.0,
+      "text": "on all the tweets in my table, which I"
+    },
+    {
+      "index": 537,
+      "start_time": 1325640.0,
+      "end_time": 1326931.0,
+      "text": "think is about 6,000 right now."
+    },
+    {
+      "index": 538,
+      "start_time": 1326930.0,
+      "end_time": 1330150.0,
+      "text": "It ran pretty fast, and I&#39;m not using cached results."
+    },
+    {
+      "index": 539,
+      "start_time": 1330150.0,
+      "end_time": 1332090.0,
+      "text": "So let&#39;s take a look."
+    },
+    {
+      "index": 540,
+      "start_time": 1332090.0,
+      "end_time": 1335900.0,
+      "text": "We&#39;ve got 405 uses of the word &quot;more,&quot; &quot;new,&quot; &quot;great,&quot;"
+    },
+    {
+      "index": 541,
+      "start_time": 1335900.0,
+      "end_time": 1338936.0,
+      "text": "&quot;good,&quot; &quot;late,&quot; &quot;awesome.&quot;"
+    },
+    {
+      "index": 542,
+      "start_time": 1338940.0,
+      "end_time": 1341264.0,
+      "text": "You can see some more here."
+    },
+    {
+      "index": 543,
+      "start_time": 1341260.0,
+      "end_time": 1344800.0,
+      "text": "So that&#39;s one example of a use case for the syntax annotation"
+    },
+    {
+      "index": 544,
+      "start_time": 1344800.0,
+      "end_time": 1348400.0,
+      "text": "feature of the Natural Language API."
+    },
+    {
+      "index": 545,
+      "start_time": 1348400.0,
+      "end_time": 1349865.0,
+      "text": "You can go back to the slides."
+    },
+    {
+      "index": 546,
+      "start_time": 1355330.0,
+      "end_time": 1358143.0,
+      "text": "So the Natural Language API lets you do analysis on text."
+    },
+    {
+      "index": 547,
+      "start_time": 1358150.0,
+      "end_time": 1360274.0,
+      "text": "One other thing that you might want to do with text"
+    },
+    {
+      "index": 548,
+      "start_time": 1360270.0,
+      "end_time": 1361350.0,
+      "text": "is translate it."
+    },
+    {
+      "index": 549,
+      "start_time": 1361350.0,
+      "end_time": 1364470.0,
+      "text": "You likely have users of your application all over the world."
+    },
+    {
+      "index": 550,
+      "start_time": 1364470.0,
+      "end_time": 1368100.0,
+      "text": "It&#39;d be useful to translate it into their host language."
+    },
+    {
+      "index": 551,
+      "start_time": 1368100.0,
+      "end_time": 1371040.0,
+      "text": "And the Translation API exposes the functionality"
+    },
+    {
+      "index": 552,
+      "start_time": 1371040.0,
+      "end_time": 1372780.0,
+      "text": "of Google Translate to developers"
+    },
+    {
+      "index": 553,
+      "start_time": 1372780.0,
+      "end_time": 1375960.0,
+      "text": "and lets you translate text in 100-plus languages."
+    },
+    {
+      "index": 554,
+      "start_time": 1375960.0,
+      "end_time": 1378334.0,
+      "text": "And for a second, let&#39;s talk about Google Translate."
+    },
+    {
+      "index": 555,
+      "start_time": 1378330.0,
+      "end_time": 1379746.0,
+      "text": "I&#39;m a big fan of Google Translate."
+    },
+    {
+      "index": 556,
+      "start_time": 1379750.0,
+      "end_time": 1382006.0,
+      "text": "Has anyone here used it before?"
+    },
+    {
+      "index": 557,
+      "start_time": 1382010.0,
+      "end_time": 1383664.0,
+      "text": "It looks like a lot of people."
+    },
+    {
+      "index": 558,
+      "start_time": 1383660.0,
+      "end_time": 1385180.0,
+      "text": "I use it when I travel all the time."
+    },
+    {
+      "index": 559,
+      "start_time": 1385180.0,
+      "end_time": 1387559.0,
+      "text": "So a couple of months ago, I was on a trip to Japan."
+    },
+    {
+      "index": 560,
+      "start_time": 1387560.0,
+      "end_time": 1389601.0,
+      "text": "I was at a restaurant where nobody spoke English,"
+    },
+    {
+      "index": 561,
+      "start_time": 1389600.0,
+      "end_time": 1391310.0,
+      "text": "and I really wanted to order octopus."
+    },
+    {
+      "index": 562,
+      "start_time": 1391310.0,
+      "end_time": 1392810.0,
+      "text": "So I typed it into Google translate."
+    },
+    {
+      "index": 563,
+      "start_time": 1392810.0,
+      "end_time": 1394970.0,
+      "text": "It turns out the word for that is &quot;tako,&quot;"
+    },
+    {
+      "index": 564,
+      "start_time": 1394970.0,
+      "end_time": 1396600.0,
+      "text": "which confused me a little bit."
+    },
+    {
+      "index": 565,
+      "start_time": 1396600.0,
+      "end_time": 1398420.0,
+      "text": "I didn&#39;t to order an octopus taco,"
+    },
+    {
+      "index": 566,
+      "start_time": 1398420.0,
+      "end_time": 1400626.0,
+      "text": "although maybe that would be good."
+    },
+    {
+      "index": 567,
+      "start_time": 1400630.0,
+      "end_time": 1402504.0,
+      "text": "So I just showed the person at the restaurant"
+    },
+    {
+      "index": 568,
+      "start_time": 1402500.0,
+      "end_time": 1406730.0,
+      "text": "my Google translate app, successfully got my octopus."
+    },
+    {
+      "index": 569,
+      "start_time": 1406730.0,
+      "end_time": 1408219.0,
+      "text": "That&#39;s a picture of it right there."
+    },
+    {
+      "index": 570,
+      "start_time": 1408220.0,
+      "end_time": 1410511.0,
+      "text": "But likely, you want to do more than translate the word"
+    },
+    {
+      "index": 571,
+      "start_time": 1410510.0,
+      "end_time": 1411739.0,
+      "text": "for octopus."
+    },
+    {
+      "index": 572,
+      "start_time": 1411740.0,
+      "end_time": 1413781.0,
+      "text": "And that&#39;s why we have the Translation API, which"
+    },
+    {
+      "index": 573,
+      "start_time": 1413780.0,
+      "end_time": 1417020.0,
+      "text": "lets you translate text in your application"
+    },
+    {
+      "index": 574,
+      "start_time": 1417020.0,
+      "end_time": 1418890.0,
+      "text": "in many different languages."
+    },
+    {
+      "index": 575,
+      "start_time": 1418890.0,
+      "end_time": 1420920.0,
+      "text": "And Airbnb is an example of a company that&#39;s"
+    },
+    {
+      "index": 576,
+      "start_time": 1420920.0,
+      "end_time": 1423740.0,
+      "text": "using the Translation API."
+    },
+    {
+      "index": 577,
+      "start_time": 1423740.0,
+      "end_time": 1427340.0,
+      "text": "And what you might not know is that 60% of Airbnb bookings"
+    },
+    {
+      "index": 578,
+      "start_time": 1427340.0,
+      "end_time": 1430070.0,
+      "text": "connects people that are using the app in different languages"
+    },
+    {
+      "index": 579,
+      "start_time": 1430070.0,
+      "end_time": 1432920.0,
+      "text": "because people use Airbnb a lot, especially when they travel"
+    },
+    {
+      "index": 580,
+      "start_time": 1432920.0,
+      "end_time": 1434350.0,
+      "text": "internationally."
+    },
+    {
+      "index": 581,
+      "start_time": 1434350.0,
+      "end_time": 1437270.0,
+      "text": "And so for all of those connections,"
+    },
+    {
+      "index": 582,
+      "start_time": 1437270.0,
+      "end_time": 1440210.0,
+      "text": "they&#39;re using to translate API to translate not only listings,"
+    },
+    {
+      "index": 583,
+      "start_time": 1440210.0,
+      "end_time": 1443930.0,
+      "text": "but also reviews and conversations"
+    },
+    {
+      "index": 584,
+      "start_time": 1443930.0,
+      "end_time": 1445700.0,
+      "text": "into the person&#39;s host&#39;s language."
+    },
+    {
+      "index": 585,
+      "start_time": 1445700.0,
+      "end_time": 1447290.0,
+      "text": "And they found that this significantly"
+    },
+    {
+      "index": 586,
+      "start_time": 1447290.0,
+      "end_time": 1449450.0,
+      "text": "improves a guest likelihood to book"
+    },
+    {
+      "index": 587,
+      "start_time": 1449450.0,
+      "end_time": 1453030.0,
+      "text": "if it&#39;s translated into their host language."
+    },
+    {
+      "index": 588,
+      "start_time": 1453030.0,
+      "end_time": 1455570.0,
+      "text": "And that&#39;s one example of someone using the Translation"
+    },
+    {
+      "index": 589,
+      "start_time": 1455570.0,
+      "end_time": 1457572.0,
+      "text": "API."
+    },
+    {
+      "index": 590,
+      "start_time": 1457570.0,
+      "end_time": 1459028.0,
+      "text": "It&#39;s pretty self-explanatory, but I"
+    },
+    {
+      "index": 591,
+      "start_time": 1459030.0,
+      "end_time": 1461029.0,
+      "text": "wanted to show you a code snippet of how easy it"
+    },
+    {
+      "index": 592,
+      "start_time": 1461030.0,
+      "end_time": 1462501.0,
+      "text": "is to call the API."
+    },
+    {
+      "index": 593,
+      "start_time": 1462500.0,
+      "end_time": 1464970.0,
+      "text": "This is some Python code that&#39;s making a request"
+    },
+    {
+      "index": 594,
+      "start_time": 1464970.0,
+      "end_time": 1466590.0,
+      "text": "to the Translation API."
+    },
+    {
+      "index": 595,
+      "start_time": 1466590.0,
+      "end_time": 1470160.0,
+      "text": "And you can see here we just create a translate client."
+    },
+    {
+      "index": 596,
+      "start_time": 1470160.0,
+      "end_time": 1473910.0,
+      "text": "And then we pass it the phrase we&#39;d like to translate,"
+    },
+    {
+      "index": 597,
+      "start_time": 1473910.0,
+      "end_time": 1474780.0,
+      "text": "the target language."
+    },
+    {
+      "index": 598,
+      "start_time": 1474780.0,
+      "end_time": 1477790.0,
+      "text": "It&#39;ll detect the original language for us."
+    },
+    {
+      "index": 599,
+      "start_time": 1477790.0,
+      "end_time": 1482150.0,
+      "text": "And then we can print the result."
+    },
+    {
+      "index": 600,
+      "start_time": 1482150.0,
+      "end_time": 1484150.0,
+      "text": "And one thing we&#39;ve added to the Translation API"
+    },
+    {
+      "index": 601,
+      "start_time": 1484150.0,
+      "end_time": 1487250.0,
+      "text": "recently is neural machine translation."
+    },
+    {
+      "index": 602,
+      "start_time": 1487250.0,
+      "end_time": 1490690.0,
+      "text": "And this greatly improves the underlying translation model."
+    },
+    {
+      "index": 603,
+      "start_time": 1490690.0,
+      "end_time": 1492250.0,
+      "text": "And basically, the way it works is"
+    },
+    {
+      "index": 604,
+      "start_time": 1492250.0,
+      "end_time": 1494650.0,
+      "text": "with first-generation translation,"
+    },
+    {
+      "index": 605,
+      "start_time": 1494650.0,
+      "end_time": 1497200.0,
+      "text": "which is what we had before, it was translating"
+    },
+    {
+      "index": 606,
+      "start_time": 1497200.0,
+      "end_time": 1499130.0,
+      "text": "each word in a sentence separately."
+    },
+    {
+      "index": 607,
+      "start_time": 1499130.0,
+      "end_time": 1501370.0,
+      "text": "So let&#39;s say you had a dictionary"
+    },
+    {
+      "index": 608,
+      "start_time": 1501370.0,
+      "end_time": 1503457.0,
+      "text": "and you were looking up word for word"
+    },
+    {
+      "index": 609,
+      "start_time": 1503460.0,
+      "end_time": 1505543.0,
+      "text": "each sentence in the dictionary and translating it"
+    },
+    {
+      "index": 610,
+      "start_time": 1505540.0,
+      "end_time": 1508960.0,
+      "text": "without understanding the context around that word, that"
+    },
+    {
+      "index": 611,
+      "start_time": 1508960.0,
+      "end_time": 1510460.0,
+      "text": "works pretty well."
+    },
+    {
+      "index": 612,
+      "start_time": 1510460.0,
+      "end_time": 1512200.0,
+      "text": "But what neural machine translation does"
+    },
+    {
+      "index": 613,
+      "start_time": 1512200.0,
+      "end_time": 1514840.0,
+      "text": "is it actually looks at the surrounding words,"
+    },
+    {
+      "index": 614,
+      "start_time": 1514840.0,
+      "end_time": 1517780.0,
+      "text": "and it&#39;s able to understand the context"
+    },
+    {
+      "index": 615,
+      "start_time": 1517780.0,
+      "end_time": 1519430.0,
+      "text": "of the word in the sentence."
+    },
+    {
+      "index": 616,
+      "start_time": 1519430.0,
+      "end_time": 1523124.0,
+      "text": "And it&#39;s able to produce much higher quality translations."
+    },
+    {
+      "index": 617,
+      "start_time": 1523120.0,
+      "end_time": 1525786.0,
+      "text": "There&#39;s a great &quot;New York Times&quot; article with a lot more details"
+    },
+    {
+      "index": 618,
+      "start_time": 1525790.0,
+      "end_time": 1526810.0,
+      "text": "on how that model works."
+    },
+    {
+      "index": 619,
+      "start_time": 1526810.0,
+      "end_time": 1529024.0,
+      "text": "You can find it at that Bitly link there."
+    },
+    {
+      "index": 620,
+      "start_time": 1529020.0,
+      "end_time": 1530436.0,
+      "text": "If anyone wants to take a picture,"
+    },
+    {
+      "index": 621,
+      "start_time": 1530440.0,
+      "end_time": 1531940.0,
+      "text": "I&#39;ll leave it up for a second."
+    },
+    {
+      "index": 622,
+      "start_time": 1537000.0,
+      "end_time": 1539490.0,
+      "text": "And just to show you some of the improvements"
+    },
+    {
+      "index": 623,
+      "start_time": 1539490.0,
+      "end_time": 1541444.0,
+      "text": "that neural machine translation brings--"
+    },
+    {
+      "index": 624,
+      "start_time": 1541440.0,
+      "end_time": 1542356.0,
+      "text": "this is a lot of text."
+    },
+    {
+      "index": 625,
+      "start_time": 1542360.0,
+      "end_time": 1542860.0,
+      "text": "I know."
+    },
+    {
+      "index": 626,
+      "start_time": 1542860.0,
+      "end_time": 1545239.0,
+      "text": "But what I did is I took a paragraph"
+    },
+    {
+      "index": 627,
+      "start_time": 1545240.0,
+      "end_time": 1547031.0,
+      "text": "from the Spanish version of &quot;Harry Potter.&quot;"
+    },
+    {
+      "index": 628,
+      "start_time": 1547030.0,
+      "end_time": 1549390.0,
+      "text": "So this is the original text that the Spanish translator"
+    },
+    {
+      "index": 629,
+      "start_time": 1549390.0,
+      "end_time": 1550920.0,
+      "text": "wrote."
+    },
+    {
+      "index": 630,
+      "start_time": 1550920.0,
+      "end_time": 1553380.0,
+      "text": "And then I showed you in first-generation translation"
+    },
+    {
+      "index": 631,
+      "start_time": 1553380.0,
+      "end_time": 1555390.0,
+      "text": "in the middle how it&#39;ll translate that"
+    },
+    {
+      "index": 632,
+      "start_time": 1555390.0,
+      "end_time": 1558719.0,
+      "text": "to English, and then in neural machine translation all"
+    },
+    {
+      "index": 633,
+      "start_time": 1558720.0,
+      "end_time": 1560011.0,
+      "text": "the way on the right-hand side."
+    },
+    {
+      "index": 634,
+      "start_time": 1560010.0,
+      "end_time": 1561897.0,
+      "text": "And I bolded the improvements."
+    },
+    {
+      "index": 635,
+      "start_time": 1561900.0,
+      "end_time": 1563233.0,
+      "text": "So we can look at a few of them."
+    },
+    {
+      "index": 636,
+      "start_time": 1563230.0,
+      "end_time": 1564990.0,
+      "text": "The first bold word is--"
+    },
+    {
+      "index": 637,
+      "start_time": 1564990.0,
+      "end_time": 1566200.0,
+      "text": "it says, &quot;which made drills.&quot;"
+    },
+    {
+      "index": 638,
+      "start_time": 1566200.0,
+      "end_time": 1568320.0,
+      "text": "It&#39;s describing the company where he works."
+    },
+    {
+      "index": 639,
+      "start_time": 1568320.0,
+      "end_time": 1570060.0,
+      "text": "And then neural machine translation"
+    },
+    {
+      "index": 640,
+      "start_time": 1570060.0,
+      "end_time": 1572920.0,
+      "text": "is able to change that word to &quot;manufactured,&quot;"
+    },
+    {
+      "index": 641,
+      "start_time": 1572920.0,
+      "end_time": 1576910.0,
+      "text": "which is much more specific to the context of the sentence."
+    },
+    {
+      "index": 642,
+      "start_time": 1576910.0,
+      "end_time": 1579400.0,
+      "text": "Another example is if we look at where"
+    },
+    {
+      "index": 643,
+      "start_time": 1579400.0,
+      "end_time": 1581250.0,
+      "text": "it&#39;s describing Mrs. Dursley&#39;s neck,"
+    },
+    {
+      "index": 644,
+      "start_time": 1581250.0,
+      "end_time": 1583200.0,
+      "text": "the first generation says &quot;almost twice longer"
+    },
+    {
+      "index": 645,
+      "start_time": 1583200.0,
+      "end_time": 1584389.0,
+      "text": "than usual.&quot;"
+    },
+    {
+      "index": 646,
+      "start_time": 1584390.0,
+      "end_time": 1586681.0,
+      "text": "In the second version, it says &quot;almost twice as long as"
+    },
+    {
+      "index": 647,
+      "start_time": 1586680.0,
+      "end_time": 1588750.0,
+      "text": "usual,&quot; which is a slight improvement."
+    },
+    {
+      "index": 648,
+      "start_time": 1588750.0,
+      "end_time": 1590530.0,
+      "text": "And then if we look at the bottom,"
+    },
+    {
+      "index": 649,
+      "start_time": 1590530.0,
+      "end_time": 1594150.0,
+      "text": "it goes from &quot;fence of the garden&quot; to &quot;garden fence.&quot;"
+    },
+    {
+      "index": 650,
+      "start_time": 1594150.0,
+      "end_time": 1597300.0,
+      "text": "And then in the last example, the first generation"
+    },
+    {
+      "index": 651,
+      "start_time": 1597300.0,
+      "end_time": 1598752.0,
+      "text": "used the pronoun &quot;their.&quot;"
+    },
+    {
+      "index": 652,
+      "start_time": 1598750.0,
+      "end_time": 1600208.0,
+      "text": "And then neural machine translation"
+    },
+    {
+      "index": 653,
+      "start_time": 1600210.0,
+      "end_time": 1603030.0,
+      "text": "is able to identify the correct pronoun &quot;her&quot;"
+    },
+    {
+      "index": 654,
+      "start_time": 1603030.0,
+      "end_time": 1604810.0,
+      "text": "more specifically."
+    },
+    {
+      "index": 655,
+      "start_time": 1604810.0,
+      "end_time": 1607260.0,
+      "text": "So just a quick example highlighting some improvements"
+    },
+    {
+      "index": 656,
+      "start_time": 1607260.0,
+      "end_time": 1610450.0,
+      "text": "that neural machine translation brings to the Translation API."
+    },
+    {
+      "index": 657,
+      "start_time": 1612990.0,
+      "end_time": 1616610.0,
+      "text": "And on its own, the Translation API is pretty self-explanatory,"
+    },
+    {
+      "index": 658,
+      "start_time": 1616610.0,
+      "end_time": 1619470.0,
+      "text": "but I wanted to show you a small demo of a Python script"
+    },
+    {
+      "index": 659,
+      "start_time": 1619470.0,
+      "end_time": 1623290.0,
+      "text": "I wrote of how to combine different APIs together."
+    },
+    {
+      "index": 660,
+      "start_time": 1623290.0,
+      "end_time": 1626430.0,
+      "text": "So in this demo, it&#39;ll take three types of text input."
+    },
+    {
+      "index": 661,
+      "start_time": 1626430.0,
+      "end_time": 1630840.0,
+      "text": "It could take either raw text, audio, or an image of text."
+    },
+    {
+      "index": 662,
+      "start_time": 1630840.0,
+      "end_time": 1633340.0,
+      "text": "And then we&#39;ll pass it through the Natural Language API."
+    },
+    {
+      "index": 663,
+      "start_time": 1633340.0,
+      "end_time": 1635040.0,
+      "text": "And then finally, we&#39;ll translate it"
+    },
+    {
+      "index": 664,
+      "start_time": 1635040.0,
+      "end_time": 1636399.0,
+      "text": "into a few languages."
+    },
+    {
+      "index": 665,
+      "start_time": 1636400.0,
+      "end_time": 1638191.0,
+      "text": "And then we&#39;ll translate it back to English"
+    },
+    {
+      "index": 666,
+      "start_time": 1638190.0,
+      "end_time": 1640150.0,
+      "text": "so that you can see the result."
+    },
+    {
+      "index": 667,
+      "start_time": 1640150.0,
+      "end_time": 1643080.0,
+      "text": "So if we could switch back to the demo--"
+    },
+    {
+      "index": 668,
+      "start_time": 1645850.0,
+      "end_time": 1648360.0,
+      "text": "it looks like it&#39;s up here."
+    },
+    {
+      "index": 669,
+      "start_time": 1648360.0,
+      "end_time": 1650320.0,
+      "text": "So I&#39;m going to run the script--"
+    },
+    {
+      "index": 670,
+      "start_time": 1650320.0,
+      "end_time": 1652640.0,
+      "text": "python textify.py."
+    },
+    {
+      "index": 671,
+      "start_time": 1652640.0,
+      "end_time": 1654182.0,
+      "text": "And it&#39;s going to tell me we&#39;re going"
+    },
+    {
+      "index": 672,
+      "start_time": 1654180.0,
+      "end_time": 1656096.0,
+      "text": "to send some text to the Natural Language API."
+    },
+    {
+      "index": 673,
+      "start_time": 1656100.0,
+      "end_time": 1657982.0,
+      "text": "It supports English, Spanish, and Japanese."
+    },
+    {
+      "index": 674,
+      "start_time": 1657980.0,
+      "end_time": 1659021.0,
+      "text": "And I have three options."
+    },
+    {
+      "index": 675,
+      "start_time": 1659020.0,
+      "end_time": 1661219.0,
+      "text": "I can either type my text, record a file,"
+    },
+    {
+      "index": 676,
+      "start_time": 1661220.0,
+      "end_time": 1662240.0,
+      "text": "or send a photo of text."
+    },
+    {
+      "index": 677,
+      "start_time": 1662240.0,
+      "end_time": 1664340.0,
+      "text": "So I&#39;m going to type some text."
+    },
+    {
+      "index": 678,
+      "start_time": 1664340.0,
+      "end_time": 1668820.0,
+      "text": "I&#39;m going to say &quot;We are using the Translation API."
+    },
+    {
+      "index": 679,
+      "start_time": 1668820.0,
+      "end_time": 1671830.0,
+      "text": "It is awesome.&quot;"
+    },
+    {
+      "index": 680,
+      "start_time": 1671830.0,
+      "end_time": 1673720.0,
+      "text": "And we got a bunch of data back here."
+    },
+    {
+      "index": 681,
+      "start_time": 1673720.0,
+      "end_time": 1675850.0,
+      "text": "So this is what the JSON response"
+    },
+    {
+      "index": 682,
+      "start_time": 1675850.0,
+      "end_time": 1677650.0,
+      "text": "looks like just for one token."
+    },
+    {
+      "index": 683,
+      "start_time": 1677650.0,
+      "end_time": 1679990.0,
+      "text": "I didn&#39;t want to print the whole JSON blob here."
+    },
+    {
+      "index": 684,
+      "start_time": 1679990.0,
+      "end_time": 1681525.0,
+      "text": "This is just for the token &quot;we.&quot;"
+    },
+    {
+      "index": 685,
+      "start_time": 1681530.0,
+      "end_time": 1682905.0,
+      "text": "This is all the data it returned."
+    },
+    {
+      "index": 686,
+      "start_time": 1682900.0,
+      "end_time": 1685660.0,
+      "text": "So it tells us it&#39;s a pronoun."
+    },
+    {
+      "index": 687,
+      "start_time": 1685660.0,
+      "end_time": 1688642.0,
+      "text": "And a lot of these part of speech morphology data"
+    },
+    {
+      "index": 688,
+      "start_time": 1688640.0,
+      "end_time": 1690098.0,
+      "text": "is going to be unknown for English,"
+    },
+    {
+      "index": 689,
+      "start_time": 1690100.0,
+      "end_time": 1691610.0,
+      "text": "but it relates to other languages"
+    },
+    {
+      "index": 690,
+      "start_time": 1691610.0,
+      "end_time": 1693130.0,
+      "text": "that the API supports."
+    },
+    {
+      "index": 691,
+      "start_time": 1693130.0,
+      "end_time": 1696730.0,
+      "text": "But it is able to tell us that it is a plural token"
+    },
+    {
+      "index": 692,
+      "start_time": 1696730.0,
+      "end_time": 1699280.0,
+      "text": "and it is in first person."
+    },
+    {
+      "index": 693,
+      "start_time": 1699280.0,
+      "end_time": 1701470.0,
+      "text": "And it is the nominal subject of the sentence."
+    },
+    {
+      "index": 694,
+      "start_time": 1701470.0,
+      "end_time": 1703900.0,
+      "text": "And we ran some sentiment analysis on it."
+    },
+    {
+      "index": 695,
+      "start_time": 1703900.0,
+      "end_time": 1705775.0,
+      "text": "It says you seem very happy."
+    },
+    {
+      "index": 696,
+      "start_time": 1705780.0,
+      "end_time": 1708885.0,
+      "text": "It was an excited sentence."
+    },
+    {
+      "index": 697,
+      "start_time": 1708880.0,
+      "end_time": 1710680.0,
+      "text": "And it tells us the entities it found."
+    },
+    {
+      "index": 698,
+      "start_time": 1710680.0,
+      "end_time": 1712960.0,
+      "text": "So it found Translation API."
+    },
+    {
+      "index": 699,
+      "start_time": 1712960.0,
+      "end_time": 1715270.0,
+      "text": "And the way the entity analysis endpoint works"
+    },
+    {
+      "index": 700,
+      "start_time": 1715270.0,
+      "end_time": 1717790.0,
+      "text": "is it&#39;s able to identify entities even if they"
+    },
+    {
+      "index": 701,
+      "start_time": 1717790.0,
+      "end_time": 1719170.0,
+      "text": "don&#39;t have a Wikipedia URL."
+    },
+    {
+      "index": 702,
+      "start_time": 1719170.0,
+      "end_time": 1721210.0,
+      "text": "So Translation API doesn&#39;t, but it&#39;s still"
+    },
+    {
+      "index": 703,
+      "start_time": 1721210.0,
+      "end_time": 1723400.0,
+      "text": "able to pull this out as an entity."
+    },
+    {
+      "index": 704,
+      "start_time": 1723400.0,
+      "end_time": 1726460.0,
+      "text": "So if we were, for example, building an app to maybe route"
+    },
+    {
+      "index": 705,
+      "start_time": 1726460.0,
+      "end_time": 1730030.0,
+      "text": "customer feedback, we could say, OK, this feedback"
+    },
+    {
+      "index": 706,
+      "start_time": 1730030.0,
+      "end_time": 1732430.0,
+      "text": "is asking about the Translation API."
+    },
+    {
+      "index": 707,
+      "start_time": 1732430.0,
+      "end_time": 1735500.0,
+      "text": "And then we could route it to the appropriate person."
+    },
+    {
+      "index": 708,
+      "start_time": 1735500.0,
+      "end_time": 1737830.0,
+      "text": "So now we&#39;re going to translate this text."
+    },
+    {
+      "index": 709,
+      "start_time": 1737830.0,
+      "end_time": 1741960.0,
+      "text": "And let&#39;s translate it into Japanese."
+    },
+    {
+      "index": 710,
+      "start_time": 1741960.0,
+      "end_time": 1742460.0,
+      "text": "There we go."
+    },
+    {
+      "index": 711,
+      "start_time": 1742460.0,
+      "end_time": 1744580.0,
+      "text": "So this is the version translated into Japanese."
+    },
+    {
+      "index": 712,
+      "start_time": 1744580.0,
+      "end_time": 1746455.0,
+      "text": "I&#39;m guessing most of us don&#39;t speak Japanese,"
+    },
+    {
+      "index": 713,
+      "start_time": 1746450.0,
+      "end_time": 1748325.0,
+      "text": "so I&#39;ve translated it back to English."
+    },
+    {
+      "index": 714,
+      "start_time": 1748330.0,
+      "end_time": 1751170.0,
+      "text": "And you can see that it did a pretty good job."
+    },
+    {
+      "index": 715,
+      "start_time": 1751170.0,
+      "end_time": 1753850.0,
+      "text": "So I&#39;m going to run the script once more."
+    },
+    {
+      "index": 716,
+      "start_time": 1753850.0,
+      "end_time": 1757580.0,
+      "text": "And [AUDIO OUT] use an image."
+    },
+    {
+      "index": 717,
+      "start_time": 1757580.0,
+      "end_time": 1760600.0,
+      "text": "So if we look over here, I&#39;ve got just a generic resume"
+    },
+    {
+      "index": 718,
+      "start_time": 1760600.0,
+      "end_time": 1761620.0,
+      "text": "image."
+    },
+    {
+      "index": 719,
+      "start_time": 1761620.0,
+      "end_time": 1765540.0,
+      "text": "We&#39;re going to pass it to the API."
+    },
+    {
+      "index": 720,
+      "start_time": 1765540.0,
+      "end_time": 1769230.0,
+      "text": "So I&#39;ll clear the screen and run the text again."
+    },
+    {
+      "index": 721,
+      "start_time": 1769230.0,
+      "end_time": 1771190.0,
+      "text": "We&#39;re going to send a photo this time."
+    },
+    {
+      "index": 722,
+      "start_time": 1771190.0,
+      "end_time": 1772590.0,
+      "text": "And it is resume.jpg."
+    },
+    {
+      "index": 723,
+      "start_time": 1775480.0,
+      "end_time": 1777130.0,
+      "text": "Sending it to the Vision API."
+    },
+    {
+      "index": 724,
+      "start_time": 1777130.0,
+      "end_time": 1782050.0,
+      "text": "And the Vision API found, if we scroll up,"
+    },
+    {
+      "index": 725,
+      "start_time": 1782050.0,
+      "end_time": 1783910.0,
+      "text": "all this text in the image."
+    },
+    {
+      "index": 726,
+      "start_time": 1783910.0,
+      "end_time": 1786060.0,
+      "text": "Using the new document text extraction,"
+    },
+    {
+      "index": 727,
+      "start_time": 1786060.0,
+      "end_time": 1790650.0,
+      "text": "it was able to pull essentially all the text from that resume."
+    },
+    {
+      "index": 728,
+      "start_time": 1790650.0,
+      "end_time": 1792960.0,
+      "text": "There&#39;s an example of what a token returned."
+    },
+    {
+      "index": 729,
+      "start_time": 1792960.0,
+      "end_time": 1795270.0,
+      "text": "And it found all these different entities."
+    },
+    {
+      "index": 730,
+      "start_time": 1795270.0,
+      "end_time": 1797060.0,
+      "text": "And now we can translate it."
+    },
+    {
+      "index": 731,
+      "start_time": 1797060.0,
+      "end_time": 1799430.0,
+      "text": "Let&#39;s translate it to German."
+    },
+    {
+      "index": 732,
+      "start_time": 1799430.0,
+      "end_time": 1801450.0,
+      "text": "It&#39;s a lot of text there; I know."
+    },
+    {
+      "index": 733,
+      "start_time": 1801450.0,
+      "end_time": 1803850.0,
+      "text": "But this is the resume translated into German,"
+    },
+    {
+      "index": 734,
+      "start_time": 1803850.0,
+      "end_time": 1806220.0,
+      "text": "and then again back to English."
+    },
+    {
+      "index": 735,
+      "start_time": 1806220.0,
+      "end_time": 1809100.0,
+      "text": "So just an example of how you can combine multiple machine"
+    },
+    {
+      "index": 736,
+      "start_time": 1809100.0,
+      "end_time": 1813000.0,
+      "text": "learning APIs to do some cool text analysis."
+    },
+    {
+      "index": 737,
+      "start_time": 1813000.0,
+      "end_time": 1817400.0,
+      "text": "And you can go back to the slides now."
+    },
+    {
+      "index": 738,
+      "start_time": 1817400.0,
+      "end_time": 1820855.0,
+      "text": "So that was the Translation API."
+    },
+    {
+      "index": 739,
+      "start_time": 1820850.0,
+      "end_time": 1822475.0,
+      "text": "And the last thing I want to talk about"
+    },
+    {
+      "index": 740,
+      "start_time": 1822480.0,
+      "end_time": 1824100.0,
+      "text": "is the Video Intelligence API."
+    },
+    {
+      "index": 741,
+      "start_time": 1824100.0,
+      "end_time": 1826760.0,
+      "text": "How many of you saw it at the keynote yesterday?"
+    },
+    {
+      "index": 742,
+      "start_time": 1826760.0,
+      "end_time": 1828310.0,
+      "text": "Looks like most of you."
+    },
+    {
+      "index": 743,
+      "start_time": 1828310.0,
+      "end_time": 1829820.0,
+      "text": "So the Video Intelligence API lets"
+    },
+    {
+      "index": 744,
+      "start_time": 1829820.0,
+      "end_time": 1833030.0,
+      "text": "you understand your videos entities at a shot, frame,"
+    },
+    {
+      "index": 745,
+      "start_time": 1833030.0,
+      "end_time": 1834710.0,
+      "text": "or video level."
+    },
+    {
+      "index": 746,
+      "start_time": 1834710.0,
+      "end_time": 1837320.0,
+      "text": "So video level entities, it will tell you,"
+    },
+    {
+      "index": 747,
+      "start_time": 1837320.0,
+      "end_time": 1839870.0,
+      "text": "at a high level, what is this video about?"
+    },
+    {
+      "index": 748,
+      "start_time": 1839870.0,
+      "end_time": 1841970.0,
+      "text": "And then it&#39;ll give you more granular data"
+    },
+    {
+      "index": 749,
+      "start_time": 1841970.0,
+      "end_time": 1846270.0,
+      "text": "on what is happening in each scene of the video."
+    },
+    {
+      "index": 750,
+      "start_time": 1846270.0,
+      "end_time": 1848740.0,
+      "text": "A company that&#39;s using this is Cantemo."
+    },
+    {
+      "index": 751,
+      "start_time": 1848740.0,
+      "end_time": 1851090.0,
+      "text": "They&#39;re a media asset management company."
+    },
+    {
+      "index": 752,
+      "start_time": 1851090.0,
+      "end_time": 1853720.0,
+      "text": "So a company or a user that has a lot of videos"
+    },
+    {
+      "index": 753,
+      "start_time": 1853720.0,
+      "end_time": 1856120.0,
+      "text": "would upload their videos to Cantemo,"
+    },
+    {
+      "index": 754,
+      "start_time": 1856120.0,
+      "end_time": 1859140.0,
+      "text": "and Cantemo would help them better understand those videos,"
+    },
+    {
+      "index": 755,
+      "start_time": 1859140.0,
+      "end_time": 1862181.0,
+      "text": "search their library, transcode videos."
+    },
+    {
+      "index": 756,
+      "start_time": 1862180.0,
+      "end_time": 1864429.0,
+      "text": "And this is a quote from the VP of product development"
+    },
+    {
+      "index": 757,
+      "start_time": 1864430.0,
+      "end_time": 1865810.0,
+      "text": "at Cantemo."
+    },
+    {
+      "index": 758,
+      "start_time": 1865810.0,
+      "end_time": 1868901.0,
+      "text": "He says, &quot;Thanks to the Google Cloud Video Intelligence API,"
+    },
+    {
+      "index": 759,
+      "start_time": 1868900.0,
+      "end_time": 1871149.0,
+      "text": "we&#39;ve been able to very quickly process and understand"
+    },
+    {
+      "index": 760,
+      "start_time": 1871150.0,
+      "end_time": 1873970.0,
+      "text": "the content of video down to the individual frame"
+    },
+    {
+      "index": 761,
+      "start_time": 1873970.0,
+      "end_time": 1876760.0,
+      "text": "with an impressively rich taxonomy.&quot;"
+    },
+    {
+      "index": 762,
+      "start_time": 1876760.0,
+      "end_time": 1878530.0,
+      "text": "So they&#39;re using the Video API to help"
+    },
+    {
+      "index": 763,
+      "start_time": 1878530.0,
+      "end_time": 1881440.0,
+      "text": "their customers better search their own video libraries."
+    },
+    {
+      "index": 764,
+      "start_time": 1883680.0,
+      "end_time": 1885680.0,
+      "text": "And I&#39;m going to show you the same demo that you"
+    },
+    {
+      "index": 765,
+      "start_time": 1885680.0,
+      "end_time": 1888550.0,
+      "text": "saw in the keynote, but we&#39;ll look at a different video"
+    },
+    {
+      "index": 766,
+      "start_time": 1888550.0,
+      "end_time": 1889800.0,
+      "text": "and go into a bit more detail."
+    },
+    {
+      "index": 767,
+      "start_time": 1889800.0,
+      "end_time": 1896369.0,
+      "text": "So if we could switch back to the demo, here&#39;s the API."
+    },
+    {
+      "index": 768,
+      "start_time": 1896370.0,
+      "end_time": 1897911.0,
+      "text": "And I&#39;ve got a different video than I"
+    },
+    {
+      "index": 769,
+      "start_time": 1897910.0,
+      "end_time": 1900150.0,
+      "text": "showed in the keynote earlier."
+    },
+    {
+      "index": 770,
+      "start_time": 1900150.0,
+      "end_time": 1902980.0,
+      "text": "This is a video that just shows you a tour of the Google Paris"
+    },
+    {
+      "index": 771,
+      "start_time": 1902980.0,
+      "end_time": 1906280.0,
+      "text": "office and a little bit of the neighborhood around it."
+    },
+    {
+      "index": 772,
+      "start_time": 1906280.0,
+      "end_time": 1908911.0,
+      "text": "And I&#39;ll play the first bit of it."
+    },
+    {
+      "index": 773,
+      "start_time": 1908910.0,
+      "end_time": 1910769.0,
+      "text": "It starts up by just showing some frames."
+    },
+    {
+      "index": 774,
+      "start_time": 1913610.0,
+      "end_time": 1916775.0,
+      "text": "And then we&#39;ll get into a tour of the neighborhood"
+    },
+    {
+      "index": 775,
+      "start_time": 1916780.0,
+      "end_time": 1917530.0,
+      "text": "around the office."
+    },
+    {
+      "index": 776,
+      "start_time": 1922050.0,
+      "end_time": 1923130.0,
+      "text": "And then we go inside."
+    },
+    {
+      "index": 777,
+      "start_time": 1923130.0,
+      "end_time": 1924870.0,
+      "text": "It interviews some employees."
+    },
+    {
+      "index": 778,
+      "start_time": 1924870.0,
+      "end_time": 1926347.0,
+      "text": "I won&#39;t play the whole thing."
+    },
+    {
+      "index": 779,
+      "start_time": 1926350.0,
+      "end_time": 1928433.0,
+      "text": "But we can look at some of the labels it returned."
+    },
+    {
+      "index": 780,
+      "start_time": 1928430.0,
+      "end_time": 1932010.0,
+      "text": "So it&#39;s able to identify this amusement ride, amusement park,"
+    },
+    {
+      "index": 781,
+      "start_time": 1932010.0,
+      "end_time": 1933567.0,
+      "text": "from the beginning."
+    },
+    {
+      "index": 782,
+      "start_time": 1933570.0,
+      "end_time": 1935403.0,
+      "text": "We know there&#39;s a bunch of very short frames"
+    },
+    {
+      "index": 783,
+      "start_time": 1935400.0,
+      "end_time": 1936691.0,
+      "text": "in the beginning of that video."
+    },
+    {
+      "index": 784,
+      "start_time": 1936690.0,
+      "end_time": 1939119.0,
+      "text": "It&#39;s able to see that it&#39;s a statue."
+    },
+    {
+      "index": 785,
+      "start_time": 1939120.0,
+      "end_time": 1941025.0,
+      "text": "If we look at the fruit annotation,"
+    },
+    {
+      "index": 786,
+      "start_time": 1941030.0,
+      "end_time": 1944975.0,
+      "text": "it identifies a basket of fruit in this scene."
+    },
+    {
+      "index": 787,
+      "start_time": 1944970.0,
+      "end_time": 1947720.0,
+      "text": "We can scroll down and look at a couple more labels--"
+    },
+    {
+      "index": 788,
+      "start_time": 1947720.0,
+      "end_time": 1952460.0,
+      "text": "landscaping and cuisine."
+    },
+    {
+      "index": 789,
+      "start_time": 1952460.0,
+      "end_time": 1953870.0,
+      "text": "We see people getting some food."
+    },
+    {
+      "index": 790,
+      "start_time": 1957260.0,
+      "end_time": 1961270.0,
+      "text": "And school-- here it thinks it&#39;s a school inside there."
+    },
+    {
+      "index": 791,
+      "start_time": 1961270.0,
+      "end_time": 1964790.0,
+      "text": "So you can see we&#39;re able to get pretty granular data on what&#39;s"
+    },
+    {
+      "index": 792,
+      "start_time": 1964790.0,
+      "end_time": 1967880.0,
+      "text": "happening in each scene of the video."
+    },
+    {
+      "index": 793,
+      "start_time": 1967880.0,
+      "end_time": 1970490.0,
+      "text": "And another thing the Video Intelligence API lets us do"
+    },
+    {
+      "index": 794,
+      "start_time": 1970490.0,
+      "end_time": 1973400.0,
+      "text": "is search a large video library."
+    },
+    {
+      "index": 795,
+      "start_time": 1973400.0,
+      "end_time": 1975080.0,
+      "text": "So if we&#39;re a media publisher, we&#39;ve"
+    },
+    {
+      "index": 796,
+      "start_time": 1975080.0,
+      "end_time": 1978140.0,
+      "text": "got petabytes of video data sitting in storage buckets."
+    },
+    {
+      "index": 797,
+      "start_time": 1978140.0,
+      "end_time": 1980900.0,
+      "text": "It&#39;s otherwise pretty hard to search a large library"
+    },
+    {
+      "index": 798,
+      "start_time": 1980900.0,
+      "end_time": 1981980.0,
+      "text": "of video content."
+    },
+    {
+      "index": 799,
+      "start_time": 1981980.0,
+      "end_time": 1984230.0,
+      "text": "You&#39;d have to manually watch the videos looking"
+    },
+    {
+      "index": 800,
+      "start_time": 1984230.0,
+      "end_time": 1986480.0,
+      "text": "for a particular clip if you want to create, say,"
+    },
+    {
+      "index": 801,
+      "start_time": 1986480.0,
+      "end_time": 1989510.0,
+      "text": "like a highlight reel of a specific content"
+    },
+    {
+      "index": 802,
+      "start_time": 1989510.0,
+      "end_time": 1991354.0,
+      "text": "within your library."
+    },
+    {
+      "index": 803,
+      "start_time": 1991350.0,
+      "end_time": 1993016.0,
+      "text": "Intelligence API makes this pretty easy,"
+    },
+    {
+      "index": 804,
+      "start_time": 1993020.0,
+      "end_time": 1996740.0,
+      "text": "because as you can see, all the data we get back on this video,"
+    },
+    {
+      "index": 805,
+      "start_time": 1996740.0,
+      "end_time": 1999500.0,
+      "text": "we can get that back on all the videos in our library, which"
+    },
+    {
+      "index": 806,
+      "start_time": 1999500.0,
+      "end_time": 2001910.0,
+      "text": "makes it pretty easy to just search for a specific entity"
+    },
+    {
+      "index": 807,
+      "start_time": 2001910.0,
+      "end_time": 2004870.0,
+      "text": "within our library."
+    },
+    {
+      "index": 808,
+      "start_time": 2004870.0,
+      "end_time": 2006520.0,
+      "text": "So as I showed you in the keynote,"
+    },
+    {
+      "index": 809,
+      "start_time": 2006520.0,
+      "end_time": 2007675.0,
+      "text": "one example is let&#39;s say--"
+    },
+    {
+      "index": 810,
+      "start_time": 2007680.0,
+      "end_time": 2009555.0,
+      "text": "actually, first, let me show you the library."
+    },
+    {
+      "index": 811,
+      "start_time": 2009550.0,
+      "end_time": 2012190.0,
+      "text": "So we&#39;ve got a bunch of videos here, as you can see."
+    },
+    {
+      "index": 812,
+      "start_time": 2012190.0,
+      "end_time": 2016131.0,
+      "text": "And let&#39;s say we&#39;d like to search for all our baseball"
+    },
+    {
+      "index": 813,
+      "start_time": 2016130.0,
+      "end_time": 2016629.0,
+      "text": "videos."
+    },
+    {
+      "index": 814,
+      "start_time": 2020260.0,
+      "end_time": 2024110.0,
+      "text": "We can see what we get back here."
+    },
+    {
+      "index": 815,
+      "start_time": 2024110.0,
+      "end_time": 2028050.0,
+      "text": "And it shows us this video is almost entirely about baseball."
+    },
+    {
+      "index": 816,
+      "start_time": 2028050.0,
+      "end_time": 2029790.0,
+      "text": "This one has fewer baseball clips."
+    },
+    {
+      "index": 817,
+      "start_time": 2029790.0,
+      "end_time": 2033630.0,
+      "text": "And we can point to all of them specifically."
+    },
+    {
+      "index": 818,
+      "start_time": 2033630.0,
+      "end_time": 2038170.0,
+      "text": "And then in this one, we see that moment from the--"
+    },
+    {
+      "index": 819,
+      "start_time": 2038170.0,
+      "end_time": 2038980.0,
+      "text": "not playing."
+    },
+    {
+      "index": 820,
+      "start_time": 2038980.0,
+      "end_time": 2042360.0,
+      "text": "Let me try refreshing the page."
+    },
+    {
+      "index": 821,
+      "start_time": 2042360.0,
+      "end_time": 2042860.0,
+      "text": "There we go."
+    },
+    {
+      "index": 822,
+      "start_time": 2042860.0,
+      "end_time": 2045720.0,
+      "text": "We see that moment from the Year in Search video from last year"
+    },
+    {
+      "index": 823,
+      "start_time": 2045720.0,
+      "end_time": 2047178.0,
+      "text": "when the Cubs won the World Series."
+    },
+    {
+      "index": 824,
+      "start_time": 2047180.0,
+      "end_time": 2050312.0,
+      "text": "I&#39;m from Chicago, so I was pretty excited about that."
+    },
+    {
+      "index": 825,
+      "start_time": 2050310.0,
+      "end_time": 2052488.0,
+      "text": "One more search that I showed you before is we"
+    },
+    {
+      "index": 826,
+      "start_time": 2052489.9999999998,
+      "end_time": 2054405.9999999998,
+      "text": "can find all of the beach clips in our videos."
+    },
+    {
+      "index": 827,
+      "start_time": 2057560.0,
+      "end_time": 2059960.0,
+      "text": "So here, it&#39;s easy to, if we wanted to create a highlight"
+    },
+    {
+      "index": 828,
+      "start_time": 2059960.0,
+      "end_time": 2062096.0,
+      "text": "reel, if we were really missing the beach,"
+    },
+    {
+      "index": 829,
+      "start_time": 2062100.0,
+      "end_time": 2063683.0,
+      "text": "see all the beach clips in our videos."
+    },
+    {
+      "index": 830,
+      "start_time": 2063679.9999999998,
+      "end_time": 2066889.9999999998,
+      "text": "It&#39;d be super easy to do this using the Video Intelligence"
+    },
+    {
+      "index": 831,
+      "start_time": 2066889.9999999998,
+      "end_time": 2069004.9999999998,
+      "text": "API."
+    },
+    {
+      "index": 832,
+      "start_time": 2069000.0,
+      "end_time": 2071166.0,
+      "text": "Now, since most of you saw this demo in the keynote,"
+    },
+    {
+      "index": 833,
+      "start_time": 2071170.0,
+      "end_time": 2074016.0,
+      "text": "I wanted to talk a little bit more about how I built it."
+    },
+    {
+      "index": 834,
+      "start_time": 2074020.0,
+      "end_time": 2075228.0,
+      "text": "So you can go back to slides."
+    },
+    {
+      "index": 835,
+      "start_time": 2079489.9999999998,
+      "end_time": 2081380.9999999998,
+      "text": "It was built by me and Alex Wolfe."
+    },
+    {
+      "index": 836,
+      "start_time": 2081380.0,
+      "end_time": 2083963.0,
+      "text": "If you like the UI, you should give him a shoutout on Twitter,"
+    },
+    {
+      "index": 837,
+      "start_time": 2083960.0,
+      "end_time": 2084977.0,
+      "text": "@alexwolfe."
+    },
+    {
+      "index": 838,
+      "start_time": 2084980.0,
+      "end_time": 2086489.0,
+      "text": "He would appreciate it."
+    },
+    {
+      "index": 839,
+      "start_time": 2086489.9999999998,
+      "end_time": 2087920.9999999998,
+      "text": "So we worked on this together."
+    },
+    {
+      "index": 840,
+      "start_time": 2087920.0,
+      "end_time": 2091409.0,
+      "text": "And this is an architecture diagram of how it works."
+    },
+    {
+      "index": 841,
+      "start_time": 2091409.9999999998,
+      "end_time": 2094299.9999999998,
+      "text": "So the video API processing is being done on the back end."
+    },
+    {
+      "index": 842,
+      "start_time": 2094300.0000000002,
+      "end_time": 2096591.0000000002,
+      "text": "And the way it works is you pass the Video Intelligence"
+    },
+    {
+      "index": 843,
+      "start_time": 2096590.0000000002,
+      "end_time": 2100640.0,
+      "text": "API a Google Cloud Storage URL of your video."
+    },
+    {
+      "index": 844,
+      "start_time": 2100640.0,
+      "end_time": 2102860.0,
+      "text": "And then it&#39;ll run the analysis on that video."
+    },
+    {
+      "index": 845,
+      "start_time": 2102860.0,
+      "end_time": 2105047.0,
+      "text": "So I have a Cloud Storage bucket where"
+    },
+    {
+      "index": 846,
+      "start_time": 2105050.0,
+      "end_time": 2106133.0,
+      "text": "I&#39;m storing all my videos."
+    },
+    {
+      "index": 847,
+      "start_time": 2106130.0,
+      "end_time": 2109550.0,
+      "text": "And I&#39;ve got a cloud function listening on that bucket."
+    },
+    {
+      "index": 848,
+      "start_time": 2109550.0,
+      "end_time": 2111350.0,
+      "text": "And that cloud function will be triggered"
+    },
+    {
+      "index": 849,
+      "start_time": 2111350.0,
+      "end_time": 2113720.0,
+      "text": "anytime a new file is added to the bucket."
+    },
+    {
+      "index": 850,
+      "start_time": 2113720.0,
+      "end_time": 2115069.0,
+      "text": "It will check if it&#39;s a video."
+    },
+    {
+      "index": 851,
+      "start_time": 2115070.0,
+      "end_time": 2117111.0,
+      "text": "If it is, it&#39;ll send it to the Video Intelligence"
+    },
+    {
+      "index": 852,
+      "start_time": 2117110.0,
+      "end_time": 2118892.0,
+      "text": "API for processing."
+    },
+    {
+      "index": 853,
+      "start_time": 2118890.0,
+      "end_time": 2120348.0,
+      "text": "And one cool thing about the API is"
+    },
+    {
+      "index": 854,
+      "start_time": 2120350.0,
+      "end_time": 2123980.0,
+      "text": "you can pass it the output URL of the URL of a file"
+    },
+    {
+      "index": 855,
+      "start_time": 2123980.0,
+      "end_time": 2126260.0,
+      "text": "you&#39;d like it to write the JSON response to"
+    },
+    {
+      "index": 856,
+      "start_time": 2126260.0,
+      "end_time": 2127971.0,
+      "text": "in Google Cloud Storage."
+    },
+    {
+      "index": 857,
+      "start_time": 2127970.0,
+      "end_time": 2129469.0,
+      "text": "So I&#39;ve got a separate cloud storage"
+    },
+    {
+      "index": 858,
+      "start_time": 2129470.0,
+      "end_time": 2132680.0,
+      "text": "bucket where I&#39;m storing all the video annotation JSON"
+    },
+    {
+      "index": 859,
+      "start_time": 2132680.0,
+      "end_time": 2133970.0,
+      "text": "responses."
+    },
+    {
+      "index": 860,
+      "start_time": 2133970.0,
+      "end_time": 2137930.0,
+      "text": "And the API automatically writes all of my video annotations"
+    },
+    {
+      "index": 861,
+      "start_time": 2137930.0,
+      "end_time": 2139154.0,
+      "text": "to that bucket."
+    },
+    {
+      "index": 862,
+      "start_time": 2139150.0,
+      "end_time": 2140566.0,
+      "text": "So the front end of my application"
+    },
+    {
+      "index": 863,
+      "start_time": 2140570.0,
+      "end_time": 2142403.0,
+      "text": "doesn&#39;t have to call the video API directly."
+    },
+    {
+      "index": 864,
+      "start_time": 2142400.0,
+      "end_time": 2145217.0,
+      "text": "It&#39;s already got all that metadata in two separate cloud"
+    },
+    {
+      "index": 865,
+      "start_time": 2145220.0,
+      "end_time": 2146840.0,
+      "text": "storage buckets."
+    },
+    {
+      "index": 866,
+      "start_time": 2146840.0,
+      "end_time": 2148340.0,
+      "text": "And the front end of the application"
+    },
+    {
+      "index": 867,
+      "start_time": 2148340.0,
+      "end_time": 2152810.0,
+      "text": "is a Node.js application built on Google App Engine."
+    },
+    {
+      "index": 868,
+      "start_time": 2152810.0,
+      "end_time": 2154865.0,
+      "text": "That&#39;s a little bit about how the demo works."
+    },
+    {
+      "index": 869,
+      "start_time": 2158530.0,
+      "end_time": 2161000.0,
+      "text": "And this is more granularly what the JSON"
+    },
+    {
+      "index": 870,
+      "start_time": 2161000.0,
+      "end_time": 2163460.0,
+      "text": "response looks like from the Video Intelligence API."
+    },
+    {
+      "index": 871,
+      "start_time": 2163460.0,
+      "end_time": 2166580.0,
+      "text": "So this is a video of a tour of the White House."
+    },
+    {
+      "index": 872,
+      "start_time": 2166580.0,
+      "end_time": 2168590.0,
+      "text": "And at this particular point in time,"
+    },
+    {
+      "index": 873,
+      "start_time": 2168590.0,
+      "end_time": 2171650.0,
+      "text": "it identifies the label &quot;Bird&#39;s-eye view.&quot;"
+    },
+    {
+      "index": 874,
+      "start_time": 2171650.0,
+      "end_time": 2173960.0,
+      "text": "And it&#39;s able to tell us the start time and end"
+    },
+    {
+      "index": 875,
+      "start_time": 2173960.0,
+      "end_time": 2176780.0,
+      "text": "time in microseconds of where that label appears"
+    },
+    {
+      "index": 876,
+      "start_time": 2176780.0,
+      "end_time": 2177400.0,
+      "text": "in the video."
+    },
+    {
+      "index": 877,
+      "start_time": 2177400.0,
+      "end_time": 2181380.0,
+      "text": "And it also returns a confidence score ranging from 0 to 1,"
+    },
+    {
+      "index": 878,
+      "start_time": 2181380.0,
+      "end_time": 2184970.0,
+      "text": "which will tell us how confident is the API that it successfully"
+    },
+    {
+      "index": 879,
+      "start_time": 2184970.0,
+      "end_time": 2186980.0,
+      "text": "identified this as bird&#39;s-eye view."
+    },
+    {
+      "index": 880,
+      "start_time": 2186980.0,
+      "end_time": 2189120.0,
+      "text": "In this case, it is 96%."
+    },
+    {
+      "index": 881,
+      "start_time": 2189120.0,
+      "end_time": 2191600.0,
+      "text": "So it is pretty confident that this is a bird&#39;s-eye view."
+    },
+    {
+      "index": 882,
+      "start_time": 2194180.0,
+      "end_time": 2195950.0,
+      "text": "And then one more snippet of this video,"
+    },
+    {
+      "index": 883,
+      "start_time": 2195950.0,
+      "end_time": 2198230.0,
+      "text": "a portrait of George Washington-- and it&#39;s"
+    },
+    {
+      "index": 884,
+      "start_time": 2198230.0,
+      "end_time": 2201450.0,
+      "text": "able to successfully identify that this is a portrait."
+    },
+    {
+      "index": 885,
+      "start_time": 2201450.0,
+      "end_time": 2202910.0,
+      "text": "It tells us the start time and end"
+    },
+    {
+      "index": 886,
+      "start_time": 2202910.0,
+      "end_time": 2206120.0,
+      "text": "time of where that is in the video, along with a confidence"
+    },
+    {
+      "index": 887,
+      "start_time": 2206120.0,
+      "end_time": 2206840.0,
+      "text": "score--"
+    },
+    {
+      "index": 888,
+      "start_time": 2206840.0,
+      "end_time": 2208430.0,
+      "text": "83%."
+    },
+    {
+      "index": 889,
+      "start_time": 2208430.0,
+      "end_time": 2210320.0,
+      "text": "So just an example of what the JSON looks"
+    },
+    {
+      "index": 890,
+      "start_time": 2210320.0,
+      "end_time": 2212940.0,
+      "text": "like that you get back from the Video Intelligence API."
+    },
+    {
+      "index": 891,
+      "start_time": 2215660.0,
+      "end_time": 2217224.0,
+      "text": "That wraps up my tour of the APIs."
+    },
+    {
+      "index": 892,
+      "start_time": 2217220.0,
+      "end_time": 2219136.0,
+      "text": "And if you all want to start using them today,"
+    },
+    {
+      "index": 893,
+      "start_time": 2219140.0,
+      "end_time": 2222000.0,
+      "text": "you can go to the try-it pages."
+    },
+    {
+      "index": 894,
+      "start_time": 2222000.0,
+      "end_time": 2224210.0,
+      "text": "So for each of the API product pages,"
+    },
+    {
+      "index": 895,
+      "start_time": 2224210.0,
+      "end_time": 2226100.0,
+      "text": "as I showed you with Vision, there&#39;s"
+    },
+    {
+      "index": 896,
+      "start_time": 2226100.0,
+      "end_time": 2229160.0,
+      "text": "an in-browser demo where you can try out all the APIs directly"
+    },
+    {
+      "index": 897,
+      "start_time": 2229160.0,
+      "end_time": 2231320.0,
+      "text": "in the browser before writing any code"
+    },
+    {
+      "index": 898,
+      "start_time": 2231320.0,
+      "end_time": 2234030.0,
+      "text": "to see if it&#39;s right for you and your application."
+    },
+    {
+      "index": 899,
+      "start_time": 2234030.0,
+      "end_time": 2236030.0,
+      "text": "So I definitely recommend checking that out."
+    },
+    {
+      "index": 900,
+      "start_time": 2236030.0,
+      "end_time": 2239450.0,
+      "text": "I&#39;ll let you guys take a picture of that page before I switch."
+    },
+    {
+      "index": 901,
+      "start_time": 2244710.0,
+      "end_time": 2251122.0,
+      "text": "OK, it looks like almost everyone has got it."
+    },
+    {
+      "index": 902,
+      "start_time": 2251120.0,
+      "end_time": 2253550.0,
+      "text": "Some other talks that I recommend that are"
+    },
+    {
+      "index": 903,
+      "start_time": 2253550.0,
+      "end_time": 2255050.0,
+      "text": "related to machine learning--"
+    },
+    {
+      "index": 904,
+      "start_time": 2255050.0,
+      "end_time": 2256850.0,
+      "text": "BigQuery and Cloud Machine Learning Engine"
+    },
+    {
+      "index": 905,
+      "start_time": 2256850.0,
+      "end_time": 2258680.0,
+      "text": "was a talk that was yesterday."
+    },
+    {
+      "index": 906,
+      "start_time": 2258680.0,
+      "end_time": 2260990.0,
+      "text": "All the videos from yesterday have already been posted."
+    },
+    {
+      "index": 907,
+      "start_time": 2260990.0,
+      "end_time": 2263614.0,
+      "text": "So if there&#39;s any talks that you wanted to see that you missed,"
+    },
+    {
+      "index": 908,
+      "start_time": 2263610.0,
+      "end_time": 2265436.0,
+      "text": "you can go watch them on YouTube."
+    },
+    {
+      "index": 909,
+      "start_time": 2265440.0,
+      "end_time": 2267770.0,
+      "text": "Another talk, Introduction to Video Intelligence--"
+    },
+    {
+      "index": 910,
+      "start_time": 2267770.0,
+      "end_time": 2269686.0,
+      "text": "so if you want to see a deep-dive on the Video"
+    },
+    {
+      "index": 911,
+      "start_time": 2269690.0,
+      "end_time": 2271614.0,
+      "text": "Intelligence API, [INAUDIBLE], who&#39;s"
+    },
+    {
+      "index": 912,
+      "start_time": 2271610.0,
+      "end_time": 2274130.0,
+      "text": "the product manager on that, is going to be giving that talk"
+    },
+    {
+      "index": 913,
+      "start_time": 2274130.0,
+      "end_time": 2275390.0,
+      "text": "today at 4:00 PM."
+    },
+    {
+      "index": 914,
+      "start_time": 2275390.0,
+      "end_time": 2277700.0,
+      "text": "Highly recommend checking that talk out."
+    },
+    {
+      "index": 915,
+      "start_time": 2277700.0,
+      "end_time": 2280340.0,
+      "text": "And then if you&#39;re more interested in the side"
+    },
+    {
+      "index": 916,
+      "start_time": 2280340.0,
+      "end_time": 2283180.0,
+      "text": "of building and training your own machine learning model,"
+    },
+    {
+      "index": 917,
+      "start_time": 2283180.0,
+      "end_time": 2285380.0,
+      "text": "there&#39;s a session tomorrow at 11:20"
+    },
+    {
+      "index": 918,
+      "start_time": 2285380.0,
+      "end_time": 2287825.0,
+      "text": "on the lifecycle of a machine learning model."
+    },
+    {
+      "index": 919,
+      "start_time": 2287820.0,
+      "end_time": 2289785.0,
+      "text": "I definitely recommend checking out all three"
+    },
+    {
+      "index": 920,
+      "start_time": 2289790.0,
+      "end_time": 2290540.0,
+      "text": "of these sessions."
+    },
+    {
+      "index": 921,
+      "start_time": 2290540.0,
+      "end_time": 2292206.0,
+      "text": "And if you can&#39;t make it, you can always"
+    },
+    {
+      "index": 922,
+      "start_time": 2292210.0,
+      "end_time": 2294214.0,
+      "text": "watch the videos on YouTube after the session."
+    },
+    {
+      "index": 923,
+      "start_time": 2296770.0,
+      "end_time": 2297311.0,
+      "text": "So thank you."
+    },
+    {
+      "index": 924,
+      "start_time": 2297310.0,
+      "end_time": 2298300.0,
+      "text": "That&#39;s all I&#39;ve got."
+    },
+    {
+      "index": 925,
+      "start_time": 2298300.0,
+      "end_time": 2301650.0,
+      "text": "[APPLAUSE]"
+    }
+  ]
+}

@@ -1,0 +1,744 @@
+{
+  "video_id": "J_d4bEKUG2Q",
+  "title": "Distributed Training in the Cloud",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 1666.0,
+      "text": "YUFENG GUO: In this thrilling conclusion"
+    },
+    {
+      "index": 2,
+      "start_time": 1666.0,
+      "end_time": 4320.0,
+      "text": "to our video on training big models in the cloud,"
+    },
+    {
+      "index": 3,
+      "start_time": 4320.0,
+      "end_time": 7274.0,
+      "text": "I&#39;ll help you scale your compute power from machine learning."
+    },
+    {
+      "index": 4,
+      "start_time": 7274.0,
+      "end_time": 8940.0,
+      "text": "Will our training have enough resources?"
+    },
+    {
+      "index": 5,
+      "start_time": 8940.0,
+      "end_time": 10530.0,
+      "text": "Stay tuned to find out."
+    },
+    {
+      "index": 6,
+      "start_time": 10530.0,
+      "end_time": 12180.0,
+      "text": "In our previous episode, we talked"
+    },
+    {
+      "index": 7,
+      "start_time": 12180.0,
+      "end_time": 14580.0,
+      "text": "about the problems that are encountered when your data is"
+    },
+    {
+      "index": 8,
+      "start_time": 14580.0,
+      "end_time": 16890.0,
+      "text": "too big to fit on your local machine,"
+    },
+    {
+      "index": 9,
+      "start_time": 16890.0,
+      "end_time": 19830.0,
+      "text": "and we discussed how we can move that data off onto the cloud"
+    },
+    {
+      "index": 10,
+      "start_time": 19830.0,
+      "end_time": 21509.0,
+      "text": "to have scalable storage."
+    },
+    {
+      "index": 11,
+      "start_time": 21510.0,
+      "end_time": 24900.0,
+      "text": "Today, we move on to the second half of that problem--"
+    },
+    {
+      "index": 12,
+      "start_time": 24900.0,
+      "end_time": 26759.0,
+      "text": "getting those compute resources wrangled together."
+    },
+    {
+      "index": 13,
+      "start_time": 26760.0,
+      "end_time": 29100.0,
+      "text": "When training larger models, the current approach"
+    },
+    {
+      "index": 14,
+      "start_time": 29100.0,
+      "end_time": 31770.0,
+      "text": "involves doing training in parallel."
+    },
+    {
+      "index": 15,
+      "start_time": 31770.0,
+      "end_time": 34410.0,
+      "text": "What this means is that our data gets split up and sent"
+    },
+    {
+      "index": 16,
+      "start_time": 34410.0,
+      "end_time": 36720.0,
+      "text": "to many worker machines, And then the model must"
+    },
+    {
+      "index": 17,
+      "start_time": 36720.0,
+      "end_time": 38280.0,
+      "text": "put the information in signals it&#39;s"
+    },
+    {
+      "index": 18,
+      "start_time": 38280.0,
+      "end_time": 42180.0,
+      "text": "getting back together to create the fully trained model."
+    },
+    {
+      "index": 19,
+      "start_time": 42180.0,
+      "end_time": 44400.0,
+      "text": "Now, you could spin up some virtual machines"
+    },
+    {
+      "index": 20,
+      "start_time": 44400.0,
+      "end_time": 45900.0,
+      "text": "and install the network libraries,"
+    },
+    {
+      "index": 21,
+      "start_time": 45900.0,
+      "end_time": 47610.0,
+      "text": "network them together, configure them"
+    },
+    {
+      "index": 22,
+      "start_time": 47610.0,
+      "end_time": 49440.0,
+      "text": "to run distributed machine learning,"
+    },
+    {
+      "index": 23,
+      "start_time": 49440.0,
+      "end_time": 50940.0,
+      "text": "and then when you finish, you&#39;d want"
+    },
+    {
+      "index": 24,
+      "start_time": 50940.0,
+      "end_time": 52650.0,
+      "text": "to take down those machines."
+    },
+    {
+      "index": 25,
+      "start_time": 52650.0,
+      "end_time": 54132.0,
+      "text": "While this may seem easy to some,"
+    },
+    {
+      "index": 26,
+      "start_time": 54132.0,
+      "end_time": 55589.0,
+      "text": "it can be a challenge if you&#39;re not"
+    },
+    {
+      "index": 27,
+      "start_time": 55590.0,
+      "end_time": 58440.0,
+      "text": "familiar with things like installing GBU drivers"
+    },
+    {
+      "index": 28,
+      "start_time": 58440.0,
+      "end_time": 60809.0,
+      "text": "and debugging compatibility problems"
+    },
+    {
+      "index": 29,
+      "start_time": 60810.0,
+      "end_time": 63690.0,
+      "text": "between different versions of the underlying libraries."
+    },
+    {
+      "index": 30,
+      "start_time": 63690.0,
+      "end_time": 66600.0,
+      "text": "So today we&#39;ll use Cloud Machine Learning Engine&#39;s training"
+    },
+    {
+      "index": 31,
+      "start_time": 66600.0,
+      "end_time": 68970.0,
+      "text": "functionality to go from Python code"
+    },
+    {
+      "index": 32,
+      "start_time": 68970.0,
+      "end_time": 72650.0,
+      "text": "to train model with no infrastructure work needed."
+    },
+    {
+      "index": 33,
+      "start_time": 72650.0,
+      "end_time": 74730.0,
+      "text": "The service automatically acquires and configures"
+    },
+    {
+      "index": 34,
+      "start_time": 74730.0,
+      "end_time": 76860.0,
+      "text": "resources as needed and shuts them down"
+    },
+    {
+      "index": 35,
+      "start_time": 76860.0,
+      "end_time": 78850.0,
+      "text": "when it&#39;s done training."
+    },
+    {
+      "index": 36,
+      "start_time": 78850.0,
+      "end_time": 81280.0,
+      "text": "There are three main steps to using Cloud Machine Learning"
+    },
+    {
+      "index": 37,
+      "start_time": 81280.0,
+      "end_time": 82000.0,
+      "text": "Engine--"
+    },
+    {
+      "index": 38,
+      "start_time": 82000.0,
+      "end_time": 84952.0,
+      "text": "packaging your Python code, creating a configuration file"
+    },
+    {
+      "index": 39,
+      "start_time": 84952.0,
+      "end_time": 86410.0,
+      "text": "that describes the kind of machines"
+    },
+    {
+      "index": 40,
+      "start_time": 86410.0,
+      "end_time": 89530.0,
+      "text": "you want, and submitting your training job to the cloud."
+    },
+    {
+      "index": 41,
+      "start_time": 89530.0,
+      "end_time": 91300.0,
+      "text": "Let&#39;s see how to set up our training"
+    },
+    {
+      "index": 42,
+      "start_time": 91300.0,
+      "end_time": 93750.0,
+      "text": "to take advantage of this service."
+    },
+    {
+      "index": 43,
+      "start_time": 93750.0,
+      "end_time": 96600.0,
+      "text": "We&#39;ve moved our Python code from our Jupyter notebook"
+    },
+    {
+      "index": 44,
+      "start_time": 96600.0,
+      "end_time": 98100.0,
+      "text": "out into a separate script on its own."
+    },
+    {
+      "index": 45,
+      "start_time": 98100.0,
+      "end_time": 100470.0,
+      "text": "Let&#39;s call that file task.py."
+    },
+    {
+      "index": 46,
+      "start_time": 100470.0,
+      "end_time": 103470.0,
+      "text": "This is going to act as our Python module, which will"
+    },
+    {
+      "index": 47,
+      "start_time": 103470.0,
+      "end_time": 105330.0,
+      "text": "be called from other files."
+    },
+    {
+      "index": 48,
+      "start_time": 105330.0,
+      "end_time": 109170.0,
+      "text": "Now, we want to wrap task.py inside a Python package."
+    },
+    {
+      "index": 49,
+      "start_time": 109170.0,
+      "end_time": 112170.0,
+      "text": "Python packages are made by placing the module"
+    },
+    {
+      "index": 50,
+      "start_time": 112170.0,
+      "end_time": 113580.0,
+      "text": "inside another folder--"
+    },
+    {
+      "index": 51,
+      "start_time": 113580.0,
+      "end_time": 114810.0,
+      "text": "let&#39;s call it trainer--"
+    },
+    {
+      "index": 52,
+      "start_time": 114810.0,
+      "end_time": 121645.0,
+      "text": "and placing an empty file, __init__.py, alongside test.py."
+    },
+    {
+      "index": 53,
+      "start_time": 121645.0,
+      "end_time": 124200.0,
+      "text": "So our final file structure is made up of a folder called"
+    },
+    {
+      "index": 54,
+      "start_time": 124200.0,
+      "end_time": 128800.0,
+      "text": "trainer containing two files, the __init__py and the task.py"
+    },
+    {
+      "index": 55,
+      "start_time": 128800.00000000001,
+      "end_time": 129890.00000000001,
+      "text": "files."
+    },
+    {
+      "index": 56,
+      "start_time": 129900.0,
+      "end_time": 131130.0,
+      "text": "While our package is called trainer"
+    },
+    {
+      "index": 57,
+      "start_time": 131130.0,
+      "end_time": 134130.0,
+      "text": "our module path is trainer.task."
+    },
+    {
+      "index": 58,
+      "start_time": 134130.0,
+      "end_time": 137120.0,
+      "text": "If you wanted to break out the code into more components,"
+    },
+    {
+      "index": 59,
+      "start_time": 137120.0,
+      "end_time": 138970.0,
+      "text": "you would include those in this folder as well."
+    },
+    {
+      "index": 60,
+      "start_time": 138970.0,
+      "end_time": 141470.0,
+      "text": "For example, you might have, say, a util.py"
+    },
+    {
+      "index": 61,
+      "start_time": 141470.0,
+      "end_time": 143370.0,
+      "text": "in the trainer folder."
+    },
+    {
+      "index": 62,
+      "start_time": 143370.0,
+      "end_time": 145220.0,
+      "text": "Once our code is packaged up, it&#39;s time"
+    },
+    {
+      "index": 63,
+      "start_time": 145220.0,
+      "end_time": 147980.0,
+      "text": "to create a configuration file to specify what machines"
+    },
+    {
+      "index": 64,
+      "start_time": 147980.0,
+      "end_time": 149420.0,
+      "text": "you want running your training."
+    },
+    {
+      "index": 65,
+      "start_time": 149420.0,
+      "end_time": 150878.0,
+      "text": "You can choose to run your training"
+    },
+    {
+      "index": 66,
+      "start_time": 150878.0,
+      "end_time": 153290.0,
+      "text": "with just a small number of machines, as few as one"
+    },
+    {
+      "index": 67,
+      "start_time": 153290.0,
+      "end_time": 156390.0,
+      "text": "or, many machines with GPUs attached to them."
+    },
+    {
+      "index": 68,
+      "start_time": 156390.0,
+      "end_time": 158750.0,
+      "text": "There are a few predefined specifications, which"
+    },
+    {
+      "index": 69,
+      "start_time": 158750.0,
+      "end_time": 160290.0,
+      "text": "make it easy to get started."
+    },
+    {
+      "index": 70,
+      "start_time": 160290.0,
+      "end_time": 161840.0,
+      "text": "And once you grow out of those, you"
+    },
+    {
+      "index": 71,
+      "start_time": 161840.0,
+      "end_time": 163340.0,
+      "text": "can configure a custom architecture"
+    },
+    {
+      "index": 72,
+      "start_time": 163340.0,
+      "end_time": 165310.0,
+      "text": "to your heart&#39;s content."
+    },
+    {
+      "index": 73,
+      "start_time": 165310.0,
+      "end_time": 166980.0,
+      "text": "We&#39;ve got our Python code packaged up,"
+    },
+    {
+      "index": 74,
+      "start_time": 166980.0,
+      "end_time": 169750.0,
+      "text": "and we have our configuration file written out."
+    },
+    {
+      "index": 75,
+      "start_time": 169750.0,
+      "end_time": 172260.0,
+      "text": "So let&#39;s move on to the step you&#39;ve all been waiting for,"
+    },
+    {
+      "index": 76,
+      "start_time": 172260.0,
+      "end_time": 173429.0,
+      "text": "the training."
+    },
+    {
+      "index": 77,
+      "start_time": 173430.0,
+      "end_time": 175980.0,
+      "text": "To submit a training job, we&#39;ll use the gcloud command line"
+    },
+    {
+      "index": 78,
+      "start_time": 175980.0,
+      "end_time": 179760.0,
+      "text": "tool and run gcloud ml-engine jobs submit training."
+    },
+    {
+      "index": 79,
+      "start_time": 179760.0,
+      "end_time": 182519.0,
+      "text": "There is also an equivalent REST API call."
+    },
+    {
+      "index": 80,
+      "start_time": 182520.0,
+      "end_time": 185490.0,
+      "text": "We specify a unique job name, the package path and module"
+    },
+    {
+      "index": 81,
+      "start_time": 185490.0,
+      "end_time": 187980.0,
+      "text": "name, the region for your job to run in,"
+    },
+    {
+      "index": 82,
+      "start_time": 187980.0,
+      "end_time": 189780.0,
+      "text": "and a cloud storage directory to place"
+    },
+    {
+      "index": 83,
+      "start_time": 189780.0,
+      "end_time": 191250.0,
+      "text": "the outputs of your training."
+    },
+    {
+      "index": 84,
+      "start_time": 191250.0,
+      "end_time": 193830.0,
+      "text": "Be sure to use the same region as where your data is stored"
+    },
+    {
+      "index": 85,
+      "start_time": 193830.0,
+      "end_time": 195750.0,
+      "text": "to get optimal performance."
+    },
+    {
+      "index": 86,
+      "start_time": 195750.0,
+      "end_time": 197700.0,
+      "text": "Once you run this command, your Python package"
+    },
+    {
+      "index": 87,
+      "start_time": 197700.0,
+      "end_time": 200510.0,
+      "text": "is going to get zipped up and uploaded to the directory we"
+    },
+    {
+      "index": 88,
+      "start_time": 200510.0,
+      "end_time": 201480.0,
+      "text": "just specified."
+    },
+    {
+      "index": 89,
+      "start_time": 201480.0,
+      "end_time": 203130.0,
+      "text": "From there, the package will be run"
+    },
+    {
+      "index": 90,
+      "start_time": 203130.0,
+      "end_time": 204990.0,
+      "text": "in the cloud on the machines that we"
+    },
+    {
+      "index": 91,
+      "start_time": 204990.0,
+      "end_time": 207460.0,
+      "text": "specified in the configuration."
+    },
+    {
+      "index": 92,
+      "start_time": 207460.0,
+      "end_time": 209910.0,
+      "text": "You can monitor your training job in the Cloud Console"
+    },
+    {
+      "index": 93,
+      "start_time": 209910.0,
+      "end_time": 212430.0,
+      "text": "by going to ML Engine and selecting Jobs."
+    },
+    {
+      "index": 94,
+      "start_time": 212430.0,
+      "end_time": 215470.0,
+      "text": "There, we will see a list of all the jobs we&#39;ve ever run,"
+    },
+    {
+      "index": 95,
+      "start_time": 215470.0,
+      "end_time": 217300.0,
+      "text": "including the current job."
+    },
+    {
+      "index": 96,
+      "start_time": 217300.0,
+      "end_time": 220230.0,
+      "text": "You can also see a timer on how much time the job has taken"
+    },
+    {
+      "index": 97,
+      "start_time": 220230.0,
+      "end_time": 222420.0,
+      "text": "so far and a link to the logs that"
+    },
+    {
+      "index": 98,
+      "start_time": 222420.0,
+      "end_time": 224709.0,
+      "text": "are coming out of the model."
+    },
+    {
+      "index": 99,
+      "start_time": 224710.0,
+      "end_time": 227850.0,
+      "text": "Our code exports the training model to our cloud storage path"
+    },
+    {
+      "index": 100,
+      "start_time": 227850.0,
+      "end_time": 229829.0,
+      "text": "that we have provided in the job directory."
+    },
+    {
+      "index": 101,
+      "start_time": 229830.0,
+      "end_time": 232290.0,
+      "text": "So from here, we can easily point to prediction service"
+    },
+    {
+      "index": 102,
+      "start_time": 232290.0,
+      "end_time": 234900.0,
+      "text": "directly at the outputs and create a prediction service,"
+    },
+    {
+      "index": 103,
+      "start_time": 234900.0,
+      "end_time": 237780.0,
+      "text": "as we learned about Episode 4, Serverless Predictions"
+    },
+    {
+      "index": 104,
+      "start_time": 237780.0,
+      "end_time": 239700.0,
+      "text": "at Scale."
+    },
+    {
+      "index": 105,
+      "start_time": 239700.0,
+      "end_time": 240630.0,
+      "text": "Using Cloud Machine Learning Engine,"
+    },
+    {
+      "index": 106,
+      "start_time": 240630.0,
+      "end_time": 242370.0,
+      "text": "we can achieve distributed training"
+    },
+    {
+      "index": 107,
+      "start_time": 242370.0,
+      "end_time": 244770.0,
+      "text": "without dealing with infrastructure ourselves."
+    },
+    {
+      "index": 108,
+      "start_time": 244770.0,
+      "end_time": 247710.0,
+      "text": "As a result, we can spend more time with our data."
+    },
+    {
+      "index": 109,
+      "start_time": 247710.0,
+      "end_time": 250890.0,
+      "text": "Simply package up the code, add that configuration file,"
+    },
+    {
+      "index": 110,
+      "start_time": 250890.0,
+      "end_time": 252660.0,
+      "text": "and submit the training job."
+    },
+    {
+      "index": 111,
+      "start_time": 252661.0,
+      "end_time": 254160.0,
+      "text": "If you want the nitty gritty details"
+    },
+    {
+      "index": 112,
+      "start_time": 254160.0,
+      "end_time": 256469.0,
+      "text": "on TensorFlow&#39;s distributed training model"
+    },
+    {
+      "index": 113,
+      "start_time": 256470.00000000003,
+      "end_time": 259470.00000000003,
+      "text": "check out this in-depth talk from the TensorFlow Dev Center."
+    },
+    {
+      "index": 114,
+      "start_time": 259470.00000000003,
+      "end_time": 262170.0,
+      "text": "But for now, remember, spend less time building"
+    },
+    {
+      "index": 115,
+      "start_time": 262170.0,
+      "end_time": 265760.0,
+      "text": "distributed systems and more time with your data"
+    },
+    {
+      "index": 116,
+      "start_time": 265760.0,
+      "end_time": 268776.0,
+      "text": "by training your model using Cloud Machine Learning Engine."
+    },
+    {
+      "index": 117,
+      "start_time": 268776.0,
+      "end_time": 272130.0,
+      "text": "I&#39;m Yufeng Guo, and thanks for watching this episode of Cloud"
+    },
+    {
+      "index": 118,
+      "start_time": 272130.0,
+      "end_time": 273390.0,
+      "text": "AI Adventures."
+    },
+    {
+      "index": 119,
+      "start_time": 273390.0,
+      "end_time": 275950.0,
+      "text": "If you enjoyed it, please go ahead and hit that like button."
+    },
+    {
+      "index": 120,
+      "start_time": 275950.0,
+      "end_time": 277560.0,
+      "text": "And for more machine learning action,"
+    },
+    {
+      "index": 121,
+      "start_time": 277560.0,
+      "end_time": 279600.0,
+      "text": "be sure to subscribe to the channel"
+    },
+    {
+      "index": 122,
+      "start_time": 279600.0,
+      "end_time": 281280.0,
+      "text": "to catch future episodes right when they come out."
+    },
+    {
+      "index": 123,
+      "start_time": 281280.0,
+      "end_time": 283429.0,
+      "text": "[MUSIC PLAYING]"
+    }
+  ]
+}

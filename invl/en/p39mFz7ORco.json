@@ -1,0 +1,1782 @@
+{
+  "video_id": "p39mFz7ORco",
+  "title": "10Gb Home Network (P3) - Build A Switch",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 1170.0,
+      "end_time": 3420.0,
+      "text": "Welcome back my fellow 10Gb fanatics."
+    },
+    {
+      "index": 2,
+      "start_time": 3420.0,
+      "end_time": 8130.0,
+      "text": "So you made it all the way to part 3 in our 10Gb Home Area Network Series."
+    },
+    {
+      "index": 3,
+      "start_time": 8130.000000000001,
+      "end_time": 12130.0,
+      "text": "As promised, we are going to overcome the obstacles and expense of networking more than"
+    },
+    {
+      "index": 4,
+      "start_time": 12130.0,
+      "end_time": 17330.0,
+      "text": "two systems using a custom built 10Gb switching solution."
+    },
+    {
+      "index": 5,
+      "start_time": 17330.0,
+      "end_time": 22330.0,
+      "text": "If you missed part 1 or part 2 of our 10Gb Home Area Network Series, make sure you go"
+    },
+    {
+      "index": 6,
+      "start_time": 22330.0,
+      "end_time": 24580.0,
+      "text": "back and watch those videos first."
+    },
+    {
+      "index": 7,
+      "start_time": 24580.0,
+      "end_time": 28810.0,
+      "text": "Part 3 builds off concepts explained in the first and second videos."
+    },
+    {
+      "index": 8,
+      "start_time": 28810.0,
+      "end_time": 31970.0,
+      "text": "Follow the embedded links now to watch those videos first."
+    },
+    {
+      "index": 9,
+      "start_time": 31970.0,
+      "end_time": 35280.0,
+      "text": "Otherwise, it&#39;s time to build a bad-ass 10Gb switch."
+    },
+    {
+      "index": 10,
+      "start_time": 35280.0,
+      "end_time": 40510.0,
+      "text": "Here is a brief overview of what we are going to cover in this video."
+    },
+    {
+      "index": 11,
+      "start_time": 40510.0,
+      "end_time": 42790.0,
+      "text": "Why build a 10Gb switch?"
+    },
+    {
+      "index": 12,
+      "start_time": 42790.0,
+      "end_time": 46340.0,
+      "text": "Number one, a custom built switch allows you to meet a specific requirement."
+    },
+    {
+      "index": 13,
+      "start_time": 46340.0,
+      "end_time": 51550.0,
+      "text": "If you are only connecting three systems together, then why pay for an expensive 8 port vendor"
+    },
+    {
+      "index": 14,
+      "start_time": 51550.0,
+      "end_time": 52619.0,
+      "text": "switch?"
+    },
+    {
+      "index": 15,
+      "start_time": 52619.0,
+      "end_time": 56630.0,
+      "text": "Number two, you can achieve an excellent level of customization."
+    },
+    {
+      "index": 16,
+      "start_time": 56630.0,
+      "end_time": 62000.0,
+      "text": "This solution employs an advanced feature set that you can leverage, if you choose to."
+    },
+    {
+      "index": 17,
+      "start_time": 62000.0,
+      "end_time": 66100.0,
+      "text": "Lastly, for some it just comes down to cash flow."
+    },
+    {
+      "index": 18,
+      "start_time": 66100.0,
+      "end_time": 69890.0,
+      "text": "A custom solution allows you to control your costs better."
+    },
+    {
+      "index": 19,
+      "start_time": 69890.0,
+      "end_time": 73119.0,
+      "text": "Now, the part everyone has been waiting for."
+    },
+    {
+      "index": 20,
+      "start_time": 73119.0,
+      "end_time": 76440.0,
+      "text": "How in the world do you build a custom 10Gb switch?"
+    },
+    {
+      "index": 21,
+      "start_time": 76440.0,
+      "end_time": 79350.0,
+      "text": "Well for starters, you have to build a bridge."
+    },
+    {
+      "index": 22,
+      "start_time": 79350.0,
+      "end_time": 84020.0,
+      "text": "According to Wikipedia, a network switch is officially known as a MAC Bridge."
+    },
+    {
+      "index": 23,
+      "start_time": 84020.0,
+      "end_time": 89140.0,
+      "text": "A switch is a multiport network bridge that uses hardware addresses to process and forward"
+    },
+    {
+      "index": 24,
+      "start_time": 89140.0,
+      "end_time": 94140.0,
+      "text": "data at the data link layer (layer 2) of the OSI model."
+    },
+    {
+      "index": 25,
+      "start_time": 94140.0,
+      "end_time": 98820.0,
+      "text": "So to summarize, a switch is a bridge is a switch."
+    },
+    {
+      "index": 26,
+      "start_time": 98820.0,
+      "end_time": 105900.0,
+      "text": "So, the plan is to combine multiple Network Interface Cards (NICs) into a reasonable platform,"
+    },
+    {
+      "index": 27,
+      "start_time": 105900.0,
+      "end_time": 110860.0,
+      "text": "load an optimized network operating system, and finally, tie multiple ports together using"
+    },
+    {
+      "index": 28,
+      "start_time": 110860.0,
+      "end_time": 112829.0,
+      "text": "interface bridging."
+    },
+    {
+      "index": 29,
+      "start_time": 112829.0,
+      "end_time": 115710.0,
+      "text": "So those of you that guessed bridging, you were correct!"
+    },
+    {
+      "index": 30,
+      "start_time": 115710.0,
+      "end_time": 117250.0,
+      "text": "Gold star for you!"
+    },
+    {
+      "index": 31,
+      "start_time": 117250.0,
+      "end_time": 122950.0,
+      "text": "The end result is a customizable 10Gb switching, and routing, platform that allows for media"
+    },
+    {
+      "index": 32,
+      "start_time": 122950.0,
+      "end_time": 123950.0,
+      "text": "conversion."
+    },
+    {
+      "index": 33,
+      "start_time": 123950.0,
+      "end_time": 130470.0,
+      "text": "In other words, you can throw together a dual port 10Gb SFP+ card, a quad port 1Gb copper"
+    },
+    {
+      "index": 34,
+      "start_time": 130470.0,
+      "end_time": 132590.0,
+      "text": "card, and a fiber card."
+    },
+    {
+      "index": 35,
+      "start_time": 132590.0,
+      "end_time": 136010.0,
+      "text": "Bridge the ports, and you have just built a media converter."
+    },
+    {
+      "index": 36,
+      "start_time": 136010.0,
+      "end_time": 138720.0,
+      "text": "Now, are you starting to see the possibilities?"
+    },
+    {
+      "index": 37,
+      "start_time": 138720.0,
+      "end_time": 142730.0,
+      "text": "There are some pretty interesting things you can do with this type of flexibility."
+    },
+    {
+      "index": 38,
+      "start_time": 142730.0,
+      "end_time": 147200.0,
+      "text": "I&#39;ll cover a few scenarios in an upcoming section."
+    },
+    {
+      "index": 39,
+      "start_time": 147200.0,
+      "end_time": 148500.0,
+      "text": "First things first!"
+    },
+    {
+      "index": 40,
+      "start_time": 148500.0,
+      "end_time": 150080.0,
+      "text": "Let&#39;s talk hardware."
+    },
+    {
+      "index": 41,
+      "start_time": 150080.0,
+      "end_time": 153200.0,
+      "text": "You can do this with a PC or server."
+    },
+    {
+      "index": 42,
+      "start_time": 153200.0,
+      "end_time": 157060.0,
+      "text": "Just like with anything else, your mileage will vary depending on what you use."
+    },
+    {
+      "index": 43,
+      "start_time": 157060.0,
+      "end_time": 159500.0,
+      "text": "See the video description for my setup."
+    },
+    {
+      "index": 44,
+      "start_time": 159500.0,
+      "end_time": 166040.0,
+      "text": "You will need a system with at least two PCIe x8 slots for a 10Gb - 4 Port switch."
+    },
+    {
+      "index": 45,
+      "start_time": 166040.0,
+      "end_time": 170439.0,
+      "text": "Your switch will be limited by the number of PCIe slots that you have, and cards you"
+    },
+    {
+      "index": 46,
+      "start_time": 170439.0,
+      "end_time": 171439.0,
+      "text": "use."
+    },
+    {
+      "index": 47,
+      "start_time": 171439.0,
+      "end_time": 174040.0,
+      "text": "Don&#39;t forget about your embedded network ports too."
+    },
+    {
+      "index": 48,
+      "start_time": 174040.0,
+      "end_time": 178470.0,
+      "text": "When it comes to the hardware, focus on a motherboard with plenty of bus bandwidth,"
+    },
+    {
+      "index": 49,
+      "start_time": 178470.0,
+      "end_time": 184799.0,
+      "text": "maximum PCIe slots (x8 for 10Gb dual cards), and a decent multi-core processor to reduce"
+    },
+    {
+      "index": 50,
+      "start_time": 184799.0,
+      "end_time": 188230.0,
+      "text": "CPU loads and increase parallel bandwidth."
+    },
+    {
+      "index": 51,
+      "start_time": 188230.0,
+      "end_time": 195440.0,
+      "text": "With the introduction of technologies like DMA, I/OAT, DCA, and NAPI, PC hardware is"
+    },
+    {
+      "index": 52,
+      "start_time": 195440.0,
+      "end_time": 200939.0,
+      "text": "achieving line rate network speeds formally only seen in datacenters on enterprise switches."
+    },
+    {
+      "index": 53,
+      "start_time": 200939.0,
+      "end_time": 205470.0,
+      "text": "Software Defined Networking (SDN) is a prime example of this concept already in play."
+    },
+    {
+      "index": 54,
+      "start_time": 205470.0,
+      "end_time": 209500.0,
+      "text": "For home users, you don&#39;t need a heavy-handed solution."
+    },
+    {
+      "index": 55,
+      "start_time": 209500.0,
+      "end_time": 215140.0,
+      "text": "On the other end of the spectrum, aiming for maximum performance, go with a Xeon (E3 or"
+    },
+    {
+      "index": 56,
+      "start_time": 215140.0,
+      "end_time": 220800.0,
+      "text": "better) and I/OAT-enabled motherboard when planning for port density."
+    },
+    {
+      "index": 57,
+      "start_time": 220800.0,
+      "end_time": 227370.0,
+      "text": "Now for the most critical component in this entire setup, the network operating system."
+    },
+    {
+      "index": 58,
+      "start_time": 227370.0,
+      "end_time": 230159.0,
+      "text": "And the winner is, VyOS!"
+    },
+    {
+      "index": 59,
+      "start_time": 230159.0,
+      "end_time": 231549.0,
+      "text": "What is VyOS?"
+    },
+    {
+      "index": 60,
+      "start_time": 231549.0,
+      "end_time": 232549.0,
+      "text": "Why VyOS?"
+    },
+    {
+      "index": 61,
+      "start_time": 232549.0,
+      "end_time": 234209.0,
+      "text": "Okay, I&#39;m getting there."
+    },
+    {
+      "index": 62,
+      "start_time": 234209.0,
+      "end_time": 240180.0,
+      "text": "VyOS was originally developed by Brocade Communications and known as Vyatta."
+    },
+    {
+      "index": 63,
+      "start_time": 240180.0,
+      "end_time": 242650.0,
+      "text": "In 2013 they stopped development on Vyatta Core."
+    },
+    {
+      "index": 64,
+      "start_time": 242650.0,
+      "end_time": 249489.0,
+      "text": "A group of enthusiast developers forked the source code and created what is now VyOS."
+    },
+    {
+      "index": 65,
+      "start_time": 249489.0,
+      "end_time": 255739.0,
+      "text": "&quot;VyOS is a Linux-based routing solution built on the Debian Linux distribution, and currently"
+    },
+    {
+      "index": 66,
+      "start_time": 255739.0,
+      "end_time": 259560.0,
+      "text": "runs on x86 and x86-64 platforms.&quot;"
+    },
+    {
+      "index": 67,
+      "start_time": 259560.0,
+      "end_time": 266290.0,
+      "text": "VyOS is an incredibly light-weight, heavily customized, and optimized distro with the"
+    },
+    {
+      "index": 68,
+      "start_time": 266290.0,
+      "end_time": 273030.0,
+      "text": "sole purpose of providing Layer 2 and Layer 3 network functionality on a physical or virtual"
+    },
+    {
+      "index": 69,
+      "start_time": 273030.0,
+      "end_time": 274030.0,
+      "text": "platform."
+    },
+    {
+      "index": 70,
+      "start_time": 274030.0,
+      "end_time": 278490.0,
+      "text": "Why did I choose VyOS over pfSense (as suggested by viewers)?"
+    },
+    {
+      "index": 71,
+      "start_time": 278490.0,
+      "end_time": 282300.0,
+      "text": "The answer is performance, among other things."
+    },
+    {
+      "index": 72,
+      "start_time": 282300.0,
+      "end_time": 286150.0,
+      "text": "To be clear, I have only tested the aforementioned distros."
+    },
+    {
+      "index": 73,
+      "start_time": 286150.0,
+      "end_time": 288930.0,
+      "text": "I&#39;m sure there are other solutions available though."
+    },
+    {
+      "index": 74,
+      "start_time": 288930.0,
+      "end_time": 293400.0,
+      "text": "I discuss further details about my pfSense testing in the summary."
+    },
+    {
+      "index": 75,
+      "start_time": 293400.0,
+      "end_time": 298510.0,
+      "text": "I can personally vouch for VyOS as a routing/switching solution in a production environment."
+    },
+    {
+      "index": 76,
+      "start_time": 298510.0,
+      "end_time": 304920.0,
+      "text": "I know others use it as an edge router in datacenters, and it is widely used in cloud"
+    },
+    {
+      "index": 77,
+      "start_time": 304920.0,
+      "end_time": 309190.0,
+      "text": "implementations like Amazon Web Services (AWS)."
+    },
+    {
+      "index": 78,
+      "start_time": 309190.0,
+      "end_time": 310500.0,
+      "text": "Awesome!"
+    },
+    {
+      "index": 79,
+      "start_time": 310500.0,
+      "end_time": 315510.0,
+      "text": "Now let&#39;s dig in with some digital grease, and get these gears moving."
+    },
+    {
+      "index": 80,
+      "start_time": 315510.0,
+      "end_time": 320970.0,
+      "text": "Follow along as I narrate the BIOS Configuration, VyOS Install, Basic Setup, Interface Reorder,"
+    },
+    {
+      "index": 81,
+      "start_time": 320970.0,
+      "end_time": 327360.0,
+      "text": "System Setup, Bridge Creation, Bandwidth Testing, and Useful Utilities Demo."
+    },
+    {
+      "index": 82,
+      "start_time": 327360.0,
+      "end_time": 330950.0,
+      "text": "First up, we are going to start by reviewing some important settings in the BIOS."
+    },
+    {
+      "index": 83,
+      "start_time": 330950.0,
+      "end_time": 336810.0,
+      "text": "Check your CPU section and enable: Direct Cache Access (DCA)."
+    },
+    {
+      "index": 84,
+      "start_time": 336810.0,
+      "end_time": 349720.0,
+      "text": "Next, under Chipset/Northbridge check for IOAT and VT-d settings."
+    },
+    {
+      "index": 85,
+      "start_time": 349720.0,
+      "end_time": 360440.0,
+      "text": "Enable IOAT for sure and try &quot;No Snoop&quot; and &quot;Relaxed Ordering&quot; if present."
+    },
+    {
+      "index": 86,
+      "start_time": 360440.0,
+      "end_time": 365510.0,
+      "text": "In addition I enabled VT-d and Interrupt Remapping."
+    },
+    {
+      "index": 87,
+      "start_time": 365510.0,
+      "end_time": 370760.0,
+      "text": "Make your way to the PCIe Configuration and look for Above 4G Decoding, Maximum Payload,"
+    },
+    {
+      "index": 88,
+      "start_time": 370760.0,
+      "end_time": 375270.0,
+      "text": "and Maximum Read Request."
+    },
+    {
+      "index": 89,
+      "start_time": 375270.0,
+      "end_time": 380340.0,
+      "text": "Maximum Payload and Maximum Read Request are very important and you will see why later"
+    },
+    {
+      "index": 90,
+      "start_time": 380340.0,
+      "end_time": 381870.0,
+      "text": "in the video."
+    },
+    {
+      "index": 91,
+      "start_time": 381870.0,
+      "end_time": 385990.0,
+      "text": "Just know that they should be set to the max value."
+    },
+    {
+      "index": 92,
+      "start_time": 385990.0,
+      "end_time": 390210.0,
+      "text": "Save your BIOS settings, and have a bootable copy of VyOS ready."
+    },
+    {
+      "index": 93,
+      "start_time": 390210.0,
+      "end_time": 392930.0,
+      "text": "Boot your system to the VyOS CD."
+    },
+    {
+      "index": 94,
+      "start_time": 392930.0,
+      "end_time": 397770.0,
+      "text": "It&#39;s a live CD and allows you to run from boot or install an image to disk or USB."
+    },
+    {
+      "index": 95,
+      "start_time": 397770.0,
+      "end_time": 401870.0,
+      "text": "The default username/password is vyos/vyos."
+    },
+    {
+      "index": 96,
+      "start_time": 401870.0,
+      "end_time": 406220.0,
+      "text": "Run the &quot;install image&quot; command to kick off the install."
+    },
+    {
+      "index": 97,
+      "start_time": 406220.0,
+      "end_time": 410560.0,
+      "text": "You can get context sensitive help at any point in the command line by typing question"
+    },
+    {
+      "index": 98,
+      "start_time": 410560.0,
+      "end_time": 412100.0,
+      "text": "mark."
+    },
+    {
+      "index": 99,
+      "start_time": 412100.0,
+      "end_time": 416620.0,
+      "text": "Most of the install process is accepting the defaults."
+    },
+    {
+      "index": 100,
+      "start_time": 416620.0,
+      "end_time": 419690.0,
+      "text": "The install is self-explanatory as you can see."
+    },
+    {
+      "index": 101,
+      "start_time": 419690.0,
+      "end_time": 440840.0,
+      "text": "I installed to a disk drive, but you can install to USB as you only need about 2GB of space total."
+    },
+    {
+      "index": 102,
+      "start_time": 440840.0,
+      "end_time": 446940.0,
+      "text": "Set your new VyOS user password and continue accepting defaults."
+    },
+    {
+      "index": 103,
+      "start_time": 446940.0,
+      "end_time": 451970.0,
+      "text": "When the install completes, make sure to reboot your system without the CD."
+    },
+    {
+      "index": 104,
+      "start_time": 451970.0,
+      "end_time": 468360.0,
+      "text": "Otherwise, any changes you make at this point will be lost."
+    },
+    {
+      "index": 105,
+      "start_time": 468360.0,
+      "end_time": 473120.0,
+      "text": "When you boot into your newly installed image, you are in &quot;Operational Mode&quot;."
+    },
+    {
+      "index": 106,
+      "start_time": 473120.0,
+      "end_time": 477110.0,
+      "text": "Take a look at your network interfaces with the &quot;show interfaces&quot; command."
+    },
+    {
+      "index": 107,
+      "start_time": 477110.0,
+      "end_time": 479400.0,
+      "text": "Interface name on the left, and link status on the right."
+    },
+    {
+      "index": 108,
+      "start_time": 479400.0,
+      "end_time": 483310.0,
+      "text": "Capital &quot;D&quot; signifies nothing is connected to our switch at this point."
+    },
+    {
+      "index": 109,
+      "start_time": 483310.0,
+      "end_time": 487550.0,
+      "text": "Plug a copper Cat5 cable into one of your ports and run &quot;show interfaces&quot; again."
+    },
+    {
+      "index": 110,
+      "start_time": 487550.0,
+      "end_time": 491900.0,
+      "text": "Now you can see a lower-case &quot;u&quot; in the right column, signifying the port is up."
+    },
+    {
+      "index": 111,
+      "start_time": 491900.0,
+      "end_time": 496970.0,
+      "text": "A better method is to &quot;blink&quot; the interface you plan to configure."
+    },
+    {
+      "index": 112,
+      "start_time": 496970.0,
+      "end_time": 503580.0,
+      "text": "Run &quot;show interface ethernet eth0 identify&quot; to visually blink the interface you plan to configure."
+    },
+    {
+      "index": 113,
+      "start_time": 503580.0,
+      "end_time": 507620.0,
+      "text": "At this point you should notice the command line is structural in nature."
+    },
+    {
+      "index": 114,
+      "start_time": 507620.0,
+      "end_time": 510650.0,
+      "text": "And remember to use the question mark to better understand your options."
+    },
+    {
+      "index": 115,
+      "start_time": 510650.0,
+      "end_time": 516120.0,
+      "text": "We&#39;ve been working in Operational Mode."
+    },
+    {
+      "index": 116,
+      "start_time": 516120.0,
+      "end_time": 519419.0,
+      "text": "Now we are going to enter what is known as Configuration Mode."
+    },
+    {
+      "index": 117,
+      "start_time": 519419.0,
+      "end_time": 522459.0,
+      "text": "This allows you to modify your system configuration."
+    },
+    {
+      "index": 118,
+      "start_time": 522458.99999999994,
+      "end_time": 527300.0,
+      "text": "We are going to set the IP address of interface eth1 where we connected our cable."
+    },
+    {
+      "index": 119,
+      "start_time": 527300.0,
+      "end_time": 530040.0,
+      "text": "Notice the slash 24 at the end of the IP address."
+    },
+    {
+      "index": 120,
+      "start_time": 530040.0,
+      "end_time": 532790.0,
+      "text": "This is our subnet mask specified in CIDR notation."
+    },
+    {
+      "index": 121,
+      "start_time": 532790.0,
+      "end_time": 538410.0,
+      "text": "Slash 24 is equivalent to 255.255.255.0."
+    },
+    {
+      "index": 122,
+      "start_time": 538410.0,
+      "end_time": 541839.0,
+      "text": "Now set a description on the interface."
+    },
+    {
+      "index": 123,
+      "start_time": 541839.0,
+      "end_time": 545649.0,
+      "text": "Remember to always label for easier troubleshooting."
+    },
+    {
+      "index": 124,
+      "start_time": 545649.0,
+      "end_time": 551580.0,
+      "text": "Next allow a terminal program like PuTTy to connect to your new interface."
+    },
+    {
+      "index": 125,
+      "start_time": 551580.0,
+      "end_time": 557100.0,
+      "text": "Run the command &quot;compare&quot; to see a list of queued commands ready for execution."
+    },
+    {
+      "index": 126,
+      "start_time": 557100.0,
+      "end_time": 562250.0,
+      "text": "They do not take effect until you issue a &quot;commit&quot; command."
+    },
+    {
+      "index": 127,
+      "start_time": 562250.0,
+      "end_time": 567050.0,
+      "text": "Following the commit, you need to save, so your changes are persistent across reboots."
+    },
+    {
+      "index": 128,
+      "start_time": 567050.0,
+      "end_time": 570029.0,
+      "text": "Did you notice the plus sign next to the queued commands?"
+    },
+    {
+      "index": 129,
+      "start_time": 570029.0,
+      "end_time": 573440.0,
+      "text": "This means they are a new addition to your configuration, just as a minus sign would"
+    },
+    {
+      "index": 130,
+      "start_time": 573440.0,
+      "end_time": 576930.0,
+      "text": "mean they are being removed from configuration."
+    },
+    {
+      "index": 131,
+      "start_time": 576930.0,
+      "end_time": 583200.0,
+      "text": "Exit Configure Mode and show interfaces to see if changes have taken effect."
+    },
+    {
+      "index": 132,
+      "start_time": 583200.0,
+      "end_time": 588380.0,
+      "text": "In this optional section, I&#39;m going to show how you can reorder your ports however you like."
+    },
+    {
+      "index": 133,
+      "start_time": 588380.0,
+      "end_time": 592970.0,
+      "text": "VyOS may not place your ports in an order that makes sense."
+    },
+    {
+      "index": 134,
+      "start_time": 592970.0,
+      "end_time": 598440.0,
+      "text": "So if you are particular like me, I&#39;ll show you how to customize it exactly how you want it."
+    },
+    {
+      "index": 135,
+      "start_time": 598440.0,
+      "end_time": 604699.0,
+      "text": "I&#39;m going to use the Linux ifconfig command to pull, and sort by the MAC address."
+    },
+    {
+      "index": 136,
+      "start_time": 604699.0,
+      "end_time": 609019.0,
+      "text": "Essentially, we are going to reassign the MAC address to the interfaces in a different"
+    },
+    {
+      "index": 137,
+      "start_time": 609019.0,
+      "end_time": 610279.0,
+      "text": "order."
+    },
+    {
+      "index": 138,
+      "start_time": 610279.0,
+      "end_time": 616089.0,
+      "text": "Fun fact: The first 3 octets of a MAC address identify the vendor of the hardware."
+    },
+    {
+      "index": 139,
+      "start_time": 616089.0,
+      "end_time": 620399.0,
+      "text": "So try macvendors.com to lookup a NIC vendor."
+    },
+    {
+      "index": 140,
+      "start_time": 620399.0,
+      "end_time": 623490.0,
+      "text": "Awesome troubleshooting technique by the way."
+    },
+    {
+      "index": 141,
+      "start_time": 623490.0,
+      "end_time": 628350.0,
+      "text": "Once you sort by your MAC addresses, copy it out to an editor for reference."
+    },
+    {
+      "index": 142,
+      "start_time": 628350.0,
+      "end_time": 633220.0,
+      "text": "In my list, the bottom 4 MACs belong to 4 embedded Intel NICs."
+    },
+    {
+      "index": 143,
+      "start_time": 633220.0,
+      "end_time": 637940.0,
+      "text": "You can tell by the matching first 5 octets, and last octet order."
+    },
+    {
+      "index": 144,
+      "start_time": 637940.0,
+      "end_time": 642670.0,
+      "text": "So I will make these interfaces eth0 through eth3."
+    },
+    {
+      "index": 145,
+      "start_time": 642670.0,
+      "end_time": 649779.0,
+      "text": "The remaining interfaces, all 10Gb, will be eth4 through eth11 for a total of 12 ports"
+    },
+    {
+      "index": 146,
+      "start_time": 649779.0,
+      "end_time": 652230.0,
+      "text": "on my home brew switch."
+    },
+    {
+      "index": 147,
+      "start_time": 652230.0,
+      "end_time": 656410.0,
+      "text": "Before you make this kind of change, it does not hurt to backup your main configuration"
+    },
+    {
+      "index": 148,
+      "start_time": 656410.0,
+      "end_time": 666900.0,
+      "text": "file at /config/config.boot."
+    },
+    {
+      "index": 149,
+      "start_time": 666900.0,
+      "end_time": 674850.0,
+      "text": "Enter Configure Mode and use the &quot;hw-id&quot; command to reassign the physical port to the logical"
+    },
+    {
+      "index": 150,
+      "start_time": 674850.0,
+      "end_time": 685060.0,
+      "text": "ethernet interface in your preferred order."
+    },
+    {
+      "index": 151,
+      "start_time": 685060.0,
+      "end_time": 689880.0,
+      "text": "Notice I&#39;m using abbreviated versions of commands to minimize typing."
+    },
+    {
+      "index": 152,
+      "start_time": 689880.0,
+      "end_time": 695250.0,
+      "text": "You only have to type enough of the command to make it distinct from other commands."
+    },
+    {
+      "index": 153,
+      "start_time": 695250.0,
+      "end_time": 702790.0,
+      "text": "Here, I&#39;m taking the lower 4 MAC IDs, and assigning them to eth0 through eth3."
+    },
+    {
+      "index": 154,
+      "start_time": 702790.0,
+      "end_time": 708420.0,
+      "text": "Then I assign the top 8 MAC IDs to eth4 through eth11."
+    },
+    {
+      "index": 155,
+      "start_time": 708420.0,
+      "end_time": 721620.0,
+      "text": "Since It&#39;s sorted by MAC ID, it will have the effect of correcting the ethernet interface order."
+    },
+    {
+      "index": 156,
+      "start_time": 721620.0,
+      "end_time": 726800.0,
+      "text": "See, how the compare command shows a greater than symbol?"
+    },
+    {
+      "index": 157,
+      "start_time": 726800.0,
+      "end_time": 731620.0,
+      "text": "This means you are replacing a configuration item instead of adding or subtracting from"
+    },
+    {
+      "index": 158,
+      "start_time": 731620.0,
+      "end_time": 733399.0,
+      "text": "the configuration."
+    },
+    {
+      "index": 159,
+      "start_time": 733399.0,
+      "end_time": 747580.0,
+      "text": "Finally, &quot;commit&quot;, &quot;save&quot;, &quot;exit&quot;, and &quot;reboot&quot; for the re-mapping to take effect."
+    },
+    {
+      "index": 160,
+      "start_time": 747580.0,
+      "end_time": 754390.0,
+      "text": "After rebooting, you may need to relocate your IP address so you can PuTTy back into"
+    },
+    {
+      "index": 161,
+      "start_time": 754390.0,
+      "end_time": 755600.0,
+      "text": "your switch."
+    },
+    {
+      "index": 162,
+      "start_time": 755600.0,
+      "end_time": 759829.0,
+      "text": "Here, I show how to remove the configuration."
+    },
+    {
+      "index": 163,
+      "start_time": 759829.0,
+      "end_time": 767180.0,
+      "text": "If you just tried to set the IP again it would add a secondary IP address on the interface."
+    },
+    {
+      "index": 164,
+      "start_time": 767180.0,
+      "end_time": 773050.0,
+      "text": "On the system console, I will remove the IP from eth1 and add it back to eth0 where my"
+    },
+    {
+      "index": 165,
+      "start_time": 773050.0,
+      "end_time": 776970.0,
+      "text": "link status is &quot;up&quot;."
+    },
+    {
+      "index": 166,
+      "start_time": 776970.0,
+      "end_time": 788000.0,
+      "text": "Now I can PuTTy back in and everything looks good once again."
+    },
+    {
+      "index": 167,
+      "start_time": 788000.0,
+      "end_time": 794660.0,
+      "text": "Connect to your switch with PuTTy, and enter Configure Mode."
+    },
+    {
+      "index": 168,
+      "start_time": 794660.0,
+      "end_time": 800750.0,
+      "text": "If you type &quot;show interfaces&quot; in config mode it will show the current, or running, state"
+    },
+    {
+      "index": 169,
+      "start_time": 800750.0,
+      "end_time": 802439.0,
+      "text": "of your configuration."
+    },
+    {
+      "index": 170,
+      "start_time": 802439.0,
+      "end_time": 808050.0,
+      "text": "This is completely different than displaying the contents of your config.boot file."
+    },
+    {
+      "index": 171,
+      "start_time": 808050.0,
+      "end_time": 812310.0,
+      "text": "You can also show other subsections of your running config."
+    },
+    {
+      "index": 172,
+      "start_time": 812310.0,
+      "end_time": 819290.0,
+      "text": "For example &quot;show system&quot;, shows the system related aspects of your configuration."
+    },
+    {
+      "index": 173,
+      "start_time": 819290.0,
+      "end_time": 823899.0,
+      "text": "Let&#39;s go through some basic configuration settings to get things running smoothly, starting"
+    },
+    {
+      "index": 174,
+      "start_time": 823899.0,
+      "end_time": 835020.0,
+      "text": "with your hostname."
+    },
+    {
+      "index": 175,
+      "start_time": 835020.0,
+      "end_time": 841389.0,
+      "text": "Next, set your gateway address so you can communicate with the outside world."
+    },
+    {
+      "index": 176,
+      "start_time": 841389.0,
+      "end_time": 857020.0,
+      "text": "Then finally DNS, and time zone."
+    },
+    {
+      "index": 177,
+      "start_time": 857020.0,
+      "end_time": 871560.0,
+      "text": "Compare your changes, verify, commit and save."
+    },
+    {
+      "index": 178,
+      "start_time": 871560.0,
+      "end_time": 878600.0,
+      "text": "Ping sun.com to test your connectivity to the outside world, and check that time is"
+    },
+    {
+      "index": 179,
+      "start_time": 878600.0,
+      "end_time": 885050.0,
+      "text": "syncing correctly with the command &quot;ntpq -p&quot;."
+    },
+    {
+      "index": 180,
+      "start_time": 885050.0,
+      "end_time": 890180.0,
+      "text": "You can also use the command &quot;show ntp&quot; from Operational Mode."
+    },
+    {
+      "index": 181,
+      "start_time": 890180.0,
+      "end_time": 896680.0,
+      "text": "This completes the section on System Setup."
+    },
+    {
+      "index": 182,
+      "start_time": 896680.0,
+      "end_time": 898699.0,
+      "text": "Time to build our bridge."
+    },
+    {
+      "index": 183,
+      "start_time": 898699.0,
+      "end_time": 903449.0,
+      "text": "Use a console, or serial connection for this portion, as we need to reconfigure our management"
+    },
+    {
+      "index": 184,
+      "start_time": 903449.0,
+      "end_time": 904730.0,
+      "text": "IP again."
+    },
+    {
+      "index": 185,
+      "start_time": 904730.0,
+      "end_time": 911339.0,
+      "text": "Login, show your interfaces, enter Configure Mode, and remove the IP address from eth0."
+    },
+    {
+      "index": 186,
+      "start_time": 911339.0,
+      "end_time": 914980.0,
+      "text": "Notice this time around my delete command stops at &quot;address&quot;."
+    },
+    {
+      "index": 187,
+      "start_time": 914980.0,
+      "end_time": 919070.0,
+      "text": "VyOS allows you to remove configuration at various levels."
+    },
+    {
+      "index": 188,
+      "start_time": 919070.0,
+      "end_time": 921999.0,
+      "text": "Now compare, verify, and commit."
+    },
+    {
+      "index": 189,
+      "start_time": 921999.0,
+      "end_time": 927279.0,
+      "text": "Here is where we create our pseudo interface &quot;br0&quot;, and assign it an IP address."
+    },
+    {
+      "index": 190,
+      "start_time": 927279.0,
+      "end_time": 932420.0,
+      "text": "This interface represents our bridge, or collection of interfaces forwarding packets to each other"
+    },
+    {
+      "index": 191,
+      "start_time": 932420.0,
+      "end_time": 934019.0,
+      "text": "at layer 2."
+    },
+    {
+      "index": 192,
+      "start_time": 934019.0,
+      "end_time": 947880.0,
+      "text": "Assign a meaningful description to your bridge interface."
+    },
+    {
+      "index": 193,
+      "start_time": 947880.0,
+      "end_time": 953829.0,
+      "text": "Looking at our compare statement, notice how default options are assigned to the new bridge."
+    },
+    {
+      "index": 194,
+      "start_time": 953829.0,
+      "end_time": 954999.0,
+      "text": "Commit and Save."
+    },
+    {
+      "index": 195,
+      "start_time": 954999.0,
+      "end_time": 960560.0,
+      "text": "While in Configure Mode you can &quot;show interfaces&quot; by using the keyword &quot;run&quot;."
+    },
+    {
+      "index": 196,
+      "start_time": 960560.0,
+      "end_time": 967059.0,
+      "text": "You can now see the newly created interface br0 with assigned IP address, subnet mask"
+    },
+    {
+      "index": 197,
+      "start_time": 967059.0,
+      "end_time": 969160.0,
+      "text": "and description."
+    },
+    {
+      "index": 198,
+      "start_time": 969160.0,
+      "end_time": 973579.0,
+      "text": "Let&#39;s identify a port where we can connect our 1Gb uplink."
+    },
+    {
+      "index": 199,
+      "start_time": 973579.0,
+      "end_time": 978029.0,
+      "text": "Again, blink eth2 to visually identify."
+    },
+    {
+      "index": 200,
+      "start_time": 978029.0,
+      "end_time": 982970.0,
+      "text": "Okay, plugged in and showing link up on eth2."
+    },
+    {
+      "index": 201,
+      "start_time": 982970.0,
+      "end_time": 988610.0,
+      "text": "Since we have our bridge interface in place, we will assign ethernet ports 2 through 11"
+    },
+    {
+      "index": 202,
+      "start_time": 988610.0,
+      "end_time": 990269.0,
+      "text": "to the bridge."
+    },
+    {
+      "index": 203,
+      "start_time": 990269.0,
+      "end_time": 992839.0,
+      "text": "This give us 10 bridged ports."
+    },
+    {
+      "index": 204,
+      "start_time": 992839.0,
+      "end_time": 997379.0,
+      "text": "You could assign all your interfaces to the bridge, but it&#39;s not required and you can"
+    },
+    {
+      "index": 205,
+      "start_time": 997379.0,
+      "end_time": 999949.0,
+      "text": "change it later anyway."
+    },
+    {
+      "index": 206,
+      "start_time": 999949.0,
+      "end_time": 1006790.0,
+      "text": "Remember eth0 through eth3 represent my 1Gb copper ports, while eth4 through eth11 represent"
+    },
+    {
+      "index": 207,
+      "start_time": 1006790.0,
+      "end_time": 1009860.0,
+      "text": "my 10Gb Direct Attach Copper ports."
+    },
+    {
+      "index": 208,
+      "start_time": 1009860.0,
+      "end_time": 1018340.0,
+      "text": "In the video I mistakenly started with eth3 when I should have started with eth2."
+    },
+    {
+      "index": 209,
+      "start_time": 1018340.0,
+      "end_time": 1029320.0,
+      "text": "Next add a description to each interface."
+    },
+    {
+      "index": 210,
+      "start_time": 1029319.9999999999,
+      "end_time": 1042199.9999999999,
+      "text": "For your 10Gb interfaces you want to set your MTU to 9000 as I discussed in part two of the series."
+    },
+    {
+      "index": 211,
+      "start_time": 1042200.0,
+      "end_time": 1047640.0,
+      "text": "When finished assigning interfaces, setting descriptions, and adjusting MTU don&#39;t forget"
+    },
+    {
+      "index": 212,
+      "start_time": 1047640.0000000001,
+      "end_time": 1082340.0,
+      "text": "to compare, review, commit, and save."
+    },
+    {
+      "index": 213,
+      "start_time": 1082340.0,
+      "end_time": 1085700.0,
+      "text": "After I make some quick corrections to my descriptions"
+    },
+    {
+      "index": 214,
+      "start_time": 1085700.0,
+      "end_time": 1090470.0,
+      "text": "show interfaces, and marvel at your shinny new 10Gb switch that you lovingly crafted"
+    },
+    {
+      "index": 215,
+      "start_time": 1090470.0,
+      "end_time": 1091470.0,
+      "text": "by hand."
+    },
+    {
+      "index": 216,
+      "start_time": 1091470.0,
+      "end_time": 1092840.0,
+      "text": "Isn&#39;t she a beauty?!?"
+    },
+    {
+      "index": 217,
+      "start_time": 1092840.0,
+      "end_time": 1096300.0,
+      "text": "I run the command &quot;sudo ifconfig"
+    },
+    {
+      "index": 218,
+      "start_time": 1096300.0,
+      "end_time": 1102110.0,
+      "text": "-s&quot; to verify my 10Gb interfaces are set to use jumbo frames."
+    },
+    {
+      "index": 219,
+      "start_time": 1102110.0,
+      "end_time": 1104420.0,
+      "text": "At this point save your configuration."
+    },
+    {
+      "index": 220,
+      "start_time": 1104420.0,
+      "end_time": 1106930.0,
+      "text": "Your 10Gb switch build is complete!"
+    },
+    {
+      "index": 221,
+      "start_time": 1106930.0,
+      "end_time": 1110480.0,
+      "text": "Now, lets see what this baby can do!"
+    },
+    {
+      "index": 222,
+      "start_time": 1110480.0,
+      "end_time": 1113410.0,
+      "text": "Let&#39;s start by checking our bandwidth to the bridge itself."
+    },
+    {
+      "index": 223,
+      "start_time": 1113410.0,
+      "end_time": 1117510.0,
+      "text": "Open a few terminal windows to the new switch on Workstation #1."
+    },
+    {
+      "index": 224,
+      "start_time": 1117510.0,
+      "end_time": 1122510.0,
+      "text": "The top left window is running a session of iPerf server and binding to the switch IP."
+    },
+    {
+      "index": 225,
+      "start_time": 1122510.0,
+      "end_time": 1128240.0,
+      "text": "The lower left window is running the &quot;top&quot; command, so we can monitor CPU utilization,"
+    },
+    {
+      "index": 226,
+      "start_time": 1128240.0,
+      "end_time": 1130800.0,
+      "text": "context switching, and the iPerf process."
+    },
+    {
+      "index": 227,
+      "start_time": 1130800.0,
+      "end_time": 1133760.0,
+      "text": "The right window is the jPerf client."
+    },
+    {
+      "index": 228,
+      "start_time": 1133760.0,
+      "end_time": 1138600.0,
+      "text": "Workstation #1 is connected directly to the 10Gb bridge via Direct Attach Copper."
+    },
+    {
+      "index": 229,
+      "start_time": 1138600.0,
+      "end_time": 1143300.0,
+      "text": "So at this point we are just going from Workstation #1 to the switch."
+    },
+    {
+      "index": 230,
+      "start_time": 1143300.0,
+      "end_time": 1148310.0,
+      "text": "For this test we are getting around 9.5Gbs, which is excellent!"
+    },
+    {
+      "index": 231,
+      "start_time": 1148310.0,
+      "end_time": 1150830.0,
+      "text": "Everything looks great!"
+    },
+    {
+      "index": 232,
+      "start_time": 1150830.0,
+      "end_time": 1156800.0,
+      "text": "For the second bandwidth test example, Workstation #1 is connected to the VyOS switch, and Workstation"
+    },
+    {
+      "index": 233,
+      "start_time": 1156800.0,
+      "end_time": 1158920.0,
+      "text": "#2 is connected to the VyOS switch."
+    },
+    {
+      "index": 234,
+      "start_time": 1158920.0,
+      "end_time": 1163910.0,
+      "text": "The top left window is running a utility (on switch) called &quot;bmon&quot; (bandwidth monitor)"
+    },
+    {
+      "index": 235,
+      "start_time": 1163910.0,
+      "end_time": 1169640.0,
+      "text": "to visualize our receive and transmit traffic, and top is running in the bottom left window"
+    },
+    {
+      "index": 236,
+      "start_time": 1169640.0,
+      "end_time": 1171620.0,
+      "text": "on Workstation #2."
+    },
+    {
+      "index": 237,
+      "start_time": 1171620.0,
+      "end_time": 1175900.0,
+      "text": "Workstation #2 is using a slower dual core processor to demonstrate how it changes the"
+    },
+    {
+      "index": 238,
+      "start_time": 1175900.0,
+      "end_time": 1177550.0,
+      "text": "bandwidth picture."
+    },
+    {
+      "index": 239,
+      "start_time": 1177550.0,
+      "end_time": 1182890.0,
+      "text": "Notice iPerf is pegged at 100% CPU with one stream of traffic from Workstation #1."
+    },
+    {
+      "index": 240,
+      "start_time": 1182890.0,
+      "end_time": 1195620.0,
+      "text": "So lets try pushing two streams of traffic and see what happens."
+    },
+    {
+      "index": 241,
+      "start_time": 1195620.0,
+      "end_time": 1199880.0,
+      "text": "You can see two streams of traffic allow us to hit our 10Gb mark."
+    },
+    {
+      "index": 242,
+      "start_time": 1199880.0,
+      "end_time": 1204920.0,
+      "text": "So the VyOS switch is not our problem, it&#39;s the architecture of Workstation #2 that can&#39;t"
+    },
+    {
+      "index": 243,
+      "start_time": 1204920.0,
+      "end_time": 1207790.0,
+      "text": "handle a single stream of 10Gb traffic."
+    },
+    {
+      "index": 244,
+      "start_time": 1207790.0,
+      "end_time": 1209820.0,
+      "text": "Another good test!"
+    },
+    {
+      "index": 245,
+      "start_time": 1209820.0,
+      "end_time": 1214450.0,
+      "text": "For the third test, consider what happens when heavy traffic has to traverse your system"
+    },
+    {
+      "index": 246,
+      "start_time": 1214450.0,
+      "end_time": 1215520.0,
+      "text": "bus."
+    },
+    {
+      "index": 247,
+      "start_time": 1215520.0,
+      "end_time": 1220190.0,
+      "text": "In other words, inbound traffic on card 1 is forwarded to card3 outbound."
+    },
+    {
+      "index": 248,
+      "start_time": 1220190.0,
+      "end_time": 1225330.0,
+      "text": "In my testing I discovered great speeds when I forwarded traffic across the same card (inbound"
+    },
+    {
+      "index": 249,
+      "start_time": 1225330.0,
+      "end_time": 1227800.0,
+      "text": "card 1 to outbound card 1)."
+    },
+    {
+      "index": 250,
+      "start_time": 1227800.0,
+      "end_time": 1231520.0,
+      "text": "This made sense as the traffic was local to the Network Interface Card."
+    },
+    {
+      "index": 251,
+      "start_time": 1231520.0,
+      "end_time": 1235890.0,
+      "text": "But when I passed traffic across cards, my results were less than desirable and a bit"
+    },
+    {
+      "index": 252,
+      "start_time": 1235890.0,
+      "end_time": 1237540.0,
+      "text": "shaky to boot."
+    },
+    {
+      "index": 253,
+      "start_time": 1237540.0,
+      "end_time": 1241620.0,
+      "text": "Digging in a bit further, I realized it was important to adjust BIOS settings to ensure"
+    },
+    {
+      "index": 254,
+      "start_time": 1241620.0,
+      "end_time": 1246090.0,
+      "text": "my PCIe bus was using maximum possible payload values."
+    },
+    {
+      "index": 255,
+      "start_time": 1246090.0,
+      "end_time": 1248150.0,
+      "text": "This made all the difference in the world."
+    },
+    {
+      "index": 256,
+      "start_time": 1248150.0,
+      "end_time": 1253140.0,
+      "text": "For this test I was using a much more capable Workstation #2 so I could avoid any processor"
+    },
+    {
+      "index": 257,
+      "start_time": 1253140.0,
+      "end_time": 1254710.0,
+      "text": "bottlenecks."
+    },
+    {
+      "index": 258,
+      "start_time": 1254710.0,
+      "end_time": 1261310.0,
+      "text": "Upon making the PCIe adjustment in my BIOS (shown in the BIOS Settings Segment) things"
+    },
+    {
+      "index": 259,
+      "start_time": 1261310.0,
+      "end_time": 1263690.0,
+      "text": "were screaming fast once again."
+    },
+    {
+      "index": 260,
+      "start_time": 1263690.0,
+      "end_time": 1268370.0,
+      "text": "You can see the chart wavers slightly, but in my testing without recording video, it"
+    },
+    {
+      "index": 261,
+      "start_time": 1268370.0,
+      "end_time": 1271270.0,
+      "text": "was a very consistent 10Gb per second."
+    },
+    {
+      "index": 262,
+      "start_time": 1271270.0,
+      "end_time": 1274530.0,
+      "text": "Here is what the CPU looks like on Workstation #1."
+    },
+    {
+      "index": 263,
+      "start_time": 1274530.0,
+      "end_time": 1279050.0,
+      "text": "Bear in mind, it&#39;s consuming proc cycles while I record video too."
+    },
+    {
+      "index": 264,
+      "start_time": 1279050.0,
+      "end_time": 1282300.0,
+      "text": "And here is the 10Gb ethernet adapter in Workstation #1."
+    },
+    {
+      "index": 265,
+      "start_time": 1282300.0,
+      "end_time": 1283440.0,
+      "text": "Perfect!"
+    },
+    {
+      "index": 266,
+      "start_time": 1283440.0,
+      "end_time": 1286900.0,
+      "text": "These were the results I was looking for."
+    },
+    {
+      "index": 267,
+      "start_time": 1286900.0,
+      "end_time": 1291530.0,
+      "text": "As promised I threw in some power goodies for being so patient while I put the final"
+    },
+    {
+      "index": 268,
+      "start_time": 1291530.0,
+      "end_time": 1296800.0,
+      "text": "touches on the last video in the 3-part series of 10Gb Home Network."
+    },
+    {
+      "index": 269,
+      "start_time": 1296800.0,
+      "end_time": 1303670.0,
+      "text": "Since these last 3 short sections are self-explanatory, kick back, and enjoy the music."
+    },
+    {
+      "index": 270,
+      "start_time": 1303670.0,
+      "end_time": 1306730.0,
+      "text": "Here are some amazingly powerful commands I demonstrate."
+    },
+    {
+      "index": 271,
+      "start_time": 1306730.0,
+      "end_time": 1311510.0,
+      "text": "And make sure you catch the summary, following the utility demo, as there are some really"
+    },
+    {
+      "index": 272,
+      "start_time": 1311510.0,
+      "end_time": 1481620.0,
+      "text": "important tips I include."
+    },
+    {
+      "index": 273,
+      "start_time": 1481620.0,
+      "end_time": 1485040.0,
+      "text": "There are some other pretty amazing things you can do with this build."
+    },
+    {
+      "index": 274,
+      "start_time": 1485040.0,
+      "end_time": 1492040.0,
+      "text": "We built a 10Gb switch, but you could build a 10Gb router, a 10Gb firewall, a 10Gb media"
+    },
+    {
+      "index": 275,
+      "start_time": 1492040.0,
+      "end_time": 1494810.0,
+      "text": "converter, or a 10Gb VPN."
+    },
+    {
+      "index": 276,
+      "start_time": 1494810.0,
+      "end_time": 1497990.0,
+      "text": "Keep in mind it will only be as good as the hardware you use."
+    },
+    {
+      "index": 277,
+      "start_time": 1497990.0,
+      "end_time": 1502950.0,
+      "text": "Make sure your network adapters receive good airflow from your case fans as they tend to"
+    },
+    {
+      "index": 278,
+      "start_time": 1502950.0,
+      "end_time": 1504230.0,
+      "text": "get hot."
+    },
+    {
+      "index": 279,
+      "start_time": 1504230.0,
+      "end_time": 1508090.0,
+      "text": "Especially if you are stacking multiple cards next to each other."
+    },
+    {
+      "index": 280,
+      "start_time": 1508090.0,
+      "end_time": 1514740.0,
+      "text": "On the topic of why I selected VyOS over pfSense, or some other distro, I selected VyOS because"
+    },
+    {
+      "index": 281,
+      "start_time": 1514740.0,
+      "end_time": 1521250.0,
+      "text": "it&#39;s a purpose-built tool with a focus on switching, routing, NAT, and firewall."
+    },
+    {
+      "index": 282,
+      "start_time": 1521250.0,
+      "end_time": 1526670.0,
+      "text": "On the other hand pfSense is focused on boundary protection acting as a firewall."
+    },
+    {
+      "index": 283,
+      "start_time": 1526670.0,
+      "end_time": 1531280.0,
+      "text": "You can bridge interfaces, but packets are still inspected and require a firewall rule,"
+    },
+    {
+      "index": 284,
+      "start_time": 1531280.0,
+      "end_time": 1536360.0,
+      "text": "unless you completely disable the firewall functionality on your pfSense system."
+    },
+    {
+      "index": 285,
+      "start_time": 1536360.0,
+      "end_time": 1540060.0,
+      "text": "Even at that point, performance was still erratic during my testing."
+    },
+    {
+      "index": 286,
+      "start_time": 1540060.0,
+      "end_time": 1545170.0,
+      "text": "I encourage you to test for yourself if pfSense is your preferred platform."
+    },
+    {
+      "index": 287,
+      "start_time": 1545170.0,
+      "end_time": 1548540.0,
+      "text": "My intent is not to start a flame war or distro showdown."
+    },
+    {
+      "index": 288,
+      "start_time": 1548540.0,
+      "end_time": 1554120.0,
+      "text": "My point is, that you always want to use the right tool for the right job, and testing"
+    },
+    {
+      "index": 289,
+      "start_time": 1554120.0,
+      "end_time": 1555680.0,
+      "text": "is how you get there."
+    },
+    {
+      "index": 290,
+      "start_time": 1555680.0,
+      "end_time": 1561680.0,
+      "text": "Alright guys, I had an amazing time assembling this three part series, and interacting with everyone"
+    },
+    {
+      "index": 291,
+      "start_time": 1561680.0,
+      "end_time": 1563090.0,
+      "text": "throughout the process."
+    },
+    {
+      "index": 292,
+      "start_time": 1563090.0,
+      "end_time": 1567850.0,
+      "text": "The feedback I have been receiving is overwhelmingly positive, and helped me structure this series"
+    },
+    {
+      "index": 293,
+      "start_time": 1567850.0,
+      "end_time": 1572300.0,
+      "text": "in a way that benefits you even more than I originally intended."
+    },
+    {
+      "index": 294,
+      "start_time": 1572300.0,
+      "end_time": 1575890.0,
+      "text": "I can&#39;t thank you enough for all the thumbs-up and shares."
+    },
+    {
+      "index": 295,
+      "start_time": 1575890.0,
+      "end_time": 1579620.0,
+      "text": "Keep the comments flowing, and subscribe if you enjoyed this series."
+    },
+    {
+      "index": 296,
+      "start_time": 1579620.0,
+      "end_time": 1589620.0,
+      "text": "This is iTechStorm wishing you happy bandwidth trails."
+    }
+  ]
+}

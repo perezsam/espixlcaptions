@@ -1,0 +1,990 @@
+{
+  "video_id": "y2ILKr8kCJU",
+  "title": "Risk and Error Budgets (class SRE implements DevOps)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 2466.0,
+      "end_time": 3340.0,
+      "text": "SETH VARGO: Hi there."
+    },
+    {
+      "index": 2,
+      "start_time": 3340.0,
+      "end_time": 5380.0,
+      "text": "And welcome to the third video in our series"
+    },
+    {
+      "index": 3,
+      "start_time": 5380.0,
+      "end_time": 7270.0,
+      "text": "on SRE and DevOps."
+    },
+    {
+      "index": 4,
+      "start_time": 7270.0,
+      "end_time": 9370.0,
+      "text": "My name is Seth, and I&#39;m a Developer Advocate"
+    },
+    {
+      "index": 5,
+      "start_time": 9370.0,
+      "end_time": 12399.0,
+      "text": "at Google focused on infrastructure and operations."
+    },
+    {
+      "index": 6,
+      "start_time": 12400.0,
+      "end_time": 14230.0,
+      "text": "LIZ FONG-JONES: And I&#39;m Liz, an SRE focused"
+    },
+    {
+      "index": 7,
+      "start_time": 14230.0,
+      "end_time": 16360.0,
+      "text": "on teaching Google Cloud customers how to build"
+    },
+    {
+      "index": 8,
+      "start_time": 16360.0,
+      "end_time": 18344.0,
+      "text": "and operate reliable services."
+    },
+    {
+      "index": 9,
+      "start_time": 18344.0,
+      "end_time": 19760.0,
+      "text": "SETH VARGO: In the previous video,"
+    },
+    {
+      "index": 10,
+      "start_time": 19760.0,
+      "end_time": 24630.0,
+      "text": "we discussed the differences between SLIs, SLOs, and SLAs."
+    },
+    {
+      "index": 11,
+      "start_time": 24630.0,
+      "end_time": 27740.0,
+      "text": "SLIs are quantitative measurements, like latency."
+    },
+    {
+      "index": 12,
+      "start_time": 27740.0,
+      "end_time": 30549.0,
+      "text": "SLOs are the amount of time that an SLI"
+    },
+    {
+      "index": 13,
+      "start_time": 30550.0,
+      "end_time": 32500.0,
+      "text": "can be out of specification."
+    },
+    {
+      "index": 14,
+      "start_time": 32500.0,
+      "end_time": 36310.0,
+      "text": "And SLAs are business agreements with explicit consequences"
+    },
+    {
+      "index": 15,
+      "start_time": 36310.0,
+      "end_time": 38650.0,
+      "text": "for failing to deliver service."
+    },
+    {
+      "index": 16,
+      "start_time": 38650.0,
+      "end_time": 41690.0,
+      "text": "But what stops teams from breaking their agreed upon SLOs"
+    },
+    {
+      "index": 17,
+      "start_time": 41690.0,
+      "end_time": 44580.0,
+      "text": "and forcing SREs to work overtime?"
+    },
+    {
+      "index": 18,
+      "start_time": 44580.0,
+      "end_time": 46710.0,
+      "text": "It seems like a classic DevOps problem where"
+    },
+    {
+      "index": 19,
+      "start_time": 46710.0,
+      "end_time": 48900.0,
+      "text": "product teams want to ship new features,"
+    },
+    {
+      "index": 20,
+      "start_time": 48900.0,
+      "end_time": 51629.0,
+      "text": "but SREs need to maintain a reliability."
+    },
+    {
+      "index": 21,
+      "start_time": 51630.0,
+      "end_time": 53700.0,
+      "text": "Is there anything in the SRE program"
+    },
+    {
+      "index": 22,
+      "start_time": 53700.0,
+      "end_time": 55532.0,
+      "text": "that can help with this classic problem?"
+    },
+    {
+      "index": 23,
+      "start_time": 55532.0,
+      "end_time": 57739.0,
+      "text": "LIZ FONG-JONES: That&#39;s what we use error budgets for."
+    },
+    {
+      "index": 24,
+      "start_time": 57740.0,
+      "end_time": 59100.0,
+      "text": "SETH VARGO: Error budgets?"
+    },
+    {
+      "index": 25,
+      "start_time": 59100.0,
+      "end_time": 61480.0,
+      "text": "LIZ FONG-JONES: Well, before we talk about error budgets,"
+    },
+    {
+      "index": 26,
+      "start_time": 61480.0,
+      "end_time": 64259.0,
+      "text": "let&#39;s talk about risk and availability."
+    },
+    {
+      "index": 27,
+      "start_time": 64260.00000000001,
+      "end_time": 67290.0,
+      "text": "As I mentioned in the previous episode, trying to go for 100%"
+    },
+    {
+      "index": 28,
+      "start_time": 67290.0,
+      "end_time": 71700.0,
+      "text": "availability just isn&#39;t a good idea because it&#39;s expensive."
+    },
+    {
+      "index": 29,
+      "start_time": 71700.0,
+      "end_time": 73500.0,
+      "text": "It&#39;s technically complex."
+    },
+    {
+      "index": 30,
+      "start_time": 73500.0,
+      "end_time": 75660.0,
+      "text": "And in a lot of cases, it winds up being the case"
+    },
+    {
+      "index": 31,
+      "start_time": 75660.0,
+      "end_time": 78300.0,
+      "text": "that users don&#39;t even see the benefits of it because"
+    },
+    {
+      "index": 32,
+      "start_time": 78300.0,
+      "end_time": 80640.0,
+      "text": "of end reliability somewhere else in this system."
+    },
+    {
+      "index": 33,
+      "start_time": 80640.0,
+      "end_time": 81390.0,
+      "text": "SETH VARGO: I see."
+    },
+    {
+      "index": 34,
+      "start_time": 81390.0,
+      "end_time": 82473.0,
+      "text": "That makes a lot of sense."
+    },
+    {
+      "index": 35,
+      "start_time": 82473.0,
+      "end_time": 86390.0,
+      "text": "Because if my cellular network is only 99% reliable,"
+    },
+    {
+      "index": 36,
+      "start_time": 86400.0,
+      "end_time": 89160.0,
+      "text": "but my service is 99.9% reliable,"
+    },
+    {
+      "index": 37,
+      "start_time": 89160.0,
+      "end_time": 92310.0,
+      "text": "my users are never going to experience that additional 0.9%"
+    },
+    {
+      "index": 38,
+      "start_time": 92310.0,
+      "end_time": 94650.0,
+      "text": "of reliability because they&#39;re cellular network"
+    },
+    {
+      "index": 39,
+      "start_time": 94650.0,
+      "end_time": 96787.0,
+      "text": "is likely to fail before my service does."
+    },
+    {
+      "index": 40,
+      "start_time": 96787.0,
+      "end_time": 97620.0,
+      "text": "LIZ FONG-JONES: Yes."
+    },
+    {
+      "index": 41,
+      "start_time": 97620.0,
+      "end_time": 98860.0,
+      "text": "That&#39;s exactly correct."
+    },
+    {
+      "index": 42,
+      "start_time": 98860.0,
+      "end_time": 102460.0,
+      "text": "So while we want to reduce the risk of system failures,"
+    },
+    {
+      "index": 43,
+      "start_time": 102460.0,
+      "end_time": 104220.0,
+      "text": "we have to accept some degree of risk"
+    },
+    {
+      "index": 44,
+      "start_time": 104220.0,
+      "end_time": 106662.0,
+      "text": "in order to deliver these products and features."
+    },
+    {
+      "index": 45,
+      "start_time": 106662.0,
+      "end_time": 108120.0,
+      "text": "SETH VARGO: But how do we determine"
+    },
+    {
+      "index": 46,
+      "start_time": 108120.0,
+      "end_time": 110790.0,
+      "text": "how much risk a service is willing to tolerate?"
+    },
+    {
+      "index": 47,
+      "start_time": 110790.0,
+      "end_time": 113700.0,
+      "text": "LIZ FONG-JONES: So that&#39;s a product decision."
+    },
+    {
+      "index": 48,
+      "start_time": 113700.0,
+      "end_time": 115410.0,
+      "text": "So we have to work with the product&#39;s management team"
+    },
+    {
+      "index": 49,
+      "start_time": 115410.0,
+      "end_time": 117869.0,
+      "text": "to figure out what is our explicit goal"
+    },
+    {
+      "index": 50,
+      "start_time": 117870.0,
+      "end_time": 120122.0,
+      "text": "for the availability target of our service."
+    },
+    {
+      "index": 51,
+      "start_time": 120122.0,
+      "end_time": 121830.0,
+      "text": "And there are many things to think about,"
+    },
+    {
+      "index": 52,
+      "start_time": 121830.0,
+      "end_time": 125390.0,
+      "text": "like how much is it going to cost to add extra fault"
+    },
+    {
+      "index": 53,
+      "start_time": 125400.0,
+      "end_time": 127470.0,
+      "text": "tolerance, or to add extra testing time,"
+    },
+    {
+      "index": 54,
+      "start_time": 127470.0,
+      "end_time": 129600.0,
+      "text": "or to reduce our frequency of pushes,"
+    },
+    {
+      "index": 55,
+      "start_time": 129600.0,
+      "end_time": 132300.0,
+      "text": "or to increase how long it takes for us to decide"
+    },
+    {
+      "index": 56,
+      "start_time": 132300.0,
+      "end_time": 135120.0,
+      "text": "that a release is good compared to the benefits to the user"
+    },
+    {
+      "index": 57,
+      "start_time": 135120.0,
+      "end_time": 136590.0,
+      "text": "of increased reliability."
+    },
+    {
+      "index": 58,
+      "start_time": 136590.0,
+      "end_time": 137340.0,
+      "text": "SETH VARGO: I see."
+    },
+    {
+      "index": 59,
+      "start_time": 137340.0,
+      "end_time": 140820.0,
+      "text": "So the acceptable risk of a system dictates the SLO,"
+    },
+    {
+      "index": 60,
+      "start_time": 140820.0,
+      "end_time": 144120.0,
+      "text": "and the SLO mathematically defines the error budget."
+    },
+    {
+      "index": 61,
+      "start_time": 144120.0,
+      "end_time": 146670.0,
+      "text": "If the service incurs too much downtime,"
+    },
+    {
+      "index": 62,
+      "start_time": 146670.0,
+      "end_time": 149820.0,
+      "text": "we have to reduce the risk to remain within the SLO, which"
+    },
+    {
+      "index": 63,
+      "start_time": 149820.0,
+      "end_time": 151650.0,
+      "text": "might mean halting deployments."
+    },
+    {
+      "index": 64,
+      "start_time": 151650.0,
+      "end_time": 154230.0,
+      "text": "If service owners want to deliver"
+    },
+    {
+      "index": 65,
+      "start_time": 154230.0,
+      "end_time": 156209.0,
+      "text": "a lot of risky features, they have"
+    },
+    {
+      "index": 66,
+      "start_time": 156210.0,
+      "end_time": 159000.0,
+      "text": "to be willing to accept a much looser SLO."
+    },
+    {
+      "index": 67,
+      "start_time": 159000.0,
+      "end_time": 161950.0,
+      "text": "Because if they were to choose a strict SLO,"
+    },
+    {
+      "index": 68,
+      "start_time": 161950.0,
+      "end_time": 163220.0,
+      "text": "they would quickly exceed their error budget, which"
+    },
+    {
+      "index": 69,
+      "start_time": 163220.0,
+      "end_time": 164585.0,
+      "text": "could halt future deployments."
+    },
+    {
+      "index": 70,
+      "start_time": 164585.0,
+      "end_time": 165585.0,
+      "text": "LIZ FONG-JONES: Exactly."
+    },
+    {
+      "index": 71,
+      "start_time": 165585.0,
+      "end_time": 167610.0,
+      "text": "So the main benefit of an error budget"
+    },
+    {
+      "index": 72,
+      "start_time": 167610.0,
+      "end_time": 169710.0,
+      "text": "is that it&#39;s a quantitative measurement that&#39;s"
+    },
+    {
+      "index": 73,
+      "start_time": 169710.0,
+      "end_time": 172440.0,
+      "text": "shared between the product and SRE teams, which"
+    },
+    {
+      "index": 74,
+      "start_time": 172440.0,
+      "end_time": 174840.0,
+      "text": "means that we can balance innovation and stability"
+    },
+    {
+      "index": 75,
+      "start_time": 174840.0,
+      "end_time": 176790.0,
+      "text": "to an appropriate level."
+    },
+    {
+      "index": 76,
+      "start_time": 176790.0,
+      "end_time": 177870.0,
+      "text": "SETH VARGO: So as long as the SLOs are met,"
+    },
+    {
+      "index": 77,
+      "start_time": 177870.0,
+      "end_time": 179310.0,
+      "text": "releases can continue."
+    },
+    {
+      "index": 78,
+      "start_time": 179310.0,
+      "end_time": 182320.0,
+      "text": "But how do we know if an SLO breach is about to occur?"
+    },
+    {
+      "index": 79,
+      "start_time": 182320.0,
+      "end_time": 184920.0,
+      "text": "LIZ FONG-JONES: So when we defined earlier the expectation"
+    },
+    {
+      "index": 80,
+      "start_time": 184920.0,
+      "end_time": 186899.0,
+      "text": "of how much uptime a service is going to have"
+    },
+    {
+      "index": 81,
+      "start_time": 186900.0,
+      "end_time": 188430.0,
+      "text": "and how we&#39;re going to measure it,"
+    },
+    {
+      "index": 82,
+      "start_time": 188430.0,
+      "end_time": 190470.0,
+      "text": "well, we need to actually concretely implement"
+    },
+    {
+      "index": 83,
+      "start_time": 190470.0,
+      "end_time": 192690.0,
+      "text": "that using a neutral third party,"
+    },
+    {
+      "index": 84,
+      "start_time": 192690.0,
+      "end_time": 194500.0,
+      "text": "like a monitoring system."
+    },
+    {
+      "index": 85,
+      "start_time": 194500.0,
+      "end_time": 195425.0,
+      "text": "SETH VARGO: Well, and the metrics"
+    },
+    {
+      "index": 86,
+      "start_time": 195425.0,
+      "end_time": 197660.0,
+      "text": "on that monitoring system, those are the SLIs, right?"
+    },
+    {
+      "index": 87,
+      "start_time": 197660.0,
+      "end_time": 198660.0,
+      "text": "LIZ FONG-JONES: Exactly."
+    },
+    {
+      "index": 88,
+      "start_time": 198660.0,
+      "end_time": 200520.0,
+      "text": "And the difference between the actual uptime"
+    },
+    {
+      "index": 89,
+      "start_time": 200520.0,
+      "end_time": 203550.0,
+      "text": "and the calculated target uptime from our SLO"
+    },
+    {
+      "index": 90,
+      "start_time": 203550.0,
+      "end_time": 205560.0,
+      "text": "is the budget of how much unavailability"
+    },
+    {
+      "index": 91,
+      "start_time": 205560.0,
+      "end_time": 207480.0,
+      "text": "that we can tolerate for the system"
+    },
+    {
+      "index": 92,
+      "start_time": 207480.0,
+      "end_time": 210840.0,
+      "text": "to be stable over the entire window of the SLO."
+    },
+    {
+      "index": 93,
+      "start_time": 210840.0,
+      "end_time": 212430.0,
+      "text": "So we call this the error budget."
+    },
+    {
+      "index": 94,
+      "start_time": 212430.0,
+      "end_time": 214424.0,
+      "text": "If your SLIs are failing all the time,"
+    },
+    {
+      "index": 95,
+      "start_time": 214424.0,
+      "end_time": 216840.0,
+      "text": "then you&#39;re going to be burning through your error budget."
+    },
+    {
+      "index": 96,
+      "start_time": 216840.0,
+      "end_time": 220350.0,
+      "text": "And then eventually, you need to stop your feature releases"
+    },
+    {
+      "index": 97,
+      "start_time": 220350.0,
+      "end_time": 223679.0,
+      "text": "in order to focus instead on making reliability improvements"
+    },
+    {
+      "index": 98,
+      "start_time": 223679.0,
+      "end_time": 225720.0,
+      "text": "and restructuring your application so that it can"
+    },
+    {
+      "index": 99,
+      "start_time": 225720.0,
+      "end_time": 228360.0,
+      "text": "meet your SLOs in the future."
+    },
+    {
+      "index": 100,
+      "start_time": 228360.0,
+      "end_time": 230160.0,
+      "text": "SETH VARGO: So who enforces those policies, though?"
+    },
+    {
+      "index": 101,
+      "start_time": 230160.0,
+      "end_time": 234270.0,
+      "text": "Because couldn&#39;t a product team just go over and break the SLO"
+    },
+    {
+      "index": 102,
+      "start_time": 234270.0,
+      "end_time": 236950.0,
+      "text": "and force the SREs to work overtime?"
+    },
+    {
+      "index": 103,
+      "start_time": 236950.0,
+      "end_time": 238470.0,
+      "text": "LIZ FONG-JONES: So this is why we"
+    },
+    {
+      "index": 104,
+      "start_time": 238470.0,
+      "end_time": 241230.0,
+      "text": "need to have executive buy-in for error budgets."
+    },
+    {
+      "index": 105,
+      "start_time": 241230.0,
+      "end_time": 242880.0,
+      "text": "If the SRE teams don&#39;t have the ability"
+    },
+    {
+      "index": 106,
+      "start_time": 242880.0,
+      "end_time": 245500.0,
+      "text": "to enforce the error budgets, then the whole system"
+    },
+    {
+      "index": 107,
+      "start_time": 245500.0,
+      "end_time": 246900.0,
+      "text": "is going to break down."
+    },
+    {
+      "index": 108,
+      "start_time": 246900.0,
+      "end_time": 250140.0,
+      "text": "So some teams just allow for a limited number"
+    },
+    {
+      "index": 109,
+      "start_time": 250140.0,
+      "end_time": 253230.0,
+      "text": "of tokens or golden bullets that you can hand out to a vice"
+    },
+    {
+      "index": 110,
+      "start_time": 253230.0,
+      "end_time": 254739.0,
+      "text": "president, for example."
+    },
+    {
+      "index": 111,
+      "start_time": 254740.0,
+      "end_time": 256200.0,
+      "text": "So if a product team really wants"
+    },
+    {
+      "index": 112,
+      "start_time": 256200.0,
+      "end_time": 257670.0,
+      "text": "to get that critical feature out,"
+    },
+    {
+      "index": 113,
+      "start_time": 257670.00000000003,
+      "end_time": 259544.00000000003,
+      "text": "well, they&#39;re going to have to ask their vice"
+    },
+    {
+      "index": 114,
+      "start_time": 259543.0,
+      "end_time": 261890.0,
+      "text": "president for a one-time exception,"
+    },
+    {
+      "index": 115,
+      "start_time": 261890.0,
+      "end_time": 263580.0,
+      "text": "and they&#39;ll only get a certain number per year."
+    },
+    {
+      "index": 116,
+      "start_time": 263580.0,
+      "end_time": 264330.0,
+      "text": "SETH VARGO: I see."
+    },
+    {
+      "index": 117,
+      "start_time": 264330.0,
+      "end_time": 267390.0,
+      "text": "But what about things that are outside of the product team"
+    },
+    {
+      "index": 118,
+      "start_time": 267390.0,
+      "end_time": 270300.0,
+      "text": "that aren&#39;t necessarily buggy code for my developers,"
+    },
+    {
+      "index": 119,
+      "start_time": 270300.0,
+      "end_time": 272940.0,
+      "text": "like someone cuts an undersea cable,"
+    },
+    {
+      "index": 120,
+      "start_time": 272940.0,
+      "end_time": 276180.0,
+      "text": "or there&#39;s a catastrophic failure at a data center?"
+    },
+    {
+      "index": 121,
+      "start_time": 276180.0,
+      "end_time": 278100.0,
+      "text": "Those shouldn&#39;t impact my error budget."
+    },
+    {
+      "index": 122,
+      "start_time": 278100.0,
+      "end_time": 279522.0,
+      "text": "It wasn&#39;t my fault."
+    },
+    {
+      "index": 123,
+      "start_time": 279522.0,
+      "end_time": 280980.0,
+      "text": "LIZ FONG-JONES: So this is why it&#39;s"
+    },
+    {
+      "index": 124,
+      "start_time": 280980.0,
+      "end_time": 283410.0,
+      "text": "important to have error budgets from top to bottom"
+    },
+    {
+      "index": 125,
+      "start_time": 283410.0,
+      "end_time": 285150.0,
+      "text": "for everything in your stack."
+    },
+    {
+      "index": 126,
+      "start_time": 285150.0,
+      "end_time": 288600.0,
+      "text": "That way you can figure out how much error budget you allocate"
+    },
+    {
+      "index": 127,
+      "start_time": 288600.0,
+      "end_time": 291120.0,
+      "text": "to your dependencies and how much error budget is reserved"
+    },
+    {
+      "index": 128,
+      "start_time": 291120.0,
+      "end_time": 292920.0,
+      "text": "for your developers to spend."
+    },
+    {
+      "index": 129,
+      "start_time": 292920.0,
+      "end_time": 295920.0,
+      "text": "And this is another reason why targeting 100% availability"
+    },
+    {
+      "index": 130,
+      "start_time": 295920.0,
+      "end_time": 298200.0,
+      "text": "isn&#39;t realistic, because all of your dependencies"
+    },
+    {
+      "index": 131,
+      "start_time": 298200.0,
+      "end_time": 300450.0,
+      "text": "are not 100% available either."
+    },
+    {
+      "index": 132,
+      "start_time": 300450.0,
+      "end_time": 302170.0,
+      "text": "SETH VARGO: That makes a lot of sense."
+    },
+    {
+      "index": 133,
+      "start_time": 302170.0,
+      "end_time": 305520.0,
+      "text": "But what about other things like restarting a failed service"
+    },
+    {
+      "index": 134,
+      "start_time": 305520.0,
+      "end_time": 308159.0,
+      "text": "or other kind of manual tasks?"
+    },
+    {
+      "index": 135,
+      "start_time": 308160.0,
+      "end_time": 310255.0,
+      "text": "Are those considered part of the error budget?"
+    },
+    {
+      "index": 136,
+      "start_time": 310255.0,
+      "end_time": 311130.0,
+      "text": "LIZ FONG-JONES: Yeah."
+    },
+    {
+      "index": 137,
+      "start_time": 311130.0,
+      "end_time": 314430.0,
+      "text": "So Seth, when you have to do manual action"
+    },
+    {
+      "index": 138,
+      "start_time": 314430.0,
+      "end_time": 317150.0,
+      "text": "to keep your system from failing, in the wait"
+    },
+    {
+      "index": 139,
+      "start_time": 317150.0,
+      "end_time": 318900.0,
+      "text": "before you actually do that manual action,"
+    },
+    {
+      "index": 140,
+      "start_time": 318900.0,
+      "end_time": 321120.0,
+      "text": "you&#39;ll start burning through your error budget."
+    },
+    {
+      "index": 141,
+      "start_time": 321120.0,
+      "end_time": 323370.0,
+      "text": "But the actual act of doing that manual work,"
+    },
+    {
+      "index": 142,
+      "start_time": 323370.0,
+      "end_time": 324570.0,
+      "text": "we track that separately."
+    },
+    {
+      "index": 143,
+      "start_time": 324570.0,
+      "end_time": 326250.0,
+      "text": "And that&#39;s a concept that we call toil."
+    },
+    {
+      "index": 144,
+      "start_time": 326250.0,
+      "end_time": 329760.0,
+      "text": "So we&#39;ll talk about that more in detail in the next video."
+    },
+    {
+      "index": 145,
+      "start_time": 329760.0,
+      "end_time": 330690.0,
+      "text": "SETH VARGO: Great."
+    },
+    {
+      "index": 146,
+      "start_time": 330690.0,
+      "end_time": 333300.0,
+      "text": "So risk and error budgets are directly related"
+    },
+    {
+      "index": 147,
+      "start_time": 333300.0,
+      "end_time": 335190.0,
+      "text": "to many of the DevOps principles that we&#39;ve"
+    },
+    {
+      "index": 148,
+      "start_time": 335190.0,
+      "end_time": 337200.0,
+      "text": "discussed in earlier episodes."
+    },
+    {
+      "index": 149,
+      "start_time": 337200.0,
+      "end_time": 338969.0,
+      "text": "It clearly defines that accidents"
+    },
+    {
+      "index": 150,
+      "start_time": 338970.0,
+      "end_time": 341310.0,
+      "text": "are normal by quantifying accidents"
+    },
+    {
+      "index": 151,
+      "start_time": 341310.0,
+      "end_time": 343260.0,
+      "text": "and risk through error budgets."
+    },
+    {
+      "index": 152,
+      "start_time": 343260.0,
+      "end_time": 345940.0,
+      "text": "It also enforces that change should be gradual"
+    },
+    {
+      "index": 153,
+      "start_time": 345940.0,
+      "end_time": 348460.0,
+      "text": "because a non-gradual change could quickly"
+    },
+    {
+      "index": 154,
+      "start_time": 348460.0,
+      "end_time": 351100.0,
+      "text": "burn through the error budget for a particular product"
+    },
+    {
+      "index": 155,
+      "start_time": 351100.0,
+      "end_time": 353500.0,
+      "text": "breaking the SLO and preventing further deployment"
+    },
+    {
+      "index": 156,
+      "start_time": 353500.0,
+      "end_time": 355670.0,
+      "text": "for the quarter or for the year."
+    },
+    {
+      "index": 157,
+      "start_time": 355670.0,
+      "end_time": 356930.0,
+      "text": "This has really helped a lot."
+    },
+    {
+      "index": 158,
+      "start_time": 356930.0,
+      "end_time": 360325.0,
+      "text": "I think it&#39;s really clear why we say that class SRE implements"
+    },
+    {
+      "index": 159,
+      "start_time": 360325.0,
+      "end_time": 361332.0,
+      "text": "DevOps."
+    },
+    {
+      "index": 160,
+      "start_time": 361332.0,
+      "end_time": 363290.0,
+      "text": "LIZ FONG-JONES: Thanks, everyone, for watching."
+    },
+    {
+      "index": 161,
+      "start_time": 363290.0,
+      "end_time": 366324.0,
+      "text": "Check the description below for links and more information."
+    },
+    {
+      "index": 162,
+      "start_time": 366324.0,
+      "end_time": 367990.0,
+      "text": "Don&#39;t forget to subscribe to the channel"
+    },
+    {
+      "index": 163,
+      "start_time": 367990.0,
+      "end_time": 369490.0,
+      "text": "and stay tuned for our next video"
+    },
+    {
+      "index": 164,
+      "start_time": 369490.0,
+      "end_time": 372600.0,
+      "text": "where we talk about toil budgets."
+    }
+  ]
+}

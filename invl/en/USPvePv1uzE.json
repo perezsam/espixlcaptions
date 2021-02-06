@@ -1,0 +1,1020 @@
+{
+  "video_id": "USPvePv1uzE",
+  "title": "GDB",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 7170.0,
+      "end_time": 12630.0,
+      "text": "GDB, the GNU Project Debugger, is a powerful debugging tool for C,"
+    },
+    {
+      "index": 2,
+      "start_time": 12630.0,
+      "end_time": 14300.0,
+      "text": "along with many other languages."
+    },
+    {
+      "index": 3,
+      "start_time": 14300.0,
+      "end_time": 17440.0,
+      "text": "It allows you to poke around inside your C programs while they&#39;re executing,"
+    },
+    {
+      "index": 4,
+      "start_time": 17440.0,
+      "end_time": 20880.0,
+      "text": "and it also gives you the opportunity to see exactly what happens"
+    },
+    {
+      "index": 5,
+      "start_time": 20880.0,
+      "end_time": 22490.0,
+      "text": "when your program crashes."
+    },
+    {
+      "index": 6,
+      "start_time": 22490.0,
+      "end_time": 24690.0,
+      "text": "It&#39;s pretty nifty, right?"
+    },
+    {
+      "index": 7,
+      "start_time": 24690.0,
+      "end_time": 27980.0,
+      "text": "GDB is free software, and it runs on many popular UNIX and"
+    },
+    {
+      "index": 8,
+      "start_time": 27980.0,
+      "end_time": 31840.0,
+      "text": "Windows-based operating systems, so it&#39;s a very widespread tool."
+    },
+    {
+      "index": 9,
+      "start_time": 31840.0,
+      "end_time": 33560.0,
+      "text": "&gt;&gt; You should learn to love it."
+    },
+    {
+      "index": 10,
+      "start_time": 33560.0,
+      "end_time": 36800.0,
+      "text": "GDB pros have a much easier time tracking down bugs"
+    },
+    {
+      "index": 11,
+      "start_time": 36800.0,
+      "end_time": 39150.0,
+      "text": "than those who muddle through using guesses"
+    },
+    {
+      "index": 12,
+      "start_time": 39150.0,
+      "end_time": 41420.0,
+      "text": "and infinite amounts of printout statements."
+    },
+    {
+      "index": 13,
+      "start_time": 41420.0,
+      "end_time": 45810.0,
+      "text": "GDB is a command-line tool, which means you can interact with it in a terminal"
+    },
+    {
+      "index": 14,
+      "start_time": 45810.0,
+      "end_time": 49720.0,
+      "text": "issuing commands via the keyboard instead of clicking buttons with your mouse."
+    },
+    {
+      "index": 15,
+      "start_time": 49720.0,
+      "end_time": 54960.0,
+      "text": "&gt;&gt; To start up GDB, you literally just type gdb at the prompt and hit enter."
+    },
+    {
+      "index": 16,
+      "start_time": 54960.0,
+      "end_time": 58230.0,
+      "text": "You&#39;ll see some lines printed out to the screen"
+    },
+    {
+      "index": 17,
+      "start_time": 58230.0,
+      "end_time": 60810.0,
+      "text": "showing you the version of GDB that you&#39;re running,"
+    },
+    {
+      "index": 18,
+      "start_time": 60810.0,
+      "end_time": 67890.0,
+      "text": "its copyright information, and at the end you&#39;ll see the GDB prompt: (gdb)."
+    },
+    {
+      "index": 19,
+      "start_time": 67890.0,
+      "end_time": 70770.0,
+      "text": "This lets you know that GDB is ready for commands."
+    },
+    {
+      "index": 20,
+      "start_time": 70770.0,
+      "end_time": 75400.0,
+      "text": "At this point, the most important thing to know how to do is quit."
+    },
+    {
+      "index": 21,
+      "start_time": 75400.0,
+      "end_time": 77790.0,
+      "text": "Fortunately, this is pretty simple."
+    },
+    {
+      "index": 22,
+      "start_time": 77790.0,
+      "end_time": 79840.0,
+      "text": "The quit command does just that."
+    },
+    {
+      "index": 23,
+      "start_time": 79840.0,
+      "end_time": 83090.0,
+      "text": "As a shortcut, you can just use q too."
+    },
+    {
+      "index": 24,
+      "start_time": 83090.0,
+      "end_time": 87410.0,
+      "text": "As fun as booting up GDB and then promptly quitting is,"
+    },
+    {
+      "index": 25,
+      "start_time": 87410.0,
+      "end_time": 90800.0,
+      "text": "let&#39;s now talk about using GDB to help debug a program."
+    },
+    {
+      "index": 26,
+      "start_time": 90800.0,
+      "end_time": 94630.0,
+      "text": "&gt;&gt; To start, I&#39;ve got a program here in factorial.c"
+    },
+    {
+      "index": 27,
+      "start_time": 94630.0,
+      "end_time": 97380.0,
+      "text": "that gets an int and attempts to compute its factorial."
+    },
+    {
+      "index": 28,
+      "start_time": 97380.0,
+      "end_time": 101270.0,
+      "text": "In case you haven&#39;t seen factorials before or don&#39;t remember them,"
+    },
+    {
+      "index": 29,
+      "start_time": 101270.0,
+      "end_time": 107840.0,
+      "text": "The factorial of the number n is equal to the product of n--(n - 1), (n - 2), and so on--"
+    },
+    {
+      "index": 30,
+      "start_time": 107840.0,
+      "end_time": 109230.0,
+      "text": "until you hit 1."
+    },
+    {
+      "index": 31,
+      "start_time": 109230.0,
+      "end_time": 114550.0,
+      "text": "Therefore, the factorial of 3 is 3 * 2 * 1, or 6,"
+    },
+    {
+      "index": 32,
+      "start_time": 114550.0,
+      "end_time": 120180.0,
+      "text": "and the factorial of 4 is 4 * 3 * 2 * 1, or 24."
+    },
+    {
+      "index": 33,
+      "start_time": 120180.0,
+      "end_time": 123970.0,
+      "text": "The factorial of zero is an odd case, it&#39;s 1,"
+    },
+    {
+      "index": 34,
+      "start_time": 123970.0,
+      "end_time": 126970.0,
+      "text": "and the factorials of negative integers aren&#39;t defined."
+    },
+    {
+      "index": 35,
+      "start_time": 126970.0,
+      "end_time": 130280.0,
+      "text": "Anyway, something about my factorial program is funky."
+    },
+    {
+      "index": 36,
+      "start_time": 130280.0,
+      "end_time": 135410.0,
+      "text": "When I run it, it prints out weird numbers that have nothing to do with factorials."
+    },
+    {
+      "index": 37,
+      "start_time": 135410.0,
+      "end_time": 139030.0,
+      "text": "&gt;&gt; So, we can use GDB to help figure out what&#39;s going on."
+    },
+    {
+      "index": 38,
+      "start_time": 139030.0,
+      "end_time": 141720.0,
+      "text": "GDB operates on executable files,"
+    },
+    {
+      "index": 39,
+      "start_time": 141720.0,
+      "end_time": 144910.0,
+      "text": "which are the binary files produced by the compilation process."
+    },
+    {
+      "index": 40,
+      "start_time": 144910.0,
+      "end_time": 150940.0,
+      "text": "That is, we can&#39;t run GDB on our .c or .h source code files like factorial.c."
+    },
+    {
+      "index": 41,
+      "start_time": 150940.0,
+      "end_time": 154650.0,
+      "text": "We want to run it on just factorial instead."
+    },
+    {
+      "index": 42,
+      "start_time": 154650.0,
+      "end_time": 158340.0,
+      "text": "If the program required any command-line arguments,"
+    },
+    {
+      "index": 43,
+      "start_time": 158340.0,
+      "end_time": 160230.0,
+      "text": "this is where we&#39;d specify them."
+    },
+    {
+      "index": 44,
+      "start_time": 160230.0,
+      "end_time": 164050.0,
+      "text": "In this case, factorial doesn&#39;t require any command-line arguments,"
+    },
+    {
+      "index": 45,
+      "start_time": 164050.0,
+      "end_time": 166410.0,
+      "text": "so we just type run or r for short."
+    },
+    {
+      "index": 46,
+      "start_time": 166410.0,
+      "end_time": 170440.0,
+      "text": "&gt;&gt; This will start the factorial program running."
+    },
+    {
+      "index": 47,
+      "start_time": 170440.0,
+      "end_time": 173940.0,
+      "text": "When the program stops running, I&#39;ll get my GDB prompt back."
+    },
+    {
+      "index": 48,
+      "start_time": 173940.0,
+      "end_time": 178130.0,
+      "text": "Okay, let&#39;s try the same thing again, factorial of 4."
+    },
+    {
+      "index": 49,
+      "start_time": 178130.0,
+      "end_time": 182910.0,
+      "text": "All right, we see that we&#39;re getting the same kind of junk here in GDB."
+    },
+    {
+      "index": 50,
+      "start_time": 182910.0,
+      "end_time": 184850.0,
+      "text": "Now that the program has finished,"
+    },
+    {
+      "index": 51,
+      "start_time": 184850.0,
+      "end_time": 186870.0,
+      "text": "we can&#39;t go in and access any of its state,"
+    },
+    {
+      "index": 52,
+      "start_time": 186870.0,
+      "end_time": 189870.0,
+      "text": "so we&#39;ll need to start it running again before we can see what&#39;s happening."
+    },
+    {
+      "index": 53,
+      "start_time": 189870.0,
+      "end_time": 193570.0,
+      "text": "However, we need a way to stop it while it&#39;s in the middle of its run."
+    },
+    {
+      "index": 54,
+      "start_time": 193570.0,
+      "end_time": 196970.0,
+      "text": "&gt;&gt; To do that, we use what&#39;s called a breakpoint."
+    },
+    {
+      "index": 55,
+      "start_time": 196970.0,
+      "end_time": 201880.0,
+      "text": "Breakpoints tell GDB to pause the program at a particular function or source code line"
+    },
+    {
+      "index": 56,
+      "start_time": 201880.0,
+      "end_time": 204070.0,
+      "text": "so that we can examine the state of the program,"
+    },
+    {
+      "index": 57,
+      "start_time": 204070.0,
+      "end_time": 207380.0,
+      "text": "the values of variables, the state of memory and such, at that point."
+    },
+    {
+      "index": 58,
+      "start_time": 207380.0,
+      "end_time": 210750.0,
+      "text": "Since I don&#39;t really know where things are going wrong,"
+    },
+    {
+      "index": 59,
+      "start_time": 210750.0,
+      "end_time": 213510.0,
+      "text": "&gt;&gt; I just want to start debugging right at the very beginning,"
+    },
+    {
+      "index": 60,
+      "start_time": 213510.0,
+      "end_time": 216510.0,
+      "text": "right when main begins."
+    },
+    {
+      "index": 61,
+      "start_time": 216510.0,
+      "end_time": 219260.0,
+      "text": "We&#39;ll set a breakpoint at the beginning of main using the break command."
+    },
+    {
+      "index": 62,
+      "start_time": 219260.0,
+      "end_time": 222640.0,
+      "text": "We can also use b to abbreviate break."
+    },
+    {
+      "index": 63,
+      "start_time": 222640.0,
+      "end_time": 225000.0,
+      "text": "Now let&#39;s start the program running again."
+    },
+    {
+      "index": 64,
+      "start_time": 225000.0,
+      "end_time": 228140.0,
+      "text": "Here we are at the beginning of main, just like GDB tells us."
+    },
+    {
+      "index": 65,
+      "start_time": 228140.0,
+      "end_time": 231970.0,
+      "text": "The line of code that&#39;s about to execute but hasn&#39;t yet"
+    },
+    {
+      "index": 66,
+      "start_time": 231970.0,
+      "end_time": 233480.0,
+      "text": "is the printf line."
+    },
+    {
+      "index": 67,
+      "start_time": 233480.0,
+      "end_time": 237200.0,
+      "text": "We can tell GDB to execute this line of code and go to the next line"
+    },
+    {
+      "index": 68,
+      "start_time": 237200.0,
+      "end_time": 239840.0,
+      "text": "with the next or n command."
+    },
+    {
+      "index": 69,
+      "start_time": 239840.0,
+      "end_time": 244120.0,
+      "text": "&gt;&gt; All right, now GDB tells us that we&#39;re on the GetInt line."
+    },
+    {
+      "index": 70,
+      "start_time": 244120.0,
+      "end_time": 246630.0,
+      "text": "I know that it seems like the printf line didn&#39;t run"
+    },
+    {
+      "index": 71,
+      "start_time": 246630.0,
+      "end_time": 250070.0,
+      "text": "since we don&#39;t see &quot;Enter a positive integer&quot; print out on the screen,"
+    },
+    {
+      "index": 72,
+      "start_time": 250070.0,
+      "end_time": 252040.0,
+      "text": "but it did actually run."
+    },
+    {
+      "index": 73,
+      "start_time": 252040.0,
+      "end_time": 256029.0,
+      "text": "What we&#39;re seeing is the operating system suppress writing anything to the screen"
+    },
+    {
+      "index": 74,
+      "start_time": 256029.0,
+      "end_time": 259649.0,
+      "text": "until it absolutely has to, which why debugging with printouts"
+    },
+    {
+      "index": 75,
+      "start_time": 259649.0,
+      "end_time": 261730.0,
+      "text": "can sometimes seem unreliable."
+    },
+    {
+      "index": 76,
+      "start_time": 261730.00000000003,
+      "end_time": 266240.0,
+      "text": "Anyway, let&#39;s again go to the next line of code and enter in an int."
+    },
+    {
+      "index": 77,
+      "start_time": 266240.0,
+      "end_time": 270070.0,
+      "text": "Again, let&#39;s type 4."
+    },
+    {
+      "index": 78,
+      "start_time": 270070.0,
+      "end_time": 274540.0,
+      "text": "So this looks weird. We&#39;re on line 12 according to GDB,"
+    },
+    {
+      "index": 79,
+      "start_time": 274540.0,
+      "end_time": 277660.0,
+      "text": "but the next line that&#39;s about to execute is just a curly brace."
+    },
+    {
+      "index": 80,
+      "start_time": 277660.0,
+      "end_time": 282110.0,
+      "text": "&gt;&gt; That just means we&#39;re at the end of a loop, our do while loop in fact,"
+    },
+    {
+      "index": 81,
+      "start_time": 282110.0,
+      "end_time": 286710.0,
+      "text": "and GDB is telling us that the termination condition, namely none less than zero,"
+    },
+    {
+      "index": 82,
+      "start_time": 286710.0,
+      "end_time": 288010.0,
+      "text": "will execute next."
+    },
+    {
+      "index": 83,
+      "start_time": 288010.0,
+      "end_time": 290230.0,
+      "text": "If this ever gets a little confusing,"
+    },
+    {
+      "index": 84,
+      "start_time": 290230.0,
+      "end_time": 294860.0,
+      "text": "we can pull up the source code in GDB with the list or l command."
+    },
+    {
+      "index": 85,
+      "start_time": 294860.0,
+      "end_time": 296880.0,
+      "text": "This prints out the source code"
+    },
+    {
+      "index": 86,
+      "start_time": 296880.0,
+      "end_time": 299010.0,
+      "text": "that&#39;s centered around the line that we&#39;re currently on."
+    },
+    {
+      "index": 87,
+      "start_time": 299010.0,
+      "end_time": 303590.0,
+      "text": "If we type list or l again, we&#39;ll see the next set of lines print out."
+    },
+    {
+      "index": 88,
+      "start_time": 303590.0,
+      "end_time": 306070.0,
+      "text": "We can do this until we hit the end of the file."
+    },
+    {
+      "index": 89,
+      "start_time": 306070.0,
+      "end_time": 311210.0,
+      "text": "&gt;&gt; To get back to where we were, we can supply list with a line number,"
+    },
+    {
+      "index": 90,
+      "start_time": 311210.0,
+      "end_time": 314120.0,
+      "text": "in this case, line 12."
+    },
+    {
+      "index": 91,
+      "start_time": 314120.0,
+      "end_time": 316040.0,
+      "text": "Anyway, let&#39;s move on."
+    },
+    {
+      "index": 92,
+      "start_time": 316040.0,
+      "end_time": 318240.0,
+      "text": "Now we&#39;re on the 4 loop."
+    },
+    {
+      "index": 93,
+      "start_time": 318240.0,
+      "end_time": 321490.0,
+      "text": "Let&#39;s make sure that our num variable contains 4."
+    },
+    {
+      "index": 94,
+      "start_time": 321490.0,
+      "end_time": 326170.0,
+      "text": "We do this with the print, or p, command."
+    },
+    {
+      "index": 95,
+      "start_time": 326170.0,
+      "end_time": 331140.0,
+      "text": "So, GDB tells us that num is indeed storing 4, as we expected."
+    },
+    {
+      "index": 96,
+      "start_time": 331140.0,
+      "end_time": 335180.0,
+      "text": "The $1 that GDB prints out is a special GDB variable"
+    },
+    {
+      "index": 97,
+      "start_time": 335180.0,
+      "end_time": 337720.0,
+      "text": "that is now set to store the number 4 as well."
+    },
+    {
+      "index": 98,
+      "start_time": 337720.0,
+      "end_time": 342240.0,
+      "text": "You can ignore this for now, but these GDB variables come in super handy"
+    },
+    {
+      "index": 99,
+      "start_time": 342240.0,
+      "end_time": 346380.0,
+      "text": "in more advanced cases when you want to recall what you&#39;ve done in the past."
+    },
+    {
+      "index": 100,
+      "start_time": 346380.0,
+      "end_time": 350970.0,
+      "text": "Anyway, moving on with next, we see that we start moving through the for loop."
+    },
+    {
+      "index": 101,
+      "start_time": 350970.0,
+      "end_time": 354790.0,
+      "text": "Let&#39;s keep going through here with n bit by bit."
+    },
+    {
+      "index": 102,
+      "start_time": 354790.0,
+      "end_time": 358280.0,
+      "text": "Rather than typing n each time, you can also just hit enter."
+    },
+    {
+      "index": 103,
+      "start_time": 358280.0,
+      "end_time": 363710.0,
+      "text": "When you hit enter without typing anything, GDB just repeats the previous command."
+    },
+    {
+      "index": 104,
+      "start_time": 363710.0,
+      "end_time": 365910.0,
+      "text": "So now we&#39;ve hit the printf call."
+    },
+    {
+      "index": 105,
+      "start_time": 365910.0,
+      "end_time": 369520.0,
+      "text": "It looks like we&#39;ve indeed gone through our for loop 4 times,"
+    },
+    {
+      "index": 106,
+      "start_time": 369520.0,
+      "end_time": 373750.0,
+      "text": "which is what we want to do in order to multiply by 1, 2, 3, and 4."
+    },
+    {
+      "index": 107,
+      "start_time": 373750.0,
+      "end_time": 375870.0,
+      "text": "&gt;&gt; Everything seems like it&#39;s working,"
+    },
+    {
+      "index": 108,
+      "start_time": 375870.0,
+      "end_time": 379680.0,
+      "text": "except when we hit next again we get this huge number instead of 24."
+    },
+    {
+      "index": 109,
+      "start_time": 379680.0,
+      "end_time": 383100.0,
+      "text": "If we print out the value of factorial using p,"
+    },
+    {
+      "index": 110,
+      "start_time": 383100.0,
+      "end_time": 386120.0,
+      "text": "we see that factorial does have this massive number in it."
+    },
+    {
+      "index": 111,
+      "start_time": 386120.0,
+      "end_time": 388740.0,
+      "text": "Something&#39;s definitely going wrong."
+    },
+    {
+      "index": 112,
+      "start_time": 388740.0,
+      "end_time": 391960.0,
+      "text": "At this point, though, we are almost at the end of the program,"
+    },
+    {
+      "index": 113,
+      "start_time": 391960.0,
+      "end_time": 394610.0,
+      "text": "and it&#39;s too late to fix anything."
+    },
+    {
+      "index": 114,
+      "start_time": 394610.0,
+      "end_time": 399750.0,
+      "text": "&gt;&gt; However, we can restart the program by typing r again and then y to confirm."
+    },
+    {
+      "index": 115,
+      "start_time": 399750.0,
+      "end_time": 403460.0,
+      "text": "Now we&#39;re back at our breakpoint at the beginning of main."
+    },
+    {
+      "index": 116,
+      "start_time": 403460.0,
+      "end_time": 406600.0,
+      "text": "We know that everything seems to be fine with reading in the n."
+    },
+    {
+      "index": 117,
+      "start_time": 406600.0,
+      "end_time": 408630.0,
+      "text": "so we can jump ahead with n."
+    },
+    {
+      "index": 118,
+      "start_time": 408630.0,
+      "end_time": 412280.0,
+      "text": "Alternatively, we can set a new breakpoint after the do while loop"
+    },
+    {
+      "index": 119,
+      "start_time": 412280.0,
+      "end_time": 414910.0,
+      "text": "and jump there. Let&#39;s do that."
+    },
+    {
+      "index": 120,
+      "start_time": 414910.0,
+      "end_time": 419080.0,
+      "text": "Looks like line 14 comes just after the loop."
+    },
+    {
+      "index": 121,
+      "start_time": 419080.0,
+      "end_time": 421070.0,
+      "text": "Let&#39;s set a breakpoint there."
+    },
+    {
+      "index": 122,
+      "start_time": 421070.0,
+      "end_time": 425220.0,
+      "text": "It&#39;s good practice to specify the file name in this breakpoint command"
+    },
+    {
+      "index": 123,
+      "start_time": 425220.0,
+      "end_time": 428480.0,
+      "text": "since GDB can get confused if you&#39;re working with multiple files."
+    },
+    {
+      "index": 124,
+      "start_time": 428480.0,
+      "end_time": 433230.0,
+      "text": "To move ahead of this breakpoint, we&#39;ll use the continue or c command."
+    },
+    {
+      "index": 125,
+      "start_time": 433230.0,
+      "end_time": 436570.0,
+      "text": "&gt;&gt; Okay, here we are at the for loop."
+    },
+    {
+      "index": 126,
+      "start_time": 436570.0,
+      "end_time": 439060.0,
+      "text": "Let&#39;s go 1 more line into the for loop,"
+    },
+    {
+      "index": 127,
+      "start_time": 439060.0,
+      "end_time": 441630.0,
+      "text": "and then we&#39;ll start printing variables to see what&#39;s going on."
+    },
+    {
+      "index": 128,
+      "start_time": 441630.0,
+      "end_time": 446410.0,
+      "text": "Let&#39;s make sure that i is indeed 1, as expected."
+    },
+    {
+      "index": 129,
+      "start_time": 446410.0,
+      "end_time": 448300.0,
+      "text": "Yup, that&#39;s all good."
+    },
+    {
+      "index": 130,
+      "start_time": 448300.0,
+      "end_time": 450270.0,
+      "text": "What about factorial though?"
+    },
+    {
+      "index": 131,
+      "start_time": 450270.0,
+      "end_time": 453760.0,
+      "text": "Whoa, that&#39;s no good."
+    },
+    {
+      "index": 132,
+      "start_time": 453760.0,
+      "end_time": 455800.0,
+      "text": "We&#39;ve got a big negative number here."
+    },
+    {
+      "index": 133,
+      "start_time": 455800.0,
+      "end_time": 458190.0,
+      "text": "How&#39;d that happen?"
+    },
+    {
+      "index": 134,
+      "start_time": 458190.0,
+      "end_time": 460040.0,
+      "text": "Well, if we look back at the code,"
+    },
+    {
+      "index": 135,
+      "start_time": 460040.0,
+      "end_time": 464800.0,
+      "text": "we see that we never initialized it, so we&#39;ve just got trash in there."
+    },
+    {
+      "index": 136,
+      "start_time": 464800.0,
+      "end_time": 466820.0,
+      "text": "That will definitely throw off our calculation."
+    },
+    {
+      "index": 137,
+      "start_time": 466820.0,
+      "end_time": 469930.0,
+      "text": "&gt;&gt; Fortunately, we don&#39;t have to leave GDB to fix this."
+    },
+    {
+      "index": 138,
+      "start_time": 469930.0,
+      "end_time": 474590.0,
+      "text": "We can initialize it right here and fix it in the code later using the print command."
+    },
+    {
+      "index": 139,
+      "start_time": 474590.0,
+      "end_time": 479500.0,
+      "text": "We&#39;ll initialize it to 1 since the factorials of zero and 1 are both 1,"
+    },
+    {
+      "index": 140,
+      "start_time": 479500.0,
+      "end_time": 483940.0,
+      "text": "and if we initialize it to zero, then we&#39;d always end up with zero as our result."
+    },
+    {
+      "index": 141,
+      "start_time": 483940.0,
+      "end_time": 488370.0,
+      "text": "You can set any variable this way, which is super handy."
+    },
+    {
+      "index": 142,
+      "start_time": 488370.0,
+      "end_time": 490920.0,
+      "text": "Now, let&#39;s continue our program."
+    },
+    {
+      "index": 143,
+      "start_time": 490920.0,
+      "end_time": 494040.0,
+      "text": "Let&#39;s make sure everything&#39;s where it&#39;s supposed to be."
+    },
+    {
+      "index": 144,
+      "start_time": 494040.0,
+      "end_time": 499090.0,
+      "text": "Num should be 4, i should be 1, and factorial should be 1 too."
+    },
+    {
+      "index": 145,
+      "start_time": 499090.0,
+      "end_time": 503990.0,
+      "text": "We can shortcut this process and print all of our local variables"
+    },
+    {
+      "index": 146,
+      "start_time": 503990.0,
+      "end_time": 506440.0,
+      "text": "with the super-helpful command info locals,"
+    },
+    {
+      "index": 147,
+      "start_time": 506440.0,
+      "end_time": 509190.0,
+      "text": "which prints out all of our in-scope local variables."
+    },
+    {
+      "index": 148,
+      "start_time": 509190.0,
+      "end_time": 511980.0,
+      "text": "Anyway, it looks like everything&#39;s good to go."
+    },
+    {
+      "index": 149,
+      "start_time": 511980.0,
+      "end_time": 514700.0,
+      "text": "&gt;&gt; Let&#39;s do another go-around of the loop just to make sure."
+    },
+    {
+      "index": 150,
+      "start_time": 514700.00000000006,
+      "end_time": 518789.00000000006,
+      "text": "Okay, everything looks great."
+    },
+    {
+      "index": 151,
+      "start_time": 518789.0,
+      "end_time": 521659.0,
+      "text": "Now we can use the continue command to go to the end."
+    },
+    {
+      "index": 152,
+      "start_time": 521659.0,
+      "end_time": 526170.0,
+      "text": "Sweet! 4 factorial printed out 24 as expected."
+    },
+    {
+      "index": 153,
+      "start_time": 526170.0,
+      "end_time": 528690.0,
+      "text": "Now we can go fix this in our code."
+    },
+    {
+      "index": 154,
+      "start_time": 528690.0,
+      "end_time": 533710.0,
+      "text": "Rather than quit out of GDB, we&#39;ll use another terminal tab to do this."
+    },
+    {
+      "index": 155,
+      "start_time": 533710.0,
+      "end_time": 538080.0,
+      "text": "Going back to our GDB tab, we now need to recompile our executable."
+    },
+    {
+      "index": 156,
+      "start_time": 538080.0,
+      "end_time": 543180.0,
+      "text": "One of the best things about GDB is that you don&#39;t need to leave GDB to run make."
+    },
+    {
+      "index": 157,
+      "start_time": 543180.0,
+      "end_time": 546570.0,
+      "text": "So that we don&#39;t keep hitting the old breakpoints,"
+    },
+    {
+      "index": 158,
+      "start_time": 546570.0,
+      "end_time": 550440.0,
+      "text": "let&#39;s disable them with the, you guessed it, disable command."
+    },
+    {
+      "index": 159,
+      "start_time": 550440.0,
+      "end_time": 553320.0,
+      "text": "This will disable all of our breakpoints."
+    },
+    {
+      "index": 160,
+      "start_time": 553320.0,
+      "end_time": 558180.0,
+      "text": "Now, we can restart the program with r and make sure everything&#39;s okay."
+    },
+    {
+      "index": 161,
+      "start_time": 558180.0,
+      "end_time": 561300.0,
+      "text": "Looks like everything&#39;s good to go."
+    },
+    {
+      "index": 162,
+      "start_time": 561300.0,
+      "end_time": 564410.0,
+      "text": "Factorial of 4 prints out 24, just like we thought."
+    },
+    {
+      "index": 163,
+      "start_time": 564410.0,
+      "end_time": 568830.0,
+      "text": "GDB is one of the most helpful tools you&#39;ve got in your toolbox."
+    },
+    {
+      "index": 164,
+      "start_time": 568830.0,
+      "end_time": 571970.0,
+      "text": "&gt;&gt; There are a ton more things you can do with GDB,"
+    },
+    {
+      "index": 165,
+      "start_time": 571970.0,
+      "end_time": 574030.0,
+      "text": "far more than you can do with simple printouts."
+    },
+    {
+      "index": 166,
+      "start_time": 574030.0,
+      "end_time": 576730.0,
+      "text": "Next time your program isn&#39;t doing what you&#39;d like,"
+    },
+    {
+      "index": 167,
+      "start_time": 576730.0,
+      "end_time": 579740.0,
+      "text": "try running GDB to figure out what&#39;s going on inside."
+    },
+    {
+      "index": 168,
+      "start_time": 579740.0,
+      "end_time": 584380.0,
+      "text": "With a little bit of practice, you&#39;ll be able to drill down right on your bug in no time."
+    },
+    {
+      "index": 169,
+      "start_time": 584380.0,
+      "end_time": 594380.0,
+      "text": "My name is Nate Hardison. This is CS50."
+    }
+  ]
+}

@@ -1,0 +1,2364 @@
+{
+  "video_id": "OD2Wxe4RLeU",
+  "title": "DEF CON 22 - Joe FitzPatrick and Miles Crabill - NSA Playset: PCIe",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 42.0,
+      "end_time": 9208.0,
+      "text": "A couple of guys are here. I want to stand in front of you and talk about the PCI express."
+    },
+    {
+      "index": 2,
+      "start_time": 9208.0,
+      "end_time": 19958.0,
+      "text": "Joe and Miles, give them a round of applause. (  Applause  ) &gt;&gt; Hey, how&#39;s it going? Ok, who"
+    },
+    {
+      "index": 3,
+      "start_time": 19958.0,
+      "end_time": 30083.0,
+      "text": "here went to Mike Osman&#39;s RF Reflectors NSA Playset Talk? Ok, who went to Josh Jatko and Teddy"
+    },
+    {
+      "index": 4,
+      "start_time": 30083.0,
+      "end_time": 39958.0,
+      "text": "Reed&#39;s ITC Implant Talk? Who went to Dean Anlooki&#39;s GSM talk? Okay. Who here bought any NSA"
+    },
+    {
+      "index": 5,
+      "start_time": 39958.0,
+      "end_time": 48583.0,
+      "text": "Playset kit from Vendor Village? You don&#39;t have to say if your employer sent you to buy one for"
+    },
+    {
+      "index": 6,
+      "start_time": 48583.0,
+      "end_time": 56020.0,
+      "text": "research purposes, you know. So this is Stupid PCIe Tricks featuring NSA Playset PCIe. It"
+    },
+    {
+      "index": 7,
+      "start_time": 56020.0,
+      "end_time": 60042.0,
+      "text": "didn&#39;t really start out as an NSA Playset talk, but it fights right in because this is a"
+    },
+    {
+      "index": 8,
+      "start_time": 60042.0,
+      "end_time": 66360.0,
+      "text": "capability that they&#39;ve got to have. It&#39;s got to be on one of the pages rejected or missing."
+    },
+    {
+      "index": 9,
+      "start_time": 66360.0,
+      "end_time": 72042.0,
+      "text": "I&#39;m Joe Fitzpatrick. I have an electrical engineering education with focus on CS and Infosec. I"
+    },
+    {
+      "index": 10,
+      "start_time": 72042.0,
+      "end_time": 76000.0,
+      "text": "spent eight years doing security research, speed debut and tool development for CPUs including"
+    },
+    {
+      "index": 11,
+      "start_time": 76000.0,
+      "end_time": 81375.0,
+      "text": "hardware pen testing of CPUs and security training for functional validators worldwide. I also"
+    },
+    {
+      "index": 12,
+      "start_time": 81375.0,
+      "end_time": 86250.0,
+      "text": "teach a really cool class, software exploitation via hardware hacking, aka SEx via"
+    },
+    {
+      "index": 13,
+      "start_time": 86250.0,
+      "end_time": 90167.0,
+      "text": "HEx, so if any of you are interested, you should google look for that. It&#39;s somewhat"
+    },
+    {
+      "index": 14,
+      "start_time": 90167.0,
+      "end_time": 97667.0,
+      "text": "safe. It&#39;s work safe. And our mandatory meeting, &quot;if Joe Fitz, he sitz&quot;. If you missed the hot"
+    },
+    {
+      "index": 15,
+      "start_time": 97667.0,
+      "end_time": 106375.0,
+      "text": "tub at Tour Camp, you should go next time. It runs in two years. &gt;&gt; I&#39;m Miles Crabill, I&#39;m a"
+    },
+    {
+      "index": 16,
+      "start_time": 106375.0,
+      "end_time": 114292.0,
+      "text": "current student and hardware Newbie, but interested in computer science and met up with"
+    },
+    {
+      "index": 17,
+      "start_time": 114292.0,
+      "end_time": 119500.0,
+      "text": "Joe last year and have been working with him on the last couple months on this NSA"
+    },
+    {
+      "index": 18,
+      "start_time": 119500.0,
+      "end_time": 124917.0,
+      "text": "Playset PCIe stuff. I didn&#39;t come in with much hardware experience SP and I&#39;ve pretty"
+    },
+    {
+      "index": 19,
+      "start_time": 124917.0,
+      "end_time": 131000.0,
+      "text": "much been learning as I went. It&#39;s been a great time. So I couldn&#39;t show this, of course."
+    },
+    {
+      "index": 20,
+      "start_time": 131000.0,
+      "end_time": 138250.0,
+      "text": "&gt;&gt; Miles has been great because he makes it all look presentable. I&#39;m a hardware guy"
+    },
+    {
+      "index": 21,
+      "start_time": 138250.0,
+      "end_time": 145250.0,
+      "text": "and not a coder. So a slight disclaimer, I didn&#39;t do really good research, I didn&#39;t cite a"
+    },
+    {
+      "index": 22,
+      "start_time": 145250.0,
+      "end_time": 149167.0,
+      "text": "lot of people, but there are tons of people who have done PCIe work and other stuff so,"
+    },
+    {
+      "index": 23,
+      "start_time": 149167.0,
+      "end_time": 155208.0,
+      "text": "the difference is in line with the NSA Playset goals, we try to make it accessible and"
+    },
+    {
+      "index": 24,
+      "start_time": 155208.0,
+      "end_time": 159708.0,
+      "text": "inexpensive. We want any 10 years olds to start doing DAM attacks and memory jumps and"
+    },
+    {
+      "index": 25,
+      "start_time": 159708.0,
+      "end_time": 166792.0,
+      "text": "lock screen bypasses. Miles will give us the run-down of what the heck is PCIe, because even"
+    },
+    {
+      "index": 26,
+      "start_time": 166792.0,
+      "end_time": 172500.0,
+      "text": "though you might know it, you may not know the next layer in detail. &gt;&gt; Okay. So what is"
+    },
+    {
+      "index": 27,
+      "start_time": 172500.0,
+      "end_time": 179375.0,
+      "text": "PCIe? Well, the answer is that PCIe is PCI extending on this old specification. It&#39;s been"
+    },
+    {
+      "index": 28,
+      "start_time": 179375.0,
+      "end_time": 185583.0,
+      "text": "around forever. It&#39;s for fast IO, right? If you have a video card or something like that,"
+    },
+    {
+      "index": 29,
+      "start_time": 185583.0,
+      "end_time": 191417.0,
+      "text": "network card, sound card, anything really that goes in an extension, it&#39;ll probably on"
+    },
+    {
+      "index": 30,
+      "start_time": 191417.0,
+      "end_time": 199250.0,
+      "text": "your motherboard, whether you&#39;re on a laptop, desktop, most modern computers use PCI and so"
+    },
+    {
+      "index": 31,
+      "start_time": 199250.0,
+      "end_time": 206250.0,
+      "text": "this is how you get fast stuff going on the hardware level. So there are also things that don&#39;t"
+    },
+    {
+      "index": 32,
+      "start_time": 206250.0,
+      "end_time": 214042.0,
+      "text": "match up. As you see here, they don&#39;t look exactly the same. However, PCIe is backwards"
+    },
+    {
+      "index": 33,
+      "start_time": 214042.0,
+      "end_time": 222292.0,
+      "text": "compatible with PCI and PTIX. On the lower level you have packets that are being transmitted"
+    },
+    {
+      "index": 34,
+      "start_time": 222292.0,
+      "end_time": 231083.0,
+      "text": "across lanes, and so a lane is four wires. When you see on a PCI card something like XX 4 or"
+    },
+    {
+      "index": 35,
+      "start_time": 231083.0,
+      "end_time": 237250.0,
+      "text": "X 16, that&#39;s the number of lanes and it corresponds to throughput, so the amount of"
+    },
+    {
+      "index": 36,
+      "start_time": 237250.0,
+      "end_time": 244125.0,
+      "text": "data you&#39;re able to transfer. Most video use X 16, because they&#39;re transferring a lot of"
+    },
+    {
+      "index": 37,
+      "start_time": 244125.0,
+      "end_time": 255042.0,
+      "text": "data. PCI enables DAM access. So PCI hierarchy. The root complex is the highest node in the"
+    },
+    {
+      "index": 38,
+      "start_time": 255042.0,
+      "end_time": 259542.0,
+      "text": "hierarchy and pretty much everything else descends from there. You see the switch"
+    },
+    {
+      "index": 39,
+      "start_time": 259541.99999999997,
+      "end_time": 266458.0,
+      "text": "connected to the root complex, and PCI devices will connect to the switch and other PCI devices"
+    },
+    {
+      "index": 40,
+      "start_time": 266458.0,
+      "end_time": 271125.0,
+      "text": "can be connected to other PCI devices so you get a whole mess when you try underwriting this"
+    },
+    {
+      "index": 41,
+      "start_time": 271125.0,
+      "end_time": 277667.0,
+      "text": "stuff. So switching. This is the inside of the switch. From the upstream you have the bus, and"
+    },
+    {
+      "index": 42,
+      "start_time": 277667.0,
+      "end_time": 286167.0,
+      "text": "then you have these virtual PCI to PCI bridges, and then these actually interface with the real"
+    },
+    {
+      "index": 43,
+      "start_time": 286167.0,
+      "end_time": 294083.0,
+      "text": "devices that you have connected, the real PCI devices. So the layers of PCI building up from"
+    },
+    {
+      "index": 44,
+      "start_time": 294083.0,
+      "end_time": 302125.0,
+      "text": "the bottom, you have RxTX on the physical layer of things, the logical side and electrical side"
+    },
+    {
+      "index": 45,
+      "start_time": 302125.0,
+      "end_time": 308000.0,
+      "text": "data and then up to the transaction where you&#39;re actually working with packets. I"
+    },
+    {
+      "index": 46,
+      "start_time": 308000.0,
+      "end_time": 314333.0,
+      "text": "don&#39;t know how well you can see this, but this is the actual PCI spec stuff in the top like"
+    },
+    {
+      "index": 47,
+      "start_time": 314333.0,
+      "end_time": 322708.0,
+      "text": "device I.D. and vendor I.D. is how you would identify a device. So diving into that we have"
+    },
+    {
+      "index": 48,
+      "start_time": 322708.0,
+      "end_time": 327458.0,
+      "text": "LSPCI output, just checking out a specific device. You can see this highlighted area is the"
+    },
+    {
+      "index": 49,
+      "start_time": 327458.0,
+      "end_time": 330417.0,
+      "text": "vendor I.D. of a device, and so you can see this highlighted area is the vendor ID of the"
+    },
+    {
+      "index": 50,
+      "start_time": 330417.0,
+      "end_time": 335625.0,
+      "text": "device and so this is how you would check the manufacturer. They all have codes associated"
+    },
+    {
+      "index": 51,
+      "start_time": 335625.0,
+      "end_time": 341583.0,
+      "text": "and then this would be the device I.D. so this is like per a specific product or family of"
+    },
+    {
+      "index": 52,
+      "start_time": 341583.0,
+      "end_time": 349083.0,
+      "text": "products. Then the revision, so you can see that all of this is just right in these bytes that"
+    },
+    {
+      "index": 53,
+      "start_time": 349083.0,
+      "end_time": 358333.0,
+      "text": "you can access through LSPCI. And this is your class. Device class. Yes. So you can see that"
+    },
+    {
+      "index": 54,
+      "start_time": 358333.0,
+      "end_time": 369125.0,
+      "text": "this is a PCI bridge that&#39;s 0604. It&#39;s just the code that&#39;s assigned to this type of device."
+    },
+    {
+      "index": 55,
+      "start_time": 369125.0,
+      "end_time": 375125.0,
+      "text": "And so enumeration, as I said before, it gets pretty messy because it&#39;s depth first,"
+    },
+    {
+      "index": 56,
+      "start_time": 375125.0,
+      "end_time": 381542.0,
+      "text": "traversal of the tree hierarchy and everything like switches and PCI‑ to‑ PCI bridges show up"
+    },
+    {
+      "index": 57,
+      "start_time": 381542.0,
+      "end_time": 388750.0,
+      "text": "multiple times. And so any kind of LSPCI VD output is just a headache to look out. It&#39;s huge."
+    },
+    {
+      "index": 58,
+      "start_time": 388750.0,
+      "end_time": 404125.0,
+      "text": "So  ‑ ‑ &gt;&gt; Okay. I&#39;m back on. Routing PCIe. So we talked a little bit about what PCIe is"
+    },
+    {
+      "index": 59,
+      "start_time": 404125.0,
+      "end_time": 411667.0,
+      "text": "from a conceptual level. The fundamental difference is PCI was 32 bits in parallel, a big"
+    },
+    {
+      "index": 60,
+      "start_time": 411667.0,
+      "end_time": 415708.0,
+      "text": "flat parallel bus with multiple devices sitting on it. PCI express is this high‑ speed"
+    },
+    {
+      "index": 61,
+      "start_time": 415708.0,
+      "end_time": 421250.0,
+      "text": "serial with differential signaling. When you route high‑ speed signaling and high speed"
+    },
+    {
+      "index": 62,
+      "start_time": 421250.0,
+      "end_time": 427292.0,
+      "text": "differential signals you have some rules to follow, okay? If you wanted to make your own PCI"
+    },
+    {
+      "index": 63,
+      "start_time": 427292.0,
+      "end_time": 432042.0,
+      "text": "express device, you have to follow the step by step complicated mandatory and"
+    },
+    {
+      "index": 64,
+      "start_time": 432042.0,
+      "end_time": 437208.0,
+      "text": "inflexible rules to routing PCIE. For every single one of these. Number one, route your"
+    },
+    {
+      "index": 65,
+      "start_time": 437208.0,
+      "end_time": 448542.0,
+      "text": "pairs at roughly equal length. That&#39;s pretty much it. They made this spec to make it easier for"
+    },
+    {
+      "index": 66,
+      "start_time": 448542.0,
+      "end_time": 452417.0,
+      "text": "designing boards, because routing 32 lines in parallel along with the cloth, they have"
+    },
+    {
+      "index": 67,
+      "start_time": 452417.0,
+      "end_time": 457542.0,
+      "text": "to be equal lengths. That&#39;s a pain in the ass. They said ok, we&#39;ll do each pair on it&#39;s own,"
+    },
+    {
+      "index": 68,
+      "start_time": 457542.0,
+      "end_time": 462000.0,
+      "text": "TX pair and RX pair, and as long as each pair is the same length, the next line over can be a"
+    },
+    {
+      "index": 69,
+      "start_time": 462000.0,
+      "end_time": 464583.0,
+      "text": "different length, the next line over can be a different length, which works well when you have a"
+    },
+    {
+      "index": 70,
+      "start_time": 464583.0,
+      "end_time": 469458.0,
+      "text": "long card. It doesn&#39;t matter. All of that is taken care of by the physical layer of the PCIE."
+    },
+    {
+      "index": 71,
+      "start_time": 469458.0,
+      "end_time": 474458.0,
+      "text": "There&#39;s some specs, right? You have to have board traces and 12 inches or less, cards are"
+    },
+    {
+      "index": 72,
+      "start_time": 474458.0,
+      "end_time": 479167.0,
+      "text": "supposed to be 13 1/2 total. 2 chips on one board supposed to be 15 inches. And if you follow"
+    },
+    {
+      "index": 73,
+      "start_time": 479167.0,
+      "end_time": 487083.0,
+      "text": "the rules, your board might work. If you don&#39;t follow these rules, it might still work. So"
+    },
+    {
+      "index": 74,
+      "start_time": 487083.0,
+      "end_time": 494583.0,
+      "text": "PCI express 1 X, the lowest common denominator, is 2.5GHz TX, 2.5GHz RX and 100MHz Clock."
+    },
+    {
+      "index": 75,
+      "start_time": 494583.0,
+      "end_time": 497333.0,
+      "text": "That is a common clock and that&#39;s actually optional. The device can actually generate"
+    },
+    {
+      "index": 76,
+      "start_time": 497333.0,
+      "end_time": 502708.0,
+      "text": "it&#39;s own clock. It depends on the system and device. You can do it with the clock. But we&#39;ll"
+    },
+    {
+      "index": 77,
+      "start_time": 502708.0,
+      "end_time": 509417.0,
+      "text": "throw it in there, just for, you know, because we have room. If we wanted to make a table to"
+    },
+    {
+      "index": 78,
+      "start_time": 509417.0,
+      "end_time": 514458.0,
+      "text": "connect this, what do we need? We need something that can do high‑ speed, and PCI express"
+    },
+    {
+      "index": 79,
+      "start_time": 514457.99999999994,
+      "end_time": 518874.99999999994,
+      "text": "specifies actually like external cabling and it&#39;s really expensive. I don&#39;t like"
+    },
+    {
+      "index": 80,
+      "start_time": 518875.0,
+      "end_time": 524500.0,
+      "text": "expensive things, because I&#39;m cheap. This is a cross‑ section of the USB 3 cable. If you look"
+    },
+    {
+      "index": 81,
+      "start_time": 524500.0,
+      "end_time": 530458.0,
+      "text": "inside, you&#39;ve got the red and the black are ground to BCC, and the green and white are your old"
+    },
+    {
+      "index": 82,
+      "start_time": 530458.0,
+      "end_time": 537000.0,
+      "text": "school USB, USB 2.0 wires, right? Those are designed go up to 240 megabytes, right? That&#39;s"
+    },
+    {
+      "index": 83,
+      "start_time": 537000.0,
+      "end_time": 542208.0,
+      "text": "what USB megabyte was and that&#39;s plenty to carry our clock. You have the two level pockets, the"
+    },
+    {
+      "index": 84,
+      "start_time": 542208.0,
+      "end_time": 546500.0,
+      "text": "red, blue, and the purple and orange and those hold the high speed lanes and those go at 5"
+    },
+    {
+      "index": 85,
+      "start_time": 546500.0,
+      "end_time": 551167.0,
+      "text": "gigahertz. Right? So we have this cable we can get them for a couple of bucks at pretty much"
+    },
+    {
+      "index": 86,
+      "start_time": 551167.0,
+      "end_time": 556583.0,
+      "text": "any store and they carry exactly what they need, they carry 5 gigahertz, 5GHz and 500MHz."
+    },
+    {
+      "index": 87,
+      "start_time": 556583.0,
+      "end_time": 562083.0,
+      "text": "That&#39;s actually more than we need. I threw together this little PCB. It looks like a PCIe"
+    },
+    {
+      "index": 88,
+      "start_time": 562083.0,
+      "end_time": 568542.0,
+      "text": "card. There&#39;s a dotted line in a middle. That&#39;s because I&#39;m cheap again. And you can get a 5x5 cm"
+    },
+    {
+      "index": 89,
+      "start_time": 568542.0,
+      "end_time": 574292.0,
+      "text": "board for one price and I wanted two boards, but I didn&#39;t want to have to pay for two boards, so I"
+    },
+    {
+      "index": 90,
+      "start_time": 574292.0,
+      "end_time": 579583.0,
+      "text": "put them on the same board. Cut them in half if you want or use as is. You can see those red and"
+    },
+    {
+      "index": 91,
+      "start_time": 579583.0,
+      "end_time": 584208.0,
+      "text": "blue lines those are the top and bottom layers where I just connect the wires together and I"
+    },
+    {
+      "index": 92,
+      "start_time": 584208.0,
+      "end_time": 588833.0,
+      "text": "actually did a really bad job of this. You can do your own production stuff, do your own."
+    },
+    {
+      "index": 93,
+      "start_time": 588833.0,
+      "end_time": 593375.0,
+      "text": "You can actually buy these premade from several manufacturers on eBay and all"
+    },
+    {
+      "index": 94,
+      "start_time": 593375.0,
+      "end_time": 598208.0,
+      "text": "express and other places in China, but that&#39;s no fun. So I made my own. This is what the"
+    },
+    {
+      "index": 95,
+      "start_time": 598208.0,
+      "end_time": 603000.0,
+      "text": "board looks like, and I have the cool silk solder mask, silver lettering because that&#39;s really"
+    },
+    {
+      "index": 96,
+      "start_time": 603000.0,
+      "end_time": 611208.0,
+      "text": "important when you make PCB to have your logo on there. I call it PEXternalizer. There&#39;s the"
+    },
+    {
+      "index": 97,
+      "start_time": 611208.0,
+      "end_time": 615417.0,
+      "text": "board cut in half at the other end and assembled on the populated board. They&#39;re a 1X"
+    },
+    {
+      "index": 98,
+      "start_time": 615417.0,
+      "end_time": 622167.0,
+      "text": "PCI express socket up there and the end looks kind of mundged up and molten, that&#39;s because I"
+    },
+    {
+      "index": 99,
+      "start_time": 622167.0,
+      "end_time": 628333.0,
+      "text": "just got my soldering iron and ran through that to open it up so I could put a 16 X card in."
+    },
+    {
+      "index": 100,
+      "start_time": 628333.0,
+      "end_time": 633542.0,
+      "text": "Here&#39;s a quick screen shot basically. This PCI express wireless adapter in, and it&#39;s"
+    },
+    {
+      "index": 101,
+      "start_time": 633542.0,
+      "end_time": 639917.0,
+      "text": "connected and running, and I can connect to wireless networks. That&#39;s all well and good, but"
+    },
+    {
+      "index": 102,
+      "start_time": 639917.0,
+      "end_time": 645708.0,
+      "text": "that&#39;s old news. What else can we do? What devices can we add PCI express to that don&#39;t"
+    },
+    {
+      "index": 103,
+      "start_time": 645708.0,
+      "end_time": 651792.0,
+      "text": "generally have it? Have you seen this? Intel Galileo. It&#39;s an arduino board, but it actually"
+    },
+    {
+      "index": 104,
+      "start_time": 651792.0,
+      "end_time": 659167.0,
+      "text": "has a mini PCIe board on the back. What can you do with that? It&#39;s supposed to only work with"
+    },
+    {
+      "index": 105,
+      "start_time": 659167.0,
+      "end_time": 665333.0,
+      "text": "WiFi adapters, but that&#39;s no fun. Anybody can put a WiFi adapter in an arduino. Yeah,"
+    },
+    {
+      "index": 106,
+      "start_time": 665333.0,
+      "end_time": 670792.0,
+      "text": "make light flash. Oh, I&#39;m not wearing that shirt. Oops. Makers make lights flahs. Hackers make"
+    },
+    {
+      "index": 107,
+      "start_time": 670792.0,
+      "end_time": 678208.0,
+      "text": "other people&#39;s lights flash. I made another version of the board, a mini‑ PCIE version."
+    },
+    {
+      "index": 108,
+      "start_time": 678208.0,
+      "end_time": 692500.0,
+      "text": "I&#39;ll show you pictures. We&#39;ll look over. I&#39;ll actually show you. Oh, whoa. So we&#39;ve got here"
+    },
+    {
+      "index": 109,
+      "start_time": 692500.0,
+      "end_time": 701292.0,
+      "text": "a nice  ‑ ‑ oh, there. It&#39;s upside graphics card backwards. We&#39;ve got our Intel Galileo and"
+    },
+    {
+      "index": 110,
+      "start_time": 701292.0,
+      "end_time": 707667.0,
+      "text": "flip on the other side we have the mini PCIe card with the USB header. Again it&#39;s USB header"
+    },
+    {
+      "index": 111,
+      "start_time": 707667.0,
+      "end_time": 713375.0,
+      "text": "it&#39;s just USB header and cable because they&#39;re cheap. On the other end I have the populated"
+    },
+    {
+      "index": 112,
+      "start_time": 713375.0,
+      "end_time": 718333.0,
+      "text": "thingy‑ do which has a little power regulator on the end. We don&#39;t have the power supply and"
+    },
+    {
+      "index": 113,
+      "start_time": 718333.0,
+      "end_time": 724833.0,
+      "text": "cables and extra VGA to hook it up and show you, but basically we plug  ‑ ‑ stay still. I&#39;m"
+    },
+    {
+      "index": 114,
+      "start_time": 724833.0,
+      "end_time": 749125.0,
+      "text": "looking at the screen. Whoo! Anybody sick yet? Pop it in the slot. &gt;&gt; Oh, gosh. &gt;&gt; There we"
+    },
+    {
+      "index": 115,
+      "start_time": 749125.0,
+      "end_time": 760750.0,
+      "text": "go. So you got that, right? You got it. There we go. You have more than 12 inches. Yeah. Do"
+    },
+    {
+      "index": 116,
+      "start_time": 760750.0,
+      "end_time": 768042.0,
+      "text": "you think it still works? Yeah, it still works. And so here&#39;s a screen shot. Whoa, here we go."
+    },
+    {
+      "index": 117,
+      "start_time": 768042.0,
+      "end_time": 775083.0,
+      "text": "Actually when we tried it out, we used a bigger graphics card because bigger is better, right?"
+    },
+    {
+      "index": 118,
+      "start_time": 775083.0,
+      "end_time": 782500.0,
+      "text": "So wired them up PCIe that tiny Arduino and that nice big burly graphics card hovering over it"
+    },
+    {
+      "index": 119,
+      "start_time": 782500.0,
+      "end_time": 788708.0,
+      "text": "and if we hook it and we look, I had to do a little bit of custom building of that, which is"
+    },
+    {
+      "index": 120,
+      "start_time": 788708.0,
+      "end_time": 792625.0,
+      "text": "annoying because of the software and I hate software. If you do all this PCIe, same tools as"
+    },
+    {
+      "index": 121,
+      "start_time": 792625.0,
+      "end_time": 798208.0,
+      "text": "before. It&#39;s on the Galileo board already. You see a whole bunch of 8086, 8086, 8086."
+    },
+    {
+      "index": 122,
+      "start_time": 798208.0,
+      "end_time": 805750.0,
+      "text": "Anybody knows who vendor I.D. that is? All the way down at the bottom is the 10de. Who do you"
+    },
+    {
+      "index": 123,
+      "start_time": 805750.0,
+      "end_time": 812250.0,
+      "text": "think that might be? Invideos. So, ya know. Sneak it in there and put it Invidy with Intel in"
+    },
+    {
+      "index": 124,
+      "start_time": 812250.0,
+      "end_time": 821000.0,
+      "text": "bed a little longer. Here we go. I hooked you up to my full HD display, to say, hey, I have X"
+    },
+    {
+      "index": 125,
+      "start_time": 821000.0,
+      "end_time": 826125.0,
+      "text": "running. There&#39;s no keyboard input or anything like that, but at this point it&#39;s a software"
+    },
+    {
+      "index": 126,
+      "start_time": 826125.0,
+      "end_time": 830958.0,
+      "text": "problem and I&#39;m a hardware guy. It&#39;s someone else&#39;s problem, right? So let&#39;s move on. The"
+    },
+    {
+      "index": 127,
+      "start_time": 830958.0,
+      "end_time": 836625.0,
+      "text": "other device I played around with, and I don&#39;t have it here to show off is not fully working"
+    },
+    {
+      "index": 128,
+      "start_time": 836625.0,
+      "end_time": 841958.0,
+      "text": "yet. This is a Pogoplug. It&#39;s a network storage device. It has an Ethernet port and USB port"
+    },
+    {
+      "index": 129,
+      "start_time": 841958.0,
+      "end_time": 848000.0,
+      "text": "and you plug it in. It shares it with the whole world. It doesn&#39;t tell you about that part. If we"
+    },
+    {
+      "index": 130,
+      "start_time": 848000.0,
+      "end_time": 852958.0,
+      "text": "look at two versions of the PCE, the cheap and expensive one. The big difference in the upper left"
+    },
+    {
+      "index": 131,
+      "start_time": 852958.0,
+      "end_time": 858750.0,
+      "text": "corner is an extra chip that&#39;s a USB‑ 3 chip. You want USB 3 on your very slow network storage"
+    },
+    {
+      "index": 132,
+      "start_time": 858750.0,
+      "end_time": 864250.0,
+      "text": "device. The way it&#39;s connected is PCI express. If you see on this one, the purple wires on"
+    },
+    {
+      "index": 133,
+      "start_time": 864250.0,
+      "end_time": 870000.0,
+      "text": "the left hand side, those are my PCI express lanes. I have TX and Rx pairs and then I&#39;ve got a"
+    },
+    {
+      "index": 134,
+      "start_time": 870000.0,
+      "end_time": 878083.0,
+      "text": "clock line. He took it with my phone through my magnifying glass, but you see on the left"
+    },
+    {
+      "index": 135,
+      "start_time": 878083.0,
+      "end_time": 885042.0,
+      "text": "we have a couple tiny little resistors that have it over it. Can you see it? You can&#39;t? Oh,"
+    },
+    {
+      "index": 136,
+      "start_time": 885042.0,
+      "end_time": 888833.0,
+      "text": "no. You can. So you see right there, there&#39;s a couple resistors because the resistance"
+    },
+    {
+      "index": 137,
+      "start_time": 888833.0,
+      "end_time": 893000.0,
+      "text": "loaders, you have to put on the clock lines, and over here&#39;s they&#39;re still very small, but"
+    },
+    {
+      "index": 138,
+      "start_time": 893000.0,
+      "end_time": 897542.0,
+      "text": "you see that little brown spot right there and there? Those are capacitors that are soldered to"
+    },
+    {
+      "index": 139,
+      "start_time": 897542.0,
+      "end_time": 902792.0,
+      "text": "the tip of USB connector and then the wire is soldered to the other edges side. It looks"
+    },
+    {
+      "index": 140,
+      "start_time": 902792.0,
+      "end_time": 907958.0,
+      "text": "pretty fancy. But a year and a half ago I sucked at soldering and still do. You find a friend"
+    },
+    {
+      "index": 141,
+      "start_time": 907958.0,
+      "end_time": 914667.0,
+      "text": "who can do it. Thanks, Kenny. He&#39;s not here, but you know. Those of you who know Kenny, he"
+    },
+    {
+      "index": 142,
+      "start_time": 914667.0,
+      "end_time": 921083.0,
+      "text": "does good work. Again, that goes out to a USB connector, which is the same Pen out as this chain"
+    },
+    {
+      "index": 143,
+      "start_time": 921083.0,
+      "end_time": 926750.0,
+      "text": "again. So my plan there is to get it working and see if I can compile those drivers for ARM"
+    },
+    {
+      "index": 144,
+      "start_time": 926750.0,
+      "end_time": 934417.0,
+      "text": "instead. So introducing SLOTSCREAMER. This is where we get into the NSA Playset side of"
+    },
+    {
+      "index": 145,
+      "start_time": 934417.0,
+      "end_time": 940875.0,
+      "text": "things. It reset our timer. Oh, its 2:16. We&#39;re good. Introducing SLOTSCREAMER, its in"
+    },
+    {
+      "index": 146,
+      "start_time": 940875.0,
+      "end_time": 946917.0,
+      "text": "all CAPS because it&#39;s cool to have things in all CAPS. I&#39;ve had some critiquing because the"
+    },
+    {
+      "index": 147,
+      "start_time": 946917.0,
+      "end_time": 951500.0,
+      "text": "name sounds too good, it&#39;s not random and silly enough for NSA Playset because it actually is a"
+    },
+    {
+      "index": 148,
+      "start_time": 951500.0,
+      "end_time": 956125.0,
+      "text": "device that goes in a slot. I apologize. Again, I mentioned before I didn&#39;t do a lot of"
+    },
+    {
+      "index": 149,
+      "start_time": 956125.0,
+      "end_time": 960750.0,
+      "text": "research or citation, but I was at Black Hat and I saw this awesome slide which was from"
+    },
+    {
+      "index": 150,
+      "start_time": 960750.0,
+      "end_time": 964417.0,
+      "text": "Steven Weiss talking about protecting date in-use from firmware and physical attacks,"
+    },
+    {
+      "index": 151,
+      "start_time": 964417.0,
+      "end_time": 968333.0,
+      "text": "which is kind of what we&#39;re about to do. I figured I&#39;d throw his slide in here. Thank you to"
+    },
+    {
+      "index": 152,
+      "start_time": 968333.0,
+      "end_time": 972917.0,
+      "text": "all of these people for all the work they have done, because I wouldn&#39;t have done this if it"
+    },
+    {
+      "index": 153,
+      "start_time": 972917.0,
+      "end_time": 982250.0,
+      "text": "wasn&#39;t done before me including all the citations. So it&#39;s also really cool to go into someone"
+    },
+    {
+      "index": 154,
+      "start_time": 982250.0,
+      "end_time": 997417.0,
+      "text": "else&#39;s talk and see my name on it. Whoo. This is my first time talking at DEF CON. (  Applause "
+    },
+    {
+      "index": 155,
+      "start_time": 997417.0,
+      "end_time": 1006833.0,
+      "text": ") &gt;&gt; It&#39;s Miles&#39; first time, too. I&#39;m glad we could have our first time together Miles. ( "
+    },
+    {
+      "index": 156,
+      "start_time": 1006830.0,
+      "end_time": 1011914.0,
+      "text": "Applause  ) &gt;&gt; A lot of people are playing with this doing these PCI Express attacks, but a"
+    },
+    {
+      "index": 157,
+      "start_time": 1011920.0,
+      "end_time": 1016420.0,
+      "text": "lot of them are using FPGAs. FPGAs are expensive and they&#39;re difficult and they&#39;re hard and"
+    },
+    {
+      "index": 158,
+      "start_time": 1016420.0,
+      "end_time": 1020961.0,
+      "text": "you have to download like 28 bytes of software to get them working. Which who cares about"
+    },
+    {
+      "index": 159,
+      "start_time": 1020960.0,
+      "end_time": 1030210.0,
+      "text": "that software stuff. So I looked around and found this cool it&#39;ll ASIC. It&#39;s a PLX technology."
+    },
+    {
+      "index": 160,
+      "start_time": 1030210.0,
+      "end_time": 1036794.0,
+      "text": "It&#39;s a USB 3380 its aPCI‑ to‑ USB bridge that works. It&#39;s a USB device port. You can plug it"
+    },
+    {
+      "index": 161,
+      "start_time": 1036790.0,
+      "end_time": 1041790.0,
+      "text": "into your system and load drivers and make it look like a mass storage control. You can"
+    },
+    {
+      "index": 162,
+      "start_time": 1041790.0,
+      "end_time": 1046248.0,
+      "text": "use this configure differently and make a PCI express device work over the USB. You can have"
+    },
+    {
+      "index": 163,
+      "start_time": 1046250.0,
+      "end_time": 1051000.0,
+      "text": "an attached graphics adapter, right? Right? This is a block diagram, one side you have PCI"
+    },
+    {
+      "index": 164,
+      "start_time": 1051000.0,
+      "end_time": 1056708.0,
+      "text": "Express, the other side you have USB. That&#39;s all there is to it. You know, every chip that is"
+    },
+    {
+      "index": 165,
+      "start_time": 1056710.0,
+      "end_time": 1061377.0,
+      "text": "configurable is configurable in ways they didn&#39;t intend, so that&#39;s what I did. They have"
+    },
+    {
+      "index": 166,
+      "start_time": 1061380.0,
+      "end_time": 1067172.0,
+      "text": "this PCI out end point. An endpoint is something that shows up from USB, so from USB  ‑ ‑"
+    },
+    {
+      "index": 167,
+      "start_time": 1067170.0,
+      "end_time": 1072670.0,
+      "text": "I&#39;m going really fast, aren&#39;t I? Am I going too fast? I apologize. &gt;&gt; We have a lot of"
+    },
+    {
+      "index": 168,
+      "start_time": 1072670.0,
+      "end_time": 1083836.0,
+      "text": "slides. &gt;&gt; We&#39;re on 49 of 92. Okay. We&#39;re actually going a little fast. Let&#39;s slow down."
+    },
+    {
+      "index": 169,
+      "start_time": 1083830.0,
+      "end_time": 1094539.0,
+      "text": "PCI out. Okay. It&#39;s actually good, because I thought we wouldn&#39;t have enough time, and I"
+    },
+    {
+      "index": 170,
+      "start_time": 1094540.0,
+      "end_time": 1098915.0,
+      "text": "was going to tell them to go away. Since he came at the right time. How is it going? &gt;&gt; Good."
+    },
+    {
+      "index": 171,
+      "start_time": 1098920.0,
+      "end_time": 1106253.0,
+      "text": "&gt;&gt; What&#39;s all this? &gt;&gt; We heard this track was going a little bit fast, so we thought we would"
+    },
+    {
+      "index": 172,
+      "start_time": 1106250.0,
+      "end_time": 1126958.0,
+      "text": "mellow it out a bit. That&#39;s why we&#39;re here. How are they doing? (  Cheers and applause  ) &gt;&gt; I"
+    },
+    {
+      "index": 173,
+      "start_time": 1126960.0,
+      "end_time": 1132044.0,
+      "text": "guess they really want you to slow down. The slides are a bit of an eye‑chart, although when"
+    },
+    {
+      "index": 174,
+      "start_time": 1132040.0,
+      "end_time": 1140998.0,
+      "text": "you had the picture of the device up, the board. I got the detail on that. &gt;&gt; All right."
+    },
+    {
+      "index": 175,
+      "start_time": 1141000.0,
+      "end_time": 1167625.0,
+      "text": "New speakers to DEF CON. &gt;&gt; Cheers. (  Applause  ) &gt;&gt; I did that for all of you. Hold on."
+    },
+    {
+      "index": 176,
+      "start_time": 1167620.0,
+      "end_time": 1180203.0,
+      "text": "Thank you. Can I continue now? PCI out end point. This shows up on the USB side of things,"
+    },
+    {
+      "index": 177,
+      "start_time": 1180210.0,
+      "end_time": 1188169.0,
+      "text": "right? This is a packet format. We need to write a bunch of bytes for USB so this guy and"
+    },
+    {
+      "index": 178,
+      "start_time": 1188170.0,
+      "end_time": 1191961.0,
+      "text": "actually fills out what&#39;s called a PCI master control register and the PCI master address"
+    },
+    {
+      "index": 179,
+      "start_time": 1191960.0,
+      "end_time": 1199710.0,
+      "text": "register. What happens is when these registers get filled up, the chip, this guy, receives the"
+    },
+    {
+      "index": 180,
+      "start_time": 1199710.0,
+      "end_time": 1206835.0,
+      "text": "data from the USB side. He takes it into his little hardware stuff. Don&#39;t worry about it,"
+    },
+    {
+      "index": 181,
+      "start_time": 1206830.0,
+      "end_time": 1212330.0,
+      "text": "it&#39;s hardware. You guys wouldn&#39;t understand and he generates a PCI Express packet. Which goes"
+    },
+    {
+      "index": 182,
+      "start_time": 1212330.0,
+      "end_time": 1217664.0,
+      "text": "out over PCI Express to the root complex, the root complex processes it, does whatever you"
+    },
+    {
+      "index": 183,
+      "start_time": 1217670.0,
+      "end_time": 1224336.0,
+      "text": "want or whatever you told it to and sends back a response. Once we enabled it, so this comes out"
+    },
+    {
+      "index": 184,
+      "start_time": 1224330.0,
+      "end_time": 1228580.0,
+      "text": "of the spec, sorry for the eye chart, if we look down here we have this little end point"
+    },
+    {
+      "index": 185,
+      "start_time": 1228580.0,
+      "end_time": 1233789.0,
+      "text": "enabled bit. So you think something silly like this would be off by default. But look"
+    },
+    {
+      "index": 186,
+      "start_time": 1233790.0,
+      "end_time": 1239623.0,
+      "text": "actually oh, Others = 1, it&#39;s on by default. How convenient. This makes sense because if you look"
+    },
+    {
+      "index": 187,
+      "start_time": 1239620.0,
+      "end_time": 1244245.0,
+      "text": "at the drivers for this device, the standard Linux drivers for USB gadget events, which lets"
+    },
+    {
+      "index": 188,
+      "start_time": 1244250.0,
+      "end_time": 1248208.0,
+      "text": "you use it as a device port so you can turn your computer into a mass storage controller, they"
+    },
+    {
+      "index": 189,
+      "start_time": 1248210.0,
+      "end_time": 1252210.0,
+      "text": "have this little section where they explicitly disabled these dedicated end points. And I"
+    },
+    {
+      "index": 190,
+      "start_time": 1252210.0,
+      "end_time": 1256960.0,
+      "text": "think in another kernel version they have like, for security reasons, we need to disable"
+    },
+    {
+      "index": 191,
+      "start_time": 1256960.0,
+      "end_time": 1262044.0,
+      "text": "these end points, which is great. I like when I see things like that in documentation. I"
+    },
+    {
+      "index": 192,
+      "start_time": 1262040.0,
+      "end_time": 1269415.0,
+      "text": "talked to PLX service engineers asking about this. We don&#39;t do that. That&#39;s not what it&#39;s for."
+    },
+    {
+      "index": 193,
+      "start_time": 1269420.0,
+      "end_time": 1278086.0,
+      "text": "We can try it and see if it works. Didn&#39;t really say what would happen if I turned it on"
+    },
+    {
+      "index": 194,
+      "start_time": 1278080.0,
+      "end_time": 1283372.0,
+      "text": "in this mode, but I heart undefined behavior. Is that sticker still on there? At least"
+    },
+    {
+      "index": 195,
+      "start_time": 1283380.0,
+      "end_time": 1297422.0,
+      "text": "it&#39;s not on my shirt. Thank you, Mike, for the shirt. Anyway. So let&#39;s enable it. We&#39;re still not"
+    },
+    {
+      "index": 196,
+      "start_time": 1297420.0,
+      "end_time": 1304795.0,
+      "text": "going too fast. I showed you the three registers here. If we look inside, this is the PCI master"
+    },
+    {
+      "index": 197,
+      "start_time": 1304790.0,
+      "end_time": 1309748.0,
+      "text": "control register. Basically what we do is we need to write bits that will end up in here and do"
+    },
+    {
+      "index": 198,
+      "start_time": 1309750.0,
+      "end_time": 1315000.0,
+      "text": "these things that it says and this bits 5 to 4 two bits, we can basically say, do a memory"
+    },
+    {
+      "index": 199,
+      "start_time": 1315000.0,
+      "end_time": 1320708.0,
+      "text": "read and memory write, or an IO read, an IO write or conf read or config write, or PCI express"
+    },
+    {
+      "index": 200,
+      "start_time": 1320710.0,
+      "end_time": 1325752.0,
+      "text": "message. Let me explain for a second what each of these are. Memory read/memory write is"
+    },
+    {
+      "index": 201,
+      "start_time": 1325750.0,
+      "end_time": 1330333.0,
+      "text": "exactly that. PCI express devices need to have the memory maps so they can read and write"
+    },
+    {
+      "index": 202,
+      "start_time": 1330330.0,
+      "end_time": 1334872.0,
+      "text": "to buffers in the main memory. So if you want to read some memory, we can do that. If we"
+    },
+    {
+      "index": 203,
+      "start_time": 1334880.0,
+      "end_time": 1338755.0,
+      "text": "want to write to memory, and we can do that. IO read and write, really nobody uses this anymore,"
+    },
+    {
+      "index": 204,
+      "start_time": 1338750.0,
+      "end_time": 1343167.0,
+      "text": "it&#39;s all legacy stuff, but we might as well try it because all of the Legacy stuff wasn&#39;t"
+    },
+    {
+      "index": 205,
+      "start_time": 1343170.0,
+      "end_time": 1364503.0,
+      "text": "tested as well as all of the new stuff. Configuration read and write, those are when we are"
+    },
+    {
+      "index": 206,
+      "start_time": 1364500.0,
+      "end_time": 1367542.0,
+      "text": "actually directly accessing PCI Express devices. So when you enable things on the graphic"
+    },
+    {
+      "index": 207,
+      "start_time": 1367540.0,
+      "end_time": 1371415.0,
+      "text": "cards you do a configuration write to a bunch of registers on the card. That&#39;s what maps to"
+    },
+    {
+      "index": 208,
+      "start_time": 1371420.0,
+      "end_time": 1374878.0,
+      "text": "the table of class codes and stuff Miles talked about briefly before. Another eye chart. This"
+    },
+    {
+      "index": 209,
+      "start_time": 1374880.0,
+      "end_time": 1379422.0,
+      "text": "is all well and good, but we need to have this device just work. We want to plug it in a"
+    },
+    {
+      "index": 210,
+      "start_time": 1379420.0,
+      "end_time": 1383295.0,
+      "text": "socket and have it do stuff. We don&#39;t want it to deal with loading drivers, because who is"
+    },
+    {
+      "index": 211,
+      "start_time": 1383290.0,
+      "end_time": 1387373.0,
+      "text": "going to load drivers to a fax machine? No one clicks on silly things, right? So we can modify"
+    },
+    {
+      "index": 212,
+      "start_time": 1387380.0,
+      "end_time": 1393463.0,
+      "text": "the firmware. Basically there&#39;s a little chip on the POX board. Where is my board? That will"
+    },
+    {
+      "index": 213,
+      "start_time": 1393460.0,
+      "end_time": 1398752.0,
+      "text": "hold configuration data, and when the chip turns on and powers up, it will read this"
+    },
+    {
+      "index": 214,
+      "start_time": 1398750.0,
+      "end_time": 1405333.0,
+      "text": "data and set the registers right. You think, okay, a lot of work put into this custom"
+    },
+    {
+      "index": 215,
+      "start_time": 1405330.0,
+      "end_time": 1413497.0,
+      "text": "firmware that I made, I&#39;ve been talking all about it, you think I did a lot of work? I&#39;m lazy."
+    },
+    {
+      "index": 216,
+      "start_time": 1413500.0,
+      "end_time": 1418625.0,
+      "text": "It&#39;s these. How many bytes is that? That&#39;s it. That&#39;s the content of the E prompt. To"
+    },
+    {
+      "index": 217,
+      "start_time": 1418620.0,
+      "end_time": 1426703.0,
+      "text": "decode it for you to those that speak XXD. Basically I have two registers I wrote to. The first"
+    },
+    {
+      "index": 218,
+      "start_time": 1426710.0,
+      "end_time": 1439502.0,
+      "text": "register that 497000049, right, that&#39;s the content of the what ports to a register and I slap"
+    },
+    {
+      "index": 219,
+      "start_time": 1439500.0,
+      "end_time": 1445875.0,
+      "text": "the bit to enable USB. When the device turns on, first thing it does is enable USB. Second thing"
+    },
+    {
+      "index": 220,
+      "start_time": 1445880.0,
+      "end_time": 1455088.0,
+      "text": "I do is this E414BC16. That&#39;s the vendor ID and device I.D. of the Broadcom secured digital"
+    },
+    {
+      "index": 221,
+      "start_time": 1455080.0,
+      "end_time": 1460372.0,
+      "text": "card reader. Because it&#39;s a secured digital card readers everyone trusts them. If I tell"
+    },
+    {
+      "index": 222,
+      "start_time": 1460380.0,
+      "end_time": 1464713.0,
+      "text": "them I&#39;m one of them, they&#39;ll turn everything on. They&#39;ll turn on bus master even if they don&#39;t"
+    },
+    {
+      "index": 223,
+      "start_time": 1464710.0,
+      "end_time": 1470377.0,
+      "text": "need to. That&#39;s pretty much all that I did to configure this chip to make it do my bidding."
+    },
+    {
+      "index": 224,
+      "start_time": 1470380.0,
+      "end_time": 1484505.0,
+      "text": "So let&#39;s attack the PCIe. &gt;&gt; So as Joe said, who wants to load a driver? We have this whole"
+    },
+    {
+      "index": 225,
+      "start_time": 1484500.0,
+      "end_time": 1489625.0,
+      "text": "category of target side software where we have to make sure the target has all the stuff we need"
+    },
+    {
+      "index": 226,
+      "start_time": 1489620.0,
+      "end_time": 1498078.0,
+      "text": "to get the attack roll, but no, no, nothing. So on the attacker side, we actually do have some"
+    },
+    {
+      "index": 227,
+      "start_time": 1498080.0,
+      "end_time": 1503830.0,
+      "text": "stuff. So what we do is use high USB, which is a nice Python library for interacting with"
+    },
+    {
+      "index": 228,
+      "start_time": 1503830.0,
+      "end_time": 1512747.0,
+      "text": "devices over USB to interact with the PCI end points on the swat screen, the USB 3380. So"
+    },
+    {
+      "index": 229,
+      "start_time": 1512750.0,
+      "end_time": 1522292.0,
+      "text": "this is just a little snippet of code showing a dirty PCI memory read and write by PyUSB. At the"
+    },
+    {
+      "index": 230,
+      "start_time": 1522290.0,
+      "end_time": 1531790.0,
+      "text": "top you see read where we&#39;re actually making a packet to send and you can see this OXCF and"
+    },
+    {
+      "index": 231,
+      "start_time": 1531790.0,
+      "end_time": 1544665.0,
+      "text": "the F denotes the read, and down at the bottom here you see the 4F means that it&#39;s a write and"
+    },
+    {
+      "index": 232,
+      "start_time": 1544670.0,
+      "end_time": 1553170.0,
+      "text": "so now we have a demo. &gt;&gt; Well you  ‑ ‑ &gt;&gt; So you do the whole switches of screens here."
+    },
+    {
+      "index": 233,
+      "start_time": 1553170.0,
+      "end_time": 1560753.0,
+      "text": "Basically we have this little device here. It&#39;s a Nook Intel makes them, they&#39;re tiny and"
+    },
+    {
+      "index": 234,
+      "start_time": 1560750.0,
+      "end_time": 1583417.0,
+      "text": "they compute. We hook up this device to a little board. It&#39;s upside‑ down. &gt;&gt; Oh, no. It&#39;s"
+    },
+    {
+      "index": 235,
+      "start_time": 1583420.0,
+      "end_time": 1597128.0,
+      "text": "still on my screen. &gt;&gt; I stepped on the power strip. You&#39;re flaky power strip. I saw the light."
+    },
+    {
+      "index": 236,
+      "start_time": 1597120.0,
+      "end_time": 1612578.0,
+      "text": "There we go. I have to reboot my Nook. Luckily it boots fast. Oh. I&#39;m sorry. Please. I won&#39;t step"
+    },
+    {
+      "index": 237,
+      "start_time": 1612580.0,
+      "end_time": 1620580.0,
+      "text": "on it again. I promise. What time is it? 2:27. Are you ready in no. We need to unplug and"
+    },
+    {
+      "index": 238,
+      "start_time": 1620580.0,
+      "end_time": 1631955.0,
+      "text": "play it. That&#39;s not it. That is it. You just need to mirror your screens. I didn&#39;t recognize the"
+    },
+    {
+      "index": 239,
+      "start_time": 1631960.0,
+      "end_time": 1636044.0,
+      "text": "picture. It&#39;s not my desktop. I never got around to changing the default desktop anyway. That&#39;s"
+    },
+    {
+      "index": 240,
+      "start_time": 1636040.0,
+      "end_time": 1652248.0,
+      "text": "my fault. There you go. There we go. Patience, patience. So I&#39;m using Python, and I&#39;ll stay away"
+    },
+    {
+      "index": 241,
+      "start_time": 1652250.0,
+      "end_time": 1663958.0,
+      "text": "from the power strip. I&#39;ll step back from here. Can you see that? It&#39;s backwards, isn&#39;t it?"
+    },
+    {
+      "index": 242,
+      "start_time": 1663960.0,
+      "end_time": 1671919.0,
+      "text": "&gt;&gt; Yeah. &gt;&gt; I&#39;m sorry. It&#39;s a crypto challenge. So what I&#39;m going to do is basically I wrote"
+    },
+    {
+      "index": 243,
+      "start_time": 1671920.0,
+      "end_time": 1678753.0,
+      "text": "this little sampler in init PCI and I&#39;m going to hit enter and it actually worked. Whoohoo! So"
+    },
+    {
+      "index": 244,
+      "start_time": 1678750.0,
+      "end_time": 1684583.0,
+      "text": "it initialized the link from this PC to the hacker&#39;s hack device over PCI. It found two"
+    },
+    {
+      "index": 245,
+      "start_time": 1684580.0,
+      "end_time": 1691705.0,
+      "text": "endpoints 0x0e and 0x0e out. Those actually line up to what I showed you on the chart before."
+    },
+    {
+      "index": 246,
+      "start_time": 1691710.0,
+      "end_time": 1697794.0,
+      "text": "I&#39;m sure you all wrote those down. Then I&#39;m going to read PCI and so I give it an address and"
+    },
+    {
+      "index": 247,
+      "start_time": 1697790.0,
+      "end_time": 1702040.0,
+      "text": "how many byes to read and right there and I just get a whole bunch of, it&#39;s Python software"
+    },
+    {
+      "index": 248,
+      "start_time": 1702040.0,
+      "end_time": 1707331.0,
+      "text": "you see, Fs and 0s and Bs and some strings and stuff. So yeah I just read memory. This is off"
+    },
+    {
+      "index": 249,
+      "start_time": 1707330.0,
+      "end_time": 1721164.0,
+      "text": "of this guy on PCI. Whoo. It&#39;s not the greatest demo, but you know, we&#39;re getting there. All"
+    },
+    {
+      "index": 250,
+      "start_time": 1721170.0,
+      "end_time": 1737003.0,
+      "text": "right. &gt;&gt; Okay. And so how many of you have heard of inception, not the movie? That&#39;s a few."
+    },
+    {
+      "index": 251,
+      "start_time": 1737000.0,
+      "end_time": 1746375.0,
+      "text": "There&#39;s a cool utility that Carston wrote that exploits the DNA features of fire wire to"
+    },
+    {
+      "index": 252,
+      "start_time": 1746380.0,
+      "end_time": 1751963.0,
+      "text": "basically patch some  ‑ ‑ you might see here there&#39;s some selections that you can choose"
+    },
+    {
+      "index": 253,
+      "start_time": 1751960.0,
+      "end_time": 1758252.0,
+      "text": "to target with signatures. So it can identify based on the signatures certain operating"
+    },
+    {
+      "index": 254,
+      "start_time": 1758250.0,
+      "end_time": 1766167.0,
+      "text": "systems and inject code into it bringing it up. For example the OSX one makes all passwords"
+    },
+    {
+      "index": 255,
+      "start_time": 1766170.0,
+      "end_time": 1774420.0,
+      "text": "nothing. So what we have instead of inception, we have into PCIe, which is an extension that"
+    },
+    {
+      "index": 256,
+      "start_time": 1774420.0,
+      "end_time": 1787878.0,
+      "text": "we&#39;re  ‑ ‑ &gt;&gt; It&#39;s an anagram. &gt;&gt; I didn&#39;t know that. Yeah, so, we extended inception to PCIE"
+    },
+    {
+      "index": 257,
+      "start_time": 1787880.0,
+      "end_time": 1794422.0,
+      "text": "and we&#39;re still working on it. Ironing out bugs and that kind of thing, but that&#39;s the goal."
+    },
+    {
+      "index": 258,
+      "start_time": 1794420.0,
+      "end_time": 1800545.0,
+      "text": "&gt;&gt; This is right from Carson&#39;s documentation. What we&#39;re doing is hopping through memory and"
+    },
+    {
+      "index": 259,
+      "start_time": 1800540.0,
+      "end_time": 1804956.0,
+      "text": "looking for the page that contains whatever authentication or password. You did a whole"
+    },
+    {
+      "index": 260,
+      "start_time": 1804960.0,
+      "end_time": 1809752.0,
+      "text": "process up in the password. Yes, you got it right and no you didn&#39;t at the very end. It has a"
+    },
+    {
+      "index": 261,
+      "start_time": 1809750.0,
+      "end_time": 1814875.0,
+      "text": "signature, which is listed as a chunk of memory data. It looks for that signature at a certain"
+    },
+    {
+      "index": 262,
+      "start_time": 1814880.0,
+      "end_time": 1819505.0,
+      "text": "offset in every 4k page. So it doesn&#39;t matter if you have ASLR or anything within a 4k page it"
+    },
+    {
+      "index": 263,
+      "start_time": 1819500.0,
+      "end_time": 1825958.0,
+      "text": "always ends up the same spot. Then you go and patch it, and the patch goes to offset."
+    },
+    {
+      "index": 264,
+      "start_time": 1825960.0,
+      "end_time": 1832085.0,
+      "text": "Basically just change the jump to an up or something like that. You bypass, so when you type in"
+    },
+    {
+      "index": 265,
+      "start_time": 1832080.0,
+      "end_time": 1836455.0,
+      "text": "blah, blah, blah enter, no matter what blah, blah, blah is it lets you bypass the locked"
+    },
+    {
+      "index": 266,
+      "start_time": 1836460.0,
+      "end_time": 1848127.0,
+      "text": "screen. (  Applause  ) &gt;&gt; We didn&#39;t do the work there. Other people have been doing the"
+    },
+    {
+      "index": 267,
+      "start_time": 1848120.0,
+      "end_time": 1853953.0,
+      "text": "Spyware stuff for a long time. Don&#39;t clap. We just imported into this PCI Express interface,"
+    },
+    {
+      "index": 268,
+      "start_time": 1853960.0,
+      "end_time": 1859544.0,
+      "text": "which is great because you don&#39;t require drivers. Firewire require that the host offers"
+    },
+    {
+      "index": 269,
+      "start_time": 1859540.0,
+      "end_time": 1865748.0,
+      "text": "install drivers, and you&#39;re supposed to talk about this later on. &gt;&gt; So you see here the"
+    },
+    {
+      "index": 270,
+      "start_time": 1865750.0,
+      "end_time": 1870250.0,
+      "text": "chunk, which is actually the signature that you&#39;re trying to look for to identify in this"
+    },
+    {
+      "index": 271,
+      "start_time": 1870250.0,
+      "end_time": 1880167.0,
+      "text": "case OS X 2.9. So earlier this week Joe and I were in a hotel room taking dumps together. As"
+    },
+    {
+      "index": 272,
+      "start_time": 1880170.0,
+      "end_time": 1887211.0,
+      "text": "you can see from this little highlighted into PCIe business and all of the SLOTSCREAMERS on"
+    },
+    {
+      "index": 273,
+      "start_time": 1887210.0,
+      "end_time": 1895210.0,
+      "text": "the desk. I decided after taking all those dumps, Jason stool analysis, you&#39;ve heard of"
+    },
+    {
+      "index": 274,
+      "start_time": 1895210.0,
+      "end_time": 1904127.0,
+      "text": "volatility is a cool analysis framework, so this is the demessage log of the attack"
+    },
+    {
+      "index": 275,
+      "start_time": 1904120.0,
+      "end_time": 1910162.0,
+      "text": "straight off of the victim. You can see my solarized color scheme there. So at the top you"
+    },
+    {
+      "index": 276,
+      "start_time": 1910170.0,
+      "end_time": 1917503.0,
+      "text": "can see the thunderbolt first being recognized when plugged in, and then some PCI"
+    },
+    {
+      "index": 277,
+      "start_time": 1917500.0,
+      "end_time": 1924125.0,
+      "text": "configuration going on. And I decided, hey SHTHS why not do more analysis because the"
+    },
+    {
+      "index": 278,
+      "start_time": 1924120.0,
+      "end_time": 1931245.0,
+      "text": "utility has all these nice scripts? This is just another dump. This is a MAC that we&#39;re"
+    },
+    {
+      "index": 279,
+      "start_time": 1931250.0,
+      "end_time": 1937375.0,
+      "text": "dumping apple dot something, something, something. And various other  ‑ ‑ &gt;&gt; I was"
+    },
+    {
+      "index": 280,
+      "start_time": 1937380.0,
+      "end_time": 1942963.0,
+      "text": "looking around for the files, and I find some of Miles&#39; cookies in his dumps . &gt;&gt; Here"
+    },
+    {
+      "index": 281,
+      "start_time": 1942960.0,
+      "end_time": 1956585.0,
+      "text": "you can see, I don&#39;t know if its major version or minor version what it means, but I&#39;m running"
+    },
+    {
+      "index": 282,
+      "start_time": 1956580.0,
+      "end_time": 1962039.0,
+      "text": "10.9.4.6 OS X. I had the perfect amount of memory, 4 gigs, on this machine not for not"
+    },
+    {
+      "index": 283,
+      "start_time": 1962040.0,
+      "end_time": 1969123.0,
+      "text": "actually using things because these kind of attacks are a little limited because of PCIe"
+    },
+    {
+      "index": 284,
+      "start_time": 1969120.0,
+      "end_time": 1976453.0,
+      "text": "is at 32 bit addresses and so we can&#39;t actually go over the 4 gig over the threshold. However, if"
+    },
+    {
+      "index": 285,
+      "start_time": 1976460.0,
+      "end_time": 1981335.0,
+      "text": "you know what you&#39;re doing, 4 gigs is for our assessment. &gt;&gt; You know what thunderbolt is."
+    },
+    {
+      "index": 286,
+      "start_time": 1981330.0,
+      "end_time": 1988289.0,
+      "text": "It&#39;s fun stuff. It&#39;s basically PCI Express out of your system. Kind of that whole USB crap, but"
+    },
+    {
+      "index": 287,
+      "start_time": 1988290.0,
+      "end_time": 1994165.0,
+      "text": "without the sketching boards and stuff. When you have Thunderbolt, you have two chips,"
+    },
+    {
+      "index": 288,
+      "start_time": 1994170.0,
+      "end_time": 1999253.0,
+      "text": "and it&#39;s straight from the thunderbolt device programming guide, and you have a chip"
+    },
+    {
+      "index": 289,
+      "start_time": 1999250.0,
+      "end_time": 2006000.0,
+      "text": "inside your Macintosh and you have a chip on your device. The chip takes PCI Express in"
+    },
+    {
+      "index": 290,
+      "start_time": 2006000.0,
+      "end_time": 2011500.0,
+      "text": "display port in and they crunch it together into some other physical layer really fast to"
+    },
+    {
+      "index": 291,
+      "start_time": 2011500.0,
+      "end_time": 2016250.0,
+      "text": "transport mechanism, and the other side extracts what it needs to, right? You can also"
+    },
+    {
+      "index": 292,
+      "start_time": 2016250.0,
+      "end_time": 2020958.0,
+      "text": "even pass the stuff through. You can connect a display port to something else, daisy chained"
+    },
+    {
+      "index": 293,
+      "start_time": 2020960.0,
+      "end_time": 2027877.0,
+      "text": "along the end or fun stuff like that. Of course, we try to plug our device into the PCI express"
+    },
+    {
+      "index": 294,
+      "start_time": 2027880.0,
+      "end_time": 2032380.0,
+      "text": "thunderbolt enclosure, and in line with the NSA Playset, we decided to give that a new name."
+    },
+    {
+      "index": 295,
+      "start_time": 2032380.0,
+      "end_time": 2039672.0,
+      "text": "So HALIBUTDUGOUT is the slotscreamer when inserted into a thunderbolt enclosure. And"
+    },
+    {
+      "index": 296,
+      "start_time": 2039670.0,
+      "end_time": 2043461.0,
+      "text": "you&#39;ll see the little logo for Great Scott Gadgets, he&#39;s awesome, he sent me a bunch of"
+    },
+    {
+      "index": 297,
+      "start_time": 2043460.0,
+      "end_time": 2046794.0,
+      "text": "hardware when he heard what I was working on and that kind of motivated me to keep working on"
+    },
+    {
+      "index": 298,
+      "start_time": 2046790.0,
+      "end_time": 2059081.0,
+      "text": "this. Thank you, Mike. So I&#39;m forgetting what&#39;s next. In my mind there&#39;s a gap here. Again,"
+    },
+    {
+      "index": 299,
+      "start_time": 2059080.0,
+      "end_time": 2064497.0,
+      "text": "we talk about DMI. People have showed off the DMI for a long time and they&#39;re inaccessible"
+    },
+    {
+      "index": 300,
+      "start_time": 2064500.0,
+      "end_time": 2069375.0,
+      "text": "they didn&#39;t give full disclosure on exactly how to do it all or the code for the FPJ or anything"
+    },
+    {
+      "index": 301,
+      "start_time": 2069380.0,
+      "end_time": 2075963.0,
+      "text": "like that. So in line with the NSA Playset, there&#39;s a little page, click on there. We have"
+    },
+    {
+      "index": 302,
+      "start_time": 2075960.0,
+      "end_time": 2081544.0,
+      "text": "all of the utilities and firmware available for you to download and do this yourself."
+    },
+    {
+      "index": 303,
+      "start_time": 2081540.0,
+      "end_time": 2087998.0,
+      "text": "The hardware itself is this  ‑ ‑ right now I&#39;m using a reference board, and you don&#39;t even have"
+    },
+    {
+      "index": 304,
+      "start_time": 2088000.0,
+      "end_time": 2093708.0,
+      "text": "to solder to make it work, right? You buy the reference board from a sketchy company in"
+    },
+    {
+      "index": 305,
+      "start_time": 2093710.0,
+      "end_time": 2098210.0,
+      "text": "China, H.W. tools.net. I sent thousands of dollars and they sent me cards and they&#39;re pretty"
+    },
+    {
+      "index": 306,
+      "start_time": 2098210.0,
+      "end_time": 2102377.0,
+      "text": "reliable. And I&#39;ve talked to their tech support a few times. They&#39;re pretty good with that."
+    },
+    {
+      "index": 307,
+      "start_time": 2102380.0,
+      "end_time": 2109047.0,
+      "text": "That&#39;s a device on there. Its got the chip on there. Instead of that, there&#39;s a little bit of"
+    },
+    {
+      "index": 308,
+      "start_time": 2109040.0,
+      "end_time": 2114540.0,
+      "text": "hardware hacking. You have to find a jumper. Do you remember what jumpers are? You have to"
+    },
+    {
+      "index": 309,
+      "start_time": 2114540.0,
+      "end_time": 2118623.0,
+      "text": "put it over the first set of pins to connect the E prong with that chip right there. And then"
+    },
+    {
+      "index": 310,
+      "start_time": 2118620.0,
+      "end_time": 2123453.0,
+      "text": "you have to go and flash it yourself. We sold a bunch of these in the vendor area"
+    },
+    {
+      "index": 311,
+      "start_time": 2123460.0,
+      "end_time": 2128252.0,
+      "text": "yesterday all preflashed and ready to go for all of you wants to go back to the undisclosed"
+    },
+    {
+      "index": 312,
+      "start_time": 2128250.0,
+      "end_time": 2134708.0,
+      "text": "employers to show off what you learned at DEF CON. All the software is on the NSA play set"
+    },
+    {
+      "index": 313,
+      "start_time": 2134710.0,
+      "end_time": 2140335.0,
+      "text": "get DAIB hub. We put it all up there, did you make it all private? It will be up there"
+    },
+    {
+      "index": 314,
+      "start_time": 2140330.0,
+      "end_time": 2146830.0,
+      "text": "very soon, but now that we&#39;ve got all of you basically enabled to dump people&#39;s memories and"
+    },
+    {
+      "index": 315,
+      "start_time": 2146830.0,
+      "end_time": 2153080.0,
+      "text": "check out their dumps and modify and do all that stuff, what could be done to fix this,"
+    },
+    {
+      "index": 316,
+      "start_time": 2153080.0,
+      "end_time": 2157372.0,
+      "text": "right? Part of the NSA Playset mission is like ok state actor has had this capability for a"
+    },
+    {
+      "index": 317,
+      "start_time": 2157380.0,
+      "end_time": 2162088.0,
+      "text": "long time. Forensics has had this ability. Now that all of you have this ability, maybe"
+    },
+    {
+      "index": 318,
+      "start_time": 2162080.0,
+      "end_time": 2168122.0,
+      "text": "they&#39;ll actually fix it. I started with an anti‑ Apple, anti‑ Thunderbolt slant to this,"
+    },
+    {
+      "index": 319,
+      "start_time": 2168120.0,
+      "end_time": 2174287.0,
+      "text": "but it actually came out pretty good. In Linux, if you look for this Bus Master enable bit, any"
+    },
+    {
+      "index": 320,
+      "start_time": 2174290.0,
+      "end_time": 2178873.0,
+      "text": "device plug in the system gets Bus Master enabled turned on. Welcome to the show. What memory"
+    },
+    {
+      "index": 321,
+      "start_time": 2178880.0,
+      "end_time": 2184130.0,
+      "text": "would you like? There really isn&#39;t a software remediation for this, right? You can&#39;t just not"
+    },
+    {
+      "index": 322,
+      "start_time": 2184120.0,
+      "end_time": 2188537.0,
+      "text": "load the Fire wire drivers like you could with the regular inception attack. You can use an"
+    },
+    {
+      "index": 323,
+      "start_time": 2188540.0,
+      "end_time": 2196623.0,
+      "text": "IOMMU. Are you familiar with virtualization? How about virtualization of hardware?"
+    },
+    {
+      "index": 324,
+      "start_time": 2196620.0,
+      "end_time": 2205620.0,
+      "text": "Virtualization on the left, you just have software VMs that run a code and interfaced with an"
+    },
+    {
+      "index": 325,
+      "start_time": 2205620.0,
+      "end_time": 2210370.0,
+      "text": "extraction layer. On the other side you&#39;ve got  ‑ ‑ whether you use BTD or an IOMMU of some"
+    },
+    {
+      "index": 326,
+      "start_time": 2210380.0,
+      "end_time": 2214963.0,
+      "text": "sort, where you can actually assign a device to a specific software VM, you can actually"
+    },
+    {
+      "index": 327,
+      "start_time": 2214960.0,
+      "end_time": 2219127.0,
+      "text": "have two graphic cards plugged into your system, each running native drivers in a separate VM"
+    },
+    {
+      "index": 328,
+      "start_time": 2219120.0,
+      "end_time": 2225037.0,
+      "text": "and no one knows the difference. All that memory DMA access is remapped. If you configure a BTD"
+    },
+    {
+      "index": 329,
+      "start_time": 2225040.0,
+      "end_time": 2233081.0,
+      "text": "write like Apple does 10.8.2 on IP version they actually configure BT later, unless you"
+    },
+    {
+      "index": 330,
+      "start_time": 2233080.0,
+      "end_time": 2237122.0,
+      "text": "change the argument and turn BT off, which is good for a demonstration. You can go and"
+    },
+    {
+      "index": 331,
+      "start_time": 2237120.0,
+      "end_time": 2245745.0,
+      "text": "modify memory. Why those limitations? Why haven&#39;t they rolled them back to IP bridge?"
+    },
+    {
+      "index": 332,
+      "start_time": 2245750.0,
+      "end_time": 2252792.0,
+      "text": "Any system with thunderbolts should have BTD on to protect you against certain things. Any"
+    },
+    {
+      "index": 333,
+      "start_time": 2252790.0,
+      "end_time": 2257373.0,
+      "text": "system that has an express card. Any system you leave anywhere you don&#39;t see that someone can"
+    },
+    {
+      "index": 334,
+      "start_time": 2257380.0,
+      "end_time": 2261380.0,
+      "text": "open it up and pop a card in. You should be careful. Your operating system vendor should"
+    },
+    {
+      "index": 335,
+      "start_time": 2261380.0,
+      "end_time": 2267547.0,
+      "text": "be writing and providing this stuff by default. It&#39;s just important. Until then what"
+    },
+    {
+      "index": 336,
+      "start_time": 2267540.0,
+      "end_time": 2275915.0,
+      "text": "solution do we have? Abstinence, right. Miles would ever plug into sketchy into your display"
+    },
+    {
+      "index": 337,
+      "start_time": 2275920.0,
+      "end_time": 2305711.0,
+      "text": "port/Thunderbolt port? &gt;&gt; Of course not. &gt;&gt; What&#39;s plugged in there right now? &gt;&gt; It&#39;s just a"
+    },
+    {
+      "index": 338,
+      "start_time": 2305710.0,
+      "end_time": 2315794.0,
+      "text": "VGA cable. &gt;&gt; Where does it go? What&#39;s this? Oh, oh. &gt;&gt; Whoops. &gt;&gt; I have the power cord out,"
+    },
+    {
+      "index": 339,
+      "start_time": 2315790.0,
+      "end_time": 2321248.0,
+      "text": "too. We have five minutes. Okay. So yeah, yeah. Miles plugged in this little cable that looks"
+    },
+    {
+      "index": 340,
+      "start_time": 2321250.0,
+      "end_time": 2326667.0,
+      "text": "pretty simple. It&#39;s like one of those stupid $30 Apple adapters. But actually we look at the"
+    },
+    {
+      "index": 341,
+      "start_time": 2326670.0,
+      "end_time": 2331711.0,
+      "text": "other end and its really just a thunderbolt cable going to the thunderbolt enclosure attached"
+    },
+    {
+      "index": 342,
+      "start_time": 2331710.0,
+      "end_time": 2336169.0,
+      "text": "to an adapter. So this is how you could basically one of these yourself. We call this"
+    },
+    {
+      "index": 343,
+      "start_time": 2336170.0,
+      "end_time": 2342211.0,
+      "text": "ALLOYVIPER. We need a new name, because it&#39;s a cosmetic change to commercial products. So  ‑ ‑"
+    },
+    {
+      "index": 344,
+      "start_time": 2342210.0,
+      "end_time": 2348877.0,
+      "text": "actually this one has a list price of 300,000, maybe a little less if you buy them in bulk."
+    },
+    {
+      "index": 345,
+      "start_time": 2348880.0,
+      "end_time": 2355672.0,
+      "text": "It&#39;s actally pretty pricey because one cable alone is 50 bucks. So you take one of these"
+    },
+    {
+      "index": 346,
+      "start_time": 2355670.0,
+      "end_time": 2362878.0,
+      "text": "Thunderbolt cables and you go to radio shack and GED get one of these module telephone Jack and"
+    },
+    {
+      "index": 347,
+      "start_time": 2362880.0,
+      "end_time": 2368963.0,
+      "text": "use these little metal thingies. Thank you. I can push buttons now. You can get heat shrink"
+    },
+    {
+      "index": 348,
+      "start_time": 2368960.0,
+      "end_time": 2374877.0,
+      "text": "tubing, open everything up and thread your thunderbolt cable through that. Close it up, get"
+    },
+    {
+      "index": 349,
+      "start_time": 2374880.0,
+      "end_time": 2379005.0,
+      "text": "your heat shrink tubing, thread the Thunderbolt cable through that. Put the metal enclosure on"
+    },
+    {
+      "index": 350,
+      "start_time": 2379000.0,
+      "end_time": 2385167.0,
+      "text": "the end, and that&#39;s pretty much it. You basically say here, I already got an adapter for you."
+    },
+    {
+      "index": 351,
+      "start_time": 2385170.0,
+      "end_time": 2391170.0,
+      "text": "Thanks for presenting. My apology to Joe Grand. You were here last. My apology to Miles,"
+    },
+    {
+      "index": 352,
+      "start_time": 2391170.0,
+      "end_time": 2398295.0,
+      "text": "that dump I did was actually not your Nook. I didn&#39;t find any cookies in your dump, though."
+    },
+    {
+      "index": 353,
+      "start_time": 2398290.0,
+      "end_time": 2401790.0,
+      "text": "And basically on the other end, you put a standard adapter, look, I&#39;m using the laser"
+    },
+    {
+      "index": 354,
+      "start_time": 2401790.0,
+      "end_time": 2407623.0,
+      "text": "pointer on the screen. I apologize. Right here I can point at this one. Is this"
+    },
+    {
+      "index": 355,
+      "start_time": 2407620.0,
+      "end_time": 2415370.0,
+      "text": "better? This is a screen that was used on the corner and draws it on the projector. It&#39;s the"
+    },
+    {
+      "index": 356,
+      "start_time": 2415380.0,
+      "end_time": 2420380.0,
+      "text": "disclosure. Pay no attention to the man behind the curtain. When you plug this in, it defines the"
+    },
+    {
+      "index": 357,
+      "start_time": 2420380.0,
+      "end_time": 2425130.0,
+      "text": "display port to the adapter on the other end and It just passes it through. That&#39;s what we&#39;ve"
+    },
+    {
+      "index": 358,
+      "start_time": 2425120.0,
+      "end_time": 2428953.0,
+      "text": "been presenting the whole time. That&#39;s why it stopped when I stepped on the power cable."
+    },
+    {
+      "index": 359,
+      "start_time": 2428960.0,
+      "end_time": 2433877.0,
+      "text": "Sorry. I thought I almost blew the cover. So some acknowledgements, this is an"
+    },
+    {
+      "index": 360,
+      "start_time": 2433880.0,
+      "end_time": 2439838.0,
+      "text": "incomplete list. Thanks for all the NSA Playset Crew for working together on some awesome talks"
+    },
+    {
+      "index": 361,
+      "start_time": 2439830.0,
+      "end_time": 2443747.0,
+      "text": "and working together getting things up there and running. Carsten for his work on"
+    },
+    {
+      "index": 362,
+      "start_time": 2443750.0,
+      "end_time": 2448000.0,
+      "text": "inception again he built inception based on many many prior works before his. Again"
+    },
+    {
+      "index": 363,
+      "start_time": 2448000.0,
+      "end_time": 2452250.0,
+      "text": "Great Scott Gadgets, thank you motivating me to get it started. Thanks for Dean for telling me,"
+    },
+    {
+      "index": 364,
+      "start_time": 2452250.0,
+      "end_time": 2458125.0,
+      "text": "you haven&#39;t submitted that to DEF CON yet? I&#39;m like oh I haven&#39;t done any work on it yet."
+    },
+    {
+      "index": 365,
+      "start_time": 2458120.0,
+      "end_time": 2464870.0,
+      "text": "Just submit it. You&#39;ll get it done. Don&#39;t worry. Snare and Sam did a talk just last year using"
+    },
+    {
+      "index": 366,
+      "start_time": 2464880.0,
+      "end_time": 2471463.0,
+      "text": "FPGA board, which is basically the exact same thing as this, but you know. It&#39;s expensive."
+    },
+    {
+      "index": 367,
+      "start_time": 2471460.0,
+      "end_time": 2476460.0,
+      "text": "And everyone else who I forgot to. And Miles for fixing my ugly software code. So any questions?"
+    },
+    {
+      "index": 368,
+      "start_time": 2476460.0,
+      "end_time": 2482627.0,
+      "text": "(  Applause  ) What&#39;s your question? (  Inaudible question  ) &gt;&gt; Did you have a question?"
+    },
+    {
+      "index": 369,
+      "start_time": 2482620.0,
+      "end_time": 2489578.0,
+      "text": "Yes? (  Inaudible question  ) &gt;&gt; I don&#39;t know anything about the mitigation in Windows 8.1. So"
+    },
+    {
+      "index": 370,
+      "start_time": 2489580.0,
+      "end_time": 2495330.0,
+      "text": "the questions are what mitigations are built into Windows 8.1. I don&#39;t know. I"
+    },
+    {
+      "index": 371,
+      "start_time": 2495330.0,
+      "end_time": 2502914.0,
+      "text": "haven&#39;t tried it yet. I haven&#39;t tried it with 8.1 before. You want an NSA Playset pin. I&#39;m"
+    },
+    {
+      "index": 372,
+      "start_time": 2502920.0,
+      "end_time": 2531795.0,
+      "text": "sorry. &gt;&gt; Anybody that has questions can come to the microphone right here so"
+    },
+    {
+      "index": 373,
+      "start_time": 2531790.0,
+      "end_time": 2540665.0,
+      "text": "everybody can hear the question as well. Thank you. &gt;&gt; It doesn&#39;t matter what operating"
+    },
+    {
+      "index": 374,
+      "start_time": 2540670.0,
+      "end_time": 2547961.0,
+      "text": "system they&#39;re running or anything because you don&#39;t need any drivers? You just go ahead"
+    },
+    {
+      "index": 375,
+      "start_time": 2547960.0,
+      "end_time": 2556669.0,
+      "text": "and plug and play? &gt;&gt; Yeah. No drivers needed unless you&#39;ve got to figure something out in those"
+    },
+    {
+      "index": 376,
+      "start_time": 2556670.0,
+      "end_time": 2566378.0,
+      "text": "Mac versions that we mentioned. &gt;&gt; Is it 4 gigs? Because why isn&#39;t it 2 gigs? &gt;&gt; Why 4 gigs?"
+    },
+    {
+      "index": 377,
+      "start_time": 2566380.0,
+      "end_time": 2574588.0,
+      "text": "PCIe has 32 bit DMA natively. That&#39;s just... &gt;&gt; Can you offset? &gt;&gt; You can offset it."
+    },
+    {
+      "index": 378,
+      "start_time": 2574580.0,
+      "end_time": 2581372.0,
+      "text": "You need to change the DMA offset register which requires some device side drivers or"
+    },
+    {
+      "index": 379,
+      "start_time": 2581380.0,
+      "end_time": 2586630.0,
+      "text": "software. Again, you have access to the 40 bits of memory. You can do it with memory and a lot"
+    },
+    {
+      "index": 380,
+      "start_time": 2586620.0,
+      "end_time": 2593078.0,
+      "text": "of stuff there and inject whatever code you want and do fun stuff. &gt;&gt; Thanks for doing"
+    },
+    {
+      "index": 381,
+      "start_time": 2593080.0,
+      "end_time": 2600789.0,
+      "text": "this. &gt;&gt; We have time for two more questions. &gt;&gt; Did you look into USB DMA 3. &gt;&gt; It will"
+    },
+    {
+      "index": 382,
+      "start_time": 2600790.0,
+      "end_time": 2606748.0,
+      "text": "require drivers, though. &gt;&gt; I don&#39;t know. Most likely. I don&#39;t know. &gt;&gt; I&#39;m more interested in"
+    },
+    {
+      "index": 383,
+      "start_time": 2606750.0,
+      "end_time": 2614500.0,
+      "text": "the  ‑ ‑ running the VMs with certain PCIe. Is the information you presented going to be up on"
+    },
+    {
+      "index": 384,
+      "start_time": 2614500.0,
+      "end_time": 2620667.0,
+      "text": "your website? &gt;&gt; I&#39;m sorry. I can&#39;t really hear everything. &gt;&gt; I&#39;m looking for the information"
+    },
+    {
+      "index": 385,
+      "start_time": 2620670.0,
+      "end_time": 2627670.0,
+      "text": "on building external PCIe connected to virtual machines. Have you discussed that a little"
+    },
+    {
+      "index": 386,
+      "start_time": 2627670.0,
+      "end_time": 2633753.0,
+      "text": "bit? &gt;&gt; Using the  ‑ ‑ &gt;&gt; Yes. &gt;&gt; Let me just make an announcement. Somebody dropped"
+    },
+    {
+      "index": 387,
+      "start_time": 2633750.0,
+      "end_time": 2639083.0,
+      "text": "their iPhone in this section. Everybody please check and make sure you have your iPhone on you"
+    },
+    {
+      "index": 388,
+      "start_time": 2639080.0,
+      "end_time": 2645705.0,
+      "text": "if you have such a device. &gt;&gt; I work in building a virtual machine connecting external"
+    },
+    {
+      "index": 389,
+      "start_time": 2645710.0,
+      "end_time": 2653585.0,
+      "text": "PCIe. The information you presented, will they be up on the website? &gt;&gt; I&#39;m sorry. I"
+    },
+    {
+      "index": 390,
+      "start_time": 2653580.0,
+      "end_time": 2675789.0,
+      "text": "thought  ‑ ‑ I can&#39;t hear what you are saying. I&#39;m sorry. Yeah. (  Inaudible question  ) &gt;&gt;"
+    },
+    {
+      "index": 391,
+      "start_time": 2675790.0,
+      "end_time": 2678915.0,
+      "text": "We&#39;ll talk offline. He wanted to know how to connect external devices to a virtual machine"
+    },
+    {
+      "index": 392,
+      "start_time": 2678920.0,
+      "end_time": 2691045.0,
+      "text": "with PCIe. I think we have one more moment. I guess not. No more questions? Okay. ( "
+    },
+    {
+      "index": 393,
+      "start_time": 2691040.0,
+      "end_time": 2701040.0,
+      "text": "Applause  )"
+    }
+  ]
+}

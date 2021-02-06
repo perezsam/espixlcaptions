@@ -1,0 +1,1284 @@
+{
+  "video_id": "mQQA2-yq4L4",
+  "title": "6   3   The k Means Algorithm 12 49",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 430.0,
+      "end_time": 1400.0,
+      "text": "Hello, everyone."
+    },
+    {
+      "index": 2,
+      "start_time": 1400.0,
+      "end_time": 3790.0,
+      "text": "Welcome back to Mining of Massive Datasets."
+    },
+    {
+      "index": 3,
+      "start_time": 3790.0,
+      "end_time": 5920.0,
+      "text": "We&#39;re going to continue our discussion of Clustering today,"
+    },
+    {
+      "index": 4,
+      "start_time": 5920.0,
+      "end_time": 7939.0,
+      "text": "by looking at the k-Means Algorithm."
+    },
+    {
+      "index": 5,
+      "start_time": 7940.0,
+      "end_time": 10130.0,
+      "text": "Recall that we previously, looked at another means,"
+    },
+    {
+      "index": 6,
+      "start_time": 10130.0,
+      "end_time": 14550.0,
+      "text": "way of doing clustering called Agglomerative Hierarchical Clustering."
+    },
+    {
+      "index": 7,
+      "start_time": 14550.0,
+      "end_time": 17980.0,
+      "text": "Now, that algorithm worked very well in terms of producing clusters, but"
+    },
+    {
+      "index": 8,
+      "start_time": 17980.0,
+      "end_time": 19730.0,
+      "text": "unfortunately, it doesn&#39;t work very well for"
+    },
+    {
+      "index": 9,
+      "start_time": 19730.0,
+      "end_time": 23450.0,
+      "text": "large da, datasets because of its computational complexity."
+    },
+    {
+      "index": 10,
+      "start_time": 23450.0,
+      "end_time": 26740.0,
+      "text": "The k-Means Algorithm, or the k-Means family of Algorithms actually,"
+    },
+    {
+      "index": 11,
+      "start_time": 26740.0,
+      "end_time": 30799.0,
+      "text": "is a way of addressing that problem, of creating Algorithms that"
+    },
+    {
+      "index": 12,
+      "start_time": 30800.0,
+      "end_time": 34680.0,
+      "text": "are computational tractable and work with very large datasets."
+    },
+    {
+      "index": 13,
+      "start_time": 34680.0,
+      "end_time": 39704.0,
+      "text": "Now the k-means Algorithm assumes, a Euclidean space and"
+    },
+    {
+      "index": 14,
+      "start_time": 39704.0,
+      "end_time": 42740.0,
+      "text": "the Euclidean distance."
+    },
+    {
+      "index": 15,
+      "start_time": 42740.0,
+      "end_time": 46790.0,
+      "text": "And the first step, is to pick k, the number of clusters."
+    },
+    {
+      "index": 16,
+      "start_time": 46790.0,
+      "end_time": 50680.0,
+      "text": "Now, for now let&#39;s assume that we pick a number k, and"
+    },
+    {
+      "index": 17,
+      "start_time": 50680.0,
+      "end_time": 53519.0,
+      "text": "say that&#39;s the number of clusters that we finally want."
+    },
+    {
+      "index": 18,
+      "start_time": 53520.0,
+      "end_time": 57940.0,
+      "text": "Towards the end, I&#39;ll ca, I&#39;ll show you how to actually, pick this this value k."
+    },
+    {
+      "index": 19,
+      "start_time": 57940.0,
+      "end_time": 60199.0,
+      "text": "For now, let&#39;s just assume that k is the given."
+    },
+    {
+      "index": 20,
+      "start_time": 61270.0,
+      "end_time": 65970.0,
+      "text": "Now, we&#39;re going to initialize k clusters, by picking one point per cluster."
+    },
+    {
+      "index": 21,
+      "start_time": 65970.0,
+      "end_time": 69250.0,
+      "text": "For example, we could just pick k points at random, one, and"
+    },
+    {
+      "index": 22,
+      "start_time": 69250.0,
+      "end_time": 70830.0,
+      "text": "assign one point to each cluster."
+    },
+    {
+      "index": 23,
+      "start_time": 70830.0,
+      "end_time": 75280.0,
+      "text": "And that would be the one way of picking the points."
+    },
+    {
+      "index": 24,
+      "start_time": 75280.0,
+      "end_time": 78660.0,
+      "text": "Later on we&#39;ll examine other ways of doing this much better."
+    },
+    {
+      "index": 25,
+      "start_time": 82460.0,
+      "end_time": 86559.0,
+      "text": "Now that we have clusters populated with these k-points picked at random,"
+    },
+    {
+      "index": 26,
+      "start_time": 86560.0,
+      "end_time": 88750.0,
+      "text": "here&#39;s how we&#39;re going to proceed."
+    },
+    {
+      "index": 27,
+      "start_time": 88750.0,
+      "end_time": 91490.0,
+      "text": "We&#39;re really go through all the points in our datasets."
+    },
+    {
+      "index": 28,
+      "start_time": 91490.0,
+      "end_time": 95900.0,
+      "text": "And for each point, we&#39;re going to place it in the cluster."
+    },
+    {
+      "index": 29,
+      "start_time": 95100.0,
+      "end_time": 97480.0,
+      "text": "To whose centroid it&#39;s closest."
+    },
+    {
+      "index": 30,
+      "start_time": 97480.0,
+      "end_time": 101830.0,
+      "text": "So, you&#39;re going to find the cluster with the closest centroid to the data point,"
+    },
+    {
+      "index": 31,
+      "start_time": 101830.0,
+      "end_time": 105230.0,
+      "text": "and then we&#39;ll assign that data point to that cluster."
+    },
+    {
+      "index": 32,
+      "start_time": 105230.0,
+      "end_time": 107100.0,
+      "text": "Okay? And we&#39;re going to do this for"
+    },
+    {
+      "index": 33,
+      "start_time": 107100.0,
+      "end_time": 108690.0,
+      "text": "each data point."
+    },
+    {
+      "index": 34,
+      "start_time": 108690.0,
+      "end_time": 113360.0,
+      "text": "Now, when we assign a whole bunch of new data points to a cluster,"
+    },
+    {
+      "index": 35,
+      "start_time": 113360.0,
+      "end_time": 115630.0,
+      "text": "the centroid of a cluster might change."
+    },
+    {
+      "index": 36,
+      "start_time": 115630.0,
+      "end_time": 118667.0,
+      "text": "Because of all the new data points that have been added with the cluster."
+    },
+    {
+      "index": 37,
+      "start_time": 118668.0,
+      "end_time": 119510.0,
+      "text": "So, we&#39;re going to go up,"
+    },
+    {
+      "index": 38,
+      "start_time": 119510.0,
+      "end_time": 123260.0,
+      "text": "update the locations of the centroids of each of the k clusters,"
+    },
+    {
+      "index": 39,
+      "start_time": 123260.0,
+      "end_time": 127750.0,
+      "text": "by taking into account the new data points that have been added to those clusters."
+    },
+    {
+      "index": 40,
+      "start_time": 127750.0,
+      "end_time": 132860.0,
+      "text": "Now, once we do this, we&#39;ll find that the centroids of,"
+    },
+    {
+      "index": 41,
+      "start_time": 132860.0,
+      "end_time": 134810.0,
+      "text": "of the k clusters have moved, and"
+    },
+    {
+      "index": 42,
+      "start_time": 134810.0,
+      "end_time": 138490.0,
+      "text": "now a point that was close to one cluster may be closer to another cluster."
+    },
+    {
+      "index": 43,
+      "start_time": 138490.0,
+      "end_time": 142380.0,
+      "text": "So, we need to go through and reassign all points to their closest centroid."
+    },
+    {
+      "index": 44,
+      "start_time": 142380.0,
+      "end_time": 144799.0,
+      "text": "And sometimes this moves points between the clusters."
+    },
+    {
+      "index": 45,
+      "start_time": 145870.0,
+      "end_time": 150370.0,
+      "text": "And notice that we, we may have to do poi, you know, steps 2 and 3 again and again."
+    },
+    {
+      "index": 46,
+      "start_time": 150370.0,
+      "end_time": 152960.0,
+      "text": "And it, thi, this is exactly, what we&#39;re going to do."
+    },
+    {
+      "index": 47,
+      "start_time": 152960.0,
+      "end_time": 155990.0,
+      "text": "We&#39;re going to repeat steps 2 and 3, until Convergence."
+    },
+    {
+      "index": 48,
+      "start_time": 155990.0,
+      "end_time": 160620.0,
+      "text": "And what we mean by Convergence, is that the k centroids don&#39;t move any further,"
+    },
+    {
+      "index": 49,
+      "start_time": 160620.0,
+      "end_time": 165600.0,
+      "text": "and the point don&#39;t move en, any further across the across the centroids."
+    },
+    {
+      "index": 50,
+      "start_time": 165600.0,
+      "end_time": 168215.0,
+      "text": "At that point, we have a stable k-means clustering."
+    },
+    {
+      "index": 51,
+      "start_time": 169400.0,
+      "end_time": 170800.0,
+      "text": "So let&#39;s look at an example."
+    },
+    {
+      "index": 52,
+      "start_time": 170800.0,
+      "end_time": 175486.0,
+      "text": "So, here&#39;s a set of points and we are going to do obviously,"
+    },
+    {
+      "index": 53,
+      "start_time": 175486.0,
+      "end_time": 182200.0,
+      "text": "say that k is equal to 2, so we&#39;re looking to find two clusters in this dataset."
+    },
+    {
+      "index": 54,
+      "start_time": 182200.0,
+      "end_time": 188209.0,
+      "text": "Now in, in Round 1, I&#39;m at random going to pick two points since k equal 2 and"
+    },
+    {
+      "index": 55,
+      "start_time": 188210.0,
+      "end_time": 190630.0,
+      "text": "call those a centroid of two clusters."
+    },
+    {
+      "index": 56,
+      "start_time": 190630.0,
+      "end_time": 193200.0,
+      "text": "Let&#39;s say, I pick these two points so"
+    },
+    {
+      "index": 57,
+      "start_time": 193200.0,
+      "end_time": 196859.0,
+      "text": "the, the point that I&#39;ve highlighted with the in pink here and"
+    },
+    {
+      "index": 58,
+      "start_time": 196860.0,
+      "end_time": 200260.0,
+      "text": "the point that I&#39;ve highlighted in blue here as the two centroids."
+    },
+    {
+      "index": 59,
+      "start_time": 200260.0,
+      "end_time": 202260.0,
+      "text": "I&#39;ve picked this totally arbitrarily and at random."
+    },
+    {
+      "index": 60,
+      "start_time": 203670.0,
+      "end_time": 208700.0,
+      "text": "Now, what I&#39;m going to do is I&#39;m going to go through, all the data points and for"
+    },
+    {
+      "index": 61,
+      "start_time": 208700.0,
+      "end_time": 213730.0,
+      "text": "each data point, I&#39;m going to assign it to the centroid that it&#39;s closest to."
+    },
+    {
+      "index": 62,
+      "start_time": 213730.0,
+      "end_time": 218700.0,
+      "text": "So, observe that this point for example here, is close to the red cluster."
+    },
+    {
+      "index": 63,
+      "start_time": 218700.0,
+      "end_time": 220630.0,
+      "text": "So, I&#39;m going to assign it to the red cluster."
+    },
+    {
+      "index": 64,
+      "start_time": 220630.0,
+      "end_time": 224829.0,
+      "text": "Whereas, this point here is closer to the blue cluster than to the red cluster, so"
+    },
+    {
+      "index": 65,
+      "start_time": 224830.0,
+      "end_time": 226820.0,
+      "text": "I&#39;m going to assign it to the blue cluster."
+    },
+    {
+      "index": 66,
+      "start_time": 226820.0,
+      "end_time": 231680.0,
+      "text": "And, you know, when I go through all the data points and do this."
+    },
+    {
+      "index": 67,
+      "start_time": 231680.0,
+      "end_time": 234600.0,
+      "text": "Here is the clustering that I end up with."
+    },
+    {
+      "index": 68,
+      "start_time": 234600.0,
+      "end_time": 240900.0,
+      "text": "These two points here end up in the you know, in, in the pink cluster here and"
+    },
+    {
+      "index": 69,
+      "start_time": 240900.0,
+      "end_time": 244240.0,
+      "text": "this set of points are closer to the the blue point here, and so"
+    },
+    {
+      "index": 70,
+      "start_time": 244240.0,
+      "end_time": 245320.0,
+      "text": "they end up in a blue cluster."
+    },
+    {
+      "index": 71,
+      "start_time": 246650.0,
+      "end_time": 249350.0,
+      "text": "So, that&#39;s round 1 of k-means clustering."
+    },
+    {
+      "index": 72,
+      "start_time": 249350.0,
+      "end_time": 251980.0,
+      "text": "Now, what I&#39;m going to do now is, because I&#39;ve"
+    },
+    {
+      "index": 73,
+      "start_time": 251980.0,
+      "end_time": 256529.0,
+      "text": "created these two new clusters I&#39;m going to compute the new centroids."
+    },
+    {
+      "index": 74,
+      "start_time": 256529.0,
+      "end_time": 259940.0,
+      "text": "And when I compute the new centroids, the the centroid of"
+    },
+    {
+      "index": 75,
+      "start_time": 259940.0,
+      "end_time": 265600.0,
+      "text": "the pink cluster moves over a little bit to the left to this new position here."
+    },
+    {
+      "index": 76,
+      "start_time": 265600.0,
+      "end_time": 268800.0,
+      "text": "And the centroid of the blue cluster moves to that new position."
+    },
+    {
+      "index": 77,
+      "start_time": 268800.0,
+      "end_time": 273583.0,
+      "text": "Now, is because I have new centroids, I&#39;m going to go through in round 2, I&#39;m"
+    },
+    {
+      "index": 78,
+      "start_time": 273583.0,
+      "end_time": 277830.0,
+      "text": "going to go through each data point again and assign it to it&#39;s closest centroid."
+    },
+    {
+      "index": 79,
+      "start_time": 277830.0,
+      "end_time": 282880.0,
+      "text": "And when I do that,observe that, point for example this point here"
+    },
+    {
+      "index": 80,
+      "start_time": 282880.0,
+      "end_time": 287750.0,
+      "text": "is now closer to the the pink cluster than it is to the blue cluster."
+    },
+    {
+      "index": 81,
+      "start_time": 287750.0,
+      "end_time": 290186.0,
+      "text": "And so it moves from the blue cluster to the pink cluster."
+    },
+    {
+      "index": 82,
+      "start_time": 290186.0,
+      "end_time": 290909.0,
+      "text": "Okay?"
+    },
+    {
+      "index": 83,
+      "start_time": 290909.0,
+      "end_time": 296343.0,
+      "text": "[SOUND] And so we have this new clustering and the end of round 2."
+    },
+    {
+      "index": 84,
+      "start_time": 296343.0,
+      "end_time": 300398.0,
+      "text": "Now that, we have the new clustering, I&#39;m going to recompute the centroids once"
+    },
+    {
+      "index": 85,
+      "start_time": 300398.0,
+      "end_time": 305180.0,
+      "text": "again, and when I recompute the centroids, the the centroids migrate further."
+    },
+    {
+      "index": 86,
+      "start_time": 306960.0,
+      "end_time": 309479.0,
+      "text": "And because the centroids are migrated further,"
+    },
+    {
+      "index": 87,
+      "start_time": 309480.0,
+      "end_time": 314100.0,
+      "text": "I have to recompute the, the assignment of points to the centroids again."
+    },
+    {
+      "index": 88,
+      "start_time": 314100.0,
+      "end_time": 319370.0,
+      "text": "And when I do that these two points here are then"
+    },
+    {
+      "index": 89,
+      "start_time": 319370.0,
+      "end_time": 325432.0,
+      "text": "are closer to the the pink cluster, so they move to the to the pink cluster and"
+    },
+    {
+      "index": 90,
+      "start_time": 326477.0,
+      "end_time": 330429.0,
+      "text": "and we end up with the clustering show here at the end of Round 3."
+    },
+    {
+      "index": 91,
+      "start_time": 331740.0,
+      "end_time": 332280.0,
+      "text": "Okay?"
+    },
+    {
+      "index": 92,
+      "start_time": 332280.0,
+      "end_time": 336760.0,
+      "text": "Now, as it turns out, in this case, Round 3 is the last round."
+    },
+    {
+      "index": 93,
+      "start_time": 336761.0,
+      "end_time": 339170.0,
+      "text": "a, at this point, the centroids and"
+    },
+    {
+      "index": 94,
+      "start_time": 339170.0,
+      "end_time": 343290.0,
+      "text": "the, points don&#39;t migrate any further, and we have a stable clustering."
+    },
+    {
+      "index": 95,
+      "start_time": 343290.0,
+      "end_time": 349800.0,
+      "text": "So, what we have here is the, clustering, the k-means clustering for"
+    },
+    {
+      "index": 96,
+      "start_time": 349800.0,
+      "end_time": 353800.0,
+      "text": "k is equal to 2, for, for this dataset."
+    },
+    {
+      "index": 97,
+      "start_time": 353800.0,
+      "end_time": 357909.0,
+      "text": "Observe that I started from a completely random assignment of you know, of,"
+    },
+    {
+      "index": 98,
+      "start_time": 357910.0,
+      "end_time": 362360.0,
+      "text": "of centroids and actually migrated the centroids to where they finally ended up."
+    },
+    {
+      "index": 99,
+      "start_time": 365600.0,
+      "end_time": 368800.0,
+      "text": "Now, the important question here is, how to we pick the right value of k?"
+    },
+    {
+      "index": 100,
+      "start_time": 368800.0,
+      "end_time": 372290.0,
+      "text": "In the previous example, we arbitrarily picked k is equal to 2 and"
+    },
+    {
+      "index": 101,
+      "start_time": 372290.0,
+      "end_time": 375610.0,
+      "text": "that actually turned out to be the right value for that datasets because you"
+    },
+    {
+      "index": 102,
+      "start_time": 375610.0,
+      "end_time": 381240.0,
+      "text": "can see that there are roughly, two different clusters of data points here."
+    },
+    {
+      "index": 103,
+      "start_time": 381240.0,
+      "end_time": 384680.0,
+      "text": "But in general, how do we know what the right value of k is up front?"
+    },
+    {
+      "index": 104,
+      "start_time": 384680.0,
+      "end_time": 387360.0,
+      "text": "So that we can pick the number of clusters up front."
+    },
+    {
+      "index": 105,
+      "start_time": 388750.0,
+      "end_time": 390370.0,
+      "text": "So, since we don&#39;t know the right value of k,"
+    },
+    {
+      "index": 106,
+      "start_time": 390370.0,
+      "end_time": 393540.0,
+      "text": "the obvious answer is to try different values of k."
+    },
+    {
+      "index": 107,
+      "start_time": 395220.0,
+      "end_time": 397390.0,
+      "text": "And see what looks good."
+    },
+    {
+      "index": 108,
+      "start_time": 397390.0,
+      "end_time": 398969.0,
+      "text": "Now the question, now we have to decide."
+    },
+    {
+      "index": 109,
+      "start_time": 398970.0,
+      "end_time": 400380.0,
+      "text": "What do we mean, by what looks good?"
+    },
+    {
+      "index": 110,
+      "start_time": 401440.0,
+      "end_time": 405330.0,
+      "text": "One obvious answer is to look at the average distance of points from"
+    },
+    {
+      "index": 111,
+      "start_time": 405330.0,
+      "end_time": 407950.0,
+      "text": "the centroid as k increases."
+    },
+    {
+      "index": 112,
+      "start_time": 407950.0,
+      "end_time": 408490.0,
+      "text": "Right? And"
+    },
+    {
+      "index": 113,
+      "start_time": 408490.0,
+      "end_time": 412500.0,
+      "text": "let&#39;s see let&#39;s look at an example to see what we mean here."
+    },
+    {
+      "index": 114,
+      "start_time": 412500.0,
+      "end_time": 415260.0,
+      "text": "So here&#39;s here&#39;s an example with a bunch of data points, and"
+    },
+    {
+      "index": 115,
+      "start_time": 415260.0,
+      "end_time": 417500.0,
+      "text": "they&#39;ve actually picked k is equal to 2."
+    },
+    {
+      "index": 116,
+      "start_time": 417500.0,
+      "end_time": 420790.0,
+      "text": "Because I pi, pick k equal 2, we have two clusters."
+    },
+    {
+      "index": 117,
+      "start_time": 420790.0,
+      "end_time": 424920.0,
+      "text": "And you, you can see that, that&#39;s a centroid off of the first cluster."
+    },
+    {
+      "index": 118,
+      "start_time": 424920.0,
+      "end_time": 428350.0,
+      "text": "And you can see, there&#39;s a lot of points that are very far away"
+    },
+    {
+      "index": 119,
+      "start_time": 428350.0,
+      "end_time": 430450.0,
+      "text": "from the centroid in this case."
+    },
+    {
+      "index": 120,
+      "start_time": 430450.0,
+      "end_time": 430979.0,
+      "text": "Right?"
+    },
+    {
+      "index": 121,
+      "start_time": 430980.0,
+      "end_time": 435270.0,
+      "text": "Now, if, if k is too small, as in this case, then there are going to be lots of"
+    },
+    {
+      "index": 122,
+      "start_time": 435270.0,
+      "end_time": 438150.0,
+      "text": "points that are a large distance away from the centroid."
+    },
+    {
+      "index": 123,
+      "start_time": 438150.0,
+      "end_time": 441900.0,
+      "text": "So, the average distance from the distance is going to be fairly large."
+    },
+    {
+      "index": 124,
+      "start_time": 443700.0,
+      "end_time": 445620.0,
+      "text": "Now, I made k equal 3."
+    },
+    {
+      "index": 125,
+      "start_time": 445620.0,
+      "end_time": 448230.0,
+      "text": "and, as it turns out, this is the right value for"
+    },
+    {
+      "index": 126,
+      "start_time": 448230.0,
+      "end_time": 452620.0,
+      "text": "this dataset, and you can see that the, distances to the,"
+    },
+    {
+      "index": 127,
+      "start_time": 452620.0,
+      "end_time": 457220.0,
+      "text": "centroid shrink quite a lot, when I went from, k equal 2 to k equal 3."
+    },
+    {
+      "index": 128,
+      "start_time": 457220.0,
+      "end_time": 462360.0,
+      "text": "That splits the, top cluster into two, and that shrinks the average value, or the,"
+    },
+    {
+      "index": 129,
+      "start_time": 462360.0,
+      "end_time": 465330.0,
+      "text": "or the average distance of the centroid significantly."
+    },
+    {
+      "index": 130,
+      "start_time": 465330.0,
+      "end_time": 466330.0,
+      "text": "Right?"
+    },
+    {
+      "index": 131,
+      "start_time": 466330.0,
+      "end_time": 470120.0,
+      "text": "And the and but if I increase k, further."
+    },
+    {
+      "index": 132,
+      "start_time": 470120.0,
+      "end_time": 473310.0,
+      "text": "Let&#39;s say, I make k equal 4 and that splits that cluster, further."
+    },
+    {
+      "index": 133,
+      "start_time": 473310.0,
+      "end_time": 476570.0,
+      "text": "Now, that does shrink the average sums of the centroid, but"
+    },
+    {
+      "index": 134,
+      "start_time": 476570.0,
+      "end_time": 481740.0,
+      "text": "not as much as when we went from k equal 2, to k equal 3."
+    },
+    {
+      "index": 135,
+      "start_time": 481740.0,
+      "end_time": 483799.0,
+      "text": "Right? So, when we make k, too large,."
+    },
+    {
+      "index": 136,
+      "start_time": 485200.0,
+      "end_time": 488789.0,
+      "text": "It does decrease the average distance of the centroid."
+    },
+    {
+      "index": 137,
+      "start_time": 488790.0,
+      "end_time": 490920.0,
+      "text": "But not, by not as much."
+    },
+    {
+      "index": 138,
+      "start_time": 490920.0,
+      "end_time": 493270.0,
+      "text": "Now, we can see this very clearly if I plot a graph."
+    },
+    {
+      "index": 139,
+      "start_time": 493270.0,
+      "end_time": 496740.0,
+      "text": "Right, if I plot a graph, where the x axis is k, the number of clusters."
+    },
+    {
+      "index": 140,
+      "start_time": 496740.0,
+      "end_time": 499400.0,
+      "text": "And the y axis is the average distance to the centroid."
+    },
+    {
+      "index": 141,
+      "start_time": 499400.0,
+      "end_time": 501440.0,
+      "text": "You can see that as k increases."
+    },
+    {
+      "index": 142,
+      "start_time": 501440.0,
+      "end_time": 504800.0,
+      "text": "The average distance to the centroid keeps falling."
+    },
+    {
+      "index": 143,
+      "start_time": 504800.0,
+      "end_time": 508760.0,
+      "text": "But, at some point, it&#39;s, it, you know, the, there&#39;s a knee of the curve and"
+    },
+    {
+      "index": 144,
+      "start_time": 508760.0,
+      "end_time": 511860.0,
+      "text": "the average distance to the centroid falls very slowly."
+    },
+    {
+      "index": 145,
+      "start_time": 513120.0,
+      "end_time": 515870.0,
+      "text": "The obvious thing to do is to pick a value of k,"
+    },
+    {
+      "index": 146,
+      "start_time": 515870.0,
+      "end_time": 519587.0,
+      "text": "that&#39;s close to the knee of the curve, where you get a more,"
+    },
+    {
+      "index": 147,
+      "start_time": 519587.0,
+      "end_time": 523819.0,
+      "text": "you know, a fairly low distance to the average distance to the centroid."
+    },
+    {
+      "index": 148,
+      "start_time": 523820.00000000006,
+      "end_time": 525450.0,
+      "text": "Without too high, a value of k."
+    },
+    {
+      "index": 149,
+      "start_time": 526470.0,
+      "end_time": 531000.0,
+      "text": "So, in this case, the best value of k, is the one that&#39;s, that&#39;s shown in this,"
+    },
+    {
+      "index": 150,
+      "start_time": 531000.0,
+      "end_time": 531750.0,
+      "text": "shown in the picture."
+    },
+    {
+      "index": 151,
+      "start_time": 533200.0,
+      "end_time": 536720.0,
+      "text": "The final question we need to address, with k-means clustering is the picking of"
+    },
+    {
+      "index": 152,
+      "start_time": 536720.0,
+      "end_time": 540100.0,
+      "text": "the k initial point to initialize the k clusters."
+    },
+    {
+      "index": 153,
+      "start_time": 540100.0,
+      "end_time": 542610.0,
+      "text": "In the examples, that we&#39;ve seen so far, we&#39;ve picked the."
+    },
+    {
+      "index": 154,
+      "start_time": 542610.0,
+      "end_time": 545390.0,
+      "text": "The initial k points entire completely at random."
+    },
+    {
+      "index": 155,
+      "start_time": 545390.0,
+      "end_time": 549410.0,
+      "text": "Now that model not a very bad example, but in general it might not work for"
+    },
+    {
+      "index": 156,
+      "start_time": 549410.0,
+      "end_time": 550250.0,
+      "text": "quite so bad."
+    },
+    {
+      "index": 157,
+      "start_time": 550250.0,
+      "end_time": 555330.0,
+      "text": "If you make for example pick k point that all happen to be in the same cluster."
+    },
+    {
+      "index": 158,
+      "start_time": 555330.0,
+      "end_time": 560180.0,
+      "text": "In which case the final clustering, won&#39;t reflect the actual clustering of the data."
+    },
+    {
+      "index": 159,
+      "start_time": 560180.0,
+      "end_time": 563474.0,
+      "text": "Right, or we might pick points that are outliers that are not near,"
+    },
+    {
+      "index": 160,
+      "start_time": 563475.0,
+      "end_time": 564890.0,
+      "text": "near any of the near clusters."
+    },
+    {
+      "index": 161,
+      "start_time": 564890.0,
+      "end_time": 569720.0,
+      "text": "So, the the final clustering depends on the initial k point that they picked."
+    },
+    {
+      "index": 162,
+      "start_time": 569720.0,
+      "end_time": 573170.0,
+      "text": "And so it&#39;s important that they pick the right"
+    },
+    {
+      "index": 163,
+      "start_time": 573170.0,
+      "end_time": 575150.0,
+      "text": "k points to start the clustering from."
+    },
+    {
+      "index": 164,
+      "start_time": 579150.0,
+      "end_time": 583439.0,
+      "text": "The first approach, to picking the initial k point is Sampling."
+    },
+    {
+      "index": 165,
+      "start_time": 583440.0,
+      "end_time": 586290.0,
+      "text": "So remember that the data set is very large and so we"
+    },
+    {
+      "index": 166,
+      "start_time": 586290.0,
+      "end_time": 590709.0,
+      "text": "can&#39;t actually run a complicated algorithm like hierarchical clustering on it."
+    },
+    {
+      "index": 167,
+      "start_time": 590710.0,
+      "end_time": 595360.0,
+      "text": "But what we can do is to sample the data and take a smaller sample of the data."
+    },
+    {
+      "index": 168,
+      "start_time": 595360.0,
+      "end_time": 598980.0,
+      "text": "And then using the sample of the data, we can then another algorithm like"
+    },
+    {
+      "index": 169,
+      "start_time": 598980.0,
+      "end_time": 602340.0,
+      "text": "Hierarchical Agglomerative Clustering, in which we covered in the last lecture."
+    },
+    {
+      "index": 170,
+      "start_time": 602340.0,
+      "end_time": 605940.0,
+      "text": "And we can run that algorithm until we obtain k clusters."
+    },
+    {
+      "index": 171,
+      "start_time": 605940.0,
+      "end_time": 609500.0,
+      "text": "And then we can pick a point from each of the k clusters."
+    },
+    {
+      "index": 172,
+      "start_time": 609500.0,
+      "end_time": 613300.0,
+      "text": "For example, we could pick the point that&#39;s closest to the centroid for"
+    },
+    {
+      "index": 173,
+      "start_time": 613300.0,
+      "end_time": 614250.0,
+      "text": "each cluster."
+    },
+    {
+      "index": 174,
+      "start_time": 614250.0,
+      "end_time": 617930.0,
+      "text": "And we could call those, our initial k k centroids."
+    },
+    {
+      "index": 175,
+      "start_time": 619140.0,
+      "end_time": 623819.0,
+      "text": "Another approach is to not resort to another clustering algorithm, but"
+    },
+    {
+      "index": 176,
+      "start_time": 623820.0,
+      "end_time": 625860.0,
+      "text": "to just pick a dispersed set of points."
+    },
+    {
+      "index": 177,
+      "start_time": 625860.0,
+      "end_time": 628490.0,
+      "text": "Points that are as far away from each other."
+    },
+    {
+      "index": 178,
+      "start_time": 628490.0,
+      "end_time": 630140.0,
+      "text": "In the dataset, as possible."
+    },
+    {
+      "index": 179,
+      "start_time": 630140.0,
+      "end_time": 634660.0,
+      "text": "So, one approach to this, is to first pick a, the first point entirely at random."
+    },
+    {
+      "index": 180,
+      "start_time": 634660.0,
+      "end_time": 637890.0,
+      "text": "Now, the second point, we pick to"
+    },
+    {
+      "index": 181,
+      "start_time": 637890.0,
+      "end_time": 643630.0,
+      "text": "be the point that&#39;s as far away from the first point as possible, in the dataset."
+    },
+    {
+      "index": 182,
+      "start_time": 643630.0,
+      "end_time": 648180.0,
+      "text": "The third point, we pick to be the point that is as far away from both"
+    },
+    {
+      "index": 183,
+      "start_time": 648180.0,
+      "end_time": 650400.0,
+      "text": "point one and point two as possible."
+    },
+    {
+      "index": 184,
+      "start_time": 650400.0,
+      "end_time": 652390.0,
+      "text": "In general, we pick you know,"
+    },
+    {
+      "index": 185,
+      "start_time": 652390.0,
+      "end_time": 656150.0,
+      "text": "once we&#39;ve picked the first few points, we pick the next point to be the one"
+    },
+    {
+      "index": 186,
+      "start_time": 656150.0,
+      "end_time": 660120.0,
+      "text": "who&#39;s minimum distance from the already selected points, is as large as possible."
+    },
+    {
+      "index": 187,
+      "start_time": 661260.0,
+      "end_time": 663280.0,
+      "text": "And then, we repeat this, until we pick k points."
+    },
+    {
+      "index": 188,
+      "start_time": 664750.0,
+      "end_time": 668770.0,
+      "text": "So, this ensures that the k point, that&#39;s we&#39;ve picked, are as far apart or"
+    },
+    {
+      "index": 189,
+      "start_time": 668770.0,
+      "end_time": 672280.0,
+      "text": "as disperse as possible, you, you know, in the, in the data set."
+    },
+    {
+      "index": 190,
+      "start_time": 672280.0,
+      "end_time": 675172.0,
+      "text": "And that gives us a better chance of finding the right clustering."
+    },
+    {
+      "index": 191,
+      "start_time": 680888.0,
+      "end_time": 686470.0,
+      "text": "Let&#39;s consider the Complexity of k-means clustering."
+    },
+    {
+      "index": 192,
+      "start_time": 686470.0,
+      "end_time": 690230.0,
+      "text": "Now in each round, we have to examine each input point exactly,"
+    },
+    {
+      "index": 193,
+      "start_time": 690230.0,
+      "end_time": 694290.0,
+      "text": "once to find the closest centroid to that point and assign it to that centroid."
+    },
+    {
+      "index": 194,
+      "start_time": 695830.0,
+      "end_time": 701500.0,
+      "text": "Now, since there are endpoints and there are k centroids, right?"
+    },
+    {
+      "index": 195,
+      "start_time": 701500.0,
+      "end_time": 705380.0,
+      "text": "We have to compute the distance of each point from each centroid, so"
+    },
+    {
+      "index": 196,
+      "start_time": 705380.0,
+      "end_time": 709890.0,
+      "text": "the algorithm is order k times N for endpoints and k clusters."
+    },
+    {
+      "index": 197,
+      "start_time": 709890.0,
+      "end_time": 716600.0,
+      "text": "Now each round is it&#39;s, it&#39;s it&#39;s it&#39;s a Complexity k times N."
+    },
+    {
+      "index": 198,
+      "start_time": 716600.0,
+      "end_time": 720990.0,
+      "text": "Now this is actually, not bad because you know when N is really large and"
+    },
+    {
+      "index": 199,
+      "start_time": 720990.0,
+      "end_time": 724750.0,
+      "text": "k is fairly small, we have a linear algorithm in N."
+    },
+    {
+      "index": 200,
+      "start_time": 724750.0,
+      "end_time": 726980.0,
+      "text": "Each round is actually, linear in N."
+    },
+    {
+      "index": 201,
+      "start_time": 726980.0,
+      "end_time": 731180.0,
+      "text": "But the real problem is that, the number of rounds to convergence can be really,"
+    },
+    {
+      "index": 202,
+      "start_time": 731180.0,
+      "end_time": 732500.0,
+      "text": "really large."
+    },
+    {
+      "index": 203,
+      "start_time": 732500.0,
+      "end_time": 735800.0,
+      "text": "There is actually, no theoretical limit on the number of rounds to for"
+    },
+    {
+      "index": 204,
+      "start_time": 735800.0,
+      "end_time": 737810.0,
+      "text": "the algorithms to convert to converge."
+    },
+    {
+      "index": 205,
+      "start_time": 737810.0,
+      "end_time": 739939.0,
+      "text": "And the number of rounds can be really, really large."
+    },
+    {
+      "index": 206,
+      "start_time": 739940.0,
+      "end_time": 741440.0,
+      "text": "So, the algorithm could spend actually,"
+    },
+    {
+      "index": 207,
+      "start_time": 741440.0,
+      "end_time": 744840.0,
+      "text": "a really long time getting to getting to convergence."
+    },
+    {
+      "index": 208,
+      "start_time": 746990.0,
+      "end_time": 748960.0,
+      "text": "So the question is, if the dataset is really,"
+    },
+    {
+      "index": 209,
+      "start_time": 748960.0,
+      "end_time": 754840.0,
+      "text": "really large and we don&#39;t want to go through this large number of rounds?"
+    },
+    {
+      "index": 210,
+      "start_time": 754840.0,
+      "end_time": 760160.0,
+      "text": "Can we actually, do something like k-means clustering in a single pass over the data?"
+    },
+    {
+      "index": 211,
+      "start_time": 760160.0,
+      "end_time": 761500.0,
+      "text": "Because we have a really large dataset,"
+    },
+    {
+      "index": 212,
+      "start_time": 761500.0,
+      "end_time": 763580.0,
+      "text": "and we don&#39;t want to scan it multiple times."
+    },
+    {
+      "index": 213,
+      "start_time": 764800.0,
+      "end_time": 767300.0,
+      "text": "We&#39;re going to answer this question in the next segment."
+    }
+  ]
+}

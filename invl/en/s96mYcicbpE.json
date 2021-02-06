@@ -1,0 +1,222 @@
+{
+  "video_id": "s96mYcicbpE",
+  "title": "Autoencoders - Ep. 10 (Deep Learning SIMPLIFIED)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3350.0,
+      "end_time": 7589.0,
+      "text": "There are times when it’s extremely useful to figure out the underlying structure of"
+    },
+    {
+      "index": 2,
+      "start_time": 7589.0,
+      "end_time": 13039.0,
+      "text": "a data set. Having access to the most important data features gives you a lot of flexibility"
+    },
+    {
+      "index": 3,
+      "start_time": 13039.0,
+      "end_time": 18170.0,
+      "text": "when you start applying labels. Autoencoders are an important family of neural networks"
+    },
+    {
+      "index": 4,
+      "start_time": 18170.0,
+      "end_time": 24220.0,
+      "text": "that are well-suited for this task. Let’s take a look."
+    },
+    {
+      "index": 5,
+      "start_time": 24220.0,
+      "end_time": 29010.0,
+      "text": "In a previous video we looked at the Restricted Boltzmann Machine, which is a very popular"
+    },
+    {
+      "index": 6,
+      "start_time": 29010.0,
+      "end_time": 36190.0,
+      "text": "example of an autoencoder. But there are other types of autoencoders like denoising and contractive,"
+    },
+    {
+      "index": 7,
+      "start_time": 36190.0,
+      "end_time": 42819.0,
+      "text": "just to name a few. Just like an RBM, an autoencoder is a neural net that takes a set of typically"
+    },
+    {
+      "index": 8,
+      "start_time": 42819.0,
+      "end_time": 48460.0,
+      "text": "unlabelled inputs, and after encoding them, tries to reconstruct them as accurately as"
+    },
+    {
+      "index": 9,
+      "start_time": 48460.0,
+      "end_time": 53190.0,
+      "text": "possible. As a result of this, the net must decide which of the data features are the"
+    },
+    {
+      "index": 10,
+      "start_time": 53190.0,
+      "end_time": 60889.0,
+      "text": "most important, essentially acting as a feature extraction engine."
+    },
+    {
+      "index": 11,
+      "start_time": 60889.0,
+      "end_time": 65489.0,
+      "text": "Autoencoders are typically very shallow, and are usually comprised of an input layer, an"
+    },
+    {
+      "index": 12,
+      "start_time": 65489.00000000001,
+      "end_time": 71119.0,
+      "text": "output layer and a hidden layer. An RBM is an example of an autoencoder with only two"
+    },
+    {
+      "index": 13,
+      "start_time": 71119.0,
+      "end_time": 76759.0,
+      "text": "layers. Here is a forward pass that ends with a reconstruction of the input. There are two"
+    },
+    {
+      "index": 14,
+      "start_time": 76759.0,
+      "end_time": 84100.0,
+      "text": "steps - the encoding and the decoding. Typically, the same weights that are used to encode a"
+    },
+    {
+      "index": 15,
+      "start_time": 84100.0,
+      "end_time": 91799.0,
+      "text": "feature in the hidden layer are used to reconstruct an image in the output layer."
+    },
+    {
+      "index": 16,
+      "start_time": 91799.0,
+      "end_time": 96829.0,
+      "text": "Autoencoders are trained with backpropagation, using a metric called “loss”. As opposed"
+    },
+    {
+      "index": 17,
+      "start_time": 96829.0,
+      "end_time": 101380.0,
+      "text": "to “cost”, loss measures the amount of information that was lost when the net tried"
+    },
+    {
+      "index": 18,
+      "start_time": 101380.0,
+      "end_time": 107020.0,
+      "text": "to reconstruct the input. A net with a small loss value will produce reconstructions that"
+    },
+    {
+      "index": 19,
+      "start_time": 107020.0,
+      "end_time": 111909.0,
+      "text": "look very similar to the originals."
+    },
+    {
+      "index": 20,
+      "start_time": 111909.0,
+      "end_time": 117579.0,
+      "text": "Not all of these nets are shallow. In fact, deep autoencoders are extremely useful tools"
+    },
+    {
+      "index": 21,
+      "start_time": 117579.0,
+      "end_time": 124950.0,
+      "text": "for dimensionality reduction. Consider an image containing a 28x28 grid of pixels. A"
+    },
+    {
+      "index": 22,
+      "start_time": 124950.0,
+      "end_time": 130750.0,
+      "text": "neural net would need to process over 750 input values just for one image – doing"
+    },
+    {
+      "index": 23,
+      "start_time": 130750.0,
+      "end_time": 135620.0,
+      "text": "this across millions of images would waste significant amounts of memory and processing"
+    },
+    {
+      "index": 24,
+      "start_time": 135620.0,
+      "end_time": 141730.0,
+      "text": "time. A deep autoencoder could encode this image into an impressive 30 numbers, and still"
+    },
+    {
+      "index": 25,
+      "start_time": 141730.0,
+      "end_time": 147860.0,
+      "text": "maintain information about the key image features. When decoding the output, the net acts like"
+    },
+    {
+      "index": 26,
+      "start_time": 147860.0,
+      "end_time": 154640.0,
+      "text": "a two-way translator. In this example, a well-trained net could translate these 30 encoded numbers"
+    },
+    {
+      "index": 27,
+      "start_time": 154640.0,
+      "end_time": 160420.0,
+      "text": "back into a reconstruction that looks similar to the original image. Certain types of nets"
+    },
+    {
+      "index": 28,
+      "start_time": 160420.0,
+      "end_time": 165830.0,
+      "text": "also introduce random noise to the encoding-decoding process, which has been shown to improve the"
+    },
+    {
+      "index": 29,
+      "start_time": 165830.0,
+      "end_time": 169490.0,
+      "text": "robustness of the resulting patterns."
+    },
+    {
+      "index": 30,
+      "start_time": 169490.0,
+      "end_time": 173890.0,
+      "text": "Have you ever needed to use an autoencoder to reduce the dimensionality of your data?"
+    },
+    {
+      "index": 31,
+      "start_time": 173890.0,
+      "end_time": 180550.0,
+      "text": "If so, please comment and share your experiences."
+    },
+    {
+      "index": 32,
+      "start_time": 180550.0,
+      "end_time": 185200.0,
+      "text": "Deep autoencoders perform better at dimensionality reduction than their predecessor, principal"
+    },
+    {
+      "index": 33,
+      "start_time": 185200.0,
+      "end_time": 192480.0,
+      "text": "component analysis, or PCA. Below is a comparison of two letter codes for news stories of different"
+    },
+    {
+      "index": 34,
+      "start_time": 192480.0,
+      "end_time": 199460.0,
+      "text": "topics – generated by both a deep autoencoder and a PCA. Labels were added to the picture"
+    },
+    {
+      "index": 35,
+      "start_time": 199460.0,
+      "end_time": 203990.0,
+      "text": "for illustrative purposes."
+    },
+    {
+      "index": 36,
+      "start_time": 203990.0,
+      "end_time": 213990.0,
+      "text": "In the next video, we’ll take a look at Recursive Neural Tensor Nets or RNTNs"
+    }
+  ]
+}

@@ -1,0 +1,468 @@
+{
+  "video_id": "PKc8LVgsDA8",
+  "title": "Revisão do JSON",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 800.0,
+      "end_time": 4832.0,
+      "text": "Before we can extract the earthquake data that we need for our app, we should"
+    },
+    {
+      "index": 2,
+      "start_time": 4832.0,
+      "end_time": 8936.0,
+      "text": "discuss the structure of format of the data that we get back from the USGS API."
+    },
+    {
+      "index": 3,
+      "start_time": 8936.0,
+      "end_time": 10083.0,
+      "text": "When we say format,"
+    },
+    {
+      "index": 4,
+      "start_time": 10083.0,
+      "end_time": 14400.0,
+      "text": "we mean to discuss the specifics of how the data is organize or structure, so"
+    },
+    {
+      "index": 5,
+      "start_time": 14400.0,
+      "end_time": 18840.0,
+      "text": "that we know how to dissect and extract the parts we need for an app."
+    },
+    {
+      "index": 6,
+      "start_time": 18840.0,
+      "end_time": 22970.0,
+      "text": "Earlier in this lesson, we reviewed some of the HTTP request parameters that"
+    },
+    {
+      "index": 7,
+      "start_time": 22970.0,
+      "end_time": 26640.0,
+      "text": "were available to us to query the USGS dataset."
+    },
+    {
+      "index": 8,
+      "start_time": 26640.0,
+      "end_time": 31330.0,
+      "text": "One of those parameters format equals value allows us to specify"
+    },
+    {
+      "index": 9,
+      "start_time": 31330.0,
+      "end_time": 36690.0,
+      "text": "the response format or structure of how we&#39;d like the response data to be sent."
+    },
+    {
+      "index": 10,
+      "start_time": 36690.0,
+      "end_time": 39850.0,
+      "text": "We opted for format=geojson,"
+    },
+    {
+      "index": 11,
+      "start_time": 39850.0,
+      "end_time": 45980.0,
+      "text": "which sends the data back to us in a structure using the JSON syntax rules."
+    },
+    {
+      "index": 12,
+      "start_time": 45980.0,
+      "end_time": 49380.0,
+      "text": "While there are other formats that have strengths and weaknesses and"
+    },
+    {
+      "index": 13,
+      "start_time": 49380.0,
+      "end_time": 53450.0,
+      "text": "histories beyond the scope of this class we chose JSON because this is"
+    },
+    {
+      "index": 14,
+      "start_time": 53450.0,
+      "end_time": 58990.0,
+      "text": "the most common response format used by many of today&#39;s signature websters."
+    },
+    {
+      "index": 15,
+      "start_time": 58990.0,
+      "end_time": 63687.0,
+      "text": "That&#39;s not to say JSON has decidedly better than any other formats such"
+    },
+    {
+      "index": 16,
+      "start_time": 63687.0,
+      "end_time": 65235.0,
+      "text": "as XML."
+    },
+    {
+      "index": 17,
+      "start_time": 65235.0,
+      "end_time": 69110.0,
+      "text": "Moreover, we encourage you to explore other formats in your free time"
+    },
+    {
+      "index": 18,
+      "start_time": 69110.0,
+      "end_time": 72600.0,
+      "text": "to get a better sense of the design intention, the strengths and"
+    },
+    {
+      "index": 19,
+      "start_time": 72600.0,
+      "end_time": 77510.0,
+      "text": "weaknesses, and even the histories of those formats."
+    },
+    {
+      "index": 20,
+      "start_time": 77510.0,
+      "end_time": 80750.0,
+      "text": "Like all technology the web has changed rapidly over time in"
+    },
+    {
+      "index": 21,
+      "start_time": 80750.0,
+      "end_time": 83510.0,
+      "text": "various formats have emerged."
+    },
+    {
+      "index": 22,
+      "start_time": 83510.0,
+      "end_time": 87085.0,
+      "text": "Rest assured though, the experience you will gain by familiarizing yourself with"
+    },
+    {
+      "index": 23,
+      "start_time": 87085.0,
+      "end_time": 91300.0,
+      "text": "JSON will also help you pick up on other formats quickly."
+    },
+    {
+      "index": 24,
+      "start_time": 91300.0,
+      "end_time": 94710.0,
+      "text": "So, let&#39;s zoom in on JSON."
+    },
+    {
+      "index": 25,
+      "start_time": 94710.0,
+      "end_time": 99640.0,
+      "text": "For the USGS earthquake API, we have a format called geojson available."
+    },
+    {
+      "index": 26,
+      "start_time": 99640.0,
+      "end_time": 102605.0,
+      "text": "Geojson is just a special flavor of JSON,"
+    },
+    {
+      "index": 27,
+      "start_time": 102605.0,
+      "end_time": 107560.0,
+      "text": "custom-tailored to represent geographical information."
+    },
+    {
+      "index": 28,
+      "start_time": 107560.0,
+      "end_time": 111940.0,
+      "text": "JSON stands for JavaScript, Object, Notation."
+    },
+    {
+      "index": 29,
+      "start_time": 111940.0,
+      "end_time": 115710.0,
+      "text": "For the name you might assume that is tightly coupled with a JavaScript"
+    },
+    {
+      "index": 30,
+      "start_time": 115710.0,
+      "end_time": 119860.0,
+      "text": "programming language, that&#39;s actually not the case."
+    },
+    {
+      "index": 31,
+      "start_time": 119860.0,
+      "end_time": 124130.0,
+      "text": "JSON well originally designed to help facilitate efficient communication on"
+    },
+    {
+      "index": 32,
+      "start_time": 124130.0,
+      "end_time": 126990.0,
+      "text": "the web and hence it&#39;s title JavaScript"
+    },
+    {
+      "index": 33,
+      "start_time": 126990.0,
+      "end_time": 130580.0,
+      "text": "is really just a set of some tactical rules to organize data and"
+    },
+    {
+      "index": 34,
+      "start_time": 130580.00000000001,
+      "end_time": 134190.0,
+      "text": "thus is completely programming language independent."
+    },
+    {
+      "index": 35,
+      "start_time": 134190.0,
+      "end_time": 138900.0,
+      "text": "So, JSON can be interpreted using any programming language of choice,"
+    },
+    {
+      "index": 36,
+      "start_time": 138900.0,
+      "end_time": 143530.0,
+      "text": "including the Java code that we use to build our Android apps."
+    },
+    {
+      "index": 37,
+      "start_time": 143530.0,
+      "end_time": 147920.0,
+      "text": "Let&#39;s start to learn how to read JSON by looking at a really simple example."
+    },
+    {
+      "index": 38,
+      "start_time": 147920.0,
+      "end_time": 150720.0,
+      "text": "This example describes a kind of shoe."
+    },
+    {
+      "index": 39,
+      "start_time": 150720.0,
+      "end_time": 156430.0,
+      "text": "Let&#39;s start at the root left brace which notes the start of a JSON object."
+    },
+    {
+      "index": 40,
+      "start_time": 156430.0,
+      "end_time": 161330.0,
+      "text": "Everything inside it before the closing right brace is its contents."
+    },
+    {
+      "index": 41,
+      "start_time": 161330.0,
+      "end_time": 165550.0,
+      "text": "You can think of these braces as the container of staff."
+    },
+    {
+      "index": 42,
+      "start_time": 165550.0,
+      "end_time": 169260.0,
+      "text": "At the heart of the JSON&#39;s syntactical structures as the notion of"
+    },
+    {
+      "index": 43,
+      "start_time": 169260.0,
+      "end_time": 171180.0,
+      "text": "key value pairing."
+    },
+    {
+      "index": 44,
+      "start_time": 171180.0,
+      "end_time": 177700.0,
+      "text": "Syntactically, the key is on the left of the colon and the value is on the right."
+    },
+    {
+      "index": 45,
+      "start_time": 177700.0,
+      "end_time": 181860.0,
+      "text": "This pairing is simply a way of encapsulating a tie or an association"
+    },
+    {
+      "index": 46,
+      "start_time": 181860.0,
+      "end_time": 188710.0,
+      "text": "between a name of our choosing, a.k.a., the key, and its corresponding value."
+    },
+    {
+      "index": 47,
+      "start_time": 188710.0,
+      "end_time": 192580.0,
+      "text": "It turns out this is an important semantic in programming and"
+    },
+    {
+      "index": 48,
+      "start_time": 192580.0,
+      "end_time": 194270.0,
+      "text": "computer science."
+    },
+    {
+      "index": 49,
+      "start_time": 194270.0,
+      "end_time": 195350.0,
+      "text": "Why?"
+    },
+    {
+      "index": 50,
+      "start_time": 195350.0,
+      "end_time": 198420.0,
+      "text": "Well, this mapping or binding of a key to a value"
+    },
+    {
+      "index": 51,
+      "start_time": 198420.0,
+      "end_time": 203210.0,
+      "text": "helps us recall the data layer in an easier and more logical manner."
+    },
+    {
+      "index": 52,
+      "start_time": 203210.0,
+      "end_time": 208130.0,
+      "text": "In other words, when we want to pull up or recall the data layer"
+    },
+    {
+      "index": 53,
+      "start_time": 208130.0,
+      "end_time": 212300.0,
+      "text": "instead of having to remember all the specifics of the data because in some"
+    },
+    {
+      "index": 54,
+      "start_time": 212300.0,
+      "end_time": 218930.0,
+      "text": "case it could be a lot of data, we can do this just by using its tag or key."
+    },
+    {
+      "index": 55,
+      "start_time": 218930.0,
+      "end_time": 221820.0,
+      "text": "Think of a coat check when you&#39;re going to the symphony hall."
+    },
+    {
+      "index": 56,
+      "start_time": 221820.0,
+      "end_time": 225510.0,
+      "text": "You might have dropped off a lot of items at the coat check counter, but"
+    },
+    {
+      "index": 57,
+      "start_time": 225510.0,
+      "end_time": 229950.0,
+      "text": "all you need to do to get your stuff back is to hold on to your ticket and"
+    },
+    {
+      "index": 58,
+      "start_time": 229950.0,
+      "end_time": 233170.0,
+      "text": "give it to the attendant at the end of the show."
+    },
+    {
+      "index": 59,
+      "start_time": 233170.0,
+      "end_time": 235890.0,
+      "text": "Let&#39;s look at a few examples of keys."
+    },
+    {
+      "index": 60,
+      "start_time": 235890.0,
+      "end_time": 241470.0,
+      "text": "Here we have the string key size, which references a positive decimal number,"
+    },
+    {
+      "index": 61,
+      "start_time": 241470.0,
+      "end_time": 244522.0,
+      "text": "which happens to be for the shoe size of 9.5."
+    },
+    {
+      "index": 62,
+      "start_time": 244522.0,
+      "end_time": 249160.0,
+      "text": "When we see a comma, this is simply a delimiter to let us know that there&#39;s"
+    },
+    {
+      "index": 63,
+      "start_time": 249160.0,
+      "end_time": 252000.0,
+      "text": "another key value pair following."
+    },
+    {
+      "index": 64,
+      "start_time": 252000.0,
+      "end_time": 257100.0,
+      "text": "So we also have wide, which maps to the boolean value of true."
+    },
+    {
+      "index": 65,
+      "start_time": 257100.00000000003,
+      "end_time": 262540.0,
+      "text": "Then we have country of origin, which is a string set to USA."
+    },
+    {
+      "index": 66,
+      "start_time": 262540.0,
+      "end_time": 266940.0,
+      "text": "This key value is semantic and starting to feel pretty straightforward."
+    },
+    {
+      "index": 67,
+      "start_time": 266940.0,
+      "end_time": 268060.0,
+      "text": "Cool!"
+    },
+    {
+      "index": 68,
+      "start_time": 268060.0,
+      "end_time": 272190.0,
+      "text": "These have been pretty simple keys, keys with logical names that map to simple"
+    },
+    {
+      "index": 69,
+      "start_time": 272190.0,
+      "end_time": 274000.0,
+      "text": "primitives that you&#39;ve been used to."
+    },
+    {
+      "index": 70,
+      "start_time": 274000.0,
+      "end_time": 278050.0,
+      "text": "Numbers, booleans, and strings."
+    },
+    {
+      "index": 71,
+      "start_time": 278050.0,
+      "end_time": 282440.0,
+      "text": "But wait, the key style maps to a value of what,"
+    },
+    {
+      "index": 72,
+      "start_time": 282440.0,
+      "end_time": 285550.0,
+      "text": "what is this brace here, there&#39;s a whole bunch of other stuff going on."
+    },
+    {
+      "index": 73,
+      "start_time": 285550.0,
+      "end_time": 288150.0,
+      "text": "What are you doing to me here?"
+    },
+    {
+      "index": 74,
+      "start_time": 288150.0,
+      "end_time": 292830.0,
+      "text": "This could be kind of interesting, and in fact, this is where the power and"
+    },
+    {
+      "index": 75,
+      "start_time": 292830.0,
+      "end_time": 296450.0,
+      "text": "extensibility of JSON as a data format lies."
+    },
+    {
+      "index": 76,
+      "start_time": 296450.0,
+      "end_time": 297850.0,
+      "text": "Let&#39;s take a break, and"
+    },
+    {
+      "index": 77,
+      "start_time": 297850.0,
+      "end_time": 307850.0,
+      "text": "we&#39;ll take a deeper look at the possible values in the next node."
+    }
+  ]
+}

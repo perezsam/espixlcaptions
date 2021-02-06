@@ -1,0 +1,1596 @@
+{
+  "video_id": "mgAN4w7LH2o",
+  "title": "Spectre and Meltdown attacks explained understandably",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 140.0,
+      "end_time": 4220.0,
+      "text": "So imagine if JavaScript could just read anything\non your computer."
+    },
+    {
+      "index": 2,
+      "start_time": 4220.0,
+      "end_time": 9090.0,
+      "text": "If some tab on your browser just had access\nto reading all your passwords or knowing what"
+    },
+    {
+      "index": 3,
+      "start_time": 9090.0,
+      "end_time": 10450.0,
+      "text": "your other programs are doing."
+    },
+    {
+      "index": 4,
+      "start_time": 10450.0,
+      "end_time": 12470.0,
+      "text": "That would be pretty bad, wouldn't it?"
+    },
+    {
+      "index": 5,
+      "start_time": 12470.0,
+      "end_time": 17320.0,
+      "text": "By a computer I of course mean any kind of\ncomputing device, like your smartphone."
+    },
+    {
+      "index": 6,
+      "start_time": 17320.0,
+      "end_time": 22920.0,
+      "text": "What would be particularly worrying is if\nthis were to happen without exploiting any"
+    },
+    {
+      "index": 7,
+      "start_time": 22920.0,
+      "end_time": 27630.0,
+      "text": "software vulnerabilities\nor without fooling you to do so."
+    },
+    {
+      "index": 8,
+      "start_time": 27630.0,
+      "end_time": 30539.0,
+      "text": "That's actually the state of affairs right\nnow."
+    },
+    {
+      "index": 9,
+      "start_time": 30539.0,
+      "end_time": 37800.0,
+      "text": "We are currently seeing a series of attacks\ncalled Spectre and Meltdown, in what I'm going"
+    },
+    {
+      "index": 10,
+      "start_time": 37800.0,
+      "end_time": 39350.0,
+      "text": "to call here the \"Spectre Meltdown\"."
+    },
+    {
+      "index": 11,
+      "start_time": 39350.0,
+      "end_time": 44100.0,
+      "text": "I'm want to explain the core of these vulnerabilities\nto a wider audience."
+    },
+    {
+      "index": 12,
+      "start_time": 44100.0,
+      "end_time": 46810.0,
+      "text": "I'm going to skim a lot of the technical details."
+    },
+    {
+      "index": 13,
+      "start_time": 46810.0,
+      "end_time": 50800.0,
+      "text": "So we're not going to go into some of the\nnecessary technical details that make exploitation"
+    },
+    {
+      "index": 14,
+      "start_time": 50800.0,
+      "end_time": 51800.0,
+      "text": "possible."
+    },
+    {
+      "index": 15,
+      "start_time": 51800.0,
+      "end_time": 57339.0,
+      "text": "But I just wanted to give you the idea of\nwhat these vulnerabilities are doing."
+    },
+    {
+      "index": 16,
+      "start_time": 57339.0,
+      "end_time": 61510.0,
+      "text": "My name is Ymir Vigfusson and I'm Assistant\nProfessor of Computer Science at Emory University."
+    },
+    {
+      "index": 17,
+      "start_time": 61510.0,
+      "end_time": 66619.0,
+      "text": "Before we get started, I just wanted to give\ncredit where credit is due."
+    },
+    {
+      "index": 18,
+      "start_time": 66619.0,
+      "end_time": 70960.0,
+      "text": "These vulnerabilities were found by actually\nconcurrently separate teams, who have done"
+    },
+    {
+      "index": 19,
+      "start_time": 70960.0,
+      "end_time": 74960.0,
+      "text": "fine work on writing up the details, and I\nencourage you to look at it."
+    },
+    {
+      "index": 20,
+      "start_time": 74960.0,
+      "end_time": 79250.0,
+      "text": "So let me introduce the three ingredients\nthat are we are going to need to understand"
+    },
+    {
+      "index": 21,
+      "start_time": 79250.0,
+      "end_time": 80250.0,
+      "text": "the attacks."
+    },
+    {
+      "index": 22,
+      "start_time": 80250.0,
+      "end_time": 82330.0,
+      "text": "The first one is to understand how memory\nworks."
+    },
+    {
+      "index": 23,
+      "start_time": 82330.0,
+      "end_time": 83510.0,
+      "text": "At a high level."
+    },
+    {
+      "index": 24,
+      "start_time": 83510.0,
+      "end_time": 86600.0,
+      "text": "The second one is to understand \"speculative\nexecution\" in your CPU."
+    },
+    {
+      "index": 25,
+      "start_time": 86600.0,
+      "end_time": 91580.0,
+      "text": "And the third one is something called \"side-channel\nattacks\"."
+    },
+    {
+      "index": 26,
+      "start_time": 91580.0,
+      "end_time": 97659.0,
+      "text": "Naturally, Spectre and Meltdown are at the\nconvergence of these new kinds of attacks"
+    },
+    {
+      "index": 27,
+      "start_time": 97659.0,
+      "end_time": 102030.0,
+      "text": "that are becoming particularly worrying as,\nwell as hardware errors that are also worrying."
+    },
+    {
+      "index": 28,
+      "start_time": 102030.0,
+      "end_time": 107740.0,
+      "text": "So it's in the intersection of something that\nwe need to be looking out for in the coming"
+    },
+    {
+      "index": 29,
+      "start_time": 107740.0,
+      "end_time": 108740.0,
+      "text": "future."
+    },
+    {
+      "index": 30,
+      "start_time": 108740.0,
+      "end_time": 109740.0,
+      "text": "Let's get to it."
+    },
+    {
+      "index": 31,
+      "start_time": 109740.0,
+      "end_time": 112979.0,
+      "text": "How does your computer work?"
+    },
+    {
+      "index": 32,
+      "start_time": 112979.0,
+      "end_time": 113979.0,
+      "text": "Well..."
+    },
+    {
+      "index": 33,
+      "start_time": 113979.0,
+      "end_time": 117750.0,
+      "text": "Let's take it at a really high level, simplified\nview of your computer."
+    },
+    {
+      "index": 34,
+      "start_time": 117750.0,
+      "end_time": 122050.0,
+      "text": "A computer is really a bunch of different\ncomponents that are strung together."
+    },
+    {
+      "index": 35,
+      "start_time": 122050.0,
+      "end_time": 127289.0,
+      "text": "These components include things for input/output,\nlike your monitor, and your keyboard, your"
+    },
+    {
+      "index": 36,
+      "start_time": 127289.0,
+      "end_time": 128289.0,
+      "text": "mouse."
+    },
+    {
+      "index": 37,
+      "start_time": 128288.99999999999,
+      "end_time": 131180.0,
+      "text": "And then there is a CPU in the middle that\ndoes all the processing."
+    },
+    {
+      "index": 38,
+      "start_time": 131180.0,
+      "end_time": 136480.0,
+      "text": "And finally, there is memory, and I'm counting\nhard disks or SSDs as being part of your memory."
+    },
+    {
+      "index": 39,
+      "start_time": 136480.0,
+      "end_time": 140819.0,
+      "text": "Really what happens when you are doing something\non your computer is that you're going to load"
+    },
+    {
+      "index": 40,
+      "start_time": 140819.0,
+      "end_time": 144840.0,
+      "text": "a program from a disk, and it's going to be\nexecuted by the CPU."
+    },
+    {
+      "index": 41,
+      "start_time": 144840.0,
+      "end_time": 149650.0,
+      "text": "Your CPU is going to do a bunch of computations,\nand those computations involve memory, so"
+    },
+    {
+      "index": 42,
+      "start_time": 149650.0,
+      "end_time": 151820.0,
+      "text": "it's going to go back and forth a bit."
+    },
+    {
+      "index": 43,
+      "start_time": 151820.0,
+      "end_time": 155900.0,
+      "text": "And finally it may produce some output and\nthat output may end up on your monitor, on"
+    },
+    {
+      "index": 44,
+      "start_time": 155900.0,
+      "end_time": 157540.0,
+      "text": "through the network."
+    },
+    {
+      "index": 45,
+      "start_time": 157540.0,
+      "end_time": 162159.0,
+      "text": "That's basically what execution on a modern\ncomputer looks like."
+    },
+    {
+      "index": 46,
+      "start_time": 162159.0,
+      "end_time": 165580.0,
+      "text": "So let's zoom in on the CPU and memory."
+    },
+    {
+      "index": 47,
+      "start_time": 165580.0,
+      "end_time": 169200.0,
+      "text": "Inside your memory you actually have contents\nof all the different kinds of programs that"
+    },
+    {
+      "index": 48,
+      "start_time": 169200.0,
+      "end_time": 170570.0,
+      "text": "you're currently running."
+    },
+    {
+      "index": 49,
+      "start_time": 170570.0,
+      "end_time": 176510.0,
+      "text": "This could be programs you're running; it\ncould be data pertaining to the operating"
+    },
+    {
+      "index": 50,
+      "start_time": 176510.0,
+      "end_time": 180000.0,
+      "text": "system that you're running, like Linux, Windows\nor MacOS, and so forth."
+    },
+    {
+      "index": 51,
+      "start_time": 180000.0,
+      "end_time": 181849.0,
+      "text": "And it's your user data."
+    },
+    {
+      "index": 52,
+      "start_time": 181849.0,
+      "end_time": 185661.0,
+      "text": "Memory is an amalgam of all these different\ntypes of things that could be used, as well"
+    },
+    {
+      "index": 53,
+      "start_time": 185661.0,
+      "end_time": 190200.0,
+      "text": "as storing intermediate computations for the\nCPU."
+    },
+    {
+      "index": 54,
+      "start_time": 190200.0,
+      "end_time": 192599.0,
+      "text": "Let's look at memory a little bit more in\ndetail."
+    },
+    {
+      "index": 55,
+      "start_time": 192599.0,
+      "end_time": 195379.0,
+      "text": "There is a lot to a memory hierarchy inside\na computer."
+    },
+    {
+      "index": 56,
+      "start_time": 195379.0,
+      "end_time": 201790.0,
+      "text": "If we think about memory, it's actually very\nhelpful to just visualize it as a long sequence"
+    },
+    {
+      "index": 57,
+      "start_time": 201790.0,
+      "end_time": 203660.0,
+      "text": "of boxes that you can open."
+    },
+    {
+      "index": 58,
+      "start_time": 203660.0,
+      "end_time": 208459.0,
+      "text": "Each box contains one bit, or one byte of\ninformation in our case."
+    },
+    {
+      "index": 59,
+      "start_time": 208459.0,
+      "end_time": 211989.0,
+      "text": "There are actually several layers of memory."
+    },
+    {
+      "index": 60,
+      "start_time": 211989.0,
+      "end_time": 216260.0,
+      "text": "What I've drawn here is something called DRAM,\nwhich is actually very big but veeery sloooow"
+    },
+    {
+      "index": 61,
+      "start_time": 216260.0,
+      "end_time": 217989.0,
+      "text": "for the CPU to retrieve."
+    },
+    {
+      "index": 62,
+      "start_time": 217989.0,
+      "end_time": 223300.0,
+      "text": "If the CPU wants wants to retrieve some data\nfrom it, it has to wait for a while."
+    },
+    {
+      "index": 63,
+      "start_time": 223300.0,
+      "end_time": 228580.0,
+      "text": "So what we have are actually several other\nlayers called cache memory."
+    },
+    {
+      "index": 64,
+      "start_time": 228580.0,
+      "end_time": 230879.0,
+      "text": "So let me draw cache memory here in front."
+    },
+    {
+      "index": 65,
+      "start_time": 230879.0,
+      "end_time": 232799.0,
+      "text": "Suppose I wanted to open one of these boxes."
+    },
+    {
+      "index": 66,
+      "start_time": 232799.0,
+      "end_time": 238670.0,
+      "text": "My request -- it's fast memory over here -- that\nthis particular orange box over here be opened."
+    },
+    {
+      "index": 67,
+      "start_time": 238670.0,
+      "end_time": 242720.0,
+      "text": "Well... it's going to taaake a whiiile."
+    },
+    {
+      "index": 68,
+      "start_time": 242720.0,
+      "end_time": 247099.0,
+      "text": "Whereas if I try to open up a different box,\nif I open up this one, I can actually first"
+    },
+    {
+      "index": 69,
+      "start_time": 247099.0,
+      "end_time": 249640.0,
+      "text": "ask the really fast cache memory."
+    },
+    {
+      "index": 70,
+      "start_time": 249640.0,
+      "end_time": 253680.0,
+      "text": "And that has an exact copy of what I need."
+    },
+    {
+      "index": 71,
+      "start_time": 253680.0,
+      "end_time": 259700.0,
+      "text": "Now, the way cache memory is maintained is\nthat when you retrieve something, you often"
+    },
+    {
+      "index": 72,
+      "start_time": 259700.0,
+      "end_time": 264020.0,
+      "text": "take a copy and put it into the cache memory\nso that the next time you might need it, you have"
+    },
+    {
+      "index": 73,
+      "start_time": 264020.0,
+      "end_time": 266130.0,
+      "text": "it laying around really quickly."
+    },
+    {
+      "index": 74,
+      "start_time": 266130.0,
+      "end_time": 269500.0,
+      "text": "But cache memory is small, and tends to be\npretty expensive."
+    },
+    {
+      "index": 75,
+      "start_time": 269500.0,
+      "end_time": 271140.0,
+      "text": "So you have to kick something else out."
+    },
+    {
+      "index": 76,
+      "start_time": 271140.0,
+      "end_time": 274760.0,
+      "text": "This is actually the subject of much of my\nresearch."
+    },
+    {
+      "index": 77,
+      "start_time": 274760.0,
+      "end_time": 275760.0,
+      "text": "So!"
+    },
+    {
+      "index": 78,
+      "start_time": 275760.0,
+      "end_time": 277340.0,
+      "text": "This is how caches work."
+    },
+    {
+      "index": 79,
+      "start_time": 277340.0,
+      "end_time": 279540.0,
+      "text": "Let's move on to the next ingredient."
+    },
+    {
+      "index": 80,
+      "start_time": 279540.0,
+      "end_time": 282020.0,
+      "text": "What are side-channel attacks?"
+    },
+    {
+      "index": 81,
+      "start_time": 282020.0,
+      "end_time": 286080.0,
+      "text": "Now.. let me illustrate it with an example."
+    },
+    {
+      "index": 82,
+      "start_time": 286080.0,
+      "end_time": 292630.0,
+      "text": "Suppose that you are asking a computer to\nauthenticate, and there is a particular password"
+    },
+    {
+      "index": 83,
+      "start_time": 292630.0,
+      "end_time": 294331.0,
+      "text": "that the computer knows is there."
+    },
+    {
+      "index": 84,
+      "start_time": 294331.0,
+      "end_time": 296440.0,
+      "text": "This has actually happened on several routers."
+    },
+    {
+      "index": 85,
+      "start_time": 296440.0,
+      "end_time": 298470.0,
+      "text": "This is something known as a \"timing attack\"."
+    },
+    {
+      "index": 86,
+      "start_time": 298470.0,
+      "end_time": 302820.0,
+      "text": "This is a kind of a side-channel attack, but\nI think it illustrates the point."
+    },
+    {
+      "index": 87,
+      "start_time": 302820.0,
+      "end_time": 305180.0,
+      "text": "Suppose the password is, randomly, \"hunter2\"."
+    },
+    {
+      "index": 88,
+      "start_time": 305180.0,
+      "end_time": 308770.0,
+      "text": "Now, what you might do is to start guessing."
+    },
+    {
+      "index": 89,
+      "start_time": 308770.0,
+      "end_time": 310570.0,
+      "text": "You say, like, \"Well, is the password 'a'\n?\""
+    },
+    {
+      "index": 90,
+      "start_time": 310570.0,
+      "end_time": 313670.0,
+      "text": "And the computer has to run around and check\nif it matches."
+    },
+    {
+      "index": 91,
+      "start_time": 313670.0,
+      "end_time": 315390.0,
+      "text": "It looks at the first character 'a'."
+    },
+    {
+      "index": 92,
+      "start_time": 315390.0,
+      "end_time": 317850.0,
+      "text": "Looks at the first character of the password,\nand sees that it's 'h'."
+    },
+    {
+      "index": 93,
+      "start_time": 317850.0,
+      "end_time": 320430.0,
+      "text": "It doesn't match and so it returns."
+    },
+    {
+      "index": 94,
+      "start_time": 320430.0,
+      "end_time": 322940.0,
+      "text": "Now you might guess: \"b?\""
+    },
+    {
+      "index": 95,
+      "start_time": 322940.0,
+      "end_time": 325760.0,
+      "text": "You do the same thing."
+    },
+    {
+      "index": 96,
+      "start_time": 325760.0,
+      "end_time": 331190.0,
+      "text": "Of course, there are exponentially many possibilities\nhere, and you'd be out of luck."
+    },
+    {
+      "index": 97,
+      "start_time": 331190.0,
+      "end_time": 333710.0,
+      "text": "That's why passwords are often good."
+    },
+    {
+      "index": 98,
+      "start_time": 333710.0,
+      "end_time": 337300.0,
+      "text": "But in this particular case, as you keep guessing."
+    },
+    {
+      "index": 99,
+      "start_time": 337300.0,
+      "end_time": 338940.0,
+      "text": "You guess 'g?', same thing happens."
+    },
+    {
+      "index": 100,
+      "start_time": 338940.0,
+      "end_time": 340010.0,
+      "text": "If you guess 'h?'"
+    },
+    {
+      "index": 101,
+      "start_time": 340010.0,
+      "end_time": 345710.0,
+      "text": "now, what you'll notice is that it takes a\nlittle bit longer for the computer to respond"
+    },
+    {
+      "index": 102,
+      "start_time": 345710.0,
+      "end_time": 346710.0,
+      "text": "to you."
+    },
+    {
+      "index": 103,
+      "start_time": 346710.0,
+      "end_time": 353000.0,
+      "text": "And if that happens, that's because the computer\nhad to look at the letter 'h', saw that it"
+    },
+    {
+      "index": 104,
+      "start_time": 353000.0,
+      "end_time": 357860.0,
+      "text": "matched, and then had to look at the subsequent\nletter to see if there was a match there."
+    },
+    {
+      "index": 105,
+      "start_time": 357860.0,
+      "end_time": 363260.0,
+      "text": "There was no match, because you guessed a\none letter password, and the password is actually"
+    },
+    {
+      "index": 106,
+      "start_time": 363260.0,
+      "end_time": 364260.0,
+      "text": "longer."
+    },
+    {
+      "index": 107,
+      "start_time": 364260.0,
+      "end_time": 369850.0,
+      "text": "So now you might actually be pretty confident,\njust by looking at the timing information,"
+    },
+    {
+      "index": 108,
+      "start_time": 369850.0,
+      "end_time": 371600.0,
+      "text": "that the first character is 'h\"."
+    },
+    {
+      "index": 109,
+      "start_time": 371600.0,
+      "end_time": 376660.0,
+      "text": "So you move on to 'ha?' and you see it takes\njust a long as what you guessed initially."
+    },
+    {
+      "index": 110,
+      "start_time": 376660.0,
+      "end_time": 380930.0,
+      "text": "And then you would try 'hb?' and so on and\nso forth."
+    },
+    {
+      "index": 111,
+      "start_time": 380930.0,
+      "end_time": 385660.0,
+      "text": "This actually makes password guessing linear\nin the length of the password, rather than"
+    },
+    {
+      "index": 112,
+      "start_time": 385660.0,
+      "end_time": 387130.0,
+      "text": "exponential, which is terrible."
+    },
+    {
+      "index": 113,
+      "start_time": 387130.0,
+      "end_time": 390700.0,
+      "text": "The side-channel here is the timing information."
+    },
+    {
+      "index": 114,
+      "start_time": 390700.0,
+      "end_time": 395680.0,
+      "text": "It's something about the physical implementation\nof this algorithms, this password-checking"
+    },
+    {
+      "index": 115,
+      "start_time": 395680.0,
+      "end_time": 397020.0,
+      "text": "algorithm, that you are exploiting."
+    },
+    {
+      "index": 116,
+      "start_time": 397020.0,
+      "end_time": 399240.0,
+      "text": "In this case, the timing difference."
+    },
+    {
+      "index": 117,
+      "start_time": 399240.0,
+      "end_time": 403370.0,
+      "text": "So, let's keep that also as an ingredient."
+    },
+    {
+      "index": 118,
+      "start_time": 403370.0,
+      "end_time": 406660.0,
+      "text": "The third thing I wanted to tell you about\nis called \"speculative execution\"."
+    },
+    {
+      "index": 119,
+      "start_time": 406660.0,
+      "end_time": 410910.0,
+      "text": "This might be -- might look something like\nthis from Rick and Morty."
+    },
+    {
+      "index": 120,
+      "start_time": 410910.0,
+      "end_time": 416240.0,
+      "text": "When your CPU is trying to execute a bunch\nof instructions what it will run into is the"
+    },
+    {
+      "index": 121,
+      "start_time": 416240.0,
+      "end_time": 421150.0,
+      "text": "fact that memory is slooow, like we talked\nabout."
+    },
+    {
+      "index": 122,
+      "start_time": 421150.0,
+      "end_time": 425890.0,
+      "text": "So, you have your really fast CPU, it has\na lot of gigahertz."
+    },
+    {
+      "index": 123,
+      "start_time": 425890.0,
+      "end_time": 427210.0,
+      "text": "It's running around, it's executing stuff."
+    },
+    {
+      "index": 124,
+      "start_time": 427210.0,
+      "end_time": 431080.0,
+      "text": "And what it runs into is that, ultimately,\nyour program is going to need some data from"
+    },
+    {
+      "index": 125,
+      "start_time": 431080.0,
+      "end_time": 432080.0,
+      "text": "memory."
+    },
+    {
+      "index": 126,
+      "start_time": 432080.0,
+      "end_time": 435721.0,
+      "text": "So it talks to memory, and then you're just\nwaiting for the response."
+    },
+    {
+      "index": 127,
+      "start_time": 435721.0,
+      "end_time": 437360.0,
+      "text": "And the response takes a whiiile."
+    },
+    {
+      "index": 128,
+      "start_time": 437360.0,
+      "end_time": 442650.0,
+      "text": "So you're spending a lot of your time just\nwaaaiting for meeemory."
+    },
+    {
+      "index": 129,
+      "start_time": 442650.0,
+      "end_time": 448610.0,
+      "text": "That's an absurd way of having a CPU go about\nits business."
+    },
+    {
+      "index": 130,
+      "start_time": 448610.0,
+      "end_time": 456331.0,
+      "text": "So, 20 years ago, what people came up was:\n\"well, what if we just make our CPUs do speculative"
+    },
+    {
+      "index": 131,
+      "start_time": 456331.0,
+      "end_time": 457331.0,
+      "text": "execution?\""
+    },
+    {
+      "index": 132,
+      "start_time": 457331.0,
+      "end_time": 461340.0,
+      "text": "What I mean by that is that, suppose your\nprogram looks something like this."
+    },
+    {
+      "index": 133,
+      "start_time": 461340.0,
+      "end_time": 466800.0,
+      "text": "There is a branch -- there is an IF sentence\nthat depends on memory in some way."
+    },
+    {
+      "index": 134,
+      "start_time": 466800.0,
+      "end_time": 468260.0,
+      "text": "There's really only two options."
+    },
+    {
+      "index": 135,
+      "start_time": 468260.0,
+      "end_time": 473470.0,
+      "text": "Either, what you're going to get from memory\nis going to be 0 in this case, or it is not."
+    },
+    {
+      "index": 136,
+      "start_time": 473470.0,
+      "end_time": 475240.0,
+      "text": "So what if you just guess?"
+    },
+    {
+      "index": 137,
+      "start_time": 475240.0,
+      "end_time": 479580.0,
+      "text": "You think that maybe the most likely thing\nto happen in this case is that you're going"
+    },
+    {
+      "index": 138,
+      "start_time": 479580.0,
+      "end_time": 480870.0,
+      "text": "to get a zero from memory."
+    },
+    {
+      "index": 139,
+      "start_time": 480870.0,
+      "end_time": 485070.0,
+      "text": "Now, you are waiting here for memory and you\ndecide to just sprint ahead."
+    },
+    {
+      "index": 140,
+      "start_time": 485070.0,
+      "end_time": 491330.0,
+      "text": "You come here, and you just execute the instructions\nthat are coming, even before you get your"
+    },
+    {
+      "index": 141,
+      "start_time": 491330.0,
+      "end_time": 493220.0,
+      "text": "response from memory."
+    },
+    {
+      "index": 142,
+      "start_time": 493220.0,
+      "end_time": 495340.0,
+      "text": "Huh... interesting."
+    },
+    {
+      "index": 143,
+      "start_time": 495340.0,
+      "end_time": 500000.0,
+      "text": "So if memory is 0, you're actually ahead of\ncurve: you know what's going to happen."
+    },
+    {
+      "index": 144,
+      "start_time": 500000.0,
+      "end_time": 503470.0,
+      "text": "You can resume from instructionD onwards."
+    },
+    {
+      "index": 145,
+      "start_time": 503470.0,
+      "end_time": 505160.0,
+      "text": "It's very convenient."
+    },
+    {
+      "index": 146,
+      "start_time": 505160.0,
+      "end_time": 511550.0,
+      "text": "Now, if that didn't happen -- if it so happens\nthat the response from memory wasn't zero,"
+    },
+    {
+      "index": 147,
+      "start_time": 511550.0,
+      "end_time": 514800.0,
+      "text": "then you actually have to roll back all the\nchanges that you made."
+    },
+    {
+      "index": 148,
+      "start_time": 514799.99999999994,
+      "end_time": 522459.99999999994,
+      "text": "So have to be very cognizant of not changing\nthe state of the program, registers externally,"
+    },
+    {
+      "index": 149,
+      "start_time": 522460.00000000006,
+      "end_time": 528070.0,
+      "text": "so that you can actually go back to the other\nbranch of that IF sentence."
+    },
+    {
+      "index": 150,
+      "start_time": 528070.0,
+      "end_time": 530100.0,
+      "text": "This is very interesting."
+    },
+    {
+      "index": 151,
+      "start_time": 530100.0,
+      "end_time": 536680.0,
+      "text": "Now, the flaw that Spectre and Meltdown are\nexploiting is the fact that actually when"
+    },
+    {
+      "index": 152,
+      "start_time": 536680.0,
+      "end_time": 544040.0,
+      "text": "you're doing speculative execution, the state\nof the CPU actually looks a little bit different"
+    },
+    {
+      "index": 153,
+      "start_time": 544040.0,
+      "end_time": 547110.0,
+      "text": "because of cache when it has to abort a branch."
+    },
+    {
+      "index": 154,
+      "start_time": 547110.0,
+      "end_time": 553330.0,
+      "text": "Now we actually have all the ingredient needed\nto explain Spectre and Meltdown at a very"
+    },
+    {
+      "index": 155,
+      "start_time": 553330.0,
+      "end_time": 554330.0,
+      "text": "high level."
+    },
+    {
+      "index": 156,
+      "start_time": 554330.0,
+      "end_time": 555330.0,
+      "text": "Suppose we have our memory here."
+    },
+    {
+      "index": 157,
+      "start_time": 555330.0,
+      "end_time": 557030.0,
+      "text": "This is our slow memory."
+    },
+    {
+      "index": 158,
+      "start_time": 557030.0,
+      "end_time": 563310.0,
+      "text": "And, as we talked about before, what your\noperating system kernel is doing is that it"
+    },
+    {
+      "index": 159,
+      "start_time": 563310.0,
+      "end_time": 569000.0,
+      "text": "allocated this memory to different applications,\nor possibly different virtual machines if"
+    },
+    {
+      "index": 160,
+      "start_time": 569000.0,
+      "end_time": 570510.0,
+      "text": "you're living in the cloud."
+    },
+    {
+      "index": 161,
+      "start_time": 570510.0,
+      "end_time": 575500.0,
+      "text": "That means that there could be adjacent parts\nof memory allocated to different victims."
+    },
+    {
+      "index": 162,
+      "start_time": 575500.0,
+      "end_time": 580130.0,
+      "text": "I'm pretty much describe Spectre right now,\nbut the same concepts apply to Meltdown."
+    },
+    {
+      "index": 163,
+      "start_time": 580130.0,
+      "end_time": 584560.0,
+      "text": "So there is part of memory here, what we call\nvictim memory, that we want to enumerate."
+    },
+    {
+      "index": 164,
+      "start_time": 584560.0,
+      "end_time": 586580.0,
+      "text": "We want to know what it says."
+    },
+    {
+      "index": 165,
+      "start_time": 586580.0,
+      "end_time": 589530.0,
+      "text": "It could contain a password that we're after."
+    },
+    {
+      "index": 166,
+      "start_time": 589530.0,
+      "end_time": 594280.0,
+      "text": "Normally, what an operating system tries to\ndo is to make sure that your program, including"
+    },
+    {
+      "index": 167,
+      "start_time": 594280.0,
+      "end_time": 598670.0,
+      "text": "your JavaScript in your browser, cannot access\nsomebody else's memory."
+    },
+    {
+      "index": 168,
+      "start_time": 598670.0,
+      "end_time": 601080.0,
+      "text": "There is isolation between processes."
+    },
+    {
+      "index": 169,
+      "start_time": 601080.0,
+      "end_time": 606310.0,
+      "text": "It would be an illegal operation to try to\nread from the red memory -- the memory on"
+    },
+    {
+      "index": 170,
+      "start_time": 606310.0,
+      "end_time": 608800.0,
+      "text": "the right."
+    },
+    {
+      "index": 171,
+      "start_time": 608800.0,
+      "end_time": 613690.0,
+      "text": "What we're going to do instead is to exploit\nthe fact that there's also the fast cache."
+    },
+    {
+      "index": 172,
+      "start_time": 613690.0,
+      "end_time": 615910.0,
+      "text": "Suppose we want to read this blue dot over\nhere."
+    },
+    {
+      "index": 173,
+      "start_time": 615910.0,
+      "end_time": 620340.0,
+      "text": "There is fast cache here in front that has\ncopies of some things in memory."
+    },
+    {
+      "index": 174,
+      "start_time": 620340.0,
+      "end_time": 624000.0,
+      "text": "What we're going to do is the following trick."
+    },
+    {
+      "index": 175,
+      "start_time": 624000.0,
+      "end_time": 626830.0,
+      "text": "We're going to set up an array here -- let's\ncall it A."
+    },
+    {
+      "index": 176,
+      "start_time": 626830.0,
+      "end_time": 629330.0,
+      "text": "It's a part of memory that we control."
+    },
+    {
+      "index": 177,
+      "start_time": 629330.0,
+      "end_time": 631120.0,
+      "text": "It's samll."
+    },
+    {
+      "index": 178,
+      "start_time": 631120.0,
+      "end_time": 634280.0,
+      "text": "What we're going to do is that we're going\nto say like: \"Well, I don't want to read the"
+    },
+    {
+      "index": 179,
+      "start_time": 634280.0,
+      "end_time": 638460.0,
+      "text": "two elements that are array A. I'm going to\nover-extend."
+    },
+    {
+      "index": 180,
+      "start_time": 638460.0,
+      "end_time": 639620.0,
+      "text": "I'm going to go out-of-bounds."
+    },
+    {
+      "index": 181,
+      "start_time": 639620.0,
+      "end_time": 647070.0,
+      "text": "I'm going to read what's at A and element\nnumber x, where x is way too big.\""
+    },
+    {
+      "index": 182,
+      "start_time": 647070.0,
+      "end_time": 652390.0,
+      "text": "Normally, when you would be doing this on\nyour CPU, your CPU or your operating system"
+    },
+    {
+      "index": 183,
+      "start_time": 652390.0,
+      "end_time": 654110.0,
+      "text": "would actually trigger a fault."
+    },
+    {
+      "index": 184,
+      "start_time": 654110.0,
+      "end_time": 655210.0,
+      "text": "They would say like \"Hey!"
+    },
+    {
+      "index": 185,
+      "start_time": 655210.0,
+      "end_time": 656470.0,
+      "text": "This is not allowed!"
+    },
+    {
+      "index": 186,
+      "start_time": 656470.0,
+      "end_time": 657750.0,
+      "text": "I'm going to kill this program.\""
+    },
+    {
+      "index": 187,
+      "start_time": 657750.0,
+      "end_time": 661420.0,
+      "text": "It's going to perform an illegal operation,\nif you like."
+    },
+    {
+      "index": 188,
+      "start_time": 661420.0,
+      "end_time": 665620.0,
+      "text": "But we're going to do it speculatively..."
+    },
+    {
+      "index": 189,
+      "start_time": 665620.0,
+      "end_time": 667760.0,
+      "text": "So let's look at how that plays out."
+    },
+    {
+      "index": 190,
+      "start_time": 667760.0,
+      "end_time": 671780.0,
+      "text": "We're going to set up something called the\n\"instrument\"."
+    },
+    {
+      "index": 191,
+      "start_time": 671780.0,
+      "end_time": 676490.0,
+      "text": "It's another part of memory that we're keeping\nout of the cache."
+    },
+    {
+      "index": 192,
+      "start_time": 676490.0,
+      "end_time": 682740.0,
+      "text": "We specifically tell the CPU not to cache\nany of it -- it's all in slow memory."
+    },
+    {
+      "index": 193,
+      "start_time": 682740.0,
+      "end_time": 684210.0,
+      "text": "It's consecutive parts of memory."
+    },
+    {
+      "index": 194,
+      "start_time": 684210.0,
+      "end_time": 686150.0,
+      "text": "I'll explain what this does in just a little\nbit."
+    },
+    {
+      "index": 195,
+      "start_time": 686150.0,
+      "end_time": 689600.0,
+      "text": "When I say Instrument, you can imagine it\nbeing an actual instrument -- something like"
+    },
+    {
+      "index": 196,
+      "start_time": 689600.0,
+      "end_time": 690600.0,
+      "text": "a keyboard."
+    },
+    {
+      "index": 197,
+      "start_time": 690600.0,
+      "end_time": 693040.0,
+      "text": "That's how I think about it."
+    },
+    {
+      "index": 198,
+      "start_time": 693040.0,
+      "end_time": 694990.0,
+      "text": "It's different notes."
+    },
+    {
+      "index": 199,
+      "start_time": 694990.0,
+      "end_time": 699170.0,
+      "text": "Suppose the code that you're executing is\nas follows."
+    },
+    {
+      "index": 200,
+      "start_time": 699170.0,
+      "end_time": 705010.0,
+      "text": "It's a branch -- it's an IF sentence that\njust asks for something absurd."
+    },
+    {
+      "index": 201,
+      "start_time": 705010.0,
+      "end_time": 709700.0,
+      "text": "\"IF the world is flat\", we're going to do\nthe following instruction."
+    },
+    {
+      "index": 202,
+      "start_time": 709700.0,
+      "end_time": 717779.0,
+      "text": "Now, normally what your CPU would be doing\nis to completely ignore what's going on after"
+    },
+    {
+      "index": 203,
+      "start_time": 717779.0,
+      "end_time": 722960.0,
+      "text": "this branch because it's waiting for computations\nfrom memory accesses to figure out if the"
+    },
+    {
+      "index": 204,
+      "start_time": 722960.0,
+      "end_time": 723960.0,
+      "text": "world is flat."
+    },
+    {
+      "index": 205,
+      "start_time": 723960.0,
+      "end_time": 725660.0,
+      "text": "And then it just dumps things out."
+    },
+    {
+      "index": 206,
+      "start_time": 725660.0,
+      "end_time": 729912.0,
+      "text": "But because of speculative execution, there\nis a chance that what's inside this branch"
+    },
+    {
+      "index": 207,
+      "start_time": 729912.0,
+      "end_time": 732000.0,
+      "text": "is going to executed."
+    },
+    {
+      "index": 208,
+      "start_time": 732000.0,
+      "end_time": 736480.0,
+      "text": "So it actually looks at it speculatively -- it's\ngoing to perform speculative execution of"
+    },
+    {
+      "index": 209,
+      "start_time": 736480.0,
+      "end_time": 738260.0,
+      "text": "the subsequent instruction."
+    },
+    {
+      "index": 210,
+      "start_time": 738260.0,
+      "end_time": 742660.0,
+      "text": "In our case, we're going to run the following\ninstruction."
+    },
+    {
+      "index": 211,
+      "start_time": 742660.0,
+      "end_time": 749730.0,
+      "text": "We are going to try to access the part of\nmemory that lies instrument of A of x."
+    },
+    {
+      "index": 212,
+      "start_time": 749730.0,
+      "end_time": 750730.0,
+      "text": "Whoa."
+    },
+    {
+      "index": 213,
+      "start_time": 750730.0,
+      "end_time": 751730.0,
+      "text": "That's a mouthful."
+    },
+    {
+      "index": 214,
+      "start_time": 751730.0,
+      "end_time": 754010.0,
+      "text": "Let's have a look at what that means."
+    },
+    {
+      "index": 215,
+      "start_time": 754010.0,
+      "end_time": 757420.0,
+      "text": "Suppose that what we're after is the part\npart of victim memory, the blue dot here,"
+    },
+    {
+      "index": 216,
+      "start_time": 757420.0,
+      "end_time": 763320.0,
+      "text": "and it contains the letter 4, or the number\n4."
+    },
+    {
+      "index": 217,
+      "start_time": 763320.0,
+      "end_time": 768520.0,
+      "text": "We don't know this, but we want to find this\nout -- that's what the attacks are about."
+    },
+    {
+      "index": 218,
+      "start_time": 768520.0,
+      "end_time": 774550.0,
+      "text": "So what we're going to do is to look at how\nspeculative execution deals with the following."
+    },
+    {
+      "index": 219,
+      "start_time": 774550.0,
+      "end_time": 780820.0,
+      "text": "The fact that it says 4, the fact that the\nCPU is now executing this instruction (without"
+    },
+    {
+      "index": 220,
+      "start_time": 780820.0,
+      "end_time": 783170.0,
+      "text": "actually executing it) means that it's going\nto say:"
+    },
+    {
+      "index": 221,
+      "start_time": 783170.0,
+      "end_time": 785870.0,
+      "text": "\"Oh, okay, I'm supposed to look at A[x]."
+    },
+    {
+      "index": 222,
+      "start_time": 785870.0,
+      "end_time": 791060.0,
+      "text": "Okay, I don't know that it's out-of-bounds,\nyet, because that's the role of kernel."
+    },
+    {
+      "index": 223,
+      "start_time": 791060.0,
+      "end_time": 795940.0,
+      "text": "I will find this out later if this was actually\nwhat's going to get triggered, the kernel"
+    },
+    {
+      "index": 224,
+      "start_time": 795940.0,
+      "end_time": 799020.0,
+      "text": "will kill the program because it's reaching\nmemory it shouldn't."
+    },
+    {
+      "index": 225,
+      "start_time": 799020.0,
+      "end_time": 804150.0,
+      "text": "But as a speculative execution engine, I'm\njust going to look ahead in memory and see"
+    },
+    {
+      "index": 226,
+      "start_time": 804150.0,
+      "end_time": 805150.0,
+      "text": "what's there."
+    },
+    {
+      "index": 227,
+      "start_time": 805150.0,
+      "end_time": 814060.0,
+      "text": "And I see that it's actually the letter 4,\nor the number 4, or G as a note if you like"
+    },
+    {
+      "index": 228,
+      "start_time": 814060.0,
+      "end_time": 815410.0,
+      "text": "my musical analogy."
+    },
+    {
+      "index": 229,
+      "start_time": 815410.0,
+      "end_time": 822980.0,
+      "text": "I'm going to take that, and I'm going to look\nit up in the instrument array at location"
+    },
+    {
+      "index": 230,
+      "start_time": 822980.0,
+      "end_time": 828480.0,
+      "text": "4 (or note G) -- I'm going to play it.\""
+    },
+    {
+      "index": 231,
+      "start_time": 828480.0,
+      "end_time": 835630.0,
+      "text": "What that does -- and this is the crucial\npart of this attack -- is that it brings that"
+    },
+    {
+      "index": 232,
+      "start_time": 835630.0,
+      "end_time": 840860.0,
+      "text": "part of the instrument array into cache."
+    },
+    {
+      "index": 233,
+      "start_time": 840860.0,
+      "end_time": 843880.0,
+      "text": "That's where your timing attack comes into\nplay."
+    },
+    {
+      "index": 234,
+      "start_time": 843880.0,
+      "end_time": 850350.0,
+      "text": "So, now, the final part of this attack is\nthat you're going to go through and retrieve"
+    },
+    {
+      "index": 235,
+      "start_time": 850350.0,
+      "end_time": 852720.0,
+      "text": "every note in your instrument."
+    },
+    {
+      "index": 236,
+      "start_time": 852720.0,
+      "end_time": 857040.0,
+      "text": "You could play the zeroth note, and it's slow."
+    },
+    {
+      "index": 237,
+      "start_time": 857040.0,
+      "end_time": 858470.0,
+      "text": "First one, and it's slow."
+    },
+    {
+      "index": 238,
+      "start_time": 858470.0,
+      "end_time": 861500.0,
+      "text": "But once you reach the fourth note, it's really\nfast."
+    },
+    {
+      "index": 239,
+      "start_time": 861500.0,
+      "end_time": 863510.0,
+      "text": "It's coming from fast memory!"
+    },
+    {
+      "index": 240,
+      "start_time": 863510.0,
+      "end_time": 864510.0,
+      "text": "Why?"
+    },
+    {
+      "index": 241,
+      "start_time": 864510.0,
+      "end_time": 870840.0,
+      "text": "Because when the speculative execution happened\nfor the code, it rolled back all of the registers,"
+    },
+    {
+      "index": 242,
+      "start_time": 870840.0,
+      "end_time": 874970.0,
+      "text": "but it did NOT roll back the cache accesses."
+    },
+    {
+      "index": 243,
+      "start_time": 874970.0,
+      "end_time": 879490.0,
+      "text": "There is leakage of information from the fact\nthat there is speculation happening."
+    },
+    {
+      "index": 244,
+      "start_time": 879490.0,
+      "end_time": 883310.0,
+      "text": "And that speculation happened across administrative\nboundaries."
+    },
+    {
+      "index": 245,
+      "start_time": 883310.0,
+      "end_time": 888800.0,
+      "text": "Consequently, you're now in a situation where\nyou can actually find out that your victim"
+    },
+    {
+      "index": 246,
+      "start_time": 888800.0,
+      "end_time": 892380.0,
+      "text": "memory contained the letter or number \"4\"."
+    },
+    {
+      "index": 247,
+      "start_time": 892380.0,
+      "end_time": 899339.0,
+      "text": "And, of course, we can now extend this yellow\nrange and make it really big, maybe 256 bytes."
+    },
+    {
+      "index": 248,
+      "start_time": 899339.0,
+      "end_time": 904550.0,
+      "text": "Or even bigger, because caches are actually\na little trickier, you need bigger blocks."
+    },
+    {
+      "index": 249,
+      "start_time": 904550.0,
+      "end_time": 905830.0,
+      "text": "That's technical details."
+    },
+    {
+      "index": 250,
+      "start_time": 905830.0,
+      "end_time": 911500.0,
+      "text": "This is the crux of the Spectre Meltdown attack."
+    },
+    {
+      "index": 251,
+      "start_time": 911500.0,
+      "end_time": 916040.0,
+      "text": "So if you look at the actual code that's provided\nby the authors, you'll see something very"
+    },
+    {
+      "index": 252,
+      "start_time": 916040.0,
+      "end_time": 922280.0,
+      "text": "similar to what I explained for Spectre, and\na something a little bit different but still"
+    },
+    {
+      "index": 253,
+      "start_time": 922280.0,
+      "end_time": 925470.0,
+      "text": "the same core idea for Meltdown."
+    },
+    {
+      "index": 254,
+      "start_time": 925470.0,
+      "end_time": 930690.0,
+      "text": "As a promise to you, I asked \"What if JavaScript\ncould read something from arbitrary memory?\""
+    },
+    {
+      "index": 255,
+      "start_time": 930690.0,
+      "end_time": 937160.0,
+      "text": "Well, as it turns out, you can simulate the\nexact same set of instructions in JavaScript,"
+    },
+    {
+      "index": 256,
+      "start_time": 937160.0,
+      "end_time": 942899.0,
+      "text": "which means that you now have a website you\nget onto, and it could try to read parts of"
+    },
+    {
+      "index": 257,
+      "start_time": 942899.0,
+      "end_time": 944000.0,
+      "text": "kernel memory.This is because it's private\ninformation, including your passwords."
+    },
+    {
+      "index": 258,
+      "start_time": 944000.0,
+      "end_time": 951899.0,
+      "text": "So as the authors of these attacks actually\ndemonstrated that you could read, for instance,"
+    },
+    {
+      "index": 259,
+      "start_time": 951899.0,
+      "end_time": 953350.0,
+      "text": "stored passwords."
+    },
+    {
+      "index": 260,
+      "start_time": 953350.0,
+      "end_time": 955520.0,
+      "text": "It's pretty bad."
+    },
+    {
+      "index": 261,
+      "start_time": 955520.0,
+      "end_time": 962790.0,
+      "text": "But I'll leave it to other people to explain\nthe consequences of this attack, and how we're"
+    },
+    {
+      "index": 262,
+      "start_time": 962790.0,
+      "end_time": 964360.0,
+      "text": "going to react to it."
+    },
+    {
+      "index": 263,
+      "start_time": 964360.0,
+      "end_time": 969750.0,
+      "text": "I just want to leave you with a set of URLs\nwhere you can learn about this very interesting"
+    },
+    {
+      "index": 264,
+      "start_time": 969750.0,
+      "end_time": 972030.0,
+      "text": "sets of attacks and the authors who found\nthem."
+    },
+    {
+      "index": 265,
+      "start_time": 972030.0,
+      "end_time": 972810.0,
+      "text": "Thank you very much."
+    }
+  ]
+}
