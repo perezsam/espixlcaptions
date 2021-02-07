@@ -1,0 +1,4722 @@
+{
+  "video_id": "PMH1vM-dSc0",
+  "title": "Google I/O 2014 - Making music mobile with the Web",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3300.0,
+      "end_time": 6250.0,
+      "text": "JUSTIN: I&#39;m Justin, tech lead for the WebRTC project"
+    },
+    {
+      "index": 2,
+      "start_time": 6250.0,
+      "end_time": 7890.0,
+      "text": "at Google."
+    },
+    {
+      "index": 3,
+      "start_time": 7890.0,
+      "end_time": 10700.0,
+      "text": "And today, we&#39;re going to talk about using audio"
+    },
+    {
+      "index": 4,
+      "start_time": 10700.0,
+      "end_time": 11690.0,
+      "text": "in the web platform."
+    },
+    {
+      "index": 5,
+      "start_time": 11690.0,
+      "end_time": 16900.0,
+      "text": "The web platform has come a long way on both mobile and desktop."
+    },
+    {
+      "index": 6,
+      "start_time": 16900.0,
+      "end_time": 20870.0,
+      "text": "And using technologies like the Media Capture API, Web Audio,"
+    },
+    {
+      "index": 7,
+      "start_time": 20870.0,
+      "end_time": 26010.0,
+      "text": "and WebRTC, it&#39;s now super easy to record, process, and send"
+    },
+    {
+      "index": 8,
+      "start_time": 26010.0,
+      "end_time": 27750.0,
+      "text": "audio and video in your app."
+    },
+    {
+      "index": 9,
+      "start_time": 27750.0,
+      "end_time": 30080.0,
+      "text": "To demonstrate this, we&#39;re going to try"
+    },
+    {
+      "index": 10,
+      "start_time": 30080.0,
+      "end_time": 32200.0,
+      "text": "something we&#39;ve never done before."
+    },
+    {
+      "index": 11,
+      "start_time": 32200.000000000004,
+      "end_time": 34940.0,
+      "text": "We&#39;re going to use this session to record a theme"
+    },
+    {
+      "index": 12,
+      "start_time": 34940.0,
+      "end_time": 39010.0,
+      "text": "song for Google I/O. And you&#39;re going to help."
+    },
+    {
+      "index": 13,
+      "start_time": 39010.0,
+      "end_time": 41120.0,
+      "text": "So I&#39;m pretty jazzed about this."
+    },
+    {
+      "index": 14,
+      "start_time": 41120.0,
+      "end_time": 44156.0,
+      "text": "I played in some bands back in the day, a little keyboard,"
+    },
+    {
+      "index": 15,
+      "start_time": 44156.0,
+      "end_time": 45480.0,
+      "text": "a bit of bass."
+    },
+    {
+      "index": 16,
+      "start_time": 45480.0,
+      "end_time": 50260.0,
+      "text": "And I remember what it was like to make music back then."
+    },
+    {
+      "index": 17,
+      "start_time": 50260.0,
+      "end_time": 53240.0,
+      "text": "To get that perfect sound, we had"
+    },
+    {
+      "index": 18,
+      "start_time": 53240.0,
+      "end_time": 56510.0,
+      "text": "to tote around a whole bunch of gear, all sorts of effects"
+    },
+    {
+      "index": 19,
+      "start_time": 56510.0,
+      "end_time": 62210.0,
+      "text": "pedals-- overdrive, chorus, flanger, wah-wah-- amps and EQs"
+    },
+    {
+      "index": 20,
+      "start_time": 62210.0,
+      "end_time": 66240.0,
+      "text": "to get the right tone, and a four track to record it all."
+    },
+    {
+      "index": 21,
+      "start_time": 66240.0,
+      "end_time": 68540.0,
+      "text": "And that was a big investment for us."
+    },
+    {
+      "index": 22,
+      "start_time": 68540.0,
+      "end_time": 72160.0,
+      "text": "But that&#39;s what it took to sound like real rock stars."
+    },
+    {
+      "index": 23,
+      "start_time": 72160.0,
+      "end_time": 75250.0,
+      "text": "So we&#39;d all have been blown away to know"
+    },
+    {
+      "index": 24,
+      "start_time": 75250.0,
+      "end_time": 77841.0,
+      "text": "that this whole basement of audio processing gear"
+    },
+    {
+      "index": 25,
+      "start_time": 77841.0,
+      "end_time": 79965.0,
+      "text": "would soon be able to be replaced by a web browser."
+    },
+    {
+      "index": 26,
+      "start_time": 83130.0,
+      "end_time": 84900.0,
+      "text": "In the modern web platform, we now"
+    },
+    {
+      "index": 27,
+      "start_time": 84900.0,
+      "end_time": 86710.0,
+      "text": "have the power to do incredible things"
+    },
+    {
+      "index": 28,
+      "start_time": 86710.0,
+      "end_time": 89040.0,
+      "text": "with media on any device."
+    },
+    {
+      "index": 29,
+      "start_time": 89040.0,
+      "end_time": 92340.0,
+      "text": "And one great example of this is a new third party"
+    },
+    {
+      "index": 30,
+      "start_time": 92340.0,
+      "end_time": 95090.0,
+      "text": "app called Soundtrap."
+    },
+    {
+      "index": 31,
+      "start_time": 95090.0,
+      "end_time": 99000.0,
+      "text": "Built on Web Audio, WebRTC, and Dart,"
+    },
+    {
+      "index": 32,
+      "start_time": 99000.0,
+      "end_time": 101620.0,
+      "text": "this app is like a set of instruments, a recording"
+    },
+    {
+      "index": 33,
+      "start_time": 101620.0,
+      "end_time": 105190.0,
+      "text": "studio, and a musical collaboration tool"
+    },
+    {
+      "index": 34,
+      "start_time": 105190.0,
+      "end_time": 106525.0,
+      "text": "all rolled into one."
+    },
+    {
+      "index": 35,
+      "start_time": 106525.0,
+      "end_time": 109810.0,
+      "text": "And we&#39;re going to use it to record our song."
+    },
+    {
+      "index": 36,
+      "start_time": 109810.0,
+      "end_time": 114550.0,
+      "text": "So musical inspiration can strike you at any time."
+    },
+    {
+      "index": 37,
+      "start_time": 114550.0,
+      "end_time": 118990.0,
+      "text": "So imagine I&#39;m just sitting on the train with my Nexus 7,"
+    },
+    {
+      "index": 38,
+      "start_time": 118990.0,
+      "end_time": 122040.0,
+      "text": "and I get the idea for a great song."
+    },
+    {
+      "index": 39,
+      "start_time": 122040.0,
+      "end_time": 124936.0,
+      "text": "So let me show you how this works."
+    },
+    {
+      "index": 40,
+      "start_time": 124936.0,
+      "end_time": 127290.0,
+      "text": "I&#39;ll plug in the Nexus 7."
+    },
+    {
+      "index": 41,
+      "start_time": 127290.0,
+      "end_time": 128520.0,
+      "text": "Let&#39;s make this real."
+    },
+    {
+      "index": 42,
+      "start_time": 128520.00000000001,
+      "end_time": 132460.0,
+      "text": "So I&#39;m running the Soundtrap app in Chrome for Android."
+    },
+    {
+      "index": 43,
+      "start_time": 132460.0,
+      "end_time": 136620.0,
+      "text": "And the first thing we need is a driving percussion track."
+    },
+    {
+      "index": 44,
+      "start_time": 136620.0,
+      "end_time": 139120.0,
+      "text": "So let me go ahead and check out the drum loops we have here"
+    },
+    {
+      "index": 45,
+      "start_time": 139120.0,
+      "end_time": 143460.0,
+      "text": "and figure out what&#39;s the right thing for our song."
+    },
+    {
+      "index": 46,
+      "start_time": 143460.0,
+      "end_time": 147380.0,
+      "text": "[BEAT PLAYING]"
+    },
+    {
+      "index": 47,
+      "start_time": 147380.0,
+      "end_time": 150943.0,
+      "text": "Mm, let&#39;s see what else."
+    },
+    {
+      "index": 48,
+      "start_time": 150943.0,
+      "end_time": 154310.0,
+      "text": "[BEAT PLAYING]"
+    },
+    {
+      "index": 49,
+      "start_time": 154310.0,
+      "end_time": 157070.0,
+      "text": "I think I want something that has a bit more rock."
+    },
+    {
+      "index": 50,
+      "start_time": 157070.0,
+      "end_time": 158680.0,
+      "text": "[BEAT PLAYING]"
+    },
+    {
+      "index": 51,
+      "start_time": 158680.0,
+      "end_time": 160840.0,
+      "text": "Yeah, OK, that&#39;s the one."
+    },
+    {
+      "index": 52,
+      "start_time": 160840.0,
+      "end_time": 167730.0,
+      "text": "So let me just tap that and add that to our song-- perfect."
+    },
+    {
+      "index": 53,
+      "start_time": 167730.0,
+      "end_time": 170910.0,
+      "text": "OK, so we&#39;ve got our percussion track."
+    },
+    {
+      "index": 54,
+      "start_time": 170910.0,
+      "end_time": 173826.0,
+      "text": "But now, to complete our rhythm section,"
+    },
+    {
+      "index": 55,
+      "start_time": 173826.0,
+      "end_time": 175200.0,
+      "text": "we need to get a bass line going."
+    },
+    {
+      "index": 56,
+      "start_time": 182730.0,
+      "end_time": 185172.0,
+      "text": "So fortunately, I&#39;ve just arrived home,"
+    },
+    {
+      "index": 57,
+      "start_time": 185172.0,
+      "end_time": 186130.0,
+      "text": "where I&#39;ve got my bass."
+    },
+    {
+      "index": 58,
+      "start_time": 188760.0,
+      "end_time": 192420.0,
+      "text": "And now, using the Media Capture API, also known"
+    },
+    {
+      "index": 59,
+      "start_time": 192420.0,
+      "end_time": 195450.0,
+      "text": "as getUserMedia, I can record my instrument right"
+    },
+    {
+      "index": 60,
+      "start_time": 195450.0,
+      "end_time": 198274.0,
+      "text": "inside my laptop."
+    },
+    {
+      "index": 61,
+      "start_time": 198274.0,
+      "end_time": 199690.0,
+      "text": "So let me show you how this works."
+    },
+    {
+      "index": 62,
+      "start_time": 204980.0,
+      "end_time": 209370.0,
+      "text": "I&#39;m going to plug in here just using a standard cable"
+    },
+    {
+      "index": 63,
+      "start_time": 209370.0,
+      "end_time": 214240.0,
+      "text": "right into the microphone jack on my laptop--"
+    },
+    {
+      "index": 64,
+      "start_time": 214240.0,
+      "end_time": 215755.0,
+      "text": "no special hardware or cables."
+    },
+    {
+      "index": 65,
+      "start_time": 217996.0,
+      "end_time": 220245.0,
+      "text": "And there&#39;s my drum track I already added from before."
+    },
+    {
+      "index": 66,
+      "start_time": 227350.0,
+      "end_time": 229700.0,
+      "text": "All right, I got a sweet bass amp."
+    },
+    {
+      "index": 67,
+      "start_time": 229700.0,
+      "end_time": 231290.0,
+      "text": "[BASS PLAYING]"
+    },
+    {
+      "index": 68,
+      "start_time": 231290.0,
+      "end_time": 235255.0,
+      "text": "Let me just make sure I&#39;m in tune here."
+    },
+    {
+      "index": 69,
+      "start_time": 235255.0,
+      "end_time": 239390.0,
+      "text": "[BASS TUNING]"
+    },
+    {
+      "index": 70,
+      "start_time": 239390.0,
+      "end_time": 246760.0,
+      "text": "All right, perfect."
+    },
+    {
+      "index": 71,
+      "start_time": 246760.0,
+      "end_time": 250737.0,
+      "text": "All right, let me just play a couple notes to get started."
+    },
+    {
+      "index": 72,
+      "start_time": 250737.0,
+      "end_time": 252320.0,
+      "text": "This one might sound kind of familiar,"
+    },
+    {
+      "index": 73,
+      "start_time": 252320.0,
+      "end_time": 253840.0,
+      "text": "although our attorneys have told us"
+    },
+    {
+      "index": 74,
+      "start_time": 253840.0,
+      "end_time": 256209.0,
+      "text": "that it can&#39;t sound too familiar."
+    },
+    {
+      "index": 75,
+      "start_time": 256209.0,
+      "end_time": 260700.0,
+      "text": "[BASS PLAYING]"
+    },
+    {
+      "index": 76,
+      "start_time": 266750.0,
+      "end_time": 269210.0,
+      "text": "All right, how does that sound?"
+    },
+    {
+      "index": 77,
+      "start_time": 269210.0,
+      "end_time": 270050.0,
+      "text": "All right."
+    },
+    {
+      "index": 78,
+      "start_time": 270050.0,
+      "end_time": 273110.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 79,
+      "start_time": 273110.0,
+      "end_time": 274760.0,
+      "text": "This is sounding great."
+    },
+    {
+      "index": 80,
+      "start_time": 274760.0,
+      "end_time": 276530.0,
+      "text": "And this is simply incredible to have"
+    },
+    {
+      "index": 81,
+      "start_time": 276530.0,
+      "end_time": 279340.0,
+      "text": "this kind of power in a web application."
+    },
+    {
+      "index": 82,
+      "start_time": 279340.0,
+      "end_time": 281845.0,
+      "text": "So let&#39;s go ahead and record a bass line for our song."
+    },
+    {
+      "index": 83,
+      "start_time": 281845.0,
+      "end_time": 285710.0,
+      "text": "So right here in Soundtrap, I&#39;m just going to start recording."
+    },
+    {
+      "index": 84,
+      "start_time": 285710.0,
+      "end_time": 287909.0,
+      "text": "And I&#39;m going to add this bass line"
+    },
+    {
+      "index": 85,
+      "start_time": 287909.0,
+      "end_time": 289950.0,
+      "text": "right on top of the drum part that we had before."
+    },
+    {
+      "index": 86,
+      "start_time": 297435.0,
+      "end_time": 301926.0,
+      "text": "[BASS PLAYING OVER DRUMS]"
+    },
+    {
+      "index": 87,
+      "start_time": 313887.0,
+      "end_time": 315720.0,
+      "text": "All right, I was a little bit early on that."
+    },
+    {
+      "index": 88,
+      "start_time": 315720.0,
+      "end_time": 317095.0,
+      "text": "So let me try that one more time."
+    },
+    {
+      "index": 89,
+      "start_time": 320025.0,
+      "end_time": 324480.0,
+      "text": "[BASS PLAYING OVER DRUMS]"
+    },
+    {
+      "index": 90,
+      "start_time": 335380.0,
+      "end_time": 338470.0,
+      "text": "All right, so there we&#39;ve got our great bass line."
+    },
+    {
+      "index": 91,
+      "start_time": 338470.0,
+      "end_time": 341206.0,
+      "text": "Let&#39;s save that out."
+    },
+    {
+      "index": 92,
+      "start_time": 341206.0,
+      "end_time": 343610.0,
+      "text": "And that&#39;s what we&#39;ve got for our bass track."
+    },
+    {
+      "index": 93,
+      "start_time": 343610.0,
+      "end_time": 347286.0,
+      "text": "So onto our next part-- let&#39;s talk"
+    },
+    {
+      "index": 94,
+      "start_time": 347286.0,
+      "end_time": 349160.0,
+      "text": "about the technology behind what we just did."
+    },
+    {
+      "index": 95,
+      "start_time": 357740.0,
+      "end_time": 361060.0,
+      "text": "So in the Media Capture API, the key method"
+    },
+    {
+      "index": 96,
+      "start_time": 361060.0,
+      "end_time": 363900.0,
+      "text": "is called getUserMedia."
+    },
+    {
+      "index": 97,
+      "start_time": 363900.0,
+      "end_time": 367170.0,
+      "text": "And this call opens up the microphone-- oops."
+    },
+    {
+      "index": 98,
+      "start_time": 370210.0,
+      "end_time": 372500.0,
+      "text": "This call opens up the microphone, asking the user"
+    },
+    {
+      "index": 99,
+      "start_time": 372500.0,
+      "end_time": 375320.0,
+      "text": "for permission the first time, and gives us a Media Stream"
+    },
+    {
+      "index": 100,
+      "start_time": 375320.0,
+      "end_time": 379050.0,
+      "text": "object that represents the audio coming from my bass."
+    },
+    {
+      "index": 101,
+      "start_time": 379050.0,
+      "end_time": 381340.0,
+      "text": "Now, the same getUserMedia API can also"
+    },
+    {
+      "index": 102,
+      "start_time": 381340.0,
+      "end_time": 384130.0,
+      "text": "be used to get access to the microphone for speech"
+    },
+    {
+      "index": 103,
+      "start_time": 384130.0,
+      "end_time": 387320.0,
+      "text": "or a webcam for video."
+    },
+    {
+      "index": 104,
+      "start_time": 387320.0,
+      "end_time": 390190.0,
+      "text": "Now normally, when we call getUserMedia to get access"
+    },
+    {
+      "index": 105,
+      "start_time": 390190.0,
+      "end_time": 391825.0,
+      "text": "to the mic, the mic signal is going"
+    },
+    {
+      "index": 106,
+      "start_time": 391825.0,
+      "end_time": 394460.0,
+      "text": "to get routed through a bunch of processing stages"
+    },
+    {
+      "index": 107,
+      "start_time": 394460.0,
+      "end_time": 397050.0,
+      "text": "to make sure we get a good speech signal."
+    },
+    {
+      "index": 108,
+      "start_time": 397050.0,
+      "end_time": 399260.0,
+      "text": "Now, we&#39;re also going to apply auto gain"
+    },
+    {
+      "index": 109,
+      "start_time": 399260.0,
+      "end_time": 401960.0,
+      "text": "control to make sure the levels are correct,"
+    },
+    {
+      "index": 110,
+      "start_time": 401960.0,
+      "end_time": 403760.0,
+      "text": "as well as acoustic echo cancellation"
+    },
+    {
+      "index": 111,
+      "start_time": 403760.0,
+      "end_time": 406400.0,
+      "text": "to make sure any of the sound coming out from the speakers"
+    },
+    {
+      "index": 112,
+      "start_time": 406400.0,
+      "end_time": 408800.0,
+      "text": "doesn&#39;t also get picked up by the mic."
+    },
+    {
+      "index": 113,
+      "start_time": 408800.0,
+      "end_time": 410960.0,
+      "text": "However, when we&#39;re recording an instrument,"
+    },
+    {
+      "index": 114,
+      "start_time": 410960.0,
+      "end_time": 412460.0,
+      "text": "we don&#39;t want any of that processing"
+    },
+    {
+      "index": 115,
+      "start_time": 412460.0,
+      "end_time": 416270.0,
+      "text": "to occur so we get as pure of a tone as possible."
+    },
+    {
+      "index": 116,
+      "start_time": 416270.0,
+      "end_time": 419910.0,
+      "text": "So when we call getUserMedia, we&#39;re going to turn that off."
+    },
+    {
+      "index": 117,
+      "start_time": 419910.0,
+      "end_time": 423060.0,
+      "text": "So here&#39;s a typical call to getUserMedia."
+    },
+    {
+      "index": 118,
+      "start_time": 423060.0,
+      "end_time": 425010.0,
+      "text": "We make it on the Navigator object."
+    },
+    {
+      "index": 119,
+      "start_time": 425010.0,
+      "end_time": 427600.0,
+      "text": "And we ask, in this case, for a media stream"
+    },
+    {
+      "index": 120,
+      "start_time": 427600.0,
+      "end_time": 430300.0,
+      "text": "that contains audio from the mic."
+    },
+    {
+      "index": 121,
+      "start_time": 430300.0,
+      "end_time": 432400.0,
+      "text": "We&#39;ll get our stream back asynchronously."
+    },
+    {
+      "index": 122,
+      "start_time": 432400.0,
+      "end_time": 435190.0,
+      "text": "And then, we can actually do something with it."
+    },
+    {
+      "index": 123,
+      "start_time": 435190.0,
+      "end_time": 437320.0,
+      "text": "If the syntax looks kind of unfamiliar here,"
+    },
+    {
+      "index": 124,
+      "start_time": 437320.0,
+      "end_time": 440610.0,
+      "text": "this is making use of Dart&#39;s Future concept."
+    },
+    {
+      "index": 125,
+      "start_time": 440610.0,
+      "end_time": 443540.0,
+      "text": "The .then at the end of the statement allows us to say"
+    },
+    {
+      "index": 126,
+      "start_time": 443540.0,
+      "end_time": 449210.0,
+      "text": "easily what should get executed when we get our stream back."
+    },
+    {
+      "index": 127,
+      "start_time": 449210.0,
+      "end_time": 450902.0,
+      "text": "So when we call getUserMedia, we&#39;re"
+    },
+    {
+      "index": 128,
+      "start_time": 450902.0,
+      "end_time": 452360.0,
+      "text": "now going to specify the parameters"
+    },
+    {
+      "index": 129,
+      "start_time": 452360.0,
+      "end_time": 455110.0,
+      "text": "we want to the audio stream."
+    },
+    {
+      "index": 130,
+      "start_time": 455110.0,
+      "end_time": 457140.0,
+      "text": "And here, we&#39;re going to ask for audio"
+    },
+    {
+      "index": 131,
+      "start_time": 457140.0,
+      "end_time": 460520.0,
+      "text": "and specify we want the AEC turned off-- simple."
+    },
+    {
+      "index": 132,
+      "start_time": 460520.0,
+      "end_time": 462770.0,
+      "text": "So this way, it&#39;s what we&#39;re doing inside of Soundtrap"
+    },
+    {
+      "index": 133,
+      "start_time": 462770.0,
+      "end_time": 466160.0,
+      "text": "to get access to the microphone to record bass, guitar,"
+    },
+    {
+      "index": 134,
+      "start_time": 466160.0,
+      "end_time": 467590.0,
+      "text": "or any other instrument."
+    },
+    {
+      "index": 135,
+      "start_time": 467590.0,
+      "end_time": 472282.0,
+      "text": "And now, let&#39;s turn it up a little bit."
+    },
+    {
+      "index": 136,
+      "start_time": 472282.0,
+      "end_time": 474990.0,
+      "text": "Because Media Capture is really cool."
+    },
+    {
+      "index": 137,
+      "start_time": 474990.0,
+      "end_time": 476860.0,
+      "text": "But it totally comes to life when"
+    },
+    {
+      "index": 138,
+      "start_time": 476860.0,
+      "end_time": 479210.0,
+      "text": "we connect it with a Web Audio API."
+    },
+    {
+      "index": 139,
+      "start_time": 479210.0,
+      "end_time": 482415.0,
+      "text": "And that&#39;s where we can do some amazing audio processing."
+    },
+    {
+      "index": 140,
+      "start_time": 482415.0,
+      "end_time": 486830.0,
+      "text": "So to demonstrate this, let me welcome Per on stage."
+    },
+    {
+      "index": 141,
+      "start_time": 486830.0,
+      "end_time": 490142.0,
+      "text": "Per is one of the co-founders of Soundtrap."
+    },
+    {
+      "index": 142,
+      "start_time": 490142.0,
+      "end_time": 494875.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 143,
+      "start_time": 494875.0,
+      "end_time": 495375.0,
+      "text": "Per."
+    },
+    {
+      "index": 144,
+      "start_time": 495375.0,
+      "end_time": 496999.0,
+      "text": "Is one of the co-founders of Soundtrap,"
+    },
+    {
+      "index": 145,
+      "start_time": 496999.0,
+      "end_time": 499234.0,
+      "text": "and also a bit of a guitar hero."
+    },
+    {
+      "index": 146,
+      "start_time": 499234.0,
+      "end_time": 499900.0,
+      "text": "PER: Hi, Justin."
+    },
+    {
+      "index": 147,
+      "start_time": 499900.0,
+      "end_time": 501270.0,
+      "text": "JUSTIN: Great to have you here on stage, Per."
+    },
+    {
+      "index": 148,
+      "start_time": 501270.0,
+      "end_time": 503060.0,
+      "text": "PER: Thank you very much for having us."
+    },
+    {
+      "index": 149,
+      "start_time": 503060.0,
+      "end_time": 504650.0,
+      "text": "JUSTIN: So do you think you could play a couple guitar"
+    },
+    {
+      "index": 150,
+      "start_time": 504650.0,
+      "end_time": 505380.0,
+      "text": "riffs for us?"
+    },
+    {
+      "index": 151,
+      "start_time": 505380.0,
+      "end_time": 506660.0,
+      "text": "PER: Maybe I can do that."
+    },
+    {
+      "index": 152,
+      "start_time": 506660.0,
+      "end_time": 510675.0,
+      "text": "I have a guitar [INAUDIBLE], so let me mic up."
+    },
+    {
+      "index": 153,
+      "start_time": 510675.0,
+      "end_time": 512799.0,
+      "text": "JUSTIN: So Per is going to play some guitar for us."
+    },
+    {
+      "index": 154,
+      "start_time": 512799.0,
+      "end_time": 515257.0,
+      "text": "And we&#39;re going to use that to demonstrate the effects that"
+    },
+    {
+      "index": 155,
+      "start_time": 515256.99999999994,
+      "end_time": 516889.99999999994,
+      "text": "are possible using Web Audio."
+    },
+    {
+      "index": 156,
+      "start_time": 522280.0,
+      "end_time": 525050.0,
+      "text": "PER: So we&#39;re using Web Audio to build up"
+    },
+    {
+      "index": 157,
+      "start_time": 525050.0,
+      "end_time": 526440.0,
+      "text": "a whole set of effects."
+    },
+    {
+      "index": 158,
+      "start_time": 526440.0,
+      "end_time": 528780.0,
+      "text": "And I&#39;ll show you some of the presets"
+    },
+    {
+      "index": 159,
+      "start_time": 528780.0,
+      "end_time": 533320.0,
+      "text": "that we have if I get some volume, yeah?"
+    },
+    {
+      "index": 160,
+      "start_time": 533320.0,
+      "end_time": 536250.0,
+      "text": "So this is just an acoustic sound with no effects"
+    },
+    {
+      "index": 161,
+      "start_time": 536250.0,
+      "end_time": 537160.0,
+      "text": "on at all."
+    },
+    {
+      "index": 162,
+      "start_time": 537160.0,
+      "end_time": 540769.0,
+      "text": "[GUITAR PLAYING]"
+    },
+    {
+      "index": 163,
+      "start_time": 543400.0,
+      "end_time": 546640.0,
+      "text": "Like-- and then we can do something else."
+    },
+    {
+      "index": 164,
+      "start_time": 546640.0,
+      "end_time": 550274.0,
+      "text": "JUSTIN: All right, let&#39;s go a little harder."
+    },
+    {
+      "index": 165,
+      "start_time": 550274.0,
+      "end_time": 554250.0,
+      "text": "[DISTORTED GUITAR PLAYING]"
+    },
+    {
+      "index": 166,
+      "start_time": 560220.0,
+      "end_time": 561015.0,
+      "text": "We call that one--"
+    },
+    {
+      "index": 167,
+      "start_time": 561015.0,
+      "end_time": 565850.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 168,
+      "start_time": 565850.0,
+      "end_time": 569960.0,
+      "text": "We call that one &quot;Fumes on the Ocean.&quot;"
+    },
+    {
+      "index": 169,
+      "start_time": 569960.0,
+      "end_time": 571650.0,
+      "text": "So let&#39;s kick it into overdrive."
+    },
+    {
+      "index": 170,
+      "start_time": 571650.0,
+      "end_time": 575626.0,
+      "text": "[OVERDRIVE GUITAR PLAYING]"
+    },
+    {
+      "index": 171,
+      "start_time": 583385.0,
+      "end_time": 584847.0,
+      "text": "We call that one &quot;Insane Bus Ride.&quot;"
+    },
+    {
+      "index": 172,
+      "start_time": 584847.0,
+      "end_time": 585430.0,
+      "text": "Is that right?"
+    },
+    {
+      "index": 173,
+      "start_time": 585430.0,
+      "end_time": 586721.0,
+      "text": "PER: Yeah, something like that."
+    },
+    {
+      "index": 174,
+      "start_time": 586721.0,
+      "end_time": 588740.0,
+      "text": "JUSTIN: OK, all right, now let&#39;s take it back"
+    },
+    {
+      "index": 175,
+      "start_time": 588740.0,
+      "end_time": 590676.0,
+      "text": "to the origins of rock and roll."
+    },
+    {
+      "index": 176,
+      "start_time": 590676.0,
+      "end_time": 611540.0,
+      "text": "[SLAP DELAYED GUITAR PLAYING]"
+    },
+    {
+      "index": 177,
+      "start_time": 611540.0,
+      "end_time": 614660.0,
+      "text": "OK, ladies and gentlemen, Per."
+    },
+    {
+      "index": 178,
+      "start_time": 614660.0,
+      "end_time": 618424.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 179,
+      "start_time": 618424.0,
+      "end_time": 620090.0,
+      "text": "So to have this kind of processing power"
+    },
+    {
+      "index": 180,
+      "start_time": 620090.0,
+      "end_time": 622810.0,
+      "text": "on the web-- simply fantastic."
+    },
+    {
+      "index": 181,
+      "start_time": 622810.0,
+      "end_time": 624810.0,
+      "text": "Let&#39;s talk about the magic behind these effects."
+    },
+    {
+      "index": 182,
+      "start_time": 624810.0,
+      "end_time": 627570.0,
+      "text": "PER: Yeah, so let&#39;s talk about this simple one, actually."
+    },
+    {
+      "index": 183,
+      "start_time": 627570.0,
+      "end_time": 630845.0,
+      "text": "So this is called a slap back effect."
+    },
+    {
+      "index": 184,
+      "start_time": 630845.0,
+      "end_time": 632060.0,
+      "text": "[SLAP DELAYED GUITAR PLAYING]"
+    },
+    {
+      "index": 185,
+      "start_time": 632060.0,
+      "end_time": 633072.0,
+      "text": "Exactly, that&#39;s right."
+    },
+    {
+      "index": 186,
+      "start_time": 633072.0,
+      "end_time": 634530.0,
+      "text": "JUSTIN: So most of you are probably"
+    },
+    {
+      "index": 187,
+      "start_time": 634530.0,
+      "end_time": 639090.0,
+      "text": "familiar with the HTML5 audio and video elements that"
+    },
+    {
+      "index": 188,
+      "start_time": 639090.0,
+      "end_time": 642500.0,
+      "text": "load, decode, and play out audio and video."
+    },
+    {
+      "index": 189,
+      "start_time": 642500.0,
+      "end_time": 644820.0,
+      "text": "But Web Audio goes beyond that and gives you"
+    },
+    {
+      "index": 190,
+      "start_time": 644820.0,
+      "end_time": 647120.0,
+      "text": "super low delay and precise control"
+    },
+    {
+      "index": 191,
+      "start_time": 647120.0,
+      "end_time": 649450.0,
+      "text": "over each one of these steps, including"
+    },
+    {
+      "index": 192,
+      "start_time": 649450.0,
+      "end_time": 652195.0,
+      "text": "scheduling sounds down to sampling level accuracy."
+    },
+    {
+      "index": 193,
+      "start_time": 652195.0,
+      "end_time": 655520.0,
+      "text": "And this time is particularly important for games, as well as"
+    },
+    {
+      "index": 194,
+      "start_time": 655520.0,
+      "end_time": 658610.0,
+      "text": "pro audio apps like Soundtrap."
+    },
+    {
+      "index": 195,
+      "start_time": 658610.0,
+      "end_time": 662790.0,
+      "text": "Web Audio also allows powerful synthesis,"
+    },
+    {
+      "index": 196,
+      "start_time": 662790.0,
+      "end_time": 667140.0,
+      "text": "processing, and routing tools."
+    },
+    {
+      "index": 197,
+      "start_time": 667140.0,
+      "end_time": 669700.0,
+      "text": "So this lets us do all sorts of great stuff, everything"
+    },
+    {
+      "index": 198,
+      "start_time": 669700.0,
+      "end_time": 673490.0,
+      "text": "you see here-- synthesizers, effects, visualizers--"
+    },
+    {
+      "index": 199,
+      "start_time": 673490.0,
+      "end_time": 676720.0,
+      "text": "everything you need for pro audio."
+    },
+    {
+      "index": 200,
+      "start_time": 676720.0,
+      "end_time": 679865.0,
+      "text": "So from the API perspective, Web Audio"
+    },
+    {
+      "index": 201,
+      "start_time": 679865.0,
+      "end_time": 683260.0,
+      "text": "is based on a simple concept-- the audio pipeline."
+    },
+    {
+      "index": 202,
+      "start_time": 683260.0,
+      "end_time": 687640.0,
+      "text": "And in the API, we refer to this pipeline as an AudioContext."
+    },
+    {
+      "index": 203,
+      "start_time": 687640.0,
+      "end_time": 690770.0,
+      "text": "We can build out our pipeline by taking inputs either"
+    },
+    {
+      "index": 204,
+      "start_time": 690770.0,
+      "end_time": 694050.0,
+      "text": "from a file, microphone, or synthesizer,"
+    },
+    {
+      "index": 205,
+      "start_time": 694050.0,
+      "end_time": 696850.0,
+      "text": "and processing it using what we call nodes."
+    },
+    {
+      "index": 206,
+      "start_time": 696850.0,
+      "end_time": 698910.0,
+      "text": "And these nodes can do various different things."
+    },
+    {
+      "index": 207,
+      "start_time": 698910.0,
+      "end_time": 700120.0,
+      "text": "They can apply gain."
+    },
+    {
+      "index": 208,
+      "start_time": 700120.0,
+      "end_time": 701560.0,
+      "text": "They can apply delay."
+    },
+    {
+      "index": 209,
+      "start_time": 701560.0,
+      "end_time": 703610.0,
+      "text": "They can even send the data to JavaScript,"
+    },
+    {
+      "index": 210,
+      "start_time": 703610.0,
+      "end_time": 706080.0,
+      "text": "where JavaScript can change the sample values."
+    },
+    {
+      "index": 211,
+      "start_time": 706080.0,
+      "end_time": 708320.0,
+      "text": "Finally, we send it all out to a destination--"
+    },
+    {
+      "index": 212,
+      "start_time": 708320.0,
+      "end_time": 710280.0,
+      "text": "typically the audio output."
+    },
+    {
+      "index": 213,
+      "start_time": 710280.0,
+      "end_time": 711830.0,
+      "text": "Now I&#39;m going to hand it over to Per"
+    },
+    {
+      "index": 214,
+      "start_time": 711830.0,
+      "end_time": 717110.0,
+      "text": "to explain how we get from this to this."
+    },
+    {
+      "index": 215,
+      "start_time": 717110.0,
+      "end_time": 720000.0,
+      "text": "PER: Yeah, so now I&#39;m going to show you the slap back."
+    },
+    {
+      "index": 216,
+      "start_time": 720000.0,
+      "end_time": 722140.0,
+      "text": "So that was a very simple effect."
+    },
+    {
+      "index": 217,
+      "start_time": 722140.0,
+      "end_time": 723605.0,
+      "text": "So you can hear it here."
+    },
+    {
+      "index": 218,
+      "start_time": 723605.0,
+      "end_time": 725300.0,
+      "text": "So there&#39;s a direct signal, and then"
+    },
+    {
+      "index": 219,
+      "start_time": 725300.0,
+      "end_time": 727487.0,
+      "text": "one small delayed signal after that."
+    },
+    {
+      "index": 220,
+      "start_time": 727487.0,
+      "end_time": 728695.0,
+      "text": "[SLAP DELAYED GUITAR PLAYING]"
+    },
+    {
+      "index": 221,
+      "start_time": 728695.0,
+      "end_time": 729960.0,
+      "text": "OK, you can hear that?"
+    },
+    {
+      "index": 222,
+      "start_time": 729960.0,
+      "end_time": 735080.0,
+      "text": "So that can be represented in a diagram like this."
+    },
+    {
+      "index": 223,
+      "start_time": 735080.0,
+      "end_time": 737780.0,
+      "text": "So we have the audio coming from the guitar,"
+    },
+    {
+      "index": 224,
+      "start_time": 737780.0,
+      "end_time": 739450.0,
+      "text": "and then routed directly to the speaker."
+    },
+    {
+      "index": 225,
+      "start_time": 739450.0,
+      "end_time": 740700.0,
+      "text": "That&#39;s the up line."
+    },
+    {
+      "index": 226,
+      "start_time": 740700.0,
+      "end_time": 743530.0,
+      "text": "And then, we&#39;re adding one delay signal."
+    },
+    {
+      "index": 227,
+      "start_time": 743530.0,
+      "end_time": 744660.0,
+      "text": "And then we gain that."
+    },
+    {
+      "index": 228,
+      "start_time": 744660.0,
+      "end_time": 747160.0,
+      "text": "We lower the volume a little bit on that one."
+    },
+    {
+      "index": 229,
+      "start_time": 747160.0,
+      "end_time": 753110.0,
+      "text": "So then you will have that very simple effect, yeah?"
+    },
+    {
+      "index": 230,
+      "start_time": 753110.0,
+      "end_time": 754850.0,
+      "text": "So the good thing with Web Audio is"
+    },
+    {
+      "index": 231,
+      "start_time": 754850.0,
+      "end_time": 756980.0,
+      "text": "that it makes it very easy to actually program"
+    },
+    {
+      "index": 232,
+      "start_time": 756980.0,
+      "end_time": 757920.0,
+      "text": "effects like this."
+    },
+    {
+      "index": 233,
+      "start_time": 757920.0,
+      "end_time": 760825.0,
+      "text": "Because you have all the different types of nodes"
+    },
+    {
+      "index": 234,
+      "start_time": 760825.0,
+      "end_time": 762200.0,
+      "text": "you would like to combine."
+    },
+    {
+      "index": 235,
+      "start_time": 762200.0,
+      "end_time": 764140.0,
+      "text": "And you can do that in very simple ways."
+    },
+    {
+      "index": 236,
+      "start_time": 764140.0,
+      "end_time": 766140.0,
+      "text": "So I will just show you the code here"
+    },
+    {
+      "index": 237,
+      "start_time": 766140.0,
+      "end_time": 769960.0,
+      "text": "that you can use to implement [INAUDIBLE] like this."
+    },
+    {
+      "index": 238,
+      "start_time": 769960.0,
+      "end_time": 771850.0,
+      "text": "So first, we need to get the context."
+    },
+    {
+      "index": 239,
+      "start_time": 771850.0,
+      "end_time": 773070.0,
+      "text": "We talked about that."
+    },
+    {
+      "index": 240,
+      "start_time": 773070.0,
+      "end_time": 774320.0,
+      "text": "So you&#39;re getting the context."
+    },
+    {
+      "index": 241,
+      "start_time": 774320.0,
+      "end_time": 777290.0,
+      "text": "And you will use that object to, for example,"
+    },
+    {
+      "index": 242,
+      "start_time": 777290.0,
+      "end_time": 778870.0,
+      "text": "create the nodes later on."
+    },
+    {
+      "index": 243,
+      "start_time": 778870.0,
+      "end_time": 780700.0,
+      "text": "And then we&#39;re also getting the user media."
+    },
+    {
+      "index": 244,
+      "start_time": 780700.0,
+      "end_time": 784070.0,
+      "text": "So that was what we just showed before."
+    },
+    {
+      "index": 245,
+      "start_time": 784070.0,
+      "end_time": 786140.0,
+      "text": "So once we get the user media back,"
+    },
+    {
+      "index": 246,
+      "start_time": 786140.0,
+      "end_time": 789410.0,
+      "text": "we&#39;ll start by actually creating the guitar node here"
+    },
+    {
+      "index": 247,
+      "start_time": 789410.0,
+      "end_time": 791870.0,
+      "text": "by using the Context object, and then just"
+    },
+    {
+      "index": 248,
+      "start_time": 791870.0,
+      "end_time": 794600.0,
+      "text": "call createMediaStreamSource on that stream"
+    },
+    {
+      "index": 249,
+      "start_time": 794600.0,
+      "end_time": 796870.0,
+      "text": "that we returned from the getUserMedia."
+    },
+    {
+      "index": 250,
+      "start_time": 796870.0,
+      "end_time": 800010.0,
+      "text": "And then, we also get the reference to the speaker."
+    },
+    {
+      "index": 251,
+      "start_time": 800010.0,
+      "end_time": 803620.0,
+      "text": "So then, we have our two nodes to connect."
+    },
+    {
+      "index": 252,
+      "start_time": 803620.0,
+      "end_time": 805990.0,
+      "text": "Then, we just hook the first two up together."
+    },
+    {
+      "index": 253,
+      "start_time": 805990.0,
+      "end_time": 808410.0,
+      "text": "So we say, guitar connect to speaker."
+    },
+    {
+      "index": 254,
+      "start_time": 808410.0,
+      "end_time": 812540.0,
+      "text": "So then we have the direct path here."
+    },
+    {
+      "index": 255,
+      "start_time": 812540.0,
+      "end_time": 815290.0,
+      "text": "Then, we&#39;re using the context again to create a delay."
+    },
+    {
+      "index": 256,
+      "start_time": 815290.0,
+      "end_time": 817990.0,
+      "text": "So that&#39;s all in the Web Audio API here."
+    },
+    {
+      "index": 257,
+      "start_time": 817990.0,
+      "end_time": 819570.0,
+      "text": "So we create the delay node."
+    },
+    {
+      "index": 258,
+      "start_time": 819570.0,
+      "end_time": 822674.0,
+      "text": "And then we hook the guitar up with the delay node."
+    },
+    {
+      "index": 259,
+      "start_time": 822674.0,
+      "end_time": 824090.0,
+      "text": "And then again, we use the context"
+    },
+    {
+      "index": 260,
+      "start_time": 824090.0,
+      "end_time": 825870.0,
+      "text": "object to create the gain node."
+    },
+    {
+      "index": 261,
+      "start_time": 825870.0,
+      "end_time": 828770.0,
+      "text": "And then we hook the delay up with the gain node."
+    },
+    {
+      "index": 262,
+      "start_time": 828770.0,
+      "end_time": 833080.0,
+      "text": "And then we connect the gain node with the speaker."
+    },
+    {
+      "index": 263,
+      "start_time": 833080.0,
+      "end_time": 835220.0,
+      "text": "So it&#39;s not many lines of code you"
+    },
+    {
+      "index": 264,
+      "start_time": 835220.0,
+      "end_time": 837480.0,
+      "text": "need to actually create an effect like that."
+    },
+    {
+      "index": 265,
+      "start_time": 837480.0,
+      "end_time": 839700.0,
+      "text": "Then, of course, that&#39;s one of the more simpler ones."
+    },
+    {
+      "index": 266,
+      "start_time": 839700.0,
+      "end_time": 842740.0,
+      "text": "So we have much more complex ones that we show."
+    },
+    {
+      "index": 267,
+      "start_time": 842740.0,
+      "end_time": 848706.0,
+      "text": "So that&#39;s the whole snippet you need, OK?"
+    },
+    {
+      "index": 268,
+      "start_time": 852180.0,
+      "end_time": 854470.0,
+      "text": "JUSTIN: OK, so now we&#39;re going to add a lead guitar"
+    },
+    {
+      "index": 269,
+      "start_time": 854470.0,
+      "end_time": 855900.0,
+      "text": "part to our song."
+    },
+    {
+      "index": 270,
+      "start_time": 855900.0,
+      "end_time": 857730.0,
+      "text": "And to get a great guitar sound, we&#39;re"
+    },
+    {
+      "index": 271,
+      "start_time": 857730.0,
+      "end_time": 859910.0,
+      "text": "going to combine a whole pipeline of the effects"
+    },
+    {
+      "index": 272,
+      "start_time": 859910.0,
+      "end_time": 861905.0,
+      "text": "that Per just demonstrated."
+    },
+    {
+      "index": 273,
+      "start_time": 861905.0,
+      "end_time": 864630.0,
+      "text": "We&#39;re going to add delay, chorus, compression,"
+    },
+    {
+      "index": 274,
+      "start_time": 864630.0,
+      "end_time": 868520.0,
+      "text": "and fuzz to create a truly sweet tone."
+    },
+    {
+      "index": 275,
+      "start_time": 868520.0,
+      "end_time": 870365.0,
+      "text": "So let me show you how that works."
+    },
+    {
+      "index": 276,
+      "start_time": 873200.0,
+      "end_time": 876630.0,
+      "text": "[GUITAR PLAYING WITH EFFECTS]"
+    },
+    {
+      "index": 277,
+      "start_time": 900400.0,
+      "end_time": 901929.0,
+      "text": "PER: Yeah, something like that."
+    },
+    {
+      "index": 278,
+      "start_time": 901929.0,
+      "end_time": 903470.0,
+      "text": "But what we&#39;re going to do now, we&#39;re"
+    },
+    {
+      "index": 279,
+      "start_time": 903470.0,
+      "end_time": 905260.0,
+      "text": "going to play some melody on top of our song"
+    },
+    {
+      "index": 280,
+      "start_time": 905260.0,
+      "end_time": 905960.0,
+      "text": "that we&#39;re building up."
+    },
+    {
+      "index": 281,
+      "start_time": 905960.0,
+      "end_time": 907910.0,
+      "text": "And I would like you to try to remember that."
+    },
+    {
+      "index": 282,
+      "start_time": 907910.0,
+      "end_time": 911920.0,
+      "text": "Because you could be asked later on to actually remember it,"
+    },
+    {
+      "index": 283,
+      "start_time": 911920.0,
+      "end_time": 912835.0,
+      "text": "just to let you know."
+    },
+    {
+      "index": 284,
+      "start_time": 912835.0,
+      "end_time": 914620.0,
+      "text": "JUSTIN: All right, that&#39;s a great sound."
+    },
+    {
+      "index": 285,
+      "start_time": 914620.0,
+      "end_time": 917140.0,
+      "text": "Per, give us a killer melody."
+    },
+    {
+      "index": 286,
+      "start_time": 917140.0,
+      "end_time": 917919.0,
+      "text": "PER: Yeah."
+    },
+    {
+      "index": 287,
+      "start_time": 917919.0,
+      "end_time": 918710.0,
+      "text": "JUSTIN: Here we go."
+    },
+    {
+      "index": 288,
+      "start_time": 922678.0,
+      "end_time": 924166.0,
+      "text": "[TRACK PLAYING]"
+    },
+    {
+      "index": 289,
+      "start_time": 924166.0,
+      "end_time": 928630.0,
+      "text": "[GUITAR PLAYING WITH EFFECTS]"
+    },
+    {
+      "index": 290,
+      "start_time": 940038.0,
+      "end_time": 941030.0,
+      "text": "JUSTIN: All right."
+    },
+    {
+      "index": 291,
+      "start_time": 941030.0,
+      "end_time": 942022.0,
+      "text": "PER: Simple, yeah."
+    },
+    {
+      "index": 292,
+      "start_time": 942022.0,
+      "end_time": 942699.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 293,
+      "start_time": 942699.0,
+      "end_time": 943740.0,
+      "text": "JUSTIN: That was rocking."
+    },
+    {
+      "index": 294,
+      "start_time": 943740.0,
+      "end_time": 944180.0,
+      "text": "PER: Think you can remember that?"
+    },
+    {
+      "index": 295,
+      "start_time": 944180.0,
+      "end_time": 945495.0,
+      "text": "Try to remember that."
+    },
+    {
+      "index": 296,
+      "start_time": 948610.0,
+      "end_time": 954750.0,
+      "text": "JUSTIN: All right, we&#39;ve got all our parts right here."
+    },
+    {
+      "index": 297,
+      "start_time": 954750.0,
+      "end_time": 958780.0,
+      "text": "OK, so the next thing we need for our song"
+    },
+    {
+      "index": 298,
+      "start_time": 958780.0,
+      "end_time": 960300.0,
+      "text": "is a groovy keyboard part."
+    },
+    {
+      "index": 299,
+      "start_time": 960300.0,
+      "end_time": 963050.0,
+      "text": "And unfortunately, we don&#39;t have any keyboard players"
+    },
+    {
+      "index": 300,
+      "start_time": 963050.0,
+      "end_time": 964140.0,
+      "text": "hiding backstage."
+    },
+    {
+      "index": 301,
+      "start_time": 964140.0,
+      "end_time": 967210.0,
+      "text": "But Per, do you know anyone who plays keys?"
+    },
+    {
+      "index": 302,
+      "start_time": 967210.0,
+      "end_time": 969380.0,
+      "text": "PER: Actually, I do."
+    },
+    {
+      "index": 303,
+      "start_time": 969380.0,
+      "end_time": 972780.0,
+      "text": "As a matter of fact, our founder and CTO Bjorn"
+    },
+    {
+      "index": 304,
+      "start_time": 972780.0,
+      "end_time": 974430.0,
+      "text": "is rather good at keyboard, actually."
+    },
+    {
+      "index": 305,
+      "start_time": 974430.0,
+      "end_time": 976720.0,
+      "text": "JUSTIN: Huh, do you think he could play for us?"
+    },
+    {
+      "index": 306,
+      "start_time": 976720.0,
+      "end_time": 978050.0,
+      "text": "PER: So what if I call him up?"
+    },
+    {
+      "index": 307,
+      "start_time": 978050.0,
+      "end_time": 980650.0,
+      "text": "JUSTIN: Well, let&#39;s do that."
+    },
+    {
+      "index": 308,
+      "start_time": 980650.0,
+      "end_time": 984930.0,
+      "text": "So over in Soundtrap, we have the ability"
+    },
+    {
+      "index": 309,
+      "start_time": 984930.0,
+      "end_time": 988000.0,
+      "text": "to invite Bjorn to our song."
+    },
+    {
+      "index": 310,
+      "start_time": 993017.0,
+      "end_time": 994350.0,
+      "text": "Let&#39;s see if he can help us out."
+    },
+    {
+      "index": 311,
+      "start_time": 999924.0,
+      "end_time": 1001340.0,
+      "text": "Soundtrap is located in Stockholm."
+    },
+    {
+      "index": 312,
+      "start_time": 1001340.0,
+      "end_time": 1002500.0,
+      "text": "So I guess it might take a little while."
+    },
+    {
+      "index": 313,
+      "start_time": 1002500.0,
+      "end_time": 1003250.0,
+      "text": "PER: So Bjorn just joined the chat."
+    },
+    {
+      "index": 314,
+      "start_time": 1003250.0,
+      "end_time": 1003865.0,
+      "text": "JUSTIN: OK, great."
+    },
+    {
+      "index": 315,
+      "start_time": 1003860.0,
+      "end_time": 1005651.0,
+      "text": "Well, let&#39;s see if he can help us out here."
+    },
+    {
+      "index": 316,
+      "start_time": 1012810.0,
+      "end_time": 1014020.0,
+      "text": "PER: Hi, Bjorn."
+    },
+    {
+      "index": 317,
+      "start_time": 1014020.0,
+      "end_time": 1014980.0,
+      "text": "BJORN: Hi, Justin."
+    },
+    {
+      "index": 318,
+      "start_time": 1014980.0,
+      "end_time": 1015940.0,
+      "text": "Hi, Per."
+    },
+    {
+      "index": 319,
+      "start_time": 1015940.0,
+      "end_time": 1017484.0,
+      "text": "PER: Hi, how are you?"
+    },
+    {
+      "index": 320,
+      "start_time": 1017480.0,
+      "end_time": 1018146.0,
+      "text": "BJORN: I&#39;m fine."
+    },
+    {
+      "index": 321,
+      "start_time": 1018150.0,
+      "end_time": 1019250.0,
+      "text": "How are you?"
+    },
+    {
+      "index": 322,
+      "start_time": 1019250.0,
+      "end_time": 1021110.0,
+      "text": "PER: Very good, thanks."
+    },
+    {
+      "index": 323,
+      "start_time": 1021110.0,
+      "end_time": 1023990.0,
+      "text": "JUSTIN: So Per tells me you play a little keys."
+    },
+    {
+      "index": 324,
+      "start_time": 1023990.0,
+      "end_time": 1026450.0,
+      "text": "And that&#39;s just what we need for a song."
+    },
+    {
+      "index": 325,
+      "start_time": 1026450.0,
+      "end_time": 1028474.0,
+      "text": "We&#39;re here at Google I/O recording a song,"
+    },
+    {
+      "index": 326,
+      "start_time": 1028470.0,
+      "end_time": 1030506.0,
+      "text": "a theme song for Google I/O. Do you"
+    },
+    {
+      "index": 327,
+      "start_time": 1030510.0,
+      "end_time": 1032079.0,
+      "text": "think maybe you could help us out?"
+    },
+    {
+      "index": 328,
+      "start_time": 1032079.9999999999,
+      "end_time": 1036980.9999999999,
+      "text": "BJORN: Well, you know, I have this MIDI keyboard here."
+    },
+    {
+      "index": 329,
+      "start_time": 1036980.0,
+      "end_time": 1040599.0,
+      "text": "So I can give it a try."
+    },
+    {
+      "index": 330,
+      "start_time": 1040599.9999999999,
+      "end_time": 1042349.9999999999,
+      "text": "It&#39;s just a regular MIDI keyboard."
+    },
+    {
+      "index": 331,
+      "start_time": 1042349.9999999999,
+      "end_time": 1047020.9999999999,
+      "text": "And it&#39;s connected to my laptop using a USB cable."
+    },
+    {
+      "index": 332,
+      "start_time": 1047020.0,
+      "end_time": 1049615.0,
+      "text": "So I&#39;m going to be recording some organ here."
+    },
+    {
+      "index": 333,
+      "start_time": 1049610.0,
+      "end_time": 1053047.0,
+      "text": "And this is all done using the Web Media API."
+    },
+    {
+      "index": 334,
+      "start_time": 1053050.0,
+      "end_time": 1055668.0,
+      "text": "So let&#39;s see here, I&#39;m going to be adding a track."
+    },
+    {
+      "index": 335,
+      "start_time": 1058190.0,
+      "end_time": 1059439.0,
+      "text": "Let&#39;s see if we can get some--"
+    },
+    {
+      "index": 336,
+      "start_time": 1064560.0,
+      "end_time": 1067955.0,
+      "text": "[ORGAN PLAYING]"
+    },
+    {
+      "index": 337,
+      "start_time": 1067950.0,
+      "end_time": 1068920.0,
+      "text": "JUSTIN: All right."
+    },
+    {
+      "index": 338,
+      "start_time": 1068930.0,
+      "end_time": 1070805.0,
+      "text": "BJORN: So did you hear that?"
+    },
+    {
+      "index": 339,
+      "start_time": 1070800.0,
+      "end_time": 1071920.0,
+      "text": "JUSTIN: Yep."
+    },
+    {
+      "index": 340,
+      "start_time": 1071920.0,
+      "end_time": 1073630.0,
+      "text": "BJORN: Cool, so here we go then."
+    },
+    {
+      "index": 341,
+      "start_time": 1073630.0,
+      "end_time": 1074880.0,
+      "text": "I&#39;m going to record something."
+    },
+    {
+      "index": 342,
+      "start_time": 1079320.0,
+      "end_time": 1083010.0,
+      "text": "[ORGAN PLAYING OVER TRACK]"
+    },
+    {
+      "index": 343,
+      "start_time": 1097250.0,
+      "end_time": 1098410.0,
+      "text": "Now let me just save that."
+    },
+    {
+      "index": 344,
+      "start_time": 1100890.0,
+      "end_time": 1101639.0,
+      "text": "JUSTIN: All right."
+    },
+    {
+      "index": 345,
+      "start_time": 1101640.0,
+      "end_time": 1102350.0,
+      "text": "PER: Very good, thanks."
+    },
+    {
+      "index": 346,
+      "start_time": 1102350.0,
+      "end_time": 1103308.0,
+      "text": "BJORN: So there you go."
+    },
+    {
+      "index": 347,
+      "start_time": 1103310.0,
+      "end_time": 1105620.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 348,
+      "start_time": 1105620.0,
+      "end_time": 1106552.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 349,
+      "start_time": 1109350.0,
+      "end_time": 1110804.0,
+      "text": "JUSTIN: So that was really great."
+    },
+    {
+      "index": 350,
+      "start_time": 1110800.0,
+      "end_time": 1112966.0,
+      "text": "Do you think maybe you could help us out a bit more,"
+    },
+    {
+      "index": 351,
+      "start_time": 1112970.0,
+      "end_time": 1115030.0,
+      "text": "maybe add a few backing tracks to the song?"
+    },
+    {
+      "index": 352,
+      "start_time": 1115030.0,
+      "end_time": 1116330.0,
+      "text": "BJORN: Yeah sure, why not?"
+    },
+    {
+      "index": 353,
+      "start_time": 1116330.0,
+      "end_time": 1117890.0,
+      "text": "Let me give it a try."
+    },
+    {
+      "index": 354,
+      "start_time": 1117890.0,
+      "end_time": 1118610.0,
+      "text": "JUSTIN: OK."
+    },
+    {
+      "index": 355,
+      "start_time": 1118610.0,
+      "end_time": 1120670.0,
+      "text": "Well, Bjorn is also in our project."
+    },
+    {
+      "index": 356,
+      "start_time": 1120670.0,
+      "end_time": 1122220.0,
+      "text": "And so it&#39;s in the cloud."
+    },
+    {
+      "index": 357,
+      "start_time": 1122220.0,
+      "end_time": 1124420.0,
+      "text": "And we&#39;ll be notified when his updates are"
+    },
+    {
+      "index": 358,
+      "start_time": 1124420.0,
+      "end_time": 1128180.0,
+      "text": "finished so we can check them out."
+    },
+    {
+      "index": 359,
+      "start_time": 1128180.0,
+      "end_time": 1132410.0,
+      "text": "All right, so let&#39;s talk about what we just saw there."
+    },
+    {
+      "index": 360,
+      "start_time": 1132410.0,
+      "end_time": 1134800.0,
+      "text": "We did collaboration onstage."
+    },
+    {
+      "index": 361,
+      "start_time": 1134800.0,
+      "end_time": 1138300.0,
+      "text": "We did collaboration with WebRTC."
+    },
+    {
+      "index": 362,
+      "start_time": 1138300.0,
+      "end_time": 1140810.0,
+      "text": "WebRTC is all about communication"
+    },
+    {
+      "index": 363,
+      "start_time": 1140810.0,
+      "end_time": 1143450.0,
+      "text": "and collaboration, the ability to connect"
+    },
+    {
+      "index": 364,
+      "start_time": 1143450.0,
+      "end_time": 1147440.0,
+      "text": "with anyone, any time, anywhere."
+    },
+    {
+      "index": 365,
+      "start_time": 1147440.0,
+      "end_time": 1149690.0,
+      "text": "And to be able to make music together collaboratively,"
+    },
+    {
+      "index": 366,
+      "start_time": 1149690.0,
+      "end_time": 1152660.0,
+      "text": "this is a perfect use of WebRTC."
+    },
+    {
+      "index": 367,
+      "start_time": 1152660.0,
+      "end_time": 1156140.0,
+      "text": "Now technically, WebRTC provides apps with an API"
+    },
+    {
+      "index": 368,
+      "start_time": 1156140.0,
+      "end_time": 1159430.0,
+      "text": "to establish a real-time peer to peer connection."
+    },
+    {
+      "index": 369,
+      "start_time": 1159430.0,
+      "end_time": 1161170.0,
+      "text": "And in using that connection, you"
+    },
+    {
+      "index": 370,
+      "start_time": 1161170.0,
+      "end_time": 1165890.0,
+      "text": "can send audio, video, or arbitrary data."
+    },
+    {
+      "index": 371,
+      "start_time": 1165890.0,
+      "end_time": 1168870.0,
+      "text": "Now, the API that we used for making this P2P connection"
+    },
+    {
+      "index": 372,
+      "start_time": 1168870.0,
+      "end_time": 1172035.0,
+      "text": "is called, naturally, Peer Connection."
+    },
+    {
+      "index": 373,
+      "start_time": 1172040.0,
+      "end_time": 1173415.0,
+      "text": "And if you take the media streams"
+    },
+    {
+      "index": 374,
+      "start_time": 1173410.0,
+      "end_time": 1176770.0,
+      "text": "that we got earlier using getUserMedia,"
+    },
+    {
+      "index": 375,
+      "start_time": 1176770.0,
+      "end_time": 1178906.0,
+      "text": "we can now attach these to a Peer Connection."
+    },
+    {
+      "index": 376,
+      "start_time": 1178910.0,
+      "end_time": 1180284.0,
+      "text": "And the Peer Connection will take"
+    },
+    {
+      "index": 377,
+      "start_time": 1180280.0,
+      "end_time": 1183420.0,
+      "text": "care of the hard work of setting up a peer to peer connection"
+    },
+    {
+      "index": 378,
+      "start_time": 1183420.0,
+      "end_time": 1186220.0,
+      "text": "and streaming that audio and video across the network."
+    },
+    {
+      "index": 379,
+      "start_time": 1186220.0,
+      "end_time": 1189780.0,
+      "text": "And this all works great, even on the real world internet,"
+    },
+    {
+      "index": 380,
+      "start_time": 1189780.0,
+      "end_time": 1191720.0,
+      "text": "as you heard from Bjorn."
+    },
+    {
+      "index": 381,
+      "start_time": 1191720.0,
+      "end_time": 1194610.0,
+      "text": "Now Soundtrap, for the musical collaboration you just saw,"
+    },
+    {
+      "index": 382,
+      "start_time": 1194610.0,
+      "end_time": 1196840.0,
+      "text": "they needed a few more extra features from WebRTC."
+    },
+    {
+      "index": 383,
+      "start_time": 1196840.0,
+      "end_time": 1198890.0,
+      "text": "So Per, can you tell us more about that?"
+    },
+    {
+      "index": 384,
+      "start_time": 1198890.0,
+      "end_time": 1204150.0,
+      "text": "PER: Yeah sure, so there&#39;s like three things"
+    },
+    {
+      "index": 385,
+      "start_time": 1204150.0,
+      "end_time": 1207176.0,
+      "text": "we need to be able to do this in a good way."
+    },
+    {
+      "index": 386,
+      "start_time": 1207180.0,
+      "end_time": 1208554.0,
+      "text": "So the use case for us is that we"
+    },
+    {
+      "index": 387,
+      "start_time": 1208550.0,
+      "end_time": 1211819.0,
+      "text": "will need to be able to hear what he is playing, of course."
+    },
+    {
+      "index": 388,
+      "start_time": 1211820.0,
+      "end_time": 1213361.0,
+      "text": "We need to be able to speak with him."
+    },
+    {
+      "index": 389,
+      "start_time": 1213360.0,
+      "end_time": 1216500.0,
+      "text": "And we need to be able to see him, right?"
+    },
+    {
+      "index": 390,
+      "start_time": 1216500.0,
+      "end_time": 1218800.0,
+      "text": "So we need to have a video chat functionality."
+    },
+    {
+      "index": 391,
+      "start_time": 1218800.0,
+      "end_time": 1221070.0,
+      "text": "We need to have high quality stereo audio."
+    },
+    {
+      "index": 392,
+      "start_time": 1221070.0,
+      "end_time": 1224070.0,
+      "text": "And we need to have the input that was already"
+    },
+    {
+      "index": 393,
+      "start_time": 1224070.0,
+      "end_time": 1225450.0,
+      "text": "kind of processed in Web Audio."
+    },
+    {
+      "index": 394,
+      "start_time": 1225450.0,
+      "end_time": 1227420.0,
+      "text": "So if I were playing with my guitar,"
+    },
+    {
+      "index": 395,
+      "start_time": 1227420.0,
+      "end_time": 1229400.0,
+      "text": "I can have a multitude of effects added on."
+    },
+    {
+      "index": 396,
+      "start_time": 1229400.0,
+      "end_time": 1233920.0,
+      "text": "So I need to have that also heard over the network."
+    },
+    {
+      "index": 397,
+      "start_time": 1233920.0,
+      "end_time": 1235545.0,
+      "text": "Bjorn here was playing our synthesizer."
+    },
+    {
+      "index": 398,
+      "start_time": 1235550.0,
+      "end_time": 1237795.0,
+      "text": "And that is also done using Web Audio."
+    },
+    {
+      "index": 399,
+      "start_time": 1237790.0,
+      "end_time": 1241230.0,
+      "text": "So we heard that, the organ."
+    },
+    {
+      "index": 400,
+      "start_time": 1241230.0,
+      "end_time": 1244450.0,
+      "text": "So here&#39;s kind of the setup we need."
+    },
+    {
+      "index": 401,
+      "start_time": 1244450.0,
+      "end_time": 1248687.0,
+      "text": "So we need the input from the upper part"
+    },
+    {
+      "index": 402,
+      "start_time": 1248690.0,
+      "end_time": 1251113.0,
+      "text": "here, which is the stuff we already showed you,"
+    },
+    {
+      "index": 403,
+      "start_time": 1251110.0,
+      "end_time": 1253760.0,
+      "text": "and the effects or any synthesizers or anything"
+    },
+    {
+      "index": 404,
+      "start_time": 1253760.0,
+      "end_time": 1255400.0,
+      "text": "created using Web Audio."
+    },
+    {
+      "index": 405,
+      "start_time": 1255400.0,
+      "end_time": 1258500.0,
+      "text": "We need the input from the actual computer mic."
+    },
+    {
+      "index": 406,
+      "start_time": 1258500.0,
+      "end_time": 1261260.0,
+      "text": "So that needs to be mixed in with the other stuff coming"
+    },
+    {
+      "index": 407,
+      "start_time": 1261260.0,
+      "end_time": 1262300.0,
+      "text": "from Web Audio."
+    },
+    {
+      "index": 408,
+      "start_time": 1262300.0,
+      "end_time": 1264060.0,
+      "text": "And then, we need the webcam stream."
+    },
+    {
+      "index": 409,
+      "start_time": 1264060.0,
+      "end_time": 1265930.0,
+      "text": "And we put that into the Peer Connection."
+    },
+    {
+      "index": 410,
+      "start_time": 1265930.0,
+      "end_time": 1268740.0,
+      "text": "And then the magic happens, yeah?"
+    },
+    {
+      "index": 411,
+      "start_time": 1268740.0,
+      "end_time": 1270575.0,
+      "text": "So let&#39;s look at the code for that."
+    },
+    {
+      "index": 412,
+      "start_time": 1270570.0,
+      "end_time": 1273135.0,
+      "text": "So we&#39;re using the getUserMedia API again here."
+    },
+    {
+      "index": 413,
+      "start_time": 1273140.0,
+      "end_time": 1275120.0,
+      "text": "But instead of fetching the audio,"
+    },
+    {
+      "index": 414,
+      "start_time": 1275120.0,
+      "end_time": 1277050.0,
+      "text": "we&#39;re fetching the video part."
+    },
+    {
+      "index": 415,
+      "start_time": 1277050.0,
+      "end_time": 1279800.0,
+      "text": "And when that is returning, then the then clause"
+    },
+    {
+      "index": 416,
+      "start_time": 1279800.0,
+      "end_time": 1281580.0,
+      "text": "here is executed."
+    },
+    {
+      "index": 417,
+      "start_time": 1281580.0,
+      "end_time": 1284536.0,
+      "text": "So the first thing-- if you see in the bottom here,"
+    },
+    {
+      "index": 418,
+      "start_time": 1284540.0,
+      "end_time": 1286914.0,
+      "text": "we have actually received an access to our webcam stream."
+    },
+    {
+      "index": 419,
+      "start_time": 1289780.0,
+      "end_time": 1292590.0,
+      "text": "Then, we are taking the musicOut object, which"
+    },
+    {
+      "index": 420,
+      "start_time": 1292590.0,
+      "end_time": 1294840.0,
+      "text": "is the output and the mix of everything"
+    },
+    {
+      "index": 421,
+      "start_time": 1294840.0,
+      "end_time": 1297560.0,
+      "text": "we&#39;ve done in Web Audio, including the mic,"
+    },
+    {
+      "index": 422,
+      "start_time": 1297560.0,
+      "end_time": 1299890.0,
+      "text": "and we create a MediaStream destination"
+    },
+    {
+      "index": 423,
+      "start_time": 1299890.0,
+      "end_time": 1301817.0,
+      "text": "using that musicOut object."
+    },
+    {
+      "index": 424,
+      "start_time": 1301820.0,
+      "end_time": 1303653.0,
+      "text": "And then, we&#39;re getting the stream for that."
+    },
+    {
+      "index": 425,
+      "start_time": 1303650.0,
+      "end_time": 1305890.0,
+      "text": "So then, we have our stereo music stream."
+    },
+    {
+      "index": 426,
+      "start_time": 1305890.0,
+      "end_time": 1308270.0,
+      "text": "Then, we are hooking up both the stereo music stream"
+    },
+    {
+      "index": 427,
+      "start_time": 1308270.0,
+      "end_time": 1310580.0,
+      "text": "and the webcam stream to the Peer Connection."
+    },
+    {
+      "index": 428,
+      "start_time": 1310580.0,
+      "end_time": 1312250.0,
+      "text": "So this is also Dart syntax, so we"
+    },
+    {
+      "index": 429,
+      "start_time": 1312250.0,
+      "end_time": 1315400.0,
+      "text": "can use the dot dot notation here."
+    },
+    {
+      "index": 430,
+      "start_time": 1315400.0,
+      "end_time": 1317320.0,
+      "text": "And once we have added the stereo music"
+    },
+    {
+      "index": 431,
+      "start_time": 1317320.0,
+      "end_time": 1319920.0,
+      "text": "stream and the webcam stream to the Peer Connection,"
+    },
+    {
+      "index": 432,
+      "start_time": 1319920.0,
+      "end_time": 1322270.0,
+      "text": "we just start to call on the Peer Connection."
+    },
+    {
+      "index": 433,
+      "start_time": 1322270.0,
+      "end_time": 1326260.0,
+      "text": "And then they start to talk to each other, the two peers,"
+    },
+    {
+      "index": 434,
+      "start_time": 1326260.0,
+      "end_time": 1327850.0,
+      "text": "right?"
+    },
+    {
+      "index": 435,
+      "start_time": 1327850.0,
+      "end_time": 1328745.0,
+      "text": "JUSTIN: Very cool."
+    },
+    {
+      "index": 436,
+      "start_time": 1328740.0,
+      "end_time": 1329365.0,
+      "text": "PER: Very good."
+    },
+    {
+      "index": 437,
+      "start_time": 1332930.0,
+      "end_time": 1337430.0,
+      "text": "JUSTIN: So that&#39;s all about Peer Connection."
+    },
+    {
+      "index": 438,
+      "start_time": 1337430.0,
+      "end_time": 1339559.0,
+      "text": "So now let&#39;s go see if Bjorn is finished"
+    },
+    {
+      "index": 439,
+      "start_time": 1339560.0,
+      "end_time": 1340726.0,
+      "text": "adding those backing tracks."
+    },
+    {
+      "index": 440,
+      "start_time": 1357700.0,
+      "end_time": 1360520.0,
+      "text": "It seems like we&#39;re waiting for a second on those backing"
+    },
+    {
+      "index": 441,
+      "start_time": 1360520.0,
+      "end_time": 1361600.0,
+      "text": "tracks."
+    },
+    {
+      "index": 442,
+      "start_time": 1361600.0,
+      "end_time": 1366550.0,
+      "text": "So while we&#39;re waiting, a proton walks into a bar."
+    },
+    {
+      "index": 443,
+      "start_time": 1366550.0,
+      "end_time": 1369510.0,
+      "text": "He sees an electron sitting there and says,"
+    },
+    {
+      "index": 444,
+      "start_time": 1369510.0,
+      "end_time": 1372048.0,
+      "text": "I feel there&#39;s an attraction between us."
+    },
+    {
+      "index": 445,
+      "start_time": 1372050.0,
+      "end_time": 1375642.0,
+      "text": "PER: Yeah, here it is."
+    },
+    {
+      "index": 446,
+      "start_time": 1375640.0,
+      "end_time": 1378440.0,
+      "text": "JUSTIN: All right, so now we&#39;ve got these backing tracks."
+    },
+    {
+      "index": 447,
+      "start_time": 1378440.0,
+      "end_time": 1380620.0,
+      "text": "Let&#39;s go and check out what our song sounds like."
+    },
+    {
+      "index": 448,
+      "start_time": 1385580.0,
+      "end_time": 1386220.0,
+      "text": "Here we go."
+    },
+    {
+      "index": 449,
+      "start_time": 1386220.0,
+      "end_time": 1389636.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 450,
+      "start_time": 1403470.0,
+      "end_time": 1404553.0,
+      "text": "JUSTIN: What do you think?"
+    },
+    {
+      "index": 451,
+      "start_time": 1404550.0,
+      "end_time": 1406905.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 452,
+      "start_time": 1406910.0,
+      "end_time": 1410215.0,
+      "text": "PER: Quite cool."
+    },
+    {
+      "index": 453,
+      "start_time": 1410210.0,
+      "end_time": 1413810.0,
+      "text": "JUSTIN: OK, but we&#39;re missing one thing-- the vocals."
+    },
+    {
+      "index": 454,
+      "start_time": 1413810.0,
+      "end_time": 1416280.0,
+      "text": "And so we&#39;ve collaborated on stage."
+    },
+    {
+      "index": 455,
+      "start_time": 1416280.0,
+      "end_time": 1418550.0,
+      "text": "We&#39;ve collaborated across the internet."
+    },
+    {
+      "index": 456,
+      "start_time": 1418550.0,
+      "end_time": 1421110.0,
+      "text": "And now, we&#39;re going to do some collaboration with you."
+    },
+    {
+      "index": 457,
+      "start_time": 1421110.0,
+      "end_time": 1423390.0,
+      "text": "So you&#39;re all going to sing the vocals for the song."
+    },
+    {
+      "index": 458,
+      "start_time": 1423390.0,
+      "end_time": 1425639.0,
+      "text": "And I&#39;m going to go out in the audience and record it."
+    },
+    {
+      "index": 459,
+      "start_time": 1425640.0,
+      "end_time": 1429091.0,
+      "text": "And to do that, I&#39;ve got my Nexus 5 right here."
+    },
+    {
+      "index": 460,
+      "start_time": 1429090.0,
+      "end_time": 1434030.0,
+      "text": "And I&#39;m logged into Soundtrap using Chrome for Android."
+    },
+    {
+      "index": 461,
+      "start_time": 1434030.0,
+      "end_time": 1436900.0,
+      "text": "Now, Per&#39;s singing voice is a little bit better"
+    },
+    {
+      "index": 462,
+      "start_time": 1436900.0,
+      "end_time": 1438360.0,
+      "text": "than me-- classically trained."
+    },
+    {
+      "index": 463,
+      "start_time": 1438360.0,
+      "end_time": 1440410.0,
+      "text": "And so he&#39;s going to lead you on this."
+    },
+    {
+      "index": 464,
+      "start_time": 1440410.0,
+      "end_time": 1441650.0,
+      "text": "Per?"
+    },
+    {
+      "index": 465,
+      "start_time": 1441650.0,
+      "end_time": 1443860.0,
+      "text": "PER: Yeah, yeah, sure, sure."
+    },
+    {
+      "index": 466,
+      "start_time": 1443860.0,
+      "end_time": 1446160.0,
+      "text": "So I told you to remember the melody part."
+    },
+    {
+      "index": 467,
+      "start_time": 1446160.0,
+      "end_time": 1449440.0,
+      "text": "So we&#39;re actually going to put some lyrics on top of that."
+    },
+    {
+      "index": 468,
+      "start_time": 1449440.0,
+      "end_time": 1454320.0,
+      "text": "And you may imagine already, so it&#39;s Google I/O, Google I/O,"
+    },
+    {
+      "index": 469,
+      "start_time": 1454320.0,
+      "end_time": 1457039.0,
+      "text": "Google I/O, Google I/O four times, OK?"
+    },
+    {
+      "index": 470,
+      "start_time": 1457040.0,
+      "end_time": 1457831.0,
+      "text": "So it&#39;s quite easy."
+    },
+    {
+      "index": 471,
+      "start_time": 1457830.0,
+      "end_time": 1460197.0,
+      "text": "JUSTIN: If you forget, it&#39;s like right here."
+    },
+    {
+      "index": 472,
+      "start_time": 1460200.0,
+      "end_time": 1462283.0,
+      "text": "PER: So what we&#39;ll do is you&#39;ve heard the song now"
+    },
+    {
+      "index": 473,
+      "start_time": 1462280.0,
+      "end_time": 1463280.0,
+      "text": "a couple of times."
+    },
+    {
+      "index": 474,
+      "start_time": 1463280.0,
+      "end_time": 1465340.0,
+      "text": "So we&#39;ll do a rehearsal first."
+    },
+    {
+      "index": 475,
+      "start_time": 1465340.0,
+      "end_time": 1468560.0,
+      "text": "And when we rehearse, after the second time we have sung it,"
+    },
+    {
+      "index": 476,
+      "start_time": 1468560.0,
+      "end_time": 1470250.0,
+      "text": "we&#39;ll actually turn down the volume."
+    },
+    {
+      "index": 477,
+      "start_time": 1470250.0,
+      "end_time": 1473600.0,
+      "text": "But you should continue singing anyway with me, right?"
+    },
+    {
+      "index": 478,
+      "start_time": 1473600.0,
+      "end_time": 1477460.0,
+      "text": "And then we&#39;ll do a take after that, promise."
+    },
+    {
+      "index": 479,
+      "start_time": 1477460.0,
+      "end_time": 1479775.0,
+      "text": "Sing from your toes, as we say in Swedish."
+    },
+    {
+      "index": 480,
+      "start_time": 1479780.0,
+      "end_time": 1483165.0,
+      "text": "[SPEAKING SWEDISH], yeah, OK?"
+    },
+    {
+      "index": 481,
+      "start_time": 1483160.0,
+      "end_time": 1484810.0,
+      "text": "OK, let&#39;s try it."
+    },
+    {
+      "index": 482,
+      "start_time": 1484810.0,
+      "end_time": 1485640.0,
+      "text": "Should we--"
+    },
+    {
+      "index": 483,
+      "start_time": 1485640.0,
+      "end_time": 1486390.0,
+      "text": "JUSTIN: All right."
+    },
+    {
+      "index": 484,
+      "start_time": 1486390.0,
+      "end_time": 1489810.0,
+      "text": "PER: Play, yeah?"
+    },
+    {
+      "index": 485,
+      "start_time": 1489810.0,
+      "end_time": 1490798.0,
+      "text": "JUSTIN: Here we go."
+    },
+    {
+      "index": 486,
+      "start_time": 1495250.0,
+      "end_time": 1497692.0,
+      "text": "PER: I&#39;ll take the practice round first."
+    },
+    {
+      "index": 487,
+      "start_time": 1497690.0,
+      "end_time": 1498648.0,
+      "text": "JUSTIN: OK, here we go."
+    },
+    {
+      "index": 488,
+      "start_time": 1506020.0,
+      "end_time": 1508180.0,
+      "text": "PER: One moment."
+    },
+    {
+      "index": 489,
+      "start_time": 1508180.0,
+      "end_time": 1509960.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 490,
+      "start_time": 1509960.0,
+      "end_time": 1520420.0,
+      "text": "[SINGING] Google I/O-- help me out-- Google I/O, Google I/O,"
+    },
+    {
+      "index": 491,
+      "start_time": 1520420.0,
+      "end_time": 1524729.0,
+      "text": "Google I/O."
+    },
+    {
+      "index": 492,
+      "start_time": 1524730.0,
+      "end_time": 1526021.0,
+      "text": "So that&#39;s how it&#39;s going to be."
+    },
+    {
+      "index": 493,
+      "start_time": 1526020.0,
+      "end_time": 1527103.0,
+      "text": "That was a practice round."
+    },
+    {
+      "index": 494,
+      "start_time": 1527100.0,
+      "end_time": 1529937.0,
+      "text": "Now you know."
+    },
+    {
+      "index": 495,
+      "start_time": 1529940.0,
+      "end_time": 1533602.0,
+      "text": "We&#39;re going to be-- we&#39;ll try to record it on the Nexus 5."
+    },
+    {
+      "index": 496,
+      "start_time": 1533600.0,
+      "end_time": 1535308.0,
+      "text": "So you can lean over to that one as well."
+    },
+    {
+      "index": 497,
+      "start_time": 1535310.0,
+      "end_time": 1537540.0,
+      "text": "Because there&#39;s the mic."
+    },
+    {
+      "index": 498,
+      "start_time": 1537540.0,
+      "end_time": 1538347.0,
+      "text": "Let&#39;s do it, then."
+    },
+    {
+      "index": 499,
+      "start_time": 1538350.0,
+      "end_time": 1540183.0,
+      "text": "JUSTIN: All right, that sounded pretty good."
+    },
+    {
+      "index": 500,
+      "start_time": 1540180.0,
+      "end_time": 1541880.0,
+      "text": "But I think they can be a little louder."
+    },
+    {
+      "index": 501,
+      "start_time": 1541880.0,
+      "end_time": 1542380.0,
+      "text": "PER: Yeah."
+    },
+    {
+      "index": 502,
+      "start_time": 1542380.0,
+      "end_time": 1544230.0,
+      "text": "JUSTIN: That was maybe singing from the knees, not quite"
+    },
+    {
+      "index": 503,
+      "start_time": 1544230.0,
+      "end_time": 1544980.0,
+      "text": "the toes."
+    },
+    {
+      "index": 504,
+      "start_time": 1544980.0,
+      "end_time": 1546570.0,
+      "text": "PER: Yeah, yeah, exactly."
+    },
+    {
+      "index": 505,
+      "start_time": 1546570.0,
+      "end_time": 1549050.0,
+      "text": "JUSTIN: All right, so one more time."
+    },
+    {
+      "index": 506,
+      "start_time": 1549050.0,
+      "end_time": 1549725.0,
+      "text": "Let&#39;s do it."
+    },
+    {
+      "index": 507,
+      "start_time": 1552850.0,
+      "end_time": 1554432.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 508,
+      "start_time": 1554430.0,
+      "end_time": 1565906.0,
+      "text": "AUDIENCE: [SINGING] Google I/O, Google I/O, Google I/O,"
+    },
+    {
+      "index": 509,
+      "start_time": 1565910.0,
+      "end_time": 1569820.0,
+      "text": "Google I/O."
+    },
+    {
+      "index": 510,
+      "start_time": 1569820.0,
+      "end_time": 1570640.0,
+      "text": "PER: Great."
+    },
+    {
+      "index": 511,
+      "start_time": 1570640.0,
+      "end_time": 1573979.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 512,
+      "start_time": 1573980.0,
+      "end_time": 1576851.0,
+      "text": "Very good."
+    },
+    {
+      "index": 513,
+      "start_time": 1576850.0,
+      "end_time": 1578200.0,
+      "text": "JUSTIN: You guys were fantastic."
+    },
+    {
+      "index": 514,
+      "start_time": 1578200.0,
+      "end_time": 1579010.0,
+      "text": "PER: Definitely."
+    },
+    {
+      "index": 515,
+      "start_time": 1579010.0,
+      "end_time": 1581240.0,
+      "text": "JUSTIN: That was definitely all the way down"
+    },
+    {
+      "index": 516,
+      "start_time": 1581240.0,
+      "end_time": 1585222.0,
+      "text": "to the soles of the feet."
+    },
+    {
+      "index": 517,
+      "start_time": 1585220.0,
+      "end_time": 1586928.0,
+      "text": "All right, so we&#39;re now going to kick off"
+    },
+    {
+      "index": 518,
+      "start_time": 1586930.0,
+      "end_time": 1589240.0,
+      "text": "the final mix down for the song."
+    },
+    {
+      "index": 519,
+      "start_time": 1589240.0,
+      "end_time": 1591100.0,
+      "text": "And so while we wait for that, let&#39;s"
+    },
+    {
+      "index": 520,
+      "start_time": 1591100.0,
+      "end_time": 1594560.0,
+      "text": "talk about what Soundtrap needed from an application platform."
+    },
+    {
+      "index": 521,
+      "start_time": 1599730.0,
+      "end_time": 1603320.0,
+      "text": "In building a cloud-based musical collaboration app,"
+    },
+    {
+      "index": 522,
+      "start_time": 1603320.0,
+      "end_time": 1605400.0,
+      "text": "Soundtrap knew they needed a platform that"
+    },
+    {
+      "index": 523,
+      "start_time": 1605400.0,
+      "end_time": 1607030.0,
+      "text": "was familiar to their developers,"
+    },
+    {
+      "index": 524,
+      "start_time": 1607030.0,
+      "end_time": 1611170.0,
+      "text": "and yet would scale as the project became more complex."
+    },
+    {
+      "index": 525,
+      "start_time": 1611170.0,
+      "end_time": 1612814.0,
+      "text": "And as a small startup, they also"
+    },
+    {
+      "index": 526,
+      "start_time": 1612810.0,
+      "end_time": 1614476.0,
+      "text": "want to make sure their developers could"
+    },
+    {
+      "index": 527,
+      "start_time": 1614480.0,
+      "end_time": 1617010.0,
+      "text": "be as productive as possible."
+    },
+    {
+      "index": 528,
+      "start_time": 1617010.0,
+      "end_time": 1619760.0,
+      "text": "So I want to talk about these in turn."
+    },
+    {
+      "index": 529,
+      "start_time": 1619760.0,
+      "end_time": 1622170.0,
+      "text": "This is why Soundtrap chose Dart,"
+    },
+    {
+      "index": 530,
+      "start_time": 1622170.0,
+      "end_time": 1626120.0,
+      "text": "a new platform for scalable web engineering."
+    },
+    {
+      "index": 531,
+      "start_time": 1626120.0,
+      "end_time": 1630210.0,
+      "text": "Let&#39;s look at what Dart provides that makes it so attractive."
+    },
+    {
+      "index": 532,
+      "start_time": 1630210.0,
+      "end_time": 1634840.0,
+      "text": "First, familiarity-- Dart feels like JavaScript."
+    },
+    {
+      "index": 533,
+      "start_time": 1634840.0,
+      "end_time": 1639270.0,
+      "text": "Semicolons, curly braces for a reason, classes,"
+    },
+    {
+      "index": 534,
+      "start_time": 1639270.0,
+      "end_time": 1642260.0,
+      "text": "single inheritance-- everything familiar to people who are"
+    },
+    {
+      "index": 535,
+      "start_time": 1642260.0,
+      "end_time": 1646040.0,
+      "text": "using JavaScript or other languages like Java or C++."
+    },
+    {
+      "index": 536,
+      "start_time": 1646040.0,
+      "end_time": 1650040.0,
+      "text": "And because of that, Dart was designed explicitly"
+    },
+    {
+      "index": 537,
+      "start_time": 1650040.0,
+      "end_time": 1652000.0,
+      "text": "to be easy to learn."
+    },
+    {
+      "index": 538,
+      "start_time": 1652000.0,
+      "end_time": 1654790.0,
+      "text": "Google&#39;s run numerous internal and external hackathons."
+    },
+    {
+      "index": 539,
+      "start_time": 1654790.0,
+      "end_time": 1657830.0,
+      "text": "And everybody picks it up super fast."
+    },
+    {
+      "index": 540,
+      "start_time": 1657830.0,
+      "end_time": 1660320.0,
+      "text": "Now, the Dart team also took the opportunity"
+    },
+    {
+      "index": 541,
+      "start_time": 1660320.0,
+      "end_time": 1663630.0,
+      "text": "to go a bit beyond JavaScript to clean some things up."
+    },
+    {
+      "index": 542,
+      "start_time": 1663630.0,
+      "end_time": 1667980.0,
+      "text": "While Dart is familiar, it also makes things easy and terse."
+    },
+    {
+      "index": 543,
+      "start_time": 1667980.0,
+      "end_time": 1670340.0,
+      "text": "So here, we&#39;re declaring the user class"
+    },
+    {
+      "index": 544,
+      "start_time": 1670340.0,
+      "end_time": 1672830.0,
+      "text": "with two fields-- username and password."
+    },
+    {
+      "index": 545,
+      "start_time": 1672830.0,
+      "end_time": 1674700.0,
+      "text": "This code sample should look very natural."
+    },
+    {
+      "index": 546,
+      "start_time": 1677590.0,
+      "end_time": 1679506.0,
+      "text": "We can also add things like name constructors."
+    },
+    {
+      "index": 547,
+      "start_time": 1679510.0,
+      "end_time": 1681705.0,
+      "text": "You can create different constructors"
+    },
+    {
+      "index": 548,
+      "start_time": 1681700.0,
+      "end_time": 1682575.0,
+      "text": "with different names."
+    },
+    {
+      "index": 549,
+      "start_time": 1682580.0,
+      "end_time": 1686440.0,
+      "text": "And it&#39;s very clear what they do."
+    },
+    {
+      "index": 550,
+      "start_time": 1686440.0,
+      "end_time": 1690250.0,
+      "text": "We can also add getters and setters when you need them."
+    },
+    {
+      "index": 551,
+      "start_time": 1690250.0,
+      "end_time": 1692400.0,
+      "text": "And we can do a simple getter in just one line."
+    },
+    {
+      "index": 552,
+      "start_time": 1692400.0,
+      "end_time": 1694820.0,
+      "text": "You can look at this fat arrow syntax where we check,"
+    },
+    {
+      "index": 553,
+      "start_time": 1694820.0,
+      "end_time": 1696810.0,
+      "text": "is this username valid?"
+    },
+    {
+      "index": 554,
+      "start_time": 1696810.0,
+      "end_time": 1701510.0,
+      "text": "Super easy to write single line functions and methods."
+    },
+    {
+      "index": 555,
+      "start_time": 1701510.0,
+      "end_time": 1704160.0,
+      "text": "Now let&#39;s address scalability."
+    },
+    {
+      "index": 556,
+      "start_time": 1704160.0,
+      "end_time": 1707280.0,
+      "text": "Typical web app development starts out as small scripts"
+    },
+    {
+      "index": 557,
+      "start_time": 1707280.0,
+      "end_time": 1710380.0,
+      "text": "and grows to very large, complicated apps."
+    },
+    {
+      "index": 558,
+      "start_time": 1710380.0,
+      "end_time": 1712370.0,
+      "text": "But we want to make sure as that app grows"
+    },
+    {
+      "index": 559,
+      "start_time": 1712370.0,
+      "end_time": 1716410.0,
+      "text": "from 100 to 100,000 lines of code,"
+    },
+    {
+      "index": 560,
+      "start_time": 1716410.0,
+      "end_time": 1719970.0,
+      "text": "the environment is there with you to help you scale up."
+    },
+    {
+      "index": 561,
+      "start_time": 1719970.0,
+      "end_time": 1722530.0,
+      "text": "So Soundtrap started out just like this-- few files"
+    },
+    {
+      "index": 562,
+      "start_time": 1722530.0,
+      "end_time": 1723470.0,
+      "text": "and scripts."
+    },
+    {
+      "index": 563,
+      "start_time": 1723470.0,
+      "end_time": 1724860.0,
+      "text": "And they grew over time."
+    },
+    {
+      "index": 564,
+      "start_time": 1724860.0,
+      "end_time": 1728700.0,
+      "text": "But they made use of stuff like Dart&#39;s libraries and packages"
+    },
+    {
+      "index": 565,
+      "start_time": 1728700.0,
+      "end_time": 1731260.0,
+      "text": "to keep things organized."
+    },
+    {
+      "index": 566,
+      "start_time": 1731260.0,
+      "end_time": 1733260.0,
+      "text": "As the app grew in size, the Soundtrap engineers"
+    },
+    {
+      "index": 567,
+      "start_time": 1733260.0,
+      "end_time": 1734885.0,
+      "text": "didn&#39;t have to slow their productivity."
+    },
+    {
+      "index": 568,
+      "start_time": 1737040.0,
+      "end_time": 1739310.0,
+      "text": "Here, Dart can bundle code into libraries."
+    },
+    {
+      "index": 569,
+      "start_time": 1739310.0,
+      "end_time": 1741140.0,
+      "text": "And libraries are like modules of code."
+    },
+    {
+      "index": 570,
+      "start_time": 1741140.0,
+      "end_time": 1743640.0,
+      "text": "And from the dart:async library, we&#39;re going to pull"
+    },
+    {
+      "index": 571,
+      "start_time": 1743640.0,
+      "end_time": 1745630.0,
+      "text": "in the Future class."
+    },
+    {
+      "index": 572,
+      "start_time": 1745630.0,
+      "end_time": 1748244.0,
+      "text": "We&#39;ve seen futures before when we used getUserMedia."
+    },
+    {
+      "index": 573,
+      "start_time": 1748240.0,
+      "end_time": 1749656.0,
+      "text": "And futures are these objects that"
+    },
+    {
+      "index": 574,
+      "start_time": 1749660.0,
+      "end_time": 1751630.0,
+      "text": "represent things that don&#39;t exist yet."
+    },
+    {
+      "index": 575,
+      "start_time": 1751630.0,
+      "end_time": 1754230.0,
+      "text": "But they will in the future, get it?"
+    },
+    {
+      "index": 576,
+      "start_time": 1754230.0,
+      "end_time": 1756555.0,
+      "text": "So they&#39;re much easier than call backs."
+    },
+    {
+      "index": 577,
+      "start_time": 1756560.0,
+      "end_time": 1758765.0,
+      "text": "And so also, like other structured languages,"
+    },
+    {
+      "index": 578,
+      "start_time": 1758760.0,
+      "end_time": 1761360.0,
+      "text": "Dart classes can have static methods."
+    },
+    {
+      "index": 579,
+      "start_time": 1761360.0,
+      "end_time": 1764340.0,
+      "text": "Here, our load method is going to return a future that"
+    },
+    {
+      "index": 580,
+      "start_time": 1764340.0,
+      "end_time": 1768474.0,
+      "text": "will resolve when the back end service completes its query."
+    },
+    {
+      "index": 581,
+      "start_time": 1768470.0,
+      "end_time": 1771036.0,
+      "text": "Last, let&#39;s talk about productivity."
+    },
+    {
+      "index": 582,
+      "start_time": 1771040.0,
+      "end_time": 1772920.0,
+      "text": "Soundtrap is able to be productive"
+    },
+    {
+      "index": 583,
+      "start_time": 1772920.0,
+      "end_time": 1775665.0,
+      "text": "because tools like the Dart Editor and the Dart Analyzer"
+    },
+    {
+      "index": 584,
+      "start_time": 1775670.0,
+      "end_time": 1778895.0,
+      "text": "are able to statically analyze the code."
+    },
+    {
+      "index": 585,
+      "start_time": 1778890.0,
+      "end_time": 1780460.0,
+      "text": "Because of things like static typing,"
+    },
+    {
+      "index": 586,
+      "start_time": 1780460.0,
+      "end_time": 1782235.0,
+      "text": "they can provide real-time feedback"
+    },
+    {
+      "index": 587,
+      "start_time": 1782230.0,
+      "end_time": 1784205.0,
+      "text": "when you do something wrong."
+    },
+    {
+      "index": 588,
+      "start_time": 1784210.0,
+      "end_time": 1787060.0,
+      "text": "Here, we&#39;re notified immediately by the Dart Editor"
+    },
+    {
+      "index": 589,
+      "start_time": 1787060.0,
+      "end_time": 1788410.0,
+      "text": "that we misspelled a field."
+    },
+    {
+      "index": 590,
+      "start_time": 1788410.0,
+      "end_time": 1790532.0,
+      "text": "We don&#39;t need to go run our app or fail our unit"
+    },
+    {
+      "index": 591,
+      "start_time": 1790530.0,
+      "end_time": 1792238.0,
+      "text": "test to know that we did something wrong."
+    },
+    {
+      "index": 592,
+      "start_time": 1792240.0,
+      "end_time": 1794610.0,
+      "text": "The tools tell us proactively."
+    },
+    {
+      "index": 593,
+      "start_time": 1794610.0,
+      "end_time": 1799527.0,
+      "text": "And as the code grows to many packages and libraries,"
+    },
+    {
+      "index": 594,
+      "start_time": 1799530.0,
+      "end_time": 1801863.0,
+      "text": "it&#39;s really hard for a developer to keep all of the APIs"
+    },
+    {
+      "index": 595,
+      "start_time": 1801860.0,
+      "end_time": 1802825.0,
+      "text": "in their head."
+    },
+    {
+      "index": 596,
+      "start_time": 1802820.0,
+      "end_time": 1805535.0,
+      "text": "And the Dart Editor comes in handy there."
+    },
+    {
+      "index": 597,
+      "start_time": 1805540.0,
+      "end_time": 1807250.0,
+      "text": "The Dart Editor gives this real-time code"
+    },
+    {
+      "index": 598,
+      "start_time": 1807250.0,
+      "end_time": 1811990.0,
+      "text": "completion like any sort of modern, mature IDE."
+    },
+    {
+      "index": 599,
+      "start_time": 1811990.0,
+      "end_time": 1815720.0,
+      "text": "Last, because of the static typing and static [INAUDIBLE]"
+    },
+    {
+      "index": 600,
+      "start_time": 1815720.0,
+      "end_time": 1820160.0,
+      "text": "analysis, the tools know what types the objects are."
+    },
+    {
+      "index": 601,
+      "start_time": 1820160.0,
+      "end_time": 1822810.0,
+      "text": "The developer can always stay in the flow."
+    },
+    {
+      "index": 602,
+      "start_time": 1822810.0,
+      "end_time": 1828800.0,
+      "text": "So Dart-- familiarity, scalability, productivity."
+    },
+    {
+      "index": 603,
+      "start_time": 1828800.0,
+      "end_time": 1830422.0,
+      "text": "Now let&#39;s talk to Per."
+    },
+    {
+      "index": 604,
+      "start_time": 1830420.0,
+      "end_time": 1831503.0,
+      "text": "You guys worked with this."
+    },
+    {
+      "index": 605,
+      "start_time": 1831510.0,
+      "end_time": 1833825.0,
+      "text": "Can you talk more about what specifically Dart"
+    },
+    {
+      "index": 606,
+      "start_time": 1833820.0,
+      "end_time": 1834984.0,
+      "text": "helped you do?"
+    },
+    {
+      "index": 607,
+      "start_time": 1834980.0,
+      "end_time": 1836396.0,
+      "text": "PER: This is one of many examples,"
+    },
+    {
+      "index": 608,
+      "start_time": 1836400.0,
+      "end_time": 1839240.0,
+      "text": "of course, why Dart is so important for us"
+    },
+    {
+      "index": 609,
+      "start_time": 1839240.0,
+      "end_time": 1840021.0,
+      "text": "and good for us."
+    },
+    {
+      "index": 610,
+      "start_time": 1840020.0,
+      "end_time": 1841519.0,
+      "text": "So we&#39;ve seen it now a couple times."
+    },
+    {
+      "index": 611,
+      "start_time": 1841520.0,
+      "end_time": 1844430.0,
+      "text": "We need to load the project and the tracks in the project."
+    },
+    {
+      "index": 612,
+      "start_time": 1844430.0,
+      "end_time": 1845780.0,
+      "text": "And it&#39;s a cloud-based service."
+    },
+    {
+      "index": 613,
+      "start_time": 1845780.0,
+      "end_time": 1848580.0,
+      "text": "So we would like to do that as fast as possible because we"
+    },
+    {
+      "index": 614,
+      "start_time": 1848580.0,
+      "end_time": 1851630.0,
+      "text": "synchronize in between the devices all the time."
+    },
+    {
+      "index": 615,
+      "start_time": 1851630.0,
+      "end_time": 1855140.0,
+      "text": "Asynchronous program is a little bit tricky in other languages,"
+    },
+    {
+      "index": 616,
+      "start_time": 1855140.0,
+      "end_time": 1856970.0,
+      "text": "like for example JavaScript."
+    },
+    {
+      "index": 617,
+      "start_time": 1856970.0,
+      "end_time": 1863750.0,
+      "text": "But it makes it very easy using the Future mechanism in Dart."
+    },
+    {
+      "index": 618,
+      "start_time": 1863750.0,
+      "end_time": 1866720.0,
+      "text": "So let&#39;s say that we have a project with three tracks."
+    },
+    {
+      "index": 619,
+      "start_time": 1866720.0,
+      "end_time": 1868690.0,
+      "text": "So we define a method loadProject,"
+    },
+    {
+      "index": 620,
+      "start_time": 1868690.0,
+      "end_time": 1870210.0,
+      "text": "which returns a future."
+    },
+    {
+      "index": 621,
+      "start_time": 1870210.0,
+      "end_time": 1873910.0,
+      "text": "And then, when the HTTP request here actually also returns"
+    },
+    {
+      "index": 622,
+      "start_time": 1873910.0,
+      "end_time": 1877480.0,
+      "text": "a future, when that is done, then we parse to JSON."
+    },
+    {
+      "index": 623,
+      "start_time": 1877480.0,
+      "end_time": 1880470.0,
+      "text": "So that is what is done in this method."
+    },
+    {
+      "index": 624,
+      "start_time": 1880470.0,
+      "end_time": 1883540.0,
+      "text": "Then, we define a second method to load the audio"
+    },
+    {
+      "index": 625,
+      "start_time": 1883540.0,
+      "end_time": 1885320.0,
+      "text": "and do exactly the same thing."
+    },
+    {
+      "index": 626,
+      "start_time": 1885320.0,
+      "end_time": 1888760.0,
+      "text": "But we decode in the audio data, the blob."
+    },
+    {
+      "index": 627,
+      "start_time": 1888760.0,
+      "end_time": 1890530.0,
+      "text": "So then, we hook the two methods up."
+    },
+    {
+      "index": 628,
+      "start_time": 1890530.0,
+      "end_time": 1892410.0,
+      "text": "So first, we load the project."
+    },
+    {
+      "index": 629,
+      "start_time": 1892410.0,
+      "end_time": 1894900.0,
+      "text": "And when it&#39;s executed loading the project,"
+    },
+    {
+      "index": 630,
+      "start_time": 1894900.0,
+      "end_time": 1897710.0,
+      "text": "and then we have our kind of information"
+    },
+    {
+      "index": 631,
+      "start_time": 1897710.0,
+      "end_time": 1901020.0,
+      "text": "about the product and the tracks, then we return."
+    },
+    {
+      "index": 632,
+      "start_time": 1901020.0,
+      "end_time": 1902920.0,
+      "text": "We will have the project instance here."
+    },
+    {
+      "index": 633,
+      "start_time": 1902920.0,
+      "end_time": 1904200.0,
+      "text": "So we can work on that."
+    },
+    {
+      "index": 634,
+      "start_time": 1904200.0,
+      "end_time": 1906970.0,
+      "text": "And then, we&#39;re using something that&#39;s called a wait method."
+    },
+    {
+      "index": 635,
+      "start_time": 1906970.0,
+      "end_time": 1908650.0,
+      "text": "That means that everything-- so you"
+    },
+    {
+      "index": 636,
+      "start_time": 1908650.0,
+      "end_time": 1910920.0,
+      "text": "can pass in a list of futures."
+    },
+    {
+      "index": 637,
+      "start_time": 1910920.0,
+      "end_time": 1913380.0,
+      "text": "And when all the futures have executed,"
+    },
+    {
+      "index": 638,
+      "start_time": 1913380.0,
+      "end_time": 1917000.0,
+      "text": "their job actually continues."
+    },
+    {
+      "index": 639,
+      "start_time": 1917000.0,
+      "end_time": 1921190.0,
+      "text": "So in the Future.wait method, we pass in a list of futures"
+    },
+    {
+      "index": 640,
+      "start_time": 1921190.0,
+      "end_time": 1924370.0,
+      "text": "from the loadAudio method."
+    },
+    {
+      "index": 641,
+      "start_time": 1924370.0,
+      "end_time": 1928040.0,
+      "text": "And that can also be done very neatly in Dart here."
+    },
+    {
+      "index": 642,
+      "start_time": 1928040.0,
+      "end_time": 1929539.0,
+      "text": "So we have the project instance."
+    },
+    {
+      "index": 643,
+      "start_time": 1929540.0,
+      "end_time": 1930581.0,
+      "text": "We&#39;re calling the tracks."
+    },
+    {
+      "index": 644,
+      "start_time": 1930580.0,
+      "end_time": 1933121.0,
+      "text": "And we&#39;re using something that&#39;s called a map, which actually"
+    },
+    {
+      "index": 645,
+      "start_time": 1933120.0,
+      "end_time": 1935999.0,
+      "text": "collects all the futures from the loadAudio method"
+    },
+    {
+      "index": 646,
+      "start_time": 1936000.0,
+      "end_time": 1940280.0,
+      "text": "calls into a list and pass that into the Future.wait."
+    },
+    {
+      "index": 647,
+      "start_time": 1940280.0,
+      "end_time": 1943399.0,
+      "text": "So it&#39;s quite a very dense way of doing"
+    },
+    {
+      "index": 648,
+      "start_time": 1943400.0,
+      "end_time": 1944441.0,
+      "text": "asynchronous programming."
+    },
+    {
+      "index": 649,
+      "start_time": 1948010.0,
+      "end_time": 1948956.0,
+      "text": "OK."
+    },
+    {
+      "index": 650,
+      "start_time": 1948960.0,
+      "end_time": 1952360.0,
+      "text": "JUSTIN: So Soundtrap is a great demonstration of the modern web"
+    },
+    {
+      "index": 651,
+      "start_time": 1952360.0,
+      "end_time": 1954760.0,
+      "text": "platform using APIs covering media"
+    },
+    {
+      "index": 652,
+      "start_time": 1954760.0,
+      "end_time": 1957860.0,
+      "text": "capture, audio processing, real-time communication,"
+    },
+    {
+      "index": 653,
+      "start_time": 1957860.0,
+      "end_time": 1958950.0,
+      "text": "and more."
+    },
+    {
+      "index": 654,
+      "start_time": 1958950.0,
+      "end_time": 1962370.0,
+      "text": "But these APIs aren&#39;t just for Chrome."
+    },
+    {
+      "index": 655,
+      "start_time": 1962370.0,
+      "end_time": 1964820.0,
+      "text": "These APIs belong to the open web."
+    },
+    {
+      "index": 656,
+      "start_time": 1964820.0,
+      "end_time": 1967240.0,
+      "text": "And they&#39;re available on multiple modern browsers"
+    },
+    {
+      "index": 657,
+      "start_time": 1967240.0,
+      "end_time": 1970220.0,
+      "text": "on both mobile and desktop."
+    },
+    {
+      "index": 658,
+      "start_time": 1970220.0,
+      "end_time": 1975320.0,
+      "text": "So for example, Web Audio is available on over 2 billion"
+    },
+    {
+      "index": 659,
+      "start_time": 1975320.0,
+      "end_time": 1978520.0,
+      "text": "devices, of which over a billion are mobile,"
+    },
+    {
+      "index": 660,
+      "start_time": 1978520.0,
+      "end_time": 1981750.0,
+      "text": "including Android and iOS."
+    },
+    {
+      "index": 661,
+      "start_time": 1981750.0,
+      "end_time": 1985630.0,
+      "text": "WebRTC-- over 1.5 billion browsers"
+    },
+    {
+      "index": 662,
+      "start_time": 1985630.0,
+      "end_time": 1988660.0,
+      "text": "and 300 million mobile devices."
+    },
+    {
+      "index": 663,
+      "start_time": 1988660.0,
+      "end_time": 1992210.0,
+      "text": "We&#39;re seeing great growth across the WebRTC ecosystem"
+    },
+    {
+      "index": 664,
+      "start_time": 1992210.0,
+      "end_time": 1995930.0,
+      "text": "on both desktop and mobile with multiple major players"
+    },
+    {
+      "index": 665,
+      "start_time": 1995930.0,
+      "end_time": 1998360.0,
+      "text": "shipping apps built on WebRTC."
+    },
+    {
+      "index": 666,
+      "start_time": 1998360.0,
+      "end_time": 2001220.0,
+      "text": "Some examples-- Snapchat&#39;s video chat,"
+    },
+    {
+      "index": 667,
+      "start_time": 2001220.0,
+      "end_time": 2006140.0,
+      "text": "powered by WebRTC, TokBox, and Amazon&#39;s Mayday service,"
+    },
+    {
+      "index": 668,
+      "start_time": 2006140.0,
+      "end_time": 2009480.0,
+      "text": "all powered by the WebRTC platform."
+    },
+    {
+      "index": 669,
+      "start_time": 2009480.0,
+      "end_time": 2012260.0,
+      "text": "I&#39;ve also been in touch with all the major WebRTC app"
+    },
+    {
+      "index": 670,
+      "start_time": 2012260.0,
+      "end_time": 2013240.0,
+      "text": "developers."
+    },
+    {
+      "index": 671,
+      "start_time": 2013240.0,
+      "end_time": 2015910.0,
+      "text": "And there&#39;s going to be several more major announcements later"
+    },
+    {
+      "index": 672,
+      "start_time": 2015910.0,
+      "end_time": 2016410.0,
+      "text": "this year."
+    },
+    {
+      "index": 673,
+      "start_time": 2021350.0,
+      "end_time": 2027540.0,
+      "text": "Finally, we&#39;re super excited to announce that in Android L,"
+    },
+    {
+      "index": 674,
+      "start_time": 2027540.0,
+      "end_time": 2033190.0,
+      "text": "the WebView v36 fully supports Web Audio and WebRTC, allowing"
+    },
+    {
+      "index": 675,
+      "start_time": 2033190.0,
+      "end_time": 2036050.0,
+      "text": "those building native apps to bring these technologies"
+    },
+    {
+      "index": 676,
+      "start_time": 2036050.0,
+      "end_time": 2041042.0,
+      "text": "to the over 1 billion Android 30 day active users."
+    },
+    {
+      "index": 677,
+      "start_time": 2041040.0,
+      "end_time": 2045760.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 678,
+      "start_time": 2048610.0000000002,
+      "end_time": 2050389.0000000002,
+      "text": "So the mixing is finished."
+    },
+    {
+      "index": 679,
+      "start_time": 2050389.9999999998,
+      "end_time": 2052540.9999999998,
+      "text": "Let&#39;s come full circle back to my Nexus"
+    },
+    {
+      "index": 680,
+      "start_time": 2052540.0,
+      "end_time": 2054659.0,
+      "text": "7 and listen to our song."
+    },
+    {
+      "index": 681,
+      "start_time": 2070370.0,
+      "end_time": 2073934.0,
+      "text": "Well, it looks like our Nexus 7 has decided it has other plans."
+    },
+    {
+      "index": 682,
+      "start_time": 2083260.0000000002,
+      "end_time": 2084009.0000000002,
+      "text": "That&#39;s no problem."
+    },
+    {
+      "index": 683,
+      "start_time": 2096440.0,
+      "end_time": 2096939.0,
+      "text": "Here we go."
+    },
+    {
+      "index": 684,
+      "start_time": 2103340.0,
+      "end_time": 2106784.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 685,
+      "start_time": 2120060.0,
+      "end_time": 2123996.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 686,
+      "start_time": 2127950.0,
+      "end_time": 2129840.0,
+      "text": "JUSTIN: So give yourselves a hand."
+    },
+    {
+      "index": 687,
+      "start_time": 2129840.0,
+      "end_time": 2131320.0,
+      "text": "You guys were fantastic."
+    },
+    {
+      "index": 688,
+      "start_time": 2131320.0,
+      "end_time": 2132870.0,
+      "text": "Thanks for singing."
+    },
+    {
+      "index": 689,
+      "start_time": 2132870.0,
+      "end_time": 2134370.0,
+      "text": "And if you want to listen again, you"
+    },
+    {
+      "index": 690,
+      "start_time": 2134370.0,
+      "end_time": 2137410.0,
+      "text": "can download the song from the Soundtrap site."
+    },
+    {
+      "index": 691,
+      "start_time": 2137410.0,
+      "end_time": 2140840.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 692,
+      "start_time": 2143980.0,
+      "end_time": 2146021.0,
+      "text": "So now that we&#39;ve got you all inspired about what"
+    },
+    {
+      "index": 693,
+      "start_time": 2146020.0,
+      "end_time": 2148010.0,
+      "text": "the modern web platform can do, you"
+    },
+    {
+      "index": 694,
+      "start_time": 2148010.0,
+      "end_time": 2149260.0,
+      "text": "can try it out for yourselves."
+    },
+    {
+      "index": 695,
+      "start_time": 2149260.0,
+      "end_time": 2151390.0,
+      "text": "If you haven&#39;t already checked it out,"
+    },
+    {
+      "index": 696,
+      "start_time": 2151390.0,
+      "end_time": 2154770.0,
+      "text": "come get your hands dirty at the WebRTC Code Lab, running here"
+    },
+    {
+      "index": 697,
+      "start_time": 2154770.0,
+      "end_time": 2157740.0,
+      "text": "at I/O until the end of today, and also available later"
+    },
+    {
+      "index": 698,
+      "start_time": 2157740.0,
+      "end_time": 2158896.0,
+      "text": "online."
+    },
+    {
+      "index": 699,
+      "start_time": 2158900.0,
+      "end_time": 2161744.0,
+      "text": "There are also some great resources on WebRTC,"
+    },
+    {
+      "index": 700,
+      "start_time": 2161740.0,
+      "end_time": 2166670.0,
+      "text": "Web Audio, and Dart written by experts in an excellent way"
+    },
+    {
+      "index": 701,
+      "start_time": 2166670.0,
+      "end_time": 2169410.0,
+      "text": "to try out these technologies."
+    },
+    {
+      "index": 702,
+      "start_time": 2169410.0,
+      "end_time": 2171370.0,
+      "text": "And that wraps up our session for today."
+    },
+    {
+      "index": 703,
+      "start_time": 2171370.0,
+      "end_time": 2172860.0,
+      "text": "Now we want to hear from you."
+    },
+    {
+      "index": 704,
+      "start_time": 2172860.0,
+      "end_time": 2175090.0,
+      "text": "You can give us feedback on the session"
+    },
+    {
+      "index": 705,
+      "start_time": 2175090.0,
+      "end_time": 2176620.0,
+      "text": "at the address listed here."
+    },
+    {
+      "index": 706,
+      "start_time": 2176620.0,
+      "end_time": 2179290.0,
+      "text": "And we also have a few minutes to take audience requests,"
+    },
+    {
+      "index": 707,
+      "start_time": 2179290.0,
+      "end_time": 2180010.0,
+      "text": "I mean questions."
+    },
+    {
+      "index": 708,
+      "start_time": 2182770.0,
+      "end_time": 2183760.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 709,
+      "start_time": 2183760.0,
+      "end_time": 2188143.0,
+      "text": "[APPLAUSE]"
+    },
+    {
+      "index": 710,
+      "start_time": 2188140.0,
+      "end_time": 2191307.0,
+      "text": "PER: Thank you very much, thank you."
+    },
+    {
+      "index": 711,
+      "start_time": 2191310.0,
+      "end_time": 2196240.0,
+      "text": "AUDIENCE: So first of all, thank you for the great talk."
+    },
+    {
+      "index": 712,
+      "start_time": 2196240.0,
+      "end_time": 2197640.0,
+      "text": "It was very inspiring."
+    },
+    {
+      "index": 713,
+      "start_time": 2197640.0,
+      "end_time": 2200200.0,
+      "text": "And the song is really cool."
+    },
+    {
+      "index": 714,
+      "start_time": 2200200.0,
+      "end_time": 2205590.0,
+      "text": "I wanted to ask about audio latency on Android."
+    },
+    {
+      "index": 715,
+      "start_time": 2205590.0,
+      "end_time": 2208960.0,
+      "text": "Did you get it low enough?"
+    },
+    {
+      "index": 716,
+      "start_time": 2208960.0,
+      "end_time": 2211334.0,
+      "text": "JUSTIN: So that&#39;s a bit of a work in progress"
+    },
+    {
+      "index": 717,
+      "start_time": 2211330.0,
+      "end_time": 2212246.0,
+      "text": "I&#39;ll have to tell you."
+    },
+    {
+      "index": 718,
+      "start_time": 2212250.0,
+      "end_time": 2216725.0,
+      "text": "We&#39;ve made a lot of improvements to latency through ICS, Jelly"
+    },
+    {
+      "index": 719,
+      "start_time": 2216730.0,
+      "end_time": 2218569.0,
+      "text": "Bean and KitKat."
+    },
+    {
+      "index": 720,
+      "start_time": 2218560.0,
+      "end_time": 2219976.0,
+      "text": "We&#39;re still not to the point where"
+    },
+    {
+      "index": 721,
+      "start_time": 2219980.0,
+      "end_time": 2221760.0,
+      "text": "we can get the-- what we really want"
+    },
+    {
+      "index": 722,
+      "start_time": 2221760.0,
+      "end_time": 2225535.0,
+      "text": "is like 20 millisecond latency on Android."
+    },
+    {
+      "index": 723,
+      "start_time": 2225530.0,
+      "end_time": 2228155.0,
+      "text": "We&#39;re doing a lot of work there, including being able to expose"
+    },
+    {
+      "index": 724,
+      "start_time": 2228160.0,
+      "end_time": 2232569.0,
+      "text": "all the APIs through OpenSL, through the C++ layer,"
+    },
+    {
+      "index": 725,
+      "start_time": 2232570.0,
+      "end_time": 2234611.0,
+      "text": "so that we can have the minimum latency possible."
+    },
+    {
+      "index": 726,
+      "start_time": 2234610.0,
+      "end_time": 2237640.0,
+      "text": "So we&#39;re not where we want to be yet."
+    },
+    {
+      "index": 727,
+      "start_time": 2237640.0,
+      "end_time": 2239540.0,
+      "text": "But we&#39;re spending a ton of energy on it."
+    },
+    {
+      "index": 728,
+      "start_time": 2239540.0,
+      "end_time": 2242756.0,
+      "text": "AUDIENCE: For L, are we going to have it?"
+    },
+    {
+      "index": 729,
+      "start_time": 2242760.0,
+      "end_time": 2245054.0,
+      "text": "JUSTIN: Ah, I&#39;m not going to make any promises."
+    },
+    {
+      "index": 730,
+      "start_time": 2245050.0,
+      "end_time": 2246761.0,
+      "text": "Just we&#39;re working very hard on it."
+    },
+    {
+      "index": 731,
+      "start_time": 2246760.0,
+      "end_time": 2247634.0,
+      "text": "AUDIENCE: OK, thanks."
+    },
+    {
+      "index": 732,
+      "start_time": 2252080.0,
+      "end_time": 2253621.0,
+      "text": "AUDIENCE: Hi, I missed the beginning."
+    },
+    {
+      "index": 733,
+      "start_time": 2253620.0,
+      "end_time": 2254911.0,
+      "text": "Maybe you guys touched on this."
+    },
+    {
+      "index": 734,
+      "start_time": 2254910.0,
+      "end_time": 2257099.0,
+      "text": "But I was curious about MIDI support"
+    },
+    {
+      "index": 735,
+      "start_time": 2257100.0,
+      "end_time": 2258630.0,
+      "text": "and being able to hook up a synth"
+    },
+    {
+      "index": 736,
+      "start_time": 2258630.0,
+      "end_time": 2262550.0,
+      "text": "and maybe get down with the piano or organ or something"
+    },
+    {
+      "index": 737,
+      "start_time": 2262550.0,
+      "end_time": 2263080.0,
+      "text": "like that."
+    },
+    {
+      "index": 738,
+      "start_time": 2263080.0,
+      "end_time": 2268130.0,
+      "text": "PER: Yeah, it&#39;s Web MIDI, which is also part of the standard."
+    },
+    {
+      "index": 739,
+      "start_time": 2268130.0,
+      "end_time": 2270612.0,
+      "text": "So we hook up the MIDI directly to the USB port."
+    },
+    {
+      "index": 740,
+      "start_time": 2270610.0,
+      "end_time": 2272848.0,
+      "text": "JUSTIN: Right, so Web MIDI is kind"
+    },
+    {
+      "index": 741,
+      "start_time": 2272850.0,
+      "end_time": 2274480.0,
+      "text": "of a very nascent standard."
+    },
+    {
+      "index": 742,
+      "start_time": 2274480.0,
+      "end_time": 2276520.0,
+      "text": "It&#39;s supported provisionally within Chrome."
+    },
+    {
+      "index": 743,
+      "start_time": 2276520.0,
+      "end_time": 2280162.0,
+      "text": "We hope to promote it in the next version or two"
+    },
+    {
+      "index": 744,
+      "start_time": 2280160.0,
+      "end_time": 2285173.0,
+      "text": "to be full API and see it picked up by other browsers."
+    },
+    {
+      "index": 745,
+      "start_time": 2285180.0,
+      "end_time": 2287572.0,
+      "text": "But you saw Web MIDI in action here when"
+    },
+    {
+      "index": 746,
+      "start_time": 2287570.0,
+      "end_time": 2288653.0,
+      "text": "they played the keys part."
+    },
+    {
+      "index": 747,
+      "start_time": 2288650.0,
+      "end_time": 2291180.0,
+      "text": "And Soundtrap is making full use of this."
+    },
+    {
+      "index": 748,
+      "start_time": 2291180.0,
+      "end_time": 2293060.0,
+      "text": "And it is a great API in the web platform."
+    },
+    {
+      "index": 749,
+      "start_time": 2299040.0,
+      "end_time": 2300436.0,
+      "text": "PER: Yeah."
+    },
+    {
+      "index": 750,
+      "start_time": 2300430.0,
+      "end_time": 2302138.0,
+      "text": "AUDIENCE: Sorry, what kind of server side"
+    },
+    {
+      "index": 751,
+      "start_time": 2302140.0,
+      "end_time": 2303860.0,
+      "text": "is included in this demo?"
+    },
+    {
+      "index": 752,
+      "start_time": 2303860.0,
+      "end_time": 2308420.0,
+      "text": "So I wanted to ask how the tracks are joined together"
+    },
+    {
+      "index": 753,
+      "start_time": 2308420.0,
+      "end_time": 2312954.0,
+      "text": "when you publish the track, the project."
+    },
+    {
+      "index": 754,
+      "start_time": 2312950.0,
+      "end_time": 2314116.0,
+      "text": "PER: How they work together?"
+    },
+    {
+      "index": 755,
+      "start_time": 2314120.0,
+      "end_time": 2316570.0,
+      "text": "AUDIENCE: On the server side or on the client side"
+    },
+    {
+      "index": 756,
+      "start_time": 2316570.0,
+      "end_time": 2317982.0,
+      "text": "here in Soundtrap?"
+    },
+    {
+      "index": 757,
+      "start_time": 2317980.0,
+      "end_time": 2320188.0,
+      "text": "PER: Yeah, so the music is stored on the server side,"
+    },
+    {
+      "index": 758,
+      "start_time": 2320190.0,
+      "end_time": 2320689.0,
+      "text": "yeah."
+    },
+    {
+      "index": 759,
+      "start_time": 2320690.0,
+      "end_time": 2323371.0,
+      "text": "But then, it pushed out to the client."
+    },
+    {
+      "index": 760,
+      "start_time": 2323370.0,
+      "end_time": 2325545.0,
+      "text": "So we&#39;re using a Play framework--"
+    },
+    {
+      "index": 761,
+      "start_time": 2325540.0,
+      "end_time": 2327665.0,
+      "text": "I don&#39;t know if you know that-- on the server side."
+    },
+    {
+      "index": 762,
+      "start_time": 2327670.0,
+      "end_time": 2329825.0,
+      "text": "But it&#39;s Dart on the client side."
+    },
+    {
+      "index": 763,
+      "start_time": 2329820.0,
+      "end_time": 2330695.0,
+      "text": "AUDIENCE: [INAUDIBLE]"
+    },
+    {
+      "index": 764,
+      "start_time": 2330700.0,
+      "end_time": 2331200.0,
+      "text": "PER: Sorry?"
+    },
+    {
+      "index": 765,
+      "start_time": 2331200.0,
+      "end_time": 2332700.0,
+      "text": "AUDIENCE: It&#39;s mixed online?"
+    },
+    {
+      "index": 766,
+      "start_time": 2335320.0,
+      "end_time": 2336720.0,
+      "text": "PER: It&#39;s mixed on the server."
+    },
+    {
+      "index": 767,
+      "start_time": 2336720.0,
+      "end_time": 2338420.0,
+      "text": "But when you play it in the studio,"
+    },
+    {
+      "index": 768,
+      "start_time": 2338420.0,
+      "end_time": 2339890.0,
+      "text": "it&#39;s played directly on the client."
+    },
+    {
+      "index": 769,
+      "start_time": 2339890.0,
+      "end_time": 2344340.0,
+      "text": "But the last mix that you heard was mixed on the server, right?"
+    },
+    {
+      "index": 770,
+      "start_time": 2344340.0,
+      "end_time": 2354309.0,
+      "text": "JUSTIN: Right, so in the actual editor, when all the tracks are"
+    },
+    {
+      "index": 771,
+      "start_time": 2354310.0,
+      "end_time": 2355851.0,
+      "text": "being played, it plays in the client."
+    },
+    {
+      "index": 772,
+      "start_time": 2355850.0,
+      "end_time": 2358308.0,
+      "text": "But when we do the final mix down to make the actual output"
+    },
+    {
+      "index": 773,
+      "start_time": 2358310.0,
+      "end_time": 2360423.0,
+      "text": "MP3 file, then that&#39;s going to go"
+    },
+    {
+      "index": 774,
+      "start_time": 2360420.0,
+      "end_time": 2361794.0,
+      "text": "and be done by the cloud service."
+    },
+    {
+      "index": 775,
+      "start_time": 2364800.0,
+      "end_time": 2368030.0,
+      "text": "PER: I see, this is only the [INAUDIBLE]."
+    },
+    {
+      "index": 776,
+      "start_time": 2368030.0,
+      "end_time": 2371460.0,
+      "text": "JUSTIN: Oh, right."
+    },
+    {
+      "index": 777,
+      "start_time": 2371460.0,
+      "end_time": 2373205.0,
+      "text": "So when we&#39;re in here in the studio--"
+    },
+    {
+      "index": 778,
+      "start_time": 2378010.0,
+      "end_time": 2380260.0,
+      "text": "PER: Everything here is played directly in the client,"
+    },
+    {
+      "index": 779,
+      "start_time": 2380260.0,
+      "end_time": 2381728.0,
+      "text": "in the studio."
+    },
+    {
+      "index": 780,
+      "start_time": 2381730.0,
+      "end_time": 2387911.0,
+      "text": "So if I-- oh, now we have no audio anymore, I think."
+    },
+    {
+      "index": 781,
+      "start_time": 2387910.0,
+      "end_time": 2389898.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 782,
+      "start_time": 2389900.0,
+      "end_time": 2392882.0,
+      "text": "So that&#39;s played directly on the client."
+    },
+    {
+      "index": 783,
+      "start_time": 2396360.0,
+      "end_time": 2399334.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 784,
+      "start_time": 2399340.0,
+      "end_time": 2401173.0,
+      "text": "JUSTIN: OK, thank you, everyone, for coming."
+    },
+    {
+      "index": 785,
+      "start_time": 2401170.0,
+      "end_time": 2402250.0,
+      "text": "Have a great rest of I/O."
+    },
+    {
+      "index": 786,
+      "start_time": 2402250.0,
+      "end_time": 2403800.0,
+      "text": "[APPLAUSE]"
+    }
+  ]
+}

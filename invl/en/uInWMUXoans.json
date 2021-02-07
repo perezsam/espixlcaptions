@@ -1,0 +1,954 @@
+{
+  "video_id": "uInWMUXoans",
+  "title": "Complete Guide MQTT OpenHAB ESP8266 Door / Window Sensor: Software WINDOWS",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 49.0,
+      "end_time": 4260.0,
+      "text": "Hey guys Matt here from MKSmartHouse.com and in this video I am going to show you how to"
+    },
+    {
+      "index": 2,
+      "start_time": 4260.0,
+      "end_time": 10030.0,
+      "text": "setup the software for the door sensor using a Windows Computer."
+    },
+    {
+      "index": 3,
+      "start_time": 10030.0,
+      "end_time": 12809.0,
+      "text": "[Intro]"
+    },
+    {
+      "index": 4,
+      "start_time": 12809.0,
+      "end_time": 19800.0,
+      "text": "So in the last video we left off with the door sensor being fully built so all it needs"
+    },
+    {
+      "index": 5,
+      "start_time": 19800.0,
+      "end_time": 23369.0,
+      "text": "is firmware and to be connected to the home automation server."
+    },
+    {
+      "index": 6,
+      "start_time": 23369.0,
+      "end_time": 25140.0,
+      "text": "So let&#39;s start off with the firmware."
+    },
+    {
+      "index": 7,
+      "start_time": 25140.0,
+      "end_time": 30359.0,
+      "text": "I recommend having my website open up so that way you have all the steps and commands ready,"
+    },
+    {
+      "index": 8,
+      "start_time": 30359.0,
+      "end_time": 33660.0,
+      "text": "and so you do not have to type in everything you can just copy and paste."
+    },
+    {
+      "index": 9,
+      "start_time": 33660.0,
+      "end_time": 37679.0,
+      "text": "I know this is the software video but, there are some hardware things that we need besides"
+    },
+    {
+      "index": 10,
+      "start_time": 37679.0,
+      "end_time": 38760.0,
+      "text": "a computer."
+    },
+    {
+      "index": 11,
+      "start_time": 38760.0,
+      "end_time": 44850.0,
+      "text": "We are going to need an arduino of some kind preferably a UNO or a MEGA equivalent with"
+    },
+    {
+      "index": 12,
+      "start_time": 44850.0,
+      "end_time": 49949.0,
+      "text": "its usb cable of course and male to male dupont jumper cables."
+    },
+    {
+      "index": 13,
+      "start_time": 49949.0,
+      "end_time": 52769.0,
+      "text": "Links to these items will be in the description or on the website."
+    },
+    {
+      "index": 14,
+      "start_time": 52769.0,
+      "end_time": 57839.0,
+      "text": "The first thing we are going to do is grab the arduino and put a jumper cable from RES"
+    },
+    {
+      "index": 15,
+      "start_time": 57839.0,
+      "end_time": 59000.0,
+      "text": "to GND."
+    },
+    {
+      "index": 16,
+      "start_time": 59000.0,
+      "end_time": 62960.0,
+      "text": "Then grab the door sensor and connect all the pins to their corresponding spots so,"
+    },
+    {
+      "index": 17,
+      "start_time": 62960.0,
+      "end_time": 68830.0,
+      "text": "TX to TX, RX to RX, GND to GND, and 5V to 5V."
+    },
+    {
+      "index": 18,
+      "start_time": 68830.0,
+      "end_time": 74610.0,
+      "text": "Before we continue, check to make sure the 2 pin jumper is above PGM."
+    },
+    {
+      "index": 19,
+      "start_time": 74610.0,
+      "end_time": 80970.0,
+      "text": "Next we are going to go to the computer and go to the Arduino website https://www.arduino.cc/en/Main/Software"
+    },
+    {
+      "index": 20,
+      "start_time": 80970.0,
+      "end_time": 86950.0,
+      "text": "scroll down to download the Arduino IDE, and click Windows Installer, then press download."
+    },
+    {
+      "index": 21,
+      "start_time": 86950.0,
+      "end_time": 90000.0,
+      "text": "Next, go to File Explorer and your downloads folder."
+    },
+    {
+      "index": 22,
+      "start_time": 90000.0,
+      "end_time": 94170.0,
+      "text": "Double click on the arduino installer and click yes in the pop up."
+    },
+    {
+      "index": 23,
+      "start_time": 94170.0,
+      "end_time": 96830.0,
+      "text": "Click agree, then next, and install."
+    },
+    {
+      "index": 24,
+      "start_time": 96830.0,
+      "end_time": 101670.0,
+      "text": "It will ask you to install device software, click install for all the pop ups."
+    },
+    {
+      "index": 25,
+      "start_time": 101670.0,
+      "end_time": 103890.0,
+      "text": "When it is done click close."
+    },
+    {
+      "index": 26,
+      "start_time": 103890.0,
+      "end_time": 107200.0,
+      "text": "Find the arduino icon on your desktop and double click it."
+    },
+    {
+      "index": 27,
+      "start_time": 107200.0,
+      "end_time": 110360.0,
+      "text": "Great we installed the arduino IDE, so now plug in your arduino."
+    },
+    {
+      "index": 28,
+      "start_time": 110360.0,
+      "end_time": 115130.0,
+      "text": "To confirm your arduino is connected in the top bar go to Tools and if you hover over"
+    },
+    {
+      "index": 29,
+      "start_time": 115130.0,
+      "end_time": 121040.0,
+      "text": "Port: you should see COM and then a number if you can then select it."
+    },
+    {
+      "index": 30,
+      "start_time": 121040.0,
+      "end_time": 126950.0,
+      "text": "(If you have a couple COM’s then unplug the arduino and see which com disapeared,"
+    },
+    {
+      "index": 31,
+      "start_time": 126950.0,
+      "end_time": 132690.0,
+      "text": "that is the arduino) Now we are going to add the ESP8266 boards so go to Arduino, then"
+    },
+    {
+      "index": 32,
+      "start_time": 132690.0,
+      "end_time": 139170.0,
+      "text": "preferences and in Additional Boards Manager URLs: type in http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+    },
+    {
+      "index": 33,
+      "start_time": 139170.0,
+      "end_time": 143730.0,
+      "text": "then press OK."
+    },
+    {
+      "index": 34,
+      "start_time": 143730.0,
+      "end_time": 144760.0,
+      "text": "Next go to tools."
+    },
+    {
+      "index": 35,
+      "start_time": 144760.0,
+      "end_time": 149140.0,
+      "text": "Then hover over board and to the right click Boards Manager."
+    },
+    {
+      "index": 36,
+      "start_time": 149140.0,
+      "end_time": 152850.0,
+      "text": "In the search box type in esp8266."
+    },
+    {
+      "index": 37,
+      "start_time": 152850.0,
+      "end_time": 159040.0,
+      "text": "It should be the first one and it should say esp8266 by esp8266 Community."
+    },
+    {
+      "index": 38,
+      "start_time": 159040.0,
+      "end_time": 160510.0,
+      "text": "Click on it and press install."
+    },
+    {
+      "index": 39,
+      "start_time": 160510.0,
+      "end_time": 162730.0,
+      "text": "Once it is installed press the close button."
+    },
+    {
+      "index": 40,
+      "start_time": 162730.0,
+      "end_time": 168040.0,
+      "text": "Now, go back to Tools, hover over board and go to the right and scroll down to and click"
+    },
+    {
+      "index": 41,
+      "start_time": 168040.0,
+      "end_time": 171980.0,
+      "text": "Generic ESP8266 Module."
+    },
+    {
+      "index": 42,
+      "start_time": 171980.0,
+      "end_time": 177460.0,
+      "text": "Next we are going to add the MQTT Library, so go to sketch and in the drop down hover"
+    },
+    {
+      "index": 43,
+      "start_time": 177460.0,
+      "end_time": 181490.0,
+      "text": "over Include Library and in the right click on Manage Libraries."
+    },
+    {
+      "index": 44,
+      "start_time": 181490.0,
+      "end_time": 184150.0,
+      "text": "In the search type in MQTT."
+    },
+    {
+      "index": 45,
+      "start_time": 184150.0,
+      "end_time": 193130.0,
+      "text": "Scroll through the list to find the one that Says MQTT by Joel Gaehwiler, click on it and"
+    },
+    {
+      "index": 46,
+      "start_time": 193130.0,
+      "end_time": 194400.0,
+      "text": "press install."
+    },
+    {
+      "index": 47,
+      "start_time": 194400.0,
+      "end_time": 196160.0,
+      "text": "Once installed click close."
+    },
+    {
+      "index": 48,
+      "start_time": 196160.0,
+      "end_time": 197160.0,
+      "text": "Great!"
+    },
+    {
+      "index": 49,
+      "start_time": 197160.0,
+      "end_time": 199740.0,
+      "text": "All the prep work is complete."
+    },
+    {
+      "index": 50,
+      "start_time": 199740.0,
+      "end_time": 203980.0,
+      "text": "Close out of arduino and now all we have to do is grab the code so we are going to head"
+    },
+    {
+      "index": 51,
+      "start_time": 203980.0,
+      "end_time": 208870.0,
+      "text": "over to my site, the link is in the description to the exact page and press the download MK-DoorSensor"
+    },
+    {
+      "index": 52,
+      "start_time": 208870.0,
+      "end_time": 209870.0,
+      "text": "code."
+    },
+    {
+      "index": 53,
+      "start_time": 209870.0,
+      "end_time": 215170.0,
+      "text": "(Insert the rest of what goes here in terms of downloading) Then go to file explorer and"
+    },
+    {
+      "index": 54,
+      "start_time": 215170.0,
+      "end_time": 220459.0,
+      "text": "then downloads folder and double click on MK-DoorSensor.ino."
+    },
+    {
+      "index": 55,
+      "start_time": 220459.0,
+      "end_time": 225870.0,
+      "text": "A pop up will come up asking if you want to put it in a folder, click OK."
+    },
+    {
+      "index": 56,
+      "start_time": 225870.0,
+      "end_time": 229970.0,
+      "text": "It should bring up the code for the door sensor, and there are only a few things we have to"
+    },
+    {
+      "index": 57,
+      "start_time": 229970.0,
+      "end_time": 230970.0,
+      "text": "change."
+    },
+    {
+      "index": 58,
+      "start_time": 230970.0,
+      "end_time": 235790.0,
+      "text": "The first thing is the wifi settings which are the ssid and password so change those"
+    },
+    {
+      "index": 59,
+      "start_time": 235790.0,
+      "end_time": 237959.0,
+      "text": "according to your network."
+    },
+    {
+      "index": 60,
+      "start_time": 237959.0,
+      "end_time": 246040.0,
+      "text": "Please keep in mind that the esp8266 only works on 2.4ghz so type in your 2.4ghz wifi"
+    },
+    {
+      "index": 61,
+      "start_time": 246040.0,
+      "end_time": 250250.0,
+      "text": "ssid and password not your 5ghz."
+    },
+    {
+      "index": 62,
+      "start_time": 250250.0,
+      "end_time": 254430.0,
+      "text": "Also when adding the information only change what is inside the quotation marks."
+    },
+    {
+      "index": 63,
+      "start_time": 254430.0,
+      "end_time": 257400.0,
+      "text": "Next set of parameters are the Web Updater settings."
+    },
+    {
+      "index": 64,
+      "start_time": 257399.99999999997,
+      "end_time": 261808.99999999997,
+      "text": "The devices I designed are great because I implemented a web user interface for each"
+    },
+    {
+      "index": 65,
+      "start_time": 261809.00000000003,
+      "end_time": 266650.0,
+      "text": "individual device so that way if you ever have to flash new firmware you just go to"
+    },
+    {
+      "index": 66,
+      "start_time": 266650.0,
+      "end_time": 267650.0,
+      "text": "its web address."
+    },
+    {
+      "index": 67,
+      "start_time": 267650.0,
+      "end_time": 272710.0,
+      "text": "The web address information is found at that top of the code in the giant comment block."
+    },
+    {
+      "index": 68,
+      "start_time": 272710.0,
+      "end_time": 277620.0,
+      "text": "The first parameter is the hostname of the device, usually I only change the last digit"
+    },
+    {
+      "index": 69,
+      "start_time": 277620.0,
+      "end_time": 282270.0,
+      "text": "but since this is the first door sensor I will keep it as it is."
+    },
+    {
+      "index": 70,
+      "start_time": 282270.0,
+      "end_time": 285210.0,
+      "text": "Next is the update path and personally I don’t change that."
+    },
+    {
+      "index": 71,
+      "start_time": 285210.0,
+      "end_time": 290499.0,
+      "text": "After that is the web user interface username and password, these are the credentials you"
+    },
+    {
+      "index": 72,
+      "start_time": 290499.0,
+      "end_time": 294860.0,
+      "text": "use to access the webpage because each device is protected."
+    },
+    {
+      "index": 73,
+      "start_time": 294860.0,
+      "end_time": 297490.0,
+      "text": "The next set of parameters are for mqtt."
+    },
+    {
+      "index": 74,
+      "start_time": 297490.0,
+      "end_time": 302499.0,
+      "text": "The first one is the outTopic and this is the topic for which the device sends commands"
+    },
+    {
+      "index": 75,
+      "start_time": 302499.0,
+      "end_time": 304180.0,
+      "text": "to on the server."
+    },
+    {
+      "index": 76,
+      "start_time": 304180.0,
+      "end_time": 309129.0,
+      "text": "The next one is the MQTT Server Ip address and this is simply the IP address of your"
+    },
+    {
+      "index": 77,
+      "start_time": 309129.0,
+      "end_time": 311779.0,
+      "text": "home automation or openhab server."
+    },
+    {
+      "index": 78,
+      "start_time": 311779.0,
+      "end_time": 318009.0,
+      "text": "The last one is the Unique device ID and this simple differentiates each device on the MQTT"
+    },
+    {
+      "index": 79,
+      "start_time": 318009.0,
+      "end_time": 322729.0,
+      "text": "side, I usually just change the last digit for every single device."
+    },
+    {
+      "index": 80,
+      "start_time": 322729.0,
+      "end_time": 324610.0,
+      "text": "That is it the code is ready to be flashed."
+    },
+    {
+      "index": 81,
+      "start_time": 324610.0,
+      "end_time": 334550.0,
+      "text": "So go to tools and make sure the Board: is Generic ESP8266 Module and the port is COMX."
+    },
+    {
+      "index": 82,
+      "start_time": 334550.0,
+      "end_time": 338979.0,
+      "text": "Once those are good press the upload button, it is the one with an arrow pointing to the"
+    },
+    {
+      "index": 83,
+      "start_time": 338979.0,
+      "end_time": 340419.0,
+      "text": "right."
+    },
+    {
+      "index": 84,
+      "start_time": 340419.0,
+      "end_time": 345460.0,
+      "text": "When it is uploading you should see dots moving at the bottom and some percents."
+    },
+    {
+      "index": 85,
+      "start_time": 345460.0,
+      "end_time": 349979.0,
+      "text": "After it is done uploading you should see it say 100% and Done uploading."
+    },
+    {
+      "index": 86,
+      "start_time": 349979.0,
+      "end_time": 355930.0,
+      "text": "To confirm that it flashed correctly and is working you can fire up MQTT.fx, connect to"
+    },
+    {
+      "index": 87,
+      "start_time": 355930.0,
+      "end_time": 361770.0,
+      "text": "the server and in the subscribe section type in # and press subscribe."
+    },
+    {
+      "index": 88,
+      "start_time": 361770.0,
+      "end_time": 366050.0,
+      "text": "Now if you separate and bring together the two contacts of the door sensor you should"
+    },
+    {
+      "index": 89,
+      "start_time": 366050.0,
+      "end_time": 370689.0,
+      "text": "see it either say OPEN or CLOSED depending on its current status."
+    },
+    {
+      "index": 90,
+      "start_time": 370689.0,
+      "end_time": 376629.0,
+      "text": "If you do not have MQTT.fx then check out my Home Automation Server Setup Guide."
+    },
+    {
+      "index": 91,
+      "start_time": 376629.0,
+      "end_time": 380900.0,
+      "text": "Now that we know it works let&#39;s close up the device and get it ready for use with the Automation"
+    },
+    {
+      "index": 92,
+      "start_time": 380900.0,
+      "end_time": 382210.0,
+      "text": "System."
+    },
+    {
+      "index": 93,
+      "start_time": 382210.0,
+      "end_time": 386779.0,
+      "text": "First unplug the dupont wires in between the arduino and the device."
+    },
+    {
+      "index": 94,
+      "start_time": 386779.0,
+      "end_time": 391500.0,
+      "text": "Then take the 2 pin jumper and move it over so it is above RUN."
+    },
+    {
+      "index": 95,
+      "start_time": 391500.0,
+      "end_time": 394889.0,
+      "text": "After that take the lid to the device and put it on."
+    },
+    {
+      "index": 96,
+      "start_time": 394889.0,
+      "end_time": 397289.0,
+      "text": "Finally plug the device into the wall."
+    },
+    {
+      "index": 97,
+      "start_time": 397289.0,
+      "end_time": 400479.0,
+      "text": "Now the device is complete and just needs to be added to OpenHAB."
+    },
+    {
+      "index": 98,
+      "start_time": 400479.0,
+      "end_time": 403839.0,
+      "text": "So ssh into your pi or whatever your server may be."
+    },
+    {
+      "index": 99,
+      "start_time": 403839.0,
+      "end_time": 406919.0,
+      "text": "The first thing we are going to do is create the door sensor item."
+    },
+    {
+      "index": 100,
+      "start_time": 406919.0,
+      "end_time": 415600.0,
+      "text": "So type in sudo nano /etc/openhab2/items/home.items and press enter, you may need to type in admin"
+    },
+    {
+      "index": 101,
+      "start_time": 415600.0,
+      "end_time": 416600.0,
+      "text": "password."
+    },
+    {
+      "index": 102,
+      "start_time": 416600.0,
+      "end_time": 423689.0,
+      "text": "The type in the comment //Security items then underneath that we are going to create a software"
+    },
+    {
+      "index": 103,
+      "start_time": 423689.0,
+      "end_time": 426439.0,
+      "text": "switch to control the security system."
+    },
+    {
+      "index": 104,
+      "start_time": 426439.0,
+      "end_time": 431689.0,
+      "text": "Type in Switch SecuritySystem &quot;Security System&quot; and press enter."
+    },
+    {
+      "index": 105,
+      "start_time": 431689.0,
+      "end_time": 440259.0,
+      "text": "Now we are going to create the actual item type in Contact MKDoorSensor1 &quot;Door Status"
+    },
+    {
+      "index": 106,
+      "start_time": 440259.0,
+      "end_time": 445490.0,
+      "text": "[%s]&quot; &lt;door&gt; { mqtt=&quot;&lt;[broker:MK-SmartHouse/security/MK-DoorSensor1:state:default]&quot; } and press enter."
+    },
+    {
+      "index": 107,
+      "start_time": 445490.0,
+      "end_time": 448460.0,
+      "text": "Now let me go over the two items we created."
+    },
+    {
+      "index": 108,
+      "start_time": 448460.0,
+      "end_time": 452930.0,
+      "text": "The first one is a dummy switch and we will implement it later more in the rules but what"
+    },
+    {
+      "index": 109,
+      "start_time": 452930.0,
+      "end_time": 457320.0,
+      "text": "it will do is turn the openHab security system on and off."
+    },
+    {
+      "index": 110,
+      "start_time": 457320.0,
+      "end_time": 459620.0,
+      "text": "The second item is the door sensor."
+    },
+    {
+      "index": 111,
+      "start_time": 459620.0,
+      "end_time": 463600.0,
+      "text": "This is the line you would replicate if you had more door sensors."
+    },
+    {
+      "index": 112,
+      "start_time": 463600.0,
+      "end_time": 469740.0,
+      "text": "Anyway the first part is Contact and since this device is a door sensor we use contact"
+    },
+    {
+      "index": 113,
+      "start_time": 469740.0,
+      "end_time": 470770.0,
+      "text": "type."
+    },
+    {
+      "index": 114,
+      "start_time": 470770.0,
+      "end_time": 475020.0,
+      "text": "The next part is the item name and I just used its hostname without the dash."
+    },
+    {
+      "index": 115,
+      "start_time": 475020.0,
+      "end_time": 480629.0,
+      "text": "After that is the label text and it is what shows up in the interface and how it is formatted"
+    },
+    {
+      "index": 116,
+      "start_time": 480629.0,
+      "end_time": 482779.0,
+      "text": "with the name and value."
+    },
+    {
+      "index": 117,
+      "start_time": 482779.0,
+      "end_time": 486690.0,
+      "text": "Next to that is the icon name which is what picture shows up in the interface."
+    },
+    {
+      "index": 118,
+      "start_time": 486690.0,
+      "end_time": 493849.0,
+      "text": "Then lastly, we have the mqtt path to the device."
+    },
+    {
+      "index": 119,
+      "start_time": 493849.0,
+      "end_time": 497279.0,
+      "text": "Now press control x then y and enter."
+    },
+    {
+      "index": 120,
+      "start_time": 497279.0,
+      "end_time": 502529.0,
+      "text": "Next up is the sitemap file so we can see the device status and our switch."
+    },
+    {
+      "index": 121,
+      "start_time": 502529.0,
+      "end_time": 511550.0,
+      "text": "Type in sudo nano /etc/openhab2/sitemaps/home.sitemap and press enter."
+    },
+    {
+      "index": 122,
+      "start_time": 511550.0,
+      "end_time": 513050.0,
+      "text": "It will bring up the sitemap."
+    },
+    {
+      "index": 123,
+      "start_time": 513049.99999999994,
+      "end_time": 516468.99999999994,
+      "text": "If you are following along with my series then we have many different frames in our"
+    },
+    {
+      "index": 124,
+      "start_time": 516469.00000000006,
+      "end_time": 517469.00000000006,
+      "text": "sitemap."
+    },
+    {
+      "index": 125,
+      "start_time": 517469.00000000006,
+      "end_time": 521120.00000000006,
+      "text": "I am going to replace what is int the security frame with our new items."
+    },
+    {
+      "index": 126,
+      "start_time": 521120.0,
+      "end_time": 528449.0,
+      "text": "So delete the demo switch and type in Switch item=SecuritySystem and press enter and line"
+    },
+    {
+      "index": 127,
+      "start_time": 528449.0,
+      "end_time": 536220.0,
+      "text": "up your cursor underneath the S in switch and type in Text item=MKDoorSensor1 what we"
+    },
+    {
+      "index": 128,
+      "start_time": 536220.0,
+      "end_time": 539949.0,
+      "text": "did is import the items into the sitemap."
+    },
+    {
+      "index": 129,
+      "start_time": 539949.0,
+      "end_time": 542760.0,
+      "text": "Now press control x then y and enter."
+    },
+    {
+      "index": 130,
+      "start_time": 542760.0,
+      "end_time": 547819.0,
+      "text": "Before we go any furthur lets confirm that everything works so go to your web user interface"
+    },
+    {
+      "index": 131,
+      "start_time": 547819.0,
+      "end_time": 549940.0,
+      "text": "and then Basic UI."
+    },
+    {
+      "index": 132,
+      "start_time": 549940.0,
+      "end_time": 555060.0,
+      "text": "You should see the Security system switch which right now does not do do anything but"
+    },
+    {
+      "index": 133,
+      "start_time": 555060.0,
+      "end_time": 560290.0,
+      "text": "you should also see the the door sensor or in my case the side door and if you open and"
+    },
+    {
+      "index": 134,
+      "start_time": 560290.0,
+      "end_time": 563600.0,
+      "text": "close the contacts you should see the status change."
+    },
+    {
+      "index": 135,
+      "start_time": 563600.0,
+      "end_time": 570230.0,
+      "text": "Great it all works except the switch so let&#39;s fix that and make the security system do something."
+    },
+    {
+      "index": 136,
+      "start_time": 570230.0,
+      "end_time": 579050.0,
+      "text": "In terminal type in sudo nano /etc/openhab2/rules/home.rules and press enter."
+    },
+    {
+      "index": 137,
+      "start_time": 579050.0,
+      "end_time": 581560.0,
+      "text": "In the file type in //Side Door Sensor Is Open"
+    },
+    {
+      "index": 138,
+      "start_time": 581560.0,
+      "end_time": 582970.0,
+      "text": "rule &quot;Side Door Sensor&quot; when"
+    },
+    {
+      "index": 139,
+      "start_time": 582970.0,
+      "end_time": 584660.0,
+      "text": "Item MKDoorSensor1 received update OPEN then"
+    },
+    {
+      "index": 140,
+      "start_time": 584660.0,
+      "end_time": 585660.0,
+      "text": "if(SecuritySystem.state == ON) {"
+    },
+    {
+      "index": 141,
+      "start_time": 585660.0,
+      "end_time": 586660.0,
+      "text": "sendBroadcastNotification(&quot;SECURITY SYSTEM: SIDE DOOR OPEN&quot;)"
+    },
+    {
+      "index": 142,
+      "start_time": 586660.0,
+      "end_time": 587660.0,
+      "text": "} End"
+    },
+    {
+      "index": 143,
+      "start_time": 587660.0,
+      "end_time": 591519.0,
+      "text": "Let me explain what this does, it checks for whenever the door sensor sends open and if"
+    },
+    {
+      "index": 144,
+      "start_time": 591519.0,
+      "end_time": 596769.0,
+      "text": "it does, then it checks for if the security system is on and if it is then it sends every"
+    },
+    {
+      "index": 145,
+      "start_time": 596769.0,
+      "end_time": 601000.0,
+      "text": "user you setup in myopenhab.org a notification."
+    },
+    {
+      "index": 146,
+      "start_time": 601000.0,
+      "end_time": 604120.0,
+      "text": "Now press control x then y and enter."
+    },
+    {
+      "index": 147,
+      "start_time": 604120.0,
+      "end_time": 608490.0,
+      "text": "Go back to the basic UI and make sure the Security System switch is on."
+    },
+    {
+      "index": 148,
+      "start_time": 608490.0,
+      "end_time": 610850.0,
+      "text": "Now make the door sensor closed then open."
+    },
+    {
+      "index": 149,
+      "start_time": 610850.0,
+      "end_time": 614899.0,
+      "text": "If everything works right and you have a mobile device setup with openhab then you should"
+    },
+    {
+      "index": 150,
+      "start_time": 614899.0,
+      "end_time": 616839.0,
+      "text": "get a notification."
+    },
+    {
+      "index": 151,
+      "start_time": 616839.0,
+      "end_time": 620810.0,
+      "text": "Also if you turn of the switch then you will not get notifications."
+    },
+    {
+      "index": 152,
+      "start_time": 620810.0,
+      "end_time": 621810.0,
+      "text": "That is it!"
+    },
+    {
+      "index": 153,
+      "start_time": 621810.0,
+      "end_time": 626430.0,
+      "text": "The software is complete, now all we have to do is install the device in its final place"
+    },
+    {
+      "index": 154,
+      "start_time": 626430.0,
+      "end_time": 630399.0,
+      "text": "which will be completed in the next final installation video."
+    },
+    {
+      "index": 155,
+      "start_time": 630399.0,
+      "end_time": 632930.0,
+      "text": "Alright thank you for watching and If you have any questions leave them in the comments"
+    },
+    {
+      "index": 156,
+      "start_time": 632930.0,
+      "end_time": 637850.0,
+      "text": "section below or head over to mksmarthouse.com/forum where you have a better chance of it getting"
+    },
+    {
+      "index": 157,
+      "start_time": 637850.0,
+      "end_time": 638850.0,
+      "text": "answered."
+    },
+    {
+      "index": 158,
+      "start_time": 638850.0,
+      "end_time": 648850.0,
+      "text": "Good Bye!"
+    }
+  ]
+}

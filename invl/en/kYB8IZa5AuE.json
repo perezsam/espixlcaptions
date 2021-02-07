@@ -1,0 +1,1080 @@
+{
+  "video_id": "kYB8IZa5AuE",
+  "title": "Linear transformations and matrices | Essence of linear algebra, chapter 3",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3860.0,
+      "end_time": 8800.0,
+      "text": "Unfortunately, no one can be told, what the\nMatrix is. You have to see it for yourself.\n- Morpheus"
+    },
+    {
+      "index": 2,
+      "start_time": 8960.0,
+      "end_time": 11680.0,
+      "text": "Surprisingly apt words on the importance of\nunderstanding matrix operations visually"
+    },
+    {
+      "index": 3,
+      "start_time": 11920.0,
+      "end_time": 13040.0,
+      "text": "Hey everyone!"
+    },
+    {
+      "index": 4,
+      "start_time": 13040.0,
+      "end_time": 15420.0,
+      "text": "If I had to choose just one topic that makes"
+    },
+    {
+      "index": 5,
+      "start_time": 15420.0,
+      "end_time": 17920.0,
+      "text": "all of the others in linear algebra start to click"
+    },
+    {
+      "index": 6,
+      "start_time": 17920.0,
+      "end_time": 21120.0,
+      "text": "and which too often goes unlearned the first\ntime a student takes linear algebra,"
+    },
+    {
+      "index": 7,
+      "start_time": 21130.0,
+      "end_time": 25170.0,
+      "text": "it would be this one:\nthe idea of a linear transformation and its"
+    },
+    {
+      "index": 8,
+      "start_time": 25170.0,
+      "end_time": 27170.0,
+      "text": "relation to matrices."
+    },
+    {
+      "index": 9,
+      "start_time": 27170.0,
+      "end_time": 30900.0,
+      "text": "For this video, I'm just going to focus on\nwhat these transformations look like in the"
+    },
+    {
+      "index": 10,
+      "start_time": 30900.0,
+      "end_time": 32250.0,
+      "text": "case of two dimensions"
+    },
+    {
+      "index": 11,
+      "start_time": 32250.0,
+      "end_time": 35930.0,
+      "text": "and how they relate to the idea of matrix-vector\nmultiplication."
+    },
+    {
+      "index": 12,
+      "start_time": 35930.0,
+      "end_time": 40340.0,
+      "text": "In particular, I want to show you a way to\nthink about matrix-vector multiplication that"
+    },
+    {
+      "index": 13,
+      "start_time": 40340.0,
+      "end_time": 43219.0,
+      "text": "doesn't rely on memorization."
+    },
+    {
+      "index": 14,
+      "start_time": 43219.0,
+      "end_time": 47019.0,
+      "text": "To start, let's just parse this term “linear\ntransformation”."
+    },
+    {
+      "index": 15,
+      "start_time": 47019.0,
+      "end_time": 50510.0,
+      "text": "“Transformation” is essentially a fancy\nword for “function”."
+    },
+    {
+      "index": 16,
+      "start_time": 50510.0,
+      "end_time": 54829.0,
+      "text": "It's something that takes in inputs and spits\nout an output for each one."
+    },
+    {
+      "index": 17,
+      "start_time": 54829.0,
+      "end_time": 58399.0,
+      "text": "Specifically in the context of linear algebra,\nwe like to think about transformations that"
+    },
+    {
+      "index": 18,
+      "start_time": 58399.0,
+      "end_time": 62579.0,
+      "text": "take in some vector and spit out another vector."
+    },
+    {
+      "index": 19,
+      "start_time": 62579.0,
+      "end_time": 66880.0,
+      "text": "So why use the word “transformation” instead\nof “function” if they mean the same thing?"
+    },
+    {
+      "index": 20,
+      "start_time": 66880.0,
+      "end_time": 67880.0,
+      "text": "Well,"
+    },
+    {
+      "index": 21,
+      "start_time": 67880.0,
+      "end_time": 71880.0,
+      "text": "it's to be suggestive of a certain way to\nvisualize this input-output relation."
+    },
+    {
+      "index": 22,
+      "start_time": 71880.0,
+      "end_time": 76990.0,
+      "text": "You see, a great way to understand functions\nof vectors is to use movement."
+    },
+    {
+      "index": 23,
+      "start_time": 76990.0,
+      "end_time": 81060.0,
+      "text": "If a transformation takes some input vector\nto some output vector,"
+    },
+    {
+      "index": 24,
+      "start_time": 81060.0,
+      "end_time": 85820.0,
+      "text": "we imagine that input vector moving over to\nthe output vector."
+    },
+    {
+      "index": 25,
+      "start_time": 85820.0,
+      "end_time": 88220.0,
+      "text": "Then to understand the transformation as a\nwhole,"
+    },
+    {
+      "index": 26,
+      "start_time": 88220.0,
+      "end_time": 95159.0,
+      "text": "we might imagine watching every possible input\nvector move over to its corresponding output vector."
+    },
+    {
+      "index": 27,
+      "start_time": 95159.0,
+      "end_time": 99419.0,
+      "text": "It gets really crowded to think about all\nof the vectors all at once, each one is an arrow,"
+    },
+    {
+      "index": 28,
+      "start_time": 99420.0,
+      "end_time": 104360.0,
+      "text": "So, as I mentioned last video, a nice trick\nis to conceptualize each vector, not as an arrow,"
+    },
+    {
+      "index": 29,
+      "start_time": 104360.0,
+      "end_time": 107860.0,
+      "text": "but as a single point: the point where its\ntip sits."
+    },
+    {
+      "index": 30,
+      "start_time": 107860.0,
+      "end_time": 113100.0,
+      "text": "That way to think about a transformation taking\nevery possible input vector to some output vector,"
+    },
+    {
+      "index": 31,
+      "start_time": 113100.0,
+      "end_time": 117159.0,
+      "text": "we watch every point in space moving to some\nother point."
+    },
+    {
+      "index": 32,
+      "start_time": 117159.0,
+      "end_time": 119379.0,
+      "text": "In the case of transformations in two dimensions,"
+    },
+    {
+      "index": 33,
+      "start_time": 119380.0,
+      "end_time": 122860.0,
+      "text": "to get a better feel for the whole “shape”\nof the transformation,"
+    },
+    {
+      "index": 34,
+      "start_time": 122860.0,
+      "end_time": 126130.0,
+      "text": "I like to do this with all of the points on\nan infinite grid."
+    },
+    {
+      "index": 35,
+      "start_time": 126130.0,
+      "end_time": 129410.0,
+      "text": "I also sometimes like to keep a copy of the\ngrid in the background,"
+    },
+    {
+      "index": 36,
+      "start_time": 129410.0,
+      "end_time": 134810.0,
+      "text": "just to help keep track of where everything\nends up relative to where it starts."
+    },
+    {
+      "index": 37,
+      "start_time": 134810.0,
+      "end_time": 139260.0,
+      "text": "The effect for various transformations, moving\naround all of the points in space, is,"
+    },
+    {
+      "index": 38,
+      "start_time": 139270.0,
+      "end_time": 140570.0,
+      "text": "you've got to admit,"
+    },
+    {
+      "index": 39,
+      "start_time": 140570.0,
+      "end_time": 141720.0,
+      "text": "beautiful."
+    },
+    {
+      "index": 40,
+      "start_time": 141720.0,
+      "end_time": 145480.0,
+      "text": "It gives the feeling of squishing and morphing\nspace itself."
+    },
+    {
+      "index": 41,
+      "start_time": 145480.0,
+      "end_time": 150360.0,
+      "text": "As you can imagine, though arbitrary transformations\ncan look pretty complicated,"
+    },
+    {
+      "index": 42,
+      "start_time": 150370.0,
+      "end_time": 154450.0,
+      "text": "but luckily linear algebra limits itself to\na special type of transformation,"
+    },
+    {
+      "index": 43,
+      "start_time": 154450.0,
+      "end_time": 159100.0,
+      "text": "ones that are easier to understand, called\n“linear” transformations."
+    },
+    {
+      "index": 44,
+      "start_time": 159100.0,
+      "end_time": 163600.0,
+      "text": "Visually speaking, a transformation is linear\nif it has two properties:"
+    },
+    {
+      "index": 45,
+      "start_time": 163600.0,
+      "end_time": 167240.0,
+      "text": "all lines must remain lines, without getting\ncurved,"
+    },
+    {
+      "index": 46,
+      "start_time": 167240.0,
+      "end_time": 170500.0,
+      "text": "and the origin must remain fixed in place."
+    },
+    {
+      "index": 47,
+      "start_time": 170500.0,
+      "end_time": 175980.0,
+      "text": "For example, this right here would not be\na linear transformation since the lines get all curvy"
+    },
+    {
+      "index": 48,
+      "start_time": 175980.0,
+      "end_time": 178860.0,
+      "text": "and this one right here, although it keeps\nthe line straight,"
+    },
+    {
+      "index": 49,
+      "start_time": 178870.0,
+      "end_time": 182620.0,
+      "text": "is not a linear transformation because it\nmoves the origin."
+    },
+    {
+      "index": 50,
+      "start_time": 182620.0,
+      "end_time": 186040.0,
+      "text": "This one here fixes the origin and it might\nlook like it keeps line straight,"
+    },
+    {
+      "index": 51,
+      "start_time": 186040.0,
+      "end_time": 189190.0,
+      "text": "but that's just because I'm only showing the\nhorizontal and vertical grid lines,"
+    },
+    {
+      "index": 52,
+      "start_time": 189190.0,
+      "end_time": 193519.0,
+      "text": "when you see what it does to a diagonal line,\nit becomes clear that it's not at all linear"
+    },
+    {
+      "index": 53,
+      "start_time": 193519.0,
+      "end_time": 196619.0,
+      "text": "since it turns that line all curvy."
+    },
+    {
+      "index": 54,
+      "start_time": 196620.0,
+      "end_time": 202420.0,
+      "text": "In general, you should think of linear transformations\nas keeping grid lines parallel and evenly spaced."
+    },
+    {
+      "index": 55,
+      "start_time": 203220.0,
+      "end_time": 207980.0,
+      "text": "Some linear transformations are simple to\nthink about, like rotations about the origin."
+    },
+    {
+      "index": 56,
+      "start_time": 207980.0,
+      "end_time": 212080.0,
+      "text": "Others are a little trickier to describe with\nwords."
+    },
+    {
+      "index": 57,
+      "start_time": 212080.0,
+      "end_time": 215920.0,
+      "text": "So how do you think you could describe these\ntransformations numerically?"
+    },
+    {
+      "index": 58,
+      "start_time": 215920.0,
+      "end_time": 219940.0,
+      "text": "If you were, say, programming some animations\nto make a video teaching the topic"
+    },
+    {
+      "index": 59,
+      "start_time": 219950.0,
+      "end_time": 224150.0,
+      "text": "what formula do you give the computer so that\nif you give it the coordinates of a vector,"
+    },
+    {
+      "index": 60,
+      "start_time": 224150.0,
+      "end_time": 228310.0,
+      "text": "it can give you the coordinates of where that\nvector lands?"
+    },
+    {
+      "index": 61,
+      "start_time": 228310.0,
+      "end_time": 234760.0,
+      "text": "It turns out that you only need to record where the two basis vectors, i-hat and j-hat, each land."
+    },
+    {
+      "index": 62,
+      "start_time": 234760.0,
+      "end_time": 237220.0,
+      "text": "and everything else will follow from that."
+    },
+    {
+      "index": 63,
+      "start_time": 237220.0,
+      "end_time": 241640.0,
+      "text": "For example, consider the vector v with coordinates\n(-1,2),"
+    },
+    {
+      "index": 64,
+      "start_time": 241640.0,
+      "end_time": 248860.0,
+      "text": "meaning that it equals -1 times i-hat + 2\ntimes j-hat."
+    },
+    {
+      "index": 65,
+      "start_time": 248860.0,
+      "end_time": 253090.0,
+      "text": "If we play some transformation and follow\nwhere all three of these vectors go"
+    },
+    {
+      "index": 66,
+      "start_time": 253090.0,
+      "end_time": 258940.0,
+      "text": "the property that grid lines remain parallel\nand evenly spaced has a really important consequence:"
+    },
+    {
+      "index": 67,
+      "start_time": 258940.0,
+      "end_time": 262940.0,
+      "text": "the place where v lands will be -1 times the\nvector where i-hat landed"
+    },
+    {
+      "index": 68,
+      "start_time": 262940.0,
+      "end_time": 265820.0,
+      "text": "plus 2 times the vector where j-hat landed."
+    },
+    {
+      "index": 69,
+      "start_time": 265820.0,
+      "end_time": 270280.0,
+      "text": "In other words, it started off as a certain\nlinear combination of i-hat and j-hat"
+    },
+    {
+      "index": 70,
+      "start_time": 270280.0,
+      "end_time": 275400.0,
+      "text": "and it ends up is that same linear combination\nof where those two vectors landed."
+    },
+    {
+      "index": 71,
+      "start_time": 275400.0,
+      "end_time": 281412.0,
+      "text": "This means you can deduce where v must go\nbased only on where i-hat and j-hat each land."
+    },
+    {
+      "index": 72,
+      "start_time": 281420.0,
+      "end_time": 284910.0,
+      "text": "This is why I like keeping a copy of the original\ngrid in the background;"
+    },
+    {
+      "index": 73,
+      "start_time": 284910.0,
+      "end_time": 291010.0,
+      "text": "for the transformation shown here we can read\noff that i-hat lands on the coordinates (1,-2)."
+    },
+    {
+      "index": 74,
+      "start_time": 291320.0,
+      "end_time": 295360.0,
+      "text": "and j-hat lands on the x-axis over at the\ncoordinates (3, 0)."
+    },
+    {
+      "index": 75,
+      "start_time": 295700.0,
+      "end_time": 300180.0,
+      "text": "This means that the vector represented by\n(-1) i-hat + 2 times j-hat"
+    },
+    {
+      "index": 76,
+      "start_time": 300180.0,
+      "end_time": 306860.0,
+      "text": "ends up at (-1) times the vector (1, -2) +\n2 times the vector (3, 0)."
+    },
+    {
+      "index": 77,
+      "start_time": 306860.0,
+      "end_time": 312960.0,
+      "text": "Adding that all together, you can deduce that\nit has to land on the vector (5, 2)."
+    },
+    {
+      "index": 78,
+      "start_time": 314320.0,
+      "end_time": 317750.0,
+      "text": "This is a good point to pause and ponder,\nbecause it's pretty important."
+    },
+    {
+      "index": 79,
+      "start_time": 318260.0,
+      "end_time": 321820.0,
+      "text": "Now, given that I'm actually showing you the full transformation,"
+    },
+    {
+      "index": 80,
+      "start_time": 321820.0,
+      "end_time": 325560.0,
+      "text": "you could have just looked to see the v has\nthe coordinates (5, 2),"
+    },
+    {
+      "index": 81,
+      "start_time": 325560.0,
+      "end_time": 330300.0,
+      "text": "but the cool part here is that this gives\nus a technique to deduce where any vectors land,"
+    },
+    {
+      "index": 82,
+      "start_time": 330300.0,
+      "end_time": 334800.0,
+      "text": "so long as we have a record of where i-hat\nand j-hat each land,"
+    },
+    {
+      "index": 83,
+      "start_time": 334800.0,
+      "end_time": 338490.0,
+      "text": "without needing to watch the transformation\nitself."
+    },
+    {
+      "index": 84,
+      "start_time": 338490.0,
+      "end_time": 341960.0,
+      "text": "Write the vector with more general coordinates\nx and y,"
+    },
+    {
+      "index": 85,
+      "start_time": 341960.0,
+      "end_time": 347170.0,
+      "text": "and it will land on x times the vector where\ni-hat lands (1, -2),"
+    },
+    {
+      "index": 86,
+      "start_time": 347170.0,
+      "end_time": 351690.0,
+      "text": "plus y times the vector where j-hat lands\n(3, 0)."
+    },
+    {
+      "index": 87,
+      "start_time": 351690.0,
+      "end_time": 358600.0,
+      "text": "Carrying out that sum, you see that it lands\nat (1x+3y, -2x+0y)."
+    },
+    {
+      "index": 88,
+      "start_time": 358600.0,
+      "end_time": 364700.0,
+      "text": "I give you any vector, and you can tell me\nwhere that vector lands using this formula"
+    },
+    {
+      "index": 89,
+      "start_time": 364700.0,
+      "end_time": 368860.0,
+      "text": "what all of this is saying is that a two dimensional\nlinear transformation"
+    },
+    {
+      "index": 90,
+      "start_time": 368870.0,
+      "end_time": 372010.0,
+      "text": "is completely described by just four numbers:"
+    },
+    {
+      "index": 91,
+      "start_time": 372010.0,
+      "end_time": 374190.0,
+      "text": "the two coordinates for where i-hat lands"
+    },
+    {
+      "index": 92,
+      "start_time": 374190.0,
+      "end_time": 376750.0,
+      "text": "and the two coordinates for where j-hat lands."
+    },
+    {
+      "index": 93,
+      "start_time": 376750.0,
+      "end_time": 378250.0,
+      "text": "Isn't that cool?"
+    },
+    {
+      "index": 94,
+      "start_time": 378250.0,
+      "end_time": 381820.0,
+      "text": "it's common to package these coordinates into a two-by-two grid of numbers,"
+    },
+    {
+      "index": 95,
+      "start_time": 381820.0,
+      "end_time": 383960.0,
+      "text": "called a two-by-two matrix,"
+    },
+    {
+      "index": 96,
+      "start_time": 383960.0,
+      "end_time": 387460.0,
+      "text": "where you can interpret the columns as the two special vectors"
+    },
+    {
+      "index": 97,
+      "start_time": 387460.0,
+      "end_time": 389820.0,
+      "text": "where i-hat and j-hat each land."
+    },
+    {
+      "index": 98,
+      "start_time": 390240.0,
+      "end_time": 393960.0,
+      "text": "If you're given a two-by-two matrix describing\na linear transformation"
+    },
+    {
+      "index": 99,
+      "start_time": 393960.0,
+      "end_time": 395510.0,
+      "text": "and some specific vector"
+    },
+    {
+      "index": 100,
+      "start_time": 395510.0,
+      "end_time": 400130.0,
+      "text": "and you want to know where that linear transformation\ntakes that vector,"
+    },
+    {
+      "index": 101,
+      "start_time": 400130.0,
+      "end_time": 402281.0,
+      "text": "you can take the coordinates of the vector"
+    },
+    {
+      "index": 102,
+      "start_time": 402281.0,
+      "end_time": 407601.0,
+      "text": "multiply them by the corresponding columns\nof the matrix, then add together what you get."
+    },
+    {
+      "index": 103,
+      "start_time": 407980.0,
+      "end_time": 414460.0,
+      "text": "This corresponds with the idea of adding the\nscaled versions of our new basis vectors."
+    },
+    {
+      "index": 104,
+      "start_time": 414780.0,
+      "end_time": 417480.0,
+      "text": "Let's see what this looks like in the most\ngeneral case"
+    },
+    {
+      "index": 105,
+      "start_time": 417480.0,
+      "end_time": 420920.0,
+      "text": "where your matrix has entries a, b, c, d"
+    },
+    {
+      "index": 106,
+      "start_time": 420920.0,
+      "end_time": 425030.0,
+      "text": "and remember, this matrix is just a way of\npackaging the information needed to describe"
+    },
+    {
+      "index": 107,
+      "start_time": 425030.0,
+      "end_time": 426640.0,
+      "text": "a linear transformation."
+    },
+    {
+      "index": 108,
+      "start_time": 426640.0,
+      "end_time": 429850.0,
+      "text": "Always remember to interpret that first column,\n(a, c),"
+    },
+    {
+      "index": 109,
+      "start_time": 429850.0,
+      "end_time": 432280.0,
+      "text": "as the place where the first basis vector\nlands"
+    },
+    {
+      "index": 110,
+      "start_time": 432280.0,
+      "end_time": 437300.0,
+      "text": "and that second column, (b, d), is the place\nwhere the second basis vector lands."
+    },
+    {
+      "index": 111,
+      "start_time": 437300.0,
+      "end_time": 441500.0,
+      "text": "When we apply this transformation to some\nvector (x, y), what do you get?"
+    },
+    {
+      "index": 112,
+      "start_time": 441800.0,
+      "end_time": 442720.0,
+      "text": "Well,"
+    },
+    {
+      "index": 113,
+      "start_time": 442720.0,
+      "end_time": 447880.0,
+      "text": "it'll be x times (a, c) plus y times (b, d)."
+    },
+    {
+      "index": 114,
+      "start_time": 447960.0,
+      "end_time": 453780.0,
+      "text": "Putting this together, you get a vector (ax+by,\ncx+dy)."
+    },
+    {
+      "index": 115,
+      "start_time": 454120.0,
+      "end_time": 457860.0,
+      "text": "You can even define this as matrix-vector\nmultiplication"
+    },
+    {
+      "index": 116,
+      "start_time": 457870.0,
+      "end_time": 460160.0,
+      "text": "when you put the matrix on the left of the\nvector"
+    },
+    {
+      "index": 117,
+      "start_time": 460160.0,
+      "end_time": 461340.0,
+      "text": "like it's a function."
+    },
+    {
+      "index": 118,
+      "start_time": 461340.0,
+      "end_time": 463860.0,
+      "text": "Then, you could make high schoolers memorize\nthis,"
+    },
+    {
+      "index": 119,
+      "start_time": 463860.0,
+      "end_time": 467580.0,
+      "text": "without showing them the crucial part that\nmakes it feel intuitive."
+    },
+    {
+      "index": 120,
+      "start_time": 467580.0,
+      "end_time": 468580.0,
+      "text": "But,"
+    },
+    {
+      "index": 121,
+      "start_time": 468580.0,
+      "end_time": 470580.0,
+      "text": "isn't it more fun to think about these columns"
+    },
+    {
+      "index": 122,
+      "start_time": 470580.0,
+      "end_time": 473500.0,
+      "text": "as the transformed versions of your basis\nvectors"
+    },
+    {
+      "index": 123,
+      "start_time": 473500.0,
+      "end_time": 474960.0,
+      "text": "and to think about the results"
+    },
+    {
+      "index": 124,
+      "start_time": 474960.0,
+      "end_time": 480800.0,
+      "text": "as the appropriate linear combination of those\nvectors?"
+    },
+    {
+      "index": 125,
+      "start_time": 480800.0,
+      "end_time": 484281.0,
+      "text": "Let's practice describing a few linear transformations\nwith matrices."
+    },
+    {
+      "index": 126,
+      "start_time": 484281.0,
+      "end_time": 485280.0,
+      "text": "For example,"
+    },
+    {
+      "index": 127,
+      "start_time": 485280.0,
+      "end_time": 488980.0,
+      "text": "if we rotate all of space 90° counterclockwise"
+    },
+    {
+      "index": 128,
+      "start_time": 488980.0,
+      "end_time": 494040.0,
+      "text": "then i-hat lands on the coordinates (0, 1)"
+    },
+    {
+      "index": 129,
+      "start_time": 494040.0,
+      "end_time": 497800.0,
+      "text": "and j-hat lands on the coordinates (-1, 0)."
+    },
+    {
+      "index": 130,
+      "start_time": 497800.0,
+      "end_time": 502420.0,
+      "text": "So the matrix we end up with has columns\n(0, 1), (-1, 0)."
+    },
+    {
+      "index": 131,
+      "start_time": 503040.0,
+      "end_time": 506570.0,
+      "text": "To figure out what happens to any vector after\n90° rotation,"
+    },
+    {
+      "index": 132,
+      "start_time": 506570.0,
+      "end_time": 511350.0,
+      "text": "you could just multiply its coordinates by\nthis matrix."
+    },
+    {
+      "index": 133,
+      "start_time": 511350.0,
+      "end_time": 514840.0,
+      "text": "Here's a fun transformation with a special\nname, called a “shear”."
+    },
+    {
+      "index": 134,
+      "start_time": 514840.00000000006,
+      "end_time": 516840.00000000006,
+      "text": "In it, i-hat remains fixed"
+    },
+    {
+      "index": 135,
+      "start_time": 516840.00000000006,
+      "end_time": 519520.00000000006,
+      "text": "so the first column of the matrix is (1, 0),"
+    },
+    {
+      "index": 136,
+      "start_time": 519520.0,
+      "end_time": 523151.0,
+      "text": "but j-hat moves over to the coordinates (1,1)"
+    },
+    {
+      "index": 137,
+      "start_time": 523159.99999999994,
+      "end_time": 525590.0,
+      "text": "which become the second column of the matrix."
+    },
+    {
+      "index": 138,
+      "start_time": 525860.0,
+      "end_time": 527880.0,
+      "text": "And, at the risk of being redundant here,"
+    },
+    {
+      "index": 139,
+      "start_time": 527880.0,
+      "end_time": 530760.0,
+      "text": "figuring out how a shear transforms a given\nvector"
+    },
+    {
+      "index": 140,
+      "start_time": 530760.0,
+      "end_time": 535680.0,
+      "text": "comes down to multiplying this matrix by that\nvector."
+    },
+    {
+      "index": 141,
+      "start_time": 535680.0,
+      "end_time": 537460.0,
+      "text": "Let's say we want to go the other way around,"
+    },
+    {
+      "index": 142,
+      "start_time": 537460.0,
+      "end_time": 541660.0,
+      "text": "starting with the matrix, say with columns\n(1, 2) and (3, 1),"
+    },
+    {
+      "index": 143,
+      "start_time": 541660.0,
+      "end_time": 544700.0,
+      "text": "and we want to deduce what its transformation\nlooks like."
+    },
+    {
+      "index": 144,
+      "start_time": 544700.0,
+      "end_time": 548400.0,
+      "text": "Pause and take a moment to see if you can\nimagine it."
+    },
+    {
+      "index": 145,
+      "start_time": 548400.0,
+      "end_time": 549540.0,
+      "text": "One way to do this"
+    },
+    {
+      "index": 146,
+      "start_time": 549540.0,
+      "end_time": 552690.0,
+      "text": "is to first move i-hat to (1, 2)."
+    },
+    {
+      "index": 147,
+      "start_time": 552690.0,
+      "end_time": 555340.0,
+      "text": "Then, move j-hat to (3, 1)."
+    },
+    {
+      "index": 148,
+      "start_time": 555340.0,
+      "end_time": 557280.0,
+      "text": "Always moving the rest of space in such a\nway"
+    },
+    {
+      "index": 149,
+      "start_time": 557280.0,
+      "end_time": 561880.0,
+      "text": "that keeps grid lines parallel and evenly\nspaced."
+    },
+    {
+      "index": 150,
+      "start_time": 561880.0,
+      "end_time": 565560.0,
+      "text": "If the vectors that i-hat and j-hat land on\nare linearly dependent"
+    },
+    {
+      "index": 151,
+      "start_time": 565560.0,
+      "end_time": 567540.0,
+      "text": "which, if you recall from last video,"
+    },
+    {
+      "index": 152,
+      "start_time": 567540.0,
+      "end_time": 570540.0,
+      "text": "means that one is a scaled version of the\nother."
+    },
+    {
+      "index": 153,
+      "start_time": 570540.0,
+      "end_time": 574700.0,
+      "text": "It means that the linear transformation squishes\nall of 2D space"
+    },
+    {
+      "index": 154,
+      "start_time": 574700.0,
+      "end_time": 577300.0,
+      "text": "on to the line where those two vectors sit,"
+    },
+    {
+      "index": 155,
+      "start_time": 577300.0,
+      "end_time": 579760.0,
+      "text": "also known as the one-dimensional span"
+    },
+    {
+      "index": 156,
+      "start_time": 579760.0,
+      "end_time": 583560.0,
+      "text": "of those two linearly dependent vectors."
+    },
+    {
+      "index": 157,
+      "start_time": 584740.0,
+      "end_time": 586920.0,
+      "text": "To sum up, linear transformations"
+    },
+    {
+      "index": 158,
+      "start_time": 586920.0,
+      "end_time": 588840.0,
+      "text": "are a way to move around space"
+    },
+    {
+      "index": 159,
+      "start_time": 588840.0,
+      "end_time": 592060.0,
+      "text": "such that the grid lines remain parallel and\nevenly spaced"
+    },
+    {
+      "index": 160,
+      "start_time": 592060.0,
+      "end_time": 594420.0,
+      "text": "and such that the origin remains fixed."
+    },
+    {
+      "index": 161,
+      "start_time": 594420.0,
+      "end_time": 595080.0,
+      "text": "Delightfully,"
+    },
+    {
+      "index": 162,
+      "start_time": 595080.0,
+      "end_time": 598980.0,
+      "text": "these transformations can be described using\nonly a handful of numbers."
+    },
+    {
+      "index": 163,
+      "start_time": 598980.0,
+      "end_time": 602260.0,
+      "text": "The coordinates of where each basis vector\nlands."
+    },
+    {
+      "index": 164,
+      "start_time": 602500.0,
+      "end_time": 606120.0,
+      "text": "Matrices give us a language to describe these\ntransformations"
+    },
+    {
+      "index": 165,
+      "start_time": 606120.0,
+      "end_time": 608920.0,
+      "text": "where the columns represent those coordinates"
+    },
+    {
+      "index": 166,
+      "start_time": 608920.0,
+      "end_time": 612160.0,
+      "text": "and matrix-vector multiplication is just a\nway to compute"
+    },
+    {
+      "index": 167,
+      "start_time": 612160.0,
+      "end_time": 615180.0,
+      "text": "what that transformation does to a given vector."
+    },
+    {
+      "index": 168,
+      "start_time": 615180.0,
+      "end_time": 617110.0,
+      "text": "The important take-away here is that,"
+    },
+    {
+      "index": 169,
+      "start_time": 617110.0,
+      "end_time": 618730.0,
+      "text": "every time you see a matrix,"
+    },
+    {
+      "index": 170,
+      "start_time": 618730.0,
+      "end_time": 622550.0,
+      "text": "you can interpret it as a certain transformation\nof space."
+    },
+    {
+      "index": 171,
+      "start_time": 622550.0,
+      "end_time": 624400.0,
+      "text": "Once you really digest this idea,"
+    },
+    {
+      "index": 172,
+      "start_time": 624400.0,
+      "end_time": 627550.0,
+      "text": "you're in a great position to understand linear\nalgebra deeply."
+    },
+    {
+      "index": 173,
+      "start_time": 627550.0,
+      "end_time": 629580.0,
+      "text": "Almost all of the topics coming up,"
+    },
+    {
+      "index": 174,
+      "start_time": 629580.0,
+      "end_time": 632070.0,
+      "text": "from matrix multiplication to determinant,"
+    },
+    {
+      "index": 175,
+      "start_time": 632070.0,
+      "end_time": 634180.0,
+      "text": "change of basis, eigenvalues, ..."
+    },
+    {
+      "index": 176,
+      "start_time": 634180.0,
+      "end_time": 636660.0,
+      "text": "all of these will become easier to understand"
+    },
+    {
+      "index": 177,
+      "start_time": 636660.0,
+      "end_time": 641000.0,
+      "text": "once you start thinking about matrices as\ntransformations of space."
+    },
+    {
+      "index": 178,
+      "start_time": 641100.0,
+      "end_time": 643100.0,
+      "text": "Most immediately, in the next video"
+    },
+    {
+      "index": 179,
+      "start_time": 643100.0,
+      "end_time": 646760.0,
+      "text": "I'll be talking about multiplying two matrices together. See you then!"
+    }
+  ]
+}

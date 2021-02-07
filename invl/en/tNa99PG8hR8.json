@@ -1,0 +1,1032 @@
+{
+  "video_id": "tNa99PG8hR8",
+  "title": "Visualizing a Decision Tree - Machine Learning Recipes #2",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 2802.0,
+      "text": "[MUSIC PLAYING]"
+    },
+    {
+      "index": 2,
+      "start_time": 6550.0,
+      "end_time": 9370.0,
+      "text": "Last episode, we used a decision tree as our classifier."
+    },
+    {
+      "index": 3,
+      "start_time": 9370.0,
+      "end_time": 10920.0,
+      "text": "Today we'll add code to visualize it"
+    },
+    {
+      "index": 4,
+      "start_time": 10920.0,
+      "end_time": 13032.0,
+      "text": "so we can see how it works under the hood."
+    },
+    {
+      "index": 5,
+      "start_time": 13032.0,
+      "end_time": 14490.0,
+      "text": "There are many types of classifiers"
+    },
+    {
+      "index": 6,
+      "start_time": 14490.0,
+      "end_time": 16740.0,
+      "text": "you may have heard of before-- things like neural nets"
+    },
+    {
+      "index": 7,
+      "start_time": 16740.0,
+      "end_time": 17870.0,
+      "text": "or support vector machines."
+    },
+    {
+      "index": 8,
+      "start_time": 17870.0,
+      "end_time": 20234.0,
+      "text": "So why did we use a decision tree to start?"
+    },
+    {
+      "index": 9,
+      "start_time": 20234.0,
+      "end_time": 21900.0,
+      "text": "Well, they have a very unique property--"
+    },
+    {
+      "index": 10,
+      "start_time": 21900.0,
+      "end_time": 23907.0,
+      "text": "they're easy to read and understand."
+    },
+    {
+      "index": 11,
+      "start_time": 23907.0,
+      "end_time": 26490.0,
+      "text": "In fact, they're one of the few models that are interpretable,"
+    },
+    {
+      "index": 12,
+      "start_time": 26490.0,
+      "end_time": 28900.0,
+      "text": "where you can understand exactly why the classifier makes"
+    },
+    {
+      "index": 13,
+      "start_time": 28900.0,
+      "end_time": 29740.0,
+      "text": "a decision."
+    },
+    {
+      "index": 14,
+      "start_time": 29740.0,
+      "end_time": 33534.0,
+      "text": "That's amazingly useful in practice."
+    },
+    {
+      "index": 15,
+      "start_time": 33534.0,
+      "end_time": 34950.0,
+      "text": "To get started, I'll introduce you"
+    },
+    {
+      "index": 16,
+      "start_time": 34950.0,
+      "end_time": 37080.0,
+      "text": "to a real data set we'll work with today."
+    },
+    {
+      "index": 17,
+      "start_time": 37080.0,
+      "end_time": 38670.0,
+      "text": "It's called Iris."
+    },
+    {
+      "index": 18,
+      "start_time": 38670.0,
+      "end_time": 41170.0,
+      "text": "Iris is a classic machine learning problem."
+    },
+    {
+      "index": 19,
+      "start_time": 41170.0,
+      "end_time": 43270.0,
+      "text": "In it, you want to identify what type of flower"
+    },
+    {
+      "index": 20,
+      "start_time": 43270.0,
+      "end_time": 45010.0,
+      "text": "you have based on different measurements,"
+    },
+    {
+      "index": 21,
+      "start_time": 45010.0,
+      "end_time": 46980.0,
+      "text": "like the length and width of the petal."
+    },
+    {
+      "index": 22,
+      "start_time": 46980.0,
+      "end_time": 49600.0,
+      "text": "The data set includes three different types of flowers."
+    },
+    {
+      "index": 23,
+      "start_time": 49600.0,
+      "end_time": 52870.0,
+      "text": "They're all species of iris-- setosa, versicolor,"
+    },
+    {
+      "index": 24,
+      "start_time": 52870.0,
+      "end_time": 53966.0,
+      "text": "and virginica."
+    },
+    {
+      "index": 25,
+      "start_time": 53966.0,
+      "end_time": 55340.0,
+      "text": "Scrolling down, you can see we're"
+    },
+    {
+      "index": 26,
+      "start_time": 55340.0,
+      "end_time": 60025.0,
+      "text": "given 50 examples of each type, so 150 examples total."
+    },
+    {
+      "index": 27,
+      "start_time": 60025.0,
+      "end_time": 61650.0,
+      "text": "Notice there are four features that are"
+    },
+    {
+      "index": 28,
+      "start_time": 61650.0,
+      "end_time": 63620.0,
+      "text": "used to describe each example."
+    },
+    {
+      "index": 29,
+      "start_time": 63620.0,
+      "end_time": 66670.0,
+      "text": "These are the length and width of the sepal and petal."
+    },
+    {
+      "index": 30,
+      "start_time": 66670.0,
+      "end_time": 68730.0,
+      "text": "And just like in our apples and oranges problem,"
+    },
+    {
+      "index": 31,
+      "start_time": 68730.0,
+      "end_time": 71780.0,
+      "text": "the first four columns give the features and the last column"
+    },
+    {
+      "index": 32,
+      "start_time": 71780.0,
+      "end_time": 75170.0,
+      "text": "gives the labels, which is the type of flower in each row."
+    },
+    {
+      "index": 33,
+      "start_time": 75170.0,
+      "end_time": 78140.0,
+      "text": "Our goal is to use this data set to train a classifier."
+    },
+    {
+      "index": 34,
+      "start_time": 78140.0,
+      "end_time": 81027.0,
+      "text": "Then we can use that classifier to predict what species"
+    },
+    {
+      "index": 35,
+      "start_time": 81027.0,
+      "end_time": 83610.0,
+      "text": "of flower we have if we're given a new flower that we've never"
+    },
+    {
+      "index": 36,
+      "start_time": 83610.0,
+      "end_time": 85036.0,
+      "text": "seen before."
+    },
+    {
+      "index": 37,
+      "start_time": 85036.0,
+      "end_time": 86910.0,
+      "text": "Knowing how to work with an existing data set"
+    },
+    {
+      "index": 38,
+      "start_time": 86910.0,
+      "end_time": 89910.0,
+      "text": "is a good skill, so let's import Iris into scikit-learn"
+    },
+    {
+      "index": 39,
+      "start_time": 89910.0,
+      "end_time": 92120.0,
+      "text": "and see what it looks like in code."
+    },
+    {
+      "index": 40,
+      "start_time": 92120.0,
+      "end_time": 93870.0,
+      "text": "Conveniently, the friendly folks at scikit"
+    },
+    {
+      "index": 41,
+      "start_time": 93870.0,
+      "end_time": 95770.0,
+      "text": "provided a bunch of sample data sets,"
+    },
+    {
+      "index": 42,
+      "start_time": 95770.0,
+      "end_time": 97780.0,
+      "text": "including Iris, as well as utilities"
+    },
+    {
+      "index": 43,
+      "start_time": 97780.0,
+      "end_time": 99760.0,
+      "text": "to make them easy to import."
+    },
+    {
+      "index": 44,
+      "start_time": 99760.0,
+      "end_time": 102690.0,
+      "text": "We can import Iris into our code like this."
+    },
+    {
+      "index": 45,
+      "start_time": 102690.0,
+      "end_time": 104530.0,
+      "text": "The data set includes both the table"
+    },
+    {
+      "index": 46,
+      "start_time": 104530.0,
+      "end_time": 107230.0,
+      "text": "from Wikipedia as well as some metadata."
+    },
+    {
+      "index": 47,
+      "start_time": 107230.0,
+      "end_time": 109630.0,
+      "text": "The metadata tells you the names of the features"
+    },
+    {
+      "index": 48,
+      "start_time": 109630.0,
+      "end_time": 112430.0,
+      "text": "and the names of different types of flowers."
+    },
+    {
+      "index": 49,
+      "start_time": 112430.0,
+      "end_time": 114190.0,
+      "text": "The features and examples themselves"
+    },
+    {
+      "index": 50,
+      "start_time": 114190.0,
+      "end_time": 116300.0,
+      "text": "are contained in the data variable."
+    },
+    {
+      "index": 51,
+      "start_time": 116300.0,
+      "end_time": 118240.0,
+      "text": "For example, if I print out the first entry,"
+    },
+    {
+      "index": 52,
+      "start_time": 118240.0,
+      "end_time": 120920.0,
+      "text": "you can see the measurements for this flower."
+    },
+    {
+      "index": 53,
+      "start_time": 120920.0,
+      "end_time": 123820.0,
+      "text": "These index to the feature names, so the first value"
+    },
+    {
+      "index": 54,
+      "start_time": 123820.0,
+      "end_time": 126760.0,
+      "text": "refers to the sepal length, and the second to sepal width,"
+    },
+    {
+      "index": 55,
+      "start_time": 126760.0,
+      "end_time": 129150.0,
+      "text": "and so on."
+    },
+    {
+      "index": 56,
+      "start_time": 129150.0,
+      "end_time": 131750.0,
+      "text": "The target variable contains the labels."
+    },
+    {
+      "index": 57,
+      "start_time": 131750.0,
+      "end_time": 134690.0,
+      "text": "Likewise, these index to the target names."
+    },
+    {
+      "index": 58,
+      "start_time": 134690.0,
+      "end_time": 136000.0,
+      "text": "Let's print out the first one."
+    },
+    {
+      "index": 59,
+      "start_time": 136000.0,
+      "end_time": 139230.0,
+      "text": "A label of 0 means it's a setosa."
+    },
+    {
+      "index": 60,
+      "start_time": 139230.0,
+      "end_time": 141450.0,
+      "text": "If you look at the table from Wikipedia,"
+    },
+    {
+      "index": 61,
+      "start_time": 141450.0,
+      "end_time": 144520.0,
+      "text": "you'll notice that we just printed out the first row."
+    },
+    {
+      "index": 62,
+      "start_time": 144520.0,
+      "end_time": 147967.0,
+      "text": "Now both the data and target variables have 150 entries."
+    },
+    {
+      "index": 63,
+      "start_time": 147967.0,
+      "end_time": 149550.0,
+      "text": "If you want, you can iterate over them"
+    },
+    {
+      "index": 64,
+      "start_time": 149550.0,
+      "end_time": 152082.0,
+      "text": "to print out the entire data set like this."
+    },
+    {
+      "index": 65,
+      "start_time": 152082.0,
+      "end_time": 154040.0,
+      "text": "Now that we know how to work with the data set,"
+    },
+    {
+      "index": 66,
+      "start_time": 154040.0,
+      "end_time": 155850.0,
+      "text": "we're ready to train a classifier."
+    },
+    {
+      "index": 67,
+      "start_time": 155850.0,
+      "end_time": 159300.0,
+      "text": "But before we do that, first we need to split up the data."
+    },
+    {
+      "index": 68,
+      "start_time": 159300.0,
+      "end_time": 161440.0,
+      "text": "I'm going to remove several of the examples"
+    },
+    {
+      "index": 69,
+      "start_time": 161440.0,
+      "end_time": 163480.0,
+      "text": "and put them aside for later."
+    },
+    {
+      "index": 70,
+      "start_time": 163480.0,
+      "end_time": 166330.0,
+      "text": "We'll call the examples I'm putting aside our testing data."
+    },
+    {
+      "index": 71,
+      "start_time": 166330.0,
+      "end_time": 168780.0,
+      "text": "We'll keep these separate from our training data,"
+    },
+    {
+      "index": 72,
+      "start_time": 168780.0,
+      "end_time": 170940.0,
+      "text": "and later on we'll use our testing examples"
+    },
+    {
+      "index": 73,
+      "start_time": 170940.0,
+      "end_time": 173390.0,
+      "text": "to test how accurate the classifier is"
+    },
+    {
+      "index": 74,
+      "start_time": 173390.0,
+      "end_time": 175679.0,
+      "text": "on data it's never seen before."
+    },
+    {
+      "index": 75,
+      "start_time": 175679.0,
+      "end_time": 177470.0,
+      "text": "Testing is actually a really important part"
+    },
+    {
+      "index": 76,
+      "start_time": 177470.0,
+      "end_time": 179261.0,
+      "text": "of doing machine learning well in practice,"
+    },
+    {
+      "index": 77,
+      "start_time": 179261.0,
+      "end_time": 182280.0,
+      "text": "and we'll cover it in more detail in a future episode."
+    },
+    {
+      "index": 78,
+      "start_time": 182280.0,
+      "end_time": 184710.0,
+      "text": "Just for this exercise, I'll remove one example"
+    },
+    {
+      "index": 79,
+      "start_time": 184710.0,
+      "end_time": 186050.0,
+      "text": "of each type of flower."
+    },
+    {
+      "index": 80,
+      "start_time": 186050.0,
+      "end_time": 187520.0,
+      "text": "And as it happens, the data set is"
+    },
+    {
+      "index": 81,
+      "start_time": 187520.0,
+      "end_time": 190010.0,
+      "text": "ordered so the first setosa is at index 0,"
+    },
+    {
+      "index": 82,
+      "start_time": 190010.0,
+      "end_time": 194271.0,
+      "text": "and the first versicolor is at 50, and so on."
+    },
+    {
+      "index": 83,
+      "start_time": 194271.0,
+      "end_time": 196770.0,
+      "text": "The syntax looks a little bit complicated, but all I'm doing"
+    },
+    {
+      "index": 84,
+      "start_time": 196770.0,
+      "end_time": 201230.0,
+      "text": "is removing three entries from the data and target variables."
+    },
+    {
+      "index": 85,
+      "start_time": 201230.0,
+      "end_time": 204080.0,
+      "text": "Then I'll create two new sets of variables-- one"
+    },
+    {
+      "index": 86,
+      "start_time": 204080.0,
+      "end_time": 206587.0,
+      "text": "for training and one for testing."
+    },
+    {
+      "index": 87,
+      "start_time": 206587.0,
+      "end_time": 208420.0,
+      "text": "Training will have the majority of our data,"
+    },
+    {
+      "index": 88,
+      "start_time": 208420.0,
+      "end_time": 211370.0,
+      "text": "and testing will have just the examples I removed."
+    },
+    {
+      "index": 89,
+      "start_time": 211370.0,
+      "end_time": 213830.0,
+      "text": "Now, just as before, we can create a decision tree"
+    },
+    {
+      "index": 90,
+      "start_time": 213830.0,
+      "end_time": 216570.0,
+      "text": "classifier and train it on our training data."
+    },
+    {
+      "index": 91,
+      "start_time": 220700.0,
+      "end_time": 222840.0,
+      "text": "Before we visualize it, let's use the tree"
+    },
+    {
+      "index": 92,
+      "start_time": 222840.0,
+      "end_time": 224960.0,
+      "text": "to classify our testing data."
+    },
+    {
+      "index": 93,
+      "start_time": 224960.0,
+      "end_time": 227450.0,
+      "text": "We know we have one flower of each type,"
+    },
+    {
+      "index": 94,
+      "start_time": 227450.0,
+      "end_time": 230180.0,
+      "text": "and we can print out the labels we expect."
+    },
+    {
+      "index": 95,
+      "start_time": 230180.0,
+      "end_time": 232160.0,
+      "text": "Now let's see what the tree predicts."
+    },
+    {
+      "index": 96,
+      "start_time": 232160.0,
+      "end_time": 234460.0,
+      "text": "We'll give it the features for our testing data,"
+    },
+    {
+      "index": 97,
+      "start_time": 234460.0,
+      "end_time": 236350.0,
+      "text": "and we'll get back labels."
+    },
+    {
+      "index": 98,
+      "start_time": 236350.0,
+      "end_time": 239660.0,
+      "text": "You can see the predicted labels match our testing data."
+    },
+    {
+      "index": 99,
+      "start_time": 239660.0,
+      "end_time": 241550.0,
+      "text": "That means it got them all right."
+    },
+    {
+      "index": 100,
+      "start_time": 241550.0,
+      "end_time": 244040.0,
+      "text": "Now, keep in mind, this was a very simple test,"
+    },
+    {
+      "index": 101,
+      "start_time": 244040.0,
+      "end_time": 247940.0,
+      "text": "and we'll go into more detail down the road."
+    },
+    {
+      "index": 102,
+      "start_time": 247940.0,
+      "end_time": 249820.0,
+      "text": "Now let's visualize the tree so we can"
+    },
+    {
+      "index": 103,
+      "start_time": 249820.0,
+      "end_time": 251762.0,
+      "text": "see how the classifier works."
+    },
+    {
+      "index": 104,
+      "start_time": 251762.0,
+      "end_time": 253220.0,
+      "text": "To do that, I'm going to copy-paste"
+    },
+    {
+      "index": 105,
+      "start_time": 253220.0,
+      "end_time": 255220.0,
+      "text": "some code in from scikit's tutorials,"
+    },
+    {
+      "index": 106,
+      "start_time": 255220.0,
+      "end_time": 256994.0,
+      "text": "and because this code is for visualization"
+    },
+    {
+      "index": 107,
+      "start_time": 256994.00000000003,
+      "end_time": 258410.00000000003,
+      "text": "and not machine-learning concepts,"
+    },
+    {
+      "index": 108,
+      "start_time": 258410.00000000003,
+      "end_time": 260380.00000000003,
+      "text": "I won't cover the details here."
+    },
+    {
+      "index": 109,
+      "start_time": 260380.0,
+      "end_time": 262760.0,
+      "text": "Note that I'm combining the code from these two examples"
+    },
+    {
+      "index": 110,
+      "start_time": 262760.0,
+      "end_time": 266330.0,
+      "text": "to create an easy-to-read PDF."
+    },
+    {
+      "index": 111,
+      "start_time": 266330.0,
+      "end_time": 268440.0,
+      "text": "I can run our script and open up the PDF,"
+    },
+    {
+      "index": 112,
+      "start_time": 268440.0,
+      "end_time": 270120.0,
+      "text": "and we can see the tree."
+    },
+    {
+      "index": 113,
+      "start_time": 270120.0,
+      "end_time": 273810.0,
+      "text": "To use it to classify data, you start by reading from the top."
+    },
+    {
+      "index": 114,
+      "start_time": 273810.0,
+      "end_time": 275830.0,
+      "text": "Each node asks a yes or no question"
+    },
+    {
+      "index": 115,
+      "start_time": 275830.0,
+      "end_time": 277504.0,
+      "text": "about one of the features."
+    },
+    {
+      "index": 116,
+      "start_time": 277504.0,
+      "end_time": 279420.0,
+      "text": "For example, this node asks if the pedal width"
+    },
+    {
+      "index": 117,
+      "start_time": 279420.0,
+      "end_time": 281420.0,
+      "text": "is less than 0.8 centimeters."
+    },
+    {
+      "index": 118,
+      "start_time": 281420.0,
+      "end_time": 284200.0,
+      "text": "If it's true for the example you're classifying, go left."
+    },
+    {
+      "index": 119,
+      "start_time": 284200.0,
+      "end_time": 286170.0,
+      "text": "Otherwise, go right."
+    },
+    {
+      "index": 120,
+      "start_time": 286170.0,
+      "end_time": 288590.0,
+      "text": "Now let's use this tree to classify an example"
+    },
+    {
+      "index": 121,
+      "start_time": 288590.0,
+      "end_time": 290130.0,
+      "text": "from our testing data."
+    },
+    {
+      "index": 122,
+      "start_time": 290130.0,
+      "end_time": 293234.0,
+      "text": "Here are the features and label for our first testing flower."
+    },
+    {
+      "index": 123,
+      "start_time": 293234.0,
+      "end_time": 294900.0,
+      "text": "Remember, you can find the feature names"
+    },
+    {
+      "index": 124,
+      "start_time": 294900.0,
+      "end_time": 296580.0,
+      "text": "by looking at the metadata."
+    },
+    {
+      "index": 125,
+      "start_time": 296580.0,
+      "end_time": 298980.0,
+      "text": "We know this flower is a setosa, so let's see"
+    },
+    {
+      "index": 126,
+      "start_time": 298980.0,
+      "end_time": 300780.0,
+      "text": "what the tree predicts."
+    },
+    {
+      "index": 127,
+      "start_time": 300780.0,
+      "end_time": 303290.0,
+      "text": "I'll resize the windows to make this easier to see."
+    },
+    {
+      "index": 128,
+      "start_time": 303290.0,
+      "end_time": 304890.0,
+      "text": "And the first question the tree asks"
+    },
+    {
+      "index": 129,
+      "start_time": 304890.0,
+      "end_time": 308110.0,
+      "text": "is whether the petal width is less than 0.8 centimeters."
+    },
+    {
+      "index": 130,
+      "start_time": 308110.0,
+      "end_time": 309540.0,
+      "text": "That's the fourth feature."
+    },
+    {
+      "index": 131,
+      "start_time": 309540.0,
+      "end_time": 311710.0,
+      "text": "The answer is true, so we proceed left."
+    },
+    {
+      "index": 132,
+      "start_time": 311710.0,
+      "end_time": 314150.0,
+      "text": "At this point, we're already at a leaf node."
+    },
+    {
+      "index": 133,
+      "start_time": 314150.0,
+      "end_time": 315860.0,
+      "text": "There are no other questions to ask,"
+    },
+    {
+      "index": 134,
+      "start_time": 315860.0,
+      "end_time": 318490.0,
+      "text": "so the tree gives us a prediction, setosa,"
+    },
+    {
+      "index": 135,
+      "start_time": 318490.0,
+      "end_time": 319440.0,
+      "text": "and it's right."
+    },
+    {
+      "index": 136,
+      "start_time": 319440.0,
+      "end_time": 323330.0,
+      "text": "Notice the label is 0, which indexes to that type of flower."
+    },
+    {
+      "index": 137,
+      "start_time": 323330.0,
+      "end_time": 325930.0,
+      "text": "Now let's try our second testing example."
+    },
+    {
+      "index": 138,
+      "start_time": 325930.0,
+      "end_time": 327320.0,
+      "text": "This one is a versicolor."
+    },
+    {
+      "index": 139,
+      "start_time": 327320.0,
+      "end_time": 329330.0,
+      "text": "Let's see what the tree predicts."
+    },
+    {
+      "index": 140,
+      "start_time": 329330.0,
+      "end_time": 331840.0,
+      "text": "Again we read from the top, and this time the pedal width"
+    },
+    {
+      "index": 141,
+      "start_time": 331840.0,
+      "end_time": 333750.0,
+      "text": "is greater than 0.8 centimeters."
+    },
+    {
+      "index": 142,
+      "start_time": 333750.0,
+      "end_time": 335840.0,
+      "text": "The answer to the tree's question is false,"
+    },
+    {
+      "index": 143,
+      "start_time": 335840.0,
+      "end_time": 336830.0,
+      "text": "so we go right."
+    },
+    {
+      "index": 144,
+      "start_time": 336830.0,
+      "end_time": 339246.0,
+      "text": "The next question the tree asks is whether the pedal width"
+    },
+    {
+      "index": 145,
+      "start_time": 339246.0,
+      "end_time": 340710.0,
+      "text": "is less than 1.75."
+    },
+    {
+      "index": 146,
+      "start_time": 340710.0,
+      "end_time": 342410.0,
+      "text": "It's trying to narrow it down."
+    },
+    {
+      "index": 147,
+      "start_time": 342410.0,
+      "end_time": 344440.0,
+      "text": "That's true, so we go left."
+    },
+    {
+      "index": 148,
+      "start_time": 344440.0,
+      "end_time": 347320.0,
+      "text": "Now it asks if the pedal length is less than 4.95."
+    },
+    {
+      "index": 149,
+      "start_time": 347320.0,
+      "end_time": 349180.0,
+      "text": "That's true, so we go left again."
+    },
+    {
+      "index": 150,
+      "start_time": 349180.0,
+      "end_time": 351130.0,
+      "text": "And finally, the tree asks if the pedal width"
+    },
+    {
+      "index": 151,
+      "start_time": 351130.0,
+      "end_time": 352810.0,
+      "text": "is less than 1.65."
+    },
+    {
+      "index": 152,
+      "start_time": 352810.0,
+      "end_time": 354300.0,
+      "text": "That's true, so left it is."
+    },
+    {
+      "index": 153,
+      "start_time": 354300.0,
+      "end_time": 357030.0,
+      "text": "And now we have our prediction-- it's a versicolor,"
+    },
+    {
+      "index": 154,
+      "start_time": 357030.0,
+      "end_time": 358610.0,
+      "text": "and that's right again."
+    },
+    {
+      "index": 155,
+      "start_time": 358610.0,
+      "end_time": 361170.0,
+      "text": "You can try the last one on your own as an exercise."
+    },
+    {
+      "index": 156,
+      "start_time": 361170.0,
+      "end_time": 363080.0,
+      "text": "And remember, the way we're using the tree"
+    },
+    {
+      "index": 157,
+      "start_time": 363080.0,
+      "end_time": 365607.0,
+      "text": "is the same way it works in code."
+    },
+    {
+      "index": 158,
+      "start_time": 365607.0,
+      "end_time": 367440.0,
+      "text": "So that's how you quickly visualize and read"
+    },
+    {
+      "index": 159,
+      "start_time": 367440.0,
+      "end_time": 368285.0,
+      "text": "a decision tree."
+    },
+    {
+      "index": 160,
+      "start_time": 368285.0,
+      "end_time": 369660.0,
+      "text": "There's a lot more to learn here,"
+    },
+    {
+      "index": 161,
+      "start_time": 369660.0,
+      "end_time": 372720.0,
+      "text": "especially how they're built automatically from examples."
+    },
+    {
+      "index": 162,
+      "start_time": 372720.0,
+      "end_time": 374620.0,
+      "text": "We'll get to that in a future episode."
+    },
+    {
+      "index": 163,
+      "start_time": 374620.0,
+      "end_time": 377020.0,
+      "text": "But for now, let's close with an essential point."
+    },
+    {
+      "index": 164,
+      "start_time": 377020.0,
+      "end_time": 379520.0,
+      "text": "Every question the tree asks must be about one"
+    },
+    {
+      "index": 165,
+      "start_time": 379520.0,
+      "end_time": 380264.0,
+      "text": "of your features."
+    },
+    {
+      "index": 166,
+      "start_time": 380264.0,
+      "end_time": 382680.0,
+      "text": "That means the better your features are, the better a tree"
+    },
+    {
+      "index": 167,
+      "start_time": 382680.0,
+      "end_time": 383630.0,
+      "text": "you can build."
+    },
+    {
+      "index": 168,
+      "start_time": 383630.0,
+      "end_time": 385300.0,
+      "text": "And the next episode will start looking"
+    },
+    {
+      "index": 169,
+      "start_time": 385300.0,
+      "end_time": 386514.0,
+      "text": "at what makes a good feature."
+    },
+    {
+      "index": 170,
+      "start_time": 386514.0,
+      "end_time": 388930.0,
+      "text": "Thanks very much for watching, and I'll see you next time."
+    },
+    {
+      "index": 171,
+      "start_time": 388930.0,
+      "end_time": 391980.0,
+      "text": "[MUSIC PLAYING]"
+    }
+  ]
+}

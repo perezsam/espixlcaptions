@@ -1,0 +1,840 @@
+{
+  "video_id": "r1nHxFp7GEc",
+  "title": "FPGA Vision - VHDL Simulation",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 9280.0,
+      "end_time": 12270.0,
+      "text": "Hello and welcome to an FPGA Vision lecture."
+    },
+    {
+      "index": 2,
+      "start_time": 13100.0,
+      "end_time": 16939.0,
+      "text": "In this video, we will have a look at VHDL simulation"
+    },
+    {
+      "index": 3,
+      "start_time": 17150.0,
+      "end_time": 20439.0,
+      "text": "of our circuit for lane detection with a Sobel filter."
+    },
+    {
+      "index": 4,
+      "start_time": 21540.0,
+      "end_time": 23808.0,
+      "text": "Here you see the design specification."
+    },
+    {
+      "index": 5,
+      "start_time": 23810.0,
+      "end_time": 29630.0,
+      "text": "We want to process images which are in 720p format,"
+    },
+    {
+      "index": 6,
+      "start_time": 29920.0,
+      "end_time": 34680.0,
+      "text": "which means they have 1280 by 720 pixel."
+    },
+    {
+      "index": 7,
+      "start_time": 35690.0,
+      "end_time": 40680.0,
+      "text": "They are in 8 bit RGB, plus they have sync signals,"
+    },
+    {
+      "index": 8,
+      "start_time": 40700.0,
+      "end_time": 44590.0,
+      "text": "horizontal sync, vertical sync and data-enable."
+    },
+    {
+      "index": 9,
+      "start_time": 46540.0,
+      "end_time": 49419.0,
+      "text": "For VHDL simulation, we need a testbench."
+    },
+    {
+      "index": 10,
+      "start_time": 49420.0,
+      "end_time": 52910.0,
+      "text": "A testbench is another VHDL design"
+    },
+    {
+      "index": 11,
+      "start_time": 52935.0,
+      "end_time": 59220.0,
+      "text": "that is providing the input signals to our design, the stimuli,"
+    },
+    {
+      "index": 12,
+      "start_time": 59730.0,
+      "end_time": 62969.0,
+      "text": "plus it is processing, it is receiving"
+    },
+    {
+      "index": 13,
+      "start_time": 62970.0,
+      "end_time": 66690.0,
+      "text": "the output signal of our design, which is the response."
+    },
+    {
+      "index": 14,
+      "start_time": 67790.0,
+      "end_time": 71280.0,
+      "text": "It is a surrounding for the circuit we want to design."
+    },
+    {
+      "index": 15,
+      "start_time": 71870.0,
+      "end_time": 76849.0,
+      "text": "It represents the board where you would normally have"
+    },
+    {
+      "index": 16,
+      "start_time": 76850.0,
+      "end_time": 78559.0,
+      "text": "the input from the camera."
+    },
+    {
+      "index": 17,
+      "start_time": 78560.0,
+      "end_time": 84780.0,
+      "text": "And you would have the output to a monitor or to a post-processing circuit."
+    },
+    {
+      "index": 18,
+      "start_time": 86850.0,
+      "end_time": 90579.0,
+      "text": "In our design, we use an advanced form of a testbench,"
+    },
+    {
+      "index": 19,
+      "start_time": 90580.0,
+      "end_time": 92579.0,
+      "text": "which is a self-checking testbench,"
+    },
+    {
+      "index": 20,
+      "start_time": 92580.0,
+      "end_time": 95679.0,
+      "text": "which means that the results of our verification"
+    },
+    {
+      "index": 21,
+      "start_time": 95680.0,
+      "end_time": 99390.0,
+      "text": "are not only received and stored,"
+    },
+    {
+      "index": 22,
+      "start_time": 99400.0,
+      "end_time": 104170.0,
+      "text": "but we want to also check if the circuit is performing correctly."
+    },
+    {
+      "index": 23,
+      "start_time": 104650.0,
+      "end_time": 109100.0,
+      "text": "This means we have a file with the input signal,"
+    },
+    {
+      "index": 24,
+      "start_time": 109330.0,
+      "end_time": 113170.0,
+      "text": "we have another file where we have the expected response."
+    },
+    {
+      "index": 25,
+      "start_time": 114300.0,
+      "end_time": 117959.0,
+      "text": "These are signals we already know. These are signals we already have."
+    },
+    {
+      "index": 26,
+      "start_time": 117960.0,
+      "end_time": 119960.0,
+      "text": "This is the output of our C simulation."
+    },
+    {
+      "index": 27,
+      "start_time": 120240.0,
+      "end_time": 122348.0,
+      "text": "It is the test image we have"
+    },
+    {
+      "index": 28,
+      "start_time": 122350.0,
+      "end_time": 127240.0,
+      "text": "plus it&#39;s the output of the C simulation from the C program."
+    },
+    {
+      "index": 29,
+      "start_time": 128910.0,
+      "end_time": 133480.0,
+      "text": "In this diagram, I will show you the design flow for VHDL simulation."
+    },
+    {
+      "index": 30,
+      "start_time": 133820.0,
+      "end_time": 138640.0,
+      "text": "We start with the input image, which is a road scene."
+    },
+    {
+      "index": 31,
+      "start_time": 139870.0,
+      "end_time": 143460.0,
+      "text": "We process it with a C program to have the reference file."
+    },
+    {
+      "index": 32,
+      "start_time": 143630.0,
+      "end_time": 147179.0,
+      "text": "This processing is done with a fixed-point C program"
+    },
+    {
+      "index": 33,
+      "start_time": 147180.0,
+      "end_time": 149609.0,
+      "text": "so that we have a bit-true representation."
+    },
+    {
+      "index": 34,
+      "start_time": 149610.0,
+      "end_time": 155410.0,
+      "text": "It should be exactly the same result that the circuit design will give."
+    },
+    {
+      "index": 35,
+      "start_time": 157640.0,
+      "end_time": 164298.0,
+      "text": "These images are in bitmap format and VHDL cannot easily read this format."
+    },
+    {
+      "index": 36,
+      "start_time": 164300.0,
+      "end_time": 166860.0,
+      "text": "So therefore we have to convert it to a text file."
+    },
+    {
+      "index": 37,
+      "start_time": 168260.0,
+      "end_time": 171499.0,
+      "text": "I&#39;ve used a format that is quite simple."
+    },
+    {
+      "index": 38,
+      "start_time": 171500.0,
+      "end_time": 177789.0,
+      "text": "You have represented the bitmap file as a text file"
+    },
+    {
+      "index": 39,
+      "start_time": 177790.0,
+      "end_time": 180578.0,
+      "text": "where each line corresponds to one pixel."
+    },
+    {
+      "index": 40,
+      "start_time": 180580.0,
+      "end_time": 183499.0,
+      "text": "You start with one line of a comment and then"
+    },
+    {
+      "index": 41,
+      "start_time": 183500.0,
+      "end_time": 189490.0,
+      "text": "you have the first pixel with RGB, the second pixel with RGB, and so on."
+    },
+    {
+      "index": 42,
+      "start_time": 190500.0,
+      "end_time": 195620.0,
+      "text": "It&#39;s a big file, but we need all this information for simulation."
+    },
+    {
+      "index": 43,
+      "start_time": 198220.0,
+      "end_time": 204259.0,
+      "text": "You also have the VHDL files, which is the testbench, plus the design files"
+    },
+    {
+      "index": 44,
+      "start_time": 204260.0,
+      "end_time": 207160.0,
+      "text": "for the circuit you want to implement."
+    },
+    {
+      "index": 45,
+      "start_time": 207700.0,
+      "end_time": 211388.0,
+      "text": "You give all these information to the VHDL simulator."
+    },
+    {
+      "index": 46,
+      "start_time": 211390.0,
+      "end_time": 218759.0,
+      "text": "We here used the ModelSim which is available in a version that&#39;s free to use"
+    },
+    {
+      "index": 47,
+      "start_time": 218760.0,
+      "end_time": 221850.0,
+      "text": "together with the Intel/Altera design environment."
+    },
+    {
+      "index": 48,
+      "start_time": 223240.0,
+      "end_time": 226920.0,
+      "text": "From the VHDL simulation, you get console messages."
+    },
+    {
+      "index": 49,
+      "start_time": 227340.0,
+      "end_time": 230100.0,
+      "text": "This could be something like \"Simulation OK\"."
+    },
+    {
+      "index": 50,
+      "start_time": 230920.0,
+      "end_time": 235400.0,
+      "text": "You can also get simulation results in a file."
+    },
+    {
+      "index": 51,
+      "start_time": 235480.0,
+      "end_time": 240609.0,
+      "text": "Here, we output a text file, which represents the output image."
+    },
+    {
+      "index": 52,
+      "start_time": 240780.0,
+      "end_time": 244130.0,
+      "text": "If everything is okay, this is exactly like the reference image."
+    },
+    {
+      "index": 53,
+      "start_time": 244750.0,
+      "end_time": 247169.0,
+      "text": "If there are errors, it&#39;s possible"
+    },
+    {
+      "index": 54,
+      "start_time": 247170.0,
+      "end_time": 251958.0,
+      "text": "to convert this text file to a bitmap image again,"
+    },
+    {
+      "index": 55,
+      "start_time": 251960.0,
+      "end_time": 256929.0,
+      "text": "to have a look and maybe, by inspecting the visual result of your simulation,"
+    },
+    {
+      "index": 56,
+      "start_time": 256930.0,
+      "end_time": 261780.0,
+      "text": "find out what is wrong and do some debugging of your circuit."
+    },
+    {
+      "index": 57,
+      "start_time": 263720.0,
+      "end_time": 266429.0,
+      "text": "This design flow might look a little bit complicated"
+    },
+    {
+      "index": 58,
+      "start_time": 266430.0,
+      "end_time": 268249.0,
+      "text": "because you have the different programs,"
+    },
+    {
+      "index": 59,
+      "start_time": 268250.0,
+      "end_time": 272200.0,
+      "text": "but this is exactly what you would find in industry."
+    },
+    {
+      "index": 60,
+      "start_time": 274360.0,
+      "end_time": 277609.0,
+      "text": "We already have a bit-true C-simulation of our circuit,"
+    },
+    {
+      "index": 61,
+      "start_time": 277610.0,
+      "end_time": 281139.0,
+      "text": "but there are two small differences between the simulation"
+    },
+    {
+      "index": 62,
+      "start_time": 281140.0,
+      "end_time": 284719.0,
+      "text": "and the digital circuit that we have to consider."
+    },
+    {
+      "index": 63,
+      "start_time": 285770.0,
+      "end_time": 289400.0,
+      "text": "The first difference is that we have to consider the image boundary."
+    },
+    {
+      "index": 64,
+      "start_time": 289870.0,
+      "end_time": 293309.0,
+      "text": "Because we have a 3x3 matrix on which we process,"
+    },
+    {
+      "index": 65,
+      "start_time": 293310.0,
+      "end_time": 298459.0,
+      "text": "there will be one pixel on each border that is not valid."
+    },
+    {
+      "index": 66,
+      "start_time": 298460.0,
+      "end_time": 302930.0,
+      "text": "The output images is two pixel smaller in X and Y direction."
+    },
+    {
+      "index": 67,
+      "start_time": 303370.0,
+      "end_time": 305790.0,
+      "text": "The second difference is"
+    },
+    {
+      "index": 68,
+      "start_time": 305800.0,
+      "end_time": 309948.0,
+      "text": "that the position of input and output pixel are not exactly the same."
+    },
+    {
+      "index": 69,
+      "start_time": 309950.0,
+      "end_time": 314289.0,
+      "text": "Let&#39;s have a look at the diagram to see why this is the case."
+    },
+    {
+      "index": 70,
+      "start_time": 314690.0,
+      "end_time": 320589.0,
+      "text": "We do processing when we receive the last pixel of the 3x3 matrix,"
+    },
+    {
+      "index": 71,
+      "start_time": 320590.0,
+      "end_time": 322590.0,
+      "text": "which is this current input pixel."
+    },
+    {
+      "index": 72,
+      "start_time": 323380.0,
+      "end_time": 328669.0,
+      "text": "However, the result of the 3x3 matrix"
+    },
+    {
+      "index": 73,
+      "start_time": 328670.0,
+      "end_time": 331790.0,
+      "text": "corresponds then to the center pixel,"
+    },
+    {
+      "index": 74,
+      "start_time": 331800.0,
+      "end_time": 335639.0,
+      "text": "which means that there is a shift of one pixel down and one pixel right"
+    },
+    {
+      "index": 75,
+      "start_time": 335640.0,
+      "end_time": 340840.0,
+      "text": "between the current position and the corresponding output pixel."
+    },
+    {
+      "index": 76,
+      "start_time": 341300.0,
+      "end_time": 343839.0,
+      "text": "As a consequence, the bit-true simulation"
+    },
+    {
+      "index": 77,
+      "start_time": 343840.0,
+      "end_time": 348260.0,
+      "text": "has to consider this shift plus the invalid lines."
+    },
+    {
+      "index": 78,
+      "start_time": 348990.0,
+      "end_time": 351389.0,
+      "text": "In the resulting image,"
+    },
+    {
+      "index": 79,
+      "start_time": 351390.0,
+      "end_time": 354570.0,
+      "text": "two lines on the top and two lines on the left are invalid."
+    },
+    {
+      "index": 80,
+      "start_time": 354850.0,
+      "end_time": 358900.0,
+      "text": "This is considered by a slightly modified C program,"
+    },
+    {
+      "index": 81,
+      "start_time": 358100.0,
+      "end_time": 360750.0,
+      "text": "which is called lane_testbench."
+    },
+    {
+      "index": 82,
+      "start_time": 361660.0,
+      "end_time": 365270.0,
+      "text": "From the test image street_0 in bitmap format,"
+    },
+    {
+      "index": 83,
+      "start_time": 365295.0,
+      "end_time": 368659.0,
+      "text": "we generate stimuli and expected response"
+    },
+    {
+      "index": 84,
+      "start_time": 368660.0,
+      "end_time": 375699.0,
+      "text": "by executing the C program lane_testbench for the design."
+    },
+    {
+      "index": 85,
+      "start_time": 375700.0,
+      "end_time": 378438.0,
+      "text": "I use the Cygwin environment on Windows 10,"
+    },
+    {
+      "index": 86,
+      "start_time": 378440.0,
+      "end_time": 383360.0,
+      "text": "but you can adapt the C program to any other C compiler."
+    },
+    {
+      "index": 87,
+      "start_time": 384530.0,
+      "end_time": 389390.0,
+      "text": "For the simulation, we then use the following VHDL files."
+    },
+    {
+      "index": 88,
+      "start_time": 389400.0,
+      "end_time": 393789.0,
+      "text": "You have the testbench and you have the design files"
+    },
+    {
+      "index": 89,
+      "start_time": 393790.0,
+      "end_time": 396120.0,
+      "text": "for the design and the verification."
+    },
+    {
+      "index": 90,
+      "start_time": 396680.0,
+      "end_time": 401630.0,
+      "text": "A more detailed explanation of these design files you find in a separate video."
+    },
+    {
+      "index": 91,
+      "start_time": 402330.0,
+      "end_time": 404849.0,
+      "text": "To demonstrate the self-checking testbench,"
+    },
+    {
+      "index": 92,
+      "start_time": 404850.0,
+      "end_time": 408300.0,
+      "text": "I will include an error in the expected response."
+    },
+    {
+      "index": 93,
+      "start_time": 408890.0,
+      "end_time": 415369.0,
+      "text": "We take the pixel at position 1000, 10 and change the value there."
+    },
+    {
+      "index": 94,
+      "start_time": 415370.0,
+      "end_time": 422379.0,
+      "text": "To find this pixel in the testbench, we need to calculate the line of this pixel."
+    },
+    {
+      "index": 95,
+      "start_time": 422380.0,
+      "end_time": 426640.0,
+      "text": "10 lines means 10 times 1280 pixel"
+    },
+    {
+      "index": 96,
+      "start_time": 429200.0,
+      "end_time": 436990.0,
+      "text": "and pixel 1000, as we start counting from 0, we have to take another 1001 positions,"
+    },
+    {
+      "index": 97,
+      "start_time": 436100.0,
+      "end_time": 437789.0,
+      "text": "plus we have one comment line."
+    },
+    {
+      "index": 98,
+      "start_time": 437790.0,
+      "end_time": 440190.0,
+      "text": "So, this is the line number we have to look for."
+    },
+    {
+      "index": 99,
+      "start_time": 440980.0,
+      "end_time": 446489.0,
+      "text": "We modify the correct response to a different value"
+    },
+    {
+      "index": 100,
+      "start_time": 446490.0,
+      "end_time": 449930.0,
+      "text": "so that the testbench will give an error."
+    },
+    {
+      "index": 101,
+      "start_time": 451800.0,
+      "end_time": 453460.0,
+      "text": "Here, we have the ModelSim simulator."
+    },
+    {
+      "index": 102,
+      "start_time": 453870.0,
+      "end_time": 456560.0,
+      "text": "We have the source files and compile them,"
+    },
+    {
+      "index": 103,
+      "start_time": 458810.0,
+      "end_time": 461329.0,
+      "text": "we start the simulation."
+    },
+    {
+      "index": 104,
+      "start_time": 461330.0,
+      "end_time": 463330.0,
+      "text": "It&#39;s in the work directory."
+    },
+    {
+      "index": 105,
+      "start_time": 464640.0,
+      "end_time": 467169.0,
+      "text": "sim_lane and the sim architecture."
+    },
+    {
+      "index": 106,
+      "start_time": 468810.0,
+      "end_time": 471710.0,
+      "text": "This invokes the simulator window."
+    },
+    {
+      "index": 107,
+      "start_time": 474270.0,
+      "end_time": 480600.0,
+      "text": "We can select input and output signals to be monitored in the wave window."
+    },
+    {
+      "index": 108,
+      "start_time": 487140.0,
+      "end_time": 489300.0,
+      "text": "We start the simulation."
+    },
+    {
+      "index": 109,
+      "start_time": 489630.0,
+      "end_time": 493790.0,
+      "text": "At the beginning, you will get some warning messages because"
+    },
+    {
+      "index": 110,
+      "start_time": 493800.0,
+      "end_time": 496750.0,
+      "text": "the memories contain uninitialized values."
+    },
+    {
+      "index": 111,
+      "start_time": 498160.0,
+      "end_time": 502529.0,
+      "text": "Now, you see here the note that there has been a simulation mismatch"
+    },
+    {
+      "index": 112,
+      "start_time": 502554.0,
+      "end_time": 504739.0,
+      "text": "at position X 1000, Y 10."
+    },
+    {
+      "index": 113,
+      "start_time": 504740.0,
+      "end_time": 508970.0,
+      "text": "This is exactly the error we wanted to see."
+    },
+    {
+      "index": 114,
+      "start_time": 509340.0,
+      "end_time": 510969.0,
+      "text": "The self-checking testbench is working."
+    },
+    {
+      "index": 115,
+      "start_time": 510970.0,
+      "end_time": 516200.0,
+      "text": "It has found the mismatch between expected result,"
+    },
+    {
+      "index": 116,
+      "start_time": 516909.0,
+      "end_time": 520659.0,
+      "text": "and the simulation result of our design-under-verification."
+    },
+    {
+      "index": 117,
+      "start_time": 522179.0,
+      "end_time": 524590.0,
+      "text": "Now, the simulation is completed."
+    },
+    {
+      "index": 118,
+      "start_time": 524430.0,
+      "end_time": 528739.0,
+      "text": "We get the message that there has been one mismatch in the simulation."
+    },
+    {
+      "index": 119,
+      "start_time": 529180.0,
+      "end_time": 531000.0,
+      "text": "Now, we would do debugging."
+    },
+    {
+      "index": 120,
+      "start_time": 531560.0,
+      "end_time": 534459.0,
+      "text": "In our case, we know that we have introduced"
+    },
+    {
+      "index": 121,
+      "start_time": 534460.0,
+      "end_time": 536460.0,
+      "text": "an error in the expected response."
+    },
+    {
+      "index": 122,
+      "start_time": 536750.0,
+      "end_time": 540670.0,
+      "text": "We correct that and restart the simulation."
+    },
+    {
+      "index": 123,
+      "start_time": 544930.0,
+      "end_time": 547890.0,
+      "text": "It takes, depending on your computer, about a minute."
+    },
+    {
+      "index": 124,
+      "start_time": 548480.0,
+      "end_time": 550289.0,
+      "text": "Now, the simulation is completed."
+    },
+    {
+      "index": 125,
+      "start_time": 550290.0,
+      "end_time": 552490.0,
+      "text": "We get a message, \"Everything is okay.\""
+    },
+    {
+      "index": 126,
+      "start_time": 552690.0,
+      "end_time": 556609.0,
+      "text": "The simulated result matches the result."
+    },
+    {
+      "index": 127,
+      "start_time": 556610.0,
+      "end_time": 560479.0,
+      "text": "We can have a look at the wave signals to see what has been done here."
+    },
+    {
+      "index": 128,
+      "start_time": 560480.0,
+      "end_time": 563610.0,
+      "text": "This is the view of the complete simulation."
+    },
+    {
+      "index": 129,
+      "start_time": 564170.0,
+      "end_time": 571559.0,
+      "text": "If we zoom in, we see the individual lines with the sync-signals and data_enable."
+    },
+    {
+      "index": 130,
+      "start_time": 571560.0,
+      "end_time": 573559.0,
+      "text": "This is the beginning of a line."
+    },
+    {
+      "index": 131,
+      "start_time": 573560.0,
+      "end_time": 575929.0,
+      "text": "Here, if we zoom in a little bit more,"
+    },
+    {
+      "index": 132,
+      "start_time": 575930.0,
+      "end_time": 578479.0,
+      "text": "we can see individual pixels."
+    },
+    {
+      "index": 133,
+      "start_time": 579410.0,
+      "end_time": 581519.0,
+      "text": "On the top, you see the input pixel."
+    },
+    {
+      "index": 134,
+      "start_time": 581520.0,
+      "end_time": 586670.0,
+      "text": "First pixel is RGB 7F, 9D, 5F."
+    },
+    {
+      "index": 135,
+      "start_time": 586840.0,
+      "end_time": 589900.0,
+      "text": "Here, you see the output pixel."
+    },
+    {
+      "index": 136,
+      "start_time": 589100.0,
+      "end_time": 591920.0,
+      "text": "It&#39;s 1B for R, G, B."
+    },
+    {
+      "index": 137,
+      "start_time": 592410.0,
+      "end_time": 597469.0,
+      "text": "The next step in our design flow is the synthesis of the FPGA."
+    },
+    {
+      "index": 138,
+      "start_time": 597860.0,
+      "end_time": 601399.0,
+      "text": "You find more about this and about accessing the remote-lab"
+    },
+    {
+      "index": 139,
+      "start_time": 601400.0,
+      "end_time": 603400.0,
+      "text": "in the next video."
+    }
+  ]
+}

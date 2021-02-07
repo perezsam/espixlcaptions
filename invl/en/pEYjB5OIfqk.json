@@ -1,0 +1,1302 @@
+{
+  "video_id": "pEYjB5OIfqk",
+  "title": "Learn the Basics of Docker",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 14940.0,
+      "end_time": 16630.0,
+      "text": "Today we&#39;re going to talk about Docker."
+    },
+    {
+      "index": 2,
+      "start_time": 16630.0,
+      "end_time": 22110.0,
+      "text": "For a couple different reasons, one of them being that Docker and containerization, in"
+    },
+    {
+      "index": 3,
+      "start_time": 22110.0,
+      "end_time": 26539.0,
+      "text": "general, are becoming more and more prevalent in the architectures that people are working"
+    },
+    {
+      "index": 4,
+      "start_time": 26539.0,
+      "end_time": 30310.0,
+      "text": "in in AWS or if you ship something to Digital Ocean."
+    },
+    {
+      "index": 5,
+      "start_time": 30310.0,
+      "end_time": 35290.0,
+      "text": "They are just very important to be able to do this, but it&#39;s also incredibly important"
+    },
+    {
+      "index": 6,
+      "start_time": 35290.0,
+      "end_time": 39930.0,
+      "text": "in our development environments, and as I go through tutorials in the future I want"
+    },
+    {
+      "index": 7,
+      "start_time": 39930.0,
+      "end_time": 45739.0,
+      "text": "to be able to use Docker images in order to ship code as a starting point for some of"
+    },
+    {
+      "index": 8,
+      "start_time": 45739.0,
+      "end_time": 48419.0,
+      "text": "the applications and projects that we&#39;re going to look into."
+    },
+    {
+      "index": 9,
+      "start_time": 48420.0,
+      "end_time": 52219.0,
+      "text": "I&#39;m going to take this standpoint working from a mac, we&#39;re going to go from start to"
+    },
+    {
+      "index": 10,
+      "start_time": 52219.0,
+      "end_time": 58590.0,
+      "text": "finish with install Docker and working with Docker images that already exist, to creating"
+    },
+    {
+      "index": 11,
+      "start_time": 58590.0,
+      "end_time": 62000.0,
+      "text": "Docker containers, and understanding what it&#39;s like for us to create our own images"
+    },
+    {
+      "index": 12,
+      "start_time": 62000.0,
+      "end_time": 63760.0,
+      "text": "and then share those with the public."
+    },
+    {
+      "index": 13,
+      "start_time": 63760.0,
+      "end_time": 69200.0,
+      "text": "We&#39;re going to get started using Docker for Mac, which is a new application that can be"
+    },
+    {
+      "index": 14,
+      "start_time": 69200.0,
+      "end_time": 73630.0,
+      "text": "installed into the /Applications directory, and there is also an equivalent version for"
+    },
+    {
+      "index": 15,
+      "start_time": 73630.0,
+      "end_time": 74630.0,
+      "text": "Windows."
+    },
+    {
+      "index": 16,
+      "start_time": 74630.0,
+      "end_time": 78369.0,
+      "text": "If you&#39;re working on Linux, you don&#39;t actually have to worry about either of these things"
+    },
+    {
+      "index": 17,
+      "start_time": 78370.0,
+      "end_time": 82500.0,
+      "text": "because Linux can support it natively."
+    },
+    {
+      "index": 18,
+      "start_time": 82500.0,
+      "end_time": 84910.0,
+      "text": "So for this I already have Docker for Mac downloaded."
+    },
+    {
+      "index": 19,
+      "start_time": 84910.0,
+      "end_time": 88300.0,
+      "text": "I&#39;m going to move over here and just install this."
+    },
+    {
+      "index": 20,
+      "start_time": 88300.0,
+      "end_time": 91190.0,
+      "text": "In order to do this I had to uninstall everything that I had on my system so that we could make"
+    },
+    {
+      "index": 21,
+      "start_time": 91190.0,
+      "end_time": 93860.0,
+      "text": "this as thorough and realistic as possible."
+    },
+    {
+      "index": 22,
+      "start_time": 93860.0,
+      "end_time": 97540.0,
+      "text": "So just drag and drop."
+    },
+    {
+      "index": 23,
+      "start_time": 97540.0,
+      "end_time": 112000.0,
+      "text": "Now we&#39;re going to run Docker for Mac... there it is."
+    },
+    {
+      "index": 24,
+      "start_time": 112000.0,
+      "end_time": 117360.0,
+      "text": "So you do have to allow this to use some network privileges, so you have to be an admin user"
+    },
+    {
+      "index": 25,
+      "start_time": 117360.0,
+      "end_time": 122570.0,
+      "text": "or a sudoer to be able to do this, but it&#39;s going to get you set up pretty fast."
+    },
+    {
+      "index": 26,
+      "start_time": 122570.0,
+      "end_time": 129600.0,
+      "text": "So it goes on and does it&#39;s own thing here, but this will give us a couple different tools."
+    },
+    {
+      "index": 27,
+      "start_time": 129600.0,
+      "end_time": 130600.0,
+      "text": "We&#39;ll just watch this."
+    },
+    {
+      "index": 28,
+      "start_time": 130600.0,
+      "end_time": 131230.0,
+      "text": "So it is currently running."
+    },
+    {
+      "index": 29,
+      "start_time": 131230.0,
+      "end_time": 135369.0,
+      "text": "This will give us Docker the command line utility, it&#39;s going to run Docker the server"
+    },
+    {
+      "index": 30,
+      "start_time": 135370.0,
+      "end_time": 139620.0,
+      "text": "for us and then it&#39;s going to create a VM that&#39;s actually running the Docker server"
+    },
+    {
+      "index": 31,
+      "start_time": 139620.0,
+      "end_time": 143790.0,
+      "text": "on, and from there it will also give us Docker Compose, which is an orchestration tool that"
+    },
+    {
+      "index": 32,
+      "start_time": 143790.0,
+      "end_time": 148929.0,
+      "text": "I&#39;m not going to get into at all today, but I will in future videos just because it&#39;s"
+    },
+    {
+      "index": 33,
+      "start_time": 148930.0,
+      "end_time": 152150.0,
+      "text": "so useful from a development standpoint."
+    },
+    {
+      "index": 34,
+      "start_time": 152150.0,
+      "end_time": 155260.0,
+      "text": "So, if I type \"docker\" it gave us this utility."
+    },
+    {
+      "index": 35,
+      "start_time": 155260.0,
+      "end_time": 161260.0,
+      "text": "If I run \"docker\" and look at the version, this is the newest version that came out, as of"
+    },
+    {
+      "index": 36,
+      "start_time": 161260.0,
+      "end_time": 163819.0,
+      "text": "the time of recording this, just a few days ago."
+    },
+    {
+      "index": 37,
+      "start_time": 163819.0,
+      "end_time": 169670.0,
+      "text": "If we look at the containers that are running, we don&#39;t actually have anything running, and"
+    },
+    {
+      "index": 38,
+      "start_time": 169670.0,
+      "end_time": 175970.0,
+      "text": "that&#39;s because we didn&#39;t tell it to run anything, but we also don&#39;t have any images yet."
+    },
+    {
+      "index": 39,
+      "start_time": 175970.0,
+      "end_time": 179940.0,
+      "text": "If we look at Docker images you&#39;ll see that we have none here."
+    },
+    {
+      "index": 40,
+      "start_time": 179940.0,
+      "end_time": 182803.0,
+      "text": "The first thing that you&#39;re going to do when working with Docker is you&#39;re going to have"
+    },
+    {
+      "index": 41,
+      "start_time": 182803.0,
+      "end_time": 185650.0,
+      "text": "to start a base image to work off of."
+    },
+    {
+      "index": 42,
+      "start_time": 185650.0,
+      "end_time": 189610.0,
+      "text": "For us we&#39;re going to just pretend that we&#39;re just working with ubuntu."
+    },
+    {
+      "index": 43,
+      "start_time": 189610.0,
+      "end_time": 200560.0,
+      "text": "For that we&#39;re going to need to run \"docker pull ubuntu\" and wait for it to download."
+    },
+    {
+      "index": 44,
+      "start_time": 200560.0,
+      "end_time": 203709.0,
+      "text": "Before we move too much further on, we should talk about a few of the terms that are going"
+    },
+    {
+      "index": 45,
+      "start_time": 203709.0,
+      "end_time": 206380.0,
+      "text": "to be thrown around as we deal with more and more Docker."
+    },
+    {
+      "index": 46,
+      "start_time": 206380.0,
+      "end_time": 208380.0,
+      "text": "The first one is \"images\"."
+    },
+    {
+      "index": 47,
+      "start_time": 208380.0,
+      "end_time": 213380.0,
+      "text": "Images are prepackaged bundles of changes that you&#39;ve made to a file system, so image"
+    },
+    {
+      "index": 48,
+      "start_time": 213380.0,
+      "end_time": 217340.0,
+      "text": "that you start with ubuntu in this case which is just going to be the bare bones operating"
+    },
+    {
+      "index": 49,
+      "start_time": 217340.0,
+      "end_time": 221740.0,
+      "text": "system, and then if we wanted to build something more we would apply changes to it that that"
+    },
+    {
+      "index": 50,
+      "start_time": 221740.0,
+      "end_time": 227810.0,
+      "text": "we install something new or make a configuration change and that would become a different image"
+    },
+    {
+      "index": 51,
+      "start_time": 227810.0,
+      "end_time": 229990.0,
+      "text": "by stacking layers."
+    },
+    {
+      "index": 52,
+      "start_time": 229990.0,
+      "end_time": 233590.0,
+      "text": "And then from there we&#39;ll get into probably the most important thing that we deal with,"
+    },
+    {
+      "index": 53,
+      "start_time": 233590.0,
+      "end_time": 237190.0,
+      "text": "and that&#39;s \"containers\", and that&#39;s actually when you take the image and you run it, and"
+    },
+    {
+      "index": 54,
+      "start_time": 237190.0,
+      "end_time": 239410.0,
+      "text": "you make use of that container."
+    },
+    {
+      "index": 55,
+      "start_time": 239410.0,
+      "end_time": 240760.0,
+      "text": "So for us we&#39;ll do that right now."
+    },
+    {
+      "index": 56,
+      "start_time": 240760.0,
+      "end_time": 246510.0,
+      "text": "We can do that by doing \"docker run\" and we&#39;ll pass it a few flags to make it interactive,"
+    },
+    {
+      "index": 57,
+      "start_time": 246510.0,
+      "end_time": 250850.0,
+      "text": "and then we&#39;ll give it the command, so we give it the image and the command name, and"
+    },
+    {
+      "index": 58,
+      "start_time": 250850.0,
+      "end_time": 253599.0,
+      "text": "this will go and run bash inide of an ubuntu thing."
+    },
+    {
+      "index": 59,
+      "start_time": 253599.0,
+      "end_time": 256769.0,
+      "text": "So that we can make sure that we&#39;re not running on our mac by typing &#39;uname&#39; and you can see"
+    },
+    {
+      "index": 60,
+      "start_time": 256769.0,
+      "end_time": 258190.0,
+      "text": "that we&#39;re running on Linux."
+    },
+    {
+      "index": 61,
+      "start_time": 258190.0,
+      "end_time": 261600.0,
+      "text": "The first thing that we&#39;re going to do here is we&#39;re going to make a change and see what"
+    },
+    {
+      "index": 62,
+      "start_time": 261600.00000000003,
+      "end_time": 262879.0,
+      "text": "happens."
+    },
+    {
+      "index": 63,
+      "start_time": 262879.0,
+      "end_time": 271389.0,
+      "text": "I&#39;m going to echo \"STuff\" into Test.txt and then just make sure it&#39;s there."
+    },
+    {
+      "index": 64,
+      "start_time": 271389.0,
+      "end_time": 273850.0,
+      "text": "Yep, it&#39;s right there, right at the beginning."
+    },
+    {
+      "index": 65,
+      "start_time": 273850.0,
+      "end_time": 277180.0,
+      "text": "So we&#39;ll exit this, and we&#39;ll run \"docker ps\"."
+    },
+    {
+      "index": 66,
+      "start_time": 277180.0,
+      "end_time": 278380.0,
+      "text": "There are no containers running."
+    },
+    {
+      "index": 67,
+      "start_time": 278380.0,
+      "end_time": 282210.0,
+      "text": "Which I didn&#39;t actually show you what a container looks like when it is running, but we&#39;ll go"
+    },
+    {
+      "index": 68,
+      "start_time": 282210.0,
+      "end_time": 286870.0,
+      "text": "back into ubuntu and see if we can take a look at what&#39;s going on here."
+    },
+    {
+      "index": 69,
+      "start_time": 286870.0,
+      "end_time": 292600.0,
+      "text": "So if we run this again and we run \"ls\" you&#39;ll notice that the Test.txt that we had up here"
+    },
+    {
+      "index": 70,
+      "start_time": 292600.0,
+      "end_time": 297200.0,
+      "text": "is not here, and that is because every time you create a container or you run and image"
+    },
+    {
+      "index": 71,
+      "start_time": 297200.0,
+      "end_time": 301380.0,
+      "text": "you create something that is entirely new, it is whatever the starting point was for"
+    },
+    {
+      "index": 72,
+      "start_time": 301380.0,
+      "end_time": 306300.0,
+      "text": "that image, but everything that happens while it&#39;s running is ephemoral, or it doesn&#39;t matter,"
+    },
+    {
+      "index": 73,
+      "start_time": 306300.0,
+      "end_time": 308600.0,
+      "text": "it just kind of keeps on churning."
+    },
+    {
+      "index": 74,
+      "start_time": 308600.0,
+      "end_time": 313550.0,
+      "text": "There are ways to get around that by sharing some volumes or connecting some network things"
+    },
+    {
+      "index": 75,
+      "start_time": 313550.0,
+      "end_time": 316740.0,
+      "text": "together, but that&#39;s a little bit more complicated and we&#39;ll get into that when we talk about"
+    },
+    {
+      "index": 76,
+      "start_time": 316740.0,
+      "end_time": 318130.0,
+      "text": "docker-compose."
+    },
+    {
+      "index": 77,
+      "start_time": 318130.0,
+      "end_time": 323650.0,
+      "text": "If I split this right now and I run \"docker ps\" you&#39;ll see that we do have a container"
+    },
+    {
+      "index": 78,
+      "start_time": 323650.0,
+      "end_time": 324650.0,
+      "text": "running."
+    },
+    {
+      "index": 79,
+      "start_time": 324650.0,
+      "end_time": 326469.0,
+      "text": "Oh this is really ugly to look at though isn&#39;t it?"
+    },
+    {
+      "index": 80,
+      "start_time": 326470.0,
+      "end_time": 328310.0,
+      "text": "So we&#39;ll slide this over for a second."
+    },
+    {
+      "index": 81,
+      "start_time": 328310.0,
+      "end_time": 332550.0,
+      "text": "And this gives us our container ID, the image that we used, the command that it&#39;s running,"
+    },
+    {
+      "index": 82,
+      "start_time": 332550.0,
+      "end_time": 333960.0,
+      "text": "and how old it is."
+    },
+    {
+      "index": 83,
+      "start_time": 333960.0,
+      "end_time": 338430.0,
+      "text": "It also gives it a name, which if you don&#39;t provide a name for it, it comes up with some"
+    },
+    {
+      "index": 84,
+      "start_time": 338430.0,
+      "end_time": 339430.0,
+      "text": "pretty comical names."
+    },
+    {
+      "index": 85,
+      "start_time": 339430.0,
+      "end_time": 343830.0,
+      "text": "So this is a \"cranky turing\"."
+    },
+    {
+      "index": 86,
+      "start_time": 343830.0,
+      "end_time": 346530.0,
+      "text": "So if we separate this back out."
+    },
+    {
+      "index": 87,
+      "start_time": 346530.0,
+      "end_time": 352200.0,
+      "text": "We know that since we ran this container from an image that it always starts at the same"
+    },
+    {
+      "index": 88,
+      "start_time": 352200.0,
+      "end_time": 357580.0,
+      "text": "spot, regardless of how many times we run a container using the exact same image."
+    },
+    {
+      "index": 89,
+      "start_time": 357580.0,
+      "end_time": 361600.0,
+      "text": "From here we&#39;re going to transition into something a little bit different, and that is containers"
+    },
+    {
+      "index": 90,
+      "start_time": 361600.0,
+      "end_time": 365300.0,
+      "text": "are cool and images are cool, but what happens if we want to make our own image."
+    },
+    {
+      "index": 91,
+      "start_time": 365300.0,
+      "end_time": 369840.0,
+      "text": "So, imagine that we want to ship somebody ubuntu and we want it to come pre-installed"
+    },
+    {
+      "index": 92,
+      "start_time": 369840.0,
+      "end_time": 370840.0,
+      "text": "with some things."
+    },
+    {
+      "index": 93,
+      "start_time": 370840.0,
+      "end_time": 375190.0,
+      "text": "So, in my particular case, I want to make sure that \"wget\" is there so that it&#39;s easy"
+    },
+    {
+      "index": 94,
+      "start_time": 375190.0,
+      "end_time": 379900.0,
+      "text": "to install things, and if we run our ubuntu image and we run \"wget\" you&#39;ll see that \"oh"
+    },
+    {
+      "index": 95,
+      "start_time": 379900.0,
+      "end_time": 380900.0,
+      "text": "it&#39;s not there\"."
+    },
+    {
+      "index": 96,
+      "start_time": 380900.0,
+      "end_time": 382989.0,
+      "text": "So that&#39;s kind of a bummer."
+    },
+    {
+      "index": 97,
+      "start_time": 382990.0,
+      "end_time": 386320.0,
+      "text": "There&#39;s a really neat way of doing this in Docker and that is through what&#39;s known as"
+    },
+    {
+      "index": 98,
+      "start_time": 386320.0,
+      "end_time": 387870.0,
+      "text": "a Dockerfile."
+    },
+    {
+      "index": 99,
+      "start_time": 387870.0,
+      "end_time": 391930.0,
+      "text": "And then from here the Dockerfile is a way to specify the recipe essentially, the steps"
+    },
+    {
+      "index": 100,
+      "start_time": 391930.0,
+      "end_time": 396400.0,
+      "text": "that we&#39;re going to take in order to take an image that already exists, in this case"
+    },
+    {
+      "index": 101,
+      "start_time": 396400.0,
+      "end_time": 402229.0,
+      "text": "\"ubuntu\", and turn it into something that more fits our needs, which in this case is"
+    },
+    {
+      "index": 102,
+      "start_time": 402229.0,
+      "end_time": 405820.0,
+      "text": "that we need ubuntu with wget and we need it to always be there."
+    },
+    {
+      "index": 103,
+      "start_time": 405820.0,
+      "end_time": 410500.0,
+      "text": "So for that I&#39;m going to open up Atom, I&#39;m going to create a Dockerfile."
+    },
+    {
+      "index": 104,
+      "start_time": 410500.0,
+      "end_time": 418320.0,
+      "text": "The Dockerfile has a slightly different syntax than a normal programming language because"
+    },
+    {
+      "index": 105,
+      "start_time": 418320.0,
+      "end_time": 422560.0,
+      "text": "its more just a series of steps, kind of like a script except you don&#39;t have the same power"
+    },
+    {
+      "index": 106,
+      "start_time": 422560.0,
+      "end_time": 426750.0,
+      "text": "of calculation that you would have if you were writing something like a ruby or a bash"
+    },
+    {
+      "index": 107,
+      "start_time": 426750.0,
+      "end_time": 428440.0,
+      "text": "script."
+    },
+    {
+      "index": 108,
+      "start_time": 428440.0,
+      "end_time": 429930.0,
+      "text": "You have to follow a certain structure."
+    },
+    {
+      "index": 109,
+      "start_time": 429930.0,
+      "end_time": 434320.0,
+      "text": "So the first thing that you have to do when creating a Dockerfile is that you have to"
+    },
+    {
+      "index": 110,
+      "start_time": 434320.0,
+      "end_time": 438310.0,
+      "text": "say what it&#39;s coming from, this is the starting image, or the layer that you&#39;re going to begin"
+    },
+    {
+      "index": 111,
+      "start_time": 438310.0,
+      "end_time": 439310.0,
+      "text": "with."
+    },
+    {
+      "index": 112,
+      "start_time": 439310.0,
+      "end_time": 442900.0,
+      "text": "For us we&#39;re going to start with Ubuntu, and then from here we need to run some things."
+    },
+    {
+      "index": 113,
+      "start_time": 442900.0,
+      "end_time": 446909.0,
+      "text": "Everything that comes after \"RUN\" is going to be processed inside, and then like I was"
+    },
+    {
+      "index": 114,
+      "start_time": 446910.0,
+      "end_time": 452120.0,
+      "text": "kind of saying earlier if you install something new, that creates a new layer."
+    },
+    {
+      "index": 115,
+      "start_time": 452120.0,
+      "end_time": 456890.0,
+      "text": "Each of these command will create something, a different layer on top of of this."
+    },
+    {
+      "index": 116,
+      "start_time": 456890.0,
+      "end_time": 461490.0,
+      "text": "And our image will actually be the final layer that is created because it was built up of"
+    },
+    {
+      "index": 117,
+      "start_time": 461490.0,
+      "end_time": 464860.0,
+      "text": "all the layers that existed before it."
+    },
+    {
+      "index": 118,
+      "start_time": 464860.0,
+      "end_time": 469990.0,
+      "text": "For us we&#39;re going to \"apt-get update\" and then pass it a few flags to make it a little"
+    },
+    {
+      "index": 119,
+      "start_time": 469990.0,
+      "end_time": 478500.0,
+      "text": "quiet, and the we will also say \"apt-get install wget\" and we&#39;ll pass this just to make it"
+    },
+    {
+      "index": 120,
+      "start_time": 478500.0,
+      "end_time": 480550.0,
+      "text": "a little quiet too."
+    },
+    {
+      "index": 121,
+      "start_time": 480550.0,
+      "end_time": 484360.0,
+      "text": "From here the other thing that you need to have is what is actually going to happen when"
+    },
+    {
+      "index": 122,
+      "start_time": 484360.0,
+      "end_time": 493211.0,
+      "text": "you run an image, and that is by default you can actually do \"docker run ubuntu\" and it"
+    },
+    {
+      "index": 123,
+      "start_time": 493211.0,
+      "end_time": 494610.0,
+      "text": "will go off an run something."
+    },
+    {
+      "index": 124,
+      "start_time": 494610.0,
+      "end_time": 498759.0,
+      "text": "I actually don&#39;t remember off hand what ubuntu does when you run it by itself, but you can"
+    },
+    {
+      "index": 125,
+      "start_time": 498759.0,
+      "end_time": 503190.0,
+      "text": "define a default command so that if it&#39;s something that&#39;s going to, say you have an image that&#39;s"
+    },
+    {
+      "index": 126,
+      "start_time": 503190.0,
+      "end_time": 510100.0,
+      "text": "going to go and process some data and then close, you can just type \"docker run my_data_processor_image\""
+    },
+    {
+      "index": 127,
+      "start_time": 510100.0,
+      "end_time": 513709.0,
+      "text": "and then it will go off, do it&#39;s thing, and then just the process itself will die and"
+    },
+    {
+      "index": 128,
+      "start_time": 513707.99999999994,
+      "end_time": 516118.99999999994,
+      "text": "the container will go away."
+    },
+    {
+      "index": 129,
+      "start_time": 516120.0,
+      "end_time": 520259.0,
+      "text": "So we don&#39;t have to do that, but in our case I want to because I don&#39;t want to have to"
+    },
+    {
+      "index": 130,
+      "start_time": 520259.0,
+      "end_time": 521539.0,
+      "text": "type \"bash\" every single time."
+    },
+    {
+      "index": 131,
+      "start_time": 521539.0,
+      "end_time": 526410.0,
+      "text": "I&#39;m going to put this in here to where it&#39;s just going to run \"bash\" whenever we do this."
+    },
+    {
+      "index": 132,
+      "start_time": 526410.0,
+      "end_time": 528600.0,
+      "text": "We&#39;re going to save it."
+    },
+    {
+      "index": 133,
+      "start_time": 528600.0,
+      "end_time": 530770.0,
+      "text": "We&#39;re going to bounce back over to our terminal sothat we can build this."
+    },
+    {
+      "index": 134,
+      "start_time": 530770.0,
+      "end_time": 535290.0,
+      "text": "Behind the scenes I moved us into a different directory, but what you&#39;re going to do here"
+    },
+    {
+      "index": 135,
+      "start_time": 535290.0,
+      "end_time": 539480.0,
+      "text": "is type \"docker build\", we&#39;re going to name our image, in this case it&#39;s called \"tagging\","
+    },
+    {
+      "index": 136,
+      "start_time": 539480.0,
+      "end_time": 543170.0,
+      "text": "but we&#39;re going to tag it as \"wget\" and then we&#39;re going to say build with the current"
+    },
+    {
+      "index": 137,
+      "start_time": 543170.0,
+      "end_time": 548459.0,
+      "text": "context, which just means use this directory and look for the Dockerfile that&#39;s here."
+    },
+    {
+      "index": 138,
+      "start_time": 548460.0,
+      "end_time": 552149.0,
+      "text": "So it&#39;s going to go off and figure everything that it needs and then you&#39;ll see that these"
+    },
+    {
+      "index": 139,
+      "start_time": 552149.0,
+      "end_time": 553670.0,
+      "text": "are the steps that it takes."
+    },
+    {
+      "index": 140,
+      "start_time": 553670.0,
+      "end_time": 559229.0,
+      "text": "Our first step was to say from this, this represents the layer that is \"ubuntu\", and"
+    },
+    {
+      "index": 141,
+      "start_time": 559230.0,
+      "end_time": 563910.0,
+      "text": "then our next step here is run \"apt-get update\" and also install wget."
+    },
+    {
+      "index": 142,
+      "start_time": 563910.0,
+      "end_time": 570100.0,
+      "text": "It will show you everything that it&#39;s installing."
+    },
+    {
+      "index": 143,
+      "start_time": 570100.0,
+      "end_time": 573800.0,
+      "text": "And then when it&#39;s finished, you&#39;ll see that it gives you this."
+    },
+    {
+      "index": 144,
+      "start_time": 573800.0,
+      "end_time": 579910.0,
+      "text": "So it created an image here, and then you&#39;re going to come down here and this next step,"
+    },
+    {
+      "index": 145,
+      "start_time": 579910.0,
+      "end_time": 584860.0,
+      "text": "yet another layer that we&#39;re going to be adding to this is to say that you&#39;re going to run"
+    },
+    {
+      "index": 146,
+      "start_time": 584860.0,
+      "end_time": 586300.0,
+      "text": "\"bash\" as your default thing."
+    },
+    {
+      "index": 147,
+      "start_time": 586300.0,
+      "end_time": 592740.0,
+      "text": "So now if we run \"docker images\" you can see that we have multiple images here, that is"
+    },
+    {
+      "index": 148,
+      "start_time": 592740.0,
+      "end_time": 597400.0,
+      "text": "the successful build of the image that we just made for \"wget\", and then we have the"
+    },
+    {
+      "index": 149,
+      "start_time": 597400.0,
+      "end_time": 600740.0,
+      "text": "ubuntu one which gives you this original SHA too."
+    },
+    {
+      "index": 150,
+      "start_time": 600740.0,
+      "end_time": 604770.0,
+      "text": "The neat thing here is that you can also see the difference in what we did, us running"
+    },
+    {
+      "index": 151,
+      "start_time": 604770.0,
+      "end_time": 610810.0,
+      "text": "\"apt-get update\" and \"apt-get install\" on wget actually installed an extra 46MB worth"
+    },
+    {
+      "index": 152,
+      "start_time": 610810.0,
+      "end_time": 612790.0,
+      "text": "of space."
+    },
+    {
+      "index": 153,
+      "start_time": 612790.0,
+      "end_time": 616199.0,
+      "text": "Let&#39;s run our image and see the fruits of our labor here."
+    },
+    {
+      "index": 154,
+      "start_time": 616200.0,
+      "end_time": 620390.0,
+      "text": "So if we \"docker run -it\" and just type \"wget\", remember that we told it the command it should"
+    },
+    {
+      "index": 155,
+      "start_time": 620390.0,
+      "end_time": 621390.0,
+      "text": "run is bash."
+    },
+    {
+      "index": 156,
+      "start_time": 621390.0,
+      "end_time": 623360.0,
+      "text": "So it should open us right into bash."
+    },
+    {
+      "index": 157,
+      "start_time": 623360.0,
+      "end_time": 628480.0,
+      "text": "And we&#39;re going to \"wget google.com\" and it should just work."
+    },
+    {
+      "index": 158,
+      "start_time": 628480.0,
+      "end_time": 634880.0,
+      "text": "There you go, so we went and we downloaded the index.html from google.com with the tool"
+    },
+    {
+      "index": 159,
+      "start_time": 634880.0,
+      "end_time": 640140.0,
+      "text": "that we installed and now everytime we want to work with something that needs \"wget\" we"
+    },
+    {
+      "index": 160,
+      "start_time": 640140.0,
+      "end_time": 644810.0,
+      "text": "can run our own image instead of working with the ubuntu image that didn&#39;t have that package"
+    },
+    {
+      "index": 161,
+      "start_time": 644810.0,
+      "end_time": 648380.0,
+      "text": "installed to begin with."
+    },
+    {
+      "index": 162,
+      "start_time": 648380.0,
+      "end_time": 652320.0,
+      "text": "So the last thing that I said we were going to do in this short tutorial is that we&#39;re"
+    },
+    {
+      "index": 163,
+      "start_time": 652320.0,
+      "end_time": 654930.0,
+      "text": "going to take our image and we&#39;re going to put it on the web so that other people can"
+    },
+    {
+      "index": 164,
+      "start_time": 654930.0,
+      "end_time": 658630.0,
+      "text": "access it, but I&#39;m also going to show you how to find other images that you can work"
+    },
+    {
+      "index": 165,
+      "start_time": 658630.0,
+      "end_time": 659980.0,
+      "text": "with."
+    },
+    {
+      "index": 166,
+      "start_time": 659980.0,
+      "end_time": 666339.0,
+      "text": "So if we go back to the web browser, if you go to hub.docker.com you can see all of the"
+    },
+    {
+      "index": 167,
+      "start_time": 666339.0,
+      "end_time": 667820.0,
+      "text": "other images that exist out here."
+    },
+    {
+      "index": 168,
+      "start_time": 667820.0,
+      "end_time": 672710.0,
+      "text": "This is looking at my profile page, but if we go to the dashboard here, well \"explore\","
+    },
+    {
+      "index": 169,
+      "start_time": 672710.0,
+      "end_time": 677100.0,
+      "text": "you&#39;ll see that there are a bunch of different \"official repositories\", so Nginx is one for"
+    },
+    {
+      "index": 170,
+      "start_time": 677100.0,
+      "end_time": 683230.0,
+      "text": "instance that if you just type \"docker pull nginx\" it will pull this exact image."
+    },
+    {
+      "index": 171,
+      "start_time": 683230.0,
+      "end_time": 688750.0,
+      "text": "Normally, you have to work off of things by username and then image name, but ubuntu for"
+    },
+    {
+      "index": 172,
+      "start_time": 688750.0,
+      "end_time": 693330.0,
+      "text": "instance, this is the exact image that we were using for our purposes before we installed"
+    },
+    {
+      "index": 173,
+      "start_time": 693330.0,
+      "end_time": 694520.0,
+      "text": "wget on top of it."
+    },
+    {
+      "index": 174,
+      "start_time": 694520.0,
+      "end_time": 699110.0,
+      "text": "There are many of these things, so there are a lot of different things that you need necessarily,"
+    },
+    {
+      "index": 175,
+      "start_time": 699110.0,
+      "end_time": 702120.0,
+      "text": "or that you might want to work with, like say you want to play around with node, but"
+    },
+    {
+      "index": 176,
+      "start_time": 702120.0,
+      "end_time": 705709.0,
+      "text": "you don&#39;t want to install it on your local machine, you can pull the official node image"
+    },
+    {
+      "index": 177,
+      "start_time": 705709.0,
+      "end_time": 710160.0,
+      "text": "and then you can go into the container that it starts and run bash in there for instance"
+    },
+    {
+      "index": 178,
+      "start_time": 710160.0,
+      "end_time": 714780.0,
+      "text": "to give youself a shell so that you can work with node directly."
+    },
+    {
+      "index": 179,
+      "start_time": 714780.0,
+      "end_time": 718899.0,
+      "text": "Wordpress for instance, you just spin up a container that is already running wordpress"
+    },
+    {
+      "index": 180,
+      "start_time": 718899.0,
+      "end_time": 720870.0,
+      "text": "and go from there."
+    },
+    {
+      "index": 181,
+      "start_time": 720870.0,
+      "end_time": 724490.0,
+      "text": "If we look back at the dashboard, I have a couple just random projects that I&#39;ve sort"
+    },
+    {
+      "index": 182,
+      "start_time": 724490.0,
+      "end_time": 730959.0,
+      "text": "of worked with, but this one, the \"elixir-ide\" is me experimenting and putting an ubuntu"
+    },
+    {
+      "index": 183,
+      "start_time": 730959.0,
+      "end_time": 736690.0,
+      "text": "image out there that had everything that I needed for working with elixir, so I put a"
+    },
+    {
+      "index": 184,
+      "start_time": 736700.0,
+      "end_time": 741180.0,
+      "text": "text editor in there that I wanted to use, and then pre-installed syntax highlighting,"
+    },
+    {
+      "index": 185,
+      "start_time": 741180.0,
+      "end_time": 744890.0,
+      "text": "and pre-installed elixir for it so that I could just spin this up if I ever want to"
+    },
+    {
+      "index": 186,
+      "start_time": 744900.0,
+      "end_time": 748880.0,
+      "text": "do any and I didn&#39;t have to have elixir installed on my machine."
+    },
+    {
+      "index": 187,
+      "start_time": 748880.0,
+      "end_time": 753180.0,
+      "text": "We need to push some things up here, and I&#39;ll show you how to do that."
+    },
+    {
+      "index": 188,
+      "start_time": 753180.0,
+      "end_time": 763790.0,
+      "text": "So if we \"docker push wget\", you&#39;ll see that we... oh I&#39;m actually inside of the container"
+    },
+    {
+      "index": 189,
+      "start_time": 763790.0,
+      "end_time": 765000.0,
+      "text": "that&#39;s why I&#39;m so confused."
+    },
+    {
+      "index": 190,
+      "start_time": 765000.0,
+      "end_time": 772910.0,
+      "text": "\"docker push wget\", you&#39;ll see that authentication required and what this did here is that it"
+    },
+    {
+      "index": 191,
+      "start_time": 772910.0,
+      "end_time": 777650.0,
+      "text": "was trying to say that you&#39;re going to push to \"library\", this is for the official packages,"
+    },
+    {
+      "index": 192,
+      "start_time": 777650.0,
+      "end_time": 779879.0,
+      "text": "and then it&#39;s saying that you&#39;re not allowed to do that."
+    },
+    {
+      "index": 193,
+      "start_time": 779879.0,
+      "end_time": 791769.0,
+      "text": "So for me, my username on Docker hub is \"keiththomps\" so we&#39;re actually going to tag \"wget\" as \"keiththomps/wget\"."
+    },
+    {
+      "index": 194,
+      "start_time": 791769.0,
+      "end_time": 798290.0,
+      "text": "Now if we look at \"docker images\" again you&#39;ll see that I have \"wget\" and that I have \"keiththomps/wget\""
+    },
+    {
+      "index": 195,
+      "start_time": 798290.0,
+      "end_time": 801529.0,
+      "text": "and they&#39;re the exact same thing, they point to the exact same SHA, they&#39;re just two names"
+    },
+    {
+      "index": 196,
+      "start_time": 801529.0,
+      "end_time": 802529.0,
+      "text": "for the same thing."
+    },
+    {
+      "index": 197,
+      "start_time": 802529.0,
+      "end_time": 805329.0,
+      "text": "So from here we&#39;ll try to push this."
+    },
+    {
+      "index": 198,
+      "start_time": 805329.0,
+      "end_time": 813579.0,
+      "text": "Ahh \"Authentication required\" again, so this is because you need to be authenticated with"
+    },
+    {
+      "index": 199,
+      "start_time": 813579.0,
+      "end_time": 816949.0,
+      "text": "Docker in order to push to Docker hub, but not to pull from Docker hub."
+    },
+    {
+      "index": 200,
+      "start_time": 816950.0,
+      "end_time": 823959.0,
+      "text": "So to do this you use \"docker login\", my username&#39;s \"keiththomps\", and I&#39;m going to paste in my"
+    },
+    {
+      "index": 201,
+      "start_time": 823959.0,
+      "end_time": 825268.0,
+      "text": "password."
+    },
+    {
+      "index": 202,
+      "start_time": 825269.0,
+      "end_time": 833560.0,
+      "text": "Alright, it logged in successfully, so if we go back and we try to push this again we&#39;ll"
+    },
+    {
+      "index": 203,
+      "start_time": 833560.0,
+      "end_time": 837100.0,
+      "text": "see what happens."
+    },
+    {
+      "index": 204,
+      "start_time": 837100.0,
+      "end_time": 841190.0,
+      "text": "So right now it&#39;s going to go off and push each layer, and each layer has a little bit"
+    },
+    {
+      "index": 205,
+      "start_time": 841190.0,
+      "end_time": 842110.0,
+      "text": "of weight to it."
+    },
+    {
+      "index": 206,
+      "start_time": 842110.0,
+      "end_time": 847290.0,
+      "text": "I&#39;m going to chop out the bit while it&#39;s uploading and then we can continue after it&#39;s done."
+    },
+    {
+      "index": 207,
+      "start_time": 847290.0,
+      "end_time": 857980.0,
+      "text": "Now that it&#39;s finished, we can go back to Docker hub and see if it uploaded properly."
+    },
+    {
+      "index": 208,
+      "start_time": 857980.0,
+      "end_time": 862240.0,
+      "text": "Docker hub isn&#39;t the fastest website on the planet, so you have to bear with it sometimes"
+    },
+    {
+      "index": 209,
+      "start_time": 862240.0,
+      "end_time": 863550.0,
+      "text": "when it takes awhile."
+    },
+    {
+      "index": 210,
+      "start_time": 863550.0,
+      "end_time": 865689.0,
+      "text": "Alright, there it is."
+    },
+    {
+      "index": 211,
+      "start_time": 865690.0,
+      "end_time": 870290.0,
+      "text": "So we&#39;ve successfully gone from having Docker not installed on our machine, to installing"
+    },
+    {
+      "index": 212,
+      "start_time": 870290.0,
+      "end_time": 875310.0,
+      "text": "Docker through Docker for Mac (although there are other ways to install it), to downloading"
+    },
+    {
+      "index": 213,
+      "start_time": 875310.0,
+      "end_time": 879880.0,
+      "text": "our first image and building our first container, to creating our first image and building a"
+    },
+    {
+      "index": 214,
+      "start_time": 879880.0,
+      "end_time": 883250.0,
+      "text": "container with that image, and then uploading that image so that other people can share."
+    },
+    {
+      "index": 215,
+      "start_time": 883250.0,
+      "end_time": 887579.0,
+      "text": "I hope you enjoyed this, and if you did I would appreciate any feedback you&#39;ve got and"
+    },
+    {
+      "index": 216,
+      "start_time": 887579.0,
+      "end_time": 890300.0,
+      "text": "if you want to subscribe or like the video then that would be great too."
+    }
+  ]
+}

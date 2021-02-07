@@ -1,0 +1,2700 @@
+{
+  "video_id": "u70mkgDnDdU",
+  "title": "Performance Tuning Best Practices for MySQL",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 28199.0,
+      "end_time": 34100.0,
+      "text": "&gt;&gt; Okay. Hi, guys. So this is Jay Pipes. He&#39;s a MySQL employee. He&#39;s in charge of North"
+    },
+    {
+      "index": 2,
+      "start_time": 34100.0,
+      "end_time": 39480.0,
+      "text": "American Community Relations. I met him this week at the MySQL User Conference which is"
+    },
+    {
+      "index": 3,
+      "start_time": 39480.0,
+      "end_time": 44050.0,
+      "text": "down in Sta. Clara. Now, the deal is that we&#39;re going to host this on Google video."
+    },
+    {
+      "index": 4,
+      "start_time": 44050.0,
+      "end_time": 46949.0,
+      "text": "So if you have confidential questions, if you could leave them till the cameras are"
+    },
+    {
+      "index": 5,
+      "start_time": 46949.0,
+      "end_time": 53110.0,
+      "text": "turned off, that would be cool. With that, no more ado, Jay Pipes."
+    },
+    {
+      "index": 6,
+      "start_time": 53110.0,
+      "end_time": 59559.0,
+      "text": "&gt;&gt; PIPES: All right. Nice to meet all of you. I&#39;m going to be giving a talk that I gave"
+    },
+    {
+      "index": 7,
+      "start_time": 59559.0,
+      "end_time": 66360.0,
+      "text": "on, I think, Tuesday or Wednesday, on &quot;Performance Tuning Best Practices for MySQL.&quot; Some of"
+    },
+    {
+      "index": 8,
+      "start_time": 66360.0,
+      "end_time": 71930.0,
+      "text": "the things are version specific but for the most part, it&#39;s pretty general. We&#39;re going"
+    },
+    {
+      "index": 9,
+      "start_time": 71930.0,
+      "end_time": 79130.0,
+      "text": "to be covering Profiling and Benchmarking Core Concepts, Sources of Problems that you"
+    },
+    {
+      "index": 10,
+      "start_time": 79130.0,
+      "end_time": 85170.0,
+      "text": "might encounter, Index Guidelines, Schema Guidelines, Coding Techniques, and lastly,"
+    },
+    {
+      "index": 11,
+      "start_time": 85170.0,
+      "end_time": 90840.0,
+      "text": "we&#39;ll go over some general things about tuning server parameters. Since the audience is,"
+    },
+    {
+      "index": 12,
+      "start_time": 90840.0,
+      "end_time": 97869.0,
+      "text": "I think, sort of mixed levels of experience, we&#39;ll just shout out questions or tell me"
+    },
+    {
+      "index": 13,
+      "start_time": 97869.0,
+      "end_time": 106240.0,
+      "text": "if you want some grand stuff or so. All right, Benchmarking Concepts. The general idea behind"
+    },
+    {
+      "index": 14,
+      "start_time": 106240.0,
+      "end_time": 111469.0,
+      "text": "benchmarking MySQL is to, obviously, have a track record. You know, when you change"
+    },
+    {
+      "index": 15,
+      "start_time": 111469.0,
+      "end_time": 115850.0,
+      "text": "things in your code, in your application, or the configuration files with MySQL, or"
+    },
+    {
+      "index": 16,
+      "start_time": 115850.0,
+      "end_time": 120039.0,
+      "text": "your schema design, or you&#39;re indexing, you want to make sure you have a track record"
+    },
+    {
+      "index": 17,
+      "start_time": 120039.0,
+      "end_time": 124609.0,
+      "text": "of what you&#39;re doing. Because a lot of times, if you--if you don&#39;t keep a track record and"
+    },
+    {
+      "index": 18,
+      "start_time": 124609.0,
+      "end_time": 130560.0,
+      "text": "don&#39;t do benchmarking, you won&#39;t really know whether a specific change that you made had"
+    },
+    {
+      "index": 19,
+      "start_time": 130560.0,
+      "end_time": 135310.0,
+      "text": "a detrimental impact or whether it actually increased performance. So, the baseline--and"
+    },
+    {
+      "index": 20,
+      "start_time": 135310.0,
+      "end_time": 141530.0,
+      "text": "you always want to have your baseline for your starting point. And always give yourself"
+    },
+    {
+      "index": 21,
+      "start_time": 141530.0,
+      "end_time": 147459.0,
+      "text": "a target. Don&#39;t just do it so it&#39;s a moving start--moving target, you always want to have"
+    },
+    {
+      "index": 22,
+      "start_time": 147459.0,
+      "end_time": 152470.0,
+      "text": "an end goal, you know. You either want to get, you know, 20% increase in performance."
+    },
+    {
+      "index": 23,
+      "start_time": 152470.0,
+      "end_time": 156840.0,
+      "text": "So that&#39;s your goal. But just don&#39;t have it, you know, just kind of end with nothing because"
+    },
+    {
+      "index": 24,
+      "start_time": 156840.0,
+      "end_time": 160760.0,
+      "text": "then you&#39;ll just spend years and years and years trying to, you know, tune milliseconds"
+    },
+    {
+      "index": 25,
+      "start_time": 160760.0,
+      "end_time": 166040.0,
+      "text": "out of your--out of your application when there&#39;s really no benefit to it. So, change"
+    },
+    {
+      "index": 26,
+      "start_time": 166040.0,
+      "end_time": 171650.0,
+      "text": "only one thing at a time. A pretty basic concept but it really--it goes a long way in benchmarking."
+    },
+    {
+      "index": 27,
+      "start_time": 171650.0,
+      "end_time": 176459.0,
+      "text": "If you change two things and you rerun a test, how do you know which one of those two things"
+    },
+    {
+      "index": 28,
+      "start_time": 176459.0,
+      "end_time": 181000.0,
+      "text": "actually affected the difference between the two tests? So, always change one thing at"
+    },
+    {
+      "index": 29,
+      "start_time": 181000.0,
+      "end_time": 188439.0,
+      "text": "a time and rerun the benchmarks. And record everything, configuration files, information"
+    },
+    {
+      "index": 30,
+      "start_time": 188439.0,
+      "end_time": 194370.0,
+      "text": "on the hardware, information on obviously the operating system, the version of MySQL,"
+    },
+    {
+      "index": 31,
+      "start_time": 194370.0,
+      "end_time": 199680.0,
+      "text": "and everything to do with the benchmarks. Keep it in a separate folder and keep everything"
+    },
+    {
+      "index": 32,
+      "start_time": 199680.0,
+      "end_time": 204349.0,
+      "text": "for historical record. A lot of times, you&#39;ll think that you won&#39;t need information when"
+    },
+    {
+      "index": 33,
+      "start_time": 204349.0,
+      "end_time": 209599.0,
+      "text": "you&#39;re running benchmarks. And then, six months later, you realize that, &quot;Wow! It would be"
+    },
+    {
+      "index": 34,
+      "start_time": 209599.0,
+      "end_time": 214640.0,
+      "text": "really useful if I had--oh, I threw it away&quot;. So, always keep information from your benchmarks"
+    },
+    {
+      "index": 35,
+      "start_time": 214640.0,
+      "end_time": 220030.0,
+      "text": "so you have a historical record of what you did. And specifically with MySQL, you want"
+    },
+    {
+      "index": 36,
+      "start_time": 220030.0,
+      "end_time": 224290.0,
+      "text": "to disable the query cache whenever you&#39;re running benchmarks. The reason is it will"
+    },
+    {
+      "index": 37,
+      "start_time": 224290.0,
+      "end_time": 231409.0,
+      "text": "skew the results that you get from read-intensive queries and write-intensive queries as well."
+    },
+    {
+      "index": 38,
+      "start_time": 231409.0,
+      "end_time": 236170.0,
+      "text": "So, disable the query cache by setting the query cache size equal to zero when you--when"
+    },
+    {
+      "index": 39,
+      "start_time": 236170.0,
+      "end_time": 243640.0,
+      "text": "you run benchmarks, so. Prof… Yes. Go ahead. &gt;&gt; [INDISTINCT] benchmarking for [INDISTINCT]"
+    },
+    {
+      "index": 40,
+      "start_time": 243640.0,
+      "end_time": 253379.0,
+      "text": "problem with the operating system, caches [INDISTINCT]?"
+    },
+    {
+      "index": 41,
+      "start_time": 253379.0,
+      "end_time": 256609.0,
+      "text": "&gt;&gt; PIPES: Right. Yes. The question was--what you were experiencing that the operating system"
+    },
+    {
+      "index": 42,
+      "start_time": 256608.99999999997,
+      "end_time": 264570.0,
+      "text": "caching was skewing the results of the benchmark. Generally, the idea is either you can disable"
+    },
+    {
+      "index": 43,
+      "start_time": 264570.0,
+      "end_time": 268940.0,
+      "text": "caching if it&#39;s actually getting in the way or if you bump up the actual number of runs"
+    },
+    {
+      "index": 44,
+      "start_time": 268940.0,
+      "end_time": 274700.0,
+      "text": "in the benchmark tests you can minimize the skew effect. So that&#39;s usually what we recommend."
+    },
+    {
+      "index": 45,
+      "start_time": 274700.0,
+      "end_time": 279800.0,
+      "text": "But, when you get into specific caches there&#39;s very specific things to do. So it kind of"
+    },
+    {
+      "index": 46,
+      "start_time": 279800.0,
+      "end_time": 285700.0,
+      "text": "depend on the exact scenario that you&#39;re doing, so. But, yes. Bumping up the number of runs"
+    },
+    {
+      "index": 47,
+      "start_time": 285700.0,
+      "end_time": 293470.0,
+      "text": "in the benchmarks generally tends to mitigate a lot of that, so. Does that answer your question?"
+    },
+    {
+      "index": 48,
+      "start_time": 293470.0,
+      "end_time": 298180.0,
+      "text": "Okay. Profiling Concepts, profiling is a little different than benchmarking. Generally, you&#39;re"
+    },
+    {
+      "index": 49,
+      "start_time": 298180.0,
+      "end_time": 304030.0,
+      "text": "profiling a production or running a test system that you&#39;re trying to figure out, you know,"
+    },
+    {
+      "index": 50,
+      "start_time": 304030.0,
+      "end_time": 310270.0,
+      "text": "diagnosing what&#39;s going on while it&#39;s running. So, instead of doing--you know finding the"
+    },
+    {
+      "index": 51,
+      "start_time": 310270.0,
+      "end_time": 314780.0,
+      "text": "stress or the load that the system can take, you&#39;re actually trying to pinpoint where the"
+    },
+    {
+      "index": 52,
+      "start_time": 314780.0,
+      "end_time": 321660.0,
+      "text": "bottlenecks are in the code while it&#39;s running. With MySQL, the best tool that you have is"
+    },
+    {
+      "index": 53,
+      "start_time": 321660.0,
+      "end_time": 327420.0,
+      "text": "the EXPLAIN command. So, regardless of what version of MySQL you are running, you really"
+    },
+    {
+      "index": 54,
+      "start_time": 327420.0,
+      "end_time": 332000.0,
+      "text": "want to get familiar with everything in the EXPLAIN command. Understand what the access"
+    },
+    {
+      "index": 55,
+      "start_time": 332000.0,
+      "end_time": 336550.0,
+      "text": "types, does everyone know what the EXPLAIN command is? Everyone use it? Okay. Does everyone"
+    },
+    {
+      "index": 56,
+      "start_time": 336550.0,
+      "end_time": 342740.0,
+      "text": "know what every single type of access type is? Okay. It&#39;s sort of a poorly named column"
+    },
+    {
+      "index": 57,
+      "start_time": 342740.0,
+      "end_time": 350790.0,
+      "text": "in the--in the EXPLAIN results. But, it actually describes the path or the optimization pattern"
+    },
+    {
+      "index": 58,
+      "start_time": 350790.0,
+      "end_time": 355570.0,
+      "text": "at which the optimizer&#39;s saying, &quot;Okay well, I&#39;m going to, you know, access, you know,"
+    },
+    {
+      "index": 59,
+      "start_time": 355570.0,
+      "end_time": 360860.0,
+      "text": "these results at and join it to these results at.&quot; And each of those things, the ref, the"
+    },
+    {
+      "index": 60,
+      "start_time": 360860.0,
+      "end_time": 368800.0,
+      "text": "refrenol, the equaf range, all the different access types mean different things. And the"
+    },
+    {
+      "index": 61,
+      "start_time": 368800.0,
+      "end_time": 373390.0,
+      "text": "performance that you get from each of them, you can go into MySQL manual, depending on"
+    },
+    {
+      "index": 62,
+      "start_time": 373390.0,
+      "end_time": 378290.0,
+      "text": "your version. You can see which ones have a better performance for different types of"
+    },
+    {
+      "index": 63,
+      "start_time": 378290.0,
+      "end_time": 383570.0,
+      "text": "queries. It&#39;s not always the same. So, you want to make sure you understand those. Understanding"
+    },
+    {
+      "index": 64,
+      "start_time": 383570.0,
+      "end_time": 387800.0,
+      "text": "obviously that if you see all in the access type, it means it&#39;s doing a full table scan."
+    },
+    {
+      "index": 65,
+      "start_time": 387800.0,
+      "end_time": 392940.0,
+      "text": "You know just little things like that. Be aware of what they all mean and what the performance"
+    },
+    {
+      "index": 66,
+      "start_time": 392940.0,
+      "end_time": 399570.0,
+      "text": "impact of the different ones are. So, by using the Slow Query Log and mysqldumpslow to parse"
+    },
+    {
+      "index": 67,
+      "start_time": 399570.0,
+      "end_time": 405230.0,
+      "text": "the query log, very easy to set up, Log Slow Queries and then you give it a long query"
+    },
+    {
+      "index": 68,
+      "start_time": 405230.0,
+      "end_time": 410220.0,
+      "text": "time, anything above that, it will log to the--to the Slow Query Log. There&#39;s also--I"
+    },
+    {
+      "index": 69,
+      "start_time": 410220.0,
+      "end_time": 416400.0,
+      "text": "think in 4.1, we put it an option that you can--anything that--any table, any select"
+    },
+    {
+      "index": 70,
+      "start_time": 416400.0,
+      "end_time": 421340.0,
+      "text": "statement that does not use an index on a table can get logged to the Slow Query Log"
+    },
+    {
+      "index": 71,
+      "start_time": 421340.0,
+      "end_time": 425870.0,
+      "text": "regardless of how fast it runs. And that&#39;s--and that&#39;s useful for when you&#39;re doing an indexing"
+    },
+    {
+      "index": 72,
+      "start_time": 425870.0,
+      "end_time": 431140.0,
+      "text": "strategy and you&#39;re trying to determine okay my patterns have access, do I--do I have indexes"
+    },
+    {
+      "index": 73,
+      "start_time": 431140.0,
+      "end_time": 436430.0,
+      "text": "on those fields that I&#39;m actually accessing? You know, and my where clause and ON clause"
+    },
+    {
+      "index": 74,
+      "start_time": 436430.0,
+      "end_time": 440960.0,
+      "text": "and that kind of thing. So, low hanging fruit law of diminishing returns tackles stuff that&#39;s"
+    },
+    {
+      "index": 75,
+      "start_time": 440960.0,
+      "end_time": 446050.0,
+      "text": "going to get you the absolute best return on investment for your time. Don&#39;t concentrate"
+    },
+    {
+      "index": 76,
+      "start_time": 446050.0,
+      "end_time": 450690.0,
+      "text": "on, you know, I know you guys are Google. So, a millisecond definitely does count. But,"
+    },
+    {
+      "index": 77,
+      "start_time": 450690.0,
+      "end_time": 455300.0,
+      "text": "if you got a--if you got a choice of, you know, going from five milliseconds to four"
+    },
+    {
+      "index": 78,
+      "start_time": 455300.0,
+      "end_time": 459840.0,
+      "text": "milliseconds, you&#39;re going from a minute to, you know, a second, it&#39;s a no-brainer. You"
+    },
+    {
+      "index": 79,
+      "start_time": 459840.0,
+      "end_time": 464670.0,
+      "text": "know, concentrate on the stuff that--that&#39;s going to give you the biggest impact. Using"
+    },
+    {
+      "index": 80,
+      "start_time": 464670.0,
+      "end_time": 468890.0,
+      "text": "Mytop. Jeremy Zawodny wrote a nice little tool. Most of you are probably familiar with"
+    },
+    {
+      "index": 81,
+      "start_time": 468890.0,
+      "end_time": 475130.0,
+      "text": "the top utility in UNIX. It&#39;s almost identical but it&#39;s just for MySQL. And it gives you"
+    },
+    {
+      "index": 82,
+      "start_time": 475130.0,
+      "end_time": 480580.0,
+      "text": "an ability to on a delay--on a repeating delay, you know, show you the process list of what&#39;s"
+    },
+    {
+      "index": 83,
+      "start_time": 480580.0,
+      "end_time": 487260.0,
+      "text": "going on in MySQL, and show, you know, show various show commands, the status variables"
+    },
+    {
+      "index": 84,
+      "start_time": 487260.0,
+      "end_time": 491640.0,
+      "text": "and gives you a nice little interface to profile into the system while it&#39;s running. And one"
+    },
+    {
+      "index": 85,
+      "start_time": 491640.0,
+      "end_time": 495480.0,
+      "text": "nice thing about Mytop that I really like is that you can--you can use it for remote"
+    },
+    {
+      "index": 86,
+      "start_time": 495480.0,
+      "end_time": 500140.0,
+      "text": "hosts as well. So, you can--you can run it on your local machine and access a remote"
+    },
+    {
+      "index": 87,
+      "start_time": 500140.0,
+      "end_time": 509580.0,
+      "text": "host. So that it is a nice little tool. Okay. Sources of Problems. This is kind of my personal"
+    },
+    {
+      "index": 88,
+      "start_time": 509580.0,
+      "end_time": 515839.0,
+      "text": "opinion of where I rank the law of diminishing returns, like what I actually like go for"
+    },
+    {
+      "index": 89,
+      "start_time": 515839.00000000006,
+      "end_time": 520860.00000000006,
+      "text": "immediately. The performance team tends to think that, you know, sometimes you can--you"
+    },
+    {
+      "index": 90,
+      "start_time": 520860.0,
+      "end_time": 524820.0,
+      "text": "can tune a server parameter and that&#39;s like the biggest bang for the least, you know,"
+    },
+    {
+      "index": 91,
+      "start_time": 524820.0,
+      "end_time": 528950.0,
+      "text": "amount of time. But I think, really, where performance problems come in are the--are"
+    },
+    {
+      "index": 92,
+      "start_time": 528950.0,
+      "end_time": 535500.0,
+      "text": "the definitely the top three here. Poor Indexing Choices will kill an application faster than"
+    },
+    {
+      "index": 93,
+      "start_time": 535500.0,
+      "end_time": 540640.0,
+      "text": "really anything else. If you&#39;re querying on a field and you don&#39;t have an index on it"
+    },
+    {
+      "index": 94,
+      "start_time": 540640.0,
+      "end_time": 545130.0,
+      "text": "and you&#39;re repeatedly hitting that, it&#39;s going to kill the application faster than, you know,"
+    },
+    {
+      "index": 95,
+      "start_time": 545130.0,
+      "end_time": 551250.0,
+      "text": "whether sort buffer size can be adjusted. So, same thing with the Inefficient or Bloated"
+    },
+    {
+      "index": 96,
+      "start_time": 551250.0,
+      "end_time": 555890.0,
+      "text": "Schema Design, you know, I talked in the--in the performance talk. I&#39;ve seen a number of"
+    },
+    {
+      "index": 97,
+      "start_time": 555890.0,
+      "end_time": 560590.0,
+      "text": "cases where people designing new applications, well, actually de-normalized from the beginning"
+    },
+    {
+      "index": 98,
+      "start_time": 560590.0,
+      "end_time": 565460.0,
+      "text": "because they think it&#39;s like going to give them better performance. Don&#39;t do that. You"
+    },
+    {
+      "index": 99,
+      "start_time": 565460.0,
+      "end_time": 569770.0,
+      "text": "know, there&#39;s specific cases where you can de-normalize the schema and you can get some"
+    },
+    {
+      "index": 100,
+      "start_time": 569770.0,
+      "end_time": 573550.0,
+      "text": "performance benefits. But don&#39;t do it right away. You know, just because you think it&#39;s"
+    },
+    {
+      "index": 101,
+      "start_time": 573550.0,
+      "end_time": 581580.0,
+      "text": "going to get, you know, a performance benefit. Use good, efficient, normalize schemas. And"
+    },
+    {
+      "index": 102,
+      "start_time": 581580.0,
+      "end_time": 590060.0,
+      "text": "we&#39;ll talk--we&#39;ll go into detail on this later. Bad coding practices. MySQL has some inefficiency"
+    },
+    {
+      "index": 103,
+      "start_time": 590060.0,
+      "end_time": 596830.0,
+      "text": "problems with sub-queries. But in general, using joins is a lot more efficient than using"
+    },
+    {
+      "index": 104,
+      "start_time": 596830.0,
+      "end_time": 603760.0,
+      "text": "sub-queries. We&#39;re going to go show some examples of specific where you can really get a performance"
+    },
+    {
+      "index": 105,
+      "start_time": 603760.0,
+      "end_time": 610840.0,
+      "text": "increase by just simply changing the way that you--the way that you code SQL. Server Variables"
+    },
+    {
+      "index": 106,
+      "start_time": 610840.0,
+      "end_time": 617210.0,
+      "text": "Not Tuned Properly, that&#39;s a source of problems. But in my opinion, very specific situations"
+    },
+    {
+      "index": 107,
+      "start_time": 617210.0,
+      "end_time": 624750.0,
+      "text": "can be--can be helped by tuning server parameters. It&#39;s not some catch-all, you know, it totally"
+    },
+    {
+      "index": 108,
+      "start_time": 624750.0,
+      "end_time": 628030.0,
+      "text": "depends on, you know, how much memory you have in the machine, what the architecture"
+    },
+    {
+      "index": 109,
+      "start_time": 628030.0,
+      "end_time": 632090.0,
+      "text": "is, what operating system you&#39;re running on, what version of MySQL, what storage engines"
+    },
+    {
+      "index": 110,
+      "start_time": 632090.0,
+      "end_time": 636060.0,
+      "text": "you&#39;re using, your, you know, the type of the application that you have, whether it&#39;s"
+    },
+    {
+      "index": 111,
+      "start_time": 636060.0,
+      "end_time": 642029.0,
+      "text": "OLTP or heavy reads, you know, all these things. Yes. Tuning server parameters can help but"
+    },
+    {
+      "index": 112,
+      "start_time": 642029.0,
+      "end_time": 647320.0,
+      "text": "it&#39;s very specific to certain situations. And it also requires retesting and rerunning."
+    },
+    {
+      "index": 113,
+      "start_time": 647320.0,
+      "end_time": 651500.0,
+      "text": "But, you know, you tweak one thing, you have to re, you know, run the benchmark test to"
+    },
+    {
+      "index": 114,
+      "start_time": 651500.0,
+      "end_time": 655690.0,
+      "text": "see if--see if you got the performance gain out it. It can be time consuming to tweak"
+    },
+    {
+      "index": 115,
+      "start_time": 655690.0,
+      "end_time": 662390.0,
+      "text": "server variables whereas it&#39;s pretty easy to, you know, change some seq--some SQL statements"
+    },
+    {
+      "index": 116,
+      "start_time": 662390.0,
+      "end_time": 667390.0,
+      "text": "and immediately rerun it and see if you got a huge performance gain from doing that. And"
+    },
+    {
+      "index": 117,
+      "start_time": 667390.0,
+      "end_time": 676830.0,
+      "text": "finally, Hardware and--and Network Bottlenecks. I/O, CPU bound, network latency. Right. There"
+    },
+    {
+      "index": 118,
+      "start_time": 676830.0,
+      "end_time": 681880.0,
+      "text": "is a good book that I brought along that I recommend for that and when we get to the"
+    },
+    {
+      "index": 119,
+      "start_time": 681880.0,
+      "end_time": 689940.0,
+      "text": "last slide, I&#39;ll show you that, so. All right, Indexing Guidelines. A poor or missing index,"
+    },
+    {
+      "index": 120,
+      "start_time": 689940.0,
+      "end_time": 696440.0,
+      "text": "definitely the fastest way to kill an application, like I said. Look for covering index opportunities."
+    },
+    {
+      "index": 121,
+      "start_time": 696440.0,
+      "end_time": 701279.0,
+      "text": "We&#39;re going to go into some slides here to kind of explain what that is. But the covering"
+    },
+    {
+      "index": 122,
+      "start_time": 701279.0,
+      "end_time": 709180.0,
+      "text": "index is--especially for my--who&#39;s using MyISAM versus InnoDB? InnoDB, raise hands. MyISAM,"
+    },
+    {
+      "index": 123,
+      "start_time": 709180.0,
+      "end_time": 714680.0,
+      "text": "raise hands. Nobody is using MyISAM? For a single thing, okay."
+    },
+    {
+      "index": 124,
+      "start_time": 714680.0,
+      "end_time": 718399.0,
+      "text": "&gt;&gt; [INDISTINCT] &gt;&gt; PIPES: Say again?"
+    },
+    {
+      "index": 125,
+      "start_time": 718399.0,
+      "end_time": 724810.0,
+      "text": "&gt;&gt; [INDISTINCT] &gt;&gt; PIPES: Got you, okay. Well, we&#39;ll explain"
+    },
+    {
+      "index": 126,
+      "start_time": 724810.0,
+      "end_time": 729520.0,
+      "text": "some things about covering index opportunities that are very specific to InnoDB. But covering"
+    },
+    {
+      "index": 127,
+      "start_time": 729520.0,
+      "end_time": 735550.0,
+      "text": "index is basically what it means is that the MySQL can get all the information from the"
+    },
+    {
+      "index": 128,
+      "start_time": 735550.0,
+      "end_time": 739860.0,
+      "text": "index records which are by definition slimmer than the data records because they don&#39;t contain"
+    },
+    {
+      "index": 129,
+      "start_time": 739860.0,
+      "end_time": 745580.0,
+      "text": "all the fields in the table and use that information to complete whatever the query was without"
+    },
+    {
+      "index": 130,
+      "start_time": 745580.0,
+      "end_time": 751400.0,
+      "text": "having to go into the data records. One of the key concepts to this, the slimmer that"
+    },
+    {
+      "index": 131,
+      "start_time": 751400.0,
+      "end_time": 756690.0,
+      "text": "your index records are, the more that you can fit into a single index block and the"
+    },
+    {
+      "index": 132,
+      "start_time": 756690.0,
+      "end_time": 761540.0,
+      "text": "more that you can fit into an index block, the fewer reads you&#39;re going to do, the faster"
+    },
+    {
+      "index": 133,
+      "start_time": 761540.0,
+      "end_time": 766680.0,
+      "text": "your application&#39;s going to be. So, covering index opportunities definitely look around"
+    },
+    {
+      "index": 134,
+      "start_time": 766680.0,
+      "end_time": 772050.0,
+      "text": "for those. When you&#39;re deciding on which fields you actually want to index, make sure you"
+    },
+    {
+      "index": 135,
+      "start_time": 772050.0,
+      "end_time": 777850.0,
+      "text": "take a look at what the selectivity of the--of the field is. Selectivity is the cardinality"
+    },
+    {
+      "index": 136,
+      "start_time": 777850.0,
+      "end_time": 783700.0,
+      "text": "or the number of unique values that are contained in that field divided by the total number"
+    },
+    {
+      "index": 137,
+      "start_time": 783700.0,
+      "end_time": 791120.0,
+      "text": "of values in a table. So, obviously a unique index would be a cardinality of one. Because"
+    },
+    {
+      "index": 138,
+      "start_time": 791120.0,
+      "end_time": 797370.0,
+      "text": "it&#39;s, you know, unique over the total count. That&#39;s obviously the best-case scenario but"
+    },
+    {
+      "index": 139,
+      "start_time": 797370.0,
+      "end_time": 803430.0,
+      "text": "you can get situations where you&#39;ve got awful selectivity. If you&#39;re querying just on that"
+    },
+    {
+      "index": 140,
+      "start_time": 803430.0,
+      "end_time": 809640.0,
+      "text": "index or just on that field you may get awful performance from that because--or may just"
+    },
+    {
+      "index": 141,
+      "start_time": 809640.0,
+      "end_time": 814470.0,
+      "text": "decide not to use the index because it ceases to be useful. I think generally like, [INDISTINCT]"
+    },
+    {
+      "index": 142,
+      "start_time": 814470.0,
+      "end_time": 818990.0,
+      "text": "could talk a little bit more about this but I think that it numbers about 30%. If your"
+    },
+    {
+      "index": 143,
+      "start_time": 818990.0,
+      "end_time": 824490.0,
+      "text": "optimizer sees that, okay you do--you do a query select, you know, start from whatever,"
+    },
+    {
+      "index": 144,
+      "start_time": 824490.0,
+      "end_time": 832529.0,
+      "text": "where column A equals two. And it will take a look and see an estimate from what the information"
+    },
+    {
+      "index": 145,
+      "start_time": 832529.0,
+      "end_time": 838750.0,
+      "text": "that has on the--on the index, well this particular query returned a third--you know, around 30%"
+    },
+    {
+      "index": 146,
+      "start_time": 838750.0,
+      "end_time": 843960.0,
+      "text": "or more of the rows in the table. If it does it&#39;s actually much more efficient to just"
+    },
+    {
+      "index": 147,
+      "start_time": 843960.0,
+      "end_time": 848480.0,
+      "text": "sequentially scan the table than it is to go into the index and randomly seek and grab"
+    },
+    {
+      "index": 148,
+      "start_time": 848480.0,
+      "end_time": 854310.0,
+      "text": "a bunch of records and then do lookups back to the data records. So, be aware of--of the"
+    },
+    {
+      "index": 149,
+      "start_time": 854310.0,
+      "end_time": 858899.0,
+      "text": "uniqueness of the values in your index. For lower selective fields were you--were you"
+    },
+    {
+      "index": 150,
+      "start_time": 858899.0,
+      "end_time": 866020.0,
+      "text": "don&#39;t have very much selectivity you can sometimes tack them on, you know, to a multicolumn index"
+    },
+    {
+      "index": 151,
+      "start_time": 866020.0,
+      "end_time": 869220.0,
+      "text": "so that, especially we grouped by queries and we&#39;ll show an example of this you get"
+    },
+    {
+      "index": 152,
+      "start_time": 869220.0,
+      "end_time": 876360.0,
+      "text": "some efficiencies there. But just be aware of the selectivity, so. On multicolumn indexes,"
+    },
+    {
+      "index": 153,
+      "start_time": 876360.0,
+      "end_time": 881700.0,
+      "text": "like those kind of explained just now, the order of the fields is very important. You"
+    },
+    {
+      "index": 154,
+      "start_time": 881700.0,
+      "end_time": 886790.0,
+      "text": "have to look at the queries that you&#39;re running against the database. You know, if you have"
+    },
+    {
+      "index": 155,
+      "start_time": 886790.0,
+      "end_time": 891850.0,
+      "text": "the columns mixed up or they&#39;re not optimal, the optimizer just won&#39;t use the index. And"
+    },
+    {
+      "index": 156,
+      "start_time": 891850.0,
+      "end_time": 895810.0,
+      "text": "I&#39;ll show you a perfect example of something that happens all the time with this on group"
+    },
+    {
+      "index": 157,
+      "start_time": 895810.0,
+      "end_time": 900960.0,
+      "text": "by queries. And as the database grows you want to ensure that the distribution is good."
+    },
+    {
+      "index": 158,
+      "start_time": 900960.0,
+      "end_time": 904960.0,
+      "text": "You know if you set up an application, writing new application and, you know, you go through"
+    },
+    {
+      "index": 159,
+      "start_time": 904960.0,
+      "end_time": 908350.0,
+      "text": "a couple of months and you got a couple of hundred thousand records in there. Okay, great."
+    },
+    {
+      "index": 160,
+      "start_time": 908350.0,
+      "end_time": 913540.0,
+      "text": "Everything looks great. The index strategy that you designed for it is wonderful but"
+    },
+    {
+      "index": 161,
+      "start_time": 913540.0,
+      "end_time": 917029.0,
+      "text": "that doesn&#39;t necessarily mean that in nine months, you know, you&#39;ve got millions of records"
+    },
+    {
+      "index": 162,
+      "start_time": 917029.0,
+      "end_time": 921839.0,
+      "text": "in there that the index strategy that you initially picked out is going to be optimal,"
+    },
+    {
+      "index": 163,
+      "start_time": 921839.0,
+      "end_time": 927120.0,
+      "text": "you know. Make sure that you understand how your data changes over time, you know. If"
+    },
+    {
+      "index": 164,
+      "start_time": 927120.0,
+      "end_time": 931850.0,
+      "text": "business practices can change. And so, if you&#39;ve got values, let say&#39;s you got seven"
+    },
+    {
+      "index": 165,
+      "start_time": 931850.0,
+      "end_time": 935830.0,
+      "text": "values in a--in a field, right. And you&#39;ve got an index on that, seven distinct values"
+    },
+    {
+      "index": 166,
+      "start_time": 935830.0,
+      "end_time": 943330.0,
+      "text": "that you&#39;re putting into like a status field. Okay. And over time 90% of the field values"
+    },
+    {
+      "index": 167,
+      "start_time": 943330.0,
+      "end_time": 949339.0,
+      "text": "contain one specific thing, that index ceases to be as useful as it was when you initially"
+    },
+    {
+      "index": 168,
+      "start_time": 949339.0,
+      "end_time": 955860.0,
+      "text": "designed the application because 90% of the--the rows contain the same value. So just be aware"
+    },
+    {
+      "index": 169,
+      "start_time": 955860.0,
+      "end_time": 961120.0,
+      "text": "that as your database grows and your application changes that you need to reexamine, you know,"
+    },
+    {
+      "index": 170,
+      "start_time": 961120.0,
+      "end_time": 966750.0,
+      "text": "what you initially thought was a good index strategy. Okay. Remove redundant indexes for"
+    },
+    {
+      "index": 171,
+      "start_time": 966750.0,
+      "end_time": 972290.0,
+      "text": "faster write performance. Obviously, every index that you put on a field you get a, you"
+    },
+    {
+      "index": 172,
+      "start_time": 972290.0,
+      "end_time": 976520.0,
+      "text": "know, slight performance impact on writes because it&#39;s got to write an index record"
+    },
+    {
+      "index": 173,
+      "start_time": 976520.0,
+      "end_time": 980240.0,
+      "text": "as well as the data record. Every time you do an insert and every time you update. If,"
+    },
+    {
+      "index": 174,
+      "start_time": 980240.0,
+      "end_time": 986550.0,
+      "text": "you know, update the key value, it&#39;s got to write to the index. So unfortunately, MySQL"
+    },
+    {
+      "index": 175,
+      "start_time": 986550.0,
+      "end_time": 993870.0,
+      "text": "allows you to create redundant indexes on the exact same things. So, I&#39;ve seen cases"
+    },
+    {
+      "index": 176,
+      "start_time": 993870.0,
+      "end_time": 999500.0,
+      "text": "where you get 40 indexes on the table and, you know, 10 of them are redundant. You know,"
+    },
+    {
+      "index": 177,
+      "start_time": 999500.0,
+      "end_time": 1003920.0,
+      "text": "because over time teams of people work on it and no one wants to change other people&#39;s"
+    },
+    {
+      "index": 178,
+      "start_time": 1003920.0,
+      "end_time": 1007690.0,
+      "text": "stuff, you know. So, they just add their own indexes and with different names and all that"
+    },
+    {
+      "index": 179,
+      "start_time": 1007690.0,
+      "end_time": 1012490.0,
+      "text": "but, they&#39;re redundant. They&#39;re on the same field. So, you know, as time goes by make"
+    },
+    {
+      "index": 180,
+      "start_time": 1012490.0,
+      "end_time": 1018910.0,
+      "text": "sure you check, remove redundant indexes to get some write performance. Okay. Common Index"
+    },
+    {
+      "index": 181,
+      "start_time": 1018910.0,
+      "end_time": 1026949.0,
+      "text": "Problem here. Kind of a web 2.0 example. You got a--you got a tag&#39;s table which got tag"
+    },
+    {
+      "index": 182,
+      "start_time": 1026950.0,
+      "end_time": 1034221.0,
+      "text": "ID and a text for the tag and a products table. Both of these tables have an auto-incrementing"
+    },
+    {
+      "index": 183,
+      "start_time": 1034220.0,
+      "end_time": 1040380.0,
+      "text": "primary key and then you&#39;ve got a relationship table that stores the many to many relationship"
+    },
+    {
+      "index": 184,
+      "start_time": 1040380.0000000001,
+      "end_time": 1044980.0000000001,
+      "text": "between products and tags. And if you noticed that the primary key on these Products2Tags"
+    },
+    {
+      "index": 185,
+      "start_time": 1044980.0,
+      "end_time": 1056480.0,
+      "text": "table is product ID--tag ID. Makes sense? Pretty basic? Okay. Here&#39;s two examples of"
+    },
+    {
+      "index": 186,
+      "start_time": 1056480.0,
+      "end_time": 1063190.0,
+      "text": "pretty common queries run on this Products2Tags table. Only the top one&#39;s going to use the"
+    },
+    {
+      "index": 187,
+      "start_time": 1063190.0,
+      "end_time": 1069519.0,
+      "text": "index on it. And the reason is because of the order of the columns in the index. On"
+    },
+    {
+      "index": 188,
+      "start_time": 1069520.0,
+      "end_time": 1074841.0,
+      "text": "the top one, you&#39;re grouping by the--what&#39;s essentially the product ID. And so, it&#39;s going"
+    },
+    {
+      "index": 189,
+      "start_time": 1074840.0,
+      "end_time": 1080460.0,
+      "text": "to be able to take that left side of the index and use it in order to count the right side"
+    },
+    {
+      "index": 190,
+      "start_time": 1080460.0,
+      "end_time": 1087039.0,
+      "text": "value which is the tag ID. Now in the bottom you&#39;re reversing that. You&#39;re saying for each"
+    },
+    {
+      "index": 191,
+      "start_time": 1087040.0,
+      "end_time": 1091290.0,
+      "text": "distinct tag give me the--give me the count of products. You can&#39;t use the index. You"
+    },
+    {
+      "index": 192,
+      "start_time": 1091290.0,
+      "end_time": 1097870.0,
+      "text": "can&#39;t use that primary key index. So, you won&#39;t use it, you get no read performance"
+    },
+    {
+      "index": 193,
+      "start_time": 1097870.0,
+      "end_time": 1107831.0,
+      "text": "from it. The remedy would be to create an index that has tag on the left side. Okay."
+    },
+    {
+      "index": 194,
+      "start_time": 1107830.0,
+      "end_time": 1113989.0,
+      "text": "Now, there&#39;s two examples here where it says create index, the--the top example, create"
+    },
+    {
+      "index": 195,
+      "start_time": 1113990.0,
+      "end_time": 1119961.0,
+      "text": "index, I X&#39;d tag on just the tag ID for all you guys using InnoDB, that&#39;s exactly what"
+    },
+    {
+      "index": 196,
+      "start_time": 1119960.0,
+      "end_time": 1124850.0,
+      "text": "you&#39;d want to do. From MyISAM, you&#39;d want to do the bottom one to create a covering"
+    },
+    {
+      "index": 197,
+      "start_time": 1124850.0,
+      "end_time": 1130809.0,
+      "text": "index opportunity. Does anyone know why the top one should be used for InnoDB and not"
+    },
+    {
+      "index": 198,
+      "start_time": 1130810.0,
+      "end_time": 1138900.0,
+      "text": "the bottom one? What&#39;s the difference between the secondary indexes in InnoDB versus MyISAM?"
+    },
+    {
+      "index": 199,
+      "start_time": 1138900.0,
+      "end_time": 1144050.0,
+      "text": "&gt;&gt; Because it went back to the primary key. &gt;&gt; PIPES: Exactly. For it--it--because it&#39;s"
+    },
+    {
+      "index": 200,
+      "start_time": 1144050.0,
+      "end_time": 1149400.0,
+      "text": "a clustered index organization in InnoDB, every time you add an index on a field, that&#39;s"
+    },
+    {
+      "index": 201,
+      "start_time": 1149400.0,
+      "end_time": 1154490.0,
+      "text": "not the primary--every non-primary key index, the primary key is actually appended to every"
+    },
+    {
+      "index": 202,
+      "start_time": 1154490.0,
+      "end_time": 1160721.0,
+      "text": "single index record. So, if you&#39;ve got a primary key product ID, tag ID and you add an index"
+    },
+    {
+      "index": 203,
+      "start_time": 1160720.0,
+      "end_time": 1165159.0,
+      "text": "on tag ID, product ID you&#39;re being redundant because you&#39;ve already got the product ID"
+    },
+    {
+      "index": 204,
+      "start_time": 1165160.0,
+      "end_time": 1169490.0,
+      "text": "actually in the index record in InnoDB. So, it&#39;s important to understand what the difference"
+    },
+    {
+      "index": 205,
+      "start_time": 1169490.0,
+      "end_time": 1174691.0,
+      "text": "between the cluster organization and the MyISAM which is non-clustered where it&#39;s just a record"
+    },
+    {
+      "index": 206,
+      "start_time": 1174690.0,
+      "end_time": 1183570.0,
+      "text": "number that&#39;s attached to each index record instead of the clustering key. So, be aware"
+    },
+    {
+      "index": 207,
+      "start_time": 1183570.0,
+      "end_time": 1189350.0,
+      "text": "of those differences. So, I was talking about redundant indexes. That one on the bottom"
+    },
+    {
+      "index": 208,
+      "start_time": 1189350.0,
+      "end_time": 1193140.0,
+      "text": "would be redundant for InnoDB. Did the mic just change?"
+    },
+    {
+      "index": 209,
+      "start_time": 1193140.0,
+      "end_time": 1200470.0,
+      "text": "&gt;&gt; [INDISTINCT]. &gt;&gt; PIPES: Okay. Okay. Sorry. Schema Guidelines."
+    },
+    {
+      "index": 210,
+      "start_time": 1200470.0,
+      "end_time": 1205690.0,
+      "text": "Inefficient schema, another great way to kill your application. Use the smallest data types"
+    },
+    {
+      "index": 211,
+      "start_time": 1205690.0,
+      "end_time": 1212070.0,
+      "text": "possible that you really need. If--if you don’t have four billion rows in the table,"
+    },
+    {
+      "index": 212,
+      "start_time": 1212070.0,
+      "end_time": 1217129.0,
+      "text": "don’t use big int. I mean, it’s just the basics, you know. Keep them as trim as possible,"
+    },
+    {
+      "index": 213,
+      "start_time": 1217130.0,
+      "end_time": 1223650.0,
+      "text": "you know, if you have maximum of a hundred values, don’t use int. Use tiny int, you"
+    },
+    {
+      "index": 214,
+      "start_time": 1223650.0,
+      "end_time": 1230961.0,
+      "text": "can feed, you know, 255 unique values in it. Don’t use char[200], you know, when a varchar"
+    },
+    {
+      "index": 215,
+      "start_time": 1230960.0,
+      "end_time": 1236859.0,
+      "text": "or you know, smaller char will do. Little things like this make a huge impact in performance."
+    },
+    {
+      "index": 216,
+      "start_time": 1236860.0,
+      "end_time": 1241240.0,
+      "text": "And the reason is remember that every index record has got to contain, you know, that"
+    },
+    {
+      "index": 217,
+      "start_time": 1241240.0,
+      "end_time": 1246571.0,
+      "text": "width. So, if you&#39;ve got an index on a char[40], every single records got 40 bytes in it. And"
+    },
+    {
+      "index": 218,
+      "start_time": 1246570.0,
+      "end_time": 1251350.0,
+      "text": "well, a little bit different because there&#39;s some index prefix compression that’s going"
+    },
+    {
+      "index": 219,
+      "start_time": 1251350.0,
+      "end_time": 1259149.0,
+      "text": "on but, you know, the--the general concept stays. If you have a index on first_name,"
+    },
+    {
+      "index": 220,
+      "start_time": 1259150.0,
+      "end_time": 1265191.0,
+      "text": "just index the first 10 characters of it or the first 15 characters of it. You fit much--many"
+    },
+    {
+      "index": 221,
+      "start_time": 1265190.0,
+      "end_time": 1271100.0,
+      "text": "more index records into a single key block and therefore you get fewer reads, faster"
+    },
+    {
+      "index": 222,
+      "start_time": 1271100.0,
+      "end_time": 1276830.0,
+      "text": "performance. When you&#39;ve got many columns in a table, especially many nullable columns,"
+    },
+    {
+      "index": 223,
+      "start_time": 1276830.0,
+      "end_time": 1280480.0,
+      "text": "consider splitting the tables into two tables like a main and a detail table, something"
+    },
+    {
+      "index": 224,
+      "start_time": 1280480.0,
+      "end_time": 1285679.0,
+      "text": "like that. If you&#39;ve got many nullable columns or columns that are rarely even accessed or"
+    },
+    {
+      "index": 225,
+      "start_time": 1285680.0,
+      "end_time": 1290231.0,
+      "text": "rarely searched on, put those in a separate table and join them on the one-to-one, you"
+    },
+    {
+      "index": 226,
+      "start_time": 1290230.0,
+      "end_time": 1296659.0,
+      "text": "know, relationship, okay? And the reason for that is you can pull many more of the main"
+    },
+    {
+      "index": 227,
+      "start_time": 1296660.0,
+      "end_time": 1301810.0,
+      "text": "records that you are actually searching on into memory. You get--especially, if you don’t"
+    },
+    {
+      "index": 228,
+      "start_time": 1301810.0,
+      "end_time": 1307810.0,
+      "text": "need the detail records of those fields, you can have a lot more opportunities to get more"
+    },
+    {
+      "index": 229,
+      "start_time": 1307810.0,
+      "end_time": 1314040.0,
+      "text": "performance from that. Consider vertically splitting many road tables using partitioning"
+    },
+    {
+      "index": 230,
+      "start_time": 1314040.0,
+      "end_time": 1318400.0,
+      "text": "or the MyISAM merge tables which--since you guys are using InnoDB, it doesn’t matter."
+    },
+    {
+      "index": 231,
+      "start_time": 1318400.0,
+      "end_time": 1327071.0,
+      "text": "Partitioning is in 5.1, so, you guys are a little ways away from that. It&#39;s all right."
+    },
+    {
+      "index": 232,
+      "start_time": 1327070.0,
+      "end_time": 1330809.0,
+      "text": "You can also do, you know, your own application level vertical, you know, partitioning where"
+    },
+    {
+      "index": 233,
+      "start_time": 1330810.0,
+      "end_time": 1335821.0,
+      "text": "you&#39;re naming different sets of tables and then using views on--the one person that was"
+    },
+    {
+      "index": 234,
+      "start_time": 1335820.0,
+      "end_time": 1343399.0,
+      "text": "using 5.0 you can use views in order to aggregate many tables into a single view. And always"
+    },
+    {
+      "index": 235,
+      "start_time": 1343400.0,
+      "end_time": 1349300.0,
+      "text": "remember that, you know, fewer reads has faster results. And this is--this is my--the limit"
+    },
+    {
+      "index": 236,
+      "start_time": 1349300.0,
+      "end_time": 1355030.0,
+      "text": "of my graphical ability right here. That&#39;s about it. It&#39;s just, you know, a little flow,"
+    },
+    {
+      "index": 237,
+      "start_time": 1355030.0,
+      "end_time": 1360280.0,
+      "text": "smaller data types placed in narrower index records. More records per block, fewer reads,"
+    },
+    {
+      "index": 238,
+      "start_time": 1360280.0,
+      "end_time": 1363670.0,
+      "text": "faster performance. It&#39;s just the general thing. How to get better performance from"
+    },
+    {
+      "index": 239,
+      "start_time": 1363670.0,
+      "end_time": 1369020.0,
+      "text": "your index, use schema. InnoDB, choose the smallest possible clustering key. Since like,"
+    },
+    {
+      "index": 240,
+      "start_time": 1369020.0,
+      "end_time": 1373201.0,
+      "text": "I just explained, it&#39;s appended to every single secondary index record. So, if you&#39;ve got"
+    },
+    {
+      "index": 241,
+      "start_time": 1373200.0,
+      "end_time": 1378710.0,
+      "text": "a 12 byte primary key on your index in--on your InnoDB table, that&#39;s 12 bytes per index"
+    },
+    {
+      "index": 242,
+      "start_time": 1378710.0,
+      "end_time": 1384419.0,
+      "text": "record that are being appended every single time you insert in the table. So, be aware"
+    },
+    {
+      "index": 243,
+      "start_time": 1384420.0,
+      "end_time": 1388390.0,
+      "text": "of that. Don’t use surrogate keys when a naturally occurring one exists. We see this"
+    },
+    {
+      "index": 244,
+      "start_time": 1388390.0,
+      "end_time": 1395951.0,
+      "text": "all the time in the forums. And I often wonder what the use of it is and why people do it."
+    },
+    {
+      "index": 245,
+      "start_time": 1395950.0,
+      "end_time": 1401159.0,
+      "text": "You&#39;ve got a naturally occurring product ID, tag ID key. It&#39;s a naturally occurring primary"
+    },
+    {
+      "index": 246,
+      "start_time": 1401160.0,
+      "end_time": 1405780.0,
+      "text": "key. Yet a lot of people will just kind of put an auto-increment in there just for the"
+    },
+    {
+      "index": 247,
+      "start_time": 1405780.0,
+      "end_time": 1410231.0,
+      "text": "heck of it, you know, but you&#39;re never really going to be looking up by record ID. You will"
+    },
+    {
+      "index": 248,
+      "start_time": 1410230.0,
+      "end_time": 1416029.0,
+      "text": "always going to be looking up based on product ID or tag ID. So, some people call it a surrogate"
+    },
+    {
+      "index": 249,
+      "start_time": 1416030.0,
+      "end_time": 1425860.0,
+      "text": "key or a false key, get rid of them, they&#39;re just wasting space. Coding Guidelines, I tend"
+    },
+    {
+      "index": 250,
+      "start_time": 1425860.0,
+      "end_time": 1430520.0,
+      "text": "to call it chunky coding habits. Cutting everything down into the smallest possible units you"
+    },
+    {
+      "index": 251,
+      "start_time": 1430520.0,
+      "end_time": 1436610.0,
+      "text": "can. You know, thinking of SQL in terms of procedural programming is a bad idea. At least"
+    },
+    {
+      "index": 252,
+      "start_time": 1436610.0,
+      "end_time": 1441420.0,
+      "text": "to--well, correlated sub-queries and other things I hate. You want to--you want to be"
+    },
+    {
+      "index": 253,
+      "start_time": 1441420.0,
+      "end_time": 1447451.0,
+      "text": "an SQL programmer that thinks in sets. Don’t think in terms of for-loops, okay. Think in"
+    },
+    {
+      "index": 254,
+      "start_time": 1447450.0,
+      "end_time": 1453470.0,
+      "text": "terms of merging and intersecting sets of data. And you&#39;ll be able to cut it up into"
+    },
+    {
+      "index": 255,
+      "start_time": 1453470.0,
+      "end_time": 1457960.0,
+      "text": "chunks and you&#39;ll be much more efficient in the way when--in the way you code SQL. The"
+    },
+    {
+      "index": 256,
+      "start_time": 1457960.0,
+      "end_time": 1463570.0,
+      "text": "5.0 guy, use store procedures. If you&#39;re not using store procedures, you&#39;re missing out"
+    },
+    {
+      "index": 257,
+      "start_time": 1463570.0,
+      "end_time": 1470999.0,
+      "text": "on a performance increase in 5.0. InnoDB, how many of you using SELECT COUNT(*) on InnoDB"
+    },
+    {
+      "index": 258,
+      "start_time": 1471000.0,
+      "end_time": 1479670.0,
+      "text": "tables? I know they saw you. Okay. Don’t. InnoDB cannot optimize SELECT COUNT(*) queries,"
+    },
+    {
+      "index": 259,
+      "start_time": 1479670.0,
+      "end_time": 1485290.0,
+      "text": "okay? So, your table and your schema will not scale well, okay? The more records you"
+    },
+    {
+      "index": 260,
+      "start_time": 1485290.0,
+      "end_time": 1489941.0,
+      "text": "get in there, it requires actually reading through and counting all the records. Whereas"
+    },
+    {
+      "index": 261,
+      "start_time": 1489940.0,
+      "end_time": 1496879.0,
+      "text": "with MyISAM, it can actually get the count from the index. With InnoDB, it cannot. It"
+    },
+    {
+      "index": 262,
+      "start_time": 1496880.0,
+      "end_time": 1501471.0,
+      "text": "actually has to count all the values. And the reason for that is the way that InnoDB"
+    },
+    {
+      "index": 263,
+      "start_time": 1501470.0,
+      "end_time": 1507070.0,
+      "text": "implements what&#39;s called multi-version concurrency control. And there&#39;s a version so that the"
+    },
+    {
+      "index": 264,
+      "start_time": 1507070.0,
+      "end_time": 1513259.0,
+      "text": "row level locking can occur in InnoDB. There&#39;s a version for each row. So there&#39;s complexities"
+    },
+    {
+      "index": 265,
+      "start_time": 1513260.0,
+      "end_time": 1517581.0,
+      "text": "involved with actually counting, you know, the number of values because well--which version"
+    },
+    {
+      "index": 266,
+      "start_time": 1517580.0,
+      "end_time": 1522580.0,
+      "text": "are you--are you comparing and so use counter tables. So if you&#39;re doing, you know, select"
+    },
+    {
+      "index": 267,
+      "start_time": 1522580.0,
+      "end_time": 1527419.0,
+      "text": "counts to our products, have a separate table that stores the number of products and when"
+    },
+    {
+      "index": 268,
+      "start_time": 1527420.0,
+      "end_time": 1532480.0,
+      "text": "you insert into the product table, increment it, when you delete, decrement it. Okay. That’s"
+    },
+    {
+      "index": 269,
+      "start_time": 1532480.0,
+      "end_time": 1538810.0,
+      "text": "how to scale InnoDB for performance. We&#39;ve seen this by a number of big form applications"
+    },
+    {
+      "index": 270,
+      "start_time": 1538810.0,
+      "end_time": 1544000.0,
+      "text": "that, you know, that they always do, you know, count the number of threads and then count--some--how"
+    },
+    {
+      "index": 271,
+      "start_time": 1544000.0,
+      "end_time": 1549290.0,
+      "text": "many users are logged in. This is a big problem when, you know, if people use--switch from"
+    },
+    {
+      "index": 272,
+      "start_time": 1549290.0,
+      "end_time": 1559170.0,
+      "text": "MyISAM to InnoDB without looking at the code, just simply switch the engines, you know,"
+    },
+    {
+      "index": 273,
+      "start_time": 1559170.0,
+      "end_time": 1562451.0,
+      "text": "it was a--yeah. &gt;&gt; Well, also consider you don’t actually"
+    },
+    {
+      "index": 274,
+      "start_time": 1562450.0,
+      "end_time": 1568029.0,
+      "text": "necessarily want to know the exact number of rows. Do you care if you&#39;ve got a 1000"
+    },
+    {
+      "index": 275,
+      "start_time": 1568030.0,
+      "end_time": 1572760.0,
+      "text": "threads or 1100 threads? It really doesn’t matter. You want the ballpark figure. So even"
+    },
+    {
+      "index": 276,
+      "start_time": 1572760.0,
+      "end_time": 1576310.0,
+      "text": "if your numbers are not fully up-to-date, it doesn’t matter. If you want to run Chrome"
+    },
+    {
+      "index": 277,
+      "start_time": 1576310.0,
+      "end_time": 1581211.0,
+      "text": "job that does the InnoDB count once an hour, then put that values [INDISTINCT]. You could"
+    },
+    {
+      "index": 278,
+      "start_time": 1581210.0,
+      "end_time": 1585419.0,
+      "text": "put it in another table. You could put it in a file that can include into whatever page"
+    },
+    {
+      "index": 279,
+      "start_time": 1585420.0,
+      "end_time": 1591240.0,
+      "text": "is displayed, that works fine. Then reduce the problem to once an hour rather than every"
+    },
+    {
+      "index": 280,
+      "start_time": 1591240.0,
+      "end_time": 1598010.0,
+      "text": "time you run that query. &gt;&gt; PIPES: All right. Isolating indexes or--index"
+    },
+    {
+      "index": 281,
+      "start_time": 1598010.0,
+      "end_time": 1602660.0,
+      "text": "fields on one side of the equation, you know, your basic--your basic Math class, you want"
+    },
+    {
+      "index": 282,
+      "start_time": 1602660.0,
+      "end_time": 1607730.0,
+      "text": "to put the single on the one side and had your equation on the other, you know. Well,"
+    },
+    {
+      "index": 283,
+      "start_time": 1607730.0,
+      "end_time": 1612860.0,
+      "text": "we&#39;ll show an example of how to do this in a second. And using calculated fields when"
+    },
+    {
+      "index": 284,
+      "start_time": 1612860.0,
+      "end_time": 1618560.0,
+      "text": "they&#39;re necessary, you know. Let&#39;s go into the example of isolating index fields on one"
+    },
+    {
+      "index": 285,
+      "start_time": 1618560.0,
+      "end_time": 1628331.0,
+      "text": "side of the equation. Okay. Here we&#39;ve got--whenever you apply a function to a field that’s indexed,"
+    },
+    {
+      "index": 286,
+      "start_time": 1628330.0,
+      "end_time": 1633779.0,
+      "text": "it--the itemizer can&#39;t use the index on, okay. So you want to look for opportunities where"
+    },
+    {
+      "index": 287,
+      "start_time": 1633780.0,
+      "end_time": 1641310.0,
+      "text": "you can rewrite SQL statements like on the top here into the exact same SQL statement"
+    },
+    {
+      "index": 288,
+      "start_time": 1641310.0,
+      "end_time": 1647420.0,
+      "text": "or the exact same result, but you’ve isolated the index field without any function operating"
+    },
+    {
+      "index": 289,
+      "start_time": 1647420.0,
+      "end_time": 1652471.0,
+      "text": "on it on, you know, the left or whatever, right. And just converted the actual statement"
+    },
+    {
+      "index": 290,
+      "start_time": 1652470.0,
+      "end_time": 1658820.0,
+      "text": "into a--just a different way of representing it, okay. Now, in this case, you&#39;re just taking"
+    },
+    {
+      "index": 291,
+      "start_time": 1658820.0,
+      "end_time": 1663429.0,
+      "text": "the two days and converting it into current date minus seven day, you know. Just make"
+    },
+    {
+      "index": 292,
+      "start_time": 1663430.0,
+      "end_time": 1668951.0,
+      "text": "sure you understand the greater than and equals all that, you know, so you&#39;re including that."
+    },
+    {
+      "index": 293,
+      "start_time": 1668950.0,
+      "end_time": 1675129.0,
+      "text": "Now, what&#39;s wrong with the second part? How can we improve that with our performance?"
+    },
+    {
+      "index": 294,
+      "start_time": 1675130.0,
+      "end_time": 1678201.0,
+      "text": "Anyone know? &gt;&gt; [INDISTINCT]"
+    },
+    {
+      "index": 295,
+      "start_time": 1678200.0,
+      "end_time": 1682289.0,
+      "text": "&gt;&gt; PIPES: Say again? &gt;&gt; [INDISTINCT]"
+    },
+    {
+      "index": 296,
+      "start_time": 1682290.0,
+      "end_time": 1691240.0,
+      "text": "&gt;&gt; PIPES: Yes, well, yeah, basically that. The current date function is a non-deterministic"
+    },
+    {
+      "index": 297,
+      "start_time": 1691240.0,
+      "end_time": 1697550.0,
+      "text": "function and the problem with that is that the query cache won&#39;t cache this query. Well,"
+    },
+    {
+      "index": 298,
+      "start_time": 1697550.0,
+      "end_time": 1702680.0,
+      "text": "the thing about current date is, it only returns a different value once every what, 24 hours?"
+    },
+    {
+      "index": 299,
+      "start_time": 1702680.0,
+      "end_time": 1707170.0,
+      "text": "So if you&#39;re running this, you know, let&#39;s say a hundred thousand times in a day, instead"
+    },
+    {
+      "index": 300,
+      "start_time": 1707170.0,
+      "end_time": 1714331.0,
+      "text": "of running this once, it&#39;s going to run a hundred thousand times. You know, with the"
+    },
+    {
+      "index": 301,
+      "start_time": 1714330.0,
+      "end_time": 1717509.0,
+      "text": "query cache it actually puts the query into the cache stores the results and every time"
+    },
+    {
+      "index": 302,
+      "start_time": 1717510.0,
+      "end_time": 1720400.0,
+      "text": "you issue that exact same query, just takes it rather to query cache never even has to"
+    },
+    {
+      "index": 303,
+      "start_time": 1720400.0,
+      "end_time": 1726150.0,
+      "text": "hit the Storage Engine, the mySQLs, whatever. It just takes right in the query cache. So"
+    },
+    {
+      "index": 304,
+      "start_time": 1726150.0,
+      "end_time": 1730810.0,
+      "text": "in your Perl Scripts or your PHP scripts or whatever you&#39;re using to write, just insert"
+    },
+    {
+      "index": 305,
+      "start_time": 1730810.0,
+      "end_time": 1736250.0,
+      "text": "the date instead of using current date, okay. A lot of people don’t realize this, but"
+    },
+    {
+      "index": 306,
+      "start_time": 1736250.0,
+      "end_time": 1743100.0,
+      "text": "very good way to get performance out of your query cache. Okay, using calculated fields."
+    },
+    {
+      "index": 307,
+      "start_time": 1743100.0,
+      "end_time": 1750410.0,
+      "text": "When you got [INDISTINCT] email address like present.com, index can&#39;t be used. The reason"
+    },
+    {
+      "index": 308,
+      "start_time": 1750410.0,
+      "end_time": 1754520.0,
+      "text": "is because you can&#39;t have a wildcard on the left side of a constant, comparing it with"
+    },
+    {
+      "index": 309,
+      "start_time": 1754520.0,
+      "end_time": 1760110.0,
+      "text": "like. If you put the wildcard on the right--on the end and you have a constant string and"
+    },
+    {
+      "index": 310,
+      "start_time": 1760110.0,
+      "end_time": 1765640.0,
+      "text": "then wildcard the index can be used because you can look at the left side of the values,"
+    },
+    {
+      "index": 311,
+      "start_time": 1765640.0,
+      "end_time": 1772850.0,
+      "text": "okay. So the way to do this is to do a little trickery and put a reversed email address"
+    },
+    {
+      "index": 312,
+      "start_time": 1772850.0,
+      "end_time": 1778461.0,
+      "text": "actually in your table, okay, with 5.0 you can use a trigger. It actually inserts the"
+    },
+    {
+      "index": 313,
+      "start_time": 1778460.0,
+      "end_time": 1783330.0,
+      "text": "reverse of the email address that you&#39;re inserting directly into that new reversed email address"
+    },
+    {
+      "index": 314,
+      "start_time": 1783330.0,
+      "end_time": 1791840.0,
+      "text": "field, okay. And then on the bottom, you can just do the like reversed CONCAT and now you"
+    },
+    {
+      "index": 315,
+      "start_time": 1791840.0,
+      "end_time": 1796259.0,
+      "text": "can--now you actually can use an index on that field. So that’s a way of using calculated"
+    },
+    {
+      "index": 316,
+      "start_time": 1796260.0,
+      "end_time": 1801740.0,
+      "text": "fields or, you know, fields that, you know store different values based on other fields"
+    },
+    {
+      "index": 317,
+      "start_time": 1801740.0,
+      "end_time": 1810500.0,
+      "text": "on the table to get performance out of something that you&#39;d never be able to use an index on,"
+    },
+    {
+      "index": 318,
+      "start_time": 1810500.0,
+      "end_time": 1810951.0,
+      "text": "you know. &gt;&gt; [INDISTINCT]"
+    },
+    {
+      "index": 319,
+      "start_time": 1810950.0,
+      "end_time": 1814149.0,
+      "text": "&gt;&gt; PIPES: Yes. This is something, you know, if you have an application that&#39;s looking"
+    },
+    {
+      "index": 320,
+      "start_time": 1814150.0,
+      "end_time": 1819191.0,
+      "text": "up, you know, all the email addresses in your database that end it dotcom or aol.com or"
+    },
+    {
+      "index": 321,
+      "start_time": 1819190.0,
+      "end_time": 1824710.0,
+      "text": "whatever it is, you know, that&#39;s--you don’t want to be running that top one every single"
+    },
+    {
+      "index": 322,
+      "start_time": 1824710.0,
+      "end_time": 1831330.0,
+      "text": "time if someone request that. You want to be operating on a reversed email address and"
+    },
+    {
+      "index": 323,
+      "start_time": 1831330.0,
+      "end_time": 1840970.0,
+      "text": "using the index on it. Okay. Learn to use joins. Like I said earlier, eliminating correlated"
+    },
+    {
+      "index": 324,
+      "start_time": 1840970.0,
+      "end_time": 1845159.0,
+      "text": "subqueries is a great way to get performance out of your application currently. Like, Timour"
+    },
+    {
+      "index": 325,
+      "start_time": 1845160.0,
+      "end_time": 1851221.0,
+      "text": "who&#39;s going to be speaking in a little bit, is on the optimizer team and he&#39;s working"
+    },
+    {
+      "index": 326,
+      "start_time": 1851220.0,
+      "end_time": 1856609.0,
+      "text": "on subquery optimizations but there&#39;s, you know, there&#39;s just a better way of doing things"
+    },
+    {
+      "index": 327,
+      "start_time": 1856610.0,
+      "end_time": 1863760.0,
+      "text": "with the joins, okay? It&#39;s easier and it follows the set-based programming principles of SQL"
+    },
+    {
+      "index": 328,
+      "start_time": 1863760.0,
+      "end_time": 1868410.0,
+      "text": "instead of the procedural language principles that most of us are very familiar with, you"
+    },
+    {
+      "index": 329,
+      "start_time": 1868410.0,
+      "end_time": 1874110.0,
+      "text": "know. The for-loop, the operating on, you know, everything one at the time. So, let&#39;s"
+    },
+    {
+      "index": 330,
+      "start_time": 1874110.0,
+      "end_time": 1877951.0,
+      "text": "go to some examples here. Don’t try and outthink the optimizing team. The team works"
+    },
+    {
+      "index": 331,
+      "start_time": 1877950.0,
+      "end_time": 1884789.0,
+      "text": "pretty smart. You&#39;ll meet them in a little bit but he&#39;s really smart. You can give the"
+    },
+    {
+      "index": 332,
+      "start_time": 1884790.0,
+      "end_time": 1890180.0,
+      "text": "SQL server--the MySQL server in a join hint using like straight join but the problem with"
+    },
+    {
+      "index": 333,
+      "start_time": 1890180.0,
+      "end_time": 1895980.0,
+      "text": "that is while you may get some performance benefit if the optimizer currently can&#39;t figure"
+    },
+    {
+      "index": 334,
+      "start_time": 1895980.0,
+      "end_time": 1901920.0,
+      "text": "out the right path and I&#39;ve only seen this in like one or two instances. Well, in two"
+    },
+    {
+      "index": 335,
+      "start_time": 1901920.0,
+      "end_time": 1907260.0,
+      "text": "months your data sets changes and the optimizer that you&#39;ve now overwritten with your straight"
+    },
+    {
+      "index": 336,
+      "start_time": 1907260.0,
+      "end_time": 1912900.0,
+      "text": "join hint, now you may have the suboptimal plan for it and you forgot that you put straight"
+    },
+    {
+      "index": 337,
+      "start_time": 1912900.0,
+      "end_time": 1918150.0,
+      "text": "join in there and now you&#39;ve got a suboptimal plan. So, if you are going to use join hint,"
+    },
+    {
+      "index": 338,
+      "start_time": 1918150.0,
+      "end_time": 1921500.0,
+      "text": "make sure you thoroughly document where you put it in the code and don’t forget about"
+    },
+    {
+      "index": 339,
+      "start_time": 1921500.0,
+      "end_time": 1926510.0,
+      "text": "it. Because as your data set changes, your optimizer could much more easily pick an optimal"
+    },
+    {
+      "index": 340,
+      "start_time": 1926510.0,
+      "end_time": 1935280.0,
+      "text": "path for the query execution. Okay. Eliminating correlated subqueries. With 4.01, it looked"
+    },
+    {
+      "index": 341,
+      "start_time": 1935280.0,
+      "end_time": 1940930.0,
+      "text": "like most of you are on 4.01. You could use subqueries. I tend to avoid them like the"
+    },
+    {
+      "index": 342,
+      "start_time": 1940930.0,
+      "end_time": 1948310.0,
+      "text": "plague. We see this a lot on the forms, this kind of thing. Most of you like advance SQL"
+    },
+    {
+      "index": 343,
+      "start_time": 1948310.0,
+      "end_time": 1952990.0,
+      "text": "programmers, you probably not do anything like this but we see it everyday. You just,"
+    },
+    {
+      "index": 344,
+      "start_time": 1952990.0,
+      "end_time": 1959510.0,
+      "text": "I mean, the thing is, to try and get the maximum sold price from an order items table for each"
+    },
+    {
+      "index": 345,
+      "start_time": 1959510.0,
+      "end_time": 1964600.0,
+      "text": "product. And the procedural programmer, you know, who&#39;s a pro coder doesn’t necessarily,"
+    },
+    {
+      "index": 346,
+      "start_time": 1964600.0,
+      "end_time": 1971350.0,
+      "text": "you know, isn&#39;t familiar with SQL, hasn’t been trained in set-based, you know, thinking."
+    },
+    {
+      "index": 347,
+      "start_time": 1971350.0,
+      "end_time": 1976250.0,
+      "text": "This is a very natural way of doing something. Your saying, &quot;Okay. I want my products table."
+    },
+    {
+      "index": 348,
+      "start_time": 1976250.0,
+      "end_time": 1980650.0,
+      "text": "I&#39;m selecting for my product&#39;s table. Okay. And I want each of those products.&quot; And for"
+    },
+    {
+      "index": 349,
+      "start_time": 1980650.0,
+      "end_time": 1985660.0,
+      "text": "each one, I want to get the maximum price that it was sold in the order items table."
+    },
+    {
+      "index": 350,
+      "start_time": 1985660.0,
+      "end_time": 1991020.0,
+      "text": "You know, correlating on the product ID. It&#39;s a very natural way for a procedural programmer"
+    },
+    {
+      "index": 351,
+      "start_time": 1991020.0,
+      "end_time": 1996000.0,
+      "text": "to think of things, you know. But remember, it&#39;s for each product, I mean, that&#39;s the"
+    },
+    {
+      "index": 352,
+      "start_time": 1996000.0,
+      "end_time": 2001810.0,
+      "text": "way that people think about it. That&#39;s not the set-based way of doing things. On the"
+    },
+    {
+      "index": 353,
+      "start_time": 2001810.0,
+      "end_time": 2006610.0,
+      "text": "right is the set-based way. You&#39;re joining, you say, &quot;Okay. I&#39;ve got two sets of information."
+    },
+    {
+      "index": 354,
+      "start_time": 2006610.0,
+      "end_time": 2013730.0,
+      "text": "I&#39;ve got my products and I got my order items. Okay. And I want to transform these order"
+    },
+    {
+      "index": 355,
+      "start_time": 2013730.0,
+      "end_time": 2018890.0,
+      "text": "items by grouping them on a product id and then finding the maximum price.&quot; So, that’s"
+    },
+    {
+      "index": 356,
+      "start_time": 2018890.0,
+      "end_time": 2023870.0,
+      "text": "my set. The maximum price is for each product today. And then, I have my products set and"
+    },
+    {
+      "index": 357,
+      "start_time": 2023870.0,
+      "end_time": 2031040.0,
+      "text": "the maximum price is set and I join them. That--that actually is two operations, right?"
+    },
+    {
+      "index": 358,
+      "start_time": 2031040.0,
+      "end_time": 2037581.0,
+      "text": "Two conceptual operations, grouping and joining to the products. On the left, you are actually"
+    },
+    {
+      "index": 359,
+      "start_time": 2037580.0,
+      "end_time": 2043440.0,
+      "text": "doing a query for every single product so, it doesn’t scale to linear model. Actually,"
+    },
+    {
+      "index": 360,
+      "start_time": 2043440.0,
+      "end_time": 2047200.0,
+      "text": "you have a thousand products; you&#39;re doing a thousand sub queries to get the maximum"
+    },
+    {
+      "index": 361,
+      "start_time": 2047200.0,
+      "end_time": 2051340.0,
+      "text": "price from the order items table. You have a million, you do a million queries. You&#39;re"
+    },
+    {
+      "index": 362,
+      "start_time": 2051340.0000000002,
+      "end_time": 2056609.0000000002,
+      "text": "still doing two queries on the--on the right. So, think about how you can get rid of correlated"
+    },
+    {
+      "index": 363,
+      "start_time": 2056610.0000000002,
+      "end_time": 2063081.0000000002,
+      "text": "subqueries. This is one of the best ways to get better performance out of your SQL code."
+    },
+    {
+      "index": 364,
+      "start_time": 2063080.0,
+      "end_time": 2068179.0,
+      "text": "Using derived tables, it might seem like a big mess but it’s actually more efficient"
+    },
+    {
+      "index": 365,
+      "start_time": 2068179.9999999998,
+      "end_time": 2072629.9999999998,
+      "text": "on the right. And it goes back to the same principle of how many queries are you actually"
+    },
+    {
+      "index": 366,
+      "start_time": 2072630.0,
+      "end_time": 2080880.0,
+      "text": "issuing? On the left, you&#39;ve got a join from customers to orders and in the where clause,"
+    },
+    {
+      "index": 367,
+      "start_time": 2080880.0,
+      "end_time": 2087330.0,
+      "text": "you have a correlated subquery with a group by in it, okay? Not a group, with an aggregate."
+    },
+    {
+      "index": 368,
+      "start_time": 2087330.0,
+      "end_time": 2093511.0,
+      "text": "So, you&#39;re saying, the customers join to the orders but I want a group by the company of"
+    },
+    {
+      "index": 369,
+      "start_time": 2093510.0000000002,
+      "end_time": 2100819.0,
+      "text": "the customer, not the customer id. And in order date equals the maximum or the last"
+    },
+    {
+      "index": 370,
+      "start_time": 2100820.0,
+      "end_time": 2106560.0,
+      "text": "order date in the orders table where the customer&#39;s the same, it&#39;s correlated to your customer&#39;s"
+    },
+    {
+      "index": 371,
+      "start_time": 2106560.0,
+      "end_time": 2112530.0,
+      "text": "table C and then group by the company. Well, you&#39;re going to be doing a sub-query for this"
+    },
+    {
+      "index": 372,
+      "start_time": 2112530.0,
+      "end_time": 2120981.0,
+      "text": "select MAX--for each customer in the order&#39;s table. Now, on the right, we say, &quot;Okay, are"
+    },
+    {
+      "index": 373,
+      "start_time": 2120980.0,
+      "end_time": 2126579.0,
+      "text": "these customers set?&quot; And we&#39;re interjoining on what&#39;s called the derived table, a sub-query"
+    },
+    {
+      "index": 374,
+      "start_time": 2126580.0,
+      "end_time": 2133780.0,
+      "text": "in the FROM clause. That’s one set. We&#39;re taking the maximum or the last order date"
+    },
+    {
+      "index": 375,
+      "start_time": 2133780.0,
+      "end_time": 2140580.0,
+      "text": "for each customer, distinct customer ID in our order&#39;s table, that’s a set. And then"
+    },
+    {
+      "index": 376,
+      "start_time": 2140580.0,
+      "end_time": 2145790.0,
+      "text": "we&#39;re joining back to the order&#39;s table so there&#39;s three--three operations. Three conceptual"
+    },
+    {
+      "index": 377,
+      "start_time": 2145790.0,
+      "end_time": 2154221.0,
+      "text": "sets to get that result versus the non-scaling method of a correlated sub-query in the WHERE"
+    },
+    {
+      "index": 378,
+      "start_time": 2154220.0,
+      "end_time": 2160319.0,
+      "text": "clause which has to be executed for every single customer in the order&#39;s table. Okay."
+    },
+    {
+      "index": 379,
+      "start_time": 2160320.0,
+      "end_time": 2165691.0,
+      "text": "All right. And this is my last slide and I tend to kind of scheme over server parameters"
+    },
+    {
+      "index": 380,
+      "start_time": 2165690.0,
+      "end_time": 2171480.0,
+      "text": "because it&#39;s--I&#39;m very happy to talk specifics with anyone of you but to generalize about"
+    },
+    {
+      "index": 381,
+      "start_time": 2171480.0,
+      "end_time": 2177630.0,
+      "text": "server parameters, it&#39;s okay but there&#39;re very specific situations where they can help--where"
+    },
+    {
+      "index": 382,
+      "start_time": 2177630.0,
+      "end_time": 2183970.0,
+      "text": "you can get some definite performance boost. Be aware of which server parameters are global"
+    },
+    {
+      "index": 383,
+      "start_time": 2183970.0,
+      "end_time": 2190260.0,
+      "text": "versus what&#39;s per thread--per connection made to the database. Okay. For instance, key buffer"
+    },
+    {
+      "index": 384,
+      "start_time": 2190260.0,
+      "end_time": 2196140.0,
+      "text": "size. It&#39;s a global variable. Sort buffer size, it&#39;s per thread so be aware of that."
+    },
+    {
+      "index": 385,
+      "start_time": 2196140.0,
+      "end_time": 2199339.0,
+      "text": "Don’t, you know, assume that sort buffer size is for the whole database and bump it"
+    },
+    {
+      "index": 386,
+      "start_time": 2199340.0,
+      "end_time": 2205951.0,
+      "text": "up because it&#39;s actually per thread. So make small changes, preferably a single change"
+    },
+    {
+      "index": 387,
+      "start_time": 2205950.0,
+      "end_time": 2211299.0,
+      "text": "to your configuration file, retest. See if you get a performance benefit from that specific,"
+    },
+    {
+      "index": 388,
+      "start_time": 2211300.0,
+      "end_time": 2217701.0,
+      "text": "you know, change. Often provide a quick solution but they can be temporary. Really--really,"
+    },
+    {
+      "index": 389,
+      "start_time": 2217700.0,
+      "end_time": 2224520.0,
+      "text": "the performance benefit is optimizing application, your indexes, your schema--your coding. Query"
+    },
+    {
+      "index": 390,
+      "start_time": 2224520.0,
+      "end_time": 2231410.0,
+      "text": "cache, it&#39;s off by default so the size is zero for your query cache so if you haven&#39;t"
+    },
+    {
+      "index": 391,
+      "start_time": 2231410.0,
+      "end_time": 2237390.0,
+      "text": "changed it, it&#39;s not on. You can do show status and they&#39;ll say query cache type--I think"
+    },
+    {
+      "index": 392,
+      "start_time": 2237390.0,
+      "end_time": 2242819.0,
+      "text": "it&#39;s query cache type on but there&#39;s no size to it so that actually is use by default."
+    },
+    {
+      "index": 393,
+      "start_time": 2242820.0,
+      "end_time": 2248261.0,
+      "text": "So unless you turned it on, you&#39;re not using your query cache. If you&#39;re doing read-intensive"
+    },
+    {
+      "index": 394,
+      "start_time": 2248260.0,
+      "end_time": 2252630.0,
+      "text": "applications, like, how many are doing, like, lots and lots of writes versus lots and lots"
+    },
+    {
+      "index": 395,
+      "start_time": 2252630.0,
+      "end_time": 2259760.0,
+      "text": "of reads? Who has 90% reads or more? Okay. Do you have your query cache as turned on?"
+    },
+    {
+      "index": 396,
+      "start_time": 2259760.0,
+      "end_time": 2264150.0,
+      "text": "Who has the query cache turned on that they know they&#39;ve added size to? One guy in the"
+    },
+    {
+      "index": 397,
+      "start_time": 2264150.0,
+      "end_time": 2271289.0,
+      "text": "back, all right. Two, all right, excellent. Okay. If you&#39;re doing read-intensive applications,"
+    },
+    {
+      "index": 398,
+      "start_time": 2271290.0,
+      "end_time": 2275891.0,
+      "text": "turn the query cache on. Why? Because it doesn’t have to execute the query. If it&#39;s the exact"
+    },
+    {
+      "index": 399,
+      "start_time": 2275890.0,
+      "end_time": 2280510.0,
+      "text": "same query and your dataset isn’t changing much, it just takes it directly from the query"
+    },
+    {
+      "index": 400,
+      "start_time": 2280510.0,
+      "end_time": 2286079.0,
+      "text": "cache. The query cache actually stores the results set. It doesn’t just, like, compile"
+    },
+    {
+      "index": 401,
+      "start_time": 2286080.0,
+      "end_time": 2291040.0,
+      "text": "a query and store the query so they can be re-executed. It actually stores the rows so"
+    },
+    {
+      "index": 402,
+      "start_time": 2291040.0,
+      "end_time": 2294441.0,
+      "text": "that it doesn’t actually have to do in either parsing or anything and the optimization."
+    },
+    {
+      "index": 403,
+      "start_time": 2294440.0,
+      "end_time": 2299319.0,
+      "text": "It just sends the rows right back to the client. So if you&#39;re doing repeated queries like that,"
+    },
+    {
+      "index": 404,
+      "start_time": 2299320.0,
+      "end_time": 2306471.0,
+      "text": "turn the query cache on and give it some size the--in the configuration file, it&#39;s the query_cache_size,"
+    },
+    {
+      "index": 405,
+      "start_time": 2306470.0,
+      "end_time": 2312460.0,
+      "text": "set it to, whatever, 32 meg or 64 meg. You can play around with it. You can also do it"
+    },
+    {
+      "index": 406,
+      "start_time": 2312460.0,
+      "end_time": 2319730.0,
+      "text": "online. I think it&#39;s sets global query cache size equal something or other, it&#39;s in the"
+    },
+    {
+      "index": 407,
+      "start_time": 2319730.0,
+      "end_time": 2325289.0,
+      "text": "menu. So you can do it online or you can do it in your configuration file. Beware of--since"
+    },
+    {
+      "index": 408,
+      "start_time": 2325290.0,
+      "end_time": 2331040.0,
+      "text": "you don’t use MyISAM tables. How many of you think that you&#39;re not MyISAM at all? I"
+    },
+    {
+      "index": 409,
+      "start_time": 2331040.0,
+      "end_time": 2339241.0,
+      "text": "hope not. Okay. The MySQL&#39;s internal database is in MyISAM. Okay. So that’s why if you"
+    },
+    {
+      "index": 410,
+      "start_time": 2339240.0,
+      "end_time": 2345359.0,
+      "text": "do show status, you&#39;ll see, actually, that you have MyISAM operations going on. So even"
+    },
+    {
+      "index": 411,
+      "start_time": 2345360.0,
+      "end_time": 2350181.0,
+      "text": "if all your tables are, InnoDB, the MySQL internal database is MyISAM, so you still"
+    },
+    {
+      "index": 412,
+      "start_time": 2350180.0,
+      "end_time": 2353490.0,
+      "text": "need to put, you know, something in there. So leave the defaults for key buffer size"
+    },
+    {
+      "index": 413,
+      "start_time": 2353490.0,
+      "end_time": 2360140.0,
+      "text": "there so the MySQL database can, you know, live happily. But the InnoDB buffer pool size,"
+    },
+    {
+      "index": 414,
+      "start_time": 2360140.0,
+      "end_time": 2365740.0,
+      "text": "that’s--that’s your main one for InnoDB that determines how many--how much memory"
+    },
+    {
+      "index": 415,
+      "start_time": 2365740.0,
+      "end_time": 2371680.0,
+      "text": "is allocated for storing date and index pages in InnoDB. I think Hecky recommends about"
+    },
+    {
+      "index": 416,
+      "start_time": 2371680.0,
+      "end_time": 2380470.0,
+      "text": "50 to 80% of your total memory on the box should be allocated to InnoDB buffer size."
+    },
+    {
+      "index": 417,
+      "start_time": 2380470.0,
+      "end_time": 2388020.0,
+      "text": "Okay. Other important InnoDB stuff is InnoDB log, final size and log buffer size. I think"
+    },
+    {
+      "index": 418,
+      "start_time": 2388020.0,
+      "end_time": 2393650.0,
+      "text": "he recommends that the log--I think the log buffer size maxes out for a gig but you can"
+    },
+    {
+      "index": 419,
+      "start_time": 2393650.0,
+      "end_time": 2398710.0,
+      "text": "adjust it depending on, you know, what&#39;s your situation is and I can take some questions."
+    },
+    {
+      "index": 420,
+      "start_time": 2398710.0,
+      "end_time": 2402529.0,
+      "text": "Oh, yeah, memory is the cheapest, fastest, easiest way to get better performance out"
+    },
+    {
+      "index": 421,
+      "start_time": 2402530.0,
+      "end_time": 2409300.0,
+      "text": "of MySQL. Don&#39;t even ask your boss. Just stick another piece of RAM in there. It really is."
+    },
+    {
+      "index": 422,
+      "start_time": 2409300.0,
+      "end_time": 2415191.0,
+      "text": "MySQL just loves RAM, you know. The more RAM you give it, it&#39;s like Pac-Man it just eats"
+    },
+    {
+      "index": 423,
+      "start_time": 2415190.0,
+      "end_time": 2420049.0,
+      "text": "the stuff up. It loves it. So, that&#39;s the easiest and cheapest way to get better performance"
+    },
+    {
+      "index": 424,
+      "start_time": 2420050.0,
+      "end_time": 2429300.0,
+      "text": "from a hardware situation. Yeah? &gt;&gt; you talked about"
+    },
+    {
+      "index": 425,
+      "start_time": 2429300.0,
+      "end_time": 2439530.0,
+      "text": "&gt;&gt; PIPES: Okay. The question was if you&#39;ve got a logical key in a character field, right?"
+    },
+    {
+      "index": 426,
+      "start_time": 2439530.0,
+      "end_time": 2447090.0,
+      "text": "Say for instance--I don’t know, Social Security number, something like that. Is there a benefit"
+    },
+    {
+      "index": 427,
+      "start_time": 2447090.0,
+      "end_time": 2454120.0,
+      "text": "to making a--what you&#39;re calling a surrogate key out of an auto incrementing ID? There"
+    },
+    {
+      "index": 428,
+      "start_time": 2454120.0,
+      "end_time": 2459511.0,
+      "text": "is a benefit to that, a big benefit to that. Depending on the--especially like if you have,"
+    },
+    {
+      "index": 429,
+      "start_time": 2459510.0,
+      "end_time": 2465049.0,
+      "text": "you know, a CHAR 4 versus an INT you&#39;re probably not going to see much of performance difference."
+    },
+    {
+      "index": 430,
+      "start_time": 2465050.0,
+      "end_time": 2471540.0,
+      "text": "If you got, you know, CHAR 8, CHAR 16, that--that&#39;s, you know, your product ID or your record ID"
+    },
+    {
+      "index": 431,
+      "start_time": 2471540.0,
+      "end_time": 2476741.0,
+      "text": "or whatever it is versus an auto incrementing key. You&#39;re going to get a lot better performance"
+    },
+    {
+      "index": 432,
+      "start_time": 2476740.0,
+      "end_time": 2486170.0,
+      "text": "from the numeric data type in four bytes. It&#39;s optimized for that, so."
+    },
+    {
+      "index": 433,
+      "start_time": 2486170.0,
+      "end_time": 2504950.0,
+      "text": "&gt;&gt; Why do you go up to [INDISTINCT] &gt;&gt; PIPES: Okay. There&#39;s that string data type"
+    },
+    {
+      "index": 434,
+      "start_time": 2504950.0,
+      "end_time": 2514170.0,
+      "text": "that we need. Just--you mean versus like VARCHAR 4,000 or something versus text or whatever,"
+    },
+    {
+      "index": 435,
+      "start_time": 2514170.0,
+      "end_time": 2516650.0,
+      "text": "there&#39;s some--maybe [INDISTINCT] can talk to that. I don&#39;t know--I don’t know if there&#39;s"
+    },
+    {
+      "index": 436,
+      "start_time": 2516650.0,
+      "end_time": 2520329.0,
+      "text": "a specific, you know, how much performance benefit you get from doing VARCHAR versus"
+    },
+    {
+      "index": 437,
+      "start_time": 2520330.0,
+      "end_time": 2525641.0,
+      "text": "text. I think in InnoDB, there maybe something but…"
+    },
+    {
+      "index": 438,
+      "start_time": 2525640.0,
+      "end_time": 2536789.0,
+      "text": "&gt;&gt; Yeah. So the question is there a benefit to using CHAR rather a VARCHAR in certain"
+    },
+    {
+      "index": 439,
+      "start_time": 2536790.0,
+      "end_time": 2539711.0,
+      "text": "cases? &gt;&gt; PIPES: Or text versus VARCHAR."
+    },
+    {
+      "index": 440,
+      "start_time": 2539710.0,
+      "end_time": 2548710.0,
+      "text": "&gt;&gt; Or text versus VARCHAR. In MyISAM, text fields actually store it separately, text"
+    },
+    {
+      "index": 441,
+      "start_time": 2548710.0,
+      "end_time": 2555410.0,
+      "text": "in blobs. The actual row contains a pointer to where the text field is. In case of a CHAR"
+    },
+    {
+      "index": 442,
+      "start_time": 2555410.0,
+      "end_time": 2566529.0,
+      "text": "or VARCHAR it&#39;s part of the row. In InnoDB, same up to a point. In certain cases you would"
+    },
+    {
+      "index": 443,
+      "start_time": 2566530.0,
+      "end_time": 2572840.0,
+      "text": "just find everything in the row depends on which version and so on. InnoDB itself doesn’t"
+    },
+    {
+      "index": 444,
+      "start_time": 2572840.0,
+      "end_time": 2578631.0,
+      "text": "care where the things are CHAR or VARCHAR. It&#39;s always internally uses VARCHAR basically."
+    },
+    {
+      "index": 445,
+      "start_time": 2578630.0,
+      "end_time": 2583769.0,
+      "text": "So, in InnoDB you don&#39;t need to make that distinction. Okay. I want to optimize for"
+    },
+    {
+      "index": 446,
+      "start_time": 2583770.0,
+      "end_time": 2588471.0,
+      "text": "fixed length fields, that kind of stuff. It doesn&#39;t care about that. MyISAM would care"
+    },
+    {
+      "index": 447,
+      "start_time": 2588470.0,
+      "end_time": 2594009.0,
+      "text": "so that&#39;s the basic story. Does that answer your question? Okay."
+    },
+    {
+      "index": 448,
+      "start_time": 2594010.0,
+      "end_time": 2603251.0,
+      "text": "&gt;&gt; PIPES: Any other questions? No one? All right. Well, thanks guys. Thanks for letting"
+    },
+    {
+      "index": 449,
+      "start_time": 2603250.0,
+      "end_time": 2613250.0,
+      "text": "us come here."
+    }
+  ]
+}

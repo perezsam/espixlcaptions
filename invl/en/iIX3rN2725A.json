@@ -1,0 +1,2220 @@
+{
+  "video_id": "iIX3rN2725A",
+  "title": "6   6   Computational Advertising  Bipartite Graph Matching 24 47",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 230.0,
+      "end_time": 2460.0,
+      "text": "Welcome back to Mining of Massive Datasets."
+    },
+    {
+      "index": 2,
+      "start_time": 2460.0,
+      "end_time": 6359.0,
+      "text": "In today&#39;s lecture we&#39;re going to look at a new topic, Online Algorithms."
+    },
+    {
+      "index": 3,
+      "start_time": 6360.0,
+      "end_time": 9990.0,
+      "text": "And we&#39;re going to look at a particular application of Online Algorithms,"
+    },
+    {
+      "index": 4,
+      "start_time": 9990.0,
+      "end_time": 11540.0,
+      "text": "which is Performance-based Advertising."
+    },
+    {
+      "index": 5,
+      "start_time": 11540.0,
+      "end_time": 14992.0,
+      "text": "The kind of advertising that you see on the web or on mobile."
+    },
+    {
+      "index": 6,
+      "start_time": 19940.0,
+      "end_time": 23791.0,
+      "text": "Now, in the classic model of algorithms, which we&#39;re all familiar with,"
+    },
+    {
+      "index": 7,
+      "start_time": 23791.0,
+      "end_time": 28270.0,
+      "text": "you get to see the entire input and then you compute some function of it."
+    },
+    {
+      "index": 8,
+      "start_time": 28270.0,
+      "end_time": 31140.0,
+      "text": "For example, you may be given a set of data points and"
+    },
+    {
+      "index": 9,
+      "start_time": 31140.0,
+      "end_time": 34680.0,
+      "text": "you might want to compute clusters on those data points."
+    },
+    {
+      "index": 10,
+      "start_time": 34680.0,
+      "end_time": 39400.0,
+      "text": "In this context, we called a classic model of algorithms an offline algorithm."
+    },
+    {
+      "index": 11,
+      "start_time": 39400.0,
+      "end_time": 43800.0,
+      "text": "An offline algorithm has access to its enti, entire input dataset."
+    },
+    {
+      "index": 12,
+      "start_time": 45710.0,
+      "end_time": 48650.0,
+      "text": "The kind of algorithm that we&#39;re going to look at in today lect, today&#39;s lecture,"
+    },
+    {
+      "index": 13,
+      "start_time": 48650.0,
+      "end_time": 53800.0,
+      "text": "called Online Algorithms, don&#39;t get to see the entire data set at one one time."
+    },
+    {
+      "index": 14,
+      "start_time": 53800.0,
+      "end_time": 55900.0,
+      "text": "They get to see the input one piece at a time."
+    },
+    {
+      "index": 15,
+      "start_time": 55900.0,
+      "end_time": 60349.0,
+      "text": "They don&#39;t see all the input and yet, as they see a partial input they have to"
+    },
+    {
+      "index": 16,
+      "start_time": 60349.0,
+      "end_time": 63440.0,
+      "text": "make some kind of irrevocable deficient along the way."
+    },
+    {
+      "index": 17,
+      "start_time": 63440.0,
+      "end_time": 69530.0,
+      "text": "They produce part of the output even when they&#39;ve seen only part of the output."
+    },
+    {
+      "index": 18,
+      "start_time": 69530.0,
+      "end_time": 75200.0,
+      "text": "And it&#39;s kind of similar to the data stream model but it&#39;s not identical."
+    },
+    {
+      "index": 19,
+      "start_time": 75200.0,
+      "end_time": 78922.0,
+      "text": "There are certain subtle differences that&#39;ll become apparent as we go along."
+    },
+    {
+      "index": 20,
+      "start_time": 78922.0,
+      "end_time": 82854.0,
+      "text": "We&#39;re going to start our discussion of Online Algorithms by looking at"
+    },
+    {
+      "index": 21,
+      "start_time": 82855.0,
+      "end_time": 85789.0,
+      "text": "a very simple problem called Bipartite Matching."
+    },
+    {
+      "index": 22,
+      "start_time": 90473.0,
+      "end_time": 93970.0,
+      "text": "So, the Bipartite Matching problem, starts with the bipartite graph."
+    },
+    {
+      "index": 23,
+      "start_time": 93970.0,
+      "end_time": 100200.0,
+      "text": "So, here we have a bipartite graph with, with two sets of nodes or vertices."
+    },
+    {
+      "index": 24,
+      "start_time": 100200.0,
+      "end_time": 105300.0,
+      "text": "We&#39;ve labelled one set of nodes Boys, and the other set of nodes Girls."
+    },
+    {
+      "index": 25,
+      "start_time": 105300.0,
+      "end_time": 107539.0,
+      "text": "We could have equally well labeled them something else."
+    },
+    {
+      "index": 26,
+      "start_time": 107540.0,
+      "end_time": 110790.0,
+      "text": "But it just so happens to be convenient to be, to label them Boys and"
+    },
+    {
+      "index": 27,
+      "start_time": 110790.0,
+      "end_time": 112800.0,
+      "text": "Girls in this context."
+    },
+    {
+      "index": 28,
+      "start_time": 112800.0,
+      "end_time": 118289.0,
+      "text": "And in this case, let&#39;s say the edges between between the the vertices"
+    },
+    {
+      "index": 29,
+      "start_time": 118290.0,
+      "end_time": 121980.0,
+      "text": "signify compatibility between Boys and Girls."
+    },
+    {
+      "index": 30,
+      "start_time": 121980.0,
+      "end_time": 123500.0,
+      "text": "Right?"
+    },
+    {
+      "index": 31,
+      "start_time": 123500.0,
+      "end_time": 127960.0,
+      "text": "And the goal of the Bipartite Matching problem is to"
+    },
+    {
+      "index": 32,
+      "start_time": 127960.0,
+      "end_time": 131269.0,
+      "text": "match as many compatible pairs of Boys and Girls as possible."
+    },
+    {
+      "index": 33,
+      "start_time": 132580.0,
+      "end_time": 135910.0,
+      "text": "That is, find as many pairs of nodes as possible, subject to"
+    },
+    {
+      "index": 34,
+      "start_time": 135910.0,
+      "end_time": 140369.0,
+      "text": "the constraint that those pair, those pairs of nodes are connected by an edge."
+    },
+    {
+      "index": 35,
+      "start_time": 141660.0,
+      "end_time": 150884.0,
+      "text": "For example, here we&#39;ve found three pairs of nodes 1,a, 2,b, and 3,d."
+    },
+    {
+      "index": 36,
+      "start_time": 150884.0,
+      "end_time": 153303.0,
+      "text": "And in each case, this is a compatible pair,"
+    },
+    {
+      "index": 37,
+      "start_time": 153304.0,
+      "end_time": 158360.0,
+      "text": "where it&#39;s an edge between between each pair of nodes that we have picked."
+    },
+    {
+      "index": 38,
+      "start_time": 158360.0,
+      "end_time": 163969.0,
+      "text": "And notice that once you have picked 1,a, 2,b, and 3,d will be"
+    },
+    {
+      "index": 39,
+      "start_time": 163969.0,
+      "end_time": 170000.0,
+      "text": "unable to do anything with Boy 4 or Girl c because there is no edge between them."
+    },
+    {
+      "index": 40,
+      "start_time": 170000.0,
+      "end_time": 173800.0,
+      "text": "And there are no other Boys or Girls that are available."
+    },
+    {
+      "index": 41,
+      "start_time": 173800.0,
+      "end_time": 179390.0,
+      "text": "The only edge that Boy 4 has is to Girl a but Girl a is already paired with Boy 1."
+    },
+    {
+      "index": 42,
+      "start_time": 179390.0,
+      "end_time": 180839.0,
+      "text": "So, it, so you can&#39;t pair them up."
+    },
+    {
+      "index": 43,
+      "start_time": 182300.0,
+      "end_time": 187260.0,
+      "text": "So in this case we produced a matching of cardinality 3 because we"
+    },
+    {
+      "index": 44,
+      "start_time": 187260.0,
+      "end_time": 189870.0,
+      "text": "found 3 pairs then that it could match up."
+    },
+    {
+      "index": 45,
+      "start_time": 191100.0,
+      "end_time": 196720.0,
+      "text": "So in the the cardinality of the matching in this case there&#39;s, is 3."
+    },
+    {
+      "index": 46,
+      "start_time": 199450.0,
+      "end_time": 203510.0,
+      "text": "Now with the same graph, it turns out that we can actually, do better."
+    },
+    {
+      "index": 47,
+      "start_time": 203510.0,
+      "end_time": 209590.0,
+      "text": "We can find a matching of cardinality 4 if we are a little bit more clever."
+    },
+    {
+      "index": 48,
+      "start_time": 209590.0,
+      "end_time": 213820.0,
+      "text": "And here is an example of a matching of cardinality 4."
+    },
+    {
+      "index": 49,
+      "start_time": 213820.0,
+      "end_time": 219549.0,
+      "text": "We&#39;ve matched 1,c, 2,b, 3,d, and 4,a."
+    },
+    {
+      "index": 50,
+      "start_time": 219550.0,
+      "end_time": 223300.0,
+      "text": "And once we do that, we&#39;ve matched, every Boy with some Girl, and"
+    },
+    {
+      "index": 51,
+      "start_time": 223300.0,
+      "end_time": 225290.0,
+      "text": "every Girl with some Boy."
+    },
+    {
+      "index": 52,
+      "start_time": 225290.0,
+      "end_time": 228450.0,
+      "text": "And this is what&#39;s called a perfect matching because it"
+    },
+    {
+      "index": 53,
+      "start_time": 228450.0,
+      "end_time": 231929.0,
+      "text": "matches every node to some other node in the in the graph."
+    },
+    {
+      "index": 54,
+      "start_time": 233340.0,
+      "end_time": 238120.0,
+      "text": "To clarify our terminology perfect matching is a matching that"
+    },
+    {
+      "index": 55,
+      "start_time": 238120.0,
+      "end_time": 241700.0,
+      "text": "matches every vertex in the graph, or every node in the graph."
+    },
+    {
+      "index": 56,
+      "start_time": 241700.0,
+      "end_time": 247600.0,
+      "text": "And maximum matching is a matching that is as large as possible for the given graph."
+    },
+    {
+      "index": 57,
+      "start_time": 248930.0,
+      "end_time": 253700.0,
+      "text": "For example, in this case the matching M is both a perfect matching and"
+    },
+    {
+      "index": 58,
+      "start_time": 253700.0,
+      "end_time": 255300.0,
+      "text": "a maximum matching."
+    },
+    {
+      "index": 59,
+      "start_time": 255300.0,
+      "end_time": 257829.0,
+      "text": "Every perfect matching has to be maximum because you can&#39;t,"
+    },
+    {
+      "index": 60,
+      "start_time": 257829.0,
+      "end_time": 261390.0,
+      "text": "obviously, find a matching that&#39;s larger than perfect."
+    },
+    {
+      "index": 61,
+      "start_time": 261390.0,
+      "end_time": 264599.0,
+      "text": "however, there could be graphs where there is no perfect matching, but you,"
+    },
+    {
+      "index": 62,
+      "start_time": 264600.0,
+      "end_time": 268500.0,
+      "text": "but there&#39;s always a maximum matching which is the best that you can do for for"
+    },
+    {
+      "index": 63,
+      "start_time": 268500.0,
+      "end_time": 269630.0,
+      "text": "that given graph."
+    },
+    {
+      "index": 64,
+      "start_time": 269630.0,
+      "end_time": 273300.0,
+      "text": "So in this case, the maximum matching has cardinality 4."
+    },
+    {
+      "index": 65,
+      "start_time": 273300.0,
+      "end_time": 277640.0,
+      "text": "Whereas the earlier matching that we found had just cardinality 3,"
+    },
+    {
+      "index": 66,
+      "start_time": 277640.0,
+      "end_time": 279530.0,
+      "text": "and that&#39;s not a maximum matching."
+    },
+    {
+      "index": 67,
+      "start_time": 281920.0,
+      "end_time": 286810.0,
+      "text": "Now, the goal of the bipartite matching problem is to find the maximum matching or"
+    },
+    {
+      "index": 68,
+      "start_time": 286810.0,
+      "end_time": 291700.0,
+      "text": "find a maximum matching, since the maximum matching is not necessarily unique."
+    },
+    {
+      "index": 69,
+      "start_time": 291700.0,
+      "end_time": 293520.0,
+      "text": "The goal is to find a maximum matching for"
+    },
+    {
+      "index": 70,
+      "start_time": 293520.0,
+      "end_time": 297477.0,
+      "text": "a given bipartite graph, and if-if-if it&#39;s, if the max,"
+    },
+    {
+      "index": 71,
+      "start_time": 297477.0,
+      "end_time": 301419.0,
+      "text": "maximum matching happens to be a perfect one, we&#39;ll end up finding a perfect one."
+    },
+    {
+      "index": 72,
+      "start_time": 301420.0,
+      "end_time": 303970.0,
+      "text": "If not, will just be a maximum matching."
+    },
+    {
+      "index": 73,
+      "start_time": 303970.0,
+      "end_time": 305481.0,
+      "text": "Now, the maximum, the,"
+    },
+    {
+      "index": 74,
+      "start_time": 305481.0,
+      "end_time": 310710.0,
+      "text": "the matching problem is a well-studied problem in the field of algorithms."
+    },
+    {
+      "index": 75,
+      "start_time": 310710.0,
+      "end_time": 314479.0,
+      "text": "And there&#39;s a, there is a very well known"
+    },
+    {
+      "index": 76,
+      "start_time": 314480.0,
+      "end_time": 319660.0,
+      "text": "an elegant polynomial-time offline algorithm that, you know, remember"
+    },
+    {
+      "index": 77,
+      "start_time": 319660.0,
+      "end_time": 323860.0,
+      "text": "an offline algorithm is when you have the entire graph available to the algorithm."
+    },
+    {
+      "index": 78,
+      "start_time": 323860.0,
+      "end_time": 326100.0,
+      "text": "And it&#39;s based on this idea of augmenting path."
+    },
+    {
+      "index": 79,
+      "start_time": 326100.0,
+      "end_time": 330000.0,
+      "text": "It&#39;s a very classic algorithm from 1973 by Hopcroft and Karp."
+    },
+    {
+      "index": 80,
+      "start_time": 331610.0,
+      "end_time": 334690.0,
+      "text": "And if, you know, if you&#39;re curious you can look it up on,"
+    },
+    {
+      "index": 81,
+      "start_time": 334690.0,
+      "end_time": 338410.0,
+      "text": "on Wikipedia following that the link that I&#39;ve given there."
+    },
+    {
+      "index": 82,
+      "start_time": 339780.0,
+      "end_time": 343169.0,
+      "text": "Now however, suppose you don&#39;t know the entire graph in advance."
+    },
+    {
+      "index": 83,
+      "start_time": 343170.0,
+      "end_time": 347250.0,
+      "text": "You only have a piece of the graph available to you at any point."
+    },
+    {
+      "index": 84,
+      "start_time": 349620.0,
+      "end_time": 351970.0,
+      "text": "In the online version of the graph matching problem,"
+    },
+    {
+      "index": 85,
+      "start_time": 351970.0,
+      "end_time": 355670.0,
+      "text": "we&#39;re initially given the sets boys and girls, the two sets of nodes."
+    },
+    {
+      "index": 86,
+      "start_time": 355670.0,
+      "end_time": 358490.0,
+      "text": "But you&#39;re not given all the edges between the nodes."
+    },
+    {
+      "index": 87,
+      "start_time": 358490.0,
+      "end_time": 361560.0,
+      "text": "In fact, the edges are revealed one round at a time."
+    },
+    {
+      "index": 88,
+      "start_time": 362630.0,
+      "end_time": 366930.0,
+      "text": "In each round one girl&#39;s choices are revealed."
+    },
+    {
+      "index": 89,
+      "start_time": 366930.0,
+      "end_time": 371550.0,
+      "text": "That is, the edges between that girl and the boys are revealed."
+    },
+    {
+      "index": 90,
+      "start_time": 371550.0,
+      "end_time": 375890.0,
+      "text": "Now, in each round, the algorithm has to make an irrevocable decision."
+    },
+    {
+      "index": 91,
+      "start_time": 375890.0,
+      "end_time": 381240.0,
+      "text": "And the and that decision is to either pair the girl with some boy, right?"
+    },
+    {
+      "index": 92,
+      "start_time": 381240.0,
+      "end_time": 385290.0,
+      "text": "So we know all the edges from the girl, from that girl to, to the boy set."
+    },
+    {
+      "index": 93,
+      "start_time": 385290.0,
+      "end_time": 387770.0,
+      "text": "So, we know all the compatible boys for that girl."
+    },
+    {
+      "index": 94,
+      "start_time": 387770.0,
+      "end_time": 389830.0,
+      "text": "So we can either pair the girl with a boy."
+    },
+    {
+      "index": 95,
+      "start_time": 389830.0,
+      "end_time": 393590.0,
+      "text": "Then we&#39;ll have to pick a boy who has not already been paired because that&#39;s,"
+    },
+    {
+      "index": 96,
+      "start_time": 393590.0,
+      "end_time": 395300.0,
+      "text": "that&#39;s part of the rules of the game."
+    },
+    {
+      "index": 97,
+      "start_time": 395300.0,
+      "end_time": 399809.0,
+      "text": "If there is a boy among the girl&#39;s compatible set who has not already been"
+    },
+    {
+      "index": 98,
+      "start_time": 399810.0,
+      "end_time": 403230.0,
+      "text": "paired, we can choose to pair the girl with that boy or"
+    },
+    {
+      "index": 99,
+      "start_time": 403230.0,
+      "end_time": 407790.0,
+      "text": "we can decide to not pair the girl with any boy, and move on to the next girl."
+    },
+    {
+      "index": 100,
+      "start_time": 407790.0,
+      "end_time": 410100.0,
+      "text": "But once, we&#39;ve made the choice, we cannot go back."
+    },
+    {
+      "index": 101,
+      "start_time": 410100.0,
+      "end_time": 415200.0,
+      "text": "We can&#39;t go back and pair the girl if he had not pair her at that point."
+    },
+    {
+      "index": 102,
+      "start_time": 415200.0,
+      "end_time": 417580.0,
+      "text": "And we cannot you know, go back and"
+    },
+    {
+      "index": 103,
+      "start_time": 417580.0,
+      "end_time": 420120.0,
+      "text": "change the pairing of that girl, if you&#39;ve already paired her."
+    },
+    {
+      "index": 104,
+      "start_time": 420120.0,
+      "end_time": 423174.0,
+      "text": "So, the choice is irrevocable and made at that point."
+    },
+    {
+      "index": 105,
+      "start_time": 426178.0,
+      "end_time": 429663.0,
+      "text": "For an example application that, you know, that is,"
+    },
+    {
+      "index": 106,
+      "start_time": 429663.0,
+      "end_time": 431963.0,
+      "text": "is kind of along these lines, and, and"
+    },
+    {
+      "index": 107,
+      "start_time": 431963.0,
+      "end_time": 436730.0,
+      "text": "motivates looking at this algorithm is is assigning tasks to servers."
+    },
+    {
+      "index": 108,
+      "start_time": 436730.0,
+      "end_time": 440660.0,
+      "text": "Let&#39;s say, we have a large number of servers of different kinds and"
+    },
+    {
+      "index": 109,
+      "start_time": 440660.0,
+      "end_time": 441600.0,
+      "text": "tasks come along."
+    },
+    {
+      "index": 110,
+      "start_time": 441600.0,
+      "end_time": 444430.0,
+      "text": "And each task can only be assigned to certain servers."
+    },
+    {
+      "index": 111,
+      "start_time": 445480.0,
+      "end_time": 449700.0,
+      "text": "Then the goal is to assign those tasks to each,"
+    },
+    {
+      "index": 112,
+      "start_time": 449700.0,
+      "end_time": 452570.0,
+      "text": "each task to a server that can handle that task."
+    },
+    {
+      "index": 113,
+      "start_time": 452570.0,
+      "end_time": 456490.0,
+      "text": "And sometimes we may just choose to reject the task,"
+    },
+    {
+      "index": 114,
+      "start_time": 456490.0,
+      "end_time": 459600.0,
+      "text": "because we have an overload situation or something like that."
+    },
+    {
+      "index": 115,
+      "start_time": 459600.0,
+      "end_time": 464657.0,
+      "text": "So so the the online graph matching problem is in some sense similar to,"
+    },
+    {
+      "index": 116,
+      "start_time": 464657.0,
+      "end_time": 467549.0,
+      "text": "to the problem of assigning tasks to servers."
+    },
+    {
+      "index": 117,
+      "start_time": 471900.0,
+      "end_time": 476500.0,
+      "text": "So here is an example of the of the Online Graph Matching Problem."
+    },
+    {
+      "index": 118,
+      "start_time": 476500.0,
+      "end_time": 478594.0,
+      "text": "We start with the with the set of Boys."
+    },
+    {
+      "index": 119,
+      "start_time": 481000.0,
+      "end_time": 485980.0,
+      "text": "And here&#39;s a here&#39;s a first Girl a."
+    },
+    {
+      "index": 120,
+      "start_time": 485980.0,
+      "end_time": 488480.0,
+      "text": "And her choices are revealed."
+    },
+    {
+      "index": 121,
+      "start_time": 488480.0,
+      "end_time": 498900.0,
+      "text": "So in this case a&#39;s choices you know a&#39;s compatible with 1 and and 4."
+    },
+    {
+      "index": 122,
+      "start_time": 498900.0,
+      "end_time": 503337.0,
+      "text": "And at this point, if you have to make a choice either we decide to pair a with"
+    },
+    {
+      "index": 123,
+      "start_time": 503338.0,
+      "end_time": 506400.0,
+      "text": "1 or 4, or we decide not to pair a with anyone."
+    },
+    {
+      "index": 124,
+      "start_time": 506400.0,
+      "end_time": 512990.0,
+      "text": "Let&#39;s say we decided to pair a with 1 and the output 1,a as our first pair."
+    },
+    {
+      "index": 125,
+      "start_time": 512990.0,
+      "end_time": 519260.0,
+      "text": "Now the second Girl node comes in and notice that"
+    },
+    {
+      "index": 126,
+      "start_time": 519260.0,
+      "end_time": 525290.0,
+      "text": "that b is compatible with nodes 2 and 3."
+    },
+    {
+      "index": 127,
+      "start_time": 525290.0,
+      "end_time": 532349.0,
+      "text": "And once again, we have the same choice, and let&#39;s say we we choose to pair 2,b."
+    },
+    {
+      "index": 128,
+      "start_time": 532350.0,
+      "end_time": 535750.0,
+      "text": "And now let&#39;s say c comes in."
+    },
+    {
+      "index": 129,
+      "start_time": 535750.0,
+      "end_time": 539470.0,
+      "text": "And we have just the one edge, 1,c."
+    },
+    {
+      "index": 130,
+      "start_time": 539470.0,
+      "end_time": 544780.0,
+      "text": "Now, we cannot pair c with c with 1, because 1 is already paired with a."
+    },
+    {
+      "index": 131,
+      "start_time": 544780.0,
+      "end_time": 547500.0,
+      "text": "So our hand is forced and we don&#39;t output anything in this round."
+    },
+    {
+      "index": 132,
+      "start_time": 548570.0,
+      "end_time": 555380.0,
+      "text": "And them d comes in and d there&#39;s only one edge, 3,d."
+    },
+    {
+      "index": 133,
+      "start_time": 555380.0,
+      "end_time": 556360.0,
+      "text": "And so"
+    },
+    {
+      "index": 134,
+      "start_time": 556360.0,
+      "end_time": 560660.0,
+      "text": "we can output that that edge because in this case we decided to pair 3 and d."
+    },
+    {
+      "index": 135,
+      "start_time": 561820.0,
+      "end_time": 567400.0,
+      "text": "Right so, this is an example of the Online Graph Matching scenario."
+    },
+    {
+      "index": 136,
+      "start_time": 568750.0,
+      "end_time": 573120.0,
+      "text": "Now we what you want to do is we want to design an algorithm in this"
+    },
+    {
+      "index": 137,
+      "start_time": 573120.0,
+      "end_time": 576100.0,
+      "text": "online setting that makes a choice at every step."
+    },
+    {
+      "index": 138,
+      "start_time": 576100.0,
+      "end_time": 580278.0,
+      "text": "That finds as large a matching as possible by the time everything is revealed,"
+    },
+    {
+      "index": 139,
+      "start_time": 580278.0,
+      "end_time": 582550.0,
+      "text": "all the edges are revealed, right?"
+    },
+    {
+      "index": 140,
+      "start_time": 583550.0,
+      "end_time": 586359.0,
+      "text": "and, how do we go about, doing something like that?"
+    },
+    {
+      "index": 141,
+      "start_time": 587610.0,
+      "end_time": 589160.0,
+      "text": "Now, it&#39;s a very complicated problem because we"
+    },
+    {
+      "index": 142,
+      "start_time": 589160.0,
+      "end_time": 590550.0,
+      "text": "don&#39;t know what&#39;s going to come up."
+    },
+    {
+      "index": 143,
+      "start_time": 590550.0,
+      "end_time": 594209.0,
+      "text": "So, any choice that we make at the moment might paint us into a corner."
+    },
+    {
+      "index": 144,
+      "start_time": 594210.0,
+      "end_time": 596200.0,
+      "text": "For example, that you know,"
+    },
+    {
+      "index": 145,
+      "start_time": 596200.0,
+      "end_time": 601680.0,
+      "text": "because we output 1,a when c came along, we were unable to match c."
+    },
+    {
+      "index": 146,
+      "start_time": 601680.0,
+      "end_time": 605847.0,
+      "text": "Had we instead you know debated and not are our output eh,"
+    },
+    {
+      "index": 147,
+      "start_time": 605847.0,
+      "end_time": 610300.0,
+      "text": "a,4 then we could, inst, you know, we couldn&#39;t, then c came along."
+    },
+    {
+      "index": 148,
+      "start_time": 610300.0,
+      "end_time": 615650.0,
+      "text": "We could have output 1,c but we sort of painted ourselves into a corner and"
+    },
+    {
+      "index": 149,
+      "start_time": 615650.0,
+      "end_time": 620932.0,
+      "text": "denied ourselves that choice by making an irrevocable decision, along the way."
+    },
+    {
+      "index": 150,
+      "start_time": 620932.0,
+      "end_time": 625947.0,
+      "text": "So as you can see this is very very tough problem to solve in an optimal way and"
+    },
+    {
+      "index": 151,
+      "start_time": 625947.0,
+      "end_time": 630700.0,
+      "text": "we have no hope, really, of finding an optimal solution on maximum matching."
+    },
+    {
+      "index": 152,
+      "start_time": 630700.0,
+      "end_time": 633830.0,
+      "text": "What we can hope instead, is to come up with some kind of heuristic"
+    },
+    {
+      "index": 153,
+      "start_time": 633830.0,
+      "end_time": 638800.0,
+      "text": "that gets us you know a fair distance of the way there."
+    },
+    {
+      "index": 154,
+      "start_time": 638800.0,
+      "end_time": 642350.0,
+      "text": "A heuristic that gives us a good matching but not necessarily, the best one."
+    },
+    {
+      "index": 155,
+      "start_time": 643590.0,
+      "end_time": 647210.0,
+      "text": "And something heuristic, is called a greedy heuristic."
+    },
+    {
+      "index": 156,
+      "start_time": 647210.0,
+      "end_time": 649810.0,
+      "text": "And the Greedy Algorithm is a very, very simple algorithm."
+    },
+    {
+      "index": 157,
+      "start_time": 650810.0,
+      "end_time": 654939.0,
+      "text": "And the Greedy Algorithm says, well, when you when a girl charges for"
+    },
+    {
+      "index": 158,
+      "start_time": 654940.0,
+      "end_time": 659280.0,
+      "text": "a video don&#39;t ever choose not to pay the girl if possible."
+    },
+    {
+      "index": 159,
+      "start_time": 659280.0,
+      "end_time": 660800.0,
+      "text": "If there&#39;s any eligible boy,"
+    },
+    {
+      "index": 160,
+      "start_time": 660800.0,
+      "end_time": 665670.0,
+      "text": "if there&#39;s any boy with whom the girl is compatible, where there&#39;s an edge."
+    },
+    {
+      "index": 161,
+      "start_time": 665670.0,
+      "end_time": 670819.0,
+      "text": "And that boy&#39;s not already paired then just pick a boy a bit early,"
+    },
+    {
+      "index": 162,
+      "start_time": 670820.0,
+      "end_time": 674610.0,
+      "text": "pick such, such a boy a bit early and pair that girl with that boy."
+    },
+    {
+      "index": 163,
+      "start_time": 674610.0,
+      "end_time": 677390.0,
+      "text": "And if there is no eligible boy then don&#39;t pair a girl,"
+    },
+    {
+      "index": 164,
+      "start_time": 677390.0,
+      "end_time": 679540.0,
+      "text": "obviously because we can&#39;t do anything there."
+    },
+    {
+      "index": 165,
+      "start_time": 679540.0,
+      "end_time": 684100.0,
+      "text": "So it&#39;s a very, very simple algorithm the greedy algorithm and"
+    },
+    {
+      "index": 166,
+      "start_time": 684100.0,
+      "end_time": 688680.0,
+      "text": "let&#39;s say we go for this algorithm the, the very interesting question is."
+    },
+    {
+      "index": 167,
+      "start_time": 688680.0,
+      "end_time": 690000.0,
+      "text": "How good is a greedy algorithm?"
+    },
+    {
+      "index": 168,
+      "start_time": 690000.0,
+      "end_time": 693200.0,
+      "text": "Or how bad can it be in practice, how good can it be in practice?"
+    },
+    {
+      "index": 169,
+      "start_time": 693200.0,
+      "end_time": 698960.0,
+      "text": "How can we even analyze how good an algorithm is in this setting, right?"
+    },
+    {
+      "index": 170,
+      "start_time": 698960.0,
+      "end_time": 704336.0,
+      "text": "To sort of analyze how good an algorithm is in, in the online setting,"
+    },
+    {
+      "index": 171,
+      "start_time": 704336.0,
+      "end_time": 709820.0,
+      "text": "we&#39;ve sort of come up with a new notion that&#39;s called the competitive ratio."
+    },
+    {
+      "index": 172,
+      "start_time": 709820.0,
+      "end_time": 712210.0,
+      "text": "Where we compare the greedy algorithm, or"
+    },
+    {
+      "index": 173,
+      "start_time": 712210.0,
+      "end_time": 715950.0,
+      "text": "any algorithm in general to an offline algorithm."
+    },
+    {
+      "index": 174,
+      "start_time": 715950.0,
+      "end_time": 719460.0,
+      "text": "So the way we analyze online algorithms is by comparing them with"
+    },
+    {
+      "index": 175,
+      "start_time": 719460.0,
+      "end_time": 721900.0,
+      "text": "the best offline algorithm."
+    },
+    {
+      "index": 176,
+      "start_time": 723770.0,
+      "end_time": 728640.0,
+      "text": "So to define this formally suppose we have an input I, and remember"
+    },
+    {
+      "index": 177,
+      "start_time": 728640.0,
+      "end_time": 734780.0,
+      "text": "the offline algorithm feeds the whole input I and it can make an optimal choice."
+    },
+    {
+      "index": 178,
+      "start_time": 734780.0,
+      "end_time": 736970.0,
+      "text": "In this case it&#39;d be an optimal matching, and"
+    },
+    {
+      "index": 179,
+      "start_time": 736970.0,
+      "end_time": 739460.0,
+      "text": "let&#39;s say that optimal matching is M optimum."
+    },
+    {
+      "index": 180,
+      "start_time": 742110.0,
+      "end_time": 742910.0,
+      "text": "Right?"
+    },
+    {
+      "index": 181,
+      "start_time": 742910.0,
+      "end_time": 746540.0,
+      "text": "whereas, the greedy algorithm sees only one input at a time, and so"
+    },
+    {
+      "index": 182,
+      "start_time": 746540.0,
+      "end_time": 749589.0,
+      "text": "it ends up picking a matching that&#39;s M greedy."
+    },
+    {
+      "index": 183,
+      "start_time": 749590.0,
+      "end_time": 755140.0,
+      "text": "Now we&#39;re going to sort of in, in the most likely scenario we"
+    },
+    {
+      "index": 184,
+      "start_time": 755140.0,
+      "end_time": 759310.0,
+      "text": "know that the cardinality of M greedy is going to be less than our, less than or"
+    },
+    {
+      "index": 185,
+      "start_time": 759310.0,
+      "end_time": 760430.0,
+      "text": "equal to M optimal."
+    },
+    {
+      "index": 186,
+      "start_time": 760430.0,
+      "end_time": 762109.0,
+      "text": "It can only be greater than M optimal,"
+    },
+    {
+      "index": 187,
+      "start_time": 762110.0,
+      "end_time": 767700.0,
+      "text": "because M optimal is the optimal matching and we can&#39;t do better than that."
+    },
+    {
+      "index": 188,
+      "start_time": 767700.0,
+      "end_time": 770460.0,
+      "text": "The greedy algorithm is not always going to match the optimal matching, but"
+    },
+    {
+      "index": 189,
+      "start_time": 770460.0,
+      "end_time": 774240.0,
+      "text": "it&#39;s you know, going to be you know, less than the optimal matching or"
+    },
+    {
+      "index": 190,
+      "start_time": 774240.0,
+      "end_time": 776540.0,
+      "text": "in the best case scenario, equal to it."
+    },
+    {
+      "index": 191,
+      "start_time": 776540.0,
+      "end_time": 783500.0,
+      "text": "Now, the competitive ratio of the greedy algorithm is defined to be"
+    },
+    {
+      "index": 192,
+      "start_time": 783500.0,
+      "end_time": 788910.0,
+      "text": "the ratio of the cardinality of M greedy to the cardinality of M optimal"
+    },
+    {
+      "index": 193,
+      "start_time": 789985.0,
+      "end_time": 795510.0,
+      "text": "over all possible inputs I, we take the minimum."
+    },
+    {
+      "index": 194,
+      "start_time": 795510.0,
+      "end_time": 797500.0,
+      "text": "Right? So, it&#39;s kind of the worst case"
+    },
+    {
+      "index": 195,
+      "start_time": 797500.0,
+      "end_time": 799620.0,
+      "text": "performance of the greedy algorithm."
+    },
+    {
+      "index": 196,
+      "start_time": 799620.0,
+      "end_time": 802500.0,
+      "text": "Right? We take the worst possible input I for"
+    },
+    {
+      "index": 197,
+      "start_time": 802500.0,
+      "end_time": 808750.0,
+      "text": "the greedy algorithm and we compute the, the ratio of the cardinality"
+    },
+    {
+      "index": 198,
+      "start_time": 808750.0,
+      "end_time": 813800.0,
+      "text": "of the greedy output to the optimal output in that in that scenario."
+    },
+    {
+      "index": 199,
+      "start_time": 814800.0,
+      "end_time": 819550.0,
+      "text": "So this is what we mean by the, the competitive ratio of the greedy algorithm,"
+    },
+    {
+      "index": 200,
+      "start_time": 819560.0,
+      "end_time": 822538.0,
+      "text": "or in general, the competitive ratio of any online algorithm,"
+    },
+    {
+      "index": 201,
+      "start_time": 822538.0,
+      "end_time": 824549.0,
+      "text": "who&#39;s defined in a similar manner."
+    },
+    {
+      "index": 202,
+      "start_time": 828646.0,
+      "end_time": 832559.0,
+      "text": "So let&#39;s see whether we can figure out what the competitive ratio of"
+    },
+    {
+      "index": 203,
+      "start_time": 832559.0,
+      "end_time": 833983.0,
+      "text": "the greedy algorithm is."
+    },
+    {
+      "index": 204,
+      "start_time": 836899.0,
+      "end_time": 837870.0,
+      "text": "Right?"
+    },
+    {
+      "index": 205,
+      "start_time": 837870.0,
+      "end_time": 843180.0,
+      "text": "Now let&#39;s suppose the greedy algorithm doesn&#39;t actually produce"
+    },
+    {
+      "index": 206,
+      "start_time": 843180.0,
+      "end_time": 843829.0,
+      "text": "the optimum matching."
+    },
+    {
+      "index": 207,
+      "start_time": 843830.0,
+      "end_time": 846100.0,
+      "text": "Now if the greedy algorithm actually produces the optimum matching,"
+    },
+    {
+      "index": 208,
+      "start_time": 846100.0,
+      "end_time": 848120.0,
+      "text": "then we know the complexity ratio is 1."
+    },
+    {
+      "index": 209,
+      "start_time": 848120.0,
+      "end_time": 851530.0,
+      "text": "But suppose the greedy algorithm doesn&#39;t produce the optimum matching, so"
+    },
+    {
+      "index": 210,
+      "start_time": 851530.0,
+      "end_time": 854490.0,
+      "text": "it&#39;s actually less than the optimal matching."
+    },
+    {
+      "index": 211,
+      "start_time": 856200.0,
+      "end_time": 860770.0,
+      "text": "So here&#39;s a, here&#39;s a scenario where the the opt, is the,"
+    },
+    {
+      "index": 212,
+      "start_time": 860770.0,
+      "end_time": 866439.0,
+      "text": "you can see that the optimal algorithm in this case that&#39;s denoted in"
+    },
+    {
+      "index": 213,
+      "start_time": 866440.0,
+      "end_time": 872410.0,
+      "text": "black by the black lines here produces a matching of cardinality 4."
+    },
+    {
+      "index": 214,
+      "start_time": 872410.0,
+      "end_time": 877550.0,
+      "text": "The greedy algorithm, which is denoted by these red lines here produces a matching"
+    },
+    {
+      "index": 215,
+      "start_time": 877550.0,
+      "end_time": 883469.0,
+      "text": "of cardinality 3 and so M greedy is not equal to M opt in this case."
+    },
+    {
+      "index": 216,
+      "start_time": 883470.0,
+      "end_time": 886405.0,
+      "text": "The set of boys is on the left, and the set of girls is on the, on the right."
+    },
+    {
+      "index": 217,
+      "start_time": 886405.0,
+      "end_time": 893281.0,
+      "text": "[SOUND] Now what we&#39;re going to do is we&#39;re going to consider the set of girls G"
+    },
+    {
+      "index": 218,
+      "start_time": 893282.0,
+      "end_time": 900481.0,
+      "text": "that is matched in the optimal matching, but is not matched in the greedy matching."
+    },
+    {
+      "index": 219,
+      "start_time": 900481.0,
+      "end_time": 901180.0,
+      "text": "Okay?"
+    },
+    {
+      "index": 220,
+      "start_time": 901180.0,
+      "end_time": 904989.0,
+      "text": "So here, for example, in this case the girl d"
+    },
+    {
+      "index": 221,
+      "start_time": 906300.0,
+      "end_time": 910900.0,
+      "text": "is actually matched in the optimal matching for d match to boy 4 but"
+    },
+    {
+      "index": 222,
+      "start_time": 910900.0,
+      "end_time": 915200.0,
+      "text": "the greedy algorithm actually doesn&#39;t match d."
+    },
+    {
+      "index": 223,
+      "start_time": 916430.0,
+      "end_time": 920189.0,
+      "text": "It matches a, b, and c but it doesn&#39;t, match G match d and so"
+    },
+    {
+      "index": 224,
+      "start_time": 920190.0,
+      "end_time": 924790.0,
+      "text": "the set G consists of the single node d in this case."
+    },
+    {
+      "index": 225,
+      "start_time": 925680.0,
+      "end_time": 929609.0,
+      "text": "But we define the set G to be the set of girls that are matched in"
+    },
+    {
+      "index": 226,
+      "start_time": 929610.0,
+      "end_time": 932670.0,
+      "text": "the optimal algorithm but not in the greedy algorithm."
+    },
+    {
+      "index": 227,
+      "start_time": 934450.0,
+      "end_time": 936270.0,
+      "text": "Now, we&#39;re going to define the set B"
+    },
+    {
+      "index": 228,
+      "start_time": 937520.0,
+      "end_time": 941920.0,
+      "text": "to be the set of boys that are adjacent to the girls in the set G."
+    },
+    {
+      "index": 229,
+      "start_time": 941920.0,
+      "end_time": 945550.0,
+      "text": "So in this case, the set G just has a single node."
+    },
+    {
+      "index": 230,
+      "start_time": 945550.0,
+      "end_time": 948360.0,
+      "text": "The set of boys that are adjacent."
+    },
+    {
+      "index": 231,
+      "start_time": 948360.0,
+      "end_time": 953603.0,
+      "text": "Are the are, are, are 3 and, and 4."
+    },
+    {
+      "index": 232,
+      "start_time": 953604.0,
+      "end_time": 955904.0,
+      "text": "And so there are 2 boys in the,"
+    },
+    {
+      "index": 233,
+      "start_time": 955904.0,
+      "end_time": 960253.0,
+      "text": "in the set B that are adjacent to the girls in the set G."
+    },
+    {
+      "index": 234,
+      "start_time": 963750.0,
+      "end_time": 967610.0,
+      "text": "Now the first observation that we make, is that the opt,"
+    },
+    {
+      "index": 235,
+      "start_time": 967610.0,
+      "end_time": 971842.0,
+      "text": "the the cardinality of the optimal matching is less than or"
+    },
+    {
+      "index": 236,
+      "start_time": 971842.0,
+      "end_time": 976840.0,
+      "text": "equal to the cardinality of the greedy matching plus the, the size of the set G."
+    },
+    {
+      "index": 237,
+      "start_time": 978160.0,
+      "end_time": 979730.0,
+      "text": "Now this is by definition."
+    },
+    {
+      "index": 238,
+      "start_time": 979730.0,
+      "end_time": 983440.0,
+      "text": "Because G is just a set of girls that are matched in M optimal, but not in M greedy."
+    },
+    {
+      "index": 239,
+      "start_time": 983440.0,
+      "end_time": 986690.0,
+      "text": "So if you just add in the the,"
+    },
+    {
+      "index": 240,
+      "start_time": 986690.0,
+      "end_time": 991120.0,
+      "text": "the unmatched girls from M optimal to M greedy, we are going to get a match,"
+    },
+    {
+      "index": 241,
+      "start_time": 991120.0,
+      "end_time": 994240.0,
+      "text": "we are going to get the size of the optimal matching."
+    },
+    {
+      "index": 242,
+      "start_time": 994240.0,
+      "end_time": 994740.0,
+      "text": "Right? So the,"
+    },
+    {
+      "index": 243,
+      "start_time": 994740.0,
+      "end_time": 996790.0,
+      "text": "the difference between the optimal matching and"
+    },
+    {
+      "index": 244,
+      "start_time": 996790.0,
+      "end_time": 999209.0,
+      "text": "the greedy matching is the set of girls, G."
+    },
+    {
+      "index": 245,
+      "start_time": 999210.0,
+      "end_time": 1002920.0,
+      "text": "And therefore, the size of the optimal matching can be no more than the size of"
+    },
+    {
+      "index": 246,
+      "start_time": 1002920.0,
+      "end_time": 1005150.0,
+      "text": "the greedy matching plus the size of the set G."
+    },
+    {
+      "index": 247,
+      "start_time": 1005150.0,
+      "end_time": 1008310.0,
+      "text": "And you can see in this case, the size of the set G is 1."
+    },
+    {
+      "index": 248,
+      "start_time": 1008310.0,
+      "end_time": 1010410.0,
+      "text": "The size of the optimal matching is 4."
+    },
+    {
+      "index": 249,
+      "start_time": 1010410.0,
+      "end_time": 1013189.0,
+      "text": "The size of the greedy matching is 3."
+    },
+    {
+      "index": 250,
+      "start_time": 1013190.0,
+      "end_time": 1016180.0,
+      "text": "And what this is saying is that 4 is less than or"
+    },
+    {
+      "index": 251,
+      "start_time": 1016180.0,
+      "end_time": 1018985.0,
+      "text": "equal to 3 plus 1 in this case, which is obviously true."
+    },
+    {
+      "index": 252,
+      "start_time": 1022170.0,
+      "end_time": 1024651.0,
+      "text": "So, let&#39;s call this equation equation 1."
+    },
+    {
+      "index": 253,
+      "start_time": 1027380.0000000001,
+      "end_time": 1030885.0000000001,
+      "text": "Now, the second observation that we make is that every boy,"
+    },
+    {
+      "index": 254,
+      "start_time": 1030890.0000000001,
+      "end_time": 1035374.0000000001,
+      "text": "B in the set B that are adjacent to the girls in G is already matched in M greedy."
+    },
+    {
+      "index": 255,
+      "start_time": 1037109.9999999999,
+      "end_time": 1039690.9999999999,
+      "text": "Now, why is, why, why must this be the case?"
+    },
+    {
+      "index": 256,
+      "start_time": 1039690.0,
+      "end_time": 1042990.0,
+      "text": "Suppose there is a boy B adjacent to the girls in"
+    },
+    {
+      "index": 257,
+      "start_time": 1042990.0,
+      "end_time": 1047300.0,
+      "text": "G that is not matched in the in the, in the greedy matching."
+    },
+    {
+      "index": 258,
+      "start_time": 1047300.0,
+      "end_time": 1052680.0,
+      "text": "now, if it&#39;s not, if, if, if, if there is there is a boy B in the, in the set"
+    },
+    {
+      "index": 259,
+      "start_time": 1054120.0,
+      "end_time": 1057700.0,
+      "text": "in the set a boys that is adjacent to the girls in G that&#39;s not matched."
+    },
+    {
+      "index": 260,
+      "start_time": 1057700.0,
+      "end_time": 1061220.0,
+      "text": "For example let&#39;s say boy 3 were actually,"
+    },
+    {
+      "index": 261,
+      "start_time": 1061220.0,
+      "end_time": 1066800.0,
+      "text": "not were actually not matched in the in the greedy algorithm."
+    },
+    {
+      "index": 262,
+      "start_time": 1066800.0,
+      "end_time": 1068120.0,
+      "text": "Then we could just output,"
+    },
+    {
+      "index": 263,
+      "start_time": 1068120.0,
+      "end_time": 1073770.0,
+      "text": "the greedy algorithm would have just output the, the 3,d in this case."
+    },
+    {
+      "index": 264,
+      "start_time": 1073770.0,
+      "end_time": 1076930.0,
+      "text": "We would would have paired that boy with with that girl in G."
+    },
+    {
+      "index": 265,
+      "start_time": 1076930.0,
+      "end_time": 1079440.0,
+      "text": "Because the rule of the greedy algorithm is,"
+    },
+    {
+      "index": 266,
+      "start_time": 1079440.0,
+      "end_time": 1082530.0,
+      "text": "if it is possible to make a match output it."
+    },
+    {
+      "index": 267,
+      "start_time": 1082530.0,
+      "end_time": 1087389.0,
+      "text": "And be, because the greedy algorithm did not pair the girls in G with any boy at"
+    },
+    {
+      "index": 268,
+      "start_time": 1087390.0,
+      "end_time": 1092740.0,
+      "text": "all the only reason why that must be the case is that every boy B, that, you know,"
+    },
+    {
+      "index": 269,
+      "start_time": 1092740.0,
+      "end_time": 1096390.0,
+      "text": "was eligible to be matched with a girl in G was in fact already matched."
+    },
+    {
+      "index": 270,
+      "start_time": 1096390.0,
+      "end_time": 1100120.0,
+      "text": "And therefore, you couldn&#39;t output that that boy."
+    },
+    {
+      "index": 271,
+      "start_time": 1100120.0,
+      "end_time": 1103400.0,
+      "text": "And therefore it follows that every boy B that&#39;s adjacent to"
+    },
+    {
+      "index": 272,
+      "start_time": 1103400.0,
+      "end_time": 1106399.0,
+      "text": "girls G it&#39;s only matched M greedy."
+    },
+    {
+      "index": 273,
+      "start_time": 1106400.0,
+      "end_time": 1109850.0,
+      "text": "So what they sa, what, what this really means is that the cardinality of"
+    },
+    {
+      "index": 274,
+      "start_time": 1109850.0,
+      "end_time": 1114100.0,
+      "text": "the greedy algorithm must be at least equal to B."
+    },
+    {
+      "index": 275,
+      "start_time": 1114100.0,
+      "end_time": 1118540.0,
+      "text": "Because, since each of those boys is matched there&#39;s at least B pairs."
+    },
+    {
+      "index": 276,
+      "start_time": 1118540.0,
+      "end_time": 1120810.0,
+      "text": "Cardinality B pairs in the greedy algorithm."
+    },
+    {
+      "index": 277,
+      "start_time": 1120810.0,
+      "end_time": 1124560.0,
+      "text": "So, the cardinality of the greedy algorithm is greater than or"
+    },
+    {
+      "index": 278,
+      "start_time": 1124560.0,
+      "end_time": 1126450.0,
+      "text": "equal to the set B."
+    },
+    {
+      "index": 279,
+      "start_time": 1127900.0,
+      "end_time": 1129610.0,
+      "text": "Let&#39;s call this equation equation two."
+    },
+    {
+      "index": 280,
+      "start_time": 1133540.0,
+      "end_time": 1134870.0,
+      "text": "Moving on. So what do we have so far?"
+    },
+    {
+      "index": 281,
+      "start_time": 1134870.0,
+      "end_time": 1139360.0,
+      "text": "So far we, we, we have two two equations that we derived."
+    },
+    {
+      "index": 282,
+      "start_time": 1139360.0,
+      "end_time": 1144394.0,
+      "text": "The first is that the M optimal is less than or equal to M greedy plus G and"
+    },
+    {
+      "index": 283,
+      "start_time": 1144390.0,
+      "end_time": 1147939.0,
+      "text": "the second is that M greedy is greater than or equal to B."
+    },
+    {
+      "index": 284,
+      "start_time": 1152530.0,
+      "end_time": 1154199.0,
+      "text": "Now let&#39;s make another observation."
+    },
+    {
+      "index": 285,
+      "start_time": 1155740.0,
+      "end_time": 1162270.0,
+      "text": "The optimal algorithm matches all the girls in G to boys in B, right?"
+    },
+    {
+      "index": 286,
+      "start_time": 1162270.0,
+      "end_time": 1163610.0,
+      "text": "This is by the definition of G."
+    },
+    {
+      "index": 287,
+      "start_time": 1163610.0,
+      "end_time": 1169419.0,
+      "text": "We said G is a set of girls that were not matched in the greedy algorithm but"
+    },
+    {
+      "index": 288,
+      "start_time": 1169420.0,
+      "end_time": 1171510.0,
+      "text": "were matched in the optimal algorithm."
+    },
+    {
+      "index": 289,
+      "start_time": 1171510.0,
+      "end_time": 1175270.0,
+      "text": "And therefore, the optimum algor, algorithm ma, matches all these girls."
+    },
+    {
+      "index": 290,
+      "start_time": 1175270.0,
+      "end_time": 1177900.0,
+      "text": "and, clearly they can only be matched to boys in B,"
+    },
+    {
+      "index": 291,
+      "start_time": 1177900.0,
+      "end_time": 1180790.0,
+      "text": "because these, that&#39;s the only set of boys that are adjacent to the girls G."
+    },
+    {
+      "index": 292,
+      "start_time": 1181940.0,
+      "end_time": 1185786.0,
+      "text": "Since the optimal algorithm matches all the girls in G to boys in B,"
+    },
+    {
+      "index": 293,
+      "start_time": 1185790.0,
+      "end_time": 1189774.0,
+      "text": "it follows that the cardinality of the set G should be less than or"
+    },
+    {
+      "index": 294,
+      "start_time": 1189770.0,
+      "end_time": 1191968.0,
+      "text": "equal to the cardinality of the set B,"
+    },
+    {
+      "index": 295,
+      "start_time": 1191970.0,
+      "end_time": 1196598.0,
+      "text": "because otherwise, we wouldn&#39;t match all the girls in G to boys in B."
+    },
+    {
+      "index": 296,
+      "start_time": 1196600.0,
+      "end_time": 1200408.0,
+      "text": "Therefore they, they could be they should be a boys in B after our girls in G"
+    },
+    {
+      "index": 297,
+      "start_time": 1200410.0,
+      "end_time": 1202881.0,
+      "text": "otherwise we couldn&#39;t find the matching."
+    },
+    {
+      "index": 298,
+      "start_time": 1202880.0,
+      "end_time": 1206780.0,
+      "text": "So for example in this case, notice that this set G has 1 girl but"
+    },
+    {
+      "index": 299,
+      "start_time": 1206780.0,
+      "end_time": 1211399.0,
+      "text": "the set B has 2 boys so this equation is saying that 1 is less than or"
+    },
+    {
+      "index": 300,
+      "start_time": 1211400.0,
+      "end_time": 1212770.0,
+      "text": "equal to 2, which is obviously true."
+    },
+    {
+      "index": 301,
+      "start_time": 1215740.0,
+      "end_time": 1217455.0,
+      "text": "So, let&#39;s call that equation 3."
+    },
+    {
+      "index": 302,
+      "start_time": 1219600.0,
+      "end_time": 1223520.0,
+      "text": "Now, when you combine equations 2 and 3, equation 2 says,"
+    },
+    {
+      "index": 303,
+      "start_time": 1223520.0,
+      "end_time": 1228379.0,
+      "text": "M greedy is greater than or equal to B well equation 3 says,"
+    },
+    {
+      "index": 304,
+      "start_time": 1228380.0,
+      "end_time": 1233276.0,
+      "text": "G is less than or equal to B, or in other words, B is greater than or equal to G."
+    },
+    {
+      "index": 305,
+      "start_time": 1233280.0,
+      "end_time": 1238538.0,
+      "text": "So when you combine any equation 2 and 3 we get equation 4,"
+    },
+    {
+      "index": 306,
+      "start_time": 1238530.0,
+      "end_time": 1242206.0,
+      "text": "which says that where G is less than or equal to B."
+    },
+    {
+      "index": 307,
+      "start_time": 1242210.0,
+      "end_time": 1247550.0,
+      "text": "But you know, that B is less or not equal to M greedy."
+    },
+    {
+      "index": 308,
+      "start_time": 1247550.0,
+      "end_time": 1251780.0,
+      "text": "And so, we have G less than or equal to B, which is less than or equal to M greedy."
+    },
+    {
+      "index": 309,
+      "start_time": 1253700.0,
+      "end_time": 1253939.0,
+      "text": "Right?"
+    },
+    {
+      "index": 310,
+      "start_time": 1253940.0,
+      "end_time": 1255410.0,
+      "text": "Let&#39;s call that equation 4."
+    },
+    {
+      "index": 311,
+      "start_time": 1255410.0,
+      "end_time": 1259930.0,
+      "text": "So, so far, we have equation 1,"
+    },
+    {
+      "index": 312,
+      "start_time": 1259930.0,
+      "end_time": 1264550.0,
+      "text": "which says that M optimal is less than or equal to M greedy plus G."
+    },
+    {
+      "index": 313,
+      "start_time": 1264550.0,
+      "end_time": 1268200.0,
+      "text": "And we just derived equation 4, which says that G is less than or"
+    },
+    {
+      "index": 314,
+      "start_time": 1268200.0,
+      "end_time": 1271200.0,
+      "text": "equal to B, which is less than or equal to M greedy."
+    },
+    {
+      "index": 315,
+      "start_time": 1271200.0,
+      "end_time": 1271690.0,
+      "text": "Okay?"
+    },
+    {
+      "index": 316,
+      "start_time": 1271690.0,
+      "end_time": 1272200.0,
+      "text": "So."
+    },
+    {
+      "index": 317,
+      "start_time": 1273830.0,
+      "end_time": 1277600.0,
+      "text": "When we combine 1 and 4,"
+    },
+    {
+      "index": 318,
+      "start_time": 1277600.0,
+      "end_time": 1281179.0,
+      "text": "we&#39;re just going to we&#39;re going to take 4 and substitute it in 1."
+    },
+    {
+      "index": 319,
+      "start_time": 1281180.0,
+      "end_time": 1285370.0,
+      "text": "We have M optimal less than our M greedy plus G, but we know that G is less than"
+    },
+    {
+      "index": 320,
+      "start_time": 1285370.0,
+      "end_time": 1289459.0,
+      "text": "equal than M greedy, so M optimal is less than or equal to M greedy plus M greedy."
+    },
+    {
+      "index": 321,
+      "start_time": 1290520.0,
+      "end_time": 1292670.0,
+      "text": "Which is just 2 times M greedy."
+    },
+    {
+      "index": 322,
+      "start_time": 1292670.0,
+      "end_time": 1298690.0,
+      "text": "So, if you just take the ratio, we end up with the with this final equation here,"
+    },
+    {
+      "index": 323,
+      "start_time": 1298690.0,
+      "end_time": 1304740.0,
+      "text": "which says that M greedy divided by M optimal is greater than ha,"
+    },
+    {
+      "index": 324,
+      "start_time": 1304740.0,
+      "end_time": 1306240.0,
+      "text": "greater than or equal to a half."
+    },
+    {
+      "index": 325,
+      "start_time": 1308280.0,
+      "end_time": 1311770.0,
+      "text": "And remember the competitive ratio is just a ratio,"
+    },
+    {
+      "index": 326,
+      "start_time": 1311770.0,
+      "end_time": 1314570.0,
+      "text": "of M greedy to M optimal in the worst case scenario."
+    },
+    {
+      "index": 327,
+      "start_time": 1314570.0,
+      "end_time": 1318899.0,
+      "text": "And we&#39;ve made no assumptions at all about the scenario, so this might, this is"
+    },
+    {
+      "index": 328,
+      "start_time": 1318900.0,
+      "end_time": 1321960.0,
+      "text": "any scenario and then in particular it could be the worst case scenario as well."
+    },
+    {
+      "index": 329,
+      "start_time": 1321960.0,
+      "end_time": 1325690.0,
+      "text": "So in the worst case scenario the cardinality of the greedy algorithm"
+    },
+    {
+      "index": 330,
+      "start_time": 1325690.0,
+      "end_time": 1330400.0,
+      "text": "divided by the cardinality of the optimal algorithm cannot be worse than a half."
+    },
+    {
+      "index": 331,
+      "start_time": 1331700.0,
+      "end_time": 1334780.0,
+      "text": "So, we proved that the competitive ratio of the greedy algorithm is at"
+    },
+    {
+      "index": 332,
+      "start_time": 1334780.0,
+      "end_time": 1335320.0,
+      "text": "least a half."
+    },
+    {
+      "index": 333,
+      "start_time": 1336750.0,
+      "end_time": 1338490.0,
+      "text": "Right? It could be greater than a half, but"
+    },
+    {
+      "index": 334,
+      "start_time": 1338490.0,
+      "end_time": 1340840.0,
+      "text": "we&#39;ve proved that the greedy algorithm does at least half,"
+    },
+    {
+      "index": 335,
+      "start_time": 1340840.0,
+      "end_time": 1342679.0,
+      "text": "as well as the optimal algorithm."
+    },
+    {
+      "index": 336,
+      "start_time": 1344200.0,
+      "end_time": 1347130.0,
+      "text": "Now that&#39;s pretty good, because the greedy algorithm is a very,"
+    },
+    {
+      "index": 337,
+      "start_time": 1347130.0,
+      "end_time": 1348620.0,
+      "text": "very simple algorithm."
+    },
+    {
+      "index": 338,
+      "start_time": 1348620.0,
+      "end_time": 1351400.0,
+      "text": "It doesn&#39;t even, have all the information available to it."
+    },
+    {
+      "index": 339,
+      "start_time": 1351400.0,
+      "end_time": 1353770.0,
+      "text": "It&#39;s looking at one input at a time, and it&#39;s doing something really,"
+    },
+    {
+      "index": 340,
+      "start_time": 1353770.0,
+      "end_time": 1356740.0,
+      "text": "really simple, if you&#39;re able to show that it does at"
+    },
+    {
+      "index": 341,
+      "start_time": 1356740.0,
+      "end_time": 1358930.0,
+      "text": "least half as well as the optimal algorithm."
+    },
+    {
+      "index": 342,
+      "start_time": 1361700.0,
+      "end_time": 1367170.0,
+      "text": "Now, we established a lower bound on the competitive ratio of the greedy algorithm."
+    },
+    {
+      "index": 343,
+      "start_time": 1367170.0,
+      "end_time": 1369746.0,
+      "text": "Its competitive ratio is at least a half."
+    },
+    {
+      "index": 344,
+      "start_time": 1369750.0,
+      "end_time": 1375913.0,
+      "text": "Now it turns out, that we can actually create worse-case scenario with you know,"
+    },
+    {
+      "index": 345,
+      "start_time": 1375910.0,
+      "end_time": 1379636.0,
+      "text": "where it performs half, [NOISE] as well as optimal."
+    },
+    {
+      "index": 346,
+      "start_time": 1379640.0,
+      "end_time": 1384205.0,
+      "text": "So here&#39;s here&#39;s an example of a simple worse-case scenario."
+    },
+    {
+      "index": 347,
+      "start_time": 1384200.0,
+      "end_time": 1389500.0,
+      "text": "Let&#39;s say you know girl a comes in and"
+    },
+    {
+      "index": 348,
+      "start_time": 1389500.0,
+      "end_time": 1393890.0,
+      "text": "the compatible boys are 1 and 4 and the output 1,a."
+    },
+    {
+      "index": 349,
+      "start_time": 1393890.0,
+      "end_time": 1398870.0,
+      "text": "And then an old b comes in and the output 2,b."
+    },
+    {
+      "index": 350,
+      "start_time": 1398870.0,
+      "end_time": 1400239.0,
+      "text": "And then c comes in and"
+    },
+    {
+      "index": 351,
+      "start_time": 1400240.0,
+      "end_time": 1403610.0,
+      "text": "we are unable to output anything because 1 is already paired."
+    },
+    {
+      "index": 352,
+      "start_time": 1403610.0,
+      "end_time": 1408780.0,
+      "text": "D comes in, and they&#39;re unable to output anything because, 2 is already paired."
+    },
+    {
+      "index": 353,
+      "start_time": 1408780.0,
+      "end_time": 1413300.0,
+      "text": "And so, in this case the greedy algorithm produces a matching of"
+    },
+    {
+      "index": 354,
+      "start_time": 1413300.0,
+      "end_time": 1415740.0,
+      "text": "finality 2 which is 1,a, 2,b."
+    },
+    {
+      "index": 355,
+      "start_time": 1415740.0,
+      "end_time": 1419290.0,
+      "text": "But if you observe carefully, there is in fact a matching"
+    },
+    {
+      "index": 356,
+      "start_time": 1420690.0,
+      "end_time": 1425910.0,
+      "text": "a maximum matching of cardinality 4 in this in this set."
+    },
+    {
+      "index": 357,
+      "start_time": 1425910.0,
+      "end_time": 1433320.0,
+      "text": "So for example, the, the optimal matching"
+    },
+    {
+      "index": 358,
+      "start_time": 1433320.0,
+      "end_time": 1438525.0,
+      "text": "in the set would be would be"
+    },
+    {
+      "index": 359,
+      "start_time": 1438530.0,
+      "end_time": 1445154.0,
+      "text": "1,c 2,d 3,b, and 4,a."
+    },
+    {
+      "index": 360,
+      "start_time": 1446470.0,
+      "end_time": 1450400.0,
+      "text": "Now that is a matching of cardinality 4,"
+    },
+    {
+      "index": 361,
+      "start_time": 1450400.0,
+      "end_time": 1453740.0,
+      "text": "where the greedy just produced a matching of cardinality 2."
+    },
+    {
+      "index": 362,
+      "start_time": 1453740.0,
+      "end_time": 1458970.0,
+      "text": "so, in this case the greedy has done half, as well as optimal."
+    },
+    {
+      "index": 363,
+      "start_time": 1458970.0,
+      "end_time": 1464620.0,
+      "text": "So what we&#39;ve shown is that the that the upper bound"
+    },
+    {
+      "index": 364,
+      "start_time": 1464620.0,
+      "end_time": 1468729.0,
+      "text": "on the competitive ratio of the greedy algorithm is a half."
+    },
+    {
+      "index": 365,
+      "start_time": 1468730.0,
+      "end_time": 1474700.0,
+      "text": "Now, we just showed in the, the prior analysis that, that the greedy,"
+    },
+    {
+      "index": 366,
+      "start_time": 1474700.0,
+      "end_time": 1478530.0,
+      "text": "that the lower bound on the greedy algorithm competitive ratio is a half."
+    },
+    {
+      "index": 367,
+      "start_time": 1478530.0,
+      "end_time": 1480480.0,
+      "text": "Since, he&#39;s shown that both the upper bond and"
+    },
+    {
+      "index": 368,
+      "start_time": 1480480.0,
+      "end_time": 1482680.0,
+      "text": "the low, lower bond are half, it follows,"
+    },
+    {
+      "index": 369,
+      "start_time": 1482680.0,
+      "end_time": 1486680.0,
+      "text": "in fact, that the Greedy Algorithm has a competitive ratio of exactly a half."
+    }
+  ]
+}

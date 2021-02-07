@@ -1,0 +1,1278 @@
+{
+  "video_id": "xsavQp8hd78",
+  "title": "PY4E - Loops and Iteration (Chapter 5 Part 3)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 238.0,
+      "end_time": 2321.0,
+      "text": "- So now we're gonna\ntalk about Loop Idioms."
+    },
+    {
+      "index": 2,
+      "start_time": 2321.0,
+      "end_time": 6153.0,
+      "text": "Loop Idioms are patterns that have to do"
+    },
+    {
+      "index": 3,
+      "start_time": 6153.0,
+      "end_time": 7781.0,
+      "text": "with how we construct loops."
+    },
+    {
+      "index": 4,
+      "start_time": 7781.0,
+      "end_time": 11394.0,
+      "text": "We have the mechanics\nof \"fors\" and \"whiles\","
+    },
+    {
+      "index": 5,
+      "start_time": 11394.0,
+      "end_time": 14074.0,
+      "text": "but ultimately we want\nto get something done."
+    },
+    {
+      "index": 6,
+      "start_time": 14074.0,
+      "end_time": 16230.0,
+      "text": "We want to solve a problem with a loop."
+    },
+    {
+      "index": 7,
+      "start_time": 16230.0,
+      "end_time": 18141.0,
+      "text": "And often what we have to do is,"
+    },
+    {
+      "index": 8,
+      "start_time": 18141.0,
+      "end_time": 19773.0,
+      "text": "if we have a set of things,"
+    },
+    {
+      "index": 9,
+      "start_time": 19773.0,
+      "end_time": 22951.0,
+      "text": "whether it's lines or strings\nor characters or numbers,"
+    },
+    {
+      "index": 10,
+      "start_time": 22951.0,
+      "end_time": 25590.0,
+      "text": "we're looking for something\nlike the largest or the smallest"
+    },
+    {
+      "index": 11,
+      "start_time": 25590.0,
+      "end_time": 28270.0,
+      "text": "or we want to add them up\nor something like that."
+    },
+    {
+      "index": 12,
+      "start_time": 28270.0,
+      "end_time": 31070.0,
+      "text": "So we can't just say, \"Add 'em up\","
+    },
+    {
+      "index": 13,
+      "start_time": 31070.0,
+      "end_time": 33401.0,
+      "text": "we have to say, \"Go through each one"
+    },
+    {
+      "index": 14,
+      "start_time": 33401.0,
+      "end_time": 34959.0,
+      "text": "\"and do something to each one.\""
+    },
+    {
+      "index": 15,
+      "start_time": 34959.0,
+      "end_time": 37239.0,
+      "text": "And somehow achieve adding them up."
+    },
+    {
+      "index": 16,
+      "start_time": 37239.0,
+      "end_time": 39270.0,
+      "text": "The pattern that we're going to follow is"
+    },
+    {
+      "index": 17,
+      "start_time": 39270.0,
+      "end_time": 42122.0,
+      "text": "we're going to have this loop that gonna"
+    },
+    {
+      "index": 18,
+      "start_time": 42122.0,
+      "end_time": 45955.0,
+      "text": "run once for each thing\nin some chunk of data."
+    },
+    {
+      "index": 19,
+      "start_time": 46935.0,
+      "end_time": 49132.0,
+      "text": "We're gonna set something at the beginning"
+    },
+    {
+      "index": 20,
+      "start_time": 49132.0,
+      "end_time": 50845.0,
+      "text": "and then we're going to\ndo something to each one."
+    },
+    {
+      "index": 21,
+      "start_time": 50845.0,
+      "end_time": 53169.0,
+      "text": "And then at the end we're\ngonna get the payoff."
+    },
+    {
+      "index": 22,
+      "start_time": 53169.0,
+      "end_time": 54548.0,
+      "text": "We're gonna get the result."
+    },
+    {
+      "index": 23,
+      "start_time": 54548.0,
+      "end_time": 56798.0,
+      "text": "So if we're summing things,"
+    },
+    {
+      "index": 24,
+      "start_time": 57646.0,
+      "end_time": 59761.0,
+      "text": "we're going to have a running total."
+    },
+    {
+      "index": 25,
+      "start_time": 59761.0,
+      "end_time": 62277.0,
+      "text": "This will be like T equals zero."
+    },
+    {
+      "index": 26,
+      "start_time": 62277.0,
+      "end_time": 66444.0,
+      "text": "And then this will be T\nequals T plus the thing value."
+    },
+    {
+      "index": 27,
+      "start_time": 67532.0,
+      "end_time": 68811.0,
+      "text": "But this is not the real total."
+    },
+    {
+      "index": 28,
+      "start_time": 68811.0,
+      "end_time": 70848.0,
+      "text": "It's the running total during the loop,"
+    },
+    {
+      "index": 29,
+      "start_time": 70848.0,
+      "end_time": 73700.0,
+      "text": "but at the end it is the real total."
+    },
+    {
+      "index": 30,
+      "start_time": 73700.0,
+      "end_time": 75924.0,
+      "text": "So we're going to look at what you do"
+    },
+    {
+      "index": 31,
+      "start_time": 75924.0,
+      "end_time": 77880.0,
+      "text": "before the loop starts, during the loop,"
+    },
+    {
+      "index": 32,
+      "start_time": 77880.0,
+      "end_time": 80407.0,
+      "text": "and then what you get after the loop"
+    },
+    {
+      "index": 33,
+      "start_time": 80407.0,
+      "end_time": 82490.0,
+      "text": "and how you can use that."
+    },
+    {
+      "index": 34,
+      "start_time": 83818.0,
+      "end_time": 84651.0,
+      "text": "We're gonna use this loop."
+    },
+    {
+      "index": 35,
+      "start_time": 84651.0,
+      "end_time": 85747.0,
+      "text": "It's just going to loop through"
+    },
+    {
+      "index": 36,
+      "start_time": 85747.0,
+      "end_time": 89660.0,
+      "text": "a set of six numbers over\nand over and over again."
+    },
+    {
+      "index": 37,
+      "start_time": 89660.0,
+      "end_time": 90892.0,
+      "text": "We're going to do\nsomething before the loop,"
+    },
+    {
+      "index": 38,
+      "start_time": 90892.0,
+      "end_time": 91955.0,
+      "text": "we're going to do\nsomething after the loop,"
+    },
+    {
+      "index": 39,
+      "start_time": 91955.0,
+      "end_time": 94438.0,
+      "text": "and we're going to run the\nloop some number of times."
+    },
+    {
+      "index": 40,
+      "start_time": 94438.0,
+      "end_time": 96877.0,
+      "text": "In this case \"thing\" is\nour iteration variable"
+    },
+    {
+      "index": 41,
+      "start_time": 96877.0,
+      "end_time": 100619.0,
+      "text": "because I'm using\nunpneumonic variables now."
+    },
+    {
+      "index": 42,
+      "start_time": 100619.0,
+      "end_time": 103952.0,
+      "text": "It's gonna run 9, 41, 12, 3, 74, and 15."
+    },
+    {
+      "index": 43,
+      "start_time": 105283.0,
+      "end_time": 107271.0,
+      "text": "It's going to run and\nprint these things out."
+    },
+    {
+      "index": 44,
+      "start_time": 107271.0,
+      "end_time": 109708.0,
+      "text": "It runs its loop six times and away we go."
+    },
+    {
+      "index": 45,
+      "start_time": 109708.0,
+      "end_time": 112475.0,
+      "text": "Now this loop does nothing\nexcept print stuff out."
+    },
+    {
+      "index": 46,
+      "start_time": 112475.0,
+      "end_time": 113941.0,
+      "text": "Of course, I like to do that first."
+    },
+    {
+      "index": 47,
+      "start_time": 113941.0,
+      "end_time": 115887.0,
+      "text": "I always print things out"
+    },
+    {
+      "index": 48,
+      "start_time": 115887.0,
+      "end_time": 119387.0,
+      "text": "to make sure that my brain is functioning."
+    },
+    {
+      "index": 49,
+      "start_time": 120270.0,
+      "end_time": 123437.0,
+      "text": "So, to understand how these loops work"
+    },
+    {
+      "index": 50,
+      "start_time": 125721.0,
+      "end_time": 128528.0,
+      "text": "I'm gonna ask you to\nfunction as a program."
+    },
+    {
+      "index": 51,
+      "start_time": 128527.99999999999,
+      "end_time": 131214.0,
+      "text": "I'm gonna show you some\nnumbers in succession"
+    },
+    {
+      "index": 52,
+      "start_time": 131214.0,
+      "end_time": 134795.0,
+      "text": "and I want you to mentally figure out"
+    },
+    {
+      "index": 53,
+      "start_time": 134795.0,
+      "end_time": 136055.0,
+      "text": "what the largest number is."
+    },
+    {
+      "index": 54,
+      "start_time": 136055.0,
+      "end_time": 137736.0,
+      "text": "But more importantly, think about how"
+    },
+    {
+      "index": 55,
+      "start_time": 137736.0,
+      "end_time": 139569.0,
+      "text": "your brain is solving this problem"
+    },
+    {
+      "index": 56,
+      "start_time": 139569.0,
+      "end_time": 141041.0,
+      "text": "of what is the largest number,"
+    },
+    {
+      "index": 57,
+      "start_time": 141041.0,
+      "end_time": 142990.0,
+      "text": "given that I'm only\ngoing to show them to you"
+    },
+    {
+      "index": 58,
+      "start_time": 142990.0,
+      "end_time": 144337.0,
+      "text": "one at a time for a little while."
+    },
+    {
+      "index": 59,
+      "start_time": 144337.0,
+      "end_time": 145558.0,
+      "text": "You brain has to do something."
+    },
+    {
+      "index": 60,
+      "start_time": 145558.0,
+      "end_time": 148255.0,
+      "text": "Imagine I was going to show\nyou thousands of numbers."
+    },
+    {
+      "index": 61,
+      "start_time": 148255.0,
+      "end_time": 149928.0,
+      "text": "I'm not, but imagine I was."
+    },
+    {
+      "index": 62,
+      "start_time": 149928.0,
+      "end_time": 152905.0,
+      "text": "How would you organize\nyourself in a way so that"
+    },
+    {
+      "index": 63,
+      "start_time": 152905.0,
+      "end_time": 155221.0,
+      "text": "for an hour and a half you could sit here"
+    },
+    {
+      "index": 64,
+      "start_time": 155221.0,
+      "end_time": 157703.0,
+      "text": "as I showed you numbers\nand you'd keep track"
+    },
+    {
+      "index": 65,
+      "start_time": 157703.0,
+      "end_time": 161775.0,
+      "text": "of the largest number that\nyou've seen of all the numbers?"
+    },
+    {
+      "index": 66,
+      "start_time": 161775.0,
+      "end_time": 163078.0,
+      "text": "Okay, here we go."
+    },
+    {
+      "index": 67,
+      "start_time": 163078.0,
+      "end_time": 165161.0,
+      "text": "Here's your first number."
+    },
+    {
+      "index": 68,
+      "start_time": 168113.0,
+      "end_time": 169280.0,
+      "text": "Second number."
+    },
+    {
+      "index": 69,
+      "start_time": 171598.0,
+      "end_time": 172681.0,
+      "text": "Third number."
+    },
+    {
+      "index": 70,
+      "start_time": 174078.0,
+      "end_time": 175245.0,
+      "text": "Fourth number."
+    },
+    {
+      "index": 71,
+      "start_time": 176725.0,
+      "end_time": 177808.0,
+      "text": "Fifth number."
+    },
+    {
+      "index": 72,
+      "start_time": 178775.0,
+      "end_time": 181341.0,
+      "text": "Sixth and last number."
+    },
+    {
+      "index": 73,
+      "start_time": 181341.0,
+      "end_time": 183674.0,
+      "text": "What was the largest number?"
+    },
+    {
+      "index": 74,
+      "start_time": 186901.0,
+      "end_time": 188299.0,
+      "text": "What was it?"
+    },
+    {
+      "index": 75,
+      "start_time": 188299.0,
+      "end_time": 190382.0,
+      "text": "Well, it wasn't too hard."
+    },
+    {
+      "index": 76,
+      "start_time": 191238.0,
+      "end_time": 192071.0,
+      "text": "It was 74."
+    },
+    {
+      "index": 77,
+      "start_time": 193318.0,
+      "end_time": 195148.0,
+      "text": "But that's not the question."
+    },
+    {
+      "index": 78,
+      "start_time": 195148.0,
+      "end_time": 197731.0,
+      "text": "How did you brain arrive at 74?"
+    },
+    {
+      "index": 79,
+      "start_time": 199616.0,
+      "end_time": 201046.0,
+      "text": "Here's all the numbers."
+    },
+    {
+      "index": 80,
+      "start_time": 201046.0,
+      "end_time": 202998.0,
+      "text": "If I was showing you all the numbers"
+    },
+    {
+      "index": 81,
+      "start_time": 202998.0,
+      "end_time": 205726.0,
+      "text": "and asked you, \"What's\nthe largest number?\""
+    },
+    {
+      "index": 82,
+      "start_time": 205726.0,
+      "end_time": 207351.0,
+      "text": "you're eyes would have sort of gone"
+    },
+    {
+      "index": 83,
+      "start_time": 207351.0,
+      "end_time": 209386.0,
+      "text": "(zooming of eyes moving around the screen)"
+    },
+    {
+      "index": 84,
+      "start_time": 209386.0,
+      "end_time": 211455.0,
+      "text": "and then you'd got to 74."
+    },
+    {
+      "index": 85,
+      "start_time": 211455.0,
+      "end_time": 214058.0,
+      "text": "You wouldn't do it in\nany particular order."
+    },
+    {
+      "index": 86,
+      "start_time": 214058.0,
+      "end_time": 216456.0,
+      "text": "Your eyes would just see the 74"
+    },
+    {
+      "index": 87,
+      "start_time": 216456.0,
+      "end_time": 218736.0,
+      "text": "and it would just throw\nthe smaller numbers away"
+    },
+    {
+      "index": 88,
+      "start_time": 218736.0,
+      "end_time": 221180.0,
+      "text": "and it would move really\nquickly to what the answer is."
+    },
+    {
+      "index": 89,
+      "start_time": 221180.0,
+      "end_time": 224309.0,
+      "text": "Even if there was several\nhundred numbers on the screen"
+    },
+    {
+      "index": 90,
+      "start_time": 224309.0,
+      "end_time": 227326.0,
+      "text": "your mind would sort of move fluidly"
+    },
+    {
+      "index": 91,
+      "start_time": 227326.0,
+      "end_time": 230336.0,
+      "text": "wherever it felt like moving\nand then arrive at it."
+    },
+    {
+      "index": 92,
+      "start_time": 230336.0,
+      "end_time": 231963.0,
+      "text": "Probably what it would do is"
+    },
+    {
+      "index": 93,
+      "start_time": 231963.0,
+      "end_time": 235259.0,
+      "text": "it would do something like move like this,"
+    },
+    {
+      "index": 94,
+      "start_time": 235259.0,
+      "end_time": 238109.0,
+      "text": "find this, and then check\nto make sure that it's okay."
+    },
+    {
+      "index": 95,
+      "start_time": 238109.0,
+      "end_time": 240390.0,
+      "text": "Then say, \"Okay, I got 74."
+    },
+    {
+      "index": 96,
+      "start_time": 240390.0,
+      "end_time": 241487.0,
+      "text": "\"I'm done.\""
+    },
+    {
+      "index": 97,
+      "start_time": 241487.0,
+      "end_time": 243565.0,
+      "text": "That's not how computers do it."
+    },
+    {
+      "index": 98,
+      "start_time": 243565.0,
+      "end_time": 245595.0,
+      "text": "That is not how computers do it."
+    },
+    {
+      "index": 99,
+      "start_time": 245595.0,
+      "end_time": 247383.0,
+      "text": "They do not move fluidly."
+    },
+    {
+      "index": 100,
+      "start_time": 247383.0,
+      "end_time": 249904.0,
+      "text": "But they are highly dedicated."
+    },
+    {
+      "index": 101,
+      "start_time": 249904.0,
+      "end_time": 251653.0,
+      "text": "They're gonna do something."
+    },
+    {
+      "index": 102,
+      "start_time": 251653.0,
+      "end_time": 253927.0,
+      "text": "(buzzing imitating a computer)"
+    },
+    {
+      "index": 103,
+      "start_time": 253927.0,
+      "end_time": 254937.0,
+      "text": "(clicking)"
+    },
+    {
+      "index": 104,
+      "start_time": 254937.0,
+      "end_time": 255770.0,
+      "text": "74."
+    },
+    {
+      "index": 105,
+      "start_time": 257182.00000000003,
+      "end_time": 259674.00000000003,
+      "text": "But how would you construct\na loop to achieve this?"
+    },
+    {
+      "index": 106,
+      "start_time": 259673.99999999997,
+      "end_time": 261946.99999999997,
+      "text": "Let's take a look."
+    },
+    {
+      "index": 107,
+      "start_time": 261947.0,
+      "end_time": 264270.0,
+      "text": "You could create a variable\ncalled \"largest_so_far\"."
+    },
+    {
+      "index": 108,
+      "start_time": 264270.0,
+      "end_time": 267237.0,
+      "text": "This is the largest\nvalue that you have seen"
+    },
+    {
+      "index": 109,
+      "start_time": 267237.0,
+      "end_time": 268369.0,
+      "text": "in the list so far."
+    },
+    {
+      "index": 110,
+      "start_time": 268369.0,
+      "end_time": 269794.0,
+      "text": "Now I haven't shown you any number yet,"
+    },
+    {
+      "index": 111,
+      "start_time": 269794.0,
+      "end_time": 272241.0,
+      "text": "so we'll just set this\nto -1 to get us started."
+    },
+    {
+      "index": 112,
+      "start_time": 272241.0,
+      "end_time": 274574.0,
+      "text": "Now we see 3 and we're like,"
+    },
+    {
+      "index": 113,
+      "start_time": 275575.0,
+      "end_time": 277493.0,
+      "text": "\"Oh, that's better than -1.\""
+    },
+    {
+      "index": 114,
+      "start_time": 277493.0,
+      "end_time": 279723.0,
+      "text": "It's our first number so it's probably"
+    },
+    {
+      "index": 115,
+      "start_time": 279723.0,
+      "end_time": 281113.0,
+      "text": "the largest we've seen so far, right?"
+    },
+    {
+      "index": 116,
+      "start_time": 281113.0,
+      "end_time": 281946.0,
+      "text": "Great."
+    },
+    {
+      "index": 117,
+      "start_time": 281946.0,
+      "end_time": 282779.0,
+      "text": "41."
+    },
+    {
+      "index": 118,
+      "start_time": 282779.0,
+      "end_time": 284610.0,
+      "text": "Oh, that's bigger than the\nlargest we've seen so far,"
+    },
+    {
+      "index": 119,
+      "start_time": 284610.0,
+      "end_time": 285587.0,
+      "text": "so we'll keep it."
+    },
+    {
+      "index": 120,
+      "start_time": 285587.0,
+      "end_time": 288196.0,
+      "text": "12 is not bigger than 41\nso we're not gonna keep it."
+    },
+    {
+      "index": 121,
+      "start_time": 288196.0,
+      "end_time": 290721.0,
+      "text": "Notice this keeping thing."
+    },
+    {
+      "index": 122,
+      "start_time": 290721.0,
+      "end_time": 293480.0,
+      "text": "9 is not bigger than 41 so\nthere's no point to keeping it."
+    },
+    {
+      "index": 123,
+      "start_time": 293480.0,
+      "end_time": 296210.0,
+      "text": "74 is bigger than 41, so we'll keep it."
+    },
+    {
+      "index": 124,
+      "start_time": 296210.0,
+      "end_time": 297506.0,
+      "text": "Is this the largest number?"
+    },
+    {
+      "index": 125,
+      "start_time": 297506.0,
+      "end_time": 298339.0,
+      "text": "We don't know."
+    },
+    {
+      "index": 126,
+      "start_time": 298339.0,
+      "end_time": 299630.0,
+      "text": "We don't know until we're done."
+    },
+    {
+      "index": 127,
+      "start_time": 299630.0,
+      "end_time": 301870.0,
+      "text": "15, not better than 74."
+    },
+    {
+      "index": 128,
+      "start_time": 301870.0,
+      "end_time": 306055.0,
+      "text": "So now we're all done and\nhooray, hooray, hooray,"
+    },
+    {
+      "index": 129,
+      "start_time": 306055.0,
+      "end_time": 308416.0,
+      "text": "we have the largest number."
+    },
+    {
+      "index": 130,
+      "start_time": 308416.0,
+      "end_time": 311752.0,
+      "text": "We have this variable that\nwe kept the largest number"
+    },
+    {
+      "index": 131,
+      "start_time": 311752.0,
+      "end_time": 314231.0,
+      "text": "that we'd seen up to this point."
+    },
+    {
+      "index": 132,
+      "start_time": 314231.0,
+      "end_time": 317037.0,
+      "text": "Then when we know that\nwe're done at the end,"
+    },
+    {
+      "index": 133,
+      "start_time": 317037.0,
+      "end_time": 319120.0,
+      "text": "that becomes the largest."
+    },
+    {
+      "index": 134,
+      "start_time": 320988.0,
+      "end_time": 322213.0,
+      "text": "So if you look at all the numbers,"
+    },
+    {
+      "index": 135,
+      "start_time": 322213.0,
+      "end_time": 323474.0,
+      "text": "keeping track of the largest so far,"
+    },
+    {
+      "index": 136,
+      "start_time": 323474.0,
+      "end_time": 326725.0,
+      "text": "at the end of all the largest\nso far and the largest"
+    },
+    {
+      "index": 137,
+      "start_time": 326725.0,
+      "end_time": 328091.0,
+      "text": "are the same thing."
+    },
+    {
+      "index": 138,
+      "start_time": 328091.0,
+      "end_time": 330547.0,
+      "text": "That's how you get this idea of"
+    },
+    {
+      "index": 139,
+      "start_time": 330547.0,
+      "end_time": 332943.0,
+      "text": "something you're doing during the loop"
+    },
+    {
+      "index": 140,
+      "start_time": 332943.0,
+      "end_time": 334452.0,
+      "text": "is not really the answer,"
+    },
+    {
+      "index": 141,
+      "start_time": 334452.0,
+      "end_time": 336371.0,
+      "text": "but by the time the loop is done"
+    },
+    {
+      "index": 142,
+      "start_time": 336371.0,
+      "end_time": 338621.0,
+      "text": "you will have the answer."
+    },
+    {
+      "index": 143,
+      "start_time": 338621.0,
+      "end_time": 340697.0,
+      "text": "So here's a bit of code that does this."
+    },
+    {
+      "index": 144,
+      "start_time": 340697.0,
+      "end_time": 343524.0,
+      "text": "Use it with our numbers."
+    },
+    {
+      "index": 145,
+      "start_time": 343524.0,
+      "end_time": 344976.0,
+      "text": "Let's take a look."
+    },
+    {
+      "index": 146,
+      "start_time": 344976.0,
+      "end_time": 346931.0,
+      "text": "I have this variable\ncalled \"largest_so_far\"."
+    },
+    {
+      "index": 147,
+      "start_time": 346931.0,
+      "end_time": 349257.0,
+      "text": "I set it to -1 before the loop."
+    },
+    {
+      "index": 148,
+      "start_time": 349257.0,
+      "end_time": 351206.0,
+      "text": "Remember there's a loop\nbefore, and a loop after,"
+    },
+    {
+      "index": 149,
+      "start_time": 351206.0,
+      "end_time": 352344.0,
+      "text": "and a loop in the middle."
+    },
+    {
+      "index": 150,
+      "start_time": 352344.0,
+      "end_time": 353444.0,
+      "text": "Before, it's -1."
+    },
+    {
+      "index": 151,
+      "start_time": 353444.0,
+      "end_time": 357117.0,
+      "text": "Now \"the_num\", remember\nunderscores are okay."
+    },
+    {
+      "index": 152,
+      "start_time": 357117.0,
+      "end_time": 358827.0,
+      "text": "That's my iteration variable."
+    },
+    {
+      "index": 153,
+      "start_time": 358827.0,
+      "end_time": 361979.0,
+      "text": "If 9 is greater than largest_so_far."
+    },
+    {
+      "index": 154,
+      "start_time": 361979.0,
+      "end_time": 364013.0,
+      "text": "Well, largest_so_far is -1 so that's true,"
+    },
+    {
+      "index": 155,
+      "start_time": 364013.0,
+      "end_time": 365360.0,
+      "text": "so this code is gonna run."
+    },
+    {
+      "index": 156,
+      "start_time": 365360.0,
+      "end_time": 367677.0,
+      "text": "We're gonna remember the new number."
+    },
+    {
+      "index": 157,
+      "start_time": 367677.0,
+      "end_time": 371336.0,
+      "text": "This is 9, so 9 ends up in largest_so_far."
+    },
+    {
+      "index": 158,
+      "start_time": 371336.0,
+      "end_time": 372477.0,
+      "text": "And then print it out."
+    },
+    {
+      "index": 159,
+      "start_time": 372477.0,
+      "end_time": 376519.0,
+      "text": "So largest_so_far is 9\nafter we saw the number 9."
+    },
+    {
+      "index": 160,
+      "start_time": 376519.0,
+      "end_time": 378186.0,
+      "text": "Then we do it again."
+    },
+    {
+      "index": 161,
+      "start_time": 379445.0,
+      "end_time": 381681.0,
+      "text": "So now 41 comes in."
+    },
+    {
+      "index": 162,
+      "start_time": 381681.0,
+      "end_time": 383922.0,
+      "text": "Is 41 greater than 9?"
+    },
+    {
+      "index": 163,
+      "start_time": 383922.0,
+      "end_time": 385466.0,
+      "text": "The answer is, \"Yes, it is.\""
+    },
+    {
+      "index": 164,
+      "start_time": 385466.0,
+      "end_time": 386810.0,
+      "text": "So we're going to run this code,"
+    },
+    {
+      "index": 165,
+      "start_time": 386810.0,
+      "end_time": 391200.0,
+      "text": "copy 41 into largest_so_far\nand then print it out."
+    },
+    {
+      "index": 166,
+      "start_time": 391200.0,
+      "end_time": 395200.0,
+      "text": "largest_so_far is 41 after\nwe saw the number 41."
+    },
+    {
+      "index": 167,
+      "start_time": 397173.0,
+      "end_time": 399736.0,
+      "text": "Now we're going to run\nthe loop again with 12"
+    },
+    {
+      "index": 168,
+      "start_time": 399736.0,
+      "end_time": 401850.0,
+      "text": "and you get the idea, I hope."
+    },
+    {
+      "index": 169,
+      "start_time": 401850.0,
+      "end_time": 403398.0,
+      "text": "Is 12 greater than 41,"
+    },
+    {
+      "index": 170,
+      "start_time": 403398.0,
+      "end_time": 405070.0,
+      "text": "which is the largest we've seen so far?"
+    },
+    {
+      "index": 171,
+      "start_time": 405070.0,
+      "end_time": 406903.0,
+      "text": "The answer is, \"No, it is not.\""
+    },
+    {
+      "index": 172,
+      "start_time": 406903.0,
+      "end_time": 407762.0,
+      "text": "So we skip."
+    },
+    {
+      "index": 173,
+      "start_time": 407762.0,
+      "end_time": 410286.0,
+      "text": "The largest_so_far stays 41,"
+    },
+    {
+      "index": 174,
+      "start_time": 410286.0,
+      "end_time": 411812.0,
+      "text": "even though we saw 12."
+    },
+    {
+      "index": 175,
+      "start_time": 411812.0,
+      "end_time": 413979.0,
+      "text": "Meaning we're sort of ratcheting up,"
+    },
+    {
+      "index": 176,
+      "start_time": 413979.0,
+      "end_time": 416260.0,
+      "text": "but we never ratchet back down."
+    },
+    {
+      "index": 177,
+      "start_time": 416260.0,
+      "end_time": 418760.0,
+      "text": "We run it again with 3 and 41."
+    },
+    {
+      "index": 178,
+      "start_time": 421454.0,
+      "end_time": 422436.0,
+      "text": "We skip this."
+    },
+    {
+      "index": 179,
+      "start_time": 422436.0,
+      "end_time": 424723.0,
+      "text": "Then the largest_so_far is 41,"
+    },
+    {
+      "index": 180,
+      "start_time": 424723.0,
+      "end_time": 427129.0,
+      "text": "even though we just saw 3."
+    },
+    {
+      "index": 181,
+      "start_time": 427129.0,
+      "end_time": 429287.0,
+      "text": "And now we see 74."
+    },
+    {
+      "index": 182,
+      "start_time": 429287.0,
+      "end_time": 431403.0,
+      "text": "Is 74 greater than 41?"
+    },
+    {
+      "index": 183,
+      "start_time": 431403.0,
+      "end_time": 433521.0,
+      "text": "See, we never are looking\nat all the numbers."
+    },
+    {
+      "index": 184,
+      "start_time": 433521.0,
+      "end_time": 435519.0,
+      "text": "We're only are looking at\nthe window on the numbers"
+    },
+    {
+      "index": 185,
+      "start_time": 435519.0,
+      "end_time": 438694.0,
+      "text": "of the current number\nthat we're looking at."
+    },
+    {
+      "index": 186,
+      "start_time": 438694.0,
+      "end_time": 441212.0,
+      "text": "So is 74 greater than 41?"
+    },
+    {
+      "index": 187,
+      "start_time": 441212.0,
+      "end_time": 443406.0,
+      "text": "The answer is yes, so we run this code."
+    },
+    {
+      "index": 188,
+      "start_time": 443406.0,
+      "end_time": 445812.0,
+      "text": "Then we capture the 74."
+    },
+    {
+      "index": 189,
+      "start_time": 445812.0,
+      "end_time": 449723.0,
+      "text": "We just saw 74 and it\nis the largest_so_far."
+    },
+    {
+      "index": 190,
+      "start_time": 449723.0,
+      "end_time": 452971.0,
+      "text": "And then we run it again with 15,"
+    },
+    {
+      "index": 191,
+      "start_time": 452971.0,
+      "end_time": 456750.0,
+      "text": "but 74 is our largest_so_far\nand so it skips."
+    },
+    {
+      "index": 192,
+      "start_time": 456750.0,
+      "end_time": 460739.0,
+      "text": "So 74 remains largest so far after 15."
+    },
+    {
+      "index": 193,
+      "start_time": 460739.0,
+      "end_time": 461961.0,
+      "text": "Now we're finished."
+    },
+    {
+      "index": 194,
+      "start_time": 461961.0,
+      "end_time": 463386.0,
+      "text": "We just ran the last thing."
+    },
+    {
+      "index": 195,
+      "start_time": 463386.0,
+      "end_time": 465419.0,
+      "text": "Our loop takes care of everything"
+    },
+    {
+      "index": 196,
+      "start_time": 465419.0,
+      "end_time": 467084.0,
+      "text": "and jumps to this print\nstatement and says,"
+    },
+    {
+      "index": 197,
+      "start_time": 467084.0,
+      "end_time": 469568.0,
+      "text": "\"Afterwards, largest_so_far is 74.\""
+    },
+    {
+      "index": 198,
+      "start_time": 469568.0,
+      "end_time": 473552.0,
+      "text": "But at this point it's also the largest."
+    },
+    {
+      "index": 199,
+      "start_time": 473552.0,
+      "end_time": 476742.0,
+      "text": "So largest_so_far became largest"
+    },
+    {
+      "index": 200,
+      "start_time": 476742.0,
+      "end_time": 479095.0,
+      "text": "when our loop finished."
+    },
+    {
+      "index": 201,
+      "start_time": 479095.0,
+      "end_time": 480858.0,
+      "text": "So that sort of gives you this notion"
+    },
+    {
+      "index": 202,
+      "start_time": 480858.0,
+      "end_time": 484775.0,
+      "text": "of how we construct\nsomething at the beginning,"
+    },
+    {
+      "index": 203,
+      "start_time": 485820.0,
+      "end_time": 487528.0,
+      "text": "some kind of thing that we're going to do"
+    },
+    {
+      "index": 204,
+      "start_time": 487528.0,
+      "end_time": 489152.0,
+      "text": "over and over and over again,"
+    },
+    {
+      "index": 205,
+      "start_time": 489152.0,
+      "end_time": 491307.0,
+      "text": "and then something at the end."
+    },
+    {
+      "index": 206,
+      "start_time": 491307.0,
+      "end_time": 492645.0,
+      "text": "We've put some print statements in"
+    },
+    {
+      "index": 207,
+      "start_time": 492645.0,
+      "end_time": 496994.0,
+      "text": "just so we can watch it\nand see what's going on."
+    },
+    {
+      "index": 208,
+      "start_time": 496994.0,
+      "end_time": 499197.0,
+      "text": "Coming up next we're going to talk about"
+    },
+    {
+      "index": 209,
+      "start_time": 499197.0,
+      "end_time": 500743.0,
+      "text": "some more loop patterns."
+    },
+    {
+      "index": 210,
+      "start_time": 500743.0,
+      "end_time": 503025.0,
+      "text": "Some counting, totalling, averaging,"
+    },
+    {
+      "index": 211,
+      "start_time": 503025.0,
+      "end_time": 505692.0,
+      "text": "and finding the smallest number."
+    },
+    {
+      "index": 212,
+      "start_time": 506990.0,
+      "end_time": 509573.0,
+      "text": "(relaxed jazz)"
+    }
+  ]
+}

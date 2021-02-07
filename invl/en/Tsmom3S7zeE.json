@@ -1,0 +1,1254 @@
+{
+  "video_id": "Tsmom3S7zeE",
+  "title": "5   4   Implementing Collaborative Filtering 13 46 Advanced",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 560.0,
+      "end_time": 4960.0,
+      "text": "Let&#39;s turn to the task of actually implementing collaborative filtering and"
+    },
+    {
+      "index": 2,
+      "start_time": 4960.0,
+      "end_time": 7770.0,
+      "text": "look at the complexity of the implementation."
+    },
+    {
+      "index": 3,
+      "start_time": 7770.0,
+      "end_time": 12239.0,
+      "text": "The most expensive step in implementing collaborative filtering is the,"
+    },
+    {
+      "index": 4,
+      "start_time": 12240.0,
+      "end_time": 14700.0,
+      "text": "the step of finding k most similar users."
+    },
+    {
+      "index": 5,
+      "start_time": 14700.0,
+      "end_time": 16180.0,
+      "text": "Or the k most similar items."
+    },
+    {
+      "index": 6,
+      "start_time": 16180.0,
+      "end_time": 19560.0,
+      "text": "The, the neighborhood of an item or a user."
+    },
+    {
+      "index": 7,
+      "start_time": 19560.0,
+      "end_time": 24520.0,
+      "text": "Remember what we had to do to find the k most similar item was to take the item and"
+    },
+    {
+      "index": 8,
+      "start_time": 24520.0,
+      "end_time": 26830.0,
+      "text": "compute its similarity with respect to every other item."
+    },
+    {
+      "index": 9,
+      "start_time": 28180.0,
+      "end_time": 31410.0,
+      "text": "And this required us to compute, for example, a cosine or"
+    },
+    {
+      "index": 10,
+      "start_time": 31410.0,
+      "end_time": 35360.0,
+      "text": "a centered cosine distance, between the item of interest and every other item."
+    },
+    {
+      "index": 11,
+      "start_time": 37600.0,
+      "end_time": 41490.0,
+      "text": "If we actually did this at every step with how to actually look at every entry in"
+    },
+    {
+      "index": 12,
+      "start_time": 41490.0,
+      "end_time": 42400.0,
+      "text": "the utility matrix."
+    },
+    {
+      "index": 13,
+      "start_time": 43690.0,
+      "end_time": 44640.0,
+      "text": "And so the,"
+    },
+    {
+      "index": 14,
+      "start_time": 44640.0,
+      "end_time": 48570.0,
+      "text": "the complexity of doing that turns out to be the size of the utility matrix U."
+    },
+    {
+      "index": 15,
+      "start_time": 51600.0,
+      "end_time": 54480.0,
+      "text": "Now, since a utility matrix can be very, very large because there are many,"
+    },
+    {
+      "index": 16,
+      "start_time": 54480.0,
+      "end_time": 57349.0,
+      "text": "many users, millions of users and millions of items."
+    },
+    {
+      "index": 17,
+      "start_time": 57350.0,
+      "end_time": 59780.0,
+      "text": "Clearly impractical to do this at one time."
+    },
+    {
+      "index": 18,
+      "start_time": 62170.0,
+      "end_time": 64540.0,
+      "text": "So what we really have to do is pre compute."
+    },
+    {
+      "index": 19,
+      "start_time": 65640.0,
+      "end_time": 69210.0,
+      "text": "Pre compute for every item with set up similar items."
+    },
+    {
+      "index": 20,
+      "start_time": 69210.0,
+      "end_time": 71649.0,
+      "text": "Or for every user a similar set of users."
+    },
+    {
+      "index": 21,
+      "start_time": 73850.0,
+      "end_time": 76979.0,
+      "text": "But doing naive pre computations can take a really long time."
+    },
+    {
+      "index": 22,
+      "start_time": 76980.0,
+      "end_time": 81960.0,
+      "text": "Supposed to have n n items and we&#39;re doing item to item collaborative filtering."
+    },
+    {
+      "index": 23,
+      "start_time": 81960.0,
+      "end_time": 86770.0,
+      "text": "For each item, we&#39;d have to compute its similarity to the other item."
+    },
+    {
+      "index": 24,
+      "start_time": 86770.0,
+      "end_time": 91900.0,
+      "text": "And so the complexity of doing that is a product of the number of the items and"
+    },
+    {
+      "index": 25,
+      "start_time": 91900.0,
+      "end_time": 92374.0,
+      "text": "the size of the utility matrix."
+    },
+    {
+      "index": 26,
+      "start_time": 92374.0,
+      "end_time": 96410.0,
+      "text": "[INAUDIBLE] Now, since a utility matrix can be very large, and"
+    },
+    {
+      "index": 27,
+      "start_time": 96410.0,
+      "end_time": 98530.0,
+      "text": "the number of items can be very large."
+    },
+    {
+      "index": 28,
+      "start_time": 98530.0,
+      "end_time": 101450.0,
+      "text": "The product of these two is clearly a very large number."
+    },
+    {
+      "index": 29,
+      "start_time": 101450.0,
+      "end_time": 106960.0,
+      "text": "And so even a naive pre-computation, can, can be too expensive to do, in practice."
+    },
+    {
+      "index": 30,
+      "start_time": 108500.0,
+      "end_time": 109670.0,
+      "text": "So how do you deal with this?"
+    },
+    {
+      "index": 31,
+      "start_time": 109670.0,
+      "end_time": 110170.0,
+      "text": "Now."
+    },
+    {
+      "index": 32,
+      "start_time": 112180.0,
+      "end_time": 116630.0,
+      "text": "In previous lectures, we looked at a way of doing this, and that technique,"
+    },
+    {
+      "index": 33,
+      "start_time": 116630.0,
+      "end_time": 119470.0,
+      "text": "those are the techniques for near-neighbor search in high dimensions."
+    },
+    {
+      "index": 34,
+      "start_time": 119470.0,
+      "end_time": 122550.0,
+      "text": "For example, locality of sensitive, locality-sensitive hashing."
+    },
+    {
+      "index": 35,
+      "start_time": 122550.0,
+      "end_time": 126679.0,
+      "text": "We can use something like LSH, to, to take an item, and"
+    },
+    {
+      "index": 36,
+      "start_time": 126680.0,
+      "end_time": 131160.0,
+      "text": "quickly find, a set of, near neighbors to that item, or"
+    },
+    {
+      "index": 37,
+      "start_time": 131160.0,
+      "end_time": 134700.0,
+      "text": "take a user, and find a set of near neighbors to that user."
+    },
+    {
+      "index": 38,
+      "start_time": 134700.0,
+      "end_time": 135660.0,
+      "text": "And do that in advance."
+    },
+    {
+      "index": 39,
+      "start_time": 136950.0,
+      "end_time": 140140.0,
+      "text": "In practice, you might do something like this you know,"
+    },
+    {
+      "index": 40,
+      "start_time": 140140.0,
+      "end_time": 145590.0,
+      "text": "once in a day for, for example or once every few hours, we can also use"
+    },
+    {
+      "index": 41,
+      "start_time": 145600.0,
+      "end_time": 150170.0,
+      "text": "clustering to to group users and items into,"
+    },
+    {
+      "index": 42,
+      "start_time": 150170.0,
+      "end_time": 154230.0,
+      "text": "into smaller clusters and thereby speed up the process by restricting the search,"
+    },
+    {
+      "index": 43,
+      "start_time": 154230.0,
+      "end_time": 159400.0,
+      "text": "to within a cluster, as opposed to the entire setup items as users."
+    },
+    {
+      "index": 44,
+      "start_time": 159400.0,
+      "end_time": 162530.0,
+      "text": "And finally, we could use a set of techniques called dimensionality reduction"
+    },
+    {
+      "index": 45,
+      "start_time": 162530.0,
+      "end_time": 165710.0,
+      "text": "methods which will cover in an upcoming lecture."
+    },
+    {
+      "index": 46,
+      "start_time": 165710.0,
+      "end_time": 168790.0,
+      "text": "What are the advantages and disadvantages of collaborative filtering?"
+    },
+    {
+      "index": 47,
+      "start_time": 168790.0,
+      "end_time": 171739.0,
+      "text": "The biggest advantage of collaborative filtering is that it works for"
+    },
+    {
+      "index": 48,
+      "start_time": 171740.0,
+      "end_time": 173260.0,
+      "text": "any kind of item."
+    },
+    {
+      "index": 49,
+      "start_time": 173260.0,
+      "end_time": 175170.0,
+      "text": "It doesn&#39;t matter whether the item is books or"
+    },
+    {
+      "index": 50,
+      "start_time": 175170.0,
+      "end_time": 180809.0,
+      "text": "music or videos or news articles or people."
+    },
+    {
+      "index": 51,
+      "start_time": 180810.0,
+      "end_time": 184470.0,
+      "text": "Collaborative filtering works on any kind of item without requiring and"
+    },
+    {
+      "index": 52,
+      "start_time": 184470.0,
+      "end_time": 188270.0,
+      "text": "feature selection which is actually the biggest advantage of"
+    },
+    {
+      "index": 53,
+      "start_time": 188270.0,
+      "end_time": 192240.0,
+      "text": "collaborative filtering because it turns out to be tough problem to find the right"
+    },
+    {
+      "index": 54,
+      "start_time": 192240.0,
+      "end_time": 195730.0,
+      "text": "sort of features so something as complicated as movie."
+    },
+    {
+      "index": 55,
+      "start_time": 195730.0,
+      "end_time": 199490.0,
+      "text": "Or a piece of news and"
+    },
+    {
+      "index": 56,
+      "start_time": 199500.0,
+      "end_time": 202730.0,
+      "text": "this it sort of also explains the huge popularity of collaborative filtering."
+    },
+    {
+      "index": 57,
+      "start_time": 202730.0,
+      "end_time": 204549.0,
+      "text": "Because it sort of obviates this need for"
+    },
+    {
+      "index": 58,
+      "start_time": 204550.0,
+      "end_time": 209730.0,
+      "text": "feature selection for complex things such as images and movies and music and so on."
+    },
+    {
+      "index": 59,
+      "start_time": 209730.0,
+      "end_time": 212619.0,
+      "text": "That said, collaborative filtering has a number of disadvantages."
+    },
+    {
+      "index": 60,
+      "start_time": 214100.0,
+      "end_time": 215710.0,
+      "text": "The first of these, is cold start."
+    },
+    {
+      "index": 61,
+      "start_time": 217000.0,
+      "end_time": 219960.0,
+      "text": "For Collaborative Filtering to work you need enough users in the system,"
+    },
+    {
+      "index": 62,
+      "start_time": 219960.0,
+      "end_time": 222230.0,
+      "text": "who have rated enough items."
+    },
+    {
+      "index": 63,
+      "start_time": 222230.0,
+      "end_time": 226260.0,
+      "text": "Remember we need to, given an item you&#39;re to find a set of other similar items."
+    },
+    {
+      "index": 64,
+      "start_time": 226260.0,
+      "end_time": 229220.0,
+      "text": "Or given a user, you&#39;re to find the set of other similar users."
+    },
+    {
+      "index": 65,
+      "start_time": 229220.0,
+      "end_time": 232980.0,
+      "text": "But if there are not enough users in the system, it&#39;s hard to find a match."
+    },
+    {
+      "index": 66,
+      "start_time": 236140.0,
+      "end_time": 238700.0,
+      "text": "The second problem is, is one of sparsity."
+    },
+    {
+      "index": 67,
+      "start_time": 238700.0,
+      "end_time": 242310.0,
+      "text": "Even when we do have enough users in the."
+    },
+    {
+      "index": 68,
+      "start_time": 242310.0,
+      "end_time": 244350.0,
+      "text": "In the in the system."
+    },
+    {
+      "index": 69,
+      "start_time": 244350.0,
+      "end_time": 246250.0,
+      "text": "Because there are so many items."
+    },
+    {
+      "index": 70,
+      "start_time": 246250.0,
+      "end_time": 249850.0,
+      "text": "Typically the millions of users and millions and millions of items."
+    },
+    {
+      "index": 71,
+      "start_time": 249850.0,
+      "end_time": 252660.0,
+      "text": "Most users have not taken most items."
+    },
+    {
+      "index": 72,
+      "start_time": 252660.0,
+      "end_time": 256580.0,
+      "text": "And therefore the user ratings matrix is very, very sparse indeed."
+    },
+    {
+      "index": 73,
+      "start_time": 257329.0,
+      "end_time": 259839.0,
+      "text": "And it&#39;s hard to find, you know,"
+    },
+    {
+      "index": 74,
+      "start_time": 259839.0,
+      "end_time": 264950.0,
+      "text": "a user, better users have actually rated the same set of items, right?"
+    },
+    {
+      "index": 75,
+      "start_time": 264950.0,
+      "end_time": 270690.0,
+      "text": "So remember, supposed they wanted to predict the, rating for user, x and"
+    },
+    {
+      "index": 76,
+      "start_time": 270690.0,
+      "end_time": 274880.0,
+      "text": "an item i, I need to find other users who also rated item i."
+    },
+    {
+      "index": 77,
+      "start_time": 274880.0,
+      "end_time": 278659.0,
+      "text": "Really hard to find such set of users because of sparsity."
+    },
+    {
+      "index": 78,
+      "start_time": 283900.0,
+      "end_time": 285440.0,
+      "text": "The next problem, is the first rater problem."
+    },
+    {
+      "index": 79,
+      "start_time": 285440.0,
+      "end_time": 288820.0,
+      "text": "Suppose we add a new item to the catalog, right?"
+    },
+    {
+      "index": 80,
+      "start_time": 288820.0,
+      "end_time": 292820.0,
+      "text": "we, you cannot make recommend this new item to anybody because the new"
+    },
+    {
+      "index": 81,
+      "start_time": 292820.0,
+      "end_time": 293939.0,
+      "text": "item doesn&#39;t have any ratings."
+    },
+    {
+      "index": 82,
+      "start_time": 295750.0,
+      "end_time": 300370.0,
+      "text": "And Esoteric item, for instance, that are actually you know,"
+    },
+    {
+      "index": 83,
+      "start_time": 300370.0,
+      "end_time": 302700.0,
+      "text": "there may be a few people who really love the item, but"
+    },
+    {
+      "index": 84,
+      "start_time": 302700.0,
+      "end_time": 305892.0,
+      "text": "the number of people who like the item is really small."
+    },
+    {
+      "index": 85,
+      "start_time": 305892.0,
+      "end_time": 307945.0,
+      "text": "Think you have a smaller number of ratings,"
+    },
+    {
+      "index": 86,
+      "start_time": 307946.0,
+      "end_time": 311120.0,
+      "text": "that&#39;s how to make recommendations for those items, too."
+    },
+    {
+      "index": 87,
+      "start_time": 315583.0,
+      "end_time": 321100.0,
+      "text": "And the final problem of collaborative filtering is the popularity bias."
+    },
+    {
+      "index": 88,
+      "start_time": 321100.0,
+      "end_time": 326300.0,
+      "text": "Let&#39;s take a really popular movie or, or book like Harry Potter."
+    },
+    {
+      "index": 89,
+      "start_time": 326300.0,
+      "end_time": 330900.0,
+      "text": "Now, lots of people tend to give high ratings to such a popular,"
+    },
+    {
+      "index": 90,
+      "start_time": 330900.0,
+      "end_time": 332640.0,
+      "text": "popular book or movie."
+    },
+    {
+      "index": 91,
+      "start_time": 332640.0,
+      "end_time": 338590.0,
+      "text": "And Collaborative Filtering will therefore tend to recommend a popular book or movie."
+    },
+    {
+      "index": 92,
+      "start_time": 338590.0,
+      "end_time": 341729.0,
+      "text": "to, to almost everyone in the system."
+    },
+    {
+      "index": 93,
+      "start_time": 341730.0,
+      "end_time": 344650.0,
+      "text": "Regardless of whether they&#39;d actually like it or not."
+    },
+    {
+      "index": 94,
+      "start_time": 344650.0,
+      "end_time": 349909.0,
+      "text": "Just because the neighborhood of any item will include popular items."
+    },
+    {
+      "index": 95,
+      "start_time": 349910.0,
+      "end_time": 352680.0,
+      "text": "At Amazon we used to call this problem the Harry Potter effect."
+    },
+    {
+      "index": 96,
+      "start_time": 354600.0,
+      "end_time": 357870.0,
+      "text": "And the Harry Potter effect need not be a bad thing."
+    },
+    {
+      "index": 97,
+      "start_time": 357870.0,
+      "end_time": 360710.0,
+      "text": "Recommending popular items generally works out well."
+    },
+    {
+      "index": 98,
+      "start_time": 360710.0,
+      "end_time": 365560.0,
+      "text": "But it&#39;s you know, the problem is if every item that&#39;s recommended is"
+    },
+    {
+      "index": 99,
+      "start_time": 365560.0,
+      "end_time": 368890.0,
+      "text": "a popular item the popular items can completely cloud out"
+    },
+    {
+      "index": 100,
+      "start_time": 368890.0,
+      "end_time": 372719.0,
+      "text": "the unique recommendations that can be made for a specific user."
+    },
+    {
+      "index": 101,
+      "start_time": 372720.0,
+      "end_time": 376520.0,
+      "text": "And you are to take special steps to avoid the popularity bias from washing out"
+    },
+    {
+      "index": 102,
+      "start_time": 376520.0,
+      "end_time": 377799.0,
+      "text": "the specific recommendations."
+    },
+    {
+      "index": 103,
+      "start_time": 379810.0,
+      "end_time": 383000.0,
+      "text": "Now that you&#39;ve seen some of the difficulties with collaborative filtering,"
+    },
+    {
+      "index": 104,
+      "start_time": 383000.0,
+      "end_time": 385630.0,
+      "text": "we can design hybrid methods to work on those difficulties."
+    },
+    {
+      "index": 105,
+      "start_time": 387310.0,
+      "end_time": 391810.0,
+      "text": "For example, we can add content based methods to collaborative filtering."
+    },
+    {
+      "index": 106,
+      "start_time": 391810.0,
+      "end_time": 396140.0,
+      "text": "We can add item profiles to deal with the new item problem and"
+    },
+    {
+      "index": 107,
+      "start_time": 396140.0,
+      "end_time": 398550.0,
+      "text": "make recommendations of new items to users."
+    },
+    {
+      "index": 108,
+      "start_time": 398550.0,
+      "end_time": 402220.0,
+      "text": "Or we might you know, take new users and use demographic information about new"
+    },
+    {
+      "index": 109,
+      "start_time": 402220.0,
+      "end_time": 406770.0,
+      "text": "users to build synthetic profiles for them and that deal with the new user problem."
+    },
+    {
+      "index": 110,
+      "start_time": 409120.0,
+      "end_time": 413490.0,
+      "text": "Another approach is to implement two or more different recommender systems and"
+    },
+    {
+      "index": 111,
+      "start_time": 413490.0,
+      "end_time": 416310.0,
+      "text": "combine their predictions perhaps using the linear model."
+    },
+    {
+      "index": 112,
+      "start_time": 416310.0,
+      "end_time": 421940.0,
+      "text": "For example, you could use a global baseline recommender and"
+    },
+    {
+      "index": 113,
+      "start_time": 421940.0,
+      "end_time": 423840.0,
+      "text": "combine that with collaborative filtering."
+    },
+    {
+      "index": 114,
+      "start_time": 423840.0,
+      "end_time": 424779.0,
+      "text": "And let&#39;s see how to do this."
+    },
+    {
+      "index": 115,
+      "start_time": 429280.0,
+      "end_time": 430490.0,
+      "text": "So here&#39;s a problem."
+    },
+    {
+      "index": 116,
+      "start_time": 431120.0,
+      "end_time": 435280.0,
+      "text": "We take the estimate of Joe&#39;s rating for the movie The Sixth Sense."
+    },
+    {
+      "index": 117,
+      "start_time": 435280.0,
+      "end_time": 440239.0,
+      "text": "The problem is that Joe has not rated any movies similar to The Sixth Sense"
+    },
+    {
+      "index": 118,
+      "start_time": 440240.0,
+      "end_time": 442340.0,
+      "text": "according to our measure of similarity."
+    },
+    {
+      "index": 119,
+      "start_time": 442340.0,
+      "end_time": 447280.0,
+      "text": "And so, using, the collaborative filtering formula that saw in the previous lights,"
+    },
+    {
+      "index": 120,
+      "start_time": 447280.0,
+      "end_time": 451100.0,
+      "text": "we can make no prediction for Joe&#39;s rating for the movie, The Sixth Sense."
+    },
+    {
+      "index": 121,
+      "start_time": 451100.0,
+      "end_time": 454349.0,
+      "text": "This is a problem that arises from the sparsity of the rating matrix."
+    },
+    {
+      "index": 122,
+      "start_time": 458800.0,
+      "end_time": 462330.0,
+      "text": "So here&#39;s an approach called the Global Baseline approach, and it&#39;s very,"
+    },
+    {
+      "index": 123,
+      "start_time": 462330.0,
+      "end_time": 462849.0,
+      "text": "very simple."
+    },
+    {
+      "index": 124,
+      "start_time": 464930.0,
+      "end_time": 469554.0,
+      "text": "Suppose in our, in our system, the mean movie rating is 3.7 stars."
+    },
+    {
+      "index": 125,
+      "start_time": 469554.0,
+      "end_time": 473960.0,
+      "text": "3.7 is the average rating for, across all movies and all users."
+    },
+    {
+      "index": 126,
+      "start_time": 475230.0,
+      "end_time": 480110.0,
+      "text": "And we observe that The Sixth Sense, the ra, the average rating for"
+    },
+    {
+      "index": 127,
+      "start_time": 480110.0,
+      "end_time": 484200.0,
+      "text": "Sixth Sense is 0.5 stars above the mean movie rating."
+    },
+    {
+      "index": 128,
+      "start_time": 485230.0,
+      "end_time": 488910.0,
+      "text": "People like The Sixth Sense, on average data, you know,"
+    },
+    {
+      "index": 129,
+      "start_time": 488910.0,
+      "end_time": 489950.0,
+      "text": "more than the average movie."
+    },
+    {
+      "index": 130,
+      "start_time": 491180.0,
+      "end_time": 497000.0,
+      "text": "You also notice that Joe rates 0.2 stars below the average rating for,"
+    },
+    {
+      "index": 131,
+      "start_time": 497000.0,
+      "end_time": 498320.0,
+      "text": "for other users."
+    },
+    {
+      "index": 132,
+      "start_time": 498320.0,
+      "end_time": 499120.0,
+      "text": "Right?"
+    },
+    {
+      "index": 133,
+      "start_time": 499120.0,
+      "end_time": 503300.0,
+      "text": "This is not, remember this is not Joe&#39;s rating for The Sixth Sense or"
+    },
+    {
+      "index": 134,
+      "start_time": 503300.0,
+      "end_time": 504440.0,
+      "text": "for any specific movie."
+    },
+    {
+      "index": 135,
+      "start_time": 504440.0,
+      "end_time": 509100.0,
+      "text": "But if we take the average of Joe&#39;s rating, Joe Turns will be a tough rater."
+    },
+    {
+      "index": 136,
+      "start_time": 509100.0,
+      "end_time": 514850.0,
+      "text": "And his average rating is 3.5 stars as opposed to the mean rating of 3.7 stars."
+    },
+    {
+      "index": 137,
+      "start_time": 514850.0,
+      "end_time": 519929.0,
+      "text": "And so Joe&#39;s rating i, i, Joe&#39;s rating in general are 0.2 stars below average."
+    },
+    {
+      "index": 138,
+      "start_time": 521200.00000000006,
+      "end_time": 525540.0,
+      "text": "Now we can use these, three numbers to come up with the baseline estimate for,"
+    },
+    {
+      "index": 139,
+      "start_time": 525540.0,
+      "end_time": 527959.0,
+      "text": "the user Joe and the movie Sixth Sense."
+    },
+    {
+      "index": 140,
+      "start_time": 527960.0,
+      "end_time": 530580.0,
+      "text": "We started a mean rating with just 3.7."
+    },
+    {
+      "index": 141,
+      "start_time": 530580.0,
+      "end_time": 534549.0,
+      "text": "Notice that The Sixth Sense is 0.5 stars above average."
+    },
+    {
+      "index": 142,
+      "start_time": 535860.0,
+      "end_time": 540200.0,
+      "text": "And then we subtract the 0.2"
+    },
+    {
+      "index": 143,
+      "start_time": 540200.0,
+      "end_time": 544890.0,
+      "text": "because Joe&#39;s rating is on average 0.2 stars below the average rating."
+    },
+    {
+      "index": 144,
+      "start_time": 544890.0,
+      "end_time": 549799.0,
+      "text": "And you predict that Joe will give the Sixth Sense four stars."
+    },
+    {
+      "index": 145,
+      "start_time": 551240.0,
+      "end_time": 554170.0,
+      "text": "Notice that in this case we have not used any"
+    },
+    {
+      "index": 146,
+      "start_time": 554170.0,
+      "end_time": 558100.0,
+      "text": "specific information about the movies Joe has rated."
+    },
+    {
+      "index": 147,
+      "start_time": 558100.0,
+      "end_time": 561189.0,
+      "text": "We don&#39;t need Joe to have rated any movies similar to"
+    },
+    {
+      "index": 148,
+      "start_time": 561190.0,
+      "end_time": 564180.0,
+      "text": "The Sixth Sense in order to make this prediction."
+    },
+    {
+      "index": 149,
+      "start_time": 564180.0,
+      "end_time": 568579.0,
+      "text": "All we need is to have enough users who have actually rated The Sixth Sense."
+    },
+    {
+      "index": 150,
+      "start_time": 569640.0,
+      "end_time": 574370.0,
+      "text": "And so, so that we can actually compute an average rating for for the you know,"
+    },
+    {
+      "index": 151,
+      "start_time": 574370.0,
+      "end_time": 575170.0,
+      "text": "for The Sixth Sense."
+    },
+    {
+      "index": 152,
+      "start_time": 580980.0,
+      "end_time": 584420.0,
+      "text": "Now what we&#39;d like to do is actually combine this global baseline rating"
+    },
+    {
+      "index": 153,
+      "start_time": 584420.0,
+      "end_time": 586229.0,
+      "text": "with collaborative filtering."
+    },
+    {
+      "index": 154,
+      "start_time": 586230.0,
+      "end_time": 587880.0,
+      "text": "So let, let&#39;s look at an example."
+    },
+    {
+      "index": 155,
+      "start_time": 589520.0,
+      "end_time": 593640.0,
+      "text": "So the Global Baseline estimated that Joe will give The Sixth Sense 4 stars."
+    },
+    {
+      "index": 156,
+      "start_time": 595230.0,
+      "end_time": 599130.0,
+      "text": "Now suppose we use a collaborative filtering on nearest neighbour approach"
+    },
+    {
+      "index": 157,
+      "start_time": 599130.0,
+      "end_time": 604970.0,
+      "text": "and we actually find out that Joe didn&#39;t like the movie Signs and"
+    },
+    {
+      "index": 158,
+      "start_time": 604970.0,
+      "end_time": 609150.0,
+      "text": "Signs actually happens to be a movie that&#39;s is very similar to The Sixth Sense,"
+    },
+    {
+      "index": 159,
+      "start_time": 609150.0,
+      "end_time": 611400.0,
+      "text": "exactly by the same director."
+    },
+    {
+      "index": 160,
+      "start_time": 611400.0,
+      "end_time": 615189.0,
+      "text": "And so and lets say the similarity between Signs and"
+    },
+    {
+      "index": 161,
+      "start_time": 615190.0,
+      "end_time": 621480.0,
+      "text": "Sixth Sense is is one point of we find out Joe didn&#39;t like Signs and"
+    },
+    {
+      "index": 162,
+      "start_time": 621480.0,
+      "end_time": 626239.0,
+      "text": "in fact Joe rated Signs one star below his average rating for all movies."
+    },
+    {
+      "index": 163,
+      "start_time": 627550.0,
+      "end_time": 630849.0,
+      "text": "So now we can combine the Global Baseline estimate and"
+    },
+    {
+      "index": 164,
+      "start_time": 630850.0,
+      "end_time": 634910.0,
+      "text": "the collaborative filtering refinement and come up with the final estimate."
+    },
+    {
+      "index": 165,
+      "start_time": 636200.0,
+      "end_time": 640270.0,
+      "text": "So, since the Global Baseline estimates that Joe will rate The Sixth Sense four"
+    },
+    {
+      "index": 166,
+      "start_time": 640270.0,
+      "end_time": 643449.0,
+      "text": "stars whereas the collaborative filtering gives it"
+    },
+    {
+      "index": 167,
+      "start_time": 643450.0,
+      "end_time": 647320.0,
+      "text": "a negative one below his average rating."
+    },
+    {
+      "index": 168,
+      "start_time": 647320.0,
+      "end_time": 650250.0,
+      "text": "So we can, we can just add those two ratings."
+    },
+    {
+      "index": 169,
+      "start_time": 650250.0,
+      "end_time": 653210.0,
+      "text": "And predict that Joe will grade The Sixth Sense three stars."
+    },
+    {
+      "index": 170,
+      "start_time": 655600.0,
+      "end_time": 659690.0,
+      "text": "So notice that this approach actually takes a linear combination of,"
+    },
+    {
+      "index": 171,
+      "start_time": 659690.0,
+      "end_time": 661900.0,
+      "text": "two independent classifiers,"
+    },
+    {
+      "index": 172,
+      "start_time": 661900.0,
+      "end_time": 666800.0,
+      "text": "a global baseline classifier, and a collaborative filtering classifier, and"
+    },
+    {
+      "index": 173,
+      "start_time": 666800.0,
+      "end_time": 670300.0,
+      "text": "takes the sum of those, you know, takes the sum of those predictions."
+    },
+    {
+      "index": 174,
+      "start_time": 670300.0,
+      "end_time": 673350.0,
+      "text": "And if you wanted we could rated these predictions in different ways as well."
+    },
+    {
+      "index": 175,
+      "start_time": 673350.0,
+      "end_time": 675230.0,
+      "text": "In this case, we rated both of those equally."
+    },
+    {
+      "index": 176,
+      "start_time": 678840.0,
+      "end_time": 683110.0,
+      "text": "So finally, here is the the formula that we can use to implement the,"
+    },
+    {
+      "index": 177,
+      "start_time": 683110.0,
+      "end_time": 687450.0,
+      "text": "the combination in the global base line and collaborative filtering."
+    },
+    {
+      "index": 178,
+      "start_time": 689310.0,
+      "end_time": 694439.0,
+      "text": "Let&#39;s define SIJ to be the similarity of items I and J."
+    },
+    {
+      "index": 179,
+      "start_time": 694440.0,
+      "end_time": 700950.0,
+      "text": "And given and item I, we&#39;re going to find it&#39;s K nearest neighbors and we&#39;ll"
+    },
+    {
+      "index": 180,
+      "start_time": 700950.0,
+      "end_time": 705859.0,
+      "text": "only going to find the K nearest neighbors who have also been rated by user X."
+    },
+    {
+      "index": 181,
+      "start_time": 708150.0,
+      "end_time": 713540.0,
+      "text": "And our goal is to estimate the rating for user X, and item i."
+    },
+    {
+      "index": 182,
+      "start_time": 713540.0,
+      "end_time": 718380.0,
+      "text": "And, about here, and, given the, the simple formula that we had, which was just"
+    },
+    {
+      "index": 183,
+      "start_time": 718380.0,
+      "end_time": 723809.0,
+      "text": "a, a weighted average dating, for all the items in the neighborhood N i x."
+    },
+    {
+      "index": 184,
+      "start_time": 724910.0,
+      "end_time": 728189.0,
+      "text": "Now we&#39;re going to add in the global baseline idea."
+    },
+    {
+      "index": 185,
+      "start_time": 728190.0,
+      "end_time": 731700.0,
+      "text": "And here&#39;s what the new formula looks like."
+    },
+    {
+      "index": 186,
+      "start_time": 731700.0,
+      "end_time": 734240.0,
+      "text": "We&#39;re going to take estimate the rating r x i"
+    },
+    {
+      "index": 187,
+      "start_time": 734240.0,
+      "end_time": 740550.0,
+      "text": "to be the sum of a baseline rating and the collaborative filtering refinement."
+    },
+    {
+      "index": 188,
+      "start_time": 740550.0,
+      "end_time": 744609.0,
+      "text": "b b x i here is the baseline estimate."
+    },
+    {
+      "index": 189,
+      "start_time": 744610.0,
+      "end_time": 747190.0,
+      "text": "And the baseline estimate for user x and"
+    },
+    {
+      "index": 190,
+      "start_time": 747190.0,
+      "end_time": 750570.0,
+      "text": "item i is itself the sum of three components."
+    },
+    {
+      "index": 191,
+      "start_time": 750570.0,
+      "end_time": 754660.0,
+      "text": "mu, which is the overall mean movie rating in the system."
+    },
+    {
+      "index": 192,
+      "start_time": 754660.0,
+      "end_time": 759579.0,
+      "text": "b x, which is the rating deviation of user x, which is just the average rating"
+    },
+    {
+      "index": 193,
+      "start_time": 759580.0,
+      "end_time": 764900.0,
+      "text": "that user x gives across all movies that he has rated, minus mu."
+    },
+    {
+      "index": 194,
+      "start_time": 764900.0,
+      "end_time": 767520.0,
+      "text": "And b i is similarly the rating deviation of movie i."
+    },
+    {
+      "index": 195,
+      "start_time": 768860.0,
+      "end_time": 773780.0,
+      "text": "And so if you add those three up, you get bxi which is a baseline rating for"
+    },
+    {
+      "index": 196,
+      "start_time": 773780.0,
+      "end_time": 775370.0,
+      "text": "user x and item i."
+    },
+    {
+      "index": 197,
+      "start_time": 775370.0,
+      "end_time": 777790.0,
+      "text": "And then we&#39;re going to add in the collaborative filtering piece,"
+    },
+    {
+      "index": 198,
+      "start_time": 778790.0,
+      "end_time": 783270.0,
+      "text": "which is the same as the formula we had before, with the weighted average."
+    },
+    {
+      "index": 199,
+      "start_time": 783270.0,
+      "end_time": 787420.0,
+      "text": "Rated by similarity of item i and item j in the neighborhood."
+    },
+    {
+      "index": 200,
+      "start_time": 788500.0,
+      "end_time": 793470.0,
+      "text": "however, and from using rxj, which is the rating of user x for item J."
+    },
+    {
+      "index": 201,
+      "start_time": 793470.0,
+      "end_time": 798650.0,
+      "text": "We&#39;re just going to subtract out the baseline piece and when you look at"
+    },
+    {
+      "index": 202,
+      "start_time": 798650.0,
+      "end_time": 805500.0,
+      "text": "the the, the, the deviation of the rating for the, for the item from the baseline."
+    },
+    {
+      "index": 203,
+      "start_time": 805500.0,
+      "end_time": 808920.0,
+      "text": "Since you&#39;ve already added the baseline piece we don&#39;t want to double count it."
+    },
+    {
+      "index": 204,
+      "start_time": 808920.0,
+      "end_time": 810449.0,
+      "text": "In the second piece there as well."
+    },
+    {
+      "index": 205,
+      "start_time": 810450.0,
+      "end_time": 813300.0,
+      "text": "So we subtracted out the the, the,"
+    },
+    {
+      "index": 206,
+      "start_time": 813300.0,
+      "end_time": 816490.0,
+      "text": "the baseline ratings from the collaborative filtering piece."
+    },
+    {
+      "index": 207,
+      "start_time": 816490.0,
+      "end_time": 822460.0,
+      "text": "And this gives us the final formula that combines collaborative filtering and"
+    },
+    {
+      "index": 208,
+      "start_time": 822460.0,
+      "end_time": 823491.0,
+      "text": "the baseline approach."
+    }
+  ]
+}

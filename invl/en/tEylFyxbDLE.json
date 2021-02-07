@@ -1,0 +1,1302 @@
+{
+  "video_id": "tEylFyxbDLE",
+  "title": "SLIs, SLOs, SLAs, oh my! (class SRE implements DevOps)",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 2156.0,
+      "end_time": 3300.0,
+      "text": "SETH VARGO: Hi there."
+    },
+    {
+      "index": 2,
+      "start_time": 3300.0,
+      "end_time": 5279.0,
+      "text": "And welcome to our second video in the series"
+    },
+    {
+      "index": 3,
+      "start_time": 5280.0,
+      "end_time": 7230.0,
+      "text": "on SRE and DevOps."
+    },
+    {
+      "index": 4,
+      "start_time": 7230.0,
+      "end_time": 9150.0,
+      "text": "My name is Seth, and I&#39;m a developer advocate"
+    },
+    {
+      "index": 5,
+      "start_time": 9150.0,
+      "end_time": 11822.0,
+      "text": "at Google focused on infrastructure and operations."
+    },
+    {
+      "index": 6,
+      "start_time": 11822.0,
+      "end_time": 12780.0,
+      "text": "LIZ FONG-JONES: And hi."
+    },
+    {
+      "index": 7,
+      "start_time": 12780.0,
+      "end_time": 16320.0,
+      "text": "I&#39;m Liz, a site reliability engineer, or SRE at Google,"
+    },
+    {
+      "index": 8,
+      "start_time": 16320.0,
+      "end_time": 18000.0,
+      "text": "where I teach Google Cloud customers"
+    },
+    {
+      "index": 9,
+      "start_time": 18000.0,
+      "end_time": 20580.0,
+      "text": "how to build and operate reliable services."
+    },
+    {
+      "index": 10,
+      "start_time": 20580.0,
+      "end_time": 22380.0,
+      "text": "So Seth, have you ever run into the problem"
+    },
+    {
+      "index": 11,
+      "start_time": 22380.0,
+      "end_time": 24253.0,
+      "text": "where you&#39;re trying to talk about reliability"
+    },
+    {
+      "index": 12,
+      "start_time": 24254.0,
+      "end_time": 27360.0,
+      "text": "and availability, and you get so many different definitions it"
+    },
+    {
+      "index": 13,
+      "start_time": 27360.0,
+      "end_time": 28710.0,
+      "text": "makes your head want to spin?"
+    },
+    {
+      "index": 14,
+      "start_time": 28710.0,
+      "end_time": 30210.0,
+      "text": "SETH VARGO: It happens all the time."
+    },
+    {
+      "index": 15,
+      "start_time": 30210.0,
+      "end_time": 31500.0,
+      "text": "LIZ FONG-JONES: And even worse, have"
+    },
+    {
+      "index": 16,
+      "start_time": 31500.0,
+      "end_time": 33780.0,
+      "text": "you ever run into the situation where the developers are trying"
+    },
+    {
+      "index": 17,
+      "start_time": 33780.0,
+      "end_time": 35100.0,
+      "text": "to push out new features and they&#39;re"
+    },
+    {
+      "index": 18,
+      "start_time": 35100.0,
+      "end_time": 37360.0,
+      "text": "breaking things more and more, and they just won&#39;t listen?"
+    },
+    {
+      "index": 19,
+      "start_time": 37360.0,
+      "end_time": 38600.0,
+      "text": "SETH VARGO: It&#39;s like you&#39;re in my head."
+    },
+    {
+      "index": 20,
+      "start_time": 38600.0,
+      "end_time": 40200.0,
+      "text": "Have we worked together before?"
+    },
+    {
+      "index": 21,
+      "start_time": 40200.0,
+      "end_time": 43380.0,
+      "text": "My team is constantly putting out fires, many of which"
+    },
+    {
+      "index": 22,
+      "start_time": 43380.0,
+      "end_time": 45960.0,
+      "text": "end up being bugs in the developers&#39; code."
+    },
+    {
+      "index": 23,
+      "start_time": 45960.0,
+      "end_time": 48210.0,
+      "text": "But when we try to push back on the product teams"
+    },
+    {
+      "index": 24,
+      "start_time": 48210.0,
+      "end_time": 50730.0,
+      "text": "to focus on reliability, they don&#39;t agree"
+    },
+    {
+      "index": 25,
+      "start_time": 50730.0,
+      "end_time": 52980.0,
+      "text": "that reliability is an issue."
+    },
+    {
+      "index": 26,
+      "start_time": 52980.0,
+      "end_time": 54930.0,
+      "text": "It&#39;s the classic DevOps problem."
+    },
+    {
+      "index": 27,
+      "start_time": 54930.0,
+      "end_time": 56335.0,
+      "text": "Do you have any recommendations?"
+    },
+    {
+      "index": 28,
+      "start_time": 56335.0,
+      "end_time": 57210.0,
+      "text": "LIZ FONG-JONES: Yeah."
+    },
+    {
+      "index": 29,
+      "start_time": 57210.0,
+      "end_time": 59700.0,
+      "text": "This is a really common problem in the relationship"
+    },
+    {
+      "index": 30,
+      "start_time": 59700.0,
+      "end_time": 62278.0,
+      "text": "between product developers and operators."
+    },
+    {
+      "index": 31,
+      "start_time": 62278.0,
+      "end_time": 64319.0,
+      "text": "And it&#39;s a problem that Google was really worried"
+    },
+    {
+      "index": 32,
+      "start_time": 64319.0,
+      "end_time": 66480.0,
+      "text": "about in the early 2000s when we were first"
+    },
+    {
+      "index": 33,
+      "start_time": 66480.0,
+      "end_time": 68460.0,
+      "text": "building out Google web search."
+    },
+    {
+      "index": 34,
+      "start_time": 68460.0,
+      "end_time": 71460.0,
+      "text": "And this is when we started defining the SRE discipline."
+    },
+    {
+      "index": 35,
+      "start_time": 71460.0,
+      "end_time": 73199.0,
+      "text": "And it&#39;s really been a work in progress"
+    },
+    {
+      "index": 36,
+      "start_time": 73200.0,
+      "end_time": 75114.0,
+      "text": "that we&#39;re improving on since."
+    },
+    {
+      "index": 37,
+      "start_time": 75114.0,
+      "end_time": 75780.0,
+      "text": "SETH VARGO: Wow."
+    },
+    {
+      "index": 38,
+      "start_time": 75780.0,
+      "end_time": 78780.0,
+      "text": "Google had these same problems in the early 2000s?"
+    },
+    {
+      "index": 39,
+      "start_time": 78780.0,
+      "end_time": 80310.0,
+      "text": "I had no idea."
+    },
+    {
+      "index": 40,
+      "start_time": 80310.0,
+      "end_time": 81780.0,
+      "text": "But I still don&#39;t understand."
+    },
+    {
+      "index": 41,
+      "start_time": 81780.0,
+      "end_time": 84360.0,
+      "text": "How can SRE help solve this, apparently,"
+    },
+    {
+      "index": 42,
+      "start_time": 84360.0,
+      "end_time": 86100.0,
+      "text": "very common problem?"
+    },
+    {
+      "index": 43,
+      "start_time": 86100.0,
+      "end_time": 88800.0,
+      "text": "LIZ FONG-JONES: So SRE tries to solve this problem in three"
+    },
+    {
+      "index": 44,
+      "start_time": 88800.0,
+      "end_time": 89860.0,
+      "text": "different ways."
+    },
+    {
+      "index": 45,
+      "start_time": 89860.0,
+      "end_time": 93570.0,
+      "text": "First of all, we try to define what availability is."
+    },
+    {
+      "index": 46,
+      "start_time": 93570.0,
+      "end_time": 96320.0,
+      "text": "Secondly, we try to define what an appropriate level"
+    },
+    {
+      "index": 47,
+      "start_time": 96320.0,
+      "end_time": 97679.0,
+      "text": "of availability is."
+    },
+    {
+      "index": 48,
+      "start_time": 97680.0,
+      "end_time": 99660.0,
+      "text": "And third, we get everyone on the same page"
+    },
+    {
+      "index": 49,
+      "start_time": 99660.0,
+      "end_time": 101520.0,
+      "text": "about what we are going to do if we fail"
+    },
+    {
+      "index": 50,
+      "start_time": 101520.0,
+      "end_time": 103500.0,
+      "text": "to live up to those standards."
+    },
+    {
+      "index": 51,
+      "start_time": 103500.0,
+      "end_time": 106950.0,
+      "text": "And we try to communicate this across all the organization,"
+    },
+    {
+      "index": 52,
+      "start_time": 106950.0,
+      "end_time": 109550.0,
+      "text": "from product developers to SREs, and all"
+    },
+    {
+      "index": 53,
+      "start_time": 109550.0,
+      "end_time": 111180.0,
+      "text": "the way from individual contributors all the way up"
+    },
+    {
+      "index": 54,
+      "start_time": 111180.0,
+      "end_time": 112470.0,
+      "text": "to vice presidents."
+    },
+    {
+      "index": 55,
+      "start_time": 112470.0,
+      "end_time": 114690.0,
+      "text": "That way, we have a shared sense of responsibility"
+    },
+    {
+      "index": 56,
+      "start_time": 114690.0,
+      "end_time": 116310.0,
+      "text": "for the service and what we&#39;re going"
+    },
+    {
+      "index": 57,
+      "start_time": 116310.0,
+      "end_time": 118980.0,
+      "text": "to do if we need to slow down."
+    },
+    {
+      "index": 58,
+      "start_time": 118980.0,
+      "end_time": 121710.0,
+      "text": "And we do that by defining service level objectives"
+    },
+    {
+      "index": 59,
+      "start_time": 121710.0,
+      "end_time": 124380.0,
+      "text": "in collaboration with the product owners."
+    },
+    {
+      "index": 60,
+      "start_time": 124380.0,
+      "end_time": 126810.0,
+      "text": "And by agreeing on these metrics in advance,"
+    },
+    {
+      "index": 61,
+      "start_time": 126810.0,
+      "end_time": 129210.0,
+      "text": "we make sure that there&#39;s less of a chance of confusion"
+    },
+    {
+      "index": 62,
+      "start_time": 129210.00000000001,
+      "end_time": 130919.00000000001,
+      "text": "and conflict in the future."
+    },
+    {
+      "index": 63,
+      "start_time": 130919.00000000001,
+      "end_time": 133260.0,
+      "text": "SETH VARGO: OK, so an SLO is just an agreement"
+    },
+    {
+      "index": 64,
+      "start_time": 133260.0,
+      "end_time": 136410.0,
+      "text": "among stakeholders about how reliable a service should be."
+    },
+    {
+      "index": 65,
+      "start_time": 136410.0,
+      "end_time": 139595.0,
+      "text": "But shouldn&#39;t services just always be 100% reliable?"
+    },
+    {
+      "index": 66,
+      "start_time": 139595.0,
+      "end_time": 140970.0,
+      "text": "LIZ FONG-JONES: So the problem is"
+    },
+    {
+      "index": 67,
+      "start_time": 140970.0,
+      "end_time": 144600.0,
+      "text": "that the cost and the technical complexity of making services"
+    },
+    {
+      "index": 68,
+      "start_time": 144600.0,
+      "end_time": 147820.0,
+      "text": "more reliable gets higher and higher the closer to 100%"
+    },
+    {
+      "index": 69,
+      "start_time": 147820.0,
+      "end_time": 148829.0,
+      "text": "you try to get."
+    },
+    {
+      "index": 70,
+      "start_time": 148830.0,
+      "end_time": 151500.0,
+      "text": "It winds up being the case that every application"
+    },
+    {
+      "index": 71,
+      "start_time": 151500.0,
+      "end_time": 154860.0,
+      "text": "has a unique set of requirements that dictate how reliable does"
+    },
+    {
+      "index": 72,
+      "start_time": 154860.0,
+      "end_time": 156870.0,
+      "text": "it have to be before customers no longer notice"
+    },
+    {
+      "index": 73,
+      "start_time": 156870.0,
+      "end_time": 157680.0,
+      "text": "the difference?"
+    },
+    {
+      "index": 74,
+      "start_time": 157680.0,
+      "end_time": 159180.0,
+      "text": "And that means that we can make sure"
+    },
+    {
+      "index": 75,
+      "start_time": 159180.0,
+      "end_time": 161520.0,
+      "text": "that we have enough room for error and enough room"
+    },
+    {
+      "index": 76,
+      "start_time": 161520.0,
+      "end_time": 163470.0,
+      "text": "to roll out features reliably."
+    },
+    {
+      "index": 77,
+      "start_time": 163470.0,
+      "end_time": 164220.0,
+      "text": "SETH VARGO: I see."
+    },
+    {
+      "index": 78,
+      "start_time": 164220.0,
+      "end_time": 165678.0,
+      "text": "We should probably do another video"
+    },
+    {
+      "index": 79,
+      "start_time": 165678.0,
+      "end_time": 168120.0,
+      "text": "where we talk about why 100% availability isn&#39;t"
+    },
+    {
+      "index": 80,
+      "start_time": 168120.0,
+      "end_time": 169140.0,
+      "text": "a real target."
+    },
+    {
+      "index": 81,
+      "start_time": 169140.0,
+      "end_time": 170559.0,
+      "text": "OK Liz, I&#39;m ready."
+    },
+    {
+      "index": 82,
+      "start_time": 170560.0,
+      "end_time": 174300.0,
+      "text": "I&#39;ve decided that I want my service to be 99.9% reliable."
+    },
+    {
+      "index": 83,
+      "start_time": 174300.0,
+      "end_time": 175260.0,
+      "text": "So where do I get started?"
+    },
+    {
+      "index": 84,
+      "start_time": 175260.0,
+      "end_time": 177480.0,
+      "text": "Do I use Vim, Emacs, Nano?"
+    },
+    {
+      "index": 85,
+      "start_time": 177480.0,
+      "end_time": 178500.0,
+      "text": "What do I do?"
+    },
+    {
+      "index": 86,
+      "start_time": 178500.0,
+      "end_time": 180000.0,
+      "text": "LIZ FONG-JONES: So I&#39;m a Nano user."
+    },
+    {
+      "index": 87,
+      "start_time": 180000.0,
+      "end_time": 183270.0,
+      "text": "But first, you really have to define"
+    },
+    {
+      "index": 88,
+      "start_time": 183270.0,
+      "end_time": 185910.0,
+      "text": "what availability is in addition to defining"
+    },
+    {
+      "index": 89,
+      "start_time": 185910.0,
+      "end_time": 187799.0,
+      "text": "how available you want to be."
+    },
+    {
+      "index": 90,
+      "start_time": 187800.0,
+      "end_time": 191580.0,
+      "text": "We need to make sure that we understand what availability"
+    },
+    {
+      "index": 91,
+      "start_time": 191580.0,
+      "end_time": 193290.0,
+      "text": "is in the [INAUDIBLE] server service,"
+    },
+    {
+      "index": 92,
+      "start_time": 193290.0,
+      "end_time": 196260.0,
+      "text": "and that we have clear numerical indicators for defining"
+    },
+    {
+      "index": 93,
+      "start_time": 196260.0,
+      "end_time": 197486.0,
+      "text": "that availability."
+    },
+    {
+      "index": 94,
+      "start_time": 197486.0,
+      "end_time": 199109.0,
+      "text": "And the way that we go about doing that"
+    },
+    {
+      "index": 95,
+      "start_time": 199110.0,
+      "end_time": 202500.0,
+      "text": "is by defining not just service level objectives, but service"
+    },
+    {
+      "index": 96,
+      "start_time": 202500.0,
+      "end_time": 204690.0,
+      "text": "level indicators, or SLIs."
+    },
+    {
+      "index": 97,
+      "start_time": 204690.0,
+      "end_time": 208570.0,
+      "text": "So SLIs are most often metrics over time,"
+    },
+    {
+      "index": 98,
+      "start_time": 208570.0,
+      "end_time": 210840.0,
+      "text": "such as request latency, the throughput"
+    },
+    {
+      "index": 99,
+      "start_time": 210840.0,
+      "end_time": 213570.0,
+      "text": "of requests per second in a case of a batch system,"
+    },
+    {
+      "index": 100,
+      "start_time": 213570.0,
+      "end_time": 216150.0,
+      "text": "or failures per total number of requests."
+    },
+    {
+      "index": 101,
+      "start_time": 216150.0,
+      "end_time": 217710.0,
+      "text": "They&#39;re usually aggregated over time,"
+    },
+    {
+      "index": 102,
+      "start_time": 217710.0,
+      "end_time": 220290.0,
+      "text": "and we typically apply a function like a percentile,"
+    },
+    {
+      "index": 103,
+      "start_time": 220290.0,
+      "end_time": 222540.0,
+      "text": "like a 99th percentile or a median."
+    },
+    {
+      "index": 104,
+      "start_time": 222540.0,
+      "end_time": 225840.0,
+      "text": "And that way, we can get to a concrete threshold which"
+    },
+    {
+      "index": 105,
+      "start_time": 225840.0,
+      "end_time": 229290.0,
+      "text": "we can define to say, is this single number good or bad?"
+    },
+    {
+      "index": 106,
+      "start_time": 229290.0,
+      "end_time": 231690.0,
+      "text": "So for instance, a good service level indicator"
+    },
+    {
+      "index": 107,
+      "start_time": 231690.0,
+      "end_time": 235680.0,
+      "text": "might be saying, is the 99th percentile latency of requests"
+    },
+    {
+      "index": 108,
+      "start_time": 235680.0,
+      "end_time": 237480.0,
+      "text": "received in the past five minutes"
+    },
+    {
+      "index": 109,
+      "start_time": 237480.0,
+      "end_time": 239970.0,
+      "text": "less than 300 milliseconds?"
+    },
+    {
+      "index": 110,
+      "start_time": 239970.0,
+      "end_time": 242370.0,
+      "text": "Or alternatively, another service level indicator"
+    },
+    {
+      "index": 111,
+      "start_time": 242370.0,
+      "end_time": 245190.0,
+      "text": "might be, is the ratio of errors to total requests"
+    },
+    {
+      "index": 112,
+      "start_time": 245190.0,
+      "end_time": 248135.0,
+      "text": "received in the past five minutes less than 1%?"
+    },
+    {
+      "index": 113,
+      "start_time": 248135.0,
+      "end_time": 248760.0,
+      "text": "SETH VARGO: OK."
+    },
+    {
+      "index": 114,
+      "start_time": 248760.0,
+      "end_time": 249780.0,
+      "text": "Thank you for explaining that."
+    },
+    {
+      "index": 115,
+      "start_time": 249780.0,
+      "end_time": 250800.0,
+      "text": "It&#39;s much clearer now."
+    },
+    {
+      "index": 116,
+      "start_time": 250800.0,
+      "end_time": 252999.0,
+      "text": "But how does that SLI become an SLO?"
+    },
+    {
+      "index": 117,
+      "start_time": 252999.0,
+      "end_time": 255540.0,
+      "text": "LIZ FONG-JONES: So if you think back to your calculus lesson,"
+    },
+    {
+      "index": 118,
+      "start_time": 255540.0,
+      "end_time": 256390.0,
+      "text": "Seth--"
+    },
+    {
+      "index": 119,
+      "start_time": 256390.0,
+      "end_time": 257849.0,
+      "text": "I know this may have been a while ago."
+    },
+    {
+      "index": 120,
+      "start_time": 257850.00000000003,
+      "end_time": 259709.00000000003,
+      "text": "When you have a service level indicator,"
+    },
+    {
+      "index": 121,
+      "start_time": 259709.0,
+      "end_time": 262380.0,
+      "text": "it says at any moment in time whether the service"
+    },
+    {
+      "index": 122,
+      "start_time": 262380.0,
+      "end_time": 264510.0,
+      "text": "was available or whether it was down."
+    },
+    {
+      "index": 123,
+      "start_time": 264510.0,
+      "end_time": 266820.0,
+      "text": "So what we need to do is we need to add all that up"
+    },
+    {
+      "index": 124,
+      "start_time": 266820.0,
+      "end_time": 269320.0,
+      "text": "or integrate it over a longer period of time--"
+    },
+    {
+      "index": 125,
+      "start_time": 269320.0,
+      "end_time": 273210.0,
+      "text": "like a year, in your example of 99.9% over a year--"
+    },
+    {
+      "index": 126,
+      "start_time": 273210.0,
+      "end_time": 275549.0,
+      "text": "to see, is the total amount of downtime"
+    },
+    {
+      "index": 127,
+      "start_time": 275550.0,
+      "end_time": 278100.0,
+      "text": "that we&#39;ve had more or less than the nine hours"
+    },
+    {
+      "index": 128,
+      "start_time": 278100.0,
+      "end_time": 279870.0,
+      "text": "that you were worried about?"
+    },
+    {
+      "index": 129,
+      "start_time": 279870.0,
+      "end_time": 283939.0,
+      "text": "SETH VARGO: But you should always beat your SLO, right?"
+    },
+    {
+      "index": 130,
+      "start_time": 283939.0,
+      "end_time": 284730.0,
+      "text": "LIZ FONG-JONES: No."
+    },
+    {
+      "index": 131,
+      "start_time": 284730.0,
+      "end_time": 289540.0,
+      "text": "So the thing is that SLOs are both upper and lower bounds."
+    },
+    {
+      "index": 132,
+      "start_time": 289540.0,
+      "end_time": 291490.0,
+      "text": "So this is for two reasons."
+    },
+    {
+      "index": 133,
+      "start_time": 291490.0,
+      "end_time": 293550.0,
+      "text": "First of all, the fact is that if you"
+    },
+    {
+      "index": 134,
+      "start_time": 293550.0,
+      "end_time": 295380.0,
+      "text": "try to run your service much more reliable"
+    },
+    {
+      "index": 135,
+      "start_time": 295380.0,
+      "end_time": 297460.0,
+      "text": "than it needs to be, you&#39;re slowing down"
+    },
+    {
+      "index": 136,
+      "start_time": 297470.0,
+      "end_time": 299296.0,
+      "text": "the release of features that you might want to get out"
+    },
+    {
+      "index": 137,
+      "start_time": 299296.0,
+      "end_time": 300960.0,
+      "text": "that would make your customers happier"
+    },
+    {
+      "index": 138,
+      "start_time": 300960.0,
+      "end_time": 303700.0,
+      "text": "than having an extra femtosecond of up time."
+    },
+    {
+      "index": 139,
+      "start_time": 303700.0,
+      "end_time": 306250.0,
+      "text": "And then secondly, it&#39;s an expectation"
+    },
+    {
+      "index": 140,
+      "start_time": 306250.0,
+      "end_time": 308140.0,
+      "text": "that you&#39;re sending for your users--"
+    },
+    {
+      "index": 141,
+      "start_time": 308140.0,
+      "end_time": 309849.0,
+      "text": "that if you suddenly start breaking a lot"
+    },
+    {
+      "index": 142,
+      "start_time": 309849.0,
+      "end_time": 311889.0,
+      "text": "more often than they&#39;re used to because you start"
+    },
+    {
+      "index": 143,
+      "start_time": 311889.0,
+      "end_time": 313810.0,
+      "text": "running exactly at your SLO rather than doing"
+    },
+    {
+      "index": 144,
+      "start_time": 313810.0,
+      "end_time": 316600.0,
+      "text": "much better than your SLO, then your users"
+    },
+    {
+      "index": 145,
+      "start_time": 316600.0,
+      "end_time": 317890.0,
+      "text": "will be unhappily surprised if they&#39;re"
+    },
+    {
+      "index": 146,
+      "start_time": 317890.0,
+      "end_time": 320550.0,
+      "text": "trying to build other services on top of yours."
+    },
+    {
+      "index": 147,
+      "start_time": 320550.0,
+      "end_time": 320680.0,
+      "text": "SETH VARGO: OK."
+    },
+    {
+      "index": 148,
+      "start_time": 320680.0,
+      "end_time": 323410.0,
+      "text": "So this is all starting to make a little bit of sense now."
+    },
+    {
+      "index": 149,
+      "start_time": 323410.0,
+      "end_time": 325340.0,
+      "text": "But what is an SLA then?"
+    },
+    {
+      "index": 150,
+      "start_time": 325340.0,
+      "end_time": 327880.0,
+      "text": "There are so many SL letter things."
+    },
+    {
+      "index": 151,
+      "start_time": 327880.0,
+      "end_time": 332620.0,
+      "text": "And I remember at a previous job, I signed an SLA something."
+    },
+    {
+      "index": 152,
+      "start_time": 332620.0,
+      "end_time": 333880.0,
+      "text": "What did I do?"
+    },
+    {
+      "index": 153,
+      "start_time": 333880.0,
+      "end_time": 335710.0,
+      "text": "LIZ FONG-JONES: So to spell it out first,"
+    },
+    {
+      "index": 154,
+      "start_time": 335710.0,
+      "end_time": 338560.0,
+      "text": "a SLA is a service level agreement."
+    },
+    {
+      "index": 155,
+      "start_time": 338560.0,
+      "end_time": 340780.0,
+      "text": "And what it does is it says, here&#39;s"
+    },
+    {
+      "index": 156,
+      "start_time": 340780.0,
+      "end_time": 344530.0,
+      "text": "what I am going to do if I don&#39;t meet the level of reliability"
+    },
+    {
+      "index": 157,
+      "start_time": 344530.0,
+      "end_time": 345729.0,
+      "text": "that is expected."
+    },
+    {
+      "index": 158,
+      "start_time": 345730.0,
+      "end_time": 347950.0,
+      "text": "It&#39;s more of a commercial agreement that"
+    },
+    {
+      "index": 159,
+      "start_time": 347950.0,
+      "end_time": 349810.0,
+      "text": "describes what remediation you&#39;re"
+    },
+    {
+      "index": 160,
+      "start_time": 349810.0,
+      "end_time": 352120.0,
+      "text": "going to take if your service is out of spec"
+    },
+    {
+      "index": 161,
+      "start_time": 352120.0,
+      "end_time": 353320.0,
+      "text": "according to the contract."
+    },
+    {
+      "index": 162,
+      "start_time": 353320.0,
+      "end_time": 354700.0,
+      "text": "SETH VARGO: I see."
+    },
+    {
+      "index": 163,
+      "start_time": 354700.0,
+      "end_time": 356590.0,
+      "text": "So the SLA is like a business agreement"
+    },
+    {
+      "index": 164,
+      "start_time": 356590.0,
+      "end_time": 357969.0,
+      "text": "associated with an SLO."
+    },
+    {
+      "index": 165,
+      "start_time": 357970.0,
+      "end_time": 359920.0,
+      "text": "So they&#39;re exactly the same, right?"
+    },
+    {
+      "index": 166,
+      "start_time": 359920.0,
+      "end_time": 361960.0,
+      "text": "LIZ FONG-JONES: Not quite, because you really"
+    },
+    {
+      "index": 167,
+      "start_time": 361960.0,
+      "end_time": 366380.0,
+      "text": "want to make your SLA more lenient than your SLO."
+    },
+    {
+      "index": 168,
+      "start_time": 366380.0,
+      "end_time": 368440.0,
+      "text": "So you get early warning before you"
+    },
+    {
+      "index": 169,
+      "start_time": 368440.0,
+      "end_time": 370719.0,
+      "text": "have to do things like field angry phone calls"
+    },
+    {
+      "index": 170,
+      "start_time": 370720.0,
+      "end_time": 372820.0,
+      "text": "from customers or have to pay them"
+    },
+    {
+      "index": 171,
+      "start_time": 372820.0,
+      "end_time": 376300.0,
+      "text": "lots of money for failing to deliver the services promised."
+    },
+    {
+      "index": 172,
+      "start_time": 376300.0,
+      "end_time": 378520.0,
+      "text": "We rarely work with SREs."
+    },
+    {
+      "index": 173,
+      "start_time": 378520.0,
+      "end_time": 382330.0,
+      "text": "And instead, we focus on meeting our SLOs with the understanding"
+    },
+    {
+      "index": 174,
+      "start_time": 382330.0,
+      "end_time": 384640.0,
+      "text": "that sales teams and business teams will think more"
+    },
+    {
+      "index": 175,
+      "start_time": 384640.0,
+      "end_time": 386979.0,
+      "text": "about the SLAs they build on top of our SLOs."
+    },
+    {
+      "index": 176,
+      "start_time": 386980.0,
+      "end_time": 387730.0,
+      "text": "SETH VARGO: I see."
+    },
+    {
+      "index": 177,
+      "start_time": 387730.0,
+      "end_time": 390970.0,
+      "text": "So SLAs describe the set of services and availability"
+    },
+    {
+      "index": 178,
+      "start_time": 390970.0,
+      "end_time": 394270.0,
+      "text": "promises that a provider is willing to make to a customer,"
+    },
+    {
+      "index": 179,
+      "start_time": 394270.0,
+      "end_time": 396219.0,
+      "text": "and then the ramifications associated"
+    },
+    {
+      "index": 180,
+      "start_time": 396220.0,
+      "end_time": 398500.0,
+      "text": "with failing to deliver on those promises."
+    },
+    {
+      "index": 181,
+      "start_time": 398500.0,
+      "end_time": 400900.0,
+      "text": "Those ramifications might be things like money back"
+    },
+    {
+      "index": 182,
+      "start_time": 400900.0,
+      "end_time": 403659.0,
+      "text": "or free credits for failing to deliver the service"
+    },
+    {
+      "index": 183,
+      "start_time": 403660.0,
+      "end_time": 405700.0,
+      "text": "availability."
+    },
+    {
+      "index": 184,
+      "start_time": 405700.0,
+      "end_time": 407230.0,
+      "text": "LIZ FONG-JONES: Yes, that&#39;s exactly correct."
+    },
+    {
+      "index": 185,
+      "start_time": 407230.0,
+      "end_time": 409630.0,
+      "text": "SETH VARGO: So to summarize, SLIs"
+    },
+    {
+      "index": 186,
+      "start_time": 409630.0,
+      "end_time": 411580.0,
+      "text": "are service level indicators or metrics"
+    },
+    {
+      "index": 187,
+      "start_time": 411580.0,
+      "end_time": 415169.0,
+      "text": "over time, which inform about the health of a service."
+    },
+    {
+      "index": 188,
+      "start_time": 415170.0,
+      "end_time": 417910.0,
+      "text": "SLOs are service level objectives,"
+    },
+    {
+      "index": 189,
+      "start_time": 417910.0,
+      "end_time": 421390.0,
+      "text": "which are agreed upon bounds for how often those SLIs must"
+    },
+    {
+      "index": 190,
+      "start_time": 421390.0,
+      "end_time": 423700.0,
+      "text": "be met."
+    },
+    {
+      "index": 191,
+      "start_time": 423700.0,
+      "end_time": 426880.0,
+      "text": "And finally, SLAs are business level agreements,"
+    },
+    {
+      "index": 192,
+      "start_time": 426880.0,
+      "end_time": 428740.0,
+      "text": "which define the service availability"
+    },
+    {
+      "index": 193,
+      "start_time": 428740.0,
+      "end_time": 431530.0,
+      "text": "for a customer and the penalties for failing"
+    },
+    {
+      "index": 194,
+      "start_time": 431530.0,
+      "end_time": 433169.0,
+      "text": "to deliver that availability."
+    },
+    {
+      "index": 195,
+      "start_time": 433170.0,
+      "end_time": 434170.0,
+      "text": "LIZ FONG-JONES: Exactly."
+    },
+    {
+      "index": 196,
+      "start_time": 434170.0,
+      "end_time": 437800.0,
+      "text": "So SLIs, SLOs, and SLAs hearken very much"
+    },
+    {
+      "index": 197,
+      "start_time": 437800.0,
+      "end_time": 441580.0,
+      "text": "to the DevOps principle that measurement is critical,"
+    },
+    {
+      "index": 198,
+      "start_time": 441580.0,
+      "end_time": 443370.0,
+      "text": "and that the easiest way to break down"
+    },
+    {
+      "index": 199,
+      "start_time": 443370.0,
+      "end_time": 445000.0,
+      "text": "the organizational barriers is to have"
+    },
+    {
+      "index": 200,
+      "start_time": 445000.0,
+      "end_time": 448510.0,
+      "text": "common language about what it means to be available."
+    },
+    {
+      "index": 201,
+      "start_time": 448510.0,
+      "end_time": 451690.0,
+      "text": "And we give, with SLIs, a very well-defined numerical"
+    },
+    {
+      "index": 202,
+      "start_time": 451690.0,
+      "end_time": 453850.0,
+      "text": "measurement for what that is."
+    },
+    {
+      "index": 203,
+      "start_time": 453850.0,
+      "end_time": 456820.0,
+      "text": "And with the SLOs, we collaborate between the product"
+    },
+    {
+      "index": 204,
+      "start_time": 456820.0,
+      "end_time": 460600.0,
+      "text": "owners and the SREs in order to make sure"
+    },
+    {
+      "index": 205,
+      "start_time": 460600.0,
+      "end_time": 462460.0,
+      "text": "that the service is running at an appropriate level"
+    },
+    {
+      "index": 206,
+      "start_time": 462460.0,
+      "end_time": 464440.0,
+      "text": "of reliability for customers."
+    },
+    {
+      "index": 207,
+      "start_time": 464440.0,
+      "end_time": 466690.0,
+      "text": "It&#39;s a lot clearer to me now why we say"
+    },
+    {
+      "index": 208,
+      "start_time": 466690.0,
+      "end_time": 469157.0,
+      "text": "class SRE implements DevOps."
+    },
+    {
+      "index": 209,
+      "start_time": 469157.0,
+      "end_time": 469990.0,
+      "text": "SETH VARGO: Awesome."
+    },
+    {
+      "index": 210,
+      "start_time": 469990.0,
+      "end_time": 470740.0,
+      "text": "Thanks, Liz."
+    },
+    {
+      "index": 211,
+      "start_time": 470740.0,
+      "end_time": 472800.0,
+      "text": "And thank you for watching."
+    },
+    {
+      "index": 212,
+      "start_time": 472800.0,
+      "end_time": 473830.0,
+      "text": "Be sure to check out the description below"
+    },
+    {
+      "index": 213,
+      "start_time": 473830.0,
+      "end_time": 474969.0,
+      "text": "for more information."
+    },
+    {
+      "index": 214,
+      "start_time": 474970.0,
+      "end_time": 477400.0,
+      "text": "And don&#39;t forget to subscribe to the channel"
+    },
+    {
+      "index": 215,
+      "start_time": 477400.0,
+      "end_time": 478960.0,
+      "text": "and stay tuned for our next video, where we"
+    },
+    {
+      "index": 216,
+      "start_time": 478960.0,
+      "end_time": 481950.0,
+      "text": "discuss risk and error budgets."
+    }
+  ]
+}

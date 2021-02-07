@@ -1,0 +1,7062 @@
+{
+  "video_id": "Y2vC3G8qVxw",
+  "title": "Week 1, continued",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 10940.0,
+      "end_time": 13060.0,
+      "text": ">> DAVID J MALAN: All right, so this is CS50."
+    },
+    {
+      "index": 2,
+      "start_time": 13060.0,
+      "end_time": 15040.0,
+      "text": "And this is clearly a Friday."
+    },
+    {
+      "index": 3,
+      "start_time": 15040.0,
+      "end_time": 16850.0,
+      "text": "And this is the end of week one."
+    },
+    {
+      "index": 4,
+      "start_time": 16850.0,
+      "end_time": 21020.0,
+      "text": "So you may recall that we left off, last time, with a cliffhanger of sorts."
+    },
+    {
+      "index": 5,
+      "start_time": 21020.0,
+      "end_time": 25020.0,
+      "text": "Whereby we expose this lie, that no matter what you've been taught growing"
+    },
+    {
+      "index": 6,
+      "start_time": 25020.0,
+      "end_time": 31610.0,
+      "text": "up, 1 divided by 10 is not, in fact, 0.1 or 0.100 or 0.10000."
+    },
+    {
+      "index": 7,
+      "start_time": 31610.0,
+      "end_time": 35270.0,
+      "text": "In fact, if we compile this program, as we did yesterday, with,"
+    },
+    {
+      "index": 8,
+      "start_time": 35270.0,
+      "end_time": 39770.0,
+      "text": "make imprecision, and then do dot, slash, imprecision,"
+    },
+    {
+      "index": 9,
+      "start_time": 39770.0,
+      "end_time": 43600.0,
+      "text": "we learned that this is what's 1 divided by 10 actually is."
+    },
+    {
+      "index": 10,
+      "start_time": 43600.0,
+      "end_time": 46140.0,
+      "text": "So that's not really quite the case."
+    },
+    {
+      "index": 11,
+      "start_time": 46140.0,
+      "end_time": 49014.0,
+      "text": "But this does hint at some fundamental limitation of computers."
+    },
+    {
+      "index": 12,
+      "start_time": 49014.0,
+      "end_time": 50930.0,
+      "text": "And indeed, among the things we're going to do"
+    },
+    {
+      "index": 13,
+      "start_time": 50930.0,
+      "end_time": 55130.0,
+      "text": "today is take a look at why this has happened, what implications this has,"
+    },
+    {
+      "index": 14,
+      "start_time": 55130.0,
+      "end_time": 58430.0,
+      "text": "how humanity has failed to grasp this in some very"
+    },
+    {
+      "index": 15,
+      "start_time": 58430.0,
+      "end_time": 60410.0,
+      "text": "serious situations-- the result of the which"
+    },
+    {
+      "index": 16,
+      "start_time": 60410.0,
+      "end_time": 63141.0,
+      "text": "has been quite tragic and expensive-- and also"
+    },
+    {
+      "index": 17,
+      "start_time": 63141.0,
+      "end_time": 64849.0,
+      "text": "take a look at how we can actually defend"
+    },
+    {
+      "index": 18,
+      "start_time": 64849.00000000001,
+      "end_time": 66530.0,
+      "text": "against these kinds of limitations."
+    },
+    {
+      "index": 19,
+      "start_time": 66530.0,
+      "end_time": 70940.0,
+      "text": "So intuitively, perhaps, why is 1 divided by 10,"
+    },
+    {
+      "index": 20,
+      "start_time": 70940.0,
+      "end_time": 75480.0,
+      "text": "according to my computer here, not just 1/10, 0.10?"
+    },
+    {
+      "index": 21,
+      "start_time": 75480.0,
+      "end_time": 75980.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 22,
+      "start_time": 75980.0,
+      "end_time": 76530.0,
+      "text": "What do you think?"
+    },
+    {
+      "index": 23,
+      "start_time": 76530.0,
+      "end_time": 77860.0,
+      "text": ">> AUDIENCE MEMBER: The radix is different?"
+    },
+    {
+      "index": 24,
+      "start_time": 77860.0,
+      "end_time": 78550.0,
+      "text": ">> DAVID J MALAN: The what is?"
+    },
+    {
+      "index": 25,
+      "start_time": 78550.0,
+      "end_time": 79730.0,
+      "text": "Oh, the radix is different?"
+    },
+    {
+      "index": 26,
+      "start_time": 79730.0,
+      "end_time": 80720.0,
+      "text": "So not quite."
+    },
+    {
+      "index": 27,
+      "start_time": 80720.0,
+      "end_time": 83200.0,
+      "text": "It's actually more fundamental to the hardware."
+    },
+    {
+      "index": 28,
+      "start_time": 83200.0,
+      "end_time": 83980.0,
+      "text": "Other thoughts?"
+    },
+    {
+      "index": 29,
+      "start_time": 83980.0,
+      "end_time": 84584.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 30,
+      "start_time": 84584.0,
+      "end_time": 86750.0,
+      "text": "AUDIENCE MEMBER: They represent numbers differently?"
+    },
+    {
+      "index": 31,
+      "start_time": 86750.0,
+      "end_time": 87880.0,
+      "text": "DAVID J MALAN: So they-- Right."
+    },
+    {
+      "index": 32,
+      "start_time": 87880.0,
+      "end_time": 89338.0,
+      "text": "They represent numbers differently."
+    },
+    {
+      "index": 33,
+      "start_time": 89338.0,
+      "end_time": 90700.0,
+      "text": "Inaccurately, apparently."
+    },
+    {
+      "index": 34,
+      "start_time": 90700.0,
+      "end_time": 93190.0,
+      "text": "So that is-- Well, differently from what?"
+    },
+    {
+      "index": 35,
+      "start_time": 93190.0,
+      "end_time": 94490.0,
+      "text": "Or from whom?"
+    },
+    {
+      "index": 36,
+      "start_time": 94490.0,
+      "end_time": 95050.0,
+      "text": "From us?"
+    },
+    {
+      "index": 37,
+      "start_time": 95050.0,
+      "end_time": 95966.0,
+      "text": "AUDIENCE MEMBER: Yeah."
+    },
+    {
+      "index": 38,
+      "start_time": 95966.0,
+      "end_time": 98930.0,
+      "text": "They don't use the decimal system to [INAUDIBLE]."
+    },
+    {
+      "index": 39,
+      "start_time": 98930.0,
+      "end_time": 99680.0,
+      "text": "DAVID J MALAN: OK."
+    },
+    {
+      "index": 40,
+      "start_time": 99680.0,
+      "end_time": 101560.0,
+      "text": "So in a sense, they don't use the decimal system."
+    },
+    {
+      "index": 41,
+      "start_time": 101560.0,
+      "end_time": 103720.0,
+      "text": "Underneath the hood, everything is, indeed, binary,"
+    },
+    {
+      "index": 42,
+      "start_time": 103720.0,
+      "end_time": 105510.0,
+      "text": "and that's related, in fact."
+    },
+    {
+      "index": 43,
+      "start_time": 105510.0,
+      "end_time": 108135.0,
+      "text": "But it's even a simpler explanation than that."
+    },
+    {
+      "index": 44,
+      "start_time": 108135.0,
+      "end_time": 108635.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 45,
+      "start_time": 108635.0,
+      "end_time": 109970.0,
+      "text": ">> AUDIENCE MEMBER: They only have so many bits."
+    },
+    {
+      "index": 46,
+      "start_time": 109970.0,
+      "end_time": 112370.0,
+      "text": "They can only store up to a certain extent, like with the decimals."
+    },
+    {
+      "index": 47,
+      "start_time": 112370.0,
+      "end_time": 112780.0,
+      "text": ">> DAVID J MALAN: Yeah."
+    },
+    {
+      "index": 48,
+      "start_time": 112780.0,
+      "end_time": 114420.0,
+      "text": "This is what's really getting at it."
+    },
+    {
+      "index": 49,
+      "start_time": 114420.0,
+      "end_time": 117180.0,
+      "text": "It turns out that computers typically, will always only"
+    },
+    {
+      "index": 50,
+      "start_time": 117180.0,
+      "end_time": 119690.0,
+      "text": "use a finite amount of information to represent something."
+    },
+    {
+      "index": 51,
+      "start_time": 119690.0,
+      "end_time": 119870.0,
+      "text": "Right?"
+    },
+    {
+      "index": 52,
+      "start_time": 119870.0,
+      "end_time": 122110.0,
+      "text": "After all, we only have a fixed amount of hard disk space."
+    },
+    {
+      "index": 53,
+      "start_time": 122110.0,
+      "end_time": 124210.0,
+      "text": "We only have a fixed amount of RAM, or computer memory."
+    },
+    {
+      "index": 54,
+      "start_time": 124210.0,
+      "end_time": 126251.0,
+      "text": "And if you only have a fixed amount of something,"
+    },
+    {
+      "index": 55,
+      "start_time": 126251.0,
+      "end_time": 129611.0,
+      "text": "surely you can't actually count up to infinity or any number you want."
+    },
+    {
+      "index": 56,
+      "start_time": 129610.99999999999,
+      "end_time": 131610.0,
+      "text": "You, kind of, have to pick and choose what range"
+    },
+    {
+      "index": 57,
+      "start_time": 131610.0,
+      "end_time": 133220.0,
+      "text": "of values you're going to support."
+    },
+    {
+      "index": 58,
+      "start_time": 133220.0,
+      "end_time": 138100.0,
+      "text": ">> And so for instance, a week or two ago, when we talked about ASCII,"
+    },
+    {
+      "index": 59,
+      "start_time": 138100.0,
+      "end_time": 141610.0,
+      "text": "and we talked about 8 bits, or a byte, so to speak,"
+    },
+    {
+      "index": 60,
+      "start_time": 141610.0,
+      "end_time": 146360.0,
+      "text": "the biggest number we could represent with 8 bits was what?"
+    },
+    {
+      "index": 61,
+      "start_time": 146360.0,
+      "end_time": 148350.0,
+      "text": "255."
+    },
+    {
+      "index": 62,
+      "start_time": 148350.0,
+      "end_time": 151850.0,
+      "text": "And we can represent 256 total values but not if we spend one of them"
+    },
+    {
+      "index": 63,
+      "start_time": 151850.0,
+      "end_time": 154190.0,
+      "text": "on 0-- Well, but if we spend one of them on 0,"
+    },
+    {
+      "index": 64,
+      "start_time": 154190.0,
+      "end_time": 156830.0,
+      "text": "then the biggest number is, of course, 255."
+    },
+    {
+      "index": 65,
+      "start_time": 156830.0,
+      "end_time": 159410.0,
+      "text": ">> So it turns out, that this is the case too, in this context."
+    },
+    {
+      "index": 66,
+      "start_time": 159410.0,
+      "end_time": 162350.0,
+      "text": "We started talking, last time, about floating-point numbers, which"
+    },
+    {
+      "index": 67,
+      "start_time": 162350.0,
+      "end_time": 164640.0,
+      "text": "are different from integers, in that they have a decimal point"
+    },
+    {
+      "index": 68,
+      "start_time": 164640.0,
+      "end_time": 167056.0,
+      "text": "and, hopefully, some numbers after that, but they are too."
+    },
+    {
+      "index": 69,
+      "start_time": 167056.0,
+      "end_time": 171730.0,
+      "text": "A computer is only typically going to use 32 bits, maybe 64 bits"
+    },
+    {
+      "index": 70,
+      "start_time": 171730.0,
+      "end_time": 173497.0,
+      "text": "to represent a floating point value."
+    },
+    {
+      "index": 71,
+      "start_time": 173497.0,
+      "end_time": 176080.0,
+      "text": "So even though we've grown up learning mathematics and knowing"
+    },
+    {
+      "index": 72,
+      "start_time": 176080.0,
+      "end_time": 178750.0,
+      "text": "that you can absolutely have an infinite number of numbers"
+    },
+    {
+      "index": 73,
+      "start_time": 178750.0,
+      "end_time": 181650.0,
+      "text": "after the decimal point, not if you have finite memory."
+    },
+    {
+      "index": 74,
+      "start_time": 181650.0,
+      "end_time": 183930.0,
+      "text": "You, kind of, have to round, or pick and choose which"
+    },
+    {
+      "index": 75,
+      "start_time": 183930.0,
+      "end_time": 185346.0,
+      "text": "numbers you're going to represent."
+    },
+    {
+      "index": 76,
+      "start_time": 185346.0,
+      "end_time": 188710.0,
+      "text": "And so you can think of, in a sense, this being the computer's closest"
+    },
+    {
+      "index": 77,
+      "start_time": 188710.0,
+      "end_time": 194050.0,
+      "text": "approximation to the value 1/10 that it can get, with just 32 or so bits."
+    },
+    {
+      "index": 78,
+      "start_time": 194050.0,
+      "end_time": 195300.0,
+      "text": "And it's not just 1/10."
+    },
+    {
+      "index": 79,
+      "start_time": 195300.0,
+      "end_time": 199820.0,
+      "text": ">> For instance, if I change this to 1/3, which we think is even simpler."
+    },
+    {
+      "index": 80,
+      "start_time": 199820.0,
+      "end_time": 201300.0,
+      "text": "So 1 divided by 3."
+    },
+    {
+      "index": 81,
+      "start_time": 201300.0,
+      "end_time": 202355.0,
+      "text": "Let me save the file."
+    },
+    {
+      "index": 82,
+      "start_time": 202355.0,
+      "end_time": 204680.0,
+      "text": "Let me go ahead and recompile it."
+    },
+    {
+      "index": 83,
+      "start_time": 204680.0,
+      "end_time": 205820.0,
+      "text": "And let me re-run it."
+    },
+    {
+      "index": 84,
+      "start_time": 205820.0,
+      "end_time": 210000.0,
+      "text": "Here too, apparently, 1/3 is not 0.3 and then an infinite number of 3's"
+    },
+    {
+      "index": 85,
+      "start_time": 210000.0,
+      "end_time": 210770.0,
+      "text": "thereafter."
+    },
+    {
+      "index": 86,
+      "start_time": 210770.0,
+      "end_time": 212540.0,
+      "text": "You have this imprecision at the end."
+    },
+    {
+      "index": 87,
+      "start_time": 212540.0,
+      "end_time": 215544.0,
+      "text": "So we humans are correct, and what you learned is, in fact, correct,"
+    },
+    {
+      "index": 88,
+      "start_time": 215544.0,
+      "end_time": 217460.0,
+      "text": "but we're bumping up against some limitations."
+    },
+    {
+      "index": 89,
+      "start_time": 217460.0,
+      "end_time": 219420.0,
+      "text": ">> And what I thought we'd do today, is begin"
+    },
+    {
+      "index": 90,
+      "start_time": 219420.0,
+      "end_time": 222190.0,
+      "text": "by looking at, frankly, the tragic consequences of this"
+    },
+    {
+      "index": 91,
+      "start_time": 222190.0,
+      "end_time": 225490.0,
+      "text": "sometimes, when mankind does not quite implement"
+    },
+    {
+      "index": 92,
+      "start_time": 225490.0,
+      "end_time": 228460.0,
+      "text": "for this reality and these limitations."
+    },
+    {
+      "index": 93,
+      "start_time": 228460.0,
+      "end_time": 232360.0,
+      "text": "And we'll see a series of vignettes from the History Channel that takes"
+    },
+    {
+      "index": 94,
+      "start_time": 232360.0,
+      "end_time": 233950.0,
+      "text": "a look at how things have gone wrong."
+    },
+    {
+      "index": 95,
+      "start_time": 233950.0,
+      "end_time": 236340.0,
+      "text": "It's about 8 minutes long, and we'll come back after this"
+    },
+    {
+      "index": 96,
+      "start_time": 236340.0,
+      "end_time": 239439.0,
+      "text": "and take a look at exactly what else can go wrong."
+    },
+    {
+      "index": 97,
+      "start_time": 239439.0,
+      "end_time": 240605.0,
+      "text": "If we could dim the lights--"
+    },
+    {
+      "index": 98,
+      "start_time": 240605.0,
+      "end_time": 242350.0,
+      "text": ">> [VIDEO PLAYBACK]"
+    },
+    {
+      "index": 99,
+      "start_time": 242350.0,
+      "end_time": 246310.0,
+      "text": ">> -Computers, we've all come to accept the often frustrating problems that"
+    },
+    {
+      "index": 100,
+      "start_time": 246310.0,
+      "end_time": 247750.0,
+      "text": "go with them."
+    },
+    {
+      "index": 101,
+      "start_time": 247750.0,
+      "end_time": 251370.0,
+      "text": "Bugs, viruses, and software glitches are small prices"
+    },
+    {
+      "index": 102,
+      "start_time": 251370.0,
+      "end_time": 253230.0,
+      "text": "to pay for the convenience."
+    },
+    {
+      "index": 103,
+      "start_time": 253230.0,
+      "end_time": 257519.0,
+      "text": "But in high-tech and high-speed military and space program applications,"
+    },
+    {
+      "index": 104,
+      "start_time": 257519.0,
+      "end_time": 262130.0,
+      "text": "the smallest problem can be magnified into disaster."
+    },
+    {
+      "index": 105,
+      "start_time": 262130.0,
+      "end_time": 267750.0,
+      "text": "On June 4, 1996, scientists prepared to launch an unmanned Ariane 5 rocket."
+    },
+    {
+      "index": 106,
+      "start_time": 267750.0,
+      "end_time": 269890.0,
+      "text": "It was carrying scientific satellites designed"
+    },
+    {
+      "index": 107,
+      "start_time": 269890.0,
+      "end_time": 273030.0,
+      "text": "to establish precisely how the Earth's magnetic field interacts"
+    },
+    {
+      "index": 108,
+      "start_time": 273030.0,
+      "end_time": 275600.0,
+      "text": "with solar winds."
+    },
+    {
+      "index": 109,
+      "start_time": 275600.0,
+      "end_time": 277930.0,
+      "text": "The rocket was built for the European Space Agency"
+    },
+    {
+      "index": 110,
+      "start_time": 277930.0,
+      "end_time": 281620.0,
+      "text": "and lifted off from its facility on the coast of French Guiana."
+    },
+    {
+      "index": 111,
+      "start_time": 281620.0,
+      "end_time": 284924.0,
+      "text": ">> -And about 30 seconds into the flight, they first"
+    },
+    {
+      "index": 112,
+      "start_time": 284924.0,
+      "end_time": 286340.0,
+      "text": "noticed something was going wrong."
+    },
+    {
+      "index": 113,
+      "start_time": 286340.0,
+      "end_time": 289280.0,
+      "text": "That the nozzles were swiveling in a way they really shouldn't."
+    },
+    {
+      "index": 114,
+      "start_time": 289280.0,
+      "end_time": 293042.0,
+      "text": "Around 40 seconds into the flight, clearly the vehicle was in trouble,"
+    },
+    {
+      "index": 115,
+      "start_time": 293042.0,
+      "end_time": 295250.0,
+      "text": "and that's when they made the decision to destroy it."
+    },
+    {
+      "index": 116,
+      "start_time": 295250.0,
+      "end_time": 298970.0,
+      "text": "A Range Safety Officer with tremendous guts pressed the button,"
+    },
+    {
+      "index": 117,
+      "start_time": 298970.0,
+      "end_time": 303940.0,
+      "text": "blew up the rocket before it could become a hazard to public safety."
+    },
+    {
+      "index": 118,
+      "start_time": 303940.0,
+      "end_time": 306600.0,
+      "text": ">> -This was the maiden voyage of the Ariane 5,"
+    },
+    {
+      "index": 119,
+      "start_time": 306600.0,
+      "end_time": 309270.0,
+      "text": "and its destruction took place because of a flaw"
+    },
+    {
+      "index": 120,
+      "start_time": 309270.0,
+      "end_time": 310992.0,
+      "text": "embedded in the rocket's software."
+    },
+    {
+      "index": 121,
+      "start_time": 310992.0,
+      "end_time": 312700.0,
+      "text": "-The problem on the Ariane was that there"
+    },
+    {
+      "index": 122,
+      "start_time": 312700.0,
+      "end_time": 315370.0,
+      "text": "was a number that required 64 bits to express,"
+    },
+    {
+      "index": 123,
+      "start_time": 315370.0,
+      "end_time": 318150.0,
+      "text": "and he wanted to convert it to a 16 bit number."
+    },
+    {
+      "index": 124,
+      "start_time": 318150.0,
+      "end_time": 321160.0,
+      "text": "They assumed that the number was never going to be very big,"
+    },
+    {
+      "index": 125,
+      "start_time": 321160.0,
+      "end_time": 325020.0,
+      "text": "that most of those digits in the 64 bit number were 0's."
+    },
+    {
+      "index": 126,
+      "start_time": 325020.0,
+      "end_time": 326310.0,
+      "text": "They were wrong."
+    },
+    {
+      "index": 127,
+      "start_time": 326310.0,
+      "end_time": 328680.0,
+      "text": ">> -The inability of one software program to accept"
+    },
+    {
+      "index": 128,
+      "start_time": 328680.0,
+      "end_time": 332820.0,
+      "text": "the kind of number generated by another was at the root of the failure."
+    },
+    {
+      "index": 129,
+      "start_time": 332820.0,
+      "end_time": 337190.0,
+      "text": "Software development had become a very costly part of new technology."
+    },
+    {
+      "index": 130,
+      "start_time": 337190.0,
+      "end_time": 340760.0,
+      "text": "The Ariane 4 rocket had been very successful, so much of the software"
+    },
+    {
+      "index": 131,
+      "start_time": 340760.0,
+      "end_time": 343990.0,
+      "text": "created for it was also used on the Ariane 5."
+    },
+    {
+      "index": 132,
+      "start_time": 343990.0,
+      "end_time": 349750.0,
+      "text": ">> -The basic problem was that the Ariane 5 was faster, accelerated faster."
+    },
+    {
+      "index": 133,
+      "start_time": 349750.0,
+      "end_time": 353000.0,
+      "text": "And the software hadn't accounted for that."
+    },
+    {
+      "index": 134,
+      "start_time": 353000.0,
+      "end_time": 356330.0,
+      "text": ">> -The destruction of the rocket was a huge financial disaster,"
+    },
+    {
+      "index": 135,
+      "start_time": 356330.0,
+      "end_time": 359670.0,
+      "text": "all due to a minute software error."
+    },
+    {
+      "index": 136,
+      "start_time": 359670.0,
+      "end_time": 361990.0,
+      "text": "But this wasn't the first time data conversion problems"
+    },
+    {
+      "index": 137,
+      "start_time": 361990.0,
+      "end_time": 365310.0,
+      "text": "had plagued modern rocket technology."
+    },
+    {
+      "index": 138,
+      "start_time": 365310.0,
+      "end_time": 368300.0,
+      "text": ">> -In 1991, with the start of the First Gulf War,"
+    },
+    {
+      "index": 139,
+      "start_time": 368300.0,
+      "end_time": 370650.0,
+      "text": "the Patriot missile experienced a similar kind"
+    },
+    {
+      "index": 140,
+      "start_time": 370650.0,
+      "end_time": 372650.0,
+      "text": "of number conversion problem."
+    },
+    {
+      "index": 141,
+      "start_time": 372650.0,
+      "end_time": 375620.0,
+      "text": "As a result, 28 people, 28 American soldiers"
+    },
+    {
+      "index": 142,
+      "start_time": 375620.0,
+      "end_time": 378440.0,
+      "text": "were killed and about 100 others wounded,"
+    },
+    {
+      "index": 143,
+      "start_time": 378440.0,
+      "end_time": 381900.0,
+      "text": "when the Patriot, which was supposed to protect against incoming scuds,"
+    },
+    {
+      "index": 144,
+      "start_time": 381900.0,
+      "end_time": 384630.0,
+      "text": "failed to fire a missile."
+    },
+    {
+      "index": 145,
+      "start_time": 384630.0,
+      "end_time": 389440.0,
+      "text": ">> -When Iraq invaded Kuwait and America launched Desert Storm in early 1991,"
+    },
+    {
+      "index": 146,
+      "start_time": 389440.0,
+      "end_time": 393800.0,
+      "text": "Patriot missile batteries were deployed to protect Saudi Arabia and Israel"
+    },
+    {
+      "index": 147,
+      "start_time": 393800.0,
+      "end_time": 397000.0,
+      "text": "from Iraqi Scud missile attacks."
+    },
+    {
+      "index": 148,
+      "start_time": 397000.0,
+      "end_time": 400610.0,
+      "text": "The Patriot is a US, medium-range surface-to-air system"
+    },
+    {
+      "index": 149,
+      "start_time": 400610.0,
+      "end_time": 403010.0,
+      "text": "manufactured by the Raytheon company."
+    },
+    {
+      "index": 150,
+      "start_time": 403010.0,
+      "end_time": 409080.0,
+      "text": ">> -The size of the Patriot interceptor, itself, is about, roughly 20 feet long."
+    },
+    {
+      "index": 151,
+      "start_time": 409080.0,
+      "end_time": 411250.0,
+      "text": "And it weighs about 2000 pounds."
+    },
+    {
+      "index": 152,
+      "start_time": 411250.0,
+      "end_time": 415195.0,
+      "text": "And it carries a warhead of about-- I think it's roughly 150 pounds."
+    },
+    {
+      "index": 153,
+      "start_time": 415195.0,
+      "end_time": 419500.0,
+      "text": "And the warhead, itself, is a high explosive,"
+    },
+    {
+      "index": 154,
+      "start_time": 419500.0,
+      "end_time": 422570.0,
+      "text": "which has fragments around it."
+    },
+    {
+      "index": 155,
+      "start_time": 422570.0,
+      "end_time": 426890.0,
+      "text": "The casing of the warhead is designed to act like buckshot."
+    },
+    {
+      "index": 156,
+      "start_time": 426890.0,
+      "end_time": 429130.0,
+      "text": ">> -The missiles are carried, 4 per container,"
+    },
+    {
+      "index": 157,
+      "start_time": 429130.0,
+      "end_time": 432080.0,
+      "text": "and are transported by a semi-trailer."
+    },
+    {
+      "index": 158,
+      "start_time": 432080.0,
+      "end_time": 439100.0,
+      "text": ">> -The Patriot anti missile system goes back at least 20 years now."
+    },
+    {
+      "index": 159,
+      "start_time": 439100.0,
+      "end_time": 442320.0,
+      "text": "It was originally designed as an air defense missile"
+    },
+    {
+      "index": 160,
+      "start_time": 442320.0,
+      "end_time": 444180.0,
+      "text": "to shoot down enemy airplanes."
+    },
+    {
+      "index": 161,
+      "start_time": 444180.0,
+      "end_time": 447860.0,
+      "text": "In the First Gulf War, when that war came along,"
+    },
+    {
+      "index": 162,
+      "start_time": 447860.0,
+      "end_time": 452745.0,
+      "text": "the Army wanted to use it to shoot down scuds, not airplanes."
+    },
+    {
+      "index": 163,
+      "start_time": 452745.0,
+      "end_time": 456150.0,
+      "text": "The Iraqi Force was not so much of a problem,"
+    },
+    {
+      "index": 164,
+      "start_time": 456150.0,
+      "end_time": 459110.0,
+      "text": "but the Army was worried about scuds."
+    },
+    {
+      "index": 165,
+      "start_time": 459110.0,
+      "end_time": 462340.0,
+      "text": "And so they tried to upgrade the Patriot."
+    },
+    {
+      "index": 166,
+      "start_time": 462340.0,
+      "end_time": 464760.0,
+      "text": ">> -Intercepting an enemy missile traveling at mach five"
+    },
+    {
+      "index": 167,
+      "start_time": 464760.0,
+      "end_time": 467250.0,
+      "text": "was going to be challenging enough."
+    },
+    {
+      "index": 168,
+      "start_time": 467250.0,
+      "end_time": 470000.0,
+      "text": "But when the Patriot was rushed into service,"
+    },
+    {
+      "index": 169,
+      "start_time": 470000.0,
+      "end_time": 474030.0,
+      "text": "the Army was not aware of an Iraqi modification that made"
+    },
+    {
+      "index": 170,
+      "start_time": 474030.0,
+      "end_time": 476840.0,
+      "text": "their scuds nearly impossible to hit."
+    },
+    {
+      "index": 171,
+      "start_time": 476840.0,
+      "end_time": 481020.0,
+      "text": ">> -What happened, is the scuds that were coming in, were unstable,"
+    },
+    {
+      "index": 172,
+      "start_time": 481020.0,
+      "end_time": 482310.0,
+      "text": "they were wobbling."
+    },
+    {
+      "index": 173,
+      "start_time": 482310.0,
+      "end_time": 485140.0,
+      "text": "The reason for this, was the Iraqis, in order"
+    },
+    {
+      "index": 174,
+      "start_time": 485140.0,
+      "end_time": 489450.0,
+      "text": "to get 600 kilometers out of a 300 kilometer range missile,"
+    },
+    {
+      "index": 175,
+      "start_time": 489450.0,
+      "end_time": 492930.0,
+      "text": "took weight out of the front warhead and made the warhead lighter."
+    },
+    {
+      "index": 176,
+      "start_time": 492930.0,
+      "end_time": 497710.0,
+      "text": "So now, the Patriot's trying to come at the scud, and most of the time,"
+    },
+    {
+      "index": 177,
+      "start_time": 497710.0,
+      "end_time": 501700.0,
+      "text": "the overwhelming majority of the time, it would just fly by the scud."
+    },
+    {
+      "index": 178,
+      "start_time": 501700.0,
+      "end_time": 505700.0,
+      "text": ">> -Once the Patriot system operators realized the Patriot missed its target,"
+    },
+    {
+      "index": 179,
+      "start_time": 505700.0,
+      "end_time": 509790.0,
+      "text": "they detonated the Patriot's warhead, to avoid possible casualties if it"
+    },
+    {
+      "index": 180,
+      "start_time": 509790.0,
+      "end_time": 512380.0,
+      "text": "was allowed to fall to the ground."
+    },
+    {
+      "index": 181,
+      "start_time": 512380.0,
+      "end_time": 516340.0,
+      "text": ">> -That was what most people saw, those big fireballs in the sky,"
+    },
+    {
+      "index": 182,
+      "start_time": 516340.00000000006,
+      "end_time": 521289.00000000006,
+      "text": "and misunderstood as intercepts of Scud warheads."
+    },
+    {
+      "index": 183,
+      "start_time": 521289.0,
+      "end_time": 523590.0,
+      "text": "Although in the night skies, Patriots appeared"
+    },
+    {
+      "index": 184,
+      "start_time": 523590.00000000006,
+      "end_time": 527020.0,
+      "text": "to be successfully destroying scuds, at Dhahran,"
+    },
+    {
+      "index": 185,
+      "start_time": 527020.0,
+      "end_time": 529730.0,
+      "text": "there could be no mistake about its performance."
+    },
+    {
+      "index": 186,
+      "start_time": 529730.0,
+      "end_time": 533990.0,
+      "text": "There, the Patriot's radar system lost track of an incoming Scud,"
+    },
+    {
+      "index": 187,
+      "start_time": 533990.0,
+      "end_time": 536650.0,
+      "text": "and never launched, due to a software flaw."
+    },
+    {
+      "index": 188,
+      "start_time": 539650.0,
+      "end_time": 544100.0,
+      "text": "It was the Israelis who first discovered that the longer the system was on,"
+    },
+    {
+      "index": 189,
+      "start_time": 544100.0,
+      "end_time": 547510.0,
+      "text": "the greater the time discrepancy became, due to a clock embedded"
+    },
+    {
+      "index": 190,
+      "start_time": 547510.0,
+      "end_time": 549490.0,
+      "text": "in the system's computer."
+    },
+    {
+      "index": 191,
+      "start_time": 549490.0,
+      "end_time": 552670.0,
+      "text": ">> -About 2 weeks before the tragedy in Dhahran,"
+    },
+    {
+      "index": 192,
+      "start_time": 552670.0,
+      "end_time": 555010.0,
+      "text": "the Israelis reported to the Defense Department,"
+    },
+    {
+      "index": 193,
+      "start_time": 555010.0,
+      "end_time": 557940.0,
+      "text": "that the system was losing time, that after about 8 hours of running,"
+    },
+    {
+      "index": 194,
+      "start_time": 557940.0,
+      "end_time": 561410.0,
+      "text": "they noticed that the system was becoming noticeably less accurate."
+    },
+    {
+      "index": 195,
+      "start_time": 561410.0,
+      "end_time": 565290.0,
+      "text": "The Defense Department responded by telling all of the Patriot batteries"
+    },
+    {
+      "index": 196,
+      "start_time": 565290.0,
+      "end_time": 568070.0,
+      "text": "to not leave the systems on for a long time."
+    },
+    {
+      "index": 197,
+      "start_time": 568070.0,
+      "end_time": 569960.0,
+      "text": "They never said what a long time was."
+    },
+    {
+      "index": 198,
+      "start_time": 569960.0,
+      "end_time": 570460.0,
+      "text": "8 hours?"
+    },
+    {
+      "index": 199,
+      "start_time": 570460.0,
+      "end_time": 570960.0,
+      "text": "10 hours?"
+    },
+    {
+      "index": 200,
+      "start_time": 570960.0,
+      "end_time": 571870.0,
+      "text": "1000 hours?"
+    },
+    {
+      "index": 201,
+      "start_time": 571870.0,
+      "end_time": 573734.0,
+      "text": "Nobody knew."
+    },
+    {
+      "index": 202,
+      "start_time": 573734.0,
+      "end_time": 575650.0,
+      "text": "-The Patriot battery stationed at the barracks"
+    },
+    {
+      "index": 203,
+      "start_time": 575650.0,
+      "end_time": 580410.0,
+      "text": "at Dhahran, and its flawed internal clock, had been on over 100 hours"
+    },
+    {
+      "index": 204,
+      "start_time": 580410.0,
+      "end_time": 583041.0,
+      "text": "on the night of February 25."
+    },
+    {
+      "index": 205,
+      "start_time": 583041.0,
+      "end_time": 587416.0,
+      "text": ">> -It tracked time to an accuracy of about 1/10 of a second."
+    },
+    {
+      "index": 206,
+      "start_time": 587416.0,
+      "end_time": 589290.0,
+      "text": "Now 1/10 of a second is an interesting number"
+    },
+    {
+      "index": 207,
+      "start_time": 589290.0,
+      "end_time": 592700.0,
+      "text": "because it can't be expressed in binary, exactly."
+    },
+    {
+      "index": 208,
+      "start_time": 592700.0,
+      "end_time": 594820.0,
+      "text": "Which means, it can't be expressed, exactly,"
+    },
+    {
+      "index": 209,
+      "start_time": 594820.0,
+      "end_time": 597420.0,
+      "text": "in any modern digital computer."
+    },
+    {
+      "index": 210,
+      "start_time": 597420.0,
+      "end_time": 601460.0,
+      "text": "It's hard to believe, but use this as an example."
+    },
+    {
+      "index": 211,
+      "start_time": 601460.0,
+      "end_time": 603520.0,
+      "text": "Let's take the number, 1/3."
+    },
+    {
+      "index": 212,
+      "start_time": 603520.0,
+      "end_time": 607110.0,
+      "text": "1/3 cannot be expressed in decimal, exactly."
+    },
+    {
+      "index": 213,
+      "start_time": 607110.0,
+      "end_time": 611490.0,
+      "text": "1/3 is 0.333 going on for infinity."
+    },
+    {
+      "index": 214,
+      "start_time": 611490.0,
+      "end_time": 615486.0,
+      "text": "There's no way to do that, with absolute accuracy, in decimal."
+    },
+    {
+      "index": 215,
+      "start_time": 615486.0,
+      "end_time": 618360.0,
+      "text": "That's exactly the same kind of problem that happened in the Patriot."
+    },
+    {
+      "index": 216,
+      "start_time": 618360.0,
+      "end_time": 622510.0,
+      "text": "The longer the system ran, the worse the time error became."
+    },
+    {
+      "index": 217,
+      "start_time": 622510.0,
+      "end_time": 628420.0,
+      "text": ">> -After 100 hours of operation, the error in time was only about 1/3 of a second."
+    },
+    {
+      "index": 218,
+      "start_time": 628420.0,
+      "end_time": 631830.0,
+      "text": "But in terms of targeting a missile traveling at mach 5,"
+    },
+    {
+      "index": 219,
+      "start_time": 631830.0,
+      "end_time": 635890.0,
+      "text": "it resulted in a tracking error of over 600 meters."
+    },
+    {
+      "index": 220,
+      "start_time": 635890.0,
+      "end_time": 638970.0,
+      "text": "It would be a fatal error for the soldiers at Dhahran."
+    },
+    {
+      "index": 221,
+      "start_time": 638970.0,
+      "end_time": 645035.0,
+      "text": ">> -What happened, is a Scud launch was detected by early-warning satellites,"
+    },
+    {
+      "index": 222,
+      "start_time": 645035.0,
+      "end_time": 648930.0,
+      "text": "and they new that the Scud was coming in their general direction."
+    },
+    {
+      "index": 223,
+      "start_time": 648930.0,
+      "end_time": 651170.0,
+      "text": "They didn't know where it was coming."
+    },
+    {
+      "index": 224,
+      "start_time": 651170.0,
+      "end_time": 653990.0,
+      "text": ">> -It was now up to the radar component of the Patriot system,"
+    },
+    {
+      "index": 225,
+      "start_time": 653990.0,
+      "end_time": 658520.0,
+      "text": "defending Dhahran, to locate and keep track of the incoming enemy missile."
+    },
+    {
+      "index": 226,
+      "start_time": 658520.0,
+      "end_time": 659690.0,
+      "text": ">> -The radar was very smart."
+    },
+    {
+      "index": 227,
+      "start_time": 659690.0,
+      "end_time": 661710.0,
+      "text": "It would actually track the position of the Scud"
+    },
+    {
+      "index": 228,
+      "start_time": 661710.0,
+      "end_time": 664040.0,
+      "text": "and then predict where it probably would be,"
+    },
+    {
+      "index": 229,
+      "start_time": 664040.0,
+      "end_time": 666140.0,
+      "text": "the next time, the radar sent a pulse out."
+    },
+    {
+      "index": 230,
+      "start_time": 666140.0,
+      "end_time": 667660.0,
+      "text": "That was called the range gate."
+    },
+    {
+      "index": 231,
+      "start_time": 667660.0,
+      "end_time": 671870.0,
+      "text": ">> -Then, once the Patriot decides enough time has"
+    },
+    {
+      "index": 232,
+      "start_time": 671870.0,
+      "end_time": 676280.0,
+      "text": "passed to go back and check the next location for this detected object,"
+    },
+    {
+      "index": 233,
+      "start_time": 676280.0,
+      "end_time": 677280.0,
+      "text": "it goes back."
+    },
+    {
+      "index": 234,
+      "start_time": 677280.0,
+      "end_time": 681690.0,
+      "text": "So when it went back to the wrong place, it then sees no object"
+    },
+    {
+      "index": 235,
+      "start_time": 681690.0,
+      "end_time": 685230.0,
+      "text": "and it decides that there was no object, it was a false detection,"
+    },
+    {
+      "index": 236,
+      "start_time": 685230.0,
+      "end_time": 686650.0,
+      "text": "and drops the track."
+    },
+    {
+      "index": 237,
+      "start_time": 686650.0,
+      "end_time": 689690.0,
+      "text": "The incoming Scud disappeared from the radar screen,"
+    },
+    {
+      "index": 238,
+      "start_time": 689690.0,
+      "end_time": 692670.0,
+      "text": "and seconds later, it slammed into the barracks."
+    },
+    {
+      "index": 239,
+      "start_time": 692670.0,
+      "end_time": 698100.0,
+      "text": "The Scud killed 28 and was the last one fired during the First Gulf War."
+    },
+    {
+      "index": 240,
+      "start_time": 698100.0,
+      "end_time": 703460.0,
+      "text": "Tragically, the updated software arrived at Dhahran the following day."
+    },
+    {
+      "index": 241,
+      "start_time": 703460.0,
+      "end_time": 706150.0,
+      "text": "The software flaw had been fixed, closing"
+    },
+    {
+      "index": 242,
+      "start_time": 706150.0,
+      "end_time": 708940.0,
+      "text": "one chapter in the troubled history of the Patriot missile."
+    },
+    {
+      "index": 243,
+      "start_time": 708940.0,
+      "end_time": 710220.0,
+      "text": ">> [END PLAYBACK]"
+    },
+    {
+      "index": 244,
+      "start_time": 710220.0,
+      "end_time": 714340.0,
+      "text": ">> DAVID J MALAN: So we'll take a look at some similar limitations in just a bit."
+    },
+    {
+      "index": 245,
+      "start_time": 714340.0,
+      "end_time": 718470.0,
+      "text": "But first, let's transition to a few FYI's."
+    },
+    {
+      "index": 246,
+      "start_time": 718470.0,
+      "end_time": 721575.0,
+      "text": "So one-- this weekend, there will be super sections,"
+    },
+    {
+      "index": 247,
+      "start_time": 721575.0,
+      "end_time": 724200.0,
+      "text": "which are meant to supplant regularly scheduled sections, which"
+    },
+    {
+      "index": 248,
+      "start_time": 724200.0,
+      "end_time": 725460.0,
+      "text": "will start up a week hence."
+    },
+    {
+      "index": 249,
+      "start_time": 725460.0,
+      "end_time": 728204.0,
+      "text": "Take a look at the CS50's website for more information on those."
+    },
+    {
+      "index": 250,
+      "start_time": 728204.0,
+      "end_time": 731120.0,
+      "text": "They will also be filmed and streamed live for those unable to attend."
+    },
+    {
+      "index": 251,
+      "start_time": 731120.0,
+      "end_time": 732980.0,
+      "text": "Problem set 1 is on the course's website already,"
+    },
+    {
+      "index": 252,
+      "start_time": 732980.0,
+      "end_time": 735105.0,
+      "text": "and we'll take a look at that in just a little bit."
+    },
+    {
+      "index": 253,
+      "start_time": 735105.0,
+      "end_time": 738350.0,
+      "text": "And office hours too, will take place this Monday through Thursday."
+    },
+    {
+      "index": 254,
+      "start_time": 738350.0,
+      "end_time": 740960.0,
+      "text": ">> So this was the most canonical program we looked at last time."
+    },
+    {
+      "index": 255,
+      "start_time": 740960.0,
+      "end_time": 743590.0,
+      "text": "It's like the simplest program you can write in C,"
+    },
+    {
+      "index": 256,
+      "start_time": 743590.0,
+      "end_time": 745250.0,
+      "text": "and even that's a bit of a bold claim."
+    },
+    {
+      "index": 257,
+      "start_time": 745250.0,
+      "end_time": 745750.0,
+      "text": "Right?"
+    },
+    {
+      "index": 258,
+      "start_time": 745750.0,
+      "end_time": 748070.0,
+      "text": "Because there's a lot of seeming complexity to this."
+    },
+    {
+      "index": 259,
+      "start_time": 748070.0,
+      "end_time": 750445.0,
+      "text": "So let's take a quick look at what some of these elements"
+    },
+    {
+      "index": 260,
+      "start_time": 750445.0,
+      "end_time": 753080.0,
+      "text": "were and then try to provide a mental model for how"
+    },
+    {
+      "index": 261,
+      "start_time": 753080.0,
+      "end_time": 755710.0,
+      "text": "these simplest of programs work, and then we'll start"
+    },
+    {
+      "index": 262,
+      "start_time": 755710.0,
+      "end_time": 758050.0,
+      "text": "looking at things ever more complex."
+    },
+    {
+      "index": 263,
+      "start_time": 758050.0,
+      "end_time": 761280.0,
+      "text": "So this line here, highlighted now, in yellow, what did we say, last time,"
+    },
+    {
+      "index": 264,
+      "start_time": 761280.0,
+      "end_time": 763200.0,
+      "text": "that this does for us?"
+    },
+    {
+      "index": 265,
+      "start_time": 763200.0,
+      "end_time": 765220.0,
+      "text": "What's the purpose it serves?"
+    },
+    {
+      "index": 266,
+      "start_time": 765220.0,
+      "end_time": 766984.0,
+      "text": "Anyone from farther back?"
+    },
+    {
+      "index": 267,
+      "start_time": 766984.0,
+      "end_time": 767483.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 268,
+      "start_time": 767483.0,
+      "end_time": 768649.0,
+      "text": ">> AUDIENCE MEMBER: [INAUDIBLE]"
+    },
+    {
+      "index": 269,
+      "start_time": 770871.0,
+      "end_time": 771704.0,
+      "text": "DAVID J MALAN: Good."
+    },
+    {
+      "index": 270,
+      "start_time": 771704.0,
+      "end_time": 773537.0,
+      "text": "So it gives you access to commands, or let's"
+    },
+    {
+      "index": 271,
+      "start_time": 773537.0,
+      "end_time": 776750.0,
+      "text": "call them functions, that someone else wrote, that are declared,"
+    },
+    {
+      "index": 272,
+      "start_time": 776750.0,
+      "end_time": 778350.0,
+      "text": "so to speak, in some other file."
+    },
+    {
+      "index": 273,
+      "start_time": 778350.0,
+      "end_time": 782370.0,
+      "text": "So we'll see exactly what a .h file is versus a .c file, eventually."
+    },
+    {
+      "index": 274,
+      "start_time": 782370.0,
+      "end_time": 784710.0,
+      "text": "But for now, just know that printf, for instance,"
+    },
+    {
+      "index": 275,
+      "start_time": 784710.0,
+      "end_time": 788370.0,
+      "text": "is among the functions that have been declared in some other file, somewhere"
+    },
+    {
+      "index": 276,
+      "start_time": 788370.0,
+      "end_time": 792930.0,
+      "text": "else on the cloud's hard drive that allows us to access printf and use it"
+    },
+    {
+      "index": 277,
+      "start_time": 792930.0,
+      "end_time": 795240.0,
+      "text": "without having to reinvent that wheel ourselves."
+    },
+    {
+      "index": 278,
+      "start_time": 795240.0,
+      "end_time": 796930.0,
+      "text": "Meanwhile, main."
+    },
+    {
+      "index": 279,
+      "start_time": 796930.0,
+      "end_time": 799690.0,
+      "text": "What was the analog of main, last week?"
+    },
+    {
+      "index": 280,
+      "start_time": 799690.0,
+      "end_time": 800190.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 281,
+      "start_time": 800190.0,
+      "end_time": 801460.0,
+      "text": ">> AUDIENCE MEMBER: Green flag is clicked."
+    },
+    {
+      "index": 282,
+      "start_time": 801460.0,
+      "end_time": 801740.0,
+      "text": ">> DAVID J MALAN: Yeah."
+    },
+    {
+      "index": 283,
+      "start_time": 801740.0,
+      "end_time": 803490.0,
+      "text": "Scratch's, when green flag clicked."
+    },
+    {
+      "index": 284,
+      "start_time": 803490.0,
+      "end_time": 805560.0,
+      "text": "It's like the puzzle piece that kicks things off."
+    },
+    {
+      "index": 285,
+      "start_time": 805560.0,
+      "end_time": 808306.0,
+      "text": "And so similarly, did the world decided some years ago that in C,"
+    },
+    {
+      "index": 286,
+      "start_time": 808306.0,
+      "end_time": 810930.0,
+      "text": "and a bunch of other languages, if you want to write a program,"
+    },
+    {
+      "index": 287,
+      "start_time": 810930.0,
+      "end_time": 813410.0,
+      "text": "your first function has to be called, main."
+    },
+    {
+      "index": 288,
+      "start_time": 813410.0,
+      "end_time": 814641.0,
+      "text": "And it has to look like this."
+    },
+    {
+      "index": 289,
+      "start_time": 814641.0,
+      "end_time": 816640.0,
+      "text": "But we'll come back, another time, to what, int,"
+    },
+    {
+      "index": 290,
+      "start_time": 816640.0,
+      "end_time": 818690.0,
+      "text": "and, void, mean in that context."
+    },
+    {
+      "index": 291,
+      "start_time": 818690.0,
+      "end_time": 822860.0,
+      "text": "For now, the curly braces are kind of like Scratch's puzzle piece shape"
+    },
+    {
+      "index": 292,
+      "start_time": 822860.0,
+      "end_time": 825080.0,
+      "text": "that encapsulates some number of lines."
+    },
+    {
+      "index": 293,
+      "start_time": 825080.0,
+      "end_time": 827070.0,
+      "text": "And among on the lines here, is this one here."
+    },
+    {
+      "index": 294,
+      "start_time": 827070.0,
+      "end_time": 831610.0,
+      "text": "printf is a function whose purpose in life is to print a formatted string."
+    },
+    {
+      "index": 295,
+      "start_time": 831610.0,
+      "end_time": 835010.0,
+      "text": "And by formatted, I mean you can plug in placeholder values,"
+    },
+    {
+      "index": 296,
+      "start_time": 835010.0,
+      "end_time": 838360.0,
+      "text": "and you can specify how many decimal points, how many numbers to print"
+    },
+    {
+      "index": 297,
+      "start_time": 838360.0,
+      "end_time": 840040.0,
+      "text": "after a decimal point and the like."
+    },
+    {
+      "index": 298,
+      "start_time": 840040.0,
+      "end_time": 845040.0,
+      "text": "And printf, of course, takes one or more arguments or parameters,"
+    },
+    {
+      "index": 299,
+      "start_time": 845040.0,
+      "end_time": 846770.0,
+      "text": "otherwise known, more simply, as inputs."
+    },
+    {
+      "index": 300,
+      "start_time": 846770.0,
+      "end_time": 849230.0,
+      "text": ">> So printf, like a lot of functions, takes inputs."
+    },
+    {
+      "index": 301,
+      "start_time": 849230.0,
+      "end_time": 852730.0,
+      "text": "And those inputs are embraced by the two parentheses here."
+    },
+    {
+      "index": 302,
+      "start_time": 852730.0,
+      "end_time": 855180.0,
+      "text": "And inside of those is one input."
+    },
+    {
+      "index": 303,
+      "start_time": 855180.0,
+      "end_time": 858600.0,
+      "text": "It's a string, as we've called it, which is just a sequence of characters,"
+    },
+    {
+      "index": 304,
+      "start_time": 858600.0,
+      "end_time": 862310.0,
+      "text": "like a word, or a phrase, or a whole essay even, in between double quotes."
+    },
+    {
+      "index": 305,
+      "start_time": 862310.0,
+      "end_time": 865712.0,
+      "text": "And that's what's going to influence the behavior of printf because, of course,"
+    },
+    {
+      "index": 306,
+      "start_time": 865712.0,
+      "end_time": 867170.0,
+      "text": "it's just a generic print function."
+    },
+    {
+      "index": 307,
+      "start_time": 867170.0,
+      "end_time": 869600.0,
+      "text": "It's not going to know what to print, unless you tell it."
+    },
+    {
+      "index": 308,
+      "start_time": 869600.0,
+      "end_time": 871000.0,
+      "text": "And then, some minutiae."
+    },
+    {
+      "index": 309,
+      "start_time": 871000.0,
+      "end_time": 874056.0,
+      "text": "What did we say this weird sequence of symbols is?"
+    },
+    {
+      "index": 310,
+      "start_time": 874056.0,
+      "end_time": 874556.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 311,
+      "start_time": 874556.0,
+      "end_time": 875410.0,
+      "text": ">> AUDIENCE MEMBER: New line."
+    },
+    {
+      "index": 312,
+      "start_time": 875410.0,
+      "end_time": 875990.0,
+      "text": ">> DAVID J MALAN: New line."
+    },
+    {
+      "index": 313,
+      "start_time": 875990.0,
+      "end_time": 879340.0,
+      "text": "So it turns out, you can't just hit, enter, when you're writing the program."
+    },
+    {
+      "index": 314,
+      "start_time": 879340.0,
+      "end_time": 882590.0,
+      "text": "Generally, the compiler is going to get a little confused as to what you mean."
+    },
+    {
+      "index": 315,
+      "start_time": 882590.0,
+      "end_time": 885340.0,
+      "text": "Rather, you have to literally say, give me a new line here."
+    },
+    {
+      "index": 316,
+      "start_time": 885340.0,
+      "end_time": 889506.0,
+      "text": "And so /n is what we generally call an escape character."
+    },
+    {
+      "index": 317,
+      "start_time": 889506.0,
+      "end_time": 890870.0,
+      "text": "So n, for new line."
+    },
+    {
+      "index": 318,
+      "start_time": 890870.0,
+      "end_time": 893810.0,
+      "text": "And the compiler knows that when it sees /n,"
+    },
+    {
+      "index": 319,
+      "start_time": 893810.0,
+      "end_time": 897420.0,
+      "text": "it should actually induce the computer, ultimately, or printf, in this case,"
+    },
+    {
+      "index": 320,
+      "start_time": 897420.0,
+      "end_time": 900260.0,
+      "text": "to print out an actual new line, like hitting the, enter,"
+    },
+    {
+      "index": 321,
+      "start_time": 900260.0,
+      "end_time": 901480.0,
+      "text": "key on your keyboard."
+    },
+    {
+      "index": 322,
+      "start_time": 901480.0,
+      "end_time": 905620.0,
+      "text": "And lastly, what did we say this piece of syntax is for?"
+    },
+    {
+      "index": 323,
+      "start_time": 905620.0,
+      "end_time": 906591.0,
+      "text": "What does it represent?"
+    },
+    {
+      "index": 324,
+      "start_time": 906591.0,
+      "end_time": 907090.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 325,
+      "start_time": 907090.0,
+      "end_time": 907490.0,
+      "text": ">> AUDIENCE MEMBER: [INAUDIBLE]"
+    },
+    {
+      "index": 326,
+      "start_time": 907490.0,
+      "end_time": 908660.0,
+      "text": ">> DAVID J MALAN: It's just the end of the line."
+    },
+    {
+      "index": 327,
+      "start_time": 908660.0,
+      "end_time": 909909.0,
+      "text": "It's the end of the statement."
+    },
+    {
+      "index": 328,
+      "start_time": 909909.0,
+      "end_time": 911890.0,
+      "text": "And realize that we don't put them everywhere."
+    },
+    {
+      "index": 329,
+      "start_time": 911890.0,
+      "end_time": 913900.0,
+      "text": "We certainly don't put them at the ends of every line."
+    },
+    {
+      "index": 330,
+      "start_time": 913900.0,
+      "end_time": 916680.0,
+      "text": "For instance, there's none on the first line, there's none on the line"
+    },
+    {
+      "index": 331,
+      "start_time": 916680.0,
+      "end_time": 918680.0,
+      "text": "with, main, there's none after the curly braces,"
+    },
+    {
+      "index": 332,
+      "start_time": 918680.0,
+      "end_time": 921740.0,
+      "text": "but you'll start to see and get familiar with where it's called for."
+    },
+    {
+      "index": 333,
+      "start_time": 921740.0,
+      "end_time": 926014.0,
+      "text": "And it's almost always after a function call or a statement, some action"
+    },
+    {
+      "index": 334,
+      "start_time": 926014.0,
+      "end_time": 927180.0,
+      "text": "that you're actually taking."
+    },
+    {
+      "index": 335,
+      "start_time": 927180.0,
+      "end_time": 929520.0,
+      "text": ">> And know now, especially if among those less comfortable,"
+    },
+    {
+      "index": 336,
+      "start_time": 929520.0,
+      "end_time": 932540.0,
+      "text": "these are the kinds of stupid things that you'll end up accidentally banging"
+    },
+    {
+      "index": 337,
+      "start_time": 932540.0,
+      "end_time": 933873.0,
+      "text": "your head against the wall over."
+    },
+    {
+      "index": 338,
+      "start_time": 933873.0,
+      "end_time": 936107.0,
+      "text": "Because you'll be logically confident in some problem"
+    },
+    {
+      "index": 339,
+      "start_time": 936107.0,
+      "end_time": 938440.0,
+      "text": "you've solved for a problem set, and the damn thing just"
+    },
+    {
+      "index": 340,
+      "start_time": 938440.0,
+      "end_time": 940187.0,
+      "text": "won't compile or even run."
+    },
+    {
+      "index": 341,
+      "start_time": 940187.0,
+      "end_time": 943270.0,
+      "text": "And so often, early on, it's going to be because you missed a parenthesis,"
+    },
+    {
+      "index": 342,
+      "start_time": 943270.0,
+      "end_time": 944455.0,
+      "text": "or you missed a semicolon."
+    },
+    {
+      "index": 343,
+      "start_time": 944455.0,
+      "end_time": 946547.0,
+      "text": "And so just be mindful of these kinds of things,"
+    },
+    {
+      "index": 344,
+      "start_time": 946547.0,
+      "end_time": 949380.0,
+      "text": "and try not to get frustrated by them because very quickly does this"
+    },
+    {
+      "index": 345,
+      "start_time": 949380.0,
+      "end_time": 950640.0,
+      "text": "become old hat."
+    },
+    {
+      "index": 346,
+      "start_time": 950640.0,
+      "end_time": 953910.0,
+      "text": "But it's very easy to get frustrated early on, as a result."
+    },
+    {
+      "index": 347,
+      "start_time": 953910.0,
+      "end_time": 957020.0,
+      "text": ">> So now, let's take a look at how this line is actually working"
+    },
+    {
+      "index": 348,
+      "start_time": 957020.0,
+      "end_time": 959170.0,
+      "text": "and then look at a slightly more complicated one."
+    },
+    {
+      "index": 349,
+      "start_time": 959170.0,
+      "end_time": 962017.0,
+      "text": "So we have over here, the ability to draw on this screen."
+    },
+    {
+      "index": 350,
+      "start_time": 962017.0,
+      "end_time": 964100.0,
+      "text": "And let's suppose that this is my computer screen,"
+    },
+    {
+      "index": 351,
+      "start_time": 964100.0,
+      "end_time": 968589.0,
+      "text": "but I am writing the, hello program, and I have not implemented, printf."
+    },
+    {
+      "index": 352,
+      "start_time": 968589.0,
+      "end_time": 970130.0,
+      "text": "Someone else has implemented, printf."
+    },
+    {
+      "index": 353,
+      "start_time": 970130.0,
+      "end_time": 972420.0,
+      "text": "Who would like to claim to have implemented, printf?"
+    },
+    {
+      "index": 354,
+      "start_time": 972420.0,
+      "end_time": 972920.0,
+      "text": "If we may?"
+    },
+    {
+      "index": 355,
+      "start_time": 972920.0,
+      "end_time": 973830.0,
+      "text": "All right, what's your name?"
+    },
+    {
+      "index": 356,
+      "start_time": 973830.0,
+      "end_time": 974155.0,
+      "text": ">> STUDENT 1: [? Copal. ?]"
+    },
+    {
+      "index": 357,
+      "start_time": 974155.0,
+      "end_time": 975529.0,
+      "text": ">> DAVID J MALAN: Copal, come on up."
+    },
+    {
+      "index": 358,
+      "start_time": 975529.0,
+      "end_time": 976430.0,
+      "text": "Come on up."
+    },
+    {
+      "index": 359,
+      "start_time": 976430.0,
+      "end_time": 977070.0,
+      "text": "All right."
+    },
+    {
+      "index": 360,
+      "start_time": 977070.0,
+      "end_time": 982260.0,
+      "text": "So we have, here, some name tags, since we'll make a little game of this."
+    },
+    {
+      "index": 361,
+      "start_time": 982260.0,
+      "end_time": 986270.0,
+      "text": "And we will call you, printf."
+    },
+    {
+      "index": 362,
+      "start_time": 986270.0,
+      "end_time": 990170.0,
+      "text": "And if you want to come over here, what I've just drawn on the screen,"
+    },
+    {
+      "index": 363,
+      "start_time": 990170.0,
+      "end_time": 992340.0,
+      "text": "it's quite simply, there's me, this."
+    },
+    {
+      "index": 364,
+      "start_time": 992340.0,
+      "end_time": 995550.0,
+      "text": ">> All right, so, hello my name is, printf, if you'd like to put that on."
+    },
+    {
+      "index": 365,
+      "start_time": 995550.0,
+      "end_time": 995740.0,
+      "text": "All right."
+    },
+    {
+      "index": 366,
+      "start_time": 995740.0,
+      "end_time": 997360.0,
+      "text": "And if you can go stand by the computer screen"
+    },
+    {
+      "index": 367,
+      "start_time": 997360.0,
+      "end_time": 999730.0,
+      "text": "as though you are the function that came with this computer system."
+    },
+    {
+      "index": 368,
+      "start_time": 999730.0,
+      "end_time": 1002063.0,
+      "text": "And your purpose in life is to actually print something."
+    },
+    {
+      "index": 369,
+      "start_time": 1002060.0,
+      "end_time": 1004557.0,
+      "text": "But much like the program we just had on the screen, here,"
+    },
+    {
+      "index": 370,
+      "start_time": 1004560.0,
+      "end_time": 1007060.0,
+      "text": "we're going to have to actually give you some input."
+    },
+    {
+      "index": 371,
+      "start_time": 1007060.0,
+      "end_time": 1011810.0,
+      "text": ">> And so, if my input, here, is apparently, what is passed to printf,"
+    },
+    {
+      "index": 372,
+      "start_time": 1011810.0,
+      "end_time": 1013730.0,
+      "text": "let's kind of mock it up like this."
+    },
+    {
+      "index": 373,
+      "start_time": 1013730.0,
+      "end_time": 1018720.0,
+      "text": "I'm going to literally write on a piece of paper, \"hello, world,\""
+    },
+    {
+      "index": 374,
+      "start_time": 1018720.0,
+      "end_time": 1023020.0,
+      "text": "backslash N. And to be clear, what I've just drawn on this piece of paper,"
+    },
+    {
+      "index": 375,
+      "start_time": 1023020.0,
+      "end_time": 1024020.0,
+      "text": "looks like this."
+    },
+    {
+      "index": 376,
+      "start_time": 1024020.0,
+      "end_time": 1028730.0,
+      "text": "So when I run this program, and this yellow line of code gets executed,"
+    },
+    {
+      "index": 377,
+      "start_time": 1028730.0,
+      "end_time": 1032970.0,
+      "text": "it's as though I, the hello program, am handing some input off to a function"
+    },
+    {
+      "index": 378,
+      "start_time": 1032970.0,
+      "end_time": 1033970.0,
+      "text": "that someone else wrote."
+    },
+    {
+      "index": 379,
+      "start_time": 1033970.0,
+      "end_time": 1036595.0,
+      "text": ">> And if you, with your finger, could actually, with your finger,"
+    },
+    {
+      "index": 380,
+      "start_time": 1036589.9999999999,
+      "end_time": 1041514.9999999999,
+      "text": "draw on the screen whatever it is you have been handed,"
+    },
+    {
+      "index": 381,
+      "start_time": 1041520.0,
+      "end_time": 1047465.0,
+      "text": "the effect, ultimately, is to see exactly that, on the screen."
+    },
+    {
+      "index": 382,
+      "start_time": 1047460.0,
+      "end_time": 1049135.0,
+      "text": "And a Little corner case here."
+    },
+    {
+      "index": 383,
+      "start_time": 1049140.0,
+      "end_time": 1051540.0,
+      "text": "And good, we shouldn't see the, new line, at this point."
+    },
+    {
+      "index": 384,
+      "start_time": 1051540.0,
+      "end_time": 1053900.0,
+      "text": "It would be incorrect for you to explicitly draw the newline."
+    },
+    {
+      "index": 385,
+      "start_time": 1053900.0,
+      "end_time": 1056810.0,
+      "text": "But if we kept writing words on the screen, they would end up below that."
+    },
+    {
+      "index": 386,
+      "start_time": 1056810.0,
+      "end_time": 1059560.0,
+      "text": ">> So thank you very much, but stick around here for just one moment."
+    },
+    {
+      "index": 387,
+      "start_time": 1059560.0,
+      "end_time": 1062860.0,
+      "text": "We now need one other volunteer, if we could,"
+    },
+    {
+      "index": 388,
+      "start_time": 1062860.0,
+      "end_time": 1066830.0,
+      "text": "that's going to need to play the role of-- It's only people in the orchestra"
+    },
+    {
+      "index": 389,
+      "start_time": 1066830.0,
+      "end_time": 1067355.0,
+      "text": "right now."
+    },
+    {
+      "index": 390,
+      "start_time": 1067350.0,
+      "end_time": 1067975.0,
+      "text": "How about-- OK."
+    },
+    {
+      "index": 391,
+      "start_time": 1067980.0,
+      "end_time": 1068480.0,
+      "text": "Right here."
+    },
+    {
+      "index": 392,
+      "start_time": 1068480.0,
+      "end_time": 1069180.0,
+      "text": "Come on up."
+    },
+    {
+      "index": 393,
+      "start_time": 1069180.0,
+      "end_time": 1069955.0,
+      "text": "What's your name?"
+    },
+    {
+      "index": 394,
+      "start_time": 1069950.0,
+      "end_time": 1070917.0,
+      "text": ">> STUDENT 2: [? Ivay. ?]"
+    },
+    {
+      "index": 395,
+      "start_time": 1070920.0,
+      "end_time": 1071794.0,
+      "text": "DAVID J MALAN: Sorry?"
+    },
+    {
+      "index": 396,
+      "start_time": 1071800.0,
+      "end_time": 1072994.0,
+      "text": "STUDENT 2: [? Ivay. ?]"
+    },
+    {
+      "index": 397,
+      "start_time": 1072990.0,
+      "end_time": 1075320.0,
+      "text": "DAVID J MALAN: Ethan, come on up."
+    },
+    {
+      "index": 398,
+      "start_time": 1075320.0,
+      "end_time": 1075820.0,
+      "text": "No?"
+    },
+    {
+      "index": 399,
+      "start_time": 1075820.0,
+      "end_time": 1078390.0,
+      "text": "Did I get that wrong, even after you said it twice?"
+    },
+    {
+      "index": 400,
+      "start_time": 1078390.0,
+      "end_time": 1078890.0,
+      "text": "Come on up."
+    },
+    {
+      "index": 401,
+      "start_time": 1078890.0,
+      "end_time": 1080030.0,
+      "text": "It's hard to hear up here."
+    },
+    {
+      "index": 402,
+      "start_time": 1085240.0,
+      "end_time": 1085740.0,
+      "text": "OK."
+    },
+    {
+      "index": 403,
+      "start_time": 1085740.0,
+      "end_time": 1087190.0,
+      "text": "And I'm sorry, what's your name?"
+    },
+    {
+      "index": 404,
+      "start_time": 1087190.0,
+      "end_time": 1087680.0,
+      "text": ">> STUDENT 2: [? Ivay. ?]"
+    },
+    {
+      "index": 405,
+      "start_time": 1087680.0,
+      "end_time": 1088790.0,
+      "text": ">> [? DAVID J MALAN: Ivay. ?] OK."
+    },
+    {
+      "index": 406,
+      "start_time": 1088790.0,
+      "end_time": 1090430.0,
+      "text": "For now, if you don't mind, you are GetString."
+    },
+    {
+      "index": 407,
+      "start_time": 1090430.0,
+      "end_time": 1091013.0,
+      "text": ">> STUDENT 2: OK."
+    },
+    {
+      "index": 408,
+      "start_time": 1091010.0,
+      "end_time": 1091794.0,
+      "text": "Cool."
+    },
+    {
+      "index": 409,
+      "start_time": 1091800.0,
+      "end_time": 1094633.0,
+      "text": "DAVID J MALAN: So if you would like to stand here for just a moment,"
+    },
+    {
+      "index": 410,
+      "start_time": 1094630.0,
+      "end_time": 1097100.0,
+      "text": "let's take a look at a slightly more complex program, that"
+    },
+    {
+      "index": 411,
+      "start_time": 1097100.0,
+      "end_time": 1098670.0,
+      "text": "now has three lines of code."
+    },
+    {
+      "index": 412,
+      "start_time": 1098670.0,
+      "end_time": 1104080.0,
+      "text": "So we have, one, state your name using printf; two, a call to GetString,"
+    },
+    {
+      "index": 413,
+      "start_time": 1104080.0,
+      "end_time": 1108060.0,
+      "text": "followed by an assignment to a variable called, string s, or called s;"
+    },
+    {
+      "index": 414,
+      "start_time": 1108060.0,
+      "end_time": 1111260.0,
+      "text": "and then another call to, printf, but this time with two inputs."
+    },
+    {
+      "index": 415,
+      "start_time": 1111260.0,
+      "end_time": 1113646.0,
+      "text": ">> So we've already done state your name, or rather, we've"
+    },
+    {
+      "index": 416,
+      "start_time": 1113650.0,
+      "end_time": 1114774.0,
+      "text": "already done a printf call."
+    },
+    {
+      "index": 417,
+      "start_time": 1114770.0,
+      "end_time": 1118960.0,
+      "text": "So I'm going to write, State your name."
+    },
+    {
+      "index": 418,
+      "start_time": 1118960.0,
+      "end_time": 1122089.0,
+      "text": "And so, what I'm going to pass, printf, in just a moment,"
+    },
+    {
+      "index": 419,
+      "start_time": 1122090.0,
+      "end_time": 1123006.0,
+      "text": "is quite simply, this."
+    },
+    {
+      "index": 420,
+      "start_time": 1123010.0,
+      "end_time": 1127765.0,
+      "text": "So if you want to go ahead and draw this on the screen, that's your input now."
+    },
+    {
+      "index": 421,
+      "start_time": 1127760.0,
+      "end_time": 1128260.0,
+      "text": "All right."
+    },
+    {
+      "index": 422,
+      "start_time": 1128260.0,
+      "end_time": 1131160.0,
+      "text": "And forget string, we now have our own line of code here."
+    },
+    {
+      "index": 423,
+      "start_time": 1131160.0,
+      "end_time": 1134470.0,
+      "text": "So in, GetString, we need to actually call, GetString."
+    },
+    {
+      "index": 424,
+      "start_time": 1134470.0,
+      "end_time": 1137920.0,
+      "text": "So your purpose in life is to just walk out into the orchestra, if you could,"
+    },
+    {
+      "index": 425,
+      "start_time": 1137920.0,
+      "end_time": 1138980.0,
+      "text": "and get someone's name."
+    },
+    {
+      "index": 426,
+      "start_time": 1138980.0,
+      "end_time": 1140860.0,
+      "text": "But let's give you something to put it on."
+    },
+    {
+      "index": 427,
+      "start_time": 1140860.0,
+      "end_time": 1142908.0,
+      "text": "If you want to, go ahead and get a string,"
+    },
+    {
+      "index": 428,
+      "start_time": 1142910.0,
+      "end_time": 1145243.0,
+      "text": "get someone's name on that piece of paper, if you could."
+    },
+    {
+      "index": 429,
+      "start_time": 1152940.0,
+      "end_time": 1153530.0,
+      "text": ">> All right."
+    },
+    {
+      "index": 430,
+      "start_time": 1153530.0,
+      "end_time": 1155250.0,
+      "text": "And we'll see, in just a moment, whose name we're getting."
+    },
+    {
+      "index": 431,
+      "start_time": 1155250.0,
+      "end_time": 1157630.0,
+      "text": "Meanwhile, what I'm going to have ready, is a blank piece"
+    },
+    {
+      "index": 432,
+      "start_time": 1157630.0,
+      "end_time": 1161340.0,
+      "text": "of paper, in which, I'm going to store whatever value it"
+    },
+    {
+      "index": 433,
+      "start_time": 1161340.0,
+      "end_time": 1165752.0,
+      "text": "is that GetString is returning to me, I, being a string variable called, s."
+    },
+    {
+      "index": 434,
+      "start_time": 1165750.0,
+      "end_time": 1166250.0,
+      "text": "All right."
+    },
+    {
+      "index": 435,
+      "start_time": 1166250.0,
+      "end_time": 1167291.0,
+      "text": "So what do you have here?"
+    },
+    {
+      "index": 436,
+      "start_time": 1167290.0,
+      "end_time": 1167947.0,
+      "text": "Nik."
+    },
+    {
+      "index": 437,
+      "start_time": 1167950.0,
+      "end_time": 1168450.0,
+      "text": "All right."
+    },
+    {
+      "index": 438,
+      "start_time": 1168450.0,
+      "end_time": 1170910.0,
+      "text": "So we have Nik's name here."
+    },
+    {
+      "index": 439,
+      "start_time": 1170910.0,
+      "end_time": 1173750.0,
+      "text": "So this is what literally has been returned"
+    },
+    {
+      "index": 440,
+      "start_time": 1173750.0,
+      "end_time": 1175810.0,
+      "text": "to me, so to speak, by GetString."
+    },
+    {
+      "index": 441,
+      "start_time": 1175810.0,
+      "end_time": 1178720.0,
+      "text": ">> I, now, am going to execute the left-hand side"
+    },
+    {
+      "index": 442,
+      "start_time": 1178720.0,
+      "end_time": 1183440.0,
+      "text": "of that expression, where I simply copy down, for today's purposes, Nik."
+    },
+    {
+      "index": 443,
+      "start_time": 1183440.0,
+      "end_time": 1186470.0,
+      "text": "So now, I have a variable called, s, storing Nik's name."
+    },
+    {
+      "index": 444,
+      "start_time": 1186470.0,
+      "end_time": 1189520.0,
+      "text": "I've already handed to printf, a previous argument."
+    },
+    {
+      "index": 445,
+      "start_time": 1189520.0,
+      "end_time": 1192800.0,
+      "text": "But in our third and final line of code, I actually have to hand printf"
+    },
+    {
+      "index": 446,
+      "start_time": 1192800.0,
+      "end_time": 1198500.0,
+      "text": "something a little different-- \"hello, %s,\" backslash n."
+    },
+    {
+      "index": 447,
+      "start_time": 1198500.0,
+      "end_time": 1201510.0,
+      "text": ">> And so the last line I'm going to send-- the last thing I'm"
+    },
+    {
+      "index": 448,
+      "start_time": 1201510.0,
+      "end_time": 1203060.0,
+      "text": "going to write down now, is this."
+    },
+    {
+      "index": 449,
+      "start_time": 1203060.0,
+      "end_time": 1206310.0,
+      "text": "So the two lines of code, or rather the last line of code,"
+    },
+    {
+      "index": 450,
+      "start_time": 1206310.0,
+      "end_time": 1210690.0,
+      "text": "calls for two inputs-- one, this, and two, this."
+    },
+    {
+      "index": 451,
+      "start_time": 1210690.0,
+      "end_time": 1213330.0,
+      "text": "So if our printf function can now take these as input,"
+    },
+    {
+      "index": 452,
+      "start_time": 1213330.0,
+      "end_time": 1216000.0,
+      "text": "let me clear the screen for you."
+    },
+    {
+      "index": 453,
+      "start_time": 1216000.0,
+      "end_time": 1217250.0,
+      "text": "Actually no, you can go ahead."
+    },
+    {
+      "index": 454,
+      "start_time": 1217250.0,
+      "end_time": 1219333.0,
+      "text": "We'll leave it up, since it's on the same program."
+    },
+    {
+      "index": 455,
+      "start_time": 1221760.0,
+      "end_time": 1227380.0,
+      "text": "We should see, hello, Nik."
+    },
+    {
+      "index": 456,
+      "start_time": 1227380.0,
+      "end_time": 1227880.0,
+      "text": "All right."
+    },
+    {
+      "index": 457,
+      "start_time": 1227880.0,
+      "end_time": 1229670.0,
+      "text": "So this was quite a few hoops to jump through, just"
+    },
+    {
+      "index": 458,
+      "start_time": 1229670.0,
+      "end_time": 1231620.0,
+      "text": "to write, state your name, and, hello, Nik."
+    },
+    {
+      "index": 459,
+      "start_time": 1231620.0,
+      "end_time": 1237210.0,
+      "text": "But this simple idea of message passing, of input passing and output receiving,"
+    },
+    {
+      "index": 460,
+      "start_time": 1237210.0,
+      "end_time": 1240430.0,
+      "text": "is exactly the model we're going to have for even the most complex functions."
+    },
+    {
+      "index": 461,
+      "start_time": 1240430.0,
+      "end_time": 1241804.0,
+      "text": "So thank you so much to you both."
+    },
+    {
+      "index": 462,
+      "start_time": 1241800.0,
+      "end_time": 1243726.0,
+      "text": "We have a lovely stress ball here for you."
+    },
+    {
+      "index": 463,
+      "start_time": 1243730.0,
+      "end_time": 1248890.0,
+      "text": "And thank you to our GetString and printf volunteers alike."
+    },
+    {
+      "index": 464,
+      "start_time": 1248890.0,
+      "end_time": 1249551.0,
+      "text": "Thank you."
+    },
+    {
+      "index": 465,
+      "start_time": 1249550.0,
+      "end_time": 1250049.0,
+      "text": "All right."
+    },
+    {
+      "index": 466,
+      "start_time": 1250050.0,
+      "end_time": 1250966.0,
+      "text": "Thank you to you both."
+    },
+    {
+      "index": 467,
+      "start_time": 1256640.0,
+      "end_time": 1260430.0,
+      "text": ">> So we've been talking about thus far, mostly about strings."
+    },
+    {
+      "index": 468,
+      "start_time": 1260430.0,
+      "end_time": 1266550.0,
+      "text": "And it turns out that C can actually understand a few different data types."
+    },
+    {
+      "index": 469,
+      "start_time": 1266550.0,
+      "end_time": 1268860.0,
+      "text": "In fact, let's take a look at these here."
+    },
+    {
+      "index": 470,
+      "start_time": 1268860.0,
+      "end_time": 1272490.0,
+      "text": "So C, and a lot of languages, understand things called chars."
+    },
+    {
+      "index": 471,
+      "start_time": 1272490.0,
+      "end_time": 1276852.0,
+      "text": "A char is generally a single byte, or eight bits."
+    },
+    {
+      "index": 472,
+      "start_time": 1276850.0,
+      "end_time": 1279808.0,
+      "text": "And it represents a single character, like the letter A, or the capital"
+    },
+    {
+      "index": 473,
+      "start_time": 1279810.0,
+      "end_time": 1281990.0,
+      "text": "letter A, or the lowercase letter A, or an exclamation point,"
+    },
+    {
+      "index": 474,
+      "start_time": 1281990.0,
+      "end_time": 1285440.0,
+      "text": "or any character that you can type on your keyboard, and sometimes even more."
+    },
+    {
+      "index": 475,
+      "start_time": 1285440.0,
+      "end_time": 1286795.0,
+      "text": "We also happen to see floats."
+    },
+    {
+      "index": 476,
+      "start_time": 1286800.0,
+      "end_time": 1291165.0,
+      "text": "A float is, generally, a 32-bit value, or four bytes"
+    },
+    {
+      "index": 477,
+      "start_time": 1291160.0,
+      "end_time": 1293660.0,
+      "text": "because again, one byte is eight bits."
+    },
+    {
+      "index": 478,
+      "start_time": 1293660.0,
+      "end_time": 1296675.0,
+      "text": ">> So a float is a floating point value, something with a decimal point."
+    },
+    {
+      "index": 479,
+      "start_time": 1296680.0,
+      "end_time": 1298555.0,
+      "text": "And indeed, that's what the movie was talking"
+    },
+    {
+      "index": 480,
+      "start_time": 1298550.0,
+      "end_time": 1302240.0,
+      "text": "about when they spoke about floating point values, some fixed number of bits"
+    },
+    {
+      "index": 481,
+      "start_time": 1302240.0,
+      "end_time": 1303940.0,
+      "text": "being used to represent a real number."
+    },
+    {
+      "index": 482,
+      "start_time": 1303940.0,
+      "end_time": 1305740.0,
+      "text": "But there's also things called doubles."
+    },
+    {
+      "index": 483,
+      "start_time": 1305740.0,
+      "end_time": 1307860.0,
+      "text": "These exist in Java, if you've taken APCS,"
+    },
+    {
+      "index": 484,
+      "start_time": 1307860.0,
+      "end_time": 1311540.0,
+      "text": "and a double, as the name thankfully suggests, is twice as big as a float."
+    },
+    {
+      "index": 485,
+      "start_time": 1311540.0,
+      "end_time": 1314540.0,
+      "text": "It's still a real number, it just has more bits"
+    },
+    {
+      "index": 486,
+      "start_time": 1314540.0,
+      "end_time": 1318390.0,
+      "text": "with which to be ever more precise, or to store even larger numbers."
+    },
+    {
+      "index": 487,
+      "start_time": 1318390.0,
+      "end_time": 1318890.0,
+      "text": "int is easy."
+    },
+    {
+      "index": 488,
+      "start_time": 1318890.0,
+      "end_time": 1320181.0,
+      "text": "We talked about that last time."
+    },
+    {
+      "index": 489,
+      "start_time": 1320180.0,
+      "end_time": 1321159.0,
+      "text": "It's just an integer."
+    },
+    {
+      "index": 490,
+      "start_time": 1321160.0,
+      "end_time": 1323980.0,
+      "text": "And it's generally 32 bits, or four bytes."
+    },
+    {
+      "index": 491,
+      "start_time": 1323980.0,
+      "end_time": 1327850.0,
+      "text": ">> And so, if you have, let's see now, 32 bits-- and we did this in week 0,"
+    },
+    {
+      "index": 492,
+      "start_time": 1327850.0,
+      "end_time": 1330820.0,
+      "text": "ever so briefly-- if you have 32 bits, what's the biggest"
+    },
+    {
+      "index": 493,
+      "start_time": 1330820.0,
+      "end_time": 1333580.0,
+      "text": "number you can represent as an integer?"
+    },
+    {
+      "index": 494,
+      "start_time": 1333580.0,
+      "end_time": 1336080.0,
+      "text": "Give or take?"
+    },
+    {
+      "index": 495,
+      "start_time": 1336080.0,
+      "end_time": 1338380.0,
+      "text": "It's like 4 billion, and that's only if we're"
+    },
+    {
+      "index": 496,
+      "start_time": 1338380.0,
+      "end_time": 1340690.0,
+      "text": "representing positive numbers only."
+    },
+    {
+      "index": 497,
+      "start_time": 1340690.0,
+      "end_time": 1343930.0,
+      "text": "If you have 32 bits, and you want to represent negative numbers as well,"
+    },
+    {
+      "index": 498,
+      "start_time": 1343930.0,
+      "end_time": 1347100.0,
+      "text": "your range is, essentially, negative 2 billion to positive 2 billion."
+    },
+    {
+      "index": 499,
+      "start_time": 1347100.0,
+      "end_time": 1349250.0,
+      "text": "But generally, we'll start at 0 go up to 4 billion."
+    },
+    {
+      "index": 500,
+      "start_time": 1349250.0,
+      "end_time": 1352400.0,
+      "text": ">> You don't have to know precisely, but we can see this, in fact, if I just"
+    },
+    {
+      "index": 501,
+      "start_time": 1352400.0,
+      "end_time": 1356400.0,
+      "text": "open up a little calculator, here."
+    },
+    {
+      "index": 502,
+      "start_time": 1356400.0,
+      "end_time": 1361070.0,
+      "text": "I can do 2 the 32, and that's exactly how big,"
+    },
+    {
+      "index": 503,
+      "start_time": 1361070.0,
+      "end_time": 1363190.0,
+      "text": "how many values you can represent, with 32 bits."
+    },
+    {
+      "index": 504,
+      "start_time": 1363190.0,
+      "end_time": 1364442.0,
+      "text": "And it's roughly 4 billion."
+    },
+    {
+      "index": 505,
+      "start_time": 1364440.0,
+      "end_time": 1366898.0,
+      "text": "So we'll keep seeing that number in a few different places."
+    },
+    {
+      "index": 506,
+      "start_time": 1366900.0,
+      "end_time": 1368890.0,
+      "text": "But if you need longer numbers than that,"
+    },
+    {
+      "index": 507,
+      "start_time": 1368890.0,
+      "end_time": 1371670.0,
+      "text": "it turns out there's something called a long long."
+    },
+    {
+      "index": 508,
+      "start_time": 1371670.0,
+      "end_time": 1374005.0,
+      "text": "And a long long is generally 64 bits, which"
+    },
+    {
+      "index": 509,
+      "start_time": 1374010.0,
+      "end_time": 1376385.0,
+      "text": "means it's an order of magnitude even bigger than an int."
+    },
+    {
+      "index": 510,
+      "start_time": 1376380.0,
+      "end_time": 1379510.0,
+      "text": ">> So I can't even pronounce the biggest number that you can represent,"
+    },
+    {
+      "index": 511,
+      "start_time": 1379510.0,
+      "end_time": 1381340.0,
+      "text": "but it's markedly bigger."
+    },
+    {
+      "index": 512,
+      "start_time": 1381340.0,
+      "end_time": 1385190.0,
+      "text": "Now as an aside, historically, if an int is 32 bits,"
+    },
+    {
+      "index": 513,
+      "start_time": 1385190.0,
+      "end_time": 1392780.0,
+      "text": "and a long long is 64 bits, how big is a long, not a long long?"
+    },
+    {
+      "index": 514,
+      "start_time": 1396500.0,
+      "end_time": 1400330.0,
+      "text": "You'd think it's longer than an int but maybe less long than a long long,"
+    },
+    {
+      "index": 515,
+      "start_time": 1400330.0,
+      "end_time": 1401400.0,
+      "text": "but it actually depends."
+    },
+    {
+      "index": 516,
+      "start_time": 1401400.0,
+      "end_time": 1403400.0,
+      "text": ">> And so it turns out one of the frustrations too,"
+    },
+    {
+      "index": 517,
+      "start_time": 1403400.0,
+      "end_time": 1406830.0,
+      "text": "with writing code on certain systems, is that not all of these data types"
+    },
+    {
+      "index": 518,
+      "start_time": 1406830.0,
+      "end_time": 1408440.0,
+      "text": "have pre-determined values."
+    },
+    {
+      "index": 519,
+      "start_time": 1408440.0,
+      "end_time": 1409771.0,
+      "text": "Sometimes it's this many bits."
+    },
+    {
+      "index": 520,
+      "start_time": 1409770.0,
+      "end_time": 1411019.0,
+      "text": "Sometimes it's that many bits."
+    },
+    {
+      "index": 521,
+      "start_time": 1411020.0,
+      "end_time": 1412750.0,
+      "text": "So you actually have to know, sometimes, what hardware"
+    },
+    {
+      "index": 522,
+      "start_time": 1412750.0,
+      "end_time": 1414083.0,
+      "text": "you're running your software on."
+    },
+    {
+      "index": 523,
+      "start_time": 1414080.0,
+      "end_time": 1416957.0,
+      "text": "Thankfully, other languages and other data types that now exist,"
+    },
+    {
+      "index": 524,
+      "start_time": 1416960.0,
+      "end_time": 1418400.0,
+      "text": "allow you to be more precise."
+    },
+    {
+      "index": 525,
+      "start_time": 1418400.0,
+      "end_time": 1421220.0,
+      "text": "Well, we saw string, and we saw bool, too,"
+    },
+    {
+      "index": 526,
+      "start_time": 1421220.0,
+      "end_time": 1423960.0,
+      "text": "but it turns out those come only with the CS50 library."
+    },
+    {
+      "index": 527,
+      "start_time": 1423960.0,
+      "end_time": 1426240.0,
+      "text": "So those are not built into C. Those instead,"
+    },
+    {
+      "index": 528,
+      "start_time": 1426240.0,
+      "end_time": 1429340.0,
+      "text": "come in that file called CS50.h, that we'll eventually"
+    },
+    {
+      "index": 529,
+      "start_time": 1429340.0,
+      "end_time": 1431831.0,
+      "text": "peel back the layers of."
+    },
+    {
+      "index": 530,
+      "start_time": 1431830.0,
+      "end_time": 1433829.0,
+      "text": "But for now, they're just additional data types."
+    },
+    {
+      "index": 531,
+      "start_time": 1433830.0,
+      "end_time": 1437060.0,
+      "text": "A bool is a true or false, and a string is a sequence of characters,"
+    },
+    {
+      "index": 532,
+      "start_time": 1437060.0,
+      "end_time": 1437970.0,
+      "text": "like a word."
+    },
+    {
+      "index": 533,
+      "start_time": 1437970.0,
+      "end_time": 1441690.0,
+      "text": "Now printf, we've seen, has placeholders, %s is one."
+    },
+    {
+      "index": 534,
+      "start_time": 1441690.0,
+      "end_time": 1445430.0,
+      "text": "And you might be able, to now, infer from these other examples, how"
+    },
+    {
+      "index": 535,
+      "start_time": 1445430.0,
+      "end_time": 1447720.0,
+      "text": "you could have a placeholder for different data types."
+    },
+    {
+      "index": 536,
+      "start_time": 1447720.0,
+      "end_time": 1451150.0,
+      "text": "For instance, take a guess, if you wanted to print out a single char using"
+    },
+    {
+      "index": 537,
+      "start_time": 1451150.0,
+      "end_time": 1455270.0,
+      "text": "printf, the placeholder is probably %c."
+    },
+    {
+      "index": 538,
+      "start_time": 1455270.0,
+      "end_time": 1459650.0,
+      "text": "And if you want to print out an integer with the placeholder, %i."
+    },
+    {
+      "index": 539,
+      "start_time": 1459650.0,
+      "end_time": 1465150.0,
+      "text": "%lld is a long long decimal value, but long long, so that maps to that."
+    },
+    {
+      "index": 540,
+      "start_time": 1465150.0,
+      "end_time": 1468640.0,
+      "text": "And then %f for floating point value or for a double,"
+    },
+    {
+      "index": 541,
+      "start_time": 1468640.0,
+      "end_time": 1471270.0,
+      "text": "so sometimes they're re-used in different contexts."
+    },
+    {
+      "index": 542,
+      "start_time": 1471270.0,
+      "end_time": 1473350.0,
+      "text": "So we'll see and use some of those over time."
+    },
+    {
+      "index": 543,
+      "start_time": 1473350.0,
+      "end_time": 1476420.0,
+      "text": "And printf and other functions also support others' escape sequences,"
+    },
+    {
+      "index": 544,
+      "start_time": 1476420.0,
+      "end_time": 1478080.0,
+      "text": "and sometimes, these are necessary."
+    },
+    {
+      "index": 545,
+      "start_time": 1478080.0,
+      "end_time": 1479770.0,
+      "text": "So backslash n is a new line."
+    },
+    {
+      "index": 546,
+      "start_time": 1479770.0,
+      "end_time": 1482886.0,
+      "text": "Backslash t, does anyone want to take a stab?"
+    },
+    {
+      "index": 547,
+      "start_time": 1482890.0,
+      "end_time": 1483764.0,
+      "text": "AUDIENCE MEMBER: Tab."
+    },
+    {
+      "index": 548,
+      "start_time": 1483760.0,
+      "end_time": 1484551.0,
+      "text": "DAVID J MALAN: Tab."
+    },
+    {
+      "index": 549,
+      "start_time": 1484550.0,
+      "end_time": 1486809.0,
+      "text": "So if you actually want to print out a tab, not"
+    },
+    {
+      "index": 550,
+      "start_time": 1486810.0,
+      "end_time": 1489940.0,
+      "text": "a fixed number of spaces but an actual tab character, you don't hit your,"
+    },
+    {
+      "index": 551,
+      "start_time": 1489940.0,
+      "end_time": 1493490.0,
+      "text": "tab, key on the keyboard, generally, you actually do backslash t."
+    },
+    {
+      "index": 552,
+      "start_time": 1493490.0,
+      "end_time": 1497750.0,
+      "text": "Backslash double quote, why would I ever want that?"
+    },
+    {
+      "index": 553,
+      "start_time": 1497750.0,
+      "end_time": 1498250.0,
+      "text": "Right?"
+    },
+    {
+      "index": 554,
+      "start_time": 1498250.0,
+      "end_time": 1500417.0,
+      "text": "Why can't I just type a double quote on my keyboard?"
+    },
+    {
+      "index": 555,
+      "start_time": 1500420.0,
+      "end_time": 1502127.0,
+      "text": "AUDIENCE MEMBER: Because, otherwise, it's"
+    },
+    {
+      "index": 556,
+      "start_time": 1502120.0,
+      "end_time": 1504826.0,
+      "text": "going to think it's the end of like your print [? text. ?]"
+    },
+    {
+      "index": 557,
+      "start_time": 1504830.0,
+      "end_time": 1505420.0,
+      "text": ">> DAVID J MALAN: Exactly."
+    },
+    {
+      "index": 558,
+      "start_time": 1505420.0,
+      "end_time": 1507211.0,
+      "text": "Remember, with our printf examples, when we"
+    },
+    {
+      "index": 559,
+      "start_time": 1507210.0,
+      "end_time": 1510074.0,
+      "text": "were passing to printf in input, on the left of that input string"
+    },
+    {
+      "index": 560,
+      "start_time": 1510070.0,
+      "end_time": 1512945.0,
+      "text": "and on the right of that input spring, of course, was a double quote."
+    },
+    {
+      "index": 561,
+      "start_time": 1512950.0,
+      "end_time": 1516270.0,
+      "text": "If your own input has a double quote in the middle of that,"
+    },
+    {
+      "index": 562,
+      "start_time": 1516270.0,
+      "end_time": 1518920.0,
+      "text": "the computer might potentially get confused, as to,"
+    },
+    {
+      "index": 563,
+      "start_time": 1518920.0,
+      "end_time": 1520760.0,
+      "text": "does this double quote belong in the middle?"
+    },
+    {
+      "index": 564,
+      "start_time": 1520760.0,
+      "end_time": 1522150.0,
+      "text": "Does it belong with the left one?"
+    },
+    {
+      "index": 565,
+      "start_time": 1522150.0,
+      "end_time": 1523566.0,
+      "text": "Does it belong with the right one?"
+    },
+    {
+      "index": 566,
+      "start_time": 1523570.0,
+      "end_time": 1526784.0,
+      "text": "And so, if you want to make it super clear, you do backslash double quote,"
+    },
+    {
+      "index": 567,
+      "start_time": 1526780.0,
+      "end_time": 1530480.0,
+      "text": "so that it's escaped, so to speak, and it's not conflated for something else."
+    },
+    {
+      "index": 568,
+      "start_time": 1530480.0,
+      "end_time": 1534400.0,
+      "text": "And there's a few others here, backslash r, single quotes, 0,"
+    },
+    {
+      "index": 569,
+      "start_time": 1534400.0,
+      "end_time": 1536510.0,
+      "text": "that we may see over time, as well."
+    },
+    {
+      "index": 570,
+      "start_time": 1536510.0,
+      "end_time": 1537760.0,
+      "text": "And now, what about functions?"
+    },
+    {
+      "index": 571,
+      "start_time": 1537760.0,
+      "end_time": 1541630.0,
+      "text": ">> So actions that we can take thus far in this language, C, well, we've seen,"
+    },
+    {
+      "index": 572,
+      "start_time": 1541630.0,
+      "end_time": 1544320.0,
+      "text": "printf, of course, and all of the others on the screen,"
+    },
+    {
+      "index": 573,
+      "start_time": 1544320.0,
+      "end_time": 1547140.0,
+      "text": "here, that we'll use for the course's first few weeks only,"
+    },
+    {
+      "index": 574,
+      "start_time": 1547140.0,
+      "end_time": 1548485.0,
+      "text": "come when the CS50 library."
+    },
+    {
+      "index": 575,
+      "start_time": 1548480.0,
+      "end_time": 1551845.0,
+      "text": "And they make it much easier, in C, to actually get user input."
+    },
+    {
+      "index": 576,
+      "start_time": 1551850.0,
+      "end_time": 1554200.0,
+      "text": "It turns out that in C, and frankly in a few languages,"
+    },
+    {
+      "index": 577,
+      "start_time": 1554200.0,
+      "end_time": 1557450.0,
+      "text": "it's a real pain in the neck to do something simple, like prompt the user"
+    },
+    {
+      "index": 578,
+      "start_time": 1557450.0,
+      "end_time": 1561310.0,
+      "text": "for keyboard, for his or her input."
+    },
+    {
+      "index": 579,
+      "start_time": 1561310.0,
+      "end_time": 1563240.0,
+      "text": "And so these functions make it easier."
+    },
+    {
+      "index": 580,
+      "start_time": 1563240.0,
+      "end_time": 1565472.0,
+      "text": ">> And it also has error checking throughout,"
+    },
+    {
+      "index": 581,
+      "start_time": 1565470.0,
+      "end_time": 1567178.0,
+      "text": "so that, when you recall on Wednesday, we"
+    },
+    {
+      "index": 582,
+      "start_time": 1567180.0,
+      "end_time": 1569740.0,
+      "text": "saw the, retry, warning, when I didn't cooperate,"
+    },
+    {
+      "index": 583,
+      "start_time": 1569740.0,
+      "end_time": 1571700.0,
+      "text": "and I typed a word, instead of a number?"
+    },
+    {
+      "index": 584,
+      "start_time": 1571700.0,
+      "end_time": 1575402.0,
+      "text": "We've done the heavy lifting early on to make sure the user cooperates."
+    },
+    {
+      "index": 585,
+      "start_time": 1575400.0,
+      "end_time": 1577858.0,
+      "text": "But these are just training wheels that we will eventually,"
+    },
+    {
+      "index": 586,
+      "start_time": 1577860.0,
+      "end_time": 1579640.0,
+      "text": "and quickly, take off."
+    },
+    {
+      "index": 587,
+      "start_time": 1579640.0,
+      "end_time": 1582630.0,
+      "text": ">> So to recap, then, let's take a quick look,"
+    },
+    {
+      "index": 588,
+      "start_time": 1582630.0,
+      "end_time": 1586620.0,
+      "text": "much like we did with Scratch, at some canonical constructs in C."
+    },
+    {
+      "index": 589,
+      "start_time": 1586620.0,
+      "end_time": 1588580.0,
+      "text": "This is meant to, sort of, be a whirlwind tour,"
+    },
+    {
+      "index": 590,
+      "start_time": 1588580.0,
+      "end_time": 1590990.0,
+      "text": "just so that you have a reference and that you've seen things at first."
+    },
+    {
+      "index": 591,
+      "start_time": 1590990.0,
+      "end_time": 1594100.0,
+      "text": "But then we'll look at actual coding use some of these building blocks."
+    },
+    {
+      "index": 592,
+      "start_time": 1594100.0,
+      "end_time": 1596710.0,
+      "text": "So much like in Scratch, when we had statements like,"
+    },
+    {
+      "index": 593,
+      "start_time": 1596710.0,
+      "end_time": 1601570.0,
+      "text": "say or, wait, in C, we do have functions as well, like printf."
+    },
+    {
+      "index": 594,
+      "start_time": 1601570.0,
+      "end_time": 1605350.0,
+      "text": ">> If we want to express a condition in C, it's similar, in spirit,"
+    },
+    {
+      "index": 595,
+      "start_time": 1605350.0,
+      "end_time": 1607840.0,
+      "text": "to that puzzle piece that looked like this in Scratch."
+    },
+    {
+      "index": 596,
+      "start_time": 1607840.0,
+      "end_time": 1609850.0,
+      "text": "But instead, we literally just write, if."
+    },
+    {
+      "index": 597,
+      "start_time": 1609850.0,
+      "end_time": 1611830.0,
+      "text": "And then, in parentheses, we put a condition,"
+    },
+    {
+      "index": 598,
+      "start_time": 1611830.0,
+      "end_time": 1614807.0,
+      "text": "where that condition is what we'll call, again, a boolean expression."
+    },
+    {
+      "index": 599,
+      "start_time": 1614810.0,
+      "end_time": 1616393.0,
+      "text": "And again, this is sort of pseudocode."
+    },
+    {
+      "index": 600,
+      "start_time": 1616390.0,
+      "end_time": 1618830.0,
+      "text": "And, in fact, the // is a comment."
+    },
+    {
+      "index": 601,
+      "start_time": 1618830.0,
+      "end_time": 1620550.0,
+      "text": "It's just English words to myself."
+    },
+    {
+      "index": 602,
+      "start_time": 1620550.0,
+      "end_time": 1623000.0,
+      "text": "But this is the general structure of an, if, condition."
+    },
+    {
+      "index": 603,
+      "start_time": 1623000.0,
+      "end_time": 1625220.0,
+      "text": "But we'll see concrete examples in just a moment."
+    },
+    {
+      "index": 604,
+      "start_time": 1625220.0,
+      "end_time": 1627960.0,
+      "text": ">> If you want to have a two-way fork in the road,"
+    },
+    {
+      "index": 605,
+      "start_time": 1627960.0,
+      "end_time": 1631740.0,
+      "text": "much like we did with our volunteer on Wednesday, you can have an, else if."
+    },
+    {
+      "index": 606,
+      "start_time": 1631740.0,
+      "end_time": 1636020.0,
+      "text": "And if you want to have a third and final condition, or default situation,"
+    },
+    {
+      "index": 607,
+      "start_time": 1636020.0,
+      "end_time": 1639006.0,
+      "text": "you can have just an else block, there."
+    },
+    {
+      "index": 608,
+      "start_time": 1639010.0,
+      "end_time": 1641884.0,
+      "text": "And similarly, with boolean expressions, you can, and, them together."
+    },
+    {
+      "index": 609,
+      "start_time": 1641880.0,
+      "end_time": 1644296.0,
+      "text": "And we saw on Wednesday, that it's not a single ampersand,"
+    },
+    {
+      "index": 610,
+      "start_time": 1644300.0,
+      "end_time": 1648224.0,
+      "text": "it's two, for lower-level reasons that we'll eventually see and play with."
+    },
+    {
+      "index": 611,
+      "start_time": 1648220.0,
+      "end_time": 1650410.0,
+      "text": "Or-ing things together is 2 vertical bars."
+    },
+    {
+      "index": 612,
+      "start_time": 1650410.0,
+      "end_time": 1652240.0,
+      "text": "On a US keyboard, this is generally a key"
+    },
+    {
+      "index": 613,
+      "start_time": 1652240.0,
+      "end_time": 1655730.0,
+      "text": "with the Shift key above your Enter key or Return key."
+    },
+    {
+      "index": 614,
+      "start_time": 1655730.0,
+      "end_time": 1658620.0,
+      "text": ">> Then there's these things that we'll use maybe once or twice."
+    },
+    {
+      "index": 615,
+      "start_time": 1658620.0,
+      "end_time": 1662570.0,
+      "text": "They are functionally equivalent to what you can do with an, if, else if,"
+    },
+    {
+      "index": 616,
+      "start_time": 1662570.0,
+      "end_time": 1664950.0,
+      "text": "else if else, construct, but they're called a switch."
+    },
+    {
+      "index": 617,
+      "start_time": 1664950.0,
+      "end_time": 1668020.0,
+      "text": "They look very different, but we'll see in some of our distribution code,"
+    },
+    {
+      "index": 618,
+      "start_time": 1668020.0,
+      "end_time": 1671890.0,
+      "text": "for a future problem set, most likely, that it's sometimes just a prettier"
+    },
+    {
+      "index": 619,
+      "start_time": 1671890.0,
+      "end_time": 1674060.0,
+      "text": "way of expressing a whole bunch of conditions,"
+    },
+    {
+      "index": 620,
+      "start_time": 1674060.0,
+      "end_time": 1677590.0,
+      "text": "without having a lot of curly braces and a lot of parentheses and indentation."
+    },
+    {
+      "index": 621,
+      "start_time": 1677590.0,
+      "end_time": 1681910.0,
+      "text": "But they give us no more power than we have already."
+    },
+    {
+      "index": 622,
+      "start_time": 1681910.0,
+      "end_time": 1682550.0,
+      "text": "And now loops."
+    },
+    {
+      "index": 623,
+      "start_time": 1682550.0,
+      "end_time": 1685020.0,
+      "text": "And this one, we'll look at a little more slowly."
+    },
+    {
+      "index": 624,
+      "start_time": 1685020.0,
+      "end_time": 1688470.0,
+      "text": "But then, we'll start to use these, especially for those already familiar."
+    },
+    {
+      "index": 625,
+      "start_time": 1688470.0,
+      "end_time": 1693830.0,
+      "text": "This is the canonical way, if incredibly arcane way, to write a loop in C."
+    },
+    {
+      "index": 626,
+      "start_time": 1693830.0,
+      "end_time": 1695896.0,
+      "text": ">> Now a loop in Scratch was pretty straightforward."
+    },
+    {
+      "index": 627,
+      "start_time": 1695900.0,
+      "end_time": 1697024.0,
+      "text": "You have a, forever, block."
+    },
+    {
+      "index": 628,
+      "start_time": 1697020.0,
+      "end_time": 1699760.0,
+      "text": "You have a, repeat, block with just a number you have to type in."
+    },
+    {
+      "index": 629,
+      "start_time": 1699760.0,
+      "end_time": 1702220.0,
+      "text": "And with the, for loop, you can implement both of those ideas,"
+    },
+    {
+      "index": 630,
+      "start_time": 1702220.0,
+      "end_time": 1703595.0,
+      "text": "but it's a little more technical."
+    },
+    {
+      "index": 631,
+      "start_time": 1703590.0,
+      "end_time": 1705989.0,
+      "text": "But frankly, it's also relatively simple."
+    },
+    {
+      "index": 632,
+      "start_time": 1705990.0,
+      "end_time": 1708156.0,
+      "text": "Once you know the order of operations, you literally"
+    },
+    {
+      "index": 633,
+      "start_time": 1708160.0,
+      "end_time": 1710910.0,
+      "text": "are just going to plug in values and tell the computer what to do."
+    },
+    {
+      "index": 634,
+      "start_time": 1710910.0,
+      "end_time": 1712800.0,
+      "text": "So here's an example."
+    },
+    {
+      "index": 635,
+      "start_time": 1712800.0,
+      "end_time": 1718040.0,
+      "text": "This is a loop that, quite simply, counts from one number up"
+    },
+    {
+      "index": 636,
+      "start_time": 1718040.0,
+      "end_time": 1720187.0,
+      "text": "through another."
+    },
+    {
+      "index": 637,
+      "start_time": 1720190.0,
+      "end_time": 1722023.0,
+      "text": "And just by glancing at it, even if you have"
+    },
+    {
+      "index": 638,
+      "start_time": 1722020.0,
+      "end_time": 1724660.0,
+      "text": "no prior experience with this language, what number"
+    },
+    {
+      "index": 639,
+      "start_time": 1724660.0,
+      "end_time": 1726920.0,
+      "text": "does it probably start counting at?"
+    },
+    {
+      "index": 640,
+      "start_time": 1726920.0,
+      "end_time": 1727730.0,
+      "text": "OK, 0."
+    },
+    {
+      "index": 641,
+      "start_time": 1727730.0,
+      "end_time": 1730240.0,
+      "text": "And I'm guessing that's because you see that there's an int and an i,"
+    },
+    {
+      "index": 642,
+      "start_time": 1730240.0,
+      "end_time": 1731073.0,
+      "text": "which is a variable."
+    },
+    {
+      "index": 643,
+      "start_time": 1731070.0,
+      "end_time": 1732387.0,
+      "text": "It's initialized to 0."
+    },
+    {
+      "index": 644,
+      "start_time": 1732390.0,
+      "end_time": 1735670.0,
+      "text": ">> And then later, it looks like we're passing printf, a value."
+    },
+    {
+      "index": 645,
+      "start_time": 1735670.0,
+      "end_time": 1738000.0,
+      "text": "And, in fact, I made a little typo here."
+    },
+    {
+      "index": 646,
+      "start_time": 1738000.0,
+      "end_time": 1739850.0,
+      "text": "But that's easily fixed."
+    },
+    {
+      "index": 647,
+      "start_time": 1739850.0,
+      "end_time": 1742390.0,
+      "text": "Let me add in ,i here."
+    },
+    {
+      "index": 648,
+      "start_time": 1742390.0,
+      "end_time": 1746150.0,
+      "text": "We now have printf being passed that placeholder value."
+    },
+    {
+      "index": 649,
+      "start_time": 1746150.0,
+      "end_time": 1748299.0,
+      "text": "And what's going to count up through?"
+    },
+    {
+      "index": 650,
+      "start_time": 1748300.0,
+      "end_time": 1748841.0,
+      "text": "AUDIENCE: 50."
+    },
+    {
+      "index": 651,
+      "start_time": 1748840.0,
+      "end_time": 1749340.0,
+      "text": "50."
+    },
+    {
+      "index": 652,
+      "start_time": 1749340.0,
+      "end_time": 1750160.0,
+      "text": "49."
+    },
+    {
+      "index": 653,
+      "start_time": 1750160.0,
+      "end_time": 1750910.0,
+      "text": "DAVID J MALAN: 49."
+    },
+    {
+      "index": 654,
+      "start_time": 1750910.0,
+      "end_time": 1753340.0,
+      "text": "So 50, at first glance, seems right."
+    },
+    {
+      "index": 655,
+      "start_time": 1753340.0,
+      "end_time": 1756990.0,
+      "text": "But that, it turns out, is going to be our condition that we keep checking."
+    },
+    {
+      "index": 656,
+      "start_time": 1756990.0,
+      "end_time": 1761740.0,
+      "text": "And we're going to stop once i is no longer less than 50."
+    },
+    {
+      "index": 657,
+      "start_time": 1761740.0,
+      "end_time": 1764920.0,
+      "text": "So this loop, conversely, should execute, so long as i is less than 50."
+    },
+    {
+      "index": 658,
+      "start_time": 1764920.0,
+      "end_time": 1768891.0,
+      "text": "But as soon as it becomes 50, or 51, or worse, it should stop automatically."
+    },
+    {
+      "index": 659,
+      "start_time": 1768890.0,
+      "end_time": 1769389.0,
+      "text": "All right."
+    },
+    {
+      "index": 660,
+      "start_time": 1769390.0,
+      "end_time": 1771200.0,
+      "text": ">> So what actually happens here?"
+    },
+    {
+      "index": 661,
+      "start_time": 1771200.0,
+      "end_time": 1773160.0,
+      "text": "So this is the order of operations for a loop."
+    },
+    {
+      "index": 662,
+      "start_time": 1773160.0,
+      "end_time": 1775440.0,
+      "text": "One, you have the so-called initialization."
+    },
+    {
+      "index": 663,
+      "start_time": 1775440.0,
+      "end_time": 1778264.0,
+      "text": "This yellow highlighted chunk of code is executed first,"
+    },
+    {
+      "index": 664,
+      "start_time": 1778260.0,
+      "end_time": 1780926.0,
+      "text": "and it has the effect that, per Wednesday, you probably imagine."
+    },
+    {
+      "index": 665,
+      "start_time": 1780930.0,
+      "end_time": 1785500.0,
+      "text": "It creates a variable called i and it stores in that variable the value 0."
+    },
+    {
+      "index": 666,
+      "start_time": 1785500.0,
+      "end_time": 1787560.0,
+      "text": "So i is 0 at this point in the story."
+    },
+    {
+      "index": 667,
+      "start_time": 1787560.0,
+      "end_time": 1789680.0,
+      "text": ">> The next thing that happens in this construct,"
+    },
+    {
+      "index": 668,
+      "start_time": 1789680.0,
+      "end_time": 1791540.0,
+      "text": "is that the condition gets checked."
+    },
+    {
+      "index": 669,
+      "start_time": 1791540.0,
+      "end_time": 1794325.0,
+      "text": "So I check immediately, is i less than 50?"
+    },
+    {
+      "index": 670,
+      "start_time": 1794320.0,
+      "end_time": 1797695.0,
+      "text": "And of course, the answer for now is, surely, yes."
+    },
+    {
+      "index": 671,
+      "start_time": 1797700.0,
+      "end_time": 1800710.0,
+      "text": "Yes, because i is 0, and that's surely less than 50."
+    },
+    {
+      "index": 672,
+      "start_time": 1800710.0,
+      "end_time": 1803866.0,
+      "text": "Then what happens, is that this line of code gets executed."
+    },
+    {
+      "index": 673,
+      "start_time": 1803870.0,
+      "end_time": 1806744.0,
+      "text": "And in fact, if there's multiple lines of code in those curly braces,"
+    },
+    {
+      "index": 674,
+      "start_time": 1806740.0,
+      "end_time": 1809020.0,
+      "text": "they all get executed one after another."
+    },
+    {
+      "index": 675,
+      "start_time": 1809020.0,
+      "end_time": 1811450.0,
+      "text": ">> And in the effect here, is apparently, to print out"
+    },
+    {
+      "index": 676,
+      "start_time": 1811450.0,
+      "end_time": 1815365.0,
+      "text": "the number i, which is going to be 0, and then 1, and then 2."
+    },
+    {
+      "index": 677,
+      "start_time": 1815360.0,
+      "end_time": 1815860.0,
+      "text": "But why?"
+    },
+    {
+      "index": 678,
+      "start_time": 1815860.0,
+      "end_time": 1817405.0,
+      "text": "Why does it get incremented?"
+    },
+    {
+      "index": 679,
+      "start_time": 1817410.0,
+      "end_time": 1820680.0,
+      "text": "Well, the fourth thing that happens is that this syntax"
+    },
+    {
+      "index": 680,
+      "start_time": 1820680.0,
+      "end_time": 1822610.0,
+      "text": "gets executed, after the semicolon."
+    },
+    {
+      "index": 681,
+      "start_time": 1822610.0,
+      "end_time": 1827506.0,
+      "text": "i++ is a shorthand way of saying; take the value of i, and add 1 to it;"
+    },
+    {
+      "index": 682,
+      "start_time": 1827510.0,
+      "end_time": 1830384.0,
+      "text": "and then the next time around, add 1 to it; and the next time around,"
+    },
+    {
+      "index": 683,
+      "start_time": 1830380.0,
+      "end_time": 1831330.0,
+      "text": "add 1 to it."
+    },
+    {
+      "index": 684,
+      "start_time": 1831330.0,
+      "end_time": 1833640.0,
+      "text": ">> So if we keep going, what's going to happen"
+    },
+    {
+      "index": 685,
+      "start_time": 1833640.0,
+      "end_time": 1835890.0,
+      "text": "next is I'm not going to initialize i ever again."
+    },
+    {
+      "index": 686,
+      "start_time": 1835890.0,
+      "end_time": 1838290.0,
+      "text": "If I kept initializing i to 0, this example"
+    },
+    {
+      "index": 687,
+      "start_time": 1838290.0,
+      "end_time": 1841110.0,
+      "text": "would never end because i would be stuck at 0."
+    },
+    {
+      "index": 688,
+      "start_time": 1841110.0,
+      "end_time": 1843870.0,
+      "text": "But what is going to happen is that the condition will be checked,"
+    },
+    {
+      "index": 689,
+      "start_time": 1843870.0,
+      "end_time": 1854280.0,
+      "text": "the line of code will get executed, the i will be incremented,"
+    },
+    {
+      "index": 690,
+      "start_time": 1854280.0,
+      "end_time": 1856970.0,
+      "text": "condition will be checked, code will get executed."
+    },
+    {
+      "index": 691,
+      "start_time": 1856970.0,
+      "end_time": 1859790.0,
+      "text": "And it kept cycling again, and again, and again,"
+    },
+    {
+      "index": 692,
+      "start_time": 1859790.0,
+      "end_time": 1863340.0,
+      "text": "until i++ induces a value of 50."
+    },
+    {
+      "index": 693,
+      "start_time": 1863340.0,
+      "end_time": 1865870.0,
+      "text": ">> The condition then says, is 50 less than 50?"
+    },
+    {
+      "index": 694,
+      "start_time": 1865870.0,
+      "end_time": 1869360.0,
+      "text": "The answer, of course, is no, and so the whole code stops executing."
+    },
+    {
+      "index": 695,
+      "start_time": 1869360.0,
+      "end_time": 1873020.0,
+      "text": "And if you have more code on the screen down below, that's what happens next."
+    },
+    {
+      "index": 696,
+      "start_time": 1873020.0,
+      "end_time": 1877530.0,
+      "text": "It pops out of these curly braces and continues to print more after that."
+    },
+    {
+      "index": 697,
+      "start_time": 1877530.0,
+      "end_time": 1880470.0,
+      "text": ">> So a joke now, from FoxTrot, that you'll perhaps now understand."
+    },
+    {
+      "index": 698,
+      "start_time": 1890810.0,
+      "end_time": 1891560.0,
+      "text": "It's always funny."
+    },
+    {
+      "index": 699,
+      "start_time": 1891560.0,
+      "end_time": 1894110.0,
+      "text": "It's like the chuckles kind of percolate,"
+    },
+    {
+      "index": 700,
+      "start_time": 1894110.0,
+      "end_time": 1898370.0,
+      "text": "and then you realize you shouldn't be laughing at humor like this."
+    },
+    {
+      "index": 701,
+      "start_time": 1898370.0,
+      "end_time": 1901160.0,
+      "text": "But there is some takeaway here, pedagogically, too."
+    },
+    {
+      "index": 702,
+      "start_time": 1901160.0,
+      "end_time": 1903577.0,
+      "text": "So it turns out that I'm missing a piece of syntax,"
+    },
+    {
+      "index": 703,
+      "start_time": 1903580.0,
+      "end_time": 1905413.0,
+      "text": "or FoxTrot's missing a piece of syntax here."
+    },
+    {
+      "index": 704,
+      "start_time": 1905410.0,
+      "end_time": 1908076.0,
+      "text": "What's missing, that we've had in every other example, thus far?"
+    },
+    {
+      "index": 705,
+      "start_time": 1911600.0,
+      "end_time": 1913391.0,
+      "text": "Return, is there, so that's something else,"
+    },
+    {
+      "index": 706,
+      "start_time": 1913390.0,
+      "end_time": 1914440.0,
+      "text": "that we'll come back to before long."
+    },
+    {
+      "index": 707,
+      "start_time": 1914440.0,
+      "end_time": 1915398.0,
+      "text": "What's missing, though?"
+    },
+    {
+      "index": 708,
+      "start_time": 1915400.0,
+      "end_time": 1915910.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 709,
+      "start_time": 1915910.0,
+      "end_time": 1918152.0,
+      "text": ">> AUDIENCE MEMBER: The initialization of [INAUDIBLE]."
+    },
+    {
+      "index": 710,
+      "start_time": 1918150.0,
+      "end_time": 1918470.0,
+      "text": ">> DAVID J MALAN: OK."
+    },
+    {
+      "index": 711,
+      "start_time": 1918470.0,
+      "end_time": 1918980.0,
+      "text": "So yeah."
+    },
+    {
+      "index": 712,
+      "start_time": 1918980.0,
+      "end_time": 1923210.0,
+      "text": "So actually, this is-- Well, and count is initialized"
+    },
+    {
+      "index": 713,
+      "start_time": 1923210.0,
+      "end_time": 1925470.0,
+      "text": "up above, or rather, declared up above."
+    },
+    {
+      "index": 714,
+      "start_time": 1925470.0,
+      "end_time": 1926960.0,
+      "text": "So this is another way of doing it."
+    },
+    {
+      "index": 715,
+      "start_time": 1926960.0,
+      "end_time": 1928685.0,
+      "text": "But not in one line it's valid though."
+    },
+    {
+      "index": 716,
+      "start_time": 1928690.0,
+      "end_time": 1929315.0,
+      "text": "How about here?"
+    },
+    {
+      "index": 717,
+      "start_time": 1929310.0,
+      "end_time": 1930196.0,
+      "text": ">> AUDIENCE MEMBER: Is it the curly braces?"
+    },
+    {
+      "index": 718,
+      "start_time": 1930200.0,
+      "end_time": 1930644.0,
+      "text": ">> DAVID J MALAN: Yeah."
+    },
+    {
+      "index": 719,
+      "start_time": 1930640.0,
+      "end_time": 1932080.0,
+      "text": "So the curly braces are missing."
+    },
+    {
+      "index": 720,
+      "start_time": 1932080.0,
+      "end_time": 1935495.0,
+      "text": "But this code, I mean, to their credit, is actually, syntactically valid."
+    },
+    {
+      "index": 721,
+      "start_time": 1935490.0,
+      "end_time": 1937605.0,
+      "text": "It turns out, you don't need the curly braces"
+    },
+    {
+      "index": 722,
+      "start_time": 1937610.0,
+      "end_time": 1941691.0,
+      "text": "if you only have one line of code that you want to execute inside of the loop."
+    },
+    {
+      "index": 723,
+      "start_time": 1941690.0,
+      "end_time": 1944189.0,
+      "text": "Now we always, in class and in all of our distribution code,"
+    },
+    {
+      "index": 724,
+      "start_time": 1944190.0,
+      "end_time": 1946730.0,
+      "text": "include the curly braces anyway, just for clarity's sake."
+    },
+    {
+      "index": 725,
+      "start_time": 1946730.0,
+      "end_time": 1949010.0,
+      "text": "But realize that in textbooks and online examples,"
+    },
+    {
+      "index": 726,
+      "start_time": 1949010.0,
+      "end_time": 1951300.0,
+      "text": "you may very well see curly braces missing sometime."
+    },
+    {
+      "index": 727,
+      "start_time": 1951300.0,
+      "end_time": 1954850.0,
+      "text": "And that's OK, if what you have indented and intended"
+    },
+    {
+      "index": 728,
+      "start_time": 1954850.0,
+      "end_time": 1958650.0,
+      "text": "is just a single line of code, and not multiple lines of code, potentially."
+    },
+    {
+      "index": 729,
+      "start_time": 1958650.0,
+      "end_time": 1959150.0,
+      "text": "All right."
+    },
+    {
+      "index": 730,
+      "start_time": 1959150.0,
+      "end_time": 1964500.0,
+      "text": "So related to the issue of imprecision, is an issue of overflow,"
+    },
+    {
+      "index": 731,
+      "start_time": 1964500.0,
+      "end_time": 1968560.0,
+      "text": "in the sense that, similarly, do integers have limits to them"
+    },
+    {
+      "index": 732,
+      "start_time": 1968560.0,
+      "end_time": 1969970.0,
+      "text": "just like floating point values?"
+    },
+    {
+      "index": 733,
+      "start_time": 1969970.0,
+      "end_time": 1973120.0,
+      "text": "In the world a floating point values, we can only be so precise,"
+    },
+    {
+      "index": 734,
+      "start_time": 1973120.0,
+      "end_time": 1975710.0,
+      "text": "after which, sometimes bad things can happen,"
+    },
+    {
+      "index": 735,
+      "start_time": 1975710.0,
+      "end_time": 1977760.0,
+      "text": "and our programs can be buggy and error."
+    },
+    {
+      "index": 736,
+      "start_time": 1977760.0,
+      "end_time": 1980050.0,
+      "text": "Now even with integers, you can run into problems."
+    },
+    {
+      "index": 737,
+      "start_time": 1980050.0,
+      "end_time": 1983820.0,
+      "text": "Now an integer doesn't have a decimal point or numbers after it."
+    },
+    {
+      "index": 738,
+      "start_time": 1983820.0,
+      "end_time": 1987130.0,
+      "text": "It's just a natural number, typically."
+    },
+    {
+      "index": 739,
+      "start_time": 1987130.0,
+      "end_time": 1989430.0,
+      "text": "So what could go wrong with an int?"
+    },
+    {
+      "index": 740,
+      "start_time": 1989430.0,
+      "end_time": 1992210.0,
+      "text": "If I'm using an int to count, what could go wrong?"
+    },
+    {
+      "index": 741,
+      "start_time": 1992210.0,
+      "end_time": 1993230.0,
+      "text": "Seems a lot simpler."
+    },
+    {
+      "index": 742,
+      "start_time": 1993230.0,
+      "end_time": 1993873.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 743,
+      "start_time": 1993870.0,
+      "end_time": 1996237.0,
+      "text": ">> AUDIENCE MEMBER: If the number gets [INAUDIBLE]"
+    },
+    {
+      "index": 744,
+      "start_time": 1996240.0,
+      "end_time": 1997073.0,
+      "text": ">> DAVID J MALAN: Yeah."
+    },
+    {
+      "index": 745,
+      "start_time": 1997070.0,
+      "end_time": 2000817.0,
+      "text": "What if you count so high, that you can't express that really big number."
+    },
+    {
+      "index": 746,
+      "start_time": 2000820.0,
+      "end_time": 2001320.0,
+      "text": "Right?"
+    },
+    {
+      "index": 747,
+      "start_time": 2001320.0,
+      "end_time": 2003910.0,
+      "text": "At some point, you're going to exceed the boundaries"
+    },
+    {
+      "index": 748,
+      "start_time": 2003910.0,
+      "end_time": 2007077.0,
+      "text": "of a 32-bit value or a 64-bit value."
+    },
+    {
+      "index": 749,
+      "start_time": 2007080.0,
+      "end_time": 2009413.0,
+      "text": "Now again, I'm not sure how to pronounce a 64-bit value,"
+    },
+    {
+      "index": 750,
+      "start_time": 2009410.0,
+      "end_time": 2012230.0,
+      "text": "but I know with a 32-bit integer, the biggest value it can be,"
+    },
+    {
+      "index": 751,
+      "start_time": 2012230.0,
+      "end_time": 2015490.0,
+      "text": "if it's only positive values, is roughly 4 billion."
+    },
+    {
+      "index": 752,
+      "start_time": 2015490.0,
+      "end_time": 2019000.0,
+      "text": "So if I try to count to 5 billion, something's going to happen."
+    },
+    {
+      "index": 753,
+      "start_time": 2019000.0,
+      "end_time": 2021050.0,
+      "text": "But let's see what, in fact, can happen."
+    },
+    {
+      "index": 754,
+      "start_time": 2021050.0,
+      "end_time": 2024570.0,
+      "text": "In the world of integer overflow, where you, in a sense,"
+    },
+    {
+      "index": 755,
+      "start_time": 2024570.0,
+      "end_time": 2028270.0,
+      "text": "overflow the capacity of an integer, what might happen?"
+    },
+    {
+      "index": 756,
+      "start_time": 2028270.0,
+      "end_time": 2031190.0,
+      "text": ">> So here's a binary number, it's a throwback to 0."
+    },
+    {
+      "index": 757,
+      "start_time": 2031190.0,
+      "end_time": 2034630.0,
+      "text": "It's all 1's, and the placeholders there, are powers of 2,"
+    },
+    {
+      "index": 758,
+      "start_time": 2034630.0,
+      "end_time": 2035980.0,
+      "text": "so this is binary."
+    },
+    {
+      "index": 759,
+      "start_time": 2035980.0,
+      "end_time": 2039416.0,
+      "text": "So these are 8, 1 bits on the screen."
+    },
+    {
+      "index": 760,
+      "start_time": 2039420.0,
+      "end_time": 2041294.0,
+      "text": "And if you recall or you quickly do the math,"
+    },
+    {
+      "index": 761,
+      "start_time": 2041290.0,
+      "end_time": 2046074.0,
+      "text": "what value is being represented here with these eight 1 bits?"
+    },
+    {
+      "index": 762,
+      "start_time": 2046070.0,
+      "end_time": 2046946.0,
+      "text": "255."
+    },
+    {
+      "index": 763,
+      "start_time": 2046950.0,
+      "end_time": 2049260.0,
+      "text": "And even if you weren't quite sure of the math, you could do it out."
+    },
+    {
+      "index": 764,
+      "start_time": 2049260.0000000002,
+      "end_time": 2050550.0000000002,
+      "text": "Or you could just kind of reason through it,"
+    },
+    {
+      "index": 765,
+      "start_time": 2050550.0000000002,
+      "end_time": 2052633.0000000002,
+      "text": "wait a minute, if I'm representing an 8 bit value,"
+    },
+    {
+      "index": 766,
+      "start_time": 2052630.0,
+      "end_time": 2057747.0,
+      "text": "and I've got 256 possible values, but the first of which is 0,"
+    },
+    {
+      "index": 767,
+      "start_time": 2057750.0,
+      "end_time": 2059909.0,
+      "text": "I just know that the biggest is going to be 255,"
+    },
+    {
+      "index": 768,
+      "start_time": 2059909.9999999998,
+      "end_time": 2061510.9999999998,
+      "text": "and that's what this one might be."
+    },
+    {
+      "index": 769,
+      "start_time": 2061510.0000000002,
+      "end_time": 2066060.0000000002,
+      "text": ">> So suppose I try to add 1 to this value."
+    },
+    {
+      "index": 770,
+      "start_time": 2066060.0,
+      "end_time": 2068750.0,
+      "text": "What would you do in grade school when adding a 1, and it"
+    },
+    {
+      "index": 771,
+      "start_time": 2068750.0,
+      "end_time": 2071139.0,
+      "text": "doesn't really fit because you have to carry the 1?"
+    },
+    {
+      "index": 772,
+      "start_time": 2071139.9999999998,
+      "end_time": 2074380.9999999998,
+      "text": "What is this number going to become when you add 1?"
+    },
+    {
+      "index": 773,
+      "start_time": 2074380.0,
+      "end_time": 2077030.0,
+      "text": "It's going to become 0."
+    },
+    {
+      "index": 774,
+      "start_time": 2077030.0000000002,
+      "end_time": 2077530.0000000002,
+      "text": "Right?"
+    },
+    {
+      "index": 775,
+      "start_time": 2077530.0000000002,
+      "end_time": 2081139.0000000002,
+      "text": "Because if you had more bits-- and I'll try to, kind of, type it out here--"
+    },
+    {
+      "index": 776,
+      "start_time": 2081139.9999999998,
+      "end_time": 2084710.9999999998,
+      "text": "if we had more bits, what we could do here is add the 1,"
+    },
+    {
+      "index": 777,
+      "start_time": 2084710.0,
+      "end_time": 2087370.0,
+      "text": "and then we'd get this."
+    },
+    {
+      "index": 778,
+      "start_time": 2087370.0,
+      "end_time": 2088739.0,
+      "text": "Whoops."
+    },
+    {
+      "index": 779,
+      "start_time": 2088739.9999999998,
+      "end_time": 2092250.9999999998,
+      "text": "We'd have a 1 bit all the way over here."
+    },
+    {
+      "index": 780,
+      "start_time": 2092250.0,
+      "end_time": 2095530.0,
+      "text": ">> But if this is a finite value, it's only 8 bits,"
+    },
+    {
+      "index": 781,
+      "start_time": 2095530.0000000002,
+      "end_time": 2097480.0,
+      "text": "and that's pre-determined by the computer,"
+    },
+    {
+      "index": 782,
+      "start_time": 2097480.0,
+      "end_time": 2099370.0,
+      "text": "that 1 is effectively not there."
+    },
+    {
+      "index": 783,
+      "start_time": 2099370.0,
+      "end_time": 2100980.0,
+      "text": "It just kind of falls off a cliff."
+    },
+    {
+      "index": 784,
+      "start_time": 2100980.0,
+      "end_time": 2105480.0,
+      "text": "And so if you add 1 to 255, what value do you apparently get?"
+    },
+    {
+      "index": 785,
+      "start_time": 2105480.0,
+      "end_time": 2106180.0,
+      "text": "0."
+    },
+    {
+      "index": 786,
+      "start_time": 2106180.0,
+      "end_time": 2109700.0,
+      "text": "And so numbers accidentally, and perhaps, unintentionally,"
+    },
+    {
+      "index": 787,
+      "start_time": 2109700.0,
+      "end_time": 2112040.0,
+      "text": "end up wrapping around like this."
+    },
+    {
+      "index": 788,
+      "start_time": 2112040.0,
+      "end_time": 2114079.0,
+      "text": "So what can be the implication of this?"
+    },
+    {
+      "index": 789,
+      "start_time": 2114080.0,
+      "end_time": 2115621.0,
+      "text": "Well, there's a few different things."
+    },
+    {
+      "index": 790,
+      "start_time": 2115620.0,
+      "end_time": 2118751.0,
+      "text": "So one, it does end up looking like 0, unintentionally,"
+    },
+    {
+      "index": 791,
+      "start_time": 2118750.0,
+      "end_time": 2120749.0,
+      "text": "but you can kind of see, even in the real world,"
+    },
+    {
+      "index": 792,
+      "start_time": 2120750.0,
+      "end_time": 2123416.0,
+      "text": "for better or for worse, manifestations of this idea of a limit."
+    },
+    {
+      "index": 793,
+      "start_time": 2123420.0,
+      "end_time": 2126634.0,
+      "text": "For instance, any of you who have ever played Lego Star Wars,"
+    },
+    {
+      "index": 794,
+      "start_time": 2126630.0,
+      "end_time": 2128880.0,
+      "text": "does anyone happen to know the maximum number of coins"
+    },
+    {
+      "index": 795,
+      "start_time": 2128880.0,
+      "end_time": 2132032.0,
+      "text": "you can collect in Lego Star Wars?"
+    },
+    {
+      "index": 796,
+      "start_time": 2132030.0,
+      "end_time": 2135638.0,
+      "text": "Take a guess based on today's leading questions."
+    },
+    {
+      "index": 797,
+      "start_time": 2135640.0,
+      "end_time": 2139140.0,
+      "text": "It's bigger than 256 or 255."
+    },
+    {
+      "index": 798,
+      "start_time": 2139140.0,
+      "end_time": 2140330.0,
+      "text": "It's 4 billion."
+    },
+    {
+      "index": 799,
+      "start_time": 2140330.0,
+      "end_time": 2142080.0,
+      "text": "So it turns out, and there's some people--"
+    },
+    {
+      "index": 800,
+      "start_time": 2142080.0,
+      "end_time": 2146080.0,
+      "text": "some googling confirmed last night-- have gotten 4 billion gold coins,"
+    },
+    {
+      "index": 801,
+      "start_time": 2146080.0,
+      "end_time": 2147730.0,
+      "text": "or whatnot, in Lego Star Wars."
+    },
+    {
+      "index": 802,
+      "start_time": 2147730.0,
+      "end_time": 2149860.0,
+      "text": "Though apparently, there's a way to trick the game,"
+    },
+    {
+      "index": 803,
+      "start_time": 2149860.0,
+      "end_time": 2153222.0,
+      "text": "there's a bug or feature, that lets you just accrue lots and lots of points."
+    },
+    {
+      "index": 804,
+      "start_time": 2153220.0,
+      "end_time": 2154928.0,
+      "text": "But the largest possible value, according"
+    },
+    {
+      "index": 805,
+      "start_time": 2154930.0,
+      "end_time": 2158360.0,
+      "text": "to this screen shot of someone I found online, is indeed, 4 billion."
+    },
+    {
+      "index": 806,
+      "start_time": 2158360.0,
+      "end_time": 2159240.0,
+      "text": ">> Now why is that?"
+    },
+    {
+      "index": 807,
+      "start_time": 2159240.0,
+      "end_time": 2163040.0,
+      "text": "It's precisely 4 billion, probably because someone decided,"
+    },
+    {
+      "index": 808,
+      "start_time": 2163040.0,
+      "end_time": 2165500.0,
+      "text": "who was writing this game, that they could do 4 billion,"
+    },
+    {
+      "index": 809,
+      "start_time": 2165500.0,
+      "end_time": 2167340.0,
+      "text": "something, something, something, like the value I put up"
+    },
+    {
+      "index": 810,
+      "start_time": 2167340.0,
+      "end_time": 2170256.0,
+      "text": "with the calculator earlier, but it's just a little cleaner for humans"
+    },
+    {
+      "index": 811,
+      "start_time": 2170260.0,
+      "end_time": 2172614.0,
+      "text": "to say the maximum number of coins-- or studs,"
+    },
+    {
+      "index": 812,
+      "start_time": 2172610.0,
+      "end_time": 2174860.0,
+      "text": "as they call them-- that you can collect is 4 billion."
+    },
+    {
+      "index": 813,
+      "start_time": 2174860.0,
+      "end_time": 2176290.0,
+      "text": "And so, why is this?"
+    },
+    {
+      "index": 814,
+      "start_time": 2176290.0,
+      "end_time": 2180310.0,
+      "text": "How is the LEGO game implementing the counter"
+    },
+    {
+      "index": 815,
+      "start_time": 2180310.0,
+      "end_time": 2183420.0,
+      "text": "that's keeping track of the number of coins you have?"
+    },
+    {
+      "index": 816,
+      "start_time": 2183420.0,
+      "end_time": 2184266.0,
+      "text": "They're using what?"
+    },
+    {
+      "index": 817,
+      "start_time": 2184270.0,
+      "end_time": 2186394.0,
+      "text": "AUDIENCE MEMBER: It stops counting after 4 billion."
+    },
+    {
+      "index": 818,
+      "start_time": 2186390.0,
+      "end_time": 2187720.0,
+      "text": "DAVID J MALAN: It stops counting after 4 billion,"
+    },
+    {
+      "index": 819,
+      "start_time": 2187720.0,
+      "end_time": 2189525.0,
+      "text": "which means you can infer, as a programmer,"
+    },
+    {
+      "index": 820,
+      "start_time": 2189520.0,
+      "end_time": 2191955.0,
+      "text": "that they're probably using a 32 bit integer."
+    },
+    {
+      "index": 821,
+      "start_time": 2191960.0,
+      "end_time": 2195380.0,
+      "text": "Like the programmer literally just typed, int, in his or her code,"
+    },
+    {
+      "index": 822,
+      "start_time": 2195380.0,
+      "end_time": 2199620.0,
+      "text": "and that's the type of variable that they're using to store someone's code."
+    },
+    {
+      "index": 823,
+      "start_time": 2199620.0,
+      "end_time": 2202230.0,
+      "text": "So there's other manifestations of these kinds of limits."
+    },
+    {
+      "index": 824,
+      "start_time": 2202230.0,
+      "end_time": 2205063.0,
+      "text": ">> So I have not played this game-- and I was reading up on the history"
+    },
+    {
+      "index": 825,
+      "start_time": 2205060.0,
+      "end_time": 2208467.0,
+      "text": "to confirm as much-- but in the original version of Civilization, where"
+    },
+    {
+      "index": 826,
+      "start_time": 2208470.0,
+      "end_time": 2213240.0,
+      "text": "you apparently interact with each other and can wage war or have peace,"
+    },
+    {
+      "index": 827,
+      "start_time": 2213240.0,
+      "end_time": 2216590.0,
+      "text": "Gandhi was supposed to be one of the most peaceful characters, as I"
+    },
+    {
+      "index": 828,
+      "start_time": 2216590.0,
+      "end_time": 2219280.0,
+      "text": "understand it, in the first version of Civilization."
+    },
+    {
+      "index": 829,
+      "start_time": 2219280.0,
+      "end_time": 2223250.0,
+      "text": "And in fact, on a scale of 1 to 10, his aggressiveness was just a 1."
+    },
+    {
+      "index": 830,
+      "start_time": 2223250.0,
+      "end_time": 2225620.0,
+      "text": "So ever so mildly aggressive, apparently."
+    },
+    {
+      "index": 831,
+      "start_time": 2225620.0,
+      "end_time": 2231590.0,
+      "text": ">> But at some point, you can apparently install democracy in your geography."
+    },
+    {
+      "index": 832,
+      "start_time": 2231590.0,
+      "end_time": 2234900.0,
+      "text": "And if you install democracy into your version of the game,"
+    },
+    {
+      "index": 833,
+      "start_time": 2234900.0,
+      "end_time": 2237320.0,
+      "text": "then your aggression level goes down."
+    },
+    {
+      "index": 834,
+      "start_time": 2237320.0,
+      "end_time": 2238460.0,
+      "text": "It's a good thing."
+    },
+    {
+      "index": 835,
+      "start_time": 2238460.0,
+      "end_time": 2240890.0,
+      "text": "People are more tranquil apparently, in that situation."
+    },
+    {
+      "index": 836,
+      "start_time": 2240890.0,
+      "end_time": 2243190.0,
+      "text": "But apparently, someone did not have an, if, condition"
+    },
+    {
+      "index": 837,
+      "start_time": 2243190.0,
+      "end_time": 2244780.0,
+      "text": "in the original version of the code."
+    },
+    {
+      "index": 838,
+      "start_time": 2244780.0,
+      "end_time": 2250650.0,
+      "text": ">> So Gandhi's aggression level went from positive 1, minus 2, to negative 1,"
+    },
+    {
+      "index": 839,
+      "start_time": 2250650.0,
+      "end_time": 2253840.0,
+      "text": "but the game doesn't understand negative numbers."
+    },
+    {
+      "index": 840,
+      "start_time": 2253840.0,
+      "end_time": 2258680.0,
+      "text": "So what happened was Gandhi's aggression level went from 1, to 0, to negative 1,"
+    },
+    {
+      "index": 841,
+      "start_time": 2258680.0,
+      "end_time": 2260900.0,
+      "text": "which had the effect of wrapping around to being"
+    },
+    {
+      "index": 842,
+      "start_time": 2260900.0,
+      "end_time": 2264690.0,
+      "text": "the most aggressive character in the game, at a value of 255,"
+    },
+    {
+      "index": 843,
+      "start_time": 2264690.0,
+      "end_time": 2266630.0,
+      "text": "on a scale of 1 to 10."
+    },
+    {
+      "index": 844,
+      "start_time": 2266630.0,
+      "end_time": 2269887.0,
+      "text": "And since then, there's been more incarnations of this game,"
+    },
+    {
+      "index": 845,
+      "start_time": 2269890.0,
+      "end_time": 2271723.0,
+      "text": "and they've kept it as a sort of Easter egg,"
+    },
+    {
+      "index": 846,
+      "start_time": 2271720.0,
+      "end_time": 2273870.0,
+      "text": "that Gandhi is apparently so terribly aggressive."
+    },
+    {
+      "index": 847,
+      "start_time": 2273870.0,
+      "end_time": 2276740.0,
+      "text": "But it was the result of a very simple programming error"
+    },
+    {
+      "index": 848,
+      "start_time": 2276740.0,
+      "end_time": 2278630.0,
+      "text": "in that very early version of the game."
+    },
+    {
+      "index": 849,
+      "start_time": 2278630.0,
+      "end_time": 2282860.0,
+      "text": ">> Now more disturbingly, more recently, the Boeing 787"
+    },
+    {
+      "index": 850,
+      "start_time": 2282860.0,
+      "end_time": 2285720.0,
+      "text": "was documented as having a bug, not the kind of device"
+    },
+    {
+      "index": 851,
+      "start_time": 2285720.0,
+      "end_time": 2287340.0,
+      "text": "you particularly want to have a bug."
+    },
+    {
+      "index": 852,
+      "start_time": 2287340.0,
+      "end_time": 2290130.0,
+      "text": "And the symptoms, that I'll read here, from an article online,"
+    },
+    {
+      "index": 853,
+      "start_time": 2290130.0,
+      "end_time": 2293840.0,
+      "text": "was this, a model 787 airplane that has been powered continuously"
+    },
+    {
+      "index": 854,
+      "start_time": 2293840.0,
+      "end_time": 2298030.0,
+      "text": "for 248 days can lose all alternating current, AC,"
+    },
+    {
+      "index": 855,
+      "start_time": 2298030.0,
+      "end_time": 2300850.0,
+      "text": "electrical power, due to the generator control units,"
+    },
+    {
+      "index": 856,
+      "start_time": 2300850.0,
+      "end_time": 2303330.0,
+      "text": "GCUs, simultaneously going into fail-safe mode."
+    },
+    {
+      "index": 857,
+      "start_time": 2303330.0,
+      "end_time": 2306790.0,
+      "text": "So this was a warning issued when this problem was discovered."
+    },
+    {
+      "index": 858,
+      "start_time": 2306790.0,
+      "end_time": 2308750.0,
+      "text": "This condition is caused by a software counter,"
+    },
+    {
+      "index": 859,
+      "start_time": 2308750.0,
+      "end_time": 2312230.0,
+      "text": "internal to the GCUs, so an integer or a variable,"
+    },
+    {
+      "index": 860,
+      "start_time": 2312230.0,
+      "end_time": 2316850.0,
+      "text": "that will overflow after 248 days of continuous power."
+    },
+    {
+      "index": 861,
+      "start_time": 2316850.0,
+      "end_time": 2320350.0,
+      "text": "Boeing is in the process of developing a GCU software upgrade that"
+    },
+    {
+      "index": 862,
+      "start_time": 2320350.0,
+      "end_time": 2322350.0,
+      "text": "will remedy the unsafe condition."
+    },
+    {
+      "index": 863,
+      "start_time": 2322350.0,
+      "end_time": 2324226.0,
+      "text": ">> So much like the missile scenario, wherein"
+    },
+    {
+      "index": 864,
+      "start_time": 2324230.0,
+      "end_time": 2326854.0,
+      "text": "they had some kind of variable that was counting, and counting,"
+    },
+    {
+      "index": 865,
+      "start_time": 2326850.0,
+      "end_time": 2330720.0,
+      "text": "and counting, but gradually overflowing the boundaries of its capability,"
+    },
+    {
+      "index": 866,
+      "start_time": 2330720.0,
+      "end_time": 2334890.0,
+      "text": "similarly did the damn airplane have a variable overflow"
+    },
+    {
+      "index": 867,
+      "start_time": 2334890.0,
+      "end_time": 2336410.0,
+      "text": "after enough time of running."
+    },
+    {
+      "index": 868,
+      "start_time": 2336410.0,
+      "end_time": 2339240.0,
+      "text": "And so the tongue-in-cheek way of working around this issue"
+    },
+    {
+      "index": 869,
+      "start_time": 2339240.0,
+      "end_time": 2344400.0,
+      "text": "is to truly, reboot, your plane every 247 days, so that the memory gets wiped"
+    },
+    {
+      "index": 870,
+      "start_time": 2344400.0,
+      "end_time": 2346100.0,
+      "text": "and the variable goes back to 0."
+    },
+    {
+      "index": 871,
+      "start_time": 2346100.0,
+      "end_time": 2349410.0,
+      "text": "But realize, this is a very large incarnation of software,"
+    },
+    {
+      "index": 872,
+      "start_time": 2349410.0,
+      "end_time": 2354070.0,
+      "text": "but especially as we hear about Apple's operating systems going into cars,"
+    },
+    {
+      "index": 873,
+      "start_time": 2354070.0,
+      "end_time": 2358030.0,
+      "text": "and self-driving cars from Google, and any number of incarnations of software"
+    },
+    {
+      "index": 874,
+      "start_time": 2358030.0,
+      "end_time": 2361000.0,
+      "text": "in our daily lives, TVs and watches, and more,"
+    },
+    {
+      "index": 875,
+      "start_time": 2361000.0,
+      "end_time": 2364950.0,
+      "text": "realize were surrounded by software, all of which is written by us humans."
+    },
+    {
+      "index": 876,
+      "start_time": 2364950.0,
+      "end_time": 2368150.0,
+      "text": ">> And as we'll all soon discover, it's very easy and very typical"
+    },
+    {
+      "index": 877,
+      "start_time": 2368150.0,
+      "end_time": 2370250.0,
+      "text": "to make mistakes when writing software."
+    },
+    {
+      "index": 878,
+      "start_time": 2370250.0,
+      "end_time": 2372745.0,
+      "text": "And if you don't catch them, some bad things can happen."
+    },
+    {
+      "index": 879,
+      "start_time": 2372750.0,
+      "end_time": 2375405.0,
+      "text": "Now sometimes, some funny things can happen,"
+    },
+    {
+      "index": 880,
+      "start_time": 2375400.0,
+      "end_time": 2378280.0,
+      "text": "or at least sometimes we know to expect some badness."
+    },
+    {
+      "index": 881,
+      "start_time": 2378280.0,
+      "end_time": 2381550.0,
+      "text": "So 0 divided by 0, from grade school, is generally a bad thing."
+    },
+    {
+      "index": 882,
+      "start_time": 2381550.0,
+      "end_time": 2383050.0,
+      "text": "It's undefined."
+    },
+    {
+      "index": 883,
+      "start_time": 2383050.0,
+      "end_time": 2386440.0,
+      "text": "And it turns out-- and let's see if my mic can pick this up-- that Apple"
+    },
+    {
+      "index": 884,
+      "start_time": 2386440.0,
+      "end_time": 2387790.0,
+      "text": "had some fun with this recently."
+    },
+    {
+      "index": 885,
+      "start_time": 2387790.0,
+      "end_time": 2388850.0,
+      "text": "So I have an iPhone here."
+    },
+    {
+      "index": 886,
+      "start_time": 2388850.0,
+      "end_time": 2394160.0,
+      "text": "I'm going to talk to Siri and ask her to give me the answer to 0 divided by 0."
+    },
+    {
+      "index": 887,
+      "start_time": 2394160.0,
+      "end_time": 2395850.0,
+      "text": "What is 0 divided by 0?"
+    },
+    {
+      "index": 888,
+      "start_time": 2399350.0,
+      "end_time": 2402230.0,
+      "text": ">> SIRI: Imagine that you have 0 cookies, and you split them evenly"
+    },
+    {
+      "index": 889,
+      "start_time": 2402230.0,
+      "end_time": 2403540.0,
+      "text": "among 0 friends."
+    },
+    {
+      "index": 890,
+      "start_time": 2403540.0,
+      "end_time": 2405810.0,
+      "text": "How many cookies does each person get?"
+    },
+    {
+      "index": 891,
+      "start_time": 2405810.0,
+      "end_time": 2406350.0,
+      "text": "See?"
+    },
+    {
+      "index": 892,
+      "start_time": 2406350.0,
+      "end_time": 2407660.0,
+      "text": "It doesn't make sense."
+    },
+    {
+      "index": 893,
+      "start_time": 2407660.0,
+      "end_time": 2410540.0,
+      "text": "And Cookie Monster is sad that there are no cookies."
+    },
+    {
+      "index": 894,
+      "start_time": 2410540.0,
+      "end_time": 2413987.0,
+      "text": "And you are sad that you have no friends."
+    },
+    {
+      "index": 895,
+      "start_time": 2413990.0,
+      "end_time": 2415573.0,
+      "text": "DAVID J MALAN: It's kind of obnoxious."
+    },
+    {
+      "index": 896,
+      "start_time": 2415570.0,
+      "end_time": 2417550.0,
+      "text": "So this is what was just said there."
+    },
+    {
+      "index": 897,
+      "start_time": 2417550.0,
+      "end_time": 2421380.0,
+      "text": "It's indeterminate, it's not defined, and indeed, many programming languages"
+    },
+    {
+      "index": 898,
+      "start_time": 2421380.0,
+      "end_time": 2424950.0,
+      "text": "or, really, compilers will detect when you, in a program,"
+    },
+    {
+      "index": 899,
+      "start_time": 2424950.0,
+      "end_time": 2427050.0,
+      "text": "try to divide 0 by 0."
+    },
+    {
+      "index": 900,
+      "start_time": 2427050.0,
+      "end_time": 2429830.0,
+      "text": "More fun than this though, is that apparently, Cookie Monster"
+    },
+    {
+      "index": 901,
+      "start_time": 2429830.0,
+      "end_time": 2431270.0,
+      "text": "is on Twitter these days."
+    },
+    {
+      "index": 902,
+      "start_time": 2431270.0,
+      "end_time": 2437610.0,
+      "text": "And he replied to this, with this, which is absolutely adorable."
+    },
+    {
+      "index": 903,
+      "start_time": 2437610.0,
+      "end_time": 2440110.0,
+      "text": "But let's take a quick look at a couple of other constructs,"
+    },
+    {
+      "index": 904,
+      "start_time": 2440110.0,
+      "end_time": 2443459.0,
+      "text": "and then put some of this code to use, in good ways."
+    },
+    {
+      "index": 905,
+      "start_time": 2443460.0,
+      "end_time": 2445251.0,
+      "text": "So it turns out, besides for loops, there's"
+    },
+    {
+      "index": 906,
+      "start_time": 2445250.0,
+      "end_time": 2449174.0,
+      "text": "something called a while loop, that looks different and is implemented"
+    },
+    {
+      "index": 907,
+      "start_time": 2449170.0,
+      "end_time": 2451586.0,
+      "text": "a little differently-- and we'll eventually see examples--"
+    },
+    {
+      "index": 908,
+      "start_time": 2451590.0,
+      "end_time": 2453500.0,
+      "text": "but in some sense, it's simpler because it"
+    },
+    {
+      "index": 909,
+      "start_time": 2453500.0,
+      "end_time": 2456670.0,
+      "text": "doesn't allow you to initialize and update within the boundary of the loop."
+    },
+    {
+      "index": 910,
+      "start_time": 2456670.0,
+      "end_time": 2457794.0,
+      "text": "You can still implement it."
+    },
+    {
+      "index": 911,
+      "start_time": 2457790.0,
+      "end_time": 2461215.0,
+      "text": "So you can do the exact same things with a while loop, as with a for loop,"
+    },
+    {
+      "index": 912,
+      "start_time": 2461220.0,
+      "end_time": 2463261.0,
+      "text": "but your syntax, ultimately-- as we'll eventually"
+    },
+    {
+      "index": 913,
+      "start_time": 2463260.0,
+      "end_time": 2464551.0,
+      "text": "see-- is going to be different."
+    },
+    {
+      "index": 914,
+      "start_time": 2464550.0,
+      "end_time": 2467449.0,
+      "text": "There's even a do while loop, which is actually a little different,"
+    },
+    {
+      "index": 915,
+      "start_time": 2467450.0,
+      "end_time": 2469640.0,
+      "text": "in that whereas a for loop and a while loop always"
+    },
+    {
+      "index": 916,
+      "start_time": 2469640.0,
+      "end_time": 2473005.0,
+      "text": "check their condition first, if you read this thing top to bottom,"
+    },
+    {
+      "index": 917,
+      "start_time": 2473000.0,
+      "end_time": 2476435.0,
+      "text": "it kind of looks like it's going to check it's condition last because it's"
+    },
+    {
+      "index": 918,
+      "start_time": 2476440.0,
+      "end_time": 2477910.0,
+      "text": "truly the last line of code."
+    },
+    {
+      "index": 919,
+      "start_time": 2477910.0,
+      "end_time": 2480580.0,
+      "text": "And indeed, that's going to be useful in certain programs that we write,"
+    },
+    {
+      "index": 920,
+      "start_time": 2480580.0,
+      "end_time": 2483746.0,
+      "text": "if you want to just blindly do something and eventually check the condition."
+    },
+    {
+      "index": 921,
+      "start_time": 2483750.0,
+      "end_time": 2485209.0,
+      "text": "That's not necessarily a bad thing."
+    },
+    {
+      "index": 922,
+      "start_time": 2485210.0,
+      "end_time": 2487917.0,
+      "text": "If we want variables, we can do it in a couple of different ways."
+    },
+    {
+      "index": 923,
+      "start_time": 2487910.0,
+      "end_time": 2490288.0,
+      "text": "And we saw in the FoxTrot cartoon, one way of doing it,"
+    },
+    {
+      "index": 924,
+      "start_time": 2490290.0,
+      "end_time": 2493400.0,
+      "text": "where you declare your variable, like int counter semicolon,"
+    },
+    {
+      "index": 925,
+      "start_time": 2493400.0,
+      "end_time": 2496570.0,
+      "text": "and then later-- maybe the next line, maybe 10 lines later--"
+    },
+    {
+      "index": 926,
+      "start_time": 2496570.0,
+      "end_time": 2497800.0,
+      "text": "you actually initialize it."
+    },
+    {
+      "index": 927,
+      "start_time": 2497800.0,
+      "end_time": 2502230.0,
+      "text": "So these 2 lines of code declare a variable of type int"
+    },
+    {
+      "index": 928,
+      "start_time": 2502230.0,
+      "end_time": 2504930.0,
+      "text": "and call it counter, so it gives me enough bits to hold an int."
+    },
+    {
+      "index": 929,
+      "start_time": 2504930.0,
+      "end_time": 2508230.0,
+      "text": "And then eventually, it puts the value 0 into that variable."
+    },
+    {
+      "index": 930,
+      "start_time": 2508230.0,
+      "end_time": 2511250.0,
+      "text": "It arranges the 0's and 1's in a pattern, that we know from last week,"
+    },
+    {
+      "index": 931,
+      "start_time": 2511250.0,
+      "end_time": 2513260.0,
+      "text": "represents the number we know as 0."
+    },
+    {
+      "index": 932,
+      "start_time": 2513260.0,
+      "end_time": 2516920.0,
+      "text": "Or frankly, you can do this much more succinctly, just like this."
+    },
+    {
+      "index": 933,
+      "start_time": 2516920.0,
+      "end_time": 2519390.0,
+      "text": ">> Now we also have the ability to call functions."
+    },
+    {
+      "index": 934,
+      "start_time": 2519390.0,
+      "end_time": 2523070.0,
+      "text": "And in fact, here's a 2 line program, or an excerpt thereof,"
+    },
+    {
+      "index": 935,
+      "start_time": 2523070.0,
+      "end_time": 2526157.0,
+      "text": "that allows us to actually write some code that"
+    },
+    {
+      "index": 936,
+      "start_time": 2526160.0,
+      "end_time": 2528993.0,
+      "text": "gets a string from the user-- much like our volunteer a moment ago--"
+    },
+    {
+      "index": 937,
+      "start_time": 2528990.0,
+      "end_time": 2531320.0,
+      "text": "storing the result in a variable called name,"
+    },
+    {
+      "index": 938,
+      "start_time": 2531320.0,
+      "end_time": 2535470.0,
+      "text": "and then-- much like with our volunteer with printf-- prints out those values"
+    },
+    {
+      "index": 939,
+      "start_time": 2535470.0,
+      "end_time": 2539180.0,
+      "text": "by passing in two arguments, the string, followed by the variable"
+    },
+    {
+      "index": 940,
+      "start_time": 2539180.0,
+      "end_time": 2540781.0,
+      "text": "called, name, itself."
+    },
+    {
+      "index": 941,
+      "start_time": 2540780.0,
+      "end_time": 2543154.0,
+      "text": "So let's take a look, before we come back to Mario there,"
+    },
+    {
+      "index": 942,
+      "start_time": 2543160.0,
+      "end_time": 2546015.0,
+      "text": "at a couple of now, examples of this."
+    },
+    {
+      "index": 943,
+      "start_time": 2546010.0,
+      "end_time": 2550537.0,
+      "text": ">> I'm going to go ahead and open up, let's say, function-0.c."
+    },
+    {
+      "index": 944,
+      "start_time": 2550540.0,
+      "end_time": 2553123.0,
+      "text": "And as always, this code is available on the course's website,"
+    },
+    {
+      "index": 945,
+      "start_time": 2553120.0,
+      "end_time": 2555660.0,
+      "text": "so you can play along at home and look at it later."
+    },
+    {
+      "index": 946,
+      "start_time": 2555660.0,
+      "end_time": 2560400.0,
+      "text": "But here's the program in it's essence, from line 17 to 22."
+    },
+    {
+      "index": 947,
+      "start_time": 2560400.0,
+      "end_time": 2563270.0,
+      "text": "The main program is where the program is always going to start."
+    },
+    {
+      "index": 948,
+      "start_time": 2563270.0,
+      "end_time": 2566980.0,
+      "text": "This program, apparently, is going to print out your name, colon."
+    },
+    {
+      "index": 949,
+      "start_time": 2566980.0,
+      "end_time": 2570320.0,
+      "text": "It's then going to call GetString, just like we did with our volunteers."
+    },
+    {
+      "index": 950,
+      "start_time": 2570320.0,
+      "end_time": 2573365.0,
+      "text": "And then, this is interesting, it's going to call PrintName."
+    },
+    {
+      "index": 951,
+      "start_time": 2573360.0,
+      "end_time": 2576485.0,
+      "text": "It turns out, all this time, there seems to be a function called PrintName."
+    },
+    {
+      "index": 952,
+      "start_time": 2576490.0,
+      "end_time": 2577614.0,
+      "text": "That prints someone's name."
+    },
+    {
+      "index": 953,
+      "start_time": 2577610.0,
+      "end_time": 2581206.0,
+      "text": "We didn't need to use printf from yesteryear, there's PrintName."
+    },
+    {
+      "index": 954,
+      "start_time": 2581210.0,
+      "end_time": 2583500.0,
+      "text": ">> But that's misleading because PrintName does not"
+    },
+    {
+      "index": 955,
+      "start_time": 2583500.0,
+      "end_time": 2586760.0,
+      "text": "come with C. People did not invent it some 40 or 50 years ago,"
+    },
+    {
+      "index": 956,
+      "start_time": 2586760.0,
+      "end_time": 2587990.0,
+      "text": "I did, instead."
+    },
+    {
+      "index": 957,
+      "start_time": 2587990.0,
+      "end_time": 2590330.0,
+      "text": "And in fact, if I scroll down further, notice"
+    },
+    {
+      "index": 958,
+      "start_time": 2590330.0,
+      "end_time": 2594200.0,
+      "text": "how I can write my own functions in C. We'll eventually"
+    },
+    {
+      "index": 959,
+      "start_time": 2594200.0,
+      "end_time": 2596319.0,
+      "text": "explain why we keep saying, void, in a few places,"
+    },
+    {
+      "index": 960,
+      "start_time": 2596320.0,
+      "end_time": 2598111.0,
+      "text": "but for today, let's just look at the name."
+    },
+    {
+      "index": 961,
+      "start_time": 2598110.0,
+      "end_time": 2600905.0,
+      "text": ">> On line 24, if you want to create your own function,"
+    },
+    {
+      "index": 962,
+      "start_time": 2600910.0,
+      "end_time": 2602785.0,
+      "text": "you literally write the name of the function."
+    },
+    {
+      "index": 963,
+      "start_time": 2602780.0,
+      "end_time": 2604340.0,
+      "text": "I chose PrintName."
+    },
+    {
+      "index": 964,
+      "start_time": 2604340.0,
+      "end_time": 2606159.0,
+      "text": "In parentheses, you then specify what kinds"
+    },
+    {
+      "index": 965,
+      "start_time": 2606160.0,
+      "end_time": 2608451.0,
+      "text": "of inputs, and how many you want this function to take."
+    },
+    {
+      "index": 966,
+      "start_time": 2608450.0,
+      "end_time": 2611906.0,
+      "text": "In this case, I want to take 1 variable called, name,"
+    },
+    {
+      "index": 967,
+      "start_time": 2611910.0,
+      "end_time": 2614034.0,
+      "text": "and it's going to be of type, string, so it's going"
+    },
+    {
+      "index": 968,
+      "start_time": 2614030.0,
+      "end_time": 2615780.0,
+      "text": "to be some sequence of characters."
+    },
+    {
+      "index": 969,
+      "start_time": 2615780.0,
+      "end_time": 2619170.0,
+      "text": "And then, this program-- much like in Scratch,"
+    },
+    {
+      "index": 970,
+      "start_time": 2619170.0,
+      "end_time": 2622590.0,
+      "text": "you can have custom puzzle pieces-- is going to have this custom behavior."
+    },
+    {
+      "index": 971,
+      "start_time": 2622590.0,
+      "end_time": 2626760.0,
+      "text": "It's going to call printf passing in, hello, placeholder,"
+    },
+    {
+      "index": 972,
+      "start_time": 2626760.0,
+      "end_time": 2629110.0,
+      "text": "and then it's going to plug in whatever the user called."
+    },
+    {
+      "index": 973,
+      "start_time": 2629110.0,
+      "end_time": 2631450.0,
+      "text": ">> So this is an example of what a computer scientist would"
+    },
+    {
+      "index": 974,
+      "start_time": 2631450.0,
+      "end_time": 2635090.0,
+      "text": "call abstraction or functional decomposition, which are just"
+    },
+    {
+      "index": 975,
+      "start_time": 2635090.0,
+      "end_time": 2638110.0,
+      "text": "fancy ways of saying-- Is if you like this high level idea,"
+    },
+    {
+      "index": 976,
+      "start_time": 2638110.0,
+      "end_time": 2641569.0,
+      "text": "like I want functionality that prints someone's name, absolutely you"
+    },
+    {
+      "index": 977,
+      "start_time": 2641570.0,
+      "end_time": 2644361.0,
+      "text": "can literally write printf and then pass in the arguments you want,"
+    },
+    {
+      "index": 978,
+      "start_time": 2644360.0,
+      "end_time": 2647340.0,
+      "text": "and the program will work, as it has since Wednesday."
+    },
+    {
+      "index": 979,
+      "start_time": 2647340.0,
+      "end_time": 2650510.0,
+      "text": "But you can start to abstract away the notion of printing a name."
+    },
+    {
+      "index": 980,
+      "start_time": 2650510.0,
+      "end_time": 2653270.0,
+      "text": "You can give it a name, like PrintName, and this"
+    },
+    {
+      "index": 981,
+      "start_time": 2653270.0,
+      "end_time": 2655280.0,
+      "text": "is this idea of layering from week 0."
+    },
+    {
+      "index": 982,
+      "start_time": 2655280.0,
+      "end_time": 2659910.0,
+      "text": ">> Henceforth, I and you don't have to know or care how PrintName is implemented."
+    },
+    {
+      "index": 983,
+      "start_time": 2659910.0,
+      "end_time": 2662470.0,
+      "text": "Yes it uses printf, maybe it doesn't, who knows what uses?"
+    },
+    {
+      "index": 984,
+      "start_time": 2662470.0,
+      "end_time": 2663410.0,
+      "text": "Who cares?"
+    },
+    {
+      "index": 985,
+      "start_time": 2663410.0,
+      "end_time": 2666034.0,
+      "text": "Now I'm talking up here, instead of down here."
+    },
+    {
+      "index": 986,
+      "start_time": 2666030.0,
+      "end_time": 2668696.0,
+      "text": "And indeed, as our programs get more advanced and sophisticated,"
+    },
+    {
+      "index": 987,
+      "start_time": 2668700.0,
+      "end_time": 2672550.0,
+      "text": "we're going to keep taking for granted that lower level puzzle pieces exist."
+    },
+    {
+      "index": 988,
+      "start_time": 2672550.0,
+      "end_time": 2674780.0,
+      "text": "Because we wrote them or someone else did, so"
+    },
+    {
+      "index": 989,
+      "start_time": 2674780.0,
+      "end_time": 2676910.0,
+      "text": "that we can then build on top of them."
+    },
+    {
+      "index": 990,
+      "start_time": 2676910.0,
+      "end_time": 2679430.0,
+      "text": "Let's take a look at this variant, function one."
+    },
+    {
+      "index": 991,
+      "start_time": 2679430.0,
+      "end_time": 2681780.0,
+      "text": ">> So this one's a little more advanced, but it turns out"
+    },
+    {
+      "index": 992,
+      "start_time": 2681780.0,
+      "end_time": 2684570.0,
+      "text": "that in CS50's library, there's only a GetInt function."
+    },
+    {
+      "index": 993,
+      "start_time": 2684570.0,
+      "end_time": 2687720.0,
+      "text": "We didn't think, years ago, to implement a GetPositiveInt function."
+    },
+    {
+      "index": 994,
+      "start_time": 2687720.0,
+      "end_time": 2690970.0,
+      "text": "And that's a little annoying because if you guys are writing a program wherein"
+    },
+    {
+      "index": 995,
+      "start_time": 2690970.0,
+      "end_time": 2693325.0,
+      "text": "you want to get a positive integer from the user,"
+    },
+    {
+      "index": 996,
+      "start_time": 2693320.0,
+      "end_time": 2695005.0,
+      "text": "you can absolutely use GetInt."
+    },
+    {
+      "index": 997,
+      "start_time": 2695010.0,
+      "end_time": 2697840.0,
+      "text": "And you can absolutely check with the condition and maybe a loop"
+    },
+    {
+      "index": 998,
+      "start_time": 2697840.0,
+      "end_time": 2700320.0,
+      "text": "if that int is greater than 0 and yell at the user"
+    },
+    {
+      "index": 999,
+      "start_time": 2700320.0,
+      "end_time": 2702699.0,
+      "text": "if he or she doesn't give you a positive number."
+    },
+    {
+      "index": 1000,
+      "start_time": 2702700.0,
+      "end_time": 2704741.0,
+      "text": "But let's build this building block ourselves, a,"
+    },
+    {
+      "index": 1001,
+      "start_time": 2704740.0,
+      "end_time": 2706555.0,
+      "text": "custom Scratch piece, if you will."
+    },
+    {
+      "index": 1002,
+      "start_time": 2706550.0,
+      "end_time": 2708675.0,
+      "text": "I'm going to have a program here that ultimately, I"
+    },
+    {
+      "index": 1003,
+      "start_time": 2708680.0,
+      "end_time": 2711780.0,
+      "text": "want to be able to call GetPositiveInt, and I want to be"
+    },
+    {
+      "index": 1004,
+      "start_time": 2711780.0,
+      "end_time": 2714200.0,
+      "text": "able to print out whatever that int is."
+    },
+    {
+      "index": 1005,
+      "start_time": 2714200.0,
+      "end_time": 2716240.0,
+      "text": "But this is abstracted away now."
+    },
+    {
+      "index": 1006,
+      "start_time": 2716240.0,
+      "end_time": 2719050.0,
+      "text": "It's just been given a high level name that says what it does,"
+    },
+    {
+      "index": 1007,
+      "start_time": 2719050.0,
+      "end_time": 2721780.0,
+      "text": "which is wonderful because it's very intuitive now to read."
+    },
+    {
+      "index": 1008,
+      "start_time": 2721780.0,
+      "end_time": 2724710.0,
+      "text": "And if I do care what's underneath the hood, let me scroll down."
+    },
+    {
+      "index": 1009,
+      "start_time": 2724710.0,
+      "end_time": 2727140.0,
+      "text": "And it's a little intimidating at first, especially"
+    },
+    {
+      "index": 1010,
+      "start_time": 2727140.0,
+      "end_time": 2729470.0,
+      "text": "if this is your first program, but let's take a look."
+    },
+    {
+      "index": 1011,
+      "start_time": 2729470.0,
+      "end_time": 2732860.0,
+      "text": ">> I'm no longer saying, void, because it turns out functions,"
+    },
+    {
+      "index": 1012,
+      "start_time": 2732860.0,
+      "end_time": 2734777.0,
+      "text": "much like GetString, can return a value to me."
+    },
+    {
+      "index": 1013,
+      "start_time": 2734780.0,
+      "end_time": 2736613.0,
+      "text": "They don't just have to print to the screen,"
+    },
+    {
+      "index": 1014,
+      "start_time": 2736610.0,
+      "end_time": 2738410.0,
+      "text": "they can actually hand me something back."
+    },
+    {
+      "index": 1015,
+      "start_time": 2738410.0,
+      "end_time": 2741535.0,
+      "text": "And whereas before PrintName, I didn't need anything back."
+    },
+    {
+      "index": 1016,
+      "start_time": 2741530.0,
+      "end_time": 2744155.0,
+      "text": "I needed the side effect of something showing up on the screen,"
+    },
+    {
+      "index": 1017,
+      "start_time": 2744160.0,
+      "end_time": 2746570.0,
+      "text": "but I didn't need a human to hand me something back."
+    },
+    {
+      "index": 1018,
+      "start_time": 2746570.0,
+      "end_time": 2748840.0,
+      "text": "Here, with GetPositiveInt, like with GetInt,"
+    },
+    {
+      "index": 1019,
+      "start_time": 2748840.0,
+      "end_time": 2750640.0,
+      "text": "I want to be handed something back."
+    },
+    {
+      "index": 1020,
+      "start_time": 2750640.0,
+      "end_time": 2753220.0,
+      "text": "So I'm saying not, void, on line 23, but int,"
+    },
+    {
+      "index": 1021,
+      "start_time": 2753220.0,
+      "end_time": 2755570.0,
+      "text": "which says, this function that I am writing,"
+    },
+    {
+      "index": 1022,
+      "start_time": 2755570.0,
+      "end_time": 2758860.0,
+      "text": "called GetPositiveInt is going to hand me back an integer, not nothing,"
+    },
+    {
+      "index": 1023,
+      "start_time": 2758860.0,
+      "end_time": 2759890.0,
+      "text": "not void."
+    },
+    {
+      "index": 1024,
+      "start_time": 2759890.0,
+      "end_time": 2763280.0,
+      "text": ">> Meanwhile, it's going to take no inputs, so I've, kind of, reversed it."
+    },
+    {
+      "index": 1025,
+      "start_time": 2763280.0,
+      "end_time": 2768280.0,
+      "text": "I'm not giving GetPositiveInt any input, I want it to give me its output."
+    },
+    {
+      "index": 1026,
+      "start_time": 2768280.0,
+      "end_time": 2769800.0,
+      "text": "And then what happens now?"
+    },
+    {
+      "index": 1027,
+      "start_time": 2769800.0,
+      "end_time": 2771640.0,
+      "text": "So here's how I can declare a variable."
+    },
+    {
+      "index": 1028,
+      "start_time": 2771640.0,
+      "end_time": 2775090.0,
+      "text": "I've done it outside of the loop, for reasons we'll eventually see,"
+    },
+    {
+      "index": 1029,
+      "start_time": 2775090.0,
+      "end_time": 2777700.0,
+      "text": "but this just gives me 32 bits called, n,"
+    },
+    {
+      "index": 1030,
+      "start_time": 2777700.0,
+      "end_time": 2780952.0,
+      "text": "and I've pre-determining them to store integer."
+    },
+    {
+      "index": 1031,
+      "start_time": 2780950.0,
+      "end_time": 2783658.0,
+      "text": "And here's that, do while construct, and this is why it's useful."
+    },
+    {
+      "index": 1032,
+      "start_time": 2783660.0,
+      "end_time": 2786700.0,
+      "text": "Literally do this, while n is less than 1."
+    },
+    {
+      "index": 1033,
+      "start_time": 2786700.0,
+      "end_time": 2788030.0,
+      "text": "So let's see what happens."
+    },
+    {
+      "index": 1034,
+      "start_time": 2788030.0,
+      "end_time": 2790760.0,
+      "text": "I print out, please give me a positive int."
+    },
+    {
+      "index": 1035,
+      "start_time": 2790760.0,
+      "end_time": 2794300.0,
+      "text": "I then get an int, using CS50's function and stored in n."
+    },
+    {
+      "index": 1036,
+      "start_time": 2794300.0,
+      "end_time": 2798990.0,
+      "text": ">> And then, what line of code probably gets executed next, logically?"
+    },
+    {
+      "index": 1037,
+      "start_time": 2798990.0,
+      "end_time": 2801890.0,
+      "text": "Which line number?"
+    },
+    {
+      "index": 1038,
+      "start_time": 2801890.0,
+      "end_time": 2802571.0,
+      "text": "Yeah, so 31."
+    },
+    {
+      "index": 1039,
+      "start_time": 2802570.0,
+      "end_time": 2805319.0,
+      "text": "You wouldn't know this until you've been told or sort of infer it,"
+    },
+    {
+      "index": 1040,
+      "start_time": 2805320.0,
+      "end_time": 2805986.0,
+      "text": "but that's true."
+    },
+    {
+      "index": 1041,
+      "start_time": 2805990.0,
+      "end_time": 2808284.0,
+      "text": "It goes top to bottom and then keeps repeating."
+    },
+    {
+      "index": 1042,
+      "start_time": 2808280.0,
+      "end_time": 2815840.0,
+      "text": "So if I have typed in say, the number negative 1, is n less than negative 1?"
+    },
+    {
+      "index": 1043,
+      "start_time": 2815840.0,
+      "end_time": 2816340.0,
+      "text": "Yeah."
+    },
+    {
+      "index": 1044,
+      "start_time": 2816340.0,
+      "end_time": 2818470.0,
+      "text": "Because negative 1 is less than 1."
+    },
+    {
+      "index": 1045,
+      "start_time": 2818470.0,
+      "end_time": 2819510.0,
+      "text": "So what should happen?"
+    },
+    {
+      "index": 1046,
+      "start_time": 2819510.0,
+      "end_time": 2823260.0,
+      "text": "I'm going to do this while n is less than 1,"
+    },
+    {
+      "index": 1047,
+      "start_time": 2823260.0,
+      "end_time": 2825760.0,
+      "text": "so I'm going to go back to line 28."
+    },
+    {
+      "index": 1048,
+      "start_time": 2825760.0,
+      "end_time": 2829530.0,
+      "text": ">> And each time-- and let's run this-- make function 1 to compile it,"
+    },
+    {
+      "index": 1049,
+      "start_time": 2829530.0,
+      "end_time": 2831340.0,
+      "text": "and now dot slash function 1."
+    },
+    {
+      "index": 1050,
+      "start_time": 2831340.0,
+      "end_time": 2834280.0,
+      "text": "If I type negative 1, it's going to keep yelling at me"
+    },
+    {
+      "index": 1051,
+      "start_time": 2834280.0,
+      "end_time": 2837530.0,
+      "text": "until I cooperate because each of my inputs is less than 1"
+    },
+    {
+      "index": 1052,
+      "start_time": 2837530.0,
+      "end_time": 2840070.0,
+      "text": "and if it's while less than 1, I'm going to keep doing this."
+    },
+    {
+      "index": 1053,
+      "start_time": 2840070.0,
+      "end_time": 2844240.0,
+      "text": "If I finally give it a number like 50, thankfully, it says, thanks for the 50."
+    },
+    {
+      "index": 1054,
+      "start_time": 2844240.0,
+      "end_time": 2844970.0,
+      "text": "Why?"
+    },
+    {
+      "index": 1055,
+      "start_time": 2844970.0,
+      "end_time": 2850640.0,
+      "text": "Because as soon as n is not less than 1, I stop getting stuck in this loop,"
+    },
+    {
+      "index": 1056,
+      "start_time": 2850640.0,
+      "end_time": 2853840.0,
+      "text": "and this new keyword today, return, literally does that."
+    },
+    {
+      "index": 1057,
+      "start_time": 2853840.0,
+      "end_time": 2856800.0,
+      "text": "So I've just implemented, in a sense, the equivalent of GetString,"
+    },
+    {
+      "index": 1058,
+      "start_time": 2856800.0,
+      "end_time": 2860590.0,
+      "text": "where I'm handing back to whoever is using me, some value."
+    },
+    {
+      "index": 1059,
+      "start_time": 2860590.0,
+      "end_time": 2862820.0,
+      "text": "It doesn't have to be a string, it's an int."
+    },
+    {
+      "index": 1060,
+      "start_time": 2862820.0,
+      "end_time": 2864990.0,
+      "text": "So a simple, quick example, but we'll soon"
+    },
+    {
+      "index": 1061,
+      "start_time": 2864990.0,
+      "end_time": 2867930.0,
+      "text": "see some more sophisticated versions still."
+    },
+    {
+      "index": 1062,
+      "start_time": 2867930.0,
+      "end_time": 2873882.0,
+      "text": "In fact, let's take a look at a numeric one, which is called return.c."
+    },
+    {
+      "index": 1063,
+      "start_time": 2873880.0,
+      "end_time": 2875588.0,
+      "text": "And this one's actually a little simpler."
+    },
+    {
+      "index": 1064,
+      "start_time": 2875590.0,
+      "end_time": 2879010.0,
+      "text": "So this program's purpose in life-- let's compile and run it,"
+    },
+    {
+      "index": 1065,
+      "start_time": 2879010.0,
+      "end_time": 2883090.0,
+      "text": "so make return, dot slash, return-- notice"
+    },
+    {
+      "index": 1066,
+      "start_time": 2883090.0,
+      "end_time": 2885530.0,
+      "text": "the program simply cubes the value 2."
+    },
+    {
+      "index": 1067,
+      "start_time": 2885530.0,
+      "end_time": 2888410.0,
+      "text": "It's pretty stupid, it's hard code, it doesn't take any inputs,"
+    },
+    {
+      "index": 1068,
+      "start_time": 2888410.0,
+      "end_time": 2892220.0,
+      "text": "but it does demonstrate another function that I've written myself."
+    },
+    {
+      "index": 1069,
+      "start_time": 2892220.0,
+      "end_time": 2895760.0,
+      "text": "So here, I've declared a variable, called x, of type int,"
+    },
+    {
+      "index": 1070,
+      "start_time": 2895760.0,
+      "end_time": 2897840.0,
+      "text": "equal to the number 2, completely arbitrary."
+    },
+    {
+      "index": 1071,
+      "start_time": 2897840.0,
+      "end_time": 2899530.0,
+      "text": "This is just some fluffy printing."
+    },
+    {
+      "index": 1072,
+      "start_time": 2899530.0,
+      "end_time": 2903070.0,
+      "text": "It says x is now, such and such, cubing dot dot dot."
+    },
+    {
+      "index": 1073,
+      "start_time": 2903070.0,
+      "end_time": 2906390.0,
+      "text": "And the magic is apparently in line 21."
+    },
+    {
+      "index": 1074,
+      "start_time": 2906390.0,
+      "end_time": 2910120.0,
+      "text": "I'm calling a function called, cube, I'm handing it a sheet of paper"
+    },
+    {
+      "index": 1075,
+      "start_time": 2910120.0,
+      "end_time": 2912890.0,
+      "text": "with the number 2 written on it, and what value, mathematically,"
+    },
+    {
+      "index": 1076,
+      "start_time": 2912890.0,
+      "end_time": 2914860.0,
+      "text": "do I want to get out of it?"
+    },
+    {
+      "index": 1077,
+      "start_time": 2914860.0,
+      "end_time": 2916570.0,
+      "text": "Just as a sanity check?"
+    },
+    {
+      "index": 1078,
+      "start_time": 2916570.0,
+      "end_time": 2917070.0,
+      "text": "8."
+    },
+    {
+      "index": 1079,
+      "start_time": 2917070.0,
+      "end_time": 2917570.0,
+      "text": "Right?"
+    },
+    {
+      "index": 1080,
+      "start_time": 2917570.0,
+      "end_time": 2920160.0,
+      "text": "I want 2 cubed back, 2 to the power of 3, so 8 back."
+    },
+    {
+      "index": 1081,
+      "start_time": 2920160.0,
+      "end_time": 2922570.0,
+      "text": ">> So where is cube implemented?"
+    },
+    {
+      "index": 1082,
+      "start_time": 2922570.0,
+      "end_time": 2924349.0,
+      "text": "Well, notice it's implemented down here."
+    },
+    {
+      "index": 1083,
+      "start_time": 2924350.0,
+      "end_time": 2927141.0,
+      "text": "And just like before, logically, even though the syntax is probably"
+    },
+    {
+      "index": 1084,
+      "start_time": 2927140.0,
+      "end_time": 2929320.0,
+      "text": "very new to many of you, I want this function"
+    },
+    {
+      "index": 1085,
+      "start_time": 2929320.0,
+      "end_time": 2931780.0,
+      "text": "to hand me back a sheet of paper with an int on it."
+    },
+    {
+      "index": 1086,
+      "start_time": 2931780.0,
+      "end_time": 2933990.0,
+      "text": "So I have an int, the name is arbitrarily,"
+    },
+    {
+      "index": 1087,
+      "start_time": 2933990.0,
+      "end_time": 2935530.0,
+      "text": "but conveniently called cube."
+    },
+    {
+      "index": 1088,
+      "start_time": 2935530.0,
+      "end_time": 2938430.0,
+      "text": "The input to it, is n of type integer, so that's"
+    },
+    {
+      "index": 1089,
+      "start_time": 2938430.0,
+      "end_time": 2940800.0,
+      "text": "how I can pass in the number 2 on a sheet of paper."
+    },
+    {
+      "index": 1090,
+      "start_time": 2940800.0,
+      "end_time": 2943910.0,
+      "text": "And then it turns out C supports math, so you don't have x's for times,"
+    },
+    {
+      "index": 1091,
+      "start_time": 2943910.0,
+      "end_time": 2946680.0,
+      "text": "you just use the asterisk for multiplication."
+    },
+    {
+      "index": 1092,
+      "start_time": 2946680.0,
+      "end_time": 2951070.0,
+      "text": "And this returns n times n times n, which is simply a cubed value."
+    },
+    {
+      "index": 1093,
+      "start_time": 2951070.0,
+      "end_time": 2952840.0,
+      "text": ">> So where are we going with all of this?"
+    },
+    {
+      "index": 1094,
+      "start_time": 2952840.0,
+      "end_time": 2954570.0,
+      "text": "This is definitely a whirlwind tour, rest assured,"
+    },
+    {
+      "index": 1095,
+      "start_time": 2954570.0,
+      "end_time": 2956410.0,
+      "text": "that in the super sections and in problem set 1,"
+    },
+    {
+      "index": 1096,
+      "start_time": 2956410.0,
+      "end_time": 2958368.0,
+      "text": "you'll be walked through all this all the more."
+    },
+    {
+      "index": 1097,
+      "start_time": 2958370.0,
+      "end_time": 2962492.0,
+      "text": "And in problem set 1, we'll transition from the graphical world of Scratch"
+    },
+    {
+      "index": 1098,
+      "start_time": 2962490.0,
+      "end_time": 2965640.0,
+      "text": "to something more command line in C. But we'll draw inspiration"
+    },
+    {
+      "index": 1099,
+      "start_time": 2965640.0,
+      "end_time": 2967680.0,
+      "text": "from this here game from yesteryear, wherein"
+    },
+    {
+      "index": 1100,
+      "start_time": 2967680.0,
+      "end_time": 2971591.0,
+      "text": "using C and the standard edition of the p set you'll implement Mario's pyramid."
+    },
+    {
+      "index": 1101,
+      "start_time": 2971590.0,
+      "end_time": 2974339.0,
+      "text": "And in the hacker edition of the p set, if you so choose to elect,"
+    },
+    {
+      "index": 1102,
+      "start_time": 2974340.0,
+      "end_time": 2978280.0,
+      "text": "you will implement a bit more challenging pyramid with two peaks."
+    },
+    {
+      "index": 1103,
+      "start_time": 2978280.0,
+      "end_time": 2981239.0,
+      "text": "You'll also implement an algorithm, a greedy algorithm."
+    },
+    {
+      "index": 1104,
+      "start_time": 2981240.0,
+      "end_time": 2983031.0,
+      "text": "It turns out there's some interesting logic"
+    },
+    {
+      "index": 1105,
+      "start_time": 2983030.0,
+      "end_time": 2985640.0,
+      "text": "behind the process of running a cashier's station"
+    },
+    {
+      "index": 1106,
+      "start_time": 2985640.0,
+      "end_time": 2987410.0,
+      "text": "and actually handing someone back change."
+    },
+    {
+      "index": 1107,
+      "start_time": 2987410.0,
+      "end_time": 2990410.0,
+      "text": "There is an algorithm that's fairly straightforward, that you might even"
+    },
+    {
+      "index": 1108,
+      "start_time": 2990410.0,
+      "end_time": 2993576.0,
+      "text": "grasp intuitively when you first read it-- realizing that's what I've always"
+    },
+    {
+      "index": 1109,
+      "start_time": 2993580.0,
+      "end_time": 2997114.0,
+      "text": "done any time I've given someone some money back-- that allows you to always"
+    },
+    {
+      "index": 1110,
+      "start_time": 2997110.0,
+      "end_time": 3000679.0,
+      "text": "minimize the number of paper notes or metal coins"
+    },
+    {
+      "index": 1111,
+      "start_time": 3000680.0,
+      "end_time": 3002221.0,
+      "text": "that you're handing back to the user."
+    },
+    {
+      "index": 1112,
+      "start_time": 3002220.0,
+      "end_time": 3004610.0,
+      "text": "And this, of course, is compelling because if you go to CVS or whatnot,"
+    },
+    {
+      "index": 1113,
+      "start_time": 3004610.0,
+      "end_time": 3006430.0,
+      "text": "you don't want to be handed a whole bunch of ones"
+    },
+    {
+      "index": 1114,
+      "start_time": 3006430.0,
+      "end_time": 3007596.0,
+      "text": "or a whole bunch of pennies."
+    },
+    {
+      "index": 1115,
+      "start_time": 3007600.0,
+      "end_time": 3010124.0,
+      "text": "You want the fewest coins, probably, possible."
+    },
+    {
+      "index": 1116,
+      "start_time": 3010120.0,
+      "end_time": 3013070.0,
+      "text": ">> Finally, you'll also be challenged to dabble in the world of water"
+    },
+    {
+      "index": 1117,
+      "start_time": 3013070.0,
+      "end_time": 3017220.0,
+      "text": "and actually get an appreciation for a mapping between rates of flow,"
+    },
+    {
+      "index": 1118,
+      "start_time": 3017220.0,
+      "end_time": 3019890.0,
+      "text": "of like, water in a shower, just how much water is used."
+    },
+    {
+      "index": 1119,
+      "start_time": 3019890.0,
+      "end_time": 3022640.0,
+      "text": "And the allusion therein, will be this clip here,"
+    },
+    {
+      "index": 1120,
+      "start_time": 3022640.0,
+      "end_time": 3024840.0,
+      "text": "which we'll end on for just 60 seconds, that"
+    },
+    {
+      "index": 1121,
+      "start_time": 3024840.0,
+      "end_time": 3029070.0,
+      "text": "paints a picture of low-flow shower heads."
+    },
+    {
+      "index": 1122,
+      "start_time": 3029070.0,
+      "end_time": 3030886.0,
+      "text": ">> [VIDEO PLAYBACK]"
+    },
+    {
+      "index": 1123,
+      "start_time": 3030890.0,
+      "end_time": 3031389.0,
+      "text": "-All right."
+    },
+    {
+      "index": 1124,
+      "start_time": 3031390.0,
+      "end_time": 3032779.0,
+      "text": "I got everything here."
+    },
+    {
+      "index": 1125,
+      "start_time": 3032770.0,
+      "end_time": 3035796.0,
+      "text": "I got the Cyclone F Series, Hydra, Jetflow, Stockholm"
+    },
+    {
+      "index": 1126,
+      "start_time": 3035800.0,
+      "end_time": 3037660.0,
+      "text": "Supersteam, you name it."
+    },
+    {
+      "index": 1127,
+      "start_time": 3037660.0,
+      "end_time": 3039265.0,
+      "text": ">> -And what do you recommend?"
+    },
+    {
+      "index": 1128,
+      "start_time": 3039260.0,
+      "end_time": 3040455.0,
+      "text": ">> -What are you looking for?"
+    },
+    {
+      "index": 1129,
+      "start_time": 3040460.0,
+      "end_time": 3041300.0,
+      "text": ">> -Power man."
+    },
+    {
+      "index": 1130,
+      "start_time": 3041300.0,
+      "end_time": 3042285.0,
+      "text": "Power."
+    },
+    {
+      "index": 1131,
+      "start_time": 3042280.0,
+      "end_time": 3042905.0,
+      "text": "-Like Silkwood."
+    },
+    {
+      "index": 1132,
+      "start_time": 3042910.0,
+      "end_time": 3044520.0,
+      "text": "-That's for radiation."
+    },
+    {
+      "index": 1133,
+      "start_time": 3044520.0,
+      "end_time": 3046335.0,
+      "text": "-That's right."
+    },
+    {
+      "index": 1134,
+      "start_time": 3046330.0,
+      "end_time": 3048270.0,
+      "text": "-Now what is this?"
+    },
+    {
+      "index": 1135,
+      "start_time": 3048270.0,
+      "end_time": 3049699.0,
+      "text": "-That's the Commando 450."
+    },
+    {
+      "index": 1136,
+      "start_time": 3049700.0,
+      "end_time": 3050616.0,
+      "text": "I don't sell that one."
+    },
+    {
+      "index": 1137,
+      "start_time": 3050620.0,
+      "end_time": 3051700.0,
+      "text": ">> -But that's what we want."
+    },
+    {
+      "index": 1138,
+      "start_time": 3051700.0,
+      "end_time": 3052680.0,
+      "text": "It's a commando 450."
+    },
+    {
+      "index": 1139,
+      "start_time": 3052680.0,
+      "end_time": 3053882.0,
+      "text": ">> -No believe me."
+    },
+    {
+      "index": 1140,
+      "start_time": 3053880.0,
+      "end_time": 3055088.0,
+      "text": "It's only used in the circus."
+    },
+    {
+      "index": 1141,
+      "start_time": 3055090.0,
+      "end_time": 3056512.0,
+      "text": "It's for elephants."
+    },
+    {
+      "index": 1142,
+      "start_time": 3056510.0,
+      "end_time": 3059354.0,
+      "text": ">> -I'll pay anything."
+    },
+    {
+      "index": 1143,
+      "start_time": 3059360.0,
+      "end_time": 3061256.0,
+      "text": ">> -What about Jerry?"
+    },
+    {
+      "index": 1144,
+      "start_time": 3061250.0,
+      "end_time": 3062758.0,
+      "text": ">> -He couldn't handle that."
+    },
+    {
+      "index": 1145,
+      "start_time": 3062760.0,
+      "end_time": 3064910.0,
+      "text": "He's delicate."
+    },
+    {
+      "index": 1146,
+      "start_time": 3064910.0,
+      "end_time": 3065750.0,
+      "text": "Oh yeah."
+    },
+    {
+      "index": 1147,
+      "start_time": 3096740.0,
+      "end_time": 3097323.0,
+      "text": "[END PLAYBACK]"
+    },
+    {
+      "index": 1148,
+      "start_time": 3097320.0,
+      "end_time": 3097700.0,
+      "text": "DAVID J MALAN: All right."
+    },
+    {
+      "index": 1149,
+      "start_time": 3097700.0,
+      "end_time": 3098820.0,
+      "text": "That's if for CS50."
+    },
+    {
+      "index": 1150,
+      "start_time": 3098820.0,
+      "end_time": 3100050.0,
+      "text": "We'll see you next week."
+    },
+    {
+      "index": 1151,
+      "start_time": 3105910.0,
+      "end_time": 3109029.0,
+      "text": ">> SPEAKER 1: [? Scully ?], [? Ian, ?] as far as this outro project,"
+    },
+    {
+      "index": 1152,
+      "start_time": 3109030.0,
+      "end_time": 3110363.0,
+      "text": "what have you guys come up with?"
+    },
+    {
+      "index": 1153,
+      "start_time": 3110360.0,
+      "end_time": 3111988.0,
+      "text": ">> SPEAKER 2: Well, we've given it a variety of thought,"
+    },
+    {
+      "index": 1154,
+      "start_time": 3111990.0,
+      "end_time": 3113250.0,
+      "text": "and we think that the best way to--"
+    },
+    {
+      "index": 1155,
+      "start_time": 3113250.0,
+      "end_time": 3113660.0,
+      "text": ">> SPEAKER 3: May I?"
+    },
+    {
+      "index": 1156,
+      "start_time": 3113660.0,
+      "end_time": 3114326.0,
+      "text": ">> SPEAKER 2: Yeah."
+    },
+    {
+      "index": 1157,
+      "start_time": 3114330.0,
+      "end_time": 3116364.0,
+      "text": "By all means, actually."
+    },
+    {
+      "index": 1158,
+      "start_time": 3116360.0,
+      "end_time": 3119425.0,
+      "text": ">> SPEAKER 3: So I think we can sum up our idea"
+    },
+    {
+      "index": 1159,
+      "start_time": 3119430.0,
+      "end_time": 3125455.0,
+      "text": "for the outros with one word-- nothing."
+    },
+    {
+      "index": 1160,
+      "start_time": 3128950.0,
+      "end_time": 3130409.0,
+      "text": ">> DAVID J MALAN: Nothing?"
+    },
+    {
+      "index": 1161,
+      "start_time": 3130410.0,
+      "end_time": 3131201.0,
+      "text": "SPEAKER 3: Nothing."
+    },
+    {
+      "index": 1162,
+      "start_time": 3131200.0,
+      "end_time": 3132990.0,
+      "text": "DAVID J MALAN: What does that mean?"
+    },
+    {
+      "index": 1163,
+      "start_time": 3132990.0,
+      "end_time": 3136260.0,
+      "text": "SPEAKER 3: The outros are about nothing."
+    },
+    {
+      "index": 1164,
+      "start_time": 3136260.0,
+      "end_time": 3141720.0,
+      "text": "SPEAKER 2: Well, I mean, in philosophy, I mean, nothing is always something."
+    },
+    {
+      "index": 1165,
+      "start_time": 3141720.0,
+      "end_time": 3144200.0,
+      "text": "SPEAKER 1: So what's-- what's the premise?"
+    },
+    {
+      "index": 1166,
+      "start_time": 3144200.0,
+      "end_time": 3145720.0,
+      "text": "SPEAKER 3: So it's like life."
+    },
+    {
+      "index": 1167,
+      "start_time": 3145720.0,
+      "end_time": 3146680.0,
+      "text": "OK."
+    },
+    {
+      "index": 1168,
+      "start_time": 3146680.0,
+      "end_time": 3148294.0,
+      "text": "What did you do today?"
+    },
+    {
+      "index": 1169,
+      "start_time": 3148290.0,
+      "end_time": 3151807.0,
+      "text": ">> DAVID J MALAN: I got up, had breakfast, and came to work."
+    },
+    {
+      "index": 1170,
+      "start_time": 3151810.0,
+      "end_time": 3154055.0,
+      "text": ">> SPEAKER 3: That's an outro."
+    },
+    {
+      "index": 1171,
+      "start_time": 3154060.0,
+      "end_time": 3156810.0,
+      "text": "SPEAKER 2: But, I mean, shouldn't something happen to him on the--"
+    },
+    {
+      "index": 1172,
+      "start_time": 3156810.0,
+      "end_time": 3157893.0,
+      "text": "SPEAKER 3: No, no, no, no."
+    },
+    {
+      "index": 1173,
+      "start_time": 3157890.0,
+      "end_time": 3160221.0,
+      "text": "Nothing happens."
+    },
+    {
+      "index": 1174,
+      "start_time": 3160220.0,
+      "end_time": 3162910.0,
+      "text": ">> SPEAKER 1: So why are we watching?"
+    },
+    {
+      "index": 1175,
+      "start_time": 3162910.0,
+      "end_time": 3166956.0,
+      "text": ">> SPEAKER 3: Because it's an outro for CS50."
+    },
+    {
+      "index": 1176,
+      "start_time": 3166960.0,
+      "end_time": 3168656.0,
+      "text": ">> DAVID J MALAN: Not yet."
+    }
+  ]
+}

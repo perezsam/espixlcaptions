@@ -1,0 +1,1218 @@
+{
+  "video_id": "oOuu8IBd-yo",
+  "title": "ANOVA: Crash Course Statistics #33",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 2980.0,
+      "end_time": 6620.0,
+      "text": "Hi, I’m Adriene Hill, and welcome back to\nCrash Course Statistics."
+    },
+    {
+      "index": 2,
+      "start_time": 6630.0,
+      "end_time": 10570.0,
+      "text": "In many of our episodes we’ve looked at\nt-tests, which among other things, are good"
+    },
+    {
+      "index": 3,
+      "start_time": 10570.0,
+      "end_time": 13639.0,
+      "text": "for testing the difference between two groups."
+    },
+    {
+      "index": 4,
+      "start_time": 13639.0,
+      "end_time": 15190.0,
+      "text": "Like people with or without cats."
+    },
+    {
+      "index": 5,
+      "start_time": 15190.0,
+      "end_time": 18190.0,
+      "text": "Families below the poverty line...and families\nabove it."
+    },
+    {
+      "index": 6,
+      "start_time": 18190.0,
+      "end_time": 22240.0,
+      "text": "Petri dishes of cells that are treated with\na chemical and those that aren't."
+    },
+    {
+      "index": 7,
+      "start_time": 22240.0,
+      "end_time": 24400.0,
+      "text": "But the world isn’t always so binary."
+    },
+    {
+      "index": 8,
+      "start_time": 24400.0,
+      "end_time": 27380.0,
+      "text": "We often want to compare measurements of MORE\nthan two groups."
+    },
+    {
+      "index": 9,
+      "start_time": 27380.0,
+      "end_time": 31330.0,
+      "text": "Things like ethnicity, medical diagnosis,\ncountry of origin, or job title."
+    },
+    {
+      "index": 10,
+      "start_time": 31330.0,
+      "end_time": 36460.0,
+      "text": "So today, we’re going to apply the General\nLinear Model Framework we learned in the last episode"
+    },
+    {
+      "index": 11,
+      "start_time": 36460.0,
+      "end_time": 41340.0,
+      "text": "to test the difference between multiple groups using a new model called the ANOVA."
+    },
+    {
+      "index": 12,
+      "start_time": 41340.0,
+      "end_time": 50700.0,
+      "text": "INTRO"
+    },
+    {
+      "index": 13,
+      "start_time": 50710.0,
+      "end_time": 54940.0,
+      "text": "The GLM Framework takes all the information\nthat our data contain, and partitions it into"
+    },
+    {
+      "index": 14,
+      "start_time": 54940.0,
+      "end_time": 60260.0,
+      "text": "two piles: information that can be explained\nby a model that represents the way we think"
+    },
+    {
+      "index": 15,
+      "start_time": 60260.0,
+      "end_time": 65260.0,
+      "text": "things work, and error, which is the amount\nof information that our model fails to explain."
+    },
+    {
+      "index": 16,
+      "start_time": 65260.00000000001,
+      "end_time": 68359.0,
+      "text": "So let’s apply that to a new model: the\nANOVA."
+    },
+    {
+      "index": 17,
+      "start_time": 68359.0,
+      "end_time": 71859.0,
+      "text": "ANOVA is an acronym for ANalysis Of VAriance."
+    },
+    {
+      "index": 18,
+      "start_time": 71859.0,
+      "end_time": 76250.0,
+      "text": "It’s actually very similar to Regression,\nexcept we’re using a categorical variable"
+    },
+    {
+      "index": 19,
+      "start_time": 76250.0,
+      "end_time": 78109.0,
+      "text": "to predict a continuous one."
+    },
+    {
+      "index": 20,
+      "start_time": 78109.0,
+      "end_time": 82659.0,
+      "text": "Like using a soccer player’s position to\npredict the number of yards he runs in a game."
+    },
+    {
+      "index": 21,
+      "start_time": 82659.0,
+      "end_time": 87749.0,
+      "text": "Or using highest completed degree to predict\na person’s salary, note that this alone"
+    },
+    {
+      "index": 22,
+      "start_time": 87749.0,
+      "end_time": 93460.0,
+      "text": "isn’t evidence that getting a degree causes\na higher salary, just that knowing someone’s"
+    },
+    {
+      "index": 23,
+      "start_time": 93460.0,
+      "end_time": 96479.0,
+      "text": "degree might help estimate how much they get\npaid."
+    },
+    {
+      "index": 24,
+      "start_time": 96479.0,
+      "end_time": 100210.0,
+      "text": "Like Regression, the ANOVA builds a model\nof how the world works."
+    },
+    {
+      "index": 25,
+      "start_time": 100210.0,
+      "end_time": 104240.0,
+      "text": "For example, my model for how many bunnies\nI’ll see on my walk into work might be that"
+    },
+    {
+      "index": 26,
+      "start_time": 104240.0,
+      "end_time": 107780.0,
+      "text": "if it’s raining I’ll see 1 bunny, and\nif it’s sunny, I’ll see 5."
+    },
+    {
+      "index": 27,
+      "start_time": 107780.0,
+      "end_time": 109679.0,
+      "text": "I walk through a bunny preserve..."
+    },
+    {
+      "index": 28,
+      "start_time": 109680.0,
+      "end_time": 114840.0,
+      "text": "1 and 5 are my predictions for how many bunnies I’ll see, based on whether or not it’s raining."
+    },
+    {
+      "index": 29,
+      "start_time": 114840.0,
+      "end_time": 116120.0,
+      "text": "Yesterday it rained."
+    },
+    {
+      "index": 30,
+      "start_time": 116120.0,
+      "end_time": 117800.0,
+      "text": "And I saw two bunnies!"
+    },
+    {
+      "index": 31,
+      "start_time": 117800.0,
+      "end_time": 120850.0,
+      "text": "My model predicted 1, and my error is 1."
+    },
+    {
+      "index": 32,
+      "start_time": 120850.0,
+      "end_time": 125319.0,
+      "text": "And we can represent this model as a sort\nof Regression where there are ONLY two possible"
+    },
+    {
+      "index": 33,
+      "start_time": 125319.0,
+      "end_time": 128240.0,
+      "text": "values that the Variable Weather can have."
+    },
+    {
+      "index": 34,
+      "start_time": 128240.00000000001,
+      "end_time": 130880.00000000001,
+      "text": "0--if it rains--or 1--if it doesn’t."
+    },
+    {
+      "index": 35,
+      "start_time": 130880.0,
+      "end_time": 135830.0,
+      "text": "In this case, expected number of bunnies on\na rainy day is 1 and beta is the difference"
+    },
+    {
+      "index": 36,
+      "start_time": 135830.0,
+      "end_time": 139440.0,
+      "text": "between the two means, 5-1 = 4."
+    },
+    {
+      "index": 37,
+      "start_time": 139440.0,
+      "end_time": 141580.0,
+      "text": "Which means our ANOVA model looks like this:"
+    },
+    {
+      "index": 38,
+      "start_time": 141580.0,
+      "end_time": 145850.0,
+      "text": "In a Regression we did a statistical test\nof the slope and that’s what this simple"
+    },
+    {
+      "index": 39,
+      "start_time": 145850.0,
+      "end_time": 147610.0,
+      "text": "ANOVA is doing too."
+    },
+    {
+      "index": 40,
+      "start_time": 147610.0,
+      "end_time": 152160.0,
+      "text": "Since we assigned rainy days to be coded as\n0, and sunny days as 1, the change in the"
+    },
+    {
+      "index": 41,
+      "start_time": 152160.0,
+      "end_time": 155800.0,
+      "text": "X-direction is just one (1-0)."
+    },
+    {
+      "index": 42,
+      "start_time": 155810.0,
+      "end_time": 160800.0,
+      "text": "So the slope of this line is the difference\nbetween mean bunny count on sunny days, five,"
+    },
+    {
+      "index": 43,
+      "start_time": 160800.0,
+      "end_time": 163690.0,
+      "text": "minus mean bunny count on rainy days, one."
+    },
+    {
+      "index": 44,
+      "start_time": 163690.0,
+      "end_time": 167350.0,
+      "text": "This difference of 4 is the change in the\nY direction."
+    },
+    {
+      "index": 45,
+      "start_time": 167350.0,
+      "end_time": 170530.0,
+      "text": "We test this difference in the same way that\nwe tested the regression slope."
+    },
+    {
+      "index": 46,
+      "start_time": 170530.0,
+      "end_time": 174450.0,
+      "text": "And this slope tells us the difference between\nthe means of the two groups."
+    },
+    {
+      "index": 47,
+      "start_time": 174450.0,
+      "end_time": 177960.0,
+      "text": "Usually we’ll like to think of this slope\nas the difference between two group means."
+    },
+    {
+      "index": 48,
+      "start_time": 177960.0,
+      "end_time": 182890.0,
+      "text": "But, knowing that our model treats it like\na slope helps us understand how ANOVAs relate"
+    },
+    {
+      "index": 49,
+      "start_time": 182890.0,
+      "end_time": 184150.0,
+      "text": "to regression."
+    },
+    {
+      "index": 50,
+      "start_time": 184150.0,
+      "end_time": 190170.0,
+      "text": "In a regression the slope tells you how much\nan increase in one unit of X affects Y."
+    },
+    {
+      "index": 51,
+      "start_time": 190170.0,
+      "end_time": 194880.0,
+      "text": "Like for example, how much an increase of\n1 year increases shoe size in kids."
+    },
+    {
+      "index": 52,
+      "start_time": 194880.0,
+      "end_time": 196790.0,
+      "text": "An ANOVA actually does the same thing."
+    },
+    {
+      "index": 53,
+      "start_time": 196790.0,
+      "end_time": 202680.0,
+      "text": "It looks at how much an increase from 0 (rainy\ndays) to 1 (non-rainy days) affects the number"
+    },
+    {
+      "index": 54,
+      "start_time": 202680.0,
+      "end_time": 204040.0,
+      "text": "of bunnies you’d see."
+    },
+    {
+      "index": 55,
+      "start_time": 204040.0,
+      "end_time": 205080.0,
+      "text": "Now...to another example."
+    },
+    {
+      "index": 56,
+      "start_time": 205080.0,
+      "end_time": 209590.0,
+      "text": "Let’s look at the ratings of various chocolate\nbars based on the type of cocoa bean used."
+    },
+    {
+      "index": 57,
+      "start_time": 209590.0,
+      "end_time": 214140.0,
+      "text": "We’ll use a dataset you can find at Kaggle.com\ncourtesy of Brady Brelinski."
+    },
+    {
+      "index": 58,
+      "start_time": 214140.0,
+      "end_time": 220160.0,
+      "text": "Our three groups are chocolate bars made with Criollo beans, Forastero beans, or Trinitario beans."
+    },
+    {
+      "index": 59,
+      "start_time": 220160.0,
+      "end_time": 226360.0,
+      "text": "Chocolate making is complex, so we took a\nsmall sample of bars that only contained 1"
+    },
+    {
+      "index": 60,
+      "start_time": 226360.0,
+      "end_time": 227610.0,
+      "text": "of these three beans."
+    },
+    {
+      "index": 61,
+      "start_time": 227610.0,
+      "end_time": 232510.0,
+      "text": "And the chocolate taster used a scale--with\n5 as the highest score --transcending beyond"
+    },
+    {
+      "index": 62,
+      "start_time": 232510.0,
+      "end_time": 233880.0,
+      "text": "the ordinary limits."
+    },
+    {
+      "index": 63,
+      "start_time": 233880.0,
+      "end_time": 236500.0,
+      "text": "1 was “mostly unpalatable”..."
+    },
+    {
+      "index": 64,
+      "start_time": 236500.0,
+      "end_time": 240480.0,
+      "text": "But is there really “mostly unpalatable” chocolate out there?"
+    },
+    {
+      "index": 65,
+      "start_time": 240480.0,
+      "end_time": 243940.0,
+      "text": "We want to know if the type of bean affects\nour taster’s ratings."
+    },
+    {
+      "index": 66,
+      "start_time": 243940.0,
+      "end_time": 246230.0,
+      "text": "To find out, we need the ANOVA model!"
+    },
+    {
+      "index": 67,
+      "start_time": 246230.0,
+      "end_time": 250410.0,
+      "text": "Like Regression, we can calculate a Sums of\nSquares Total by adding up the squared differences"
+    },
+    {
+      "index": 68,
+      "start_time": 250410.0,
+      "end_time": 254510.0,
+      "text": "between each chocolate rating, and the overall\nmean chocolate rating."
+    },
+    {
+      "index": 69,
+      "start_time": 254510.0,
+      "end_time": 257340.0,
+      "text": "This gives us our Sums of Squares Total, or\nSST."
+    },
+    {
+      "index": 70,
+      "start_time": 257339.99999999997,
+      "end_time": 261179.99999999997,
+      "text": "If that sounds like how we calculated variance,\nthat’s because it is!"
+    },
+    {
+      "index": 71,
+      "start_time": 261180.0,
+      "end_time": 263360.0,
+      "text": "SST is just N times Variance."
+    },
+    {
+      "index": 72,
+      "start_time": 263360.0,
+      "end_time": 267439.0,
+      "text": "This Sum represents the total amount of variation,\nor information, in the data."
+    },
+    {
+      "index": 73,
+      "start_time": 267439.0,
+      "end_time": 270150.0,
+      "text": "Now, we need to partition this variation."
+    },
+    {
+      "index": 74,
+      "start_time": 270150.0,
+      "end_time": 274240.0,
+      "text": "When we previously used a simple linear regression\nmodel, we partitioned this variation into"
+    },
+    {
+      "index": 75,
+      "start_time": 274240.0,
+      "end_time": 278370.0,
+      "text": "two parts: Sums of Squares for Regression,\nand Sums of Squares for Error."
+    },
+    {
+      "index": 76,
+      "start_time": 278370.0,
+      "end_time": 280080.0,
+      "text": "And the ANOVA does the same thing."
+    },
+    {
+      "index": 77,
+      "start_time": 280080.0,
+      "end_time": 285379.0,
+      "text": "The first step is to figure out how much of\nthe variation is explained by our model."
+    },
+    {
+      "index": 78,
+      "start_time": 285379.0,
+      "end_time": 290169.0,
+      "text": "In an ANOVA--what we’re using here--our\nbest guess of a chocolate bar’s rating is"
+    },
+    {
+      "index": 79,
+      "start_time": 290169.0,
+      "end_time": 291540.0,
+      "text": "its group mean."
+    },
+    {
+      "index": 80,
+      "start_time": 291540.0,
+      "end_time": 301199.0,
+      "text": "For bars made with Criollo beans 3.1, Forastero\nbeans 3.25, and Trinitario beans 3.27."
+    },
+    {
+      "index": 81,
+      "start_time": 301199.0,
+      "end_time": 305889.0,
+      "text": "So we sum up the squared distances between\neach point and its group mean."
+    },
+    {
+      "index": 82,
+      "start_time": 305889.0,
+      "end_time": 311740.0,
+      "text": "This is called our Model Sums of Squares (or SSM) because it’s the variation our model explains."
+    },
+    {
+      "index": 83,
+      "start_time": 311800.0,
+      "end_time": 315040.0,
+      "text": "So now that we have the amount of variation\nexplained by the model."
+    },
+    {
+      "index": 84,
+      "start_time": 315040.0,
+      "end_time": 321139.0,
+      "text": "In other words, how much variation is accounted\nfor if we just assumed each rating value were"
+    },
+    {
+      "index": 85,
+      "start_time": 321139.0,
+      "end_time": 322599.0,
+      "text": "it’s group mean rating."
+    },
+    {
+      "index": 86,
+      "start_time": 322599.0,
+      "end_time": 326759.0,
+      "text": "We’re also going to need the amount of variation\nthat it DOESN’T explain."
+    },
+    {
+      "index": 87,
+      "start_time": 326759.0,
+      "end_time": 330759.0,
+      "text": "In other words, how much ratings vary within\neach group of Cacao beans."
+    },
+    {
+      "index": 88,
+      "start_time": 330759.0,
+      "end_time": 336009.0,
+      "text": "So, we can sum up the squared differences\nbetween each data point and its group mean"
+    },
+    {
+      "index": 89,
+      "start_time": 336009.0,
+      "end_time": 341500.0,
+      "text": "to get our Sums of Squares for Error: the\namount of information that our model doesn’t explain."
+    },
+    {
+      "index": 90,
+      "start_time": 341500.0,
+      "end_time": 345440.0,
+      "text": "Now that we have that information, we can\ncalculate our F-statistic, just like we did"
+    },
+    {
+      "index": 91,
+      "start_time": 345440.0,
+      "end_time": 346610.0,
+      "text": "for regression."
+    },
+    {
+      "index": 92,
+      "start_time": 346610.0,
+      "end_time": 353270.0,
+      "text": "The F-statistic compares how much variation\nour model accounts for vs. how much it can’t"
+    },
+    {
+      "index": 93,
+      "start_time": 353270.0,
+      "end_time": 354319.0,
+      "text": "account for."
+    },
+    {
+      "index": 94,
+      "start_time": 354319.0,
+      "end_time": 359050.0,
+      "text": "The larger that F is, the more information\nour model is able to give us about our chocolate"
+    },
+    {
+      "index": 95,
+      "start_time": 359050.0,
+      "end_time": 360050.0,
+      "text": "bar ratings."
+    },
+    {
+      "index": 96,
+      "start_time": 360050.0,
+      "end_time": 364680.0,
+      "text": "Again, SSM is the variation our model explains\nand SSE is the variation it doesn’t explain."
+    },
+    {
+      "index": 97,
+      "start_time": 364680.0,
+      "end_time": 365930.0,
+      "text": "We want to compare the two."
+    },
+    {
+      "index": 98,
+      "start_time": 365930.0,
+      "end_time": 370569.0,
+      "text": "But we also need to account for the amount\nof independent information that each one uses."
+    },
+    {
+      "index": 99,
+      "start_time": 370569.0,
+      "end_time": 374720.0,
+      "text": "So, we divide each Sums of Squares by its\ndegrees of freedom."
+    },
+    {
+      "index": 100,
+      "start_time": 374720.0,
+      "end_time": 376710.0,
+      "text": "Our ANOVA model has 2 degrees of freedom."
+    },
+    {
+      "index": 101,
+      "start_time": 376710.0,
+      "end_time": 381540.0,
+      "text": "In general, the formula for degrees of freedom\nfor categorical variables (like cocoa bean"
+    },
+    {
+      "index": 102,
+      "start_time": 381540.0,
+      "end_time": 387900.0,
+      "text": "types) in an ANOVA is k-1, where k is the\nnumber of groups. In our case we have 3 groups."
+    },
+    {
+      "index": 103,
+      "start_time": 387900.0,
+      "end_time": 394920.0,
+      "text": "Our Sums of Squares for Error has 787 degrees\nof freedom because we originally had 790 data"
+    },
+    {
+      "index": 104,
+      "start_time": 394930.0,
+      "end_time": 397780.0,
+      "text": "points, but we calculated 3 means."
+    },
+    {
+      "index": 105,
+      "start_time": 397780.0,
+      "end_time": 402360.0,
+      "text": "The general formula for degrees of freedom\nfor your errors is n minus k where n is the"
+    },
+    {
+      "index": 106,
+      "start_time": 402360.0,
+      "end_time": 405270.0,
+      "text": "sample size and k is the number of groups."
+    },
+    {
+      "index": 107,
+      "start_time": 405270.0,
+      "end_time": 409789.0,
+      "text": "For our test, we got an F-statistic of 7.7619."
+    },
+    {
+      "index": 108,
+      "start_time": 409789.0,
+      "end_time": 413919.0,
+      "text": "This F-statistic--sometimes called an F-ratio--has\na distribution that looks like this:"
+    },
+    {
+      "index": 109,
+      "start_time": 413919.0,
+      "end_time": 416990.0,
+      "text": "And we’re going to use this distribution\nto find our p-value."
+    },
+    {
+      "index": 110,
+      "start_time": 416990.0,
+      "end_time": 421719.0,
+      "text": "We want to know whether the effect of bean\ntype on chocolate bar ratings is significant."
+    },
+    {
+      "index": 111,
+      "start_time": 421719.0,
+      "end_time": 425529.0,
+      "text": "In this case we have a p-value of 0.000459."
+    },
+    {
+      "index": 112,
+      "start_time": 425529.0,
+      "end_time": 427589.0,
+      "text": "Small enough to reject the null."
+    },
+    {
+      "index": 113,
+      "start_time": 427589.0,
+      "end_time": 431710.0,
+      "text": "So we’ve found evidence that beans influenced\nthe chocolate bar ratings."
+    },
+    {
+      "index": 114,
+      "start_time": 431710.0,
+      "end_time": 436500.0,
+      "text": "A statistically significant result means that\nthere is SOME statistically significant difference"
+    },
+    {
+      "index": 115,
+      "start_time": 436500.0,
+      "end_time": 440439.0,
+      "text": "SOMEWHERE in the groups, but it doesn’t\ntell you where that difference is."
+    },
+    {
+      "index": 116,
+      "start_time": 440439.0,
+      "end_time": 445770.0,
+      "text": "Maybe Trinitario is significantly different\nfrom Criollo but not Forastero beans.."
+    },
+    {
+      "index": 117,
+      "start_time": 445770.0,
+      "end_time": 450680.0,
+      "text": "An F-test is an example of an Omnibus test,\nwhich means it’s a test that contains many"
+    },
+    {
+      "index": 118,
+      "start_time": 450680.0,
+      "end_time": 452360.0,
+      "text": "items or groups."
+    },
+    {
+      "index": 119,
+      "start_time": 452360.0,
+      "end_time": 458210.0,
+      "text": "When we get a significant F-statistic, it\nmeans that there’s SOME statistically significant"
+    },
+    {
+      "index": 120,
+      "start_time": 458210.0,
+      "end_time": 461349.0,
+      "text": "difference somewhere between the groups, but\nwe still have to look for it."
+    },
+    {
+      "index": 121,
+      "start_time": 461349.0,
+      "end_time": 465669.0,
+      "text": "It’s kinda like walking into your kitchen\nand smelling something realllllllly stinky."
+    },
+    {
+      "index": 122,
+      "start_time": 465669.0,
+      "end_time": 470499.0,
+      "text": "You know there’s SOMETHING gross, but you\nhave to do more work to find out exactly what"
+    },
+    {
+      "index": 123,
+      "start_time": 470499.0,
+      "end_time": 471499.0,
+      "text": "is rotting..."
+    },
+    {
+      "index": 124,
+      "start_time": 471499.0,
+      "end_time": 475759.0,
+      "text": "We already have tools to do this, in statistics\nat least, because you can follow up a significant"
+    },
+    {
+      "index": 125,
+      "start_time": 475759.0,
+      "end_time": 481740.0,
+      "text": "F-test in an ANOVA with multiple t-tests,\none for every unique pair of categories your"
+    },
+    {
+      "index": 126,
+      "start_time": 481740.0,
+      "end_time": 483289.0,
+      "text": "variable had."
+    },
+    {
+      "index": 127,
+      "start_time": 483289.0,
+      "end_time": 489089.0,
+      "text": "We had 3, which means we only need to do 3\nt-tests in order to find the statistically"
+    },
+    {
+      "index": 128,
+      "start_time": 489089.0,
+      "end_time": 490699.0,
+      "text": "significant difference or differences."
+    },
+    {
+      "index": 129,
+      "start_time": 490699.0,
+      "end_time": 496069.0,
+      "text": "To conduct these T-tests, we take just the\ndata in the two categories for that t-test,"
+    },
+    {
+      "index": 130,
+      "start_time": 496069.0,
+      "end_time": 499159.0,
+      "text": "and calculate the t-statistic and p-value."
+    },
+    {
+      "index": 131,
+      "start_time": 499159.0,
+      "end_time": 504210.0,
+      "text": "For our first t-test we just look at the bars\nwith Trinitario and Criollo beans."
+    },
+    {
+      "index": 132,
+      "start_time": 504210.0,
+      "end_time": 507039.0,
+      "text": "First, we follow our Test statistic general\nformula:"
+    },
+    {
+      "index": 133,
+      "start_time": 507040.0,
+      "end_time": 511580.0,
+      "text": "We take the difference between the mean rating of chocolates made with Trinitario and Criollo beans."
+    },
+    {
+      "index": 134,
+      "start_time": 511580.0,
+      "end_time": 513700.0,
+      "text": "And divide by the standard error."
+    },
+    {
+      "index": 135,
+      "start_time": 513710.00000000006,
+      "end_time": 518060.00000000006,
+      "text": "And once we do this for all three comparisons,\nwe can see where our statistically significant"
+    },
+    {
+      "index": 136,
+      "start_time": 518059.99999999994,
+      "end_time": 519059.99999999994,
+      "text": "differences are."
+    },
+    {
+      "index": 137,
+      "start_time": 519059.99999999994,
+      "end_time": 523829.99999999994,
+      "text": "It looks--from our graph--like ratings of\nchocolate bars made with Criollo beans are"
+    },
+    {
+      "index": 138,
+      "start_time": 523830.00000000006,
+      "end_time": 528570.0,
+      "text": "different...in a statistically significant\nway... than those made with Trinitario or"
+    },
+    {
+      "index": 139,
+      "start_time": 528570.0,
+      "end_time": 530060.0,
+      "text": "Forastero beans."
+    },
+    {
+      "index": 140,
+      "start_time": 530060.0,
+      "end_time": 533880.0,
+      "text": "And our graph and group means show that Criollo\nbars have a slightly lower mean rating."
+    },
+    {
+      "index": 141,
+      "start_time": 533880.0,
+      "end_time": 538899.0,
+      "text": "But bars made with Trinitario beans are NOT\nstatistically significantly different than"
+    },
+    {
+      "index": 142,
+      "start_time": 538899.0,
+      "end_time": 541250.0,
+      "text": "those made with Forastero beans."
+    },
+    {
+      "index": 143,
+      "start_time": 541250.0,
+      "end_time": 546800.0,
+      "text": "So our ANOVA F-test told us that there WERE\nsome differences, and our follow up t-tests"
+    },
+    {
+      "index": 144,
+      "start_time": 546800.0,
+      "end_time": 548050.0,
+      "text": "told us WHERE they were."
+    },
+    {
+      "index": 145,
+      "start_time": 548050.0,
+      "end_time": 549209.0,
+      "text": "And this is interesting."
+    },
+    {
+      "index": 146,
+      "start_time": 549209.0,
+      "end_time": 555380.0,
+      "text": "Criollo beans are generally considered a delicacy\nand of a much higher quality than Forastero."
+    },
+    {
+      "index": 147,
+      "start_time": 555380.0,
+      "end_time": 558089.0,
+      "text": "And Trinitario are hybrid of the two."
+    },
+    {
+      "index": 148,
+      "start_time": 558089.0,
+      "end_time": 564500.0,
+      "text": "But we found...in this data set... that Criollo\nbars had statistically significantly lower ratings."
+    },
+    {
+      "index": 149,
+      "start_time": 564500.0,
+      "end_time": 568900.0,
+      "text": "This might be because we excluded bars with\ncombinations of our three bean types...or"
+    },
+    {
+      "index": 150,
+      "start_time": 568910.0,
+      "end_time": 574800.0,
+      "text": "because the rater has a different preference...or\neven be caused by some other unknown factor"
+    },
+    {
+      "index": 151,
+      "start_time": 574810.0,
+      "end_time": 576850.0,
+      "text": "that our model does not include."
+    },
+    {
+      "index": 152,
+      "start_time": 576850.0,
+      "end_time": 577889.0,
+      "text": "Like who made the chocolate."
+    },
+    {
+      "index": 153,
+      "start_time": 577889.0,
+      "end_time": 580000.0,
+      "text": "Or the country of origin of the beans."
+    },
+    {
+      "index": 154,
+      "start_time": 580000.0,
+      "end_time": 582560.0,
+      "text": "We can also use ANOVAs for more than 3 groups."
+    },
+    {
+      "index": 155,
+      "start_time": 582560.0,
+      "end_time": 587720.0,
+      "text": "For example, the ANOVA was first created by\nthe statistician R.A. Fisher when he was on"
+    },
+    {
+      "index": 156,
+      "start_time": 587720.0,
+      "end_time": 590829.0,
+      "text": "a potato farm looking at studies of fertilizer."
+    },
+    {
+      "index": 157,
+      "start_time": 590829.0,
+      "end_time": 595430.0,
+      "text": "In one of the first experiments he described,\nhe looked at 12 different species of potato"
+    },
+    {
+      "index": 158,
+      "start_time": 595430.0,
+      "end_time": 597980.0,
+      "text": "and the effect of various fertilizers."
+    },
+    {
+      "index": 159,
+      "start_time": 597980.0,
+      "end_time": 601420.0,
+      "text": "Let’s look at a simple version of Fisher’s\npotato study."
+    },
+    {
+      "index": 160,
+      "start_time": 601420.0,
+      "end_time": 604209.0,
+      "text": "Here we have 12 different varieties of potato."
+    },
+    {
+      "index": 161,
+      "start_time": 604209.0,
+      "end_time": 607009.0,
+      "text": "We’ll represent each of them with a letter\nA through L."
+    },
+    {
+      "index": 162,
+      "start_time": 607009.0,
+      "end_time": 612769.0,
+      "text": "There are 21 of each of the potato plants,\nfor a total of 252 potato plants."
+    },
+    {
+      "index": 163,
+      "start_time": 612769.0,
+      "end_time": 617240.0,
+      "text": "We give our future french fries about a season to grow, then we dig them up and weigh each one."
+    },
+    {
+      "index": 164,
+      "start_time": 617240.0,
+      "end_time": 622340.0,
+      "text": "This graph shows the potato weights that we\nrecorded, as well as the total mean potato"
+    },
+    {
+      "index": 165,
+      "start_time": 622340.0,
+      "end_time": 625180.0,
+      "text": "weight and each group mean potato weight."
+    },
+    {
+      "index": 166,
+      "start_time": 625180.0,
+      "end_time": 629339.0,
+      "text": "Using these numbers, we can calculate our\nTotal Sums of Squares, Model Sums of Squares,"
+    },
+    {
+      "index": 167,
+      "start_time": 629339.0,
+      "end_time": 630690.0,
+      "text": "and Sums of Squares error."
+    },
+    {
+      "index": 168,
+      "start_time": 630690.0,
+      "end_time": 633930.0,
+      "text": "We’re going to let a computer do that for\nus this time."
+    },
+    {
+      "index": 169,
+      "start_time": 633930.0,
+      "end_time": 639040.0,
+      "text": "And our computer spit out this: the degrees\nof freedom, sums of squares, mean squares,"
+    },
+    {
+      "index": 170,
+      "start_time": 639040.0,
+      "end_time": 641190.0,
+      "text": "F-statistic, and p-value."
+    },
+    {
+      "index": 171,
+      "start_time": 641190.0,
+      "end_time": 646400.0,
+      "text": "This is called an ANOVA table and it organizes all the information our ANOVA models give us."
+    },
+    {
+      "index": 172,
+      "start_time": 646400.0,
+      "end_time": 654120.0,
+      "text": "Here we can see that our Model had an F-statistic--or\nF-value--of around 3, and a p-value of 0.000829."
+    },
+    {
+      "index": 173,
+      "start_time": 654120.0,
+      "end_time": 656540.0,
+      "text": "So we reject the null hypothesis."
+    },
+    {
+      "index": 174,
+      "start_time": 656540.0,
+      "end_time": 661209.0,
+      "text": "We found evidence that the potato varieties\ndon’t all have the same mean weight."
+    },
+    {
+      "index": 175,
+      "start_time": 661209.0,
+      "end_time": 666839.0,
+      "text": "But since this was an Omnibus test, our statistically\nsignificant F-test just means that there is"
+    },
+    {
+      "index": 176,
+      "start_time": 666840.0,
+      "end_time": 672780.0,
+      "text": "some statistically significant difference\nsomewhere in those 12 potato varieties."
+    },
+    {
+      "index": 177,
+      "start_time": 672780.0,
+      "end_time": 674040.0,
+      "text": "We don’t know where it is."
+    },
+    {
+      "index": 178,
+      "start_time": 674050.0,
+      "end_time": 677500.0,
+      "text": "In that way, ANOVAs can be thought of as a\nfirst step."
+    },
+    {
+      "index": 179,
+      "start_time": 677500.0,
+      "end_time": 682459.0,
+      "text": "We do an overall test that tells us whether\nthere’s a needle in our haystack."
+    },
+    {
+      "index": 180,
+      "start_time": 682459.0,
+      "end_time": 686230.0,
+      "text": "If we find out there is a needle, then we\ngo looking for it."
+    },
+    {
+      "index": 181,
+      "start_time": 686230.0,
+      "end_time": 689860.0,
+      "text": "However, if our test tells us there’s no\nneedle, we’re done."
+    },
+    {
+      "index": 182,
+      "start_time": 689860.0,
+      "end_time": 692480.0,
+      "text": "No need to look for something that probably\ndoesn’t exist."
+    },
+    {
+      "index": 183,
+      "start_time": 692480.0,
+      "end_time": 697910.0,
+      "text": "But you can see that this significant F-statistic\nfor potato varieties will require MANY follow"
+    },
+    {
+      "index": 184,
+      "start_time": 697910.0,
+      "end_time": 698910.0,
+      "text": "up tests."
+    },
+    {
+      "index": 185,
+      "start_time": 698910.0,
+      "end_time": 700130.0,
+      "text": "12 choose 2."
+    },
+    {
+      "index": 186,
+      "start_time": 700130.0,
+      "end_time": 701560.0,
+      "text": "Or 66."
+    },
+    {
+      "index": 187,
+      "start_time": 701560.0,
+      "end_time": 705170.0,
+      "text": "We showed a lot of calculations today, but\nthere’s two big ANOVA ideas to take away"
+    },
+    {
+      "index": 188,
+      "start_time": 705170.0,
+      "end_time": 706170.0,
+      "text": "from this."
+    },
+    {
+      "index": 189,
+      "start_time": 706170.0,
+      "end_time": 711680.0,
+      "text": "First, a lot of these different statistical\nmodels are more similar than they are actually different."
+    },
+    {
+      "index": 190,
+      "start_time": 711680.0,
+      "end_time": 717760.0,
+      "text": "ANOVAs and Regressions both use the General\nLinear Model form to create a story about"
+    },
+    {
+      "index": 191,
+      "start_time": 717760.0,
+      "end_time": 719240.0,
+      "text": "how the world might work."
+    },
+    {
+      "index": 192,
+      "start_time": 719250.0,
+      "end_time": 723949.0,
+      "text": "The ANOVA says that the best guess for a data\npoint--like the rating of a new chocolate"
+    },
+    {
+      "index": 193,
+      "start_time": 723949.0,
+      "end_time": 727960.0,
+      "text": "bar--is the mean rating of whatever Group\nit belongs to."
+    },
+    {
+      "index": 194,
+      "start_time": 727960.0,
+      "end_time": 731790.0,
+      "text": "Whether that’s Criollo, Trinitario , or\nForastero."
+    },
+    {
+      "index": 195,
+      "start_time": 731790.0,
+      "end_time": 736339.0,
+      "text": "If we don’t know anything else, we’d guess\nthat the rating of a Criollo chocolate bar"
+    },
+    {
+      "index": 196,
+      "start_time": 736339.0,
+      "end_time": 738899.0,
+      "text": "is the mean rating for all Criollo bars."
+    },
+    {
+      "index": 197,
+      "start_time": 738899.0,
+      "end_time": 741570.0,
+      "text": "Also, an ANOVA is a great example of filtering."
+    },
+    {
+      "index": 198,
+      "start_time": 741570.0,
+      "end_time": 746190.0,
+      "text": "If there’s no evidence that bean type has\nan overall effect on chocolate-bar ratings,"
+    },
+    {
+      "index": 199,
+      "start_time": 746190.0,
+      "end_time": 749519.0,
+      "text": "we don’t want to go chasing more specific\neffects."
+    },
+    {
+      "index": 200,
+      "start_time": 749519.0,
+      "end_time": 753300.0,
+      "text": "Our time is precious...and we want to use\nit as best as we can."
+    },
+    {
+      "index": 201,
+      "start_time": 753300.0,
+      "end_time": 756050.0,
+      "text": "So we have more time out in the world...to\nlook for bunnies."
+    },
+    {
+      "index": 202,
+      "start_time": 756050.0,
+      "end_time": 758420.0,
+      "text": "Thanks for watching, I’ll see you next time."
+    }
+  ]
+}

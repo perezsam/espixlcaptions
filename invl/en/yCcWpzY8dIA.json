@@ -1,0 +1,7596 @@
+{
+  "video_id": "yCcWpzY8dIA",
+  "title": "GOTO 2016 • Conflict Resolution for Eventual Consistency • Martin Kleppmann",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 429.0,
+      "end_time": 10098.0,
+      "text": "(smooth electronic music)"
+    },
+    {
+      "index": 2,
+      "start_time": 10098.0,
+      "end_time": 12459.0,
+      "text": "- Hello, everybody, thank you very much for coming."
+    },
+    {
+      "index": 3,
+      "start_time": 12459.0,
+      "end_time": 13292.0,
+      "text": "Good morning."
+    },
+    {
+      "index": 4,
+      "start_time": 13292.0,
+      "end_time": 16431.0,
+      "text": "Hope you are doing well."
+    },
+    {
+      "index": 5,
+      "start_time": 16431.0,
+      "end_time": 19039.0,
+      "text": "I&#39;d like to talk today about conflict resolution"
+    },
+    {
+      "index": 6,
+      "start_time": 19039.0,
+      "end_time": 21937.0,
+      "text": "in distributed systems, that is if several"
+    },
+    {
+      "index": 7,
+      "start_time": 21937.0,
+      "end_time": 26040.0,
+      "text": "people change some data independently of each other,"
+    },
+    {
+      "index": 8,
+      "start_time": 26040.0,
+      "end_time": 29259.0,
+      "text": "what happens, how do we resolve those conflicts"
+    },
+    {
+      "index": 9,
+      "start_time": 29259.0,
+      "end_time": 30302.0,
+      "text": "that&#39;ll occur."
+    },
+    {
+      "index": 10,
+      "start_time": 30302.0,
+      "end_time": 33813.0,
+      "text": "My background is I&#39;m a researcher at the University"
+    },
+    {
+      "index": 11,
+      "start_time": 33813.0,
+      "end_time": 34813.0,
+      "text": "of Cambridge."
+    },
+    {
+      "index": 12,
+      "start_time": 34813.0,
+      "end_time": 36907.0,
+      "text": "I was previously in industry"
+    },
+    {
+      "index": 13,
+      "start_time": 36907.0,
+      "end_time": 38458.0,
+      "text": "and a bunch of internet start ups."
+    },
+    {
+      "index": 14,
+      "start_time": 38458.0,
+      "end_time": 40344.0,
+      "text": "So I worked at Linkedin for a couple of years,"
+    },
+    {
+      "index": 15,
+      "start_time": 40344.0,
+      "end_time": 41344.0,
+      "text": "for example."
+    },
+    {
+      "index": 16,
+      "start_time": 41344.0,
+      "end_time": 43602.0,
+      "text": "At the moment, I&#39;m working on this research product"
+    },
+    {
+      "index": 17,
+      "start_time": 43602.0,
+      "end_time": 44624.0,
+      "text": "called Trve Data."
+    },
+    {
+      "index": 18,
+      "start_time": 44624.0,
+      "end_time": 46532.0,
+      "text": "Spelled T-R-V-E"
+    },
+    {
+      "index": 19,
+      "start_time": 46532.0,
+      "end_time": 48749.0,
+      "text": "and what we&#39;re trying to do here"
+    },
+    {
+      "index": 20,
+      "start_time": 48749.0,
+      "end_time": 50910.0,
+      "text": "is to bring end to end encryption"
+    },
+    {
+      "index": 21,
+      "start_time": 50910.0,
+      "end_time": 53048.0,
+      "text": "to a larger range of applications."
+    },
+    {
+      "index": 22,
+      "start_time": 53048.0,
+      "end_time": 55298.0,
+      "text": "So think something like Google Docs"
+    },
+    {
+      "index": 23,
+      "start_time": 55298.0,
+      "end_time": 57357.0,
+      "text": "where several people can edit a document"
+    },
+    {
+      "index": 24,
+      "start_time": 57357.0,
+      "end_time": 58962.0,
+      "text": "at the same time online"
+    },
+    {
+      "index": 25,
+      "start_time": 58962.0,
+      "end_time": 61167.0,
+      "text": "but without having to trust Google servers"
+    },
+    {
+      "index": 26,
+      "start_time": 61167.0,
+      "end_time": 63330.0,
+      "text": "because what we want to do is"
+    },
+    {
+      "index": 27,
+      "start_time": 63330.0,
+      "end_time": 66330.0,
+      "text": "to be able to put data on various servers in the cloud"
+    },
+    {
+      "index": 28,
+      "start_time": 66330.0,
+      "end_time": 68652.0,
+      "text": "but not have to worry about what happens"
+    },
+    {
+      "index": 29,
+      "start_time": 68652.0,
+      "end_time": 70580.0,
+      "text": "if they get compromised or so on."
+    },
+    {
+      "index": 30,
+      "start_time": 70580.0,
+      "end_time": 74164.0,
+      "text": "So that&#39;s kind of the background of all of this."
+    },
+    {
+      "index": 31,
+      "start_time": 74164.0,
+      "end_time": 75626.0,
+      "text": "I&#39;m not talking about the encryption"
+    },
+    {
+      "index": 32,
+      "start_time": 75626.0,
+      "end_time": 77567.0,
+      "text": "and the security protocols today,"
+    },
+    {
+      "index": 33,
+      "start_time": 77567.0,
+      "end_time": 81273.0,
+      "text": "I&#39;m only focusing on one little piece of that whole project"
+    },
+    {
+      "index": 34,
+      "start_time": 81273.0,
+      "end_time": 84550.0,
+      "text": "which is what happens if several people edit data"
+    },
+    {
+      "index": 35,
+      "start_time": 84550.0,
+      "end_time": 88543.0,
+      "text": "at the same time and how do we resolve that."
+    },
+    {
+      "index": 36,
+      "start_time": 88543.0,
+      "end_time": 90414.0,
+      "text": "So I&#39;d like to start with a scenario"
+    },
+    {
+      "index": 37,
+      "start_time": 90414.0,
+      "end_time": 92539.0,
+      "text": "that will probably be familiar with you,"
+    },
+    {
+      "index": 38,
+      "start_time": 92539.0,
+      "end_time": 95380.0,
+      "text": "which is you, a little blue stick figure here,"
+    },
+    {
+      "index": 39,
+      "start_time": 95380.0,
+      "end_time": 98421.0,
+      "text": "are hacking on some code on your computer"
+    },
+    {
+      "index": 40,
+      "start_time": 98421.0,
+      "end_time": 101869.0,
+      "text": "and at some point you decide that this code is done"
+    },
+    {
+      "index": 41,
+      "start_time": 101869.0,
+      "end_time": 104689.0,
+      "text": "and you commit it using your favorite"
+    },
+    {
+      "index": 42,
+      "start_time": 104689.0,
+      "end_time": 106049.0,
+      "text": "version of control system."
+    },
+    {
+      "index": 43,
+      "start_time": 106049.0,
+      "end_time": 107349.0,
+      "text": "I&#39;ll just use git as an example here"
+    },
+    {
+      "index": 44,
+      "start_time": 107349.0,
+      "end_time": 110983.0,
+      "text": "and so at this point, you&#39;d put the code"
+    },
+    {
+      "index": 45,
+      "start_time": 110983.0,
+      "end_time": 113216.0,
+      "text": "in the repository and then maybe you push it somewhere"
+    },
+    {
+      "index": 46,
+      "start_time": 113216.0,
+      "end_time": 115828.0,
+      "text": "so that other people can see that `code as well."
+    },
+    {
+      "index": 47,
+      "start_time": 115828.0,
+      "end_time": 118452.0,
+      "text": "So in the case of Git, you maybe you&#39;ll push"
+    },
+    {
+      "index": 48,
+      "start_time": 118452.0,
+      "end_time": 119676.0,
+      "text": "it to a repository on Github"
+    },
+    {
+      "index": 49,
+      "start_time": 119676.0,
+      "end_time": 123189.0,
+      "text": "and this is now the communication mechanism"
+    },
+    {
+      "index": 50,
+      "start_time": 123189.0,
+      "end_time": 125127.0,
+      "text": "for people with your team."
+    },
+    {
+      "index": 51,
+      "start_time": 125127.0,
+      "end_time": 127527.0,
+      "text": "So if there&#39;s somebody else, say,"
+    },
+    {
+      "index": 52,
+      "start_time": 127527.0,
+      "end_time": 129491.0,
+      "text": "this little red stick figure"
+    },
+    {
+      "index": 53,
+      "start_time": 129491.00000000001,
+      "end_time": 131684.0,
+      "text": "who is also hacking on code,"
+    },
+    {
+      "index": 54,
+      "start_time": 131684.0,
+      "end_time": 133623.0,
+      "text": "then well you can synchronize up through"
+    },
+    {
+      "index": 55,
+      "start_time": 133623.0,
+      "end_time": 134623.0,
+      "text": "the central repository."
+    },
+    {
+      "index": 56,
+      "start_time": 134623.0,
+      "end_time": 136167.0,
+      "text": "This is all very familiar, this is what"
+    },
+    {
+      "index": 57,
+      "start_time": 136167.0,
+      "end_time": 137187.0,
+      "text": "we do everyday"
+    },
+    {
+      "index": 58,
+      "start_time": 137187.0,
+      "end_time": 139486.0,
+      "text": "and so the little red person here"
+    },
+    {
+      "index": 59,
+      "start_time": 139486.0,
+      "end_time": 141990.0,
+      "text": "might independently at the same time"
+    },
+    {
+      "index": 60,
+      "start_time": 141990.0,
+      "end_time": 144099.0,
+      "text": "also be working on the same code base"
+    },
+    {
+      "index": 61,
+      "start_time": 144099.0,
+      "end_time": 146452.0,
+      "text": "and also do a commit and I&#39;ll,"
+    },
+    {
+      "index": 62,
+      "start_time": 146452.0,
+      "end_time": 148994.0,
+      "text": "what happens if you this person now fetches"
+    },
+    {
+      "index": 63,
+      "start_time": 148994.0,
+      "end_time": 151297.0,
+      "text": "from Github, well they&#39;ll have to either"
+    },
+    {
+      "index": 64,
+      "start_time": 151297.0,
+      "end_time": 154288.0,
+      "text": "do a merge or rebase if that&#39;s how your work flow goes"
+    },
+    {
+      "index": 65,
+      "start_time": 154288.0,
+      "end_time": 155869.0,
+      "text": "or something along those lines."
+    },
+    {
+      "index": 66,
+      "start_time": 155869.0,
+      "end_time": 158283.0,
+      "text": "So somehow these changes are going"
+    },
+    {
+      "index": 67,
+      "start_time": 158283.0,
+      "end_time": 159710.0,
+      "text": "to have to be combined together"
+    },
+    {
+      "index": 68,
+      "start_time": 159710.0,
+      "end_time": 162039.0,
+      "text": "and as you&#39;ve probably experienced,"
+    },
+    {
+      "index": 69,
+      "start_time": 162039.0,
+      "end_time": 165748.0,
+      "text": "if people change different files in the same repository,"
+    },
+    {
+      "index": 70,
+      "start_time": 165748.0,
+      "end_time": 168823.0,
+      "text": "that&#39;s no problem, they will just get merged cleanly."
+    },
+    {
+      "index": 71,
+      "start_time": 168823.0,
+      "end_time": 171107.0,
+      "text": "If one person changes the beginning of a file"
+    },
+    {
+      "index": 72,
+      "start_time": 171107.0,
+      "end_time": 173236.0,
+      "text": "and another person changes the end of the file,"
+    },
+    {
+      "index": 73,
+      "start_time": 173236.0,
+      "end_time": 176742.0,
+      "text": "that&#39;s probably okay because the version control system"
+    },
+    {
+      "index": 74,
+      "start_time": 176742.0,
+      "end_time": 178222.0,
+      "text": "will merge them automatically."
+    },
+    {
+      "index": 75,
+      "start_time": 178222.0,
+      "end_time": 181296.0,
+      "text": "If people change the same part of the same file,"
+    },
+    {
+      "index": 76,
+      "start_time": 181296.0,
+      "end_time": 183690.0,
+      "text": "then you&#39;re going to have to resolve the merge conflict"
+    },
+    {
+      "index": 77,
+      "start_time": 183690.0,
+      "end_time": 185635.0,
+      "text": "yourself and then we have these tools"
+    },
+    {
+      "index": 78,
+      "start_time": 185635.0,
+      "end_time": 188890.0,
+      "text": "for doing three way mergers for copying patches"
+    },
+    {
+      "index": 79,
+      "start_time": 188890.0,
+      "end_time": 190622.0,
+      "text": "from one side to another and figuring out"
+    },
+    {
+      "index": 80,
+      "start_time": 190622.0,
+      "end_time": 191645.0,
+      "text": "what the results should be."
+    },
+    {
+      "index": 81,
+      "start_time": 191645.0,
+      "end_time": 194072.0,
+      "text": "So you&#39;ve probably have to find with things like this."
+    },
+    {
+      "index": 82,
+      "start_time": 194072.0,
+      "end_time": 198703.0,
+      "text": "This is exactly the kind of problem I&#39;m talking about."
+    },
+    {
+      "index": 83,
+      "start_time": 198703.0,
+      "end_time": 201131.0,
+      "text": "But this problem happens not only in software development."
+    },
+    {
+      "index": 84,
+      "start_time": 201131.0,
+      "end_time": 203473.0,
+      "text": "It&#39;s a very general purpose problem."
+    },
+    {
+      "index": 85,
+      "start_time": 203473.0,
+      "end_time": 207268.0,
+      "text": "So imagine you&#39;re a lawyer working in a law firm"
+    },
+    {
+      "index": 86,
+      "start_time": 207268.0,
+      "end_time": 209269.0,
+      "text": "and maybe there&#39;s a contract being negotiated"
+    },
+    {
+      "index": 87,
+      "start_time": 209269.0,
+      "end_time": 212327.0,
+      "text": "with, you&#39;ve got a client on one side"
+    },
+    {
+      "index": 88,
+      "start_time": 212327.0,
+      "end_time": 216224.0,
+      "text": "and the other company&#39;s law firm on the other side"
+    },
+    {
+      "index": 89,
+      "start_time": 216224.0,
+      "end_time": 218367.0,
+      "text": "and everybody is sending these versions"
+    },
+    {
+      "index": 90,
+      "start_time": 218367.0,
+      "end_time": 219878.0,
+      "text": "of contracts back and forth"
+    },
+    {
+      "index": 91,
+      "start_time": 219878.0,
+      "end_time": 222381.0,
+      "text": "and the contracts are probably Microsoft Word documents"
+    },
+    {
+      "index": 92,
+      "start_time": 222381.0,
+      "end_time": 223808.0,
+      "text": "because that&#39;s how lawyers work"
+    },
+    {
+      "index": 93,
+      "start_time": 223808.0,
+      "end_time": 225430.0,
+      "text": "and they send these things by email"
+    },
+    {
+      "index": 94,
+      "start_time": 225430.0,
+      "end_time": 227950.0,
+      "text": "and so you&#39;ve got one person making changes"
+    },
+    {
+      "index": 95,
+      "start_time": 227950.0,
+      "end_time": 231819.0,
+      "text": "to these Word documents and then hit save"
+    },
+    {
+      "index": 96,
+      "start_time": 231819.0,
+      "end_time": 234734.0,
+      "text": "and then at the same time, maybe somebody else,"
+    },
+    {
+      "index": 97,
+      "start_time": 234734.0,
+      "end_time": 236410.0,
+      "text": "maybe at the different company"
+    },
+    {
+      "index": 98,
+      "start_time": 236410.0,
+      "end_time": 238209.0,
+      "text": "is also updating the same document."
+    },
+    {
+      "index": 99,
+      "start_time": 238209.0,
+      "end_time": 241917.0,
+      "text": "Changes it and now you email these changes to each other"
+    },
+    {
+      "index": 100,
+      "start_time": 241917.0,
+      "end_time": 244719.0,
+      "text": "and so this is actually very much the same data flow"
+    },
+    {
+      "index": 101,
+      "start_time": 244719.0,
+      "end_time": 247153.0,
+      "text": "and I actually just reused the same diagram"
+    },
+    {
+      "index": 102,
+      "start_time": 247153.0,
+      "end_time": 248153.0,
+      "text": "and changed the labels."
+    },
+    {
+      "index": 103,
+      "start_time": 248153.0,
+      "end_time": 251197.0,
+      "text": "You&#39;ve got the email as the communication path"
+    },
+    {
+      "index": 104,
+      "start_time": 251197.0,
+      "end_time": 253828.0,
+      "text": "and at some point these changes are going"
+    },
+    {
+      "index": 105,
+      "start_time": 253828.0,
+      "end_time": 255092.0,
+      "text": "to have to be merged together"
+    },
+    {
+      "index": 106,
+      "start_time": 255092.0,
+      "end_time": 258165.0,
+      "text": "and now before Microsoft Word,"
+    },
+    {
+      "index": 107,
+      "start_time": 258165.00000000003,
+      "end_time": 259823.00000000003,
+      "text": "I&#39;m not sure there is even this kind"
+    },
+    {
+      "index": 108,
+      "start_time": 259822.99999999997,
+      "end_time": 261818.99999999997,
+      "text": "of nice user interface for three way mergers."
+    },
+    {
+      "index": 109,
+      "start_time": 261819.00000000003,
+      "end_time": 263598.0,
+      "text": "I know you can compare two documents"
+    },
+    {
+      "index": 110,
+      "start_time": 263598.0,
+      "end_time": 266974.0,
+      "text": "but I think what people end up doing"
+    },
+    {
+      "index": 111,
+      "start_time": 266974.0,
+      "end_time": 269439.0,
+      "text": "is manually copying the changes"
+    },
+    {
+      "index": 112,
+      "start_time": 269439.0,
+      "end_time": 273348.0,
+      "text": "from one version of the document to another"
+    },
+    {
+      "index": 113,
+      "start_time": 273348.0,
+      "end_time": 274499.0,
+      "text": "and so performing this merge really manually."
+    },
+    {
+      "index": 114,
+      "start_time": 274499.0,
+      "end_time": 276553.0,
+      "text": "So that&#39;s kind of this oh crap situation here."
+    },
+    {
+      "index": 115,
+      "start_time": 276553.0,
+      "end_time": 279934.0,
+      "text": "So in this case, it&#39;s kind of best to have like"
+    },
+    {
+      "index": 116,
+      "start_time": 279934.0,
+      "end_time": 282438.0,
+      "text": "an informal lock where one person says,"
+    },
+    {
+      "index": 117,
+      "start_time": 282438.0,
+      "end_time": 284326.0,
+      "text": "okay I&#39;m going to be editing the document now."
+    },
+    {
+      "index": 118,
+      "start_time": 284326.0,
+      "end_time": 285929.0,
+      "text": "Please don&#39;t change it for the next day."
+    },
+    {
+      "index": 119,
+      "start_time": 285929.0,
+      "end_time": 287946.0,
+      "text": "I&#39;ll send it to you and then you can edit it."
+    },
+    {
+      "index": 120,
+      "start_time": 287946.0,
+      "end_time": 290012.0,
+      "text": "So people try to sequence their updates"
+    },
+    {
+      "index": 121,
+      "start_time": 290012.0,
+      "end_time": 294098.0,
+      "text": "like this crude manual communication."
+    },
+    {
+      "index": 122,
+      "start_time": 294098.0,
+      "end_time": 295097.0,
+      "text": "What happens in another?"
+    },
+    {
+      "index": 123,
+      "start_time": 295097.0,
+      "end_time": 296096.0,
+      "text": "Let&#39;s look at the third example."
+    },
+    {
+      "index": 124,
+      "start_time": 296096.0,
+      "end_time": 297678.0,
+      "text": "Let&#39;s look at a to do list."
+    },
+    {
+      "index": 125,
+      "start_time": 297678.0,
+      "end_time": 299621.0,
+      "text": "So this is maybe a shared"
+    },
+    {
+      "index": 126,
+      "start_time": 299621.0,
+      "end_time": 302219.0,
+      "text": "to do list where me and my wife together"
+    },
+    {
+      "index": 127,
+      "start_time": 302219.0,
+      "end_time": 304595.0,
+      "text": "have this shopping list where I can add stuff"
+    },
+    {
+      "index": 128,
+      "start_time": 304595.0,
+      "end_time": 306763.0,
+      "text": "and she can add stuff and then whoever next"
+    },
+    {
+      "index": 129,
+      "start_time": 306763.0,
+      "end_time": 308458.0,
+      "text": "goes to the shop can buy those things."
+    },
+    {
+      "index": 130,
+      "start_time": 308458.0,
+      "end_time": 311300.0,
+      "text": "So here buying milk is added"
+    },
+    {
+      "index": 131,
+      "start_time": 311300.0,
+      "end_time": 314000.0,
+      "text": "to the to do list and let&#39;s say this to do list"
+    },
+    {
+      "index": 132,
+      "start_time": 314000.0,
+      "end_time": 315208.0,
+      "text": "is stored on a central server."
+    },
+    {
+      "index": 133,
+      "start_time": 315208.0,
+      "end_time": 317636.0,
+      "text": "Now so thats what allows us to communicate"
+    },
+    {
+      "index": 134,
+      "start_time": 317636.0,
+      "end_time": 322365.0,
+      "text": "and so I add buy milk to the to do list"
+    },
+    {
+      "index": 135,
+      "start_time": 322365.0,
+      "end_time": 325069.0,
+      "text": "and press okay button and so it does a request,"
+    },
+    {
+      "index": 136,
+      "start_time": 325069.0,
+      "end_time": 327299.0,
+      "text": "like maybe an http post request"
+    },
+    {
+      "index": 137,
+      "start_time": 327299.0,
+      "end_time": 329927.0,
+      "text": "over the network, stores it there, it comes back"
+    },
+    {
+      "index": 138,
+      "start_time": 329927.0,
+      "end_time": 332509.0,
+      "text": "and says okay that was added to the to do list"
+    },
+    {
+      "index": 139,
+      "start_time": 332509.0,
+      "end_time": 335087.0,
+      "text": "and at the same time, maybe my wife goes,"
+    },
+    {
+      "index": 140,
+      "start_time": 335087.0,
+      "end_time": 337387.0,
+      "text": "oh you need to water the plants, so I just remembered."
+    },
+    {
+      "index": 141,
+      "start_time": 337387.0,
+      "end_time": 339241.0,
+      "text": "So add stuff to the to do list"
+    },
+    {
+      "index": 142,
+      "start_time": 339241.0,
+      "end_time": 341293.0,
+      "text": "also does this post to the server"
+    },
+    {
+      "index": 143,
+      "start_time": 341293.0,
+      "end_time": 343324.0,
+      "text": "and comes back okay"
+    },
+    {
+      "index": 144,
+      "start_time": 343324.0,
+      "end_time": 345829.0,
+      "text": "and so in this case, actually what has happened"
+    },
+    {
+      "index": 145,
+      "start_time": 345829.0,
+      "end_time": 350758.0,
+      "text": "is if this central server stores its data"
+    },
+    {
+      "index": 146,
+      "start_time": 350758.0,
+      "end_time": 353603.0,
+      "text": "in a data base and it uses something like transactions."
+    },
+    {
+      "index": 147,
+      "start_time": 353603.0,
+      "end_time": 355599.0,
+      "text": "If this is a relational database say,"
+    },
+    {
+      "index": 148,
+      "start_time": 355599.0,
+      "end_time": 358700.0,
+      "text": "then we actually have serialization going on"
+    },
+    {
+      "index": 149,
+      "start_time": 358700.0,
+      "end_time": 361503.0,
+      "text": "and that is these updates are actually applied"
+    },
+    {
+      "index": 150,
+      "start_time": 361503.0,
+      "end_time": 363935.0,
+      "text": "in a sequential order, in a serial order."
+    },
+    {
+      "index": 151,
+      "start_time": 363935.0,
+      "end_time": 366398.0,
+      "text": "That&#39;s where serializable comes from"
+    },
+    {
+      "index": 152,
+      "start_time": 366398.0,
+      "end_time": 368981.0,
+      "text": "and database transactions."
+    },
+    {
+      "index": 153,
+      "start_time": 368981.0,
+      "end_time": 370320.0,
+      "text": "Which means they&#39;re applied one at a time."
+    },
+    {
+      "index": 154,
+      "start_time": 370320.0,
+      "end_time": 373006.0,
+      "text": "So you don&#39;t actually have the same concurrency problem"
+    },
+    {
+      "index": 155,
+      "start_time": 373006.0,
+      "end_time": 375251.0,
+      "text": "as we had with the code editing"
+    },
+    {
+      "index": 156,
+      "start_time": 375251.0,
+      "end_time": 378042.0,
+      "text": "and with the Word documents being sent back and forth."
+    },
+    {
+      "index": 157,
+      "start_time": 378042.0,
+      "end_time": 381118.0,
+      "text": "Cause actually, there&#39;s one primary copy of the data"
+    },
+    {
+      "index": 158,
+      "start_time": 381118.0,
+      "end_time": 382848.0,
+      "text": "and that lives on the server"
+    },
+    {
+      "index": 159,
+      "start_time": 382848.0,
+      "end_time": 384989.0,
+      "text": "and that&#39;s being updated one transaction"
+    },
+    {
+      "index": 160,
+      "start_time": 384989.0,
+      "end_time": 386265.0,
+      "text": "at a time in sequence."
+    },
+    {
+      "index": 161,
+      "start_time": 386265.0,
+      "end_time": 387706.0,
+      "text": "So in this case, you don&#39;t"
+    },
+    {
+      "index": 162,
+      "start_time": 387706.0,
+      "end_time": 389307.0,
+      "text": "get this conflict resolution problem."
+    },
+    {
+      "index": 163,
+      "start_time": 389307.0,
+      "end_time": 392063.0,
+      "text": "So this seems nice but on the other hand"
+    },
+    {
+      "index": 164,
+      "start_time": 392063.0,
+      "end_time": 393681.0,
+      "text": "you have a problem which is well,"
+    },
+    {
+      "index": 165,
+      "start_time": 393681.0,
+      "end_time": 396131.0,
+      "text": "what if I don&#39;t have signal on my mobile phone right now"
+    },
+    {
+      "index": 166,
+      "start_time": 396131.0,
+      "end_time": 399292.0,
+      "text": "or if the network is interuppted for some other reason"
+    },
+    {
+      "index": 167,
+      "start_time": 399292.0,
+      "end_time": 401590.0,
+      "text": "or I can press the button to save"
+    },
+    {
+      "index": 168,
+      "start_time": 401590.0,
+      "end_time": 406901.0,
+      "text": "and I&#39;ll just a spinning, spinning wait indicator"
+    },
+    {
+      "index": 169,
+      "start_time": 406901.0,
+      "end_time": 408057.0,
+      "text": "and nothing will happen."
+    },
+    {
+      "index": 170,
+      "start_time": 408057.0,
+      "end_time": 411887.0,
+      "text": "So here we have this, it&#39;s kind of obvious,"
+    },
+    {
+      "index": 171,
+      "start_time": 411887.0,
+      "end_time": 414261.0,
+      "text": "this problem if you don&#39;t have internet connection"
+    },
+    {
+      "index": 172,
+      "start_time": 414261.0,
+      "end_time": 415957.0,
+      "text": "then you can&#39;t reach the central server"
+    },
+    {
+      "index": 173,
+      "start_time": 415957.0,
+      "end_time": 417304.0,
+      "text": "so you can&#39;t store any data."
+    },
+    {
+      "index": 174,
+      "start_time": 417304.0,
+      "end_time": 418966.0,
+      "text": "You can&#39;t edit the data in anyway."
+    },
+    {
+      "index": 175,
+      "start_time": 418966.0,
+      "end_time": 420127.0,
+      "text": "So it doesn&#39;t work offline."
+    },
+    {
+      "index": 176,
+      "start_time": 420127.0,
+      "end_time": 422071.0,
+      "text": "So these are the problems here."
+    },
+    {
+      "index": 177,
+      "start_time": 422071.0,
+      "end_time": 423843.0,
+      "text": "We get the advantage from a central server"
+    },
+    {
+      "index": 178,
+      "start_time": 423843.0,
+      "end_time": 425980.0,
+      "text": "that we don&#39;t have to worry about"
+    },
+    {
+      "index": 179,
+      "start_time": 425980.0,
+      "end_time": 429145.0,
+      "text": "this concurrency and these different edits"
+    },
+    {
+      "index": 180,
+      "start_time": 429145.0,
+      "end_time": 431002.0,
+      "text": "happening at the same time"
+    },
+    {
+      "index": 181,
+      "start_time": 431002.0,
+      "end_time": 433084.0,
+      "text": "and having to merge those together"
+    },
+    {
+      "index": 182,
+      "start_time": 433084.0,
+      "end_time": 436718.0,
+      "text": "but at the cost of it only works online."
+    },
+    {
+      "index": 183,
+      "start_time": 436718.0,
+      "end_time": 440413.0,
+      "text": "So we now we require constant connectivity to the server."
+    },
+    {
+      "index": 184,
+      "start_time": 440413.0,
+      "end_time": 441490.0,
+      "text": "Which is not so great."
+    },
+    {
+      "index": 185,
+      "start_time": 441490.0,
+      "end_time": 444080.0,
+      "text": "Especially if you&#39;re doing things on mobile devices."
+    },
+    {
+      "index": 186,
+      "start_time": 444080.0,
+      "end_time": 447610.0,
+      "text": "Another problem is that these requests"
+    },
+    {
+      "index": 187,
+      "start_time": 447610.0,
+      "end_time": 451190.0,
+      "text": "are synchornous, so when I press the save button,"
+    },
+    {
+      "index": 188,
+      "start_time": 451190.0,
+      "end_time": 454168.0,
+      "text": "I have to wait until I get the okay back from the server"
+    },
+    {
+      "index": 189,
+      "start_time": 454168.0,
+      "end_time": 456606.0,
+      "text": "and only then I notice it is actually being saved."
+    },
+    {
+      "index": 190,
+      "start_time": 456606.0,
+      "end_time": 459002.0,
+      "text": "So until I get the okay back,"
+    },
+    {
+      "index": 191,
+      "start_time": 459002.0,
+      "end_time": 461142.0,
+      "text": "I don&#39;t know whether the network request"
+    },
+    {
+      "index": 192,
+      "start_time": 461142.0,
+      "end_time": 462821.0,
+      "text": "actually made it through or not."
+    },
+    {
+      "index": 193,
+      "start_time": 462821.0,
+      "end_time": 465050.0,
+      "text": "Maybe if the network is unrealiable."
+    },
+    {
+      "index": 194,
+      "start_time": 465050.0,
+      "end_time": 468251.0,
+      "text": "So that also can be a timing problem."
+    },
+    {
+      "index": 195,
+      "start_time": 468251.0,
+      "end_time": 472005.0,
+      "text": "Let&#39;s see in the document editing case,"
+    },
+    {
+      "index": 196,
+      "start_time": 472005.0,
+      "end_time": 473912.0,
+      "text": "say in the case of Google Docs,"
+    },
+    {
+      "index": 197,
+      "start_time": 473912.0,
+      "end_time": 474913.0,
+      "text": "you know you can press one letter"
+    },
+    {
+      "index": 198,
+      "start_time": 474913.0,
+      "end_time": 476021.0,
+      "text": "and then a second later"
+    },
+    {
+      "index": 199,
+      "start_time": 476021.0,
+      "end_time": 477621.0,
+      "text": "that letter will appear on the screen"
+    },
+    {
+      "index": 200,
+      "start_time": 477621.0,
+      "end_time": 479795.0,
+      "text": "for another person who&#39;s editing the same document."
+    },
+    {
+      "index": 201,
+      "start_time": 479795.0,
+      "end_time": 482999.0,
+      "text": "So there the edits of, the units of editing"
+    },
+    {
+      "index": 202,
+      "start_time": 482999.0,
+      "end_time": 484277.0,
+      "text": "is a single key stroke."
+    },
+    {
+      "index": 203,
+      "start_time": 484277.0,
+      "end_time": 486747.0,
+      "text": "Its not even like a commit or something like that."
+    },
+    {
+      "index": 204,
+      "start_time": 486747.0,
+      "end_time": 488146.0,
+      "text": "It&#39;s just a single letter"
+    },
+    {
+      "index": 205,
+      "start_time": 488146.0,
+      "end_time": 491514.0,
+      "text": "and so in that case, if you wanted to send that"
+    },
+    {
+      "index": 206,
+      "start_time": 491514.0,
+      "end_time": 492703.0,
+      "text": "through a central server"
+    },
+    {
+      "index": 207,
+      "start_time": 492703.0,
+      "end_time": 494931.0,
+      "text": "than every time you press a letter,"
+    },
+    {
+      "index": 208,
+      "start_time": 494931.0,
+      "end_time": 497021.0,
+      "text": "you&#39;d have to first send that to the server,"
+    },
+    {
+      "index": 209,
+      "start_time": 497021.0,
+      "end_time": 498786.0,
+      "text": "wait for it to be saved there,"
+    },
+    {
+      "index": 210,
+      "start_time": 498786.0,
+      "end_time": 500527.0,
+      "text": "wait for the server to come back to you,"
+    },
+    {
+      "index": 211,
+      "start_time": 500527.0,
+      "end_time": 502005.0,
+      "text": "say okay, and then you could"
+    },
+    {
+      "index": 212,
+      "start_time": 502005.0,
+      "end_time": 503480.0,
+      "text": "display the letter on the screen"
+    },
+    {
+      "index": 213,
+      "start_time": 503480.0,
+      "end_time": 506447.0,
+      "text": "and so you would have to wait that network round trip"
+    },
+    {
+      "index": 214,
+      "start_time": 506447.0,
+      "end_time": 510554.0,
+      "text": "for every single change to the document."
+    },
+    {
+      "index": 215,
+      "start_time": 510554.0,
+      "end_time": 512070.0,
+      "text": "Which is actually what happens exactly"
+    },
+    {
+      "index": 216,
+      "start_time": 512070.00000000006,
+      "end_time": 514256.00000000006,
+      "text": "if you&#39;re editing a file over SSH."
+    },
+    {
+      "index": 217,
+      "start_time": 514256.0,
+      "end_time": 516481.0,
+      "text": "So if you&#39;re logged into a Linux server"
+    },
+    {
+      "index": 218,
+      "start_time": 516481.0,
+      "end_time": 518244.0,
+      "text": "and you&#39;re using Vim or Emax or something"
+    },
+    {
+      "index": 219,
+      "start_time": 518244.0,
+      "end_time": 520835.0,
+      "text": "on the server and you type a letter"
+    },
+    {
+      "index": 220,
+      "start_time": 520835.00000000006,
+      "end_time": 524077.00000000006,
+      "text": "then that edit actually lives on the server."
+    },
+    {
+      "index": 221,
+      "start_time": 524077.0,
+      "end_time": 526052.0,
+      "text": "So you&#39;ve actually got that synchronus round trip."
+    },
+    {
+      "index": 222,
+      "start_time": 526052.0,
+      "end_time": 528486.0,
+      "text": "So if you&#39;ve got a slow one, reliable network,"
+    },
+    {
+      "index": 223,
+      "start_time": 528486.0,
+      "end_time": 530724.0,
+      "text": "and using SSH is pretty painful,"
+    },
+    {
+      "index": 224,
+      "start_time": 530724.0,
+      "end_time": 534316.0,
+      "text": "as you&#39;ve probably experienced."
+    },
+    {
+      "index": 225,
+      "start_time": 534316.0,
+      "end_time": 536278.0,
+      "text": "Our final problem with putting everything"
+    },
+    {
+      "index": 226,
+      "start_time": 536278.0,
+      "end_time": 537879.0,
+      "text": "on a central server is that now"
+    },
+    {
+      "index": 227,
+      "start_time": 537879.0,
+      "end_time": 539769.0,
+      "text": "there&#39;s this single point of failure"
+    },
+    {
+      "index": 228,
+      "start_time": 539769.0,
+      "end_time": 541208.0,
+      "text": "and people make fun of Github for example,"
+    },
+    {
+      "index": 229,
+      "start_time": 541208.0,
+      "end_time": 542327.0,
+      "text": "every time Github goes down,"
+    },
+    {
+      "index": 230,
+      "start_time": 542327.0,
+      "end_time": 544988.0,
+      "text": "people say, oh we&#39;ve got this nice decentrilized"
+    },
+    {
+      "index": 231,
+      "start_time": 544988.0,
+      "end_time": 547292.0,
+      "text": "version control system and what do we do?"
+    },
+    {
+      "index": 232,
+      "start_time": 547292.0,
+      "end_time": 549185.0,
+      "text": "We put everything back in a centralized service."
+    },
+    {
+      "index": 233,
+      "start_time": 549185.0,
+      "end_time": 550205.0,
+      "text": "Isn&#39;t that great?"
+    },
+    {
+      "index": 234,
+      "start_time": 550205.0,
+      "end_time": 553049.0,
+      "text": "So the sync can be disrupted."
+    },
+    {
+      "index": 235,
+      "start_time": 553049.0,
+      "end_time": 555279.0,
+      "text": "If you worry about denial of surface attacks,"
+    },
+    {
+      "index": 236,
+      "start_time": 555279.0,
+      "end_time": 559363.0,
+      "text": "for example, or if you worry about blocking,"
+    },
+    {
+      "index": 237,
+      "start_time": 559363.0,
+      "end_time": 561342.0,
+      "text": "maybe in some countries that don&#39;t have such"
+    },
+    {
+      "index": 238,
+      "start_time": 561342.0,
+      "end_time": 563681.0,
+      "text": "free internet access, if you&#39;re critical"
+    },
+    {
+      "index": 239,
+      "start_time": 563681.0,
+      "end_time": 565569.0,
+      "text": "of the local regime or something like that,"
+    },
+    {
+      "index": 240,
+      "start_time": 565569.0,
+      "end_time": 567715.0,
+      "text": "actually this kind of blockability"
+    },
+    {
+      "index": 241,
+      "start_time": 567715.0,
+      "end_time": 568902.0,
+      "text": "is quite a problem."
+    },
+    {
+      "index": 242,
+      "start_time": 568902.0,
+      "end_time": 571003.0,
+      "text": "So what we&#39;d like to do is"
+    },
+    {
+      "index": 243,
+      "start_time": 571003.0,
+      "end_time": 575973.0,
+      "text": "to figure out how to not have these problems"
+    },
+    {
+      "index": 244,
+      "start_time": 575973.0,
+      "end_time": 577338.0,
+      "text": "of the single central server"
+    },
+    {
+      "index": 245,
+      "start_time": 577338.0,
+      "end_time": 580507.0,
+      "text": "but at the same time,"
+    },
+    {
+      "index": 246,
+      "start_time": 580507.0,
+      "end_time": 582977.0,
+      "text": "not have all of the problems of having"
+    },
+    {
+      "index": 247,
+      "start_time": 582977.0,
+      "end_time": 584340.0,
+      "text": "to do the merges by hand."
+    },
+    {
+      "index": 248,
+      "start_time": 584340.0,
+      "end_time": 589095.0,
+      "text": "So coming back to the to do list example,"
+    },
+    {
+      "index": 249,
+      "start_time": 589095.0,
+      "end_time": 590589.0,
+      "text": "if we think about this having"
+    },
+    {
+      "index": 250,
+      "start_time": 590589.0,
+      "end_time": 592730.0,
+      "text": "to synchronously having to communicate"
+    },
+    {
+      "index": 251,
+      "start_time": 592730.0,
+      "end_time": 595558.0,
+      "text": "with a server, that&#39;s okay if the server is in the same town"
+    },
+    {
+      "index": 252,
+      "start_time": 595558.0,
+      "end_time": 597862.0,
+      "text": "but if the server is on the other side of the planet,"
+    },
+    {
+      "index": 253,
+      "start_time": 597862.0,
+      "end_time": 599134.0,
+      "text": "then this is quite slow"
+    },
+    {
+      "index": 254,
+      "start_time": 599134.0,
+      "end_time": 600809.0,
+      "text": "because it&#39;s simply speed of light"
+    },
+    {
+      "index": 255,
+      "start_time": 600809.0,
+      "end_time": 602304.0,
+      "text": "takes a while to go all the way round"
+    },
+    {
+      "index": 256,
+      "start_time": 602304.0,
+      "end_time": 604231.0,
+      "text": "to the other side of the world and back again."
+    },
+    {
+      "index": 257,
+      "start_time": 604231.0,
+      "end_time": 607309.0,
+      "text": "So what if we just put data centers in several"
+    },
+    {
+      "index": 258,
+      "start_time": 607309.0,
+      "end_time": 608876.0,
+      "text": "different places?"
+    },
+    {
+      "index": 259,
+      "start_time": 608876.0,
+      "end_time": 612420.0,
+      "text": "So let&#39;s say when the blue person adds buy milk"
+    },
+    {
+      "index": 260,
+      "start_time": 612420.0,
+      "end_time": 615083.0,
+      "text": "to the to do list, that request just goes"
+    },
+    {
+      "index": 261,
+      "start_time": 615083.0,
+      "end_time": 616812.0,
+      "text": "to the blue person&#39;s local data center,"
+    },
+    {
+      "index": 262,
+      "start_time": 616812.0,
+      "end_time": 619328.0,
+      "text": "call it data center one and get saved there,"
+    },
+    {
+      "index": 263,
+      "start_time": 619328.0,
+      "end_time": 621709.0,
+      "text": "and when the red person adds water plants"
+    },
+    {
+      "index": 264,
+      "start_time": 621709.0,
+      "end_time": 623430.0,
+      "text": "to the to do list, then that goes"
+    },
+    {
+      "index": 265,
+      "start_time": 623430.0,
+      "end_time": 625284.0,
+      "text": "to the local data center, too."
+    },
+    {
+      "index": 266,
+      "start_time": 625284.0,
+      "end_time": 627539.0,
+      "text": "Those are two different local data centers."
+    },
+    {
+      "index": 267,
+      "start_time": 627539.0,
+      "end_time": 630214.0,
+      "text": "If the people are in different locations,"
+    },
+    {
+      "index": 268,
+      "start_time": 630214.0,
+      "end_time": 632324.0,
+      "text": "and so now that&#39;s okay."
+    },
+    {
+      "index": 269,
+      "start_time": 632324.0,
+      "end_time": 634919.0,
+      "text": "So each person can get the response from their local"
+    },
+    {
+      "index": 270,
+      "start_time": 634919.0,
+      "end_time": 639140.0,
+      "text": "data center and now these changes will be"
+    },
+    {
+      "index": 271,
+      "start_time": 639140.0,
+      "end_time": 642280.0,
+      "text": "propagated asynchronously and so"
+    },
+    {
+      "index": 272,
+      "start_time": 642280.0,
+      "end_time": 644447.0,
+      "text": "the speed of light going all the way around"
+    },
+    {
+      "index": 273,
+      "start_time": 644447.0,
+      "end_time": 646158.0,
+      "text": "the planet is still as slow as it was before."
+    },
+    {
+      "index": 274,
+      "start_time": 646158.0,
+      "end_time": 649492.0,
+      "text": "So it could happen that two people make these changes"
+    },
+    {
+      "index": 275,
+      "start_time": 649492.0,
+      "end_time": 651348.0,
+      "text": "without knowing about each other"
+    },
+    {
+      "index": 276,
+      "start_time": 651348.0,
+      "end_time": 653700.0,
+      "text": "and then you simply don&#39;t know which one of these"
+    },
+    {
+      "index": 277,
+      "start_time": 653700.0,
+      "end_time": 654703.0,
+      "text": "actually came first."
+    },
+    {
+      "index": 278,
+      "start_time": 654703.0,
+      "end_time": 657119.0,
+      "text": "Because you know it&#39;s not really defined."
+    },
+    {
+      "index": 279,
+      "start_time": 657119.0,
+      "end_time": 659046.0,
+      "text": "Did the blue come first or the red one."
+    },
+    {
+      "index": 280,
+      "start_time": 659046.0,
+      "end_time": 661058.0,
+      "text": "From the point of view of data center one,"
+    },
+    {
+      "index": 281,
+      "start_time": 661058.0,
+      "end_time": 663921.0,
+      "text": "first the blue one came and then the red one came in"
+    },
+    {
+      "index": 282,
+      "start_time": 663921.0,
+      "end_time": 666368.0,
+      "text": "but from the point of view of data center two"
+    },
+    {
+      "index": 283,
+      "start_time": 666368.0,
+      "end_time": 668532.0,
+      "text": "it was first the red one then the blue one."
+    },
+    {
+      "index": 284,
+      "start_time": 668532.0,
+      "end_time": 672939.0,
+      "text": "So if this adding an item to the to do list"
+    },
+    {
+      "index": 285,
+      "start_time": 672939.0,
+      "end_time": 675879.0,
+      "text": "means just appending it to the end of the list,"
+    },
+    {
+      "index": 286,
+      "start_time": 675879.0,
+      "end_time": 678120.0,
+      "text": "then which order should these items appear?"
+    },
+    {
+      "index": 287,
+      "start_time": 678120.0,
+      "end_time": 680361.0,
+      "text": "Now we certainly have to worry about the fact"
+    },
+    {
+      "index": 288,
+      "start_time": 680361.0,
+      "end_time": 682602.0,
+      "text": "that the data center one might"
+    },
+    {
+      "index": 289,
+      "start_time": 682602.0,
+      "end_time": 685734.0,
+      "text": "have buying milk first and watering the plants second"
+    },
+    {
+      "index": 290,
+      "start_time": 685734.0,
+      "end_time": 687622.0,
+      "text": "and the other data center might have them flipped"
+    },
+    {
+      "index": 291,
+      "start_time": 687622.0,
+      "end_time": 688621.0,
+      "text": "in the other order."
+    },
+    {
+      "index": 292,
+      "start_time": 688621.0,
+      "end_time": 689622.0,
+      "text": "Oh dear."
+    },
+    {
+      "index": 293,
+      "start_time": 689622.0,
+      "end_time": 691152.0,
+      "text": "Let&#39;s think this further."
+    },
+    {
+      "index": 294,
+      "start_time": 691152.0,
+      "end_time": 693617.0,
+      "text": "Even without two data centers,"
+    },
+    {
+      "index": 295,
+      "start_time": 693617.0,
+      "end_time": 696263.0,
+      "text": "we can just make it really extreme"
+    },
+    {
+      "index": 296,
+      "start_time": 696263.0,
+      "end_time": 697827.0,
+      "text": "and say okay we&#39;re not even going to talk"
+    },
+    {
+      "index": 297,
+      "start_time": 697827.0,
+      "end_time": 699266.0,
+      "text": "to the data center, we&#39;re just going"
+    },
+    {
+      "index": 298,
+      "start_time": 699266.0,
+      "end_time": 700841.0,
+      "text": "to talk to our local storage on the device"
+    },
+    {
+      "index": 299,
+      "start_time": 700841.0,
+      "end_time": 703535.0,
+      "text": "and I&#39;m going to treat the storage on my mobile phone"
+    },
+    {
+      "index": 300,
+      "start_time": 703535.0,
+      "end_time": 706997.0,
+      "text": "as a data center though it&#39;s the best data center ever"
+    },
+    {
+      "index": 301,
+      "start_time": 706997.0,
+      "end_time": 708678.0,
+      "text": "because I can&#39;t have a network interupption between"
+    },
+    {
+      "index": 302,
+      "start_time": 708678.0,
+      "end_time": 710532.0,
+      "text": "me and the storage on my phone."
+    },
+    {
+      "index": 303,
+      "start_time": 710532.0,
+      "end_time": 713373.0,
+      "text": "So this communication is always going to work."
+    },
+    {
+      "index": 304,
+      "start_time": 713373.0,
+      "end_time": 715215.0,
+      "text": "So I can just store something locally"
+    },
+    {
+      "index": 305,
+      "start_time": 715215.0,
+      "end_time": 716660.0,
+      "text": "and that will be nice and fast"
+    },
+    {
+      "index": 306,
+      "start_time": 716660.0,
+      "end_time": 719661.0,
+      "text": "and the red user can similarly store something"
+    },
+    {
+      "index": 307,
+      "start_time": 719661.0,
+      "end_time": 721473.0,
+      "text": "locally and then we can just kind of have"
+    },
+    {
+      "index": 308,
+      "start_time": 721473.0,
+      "end_time": 723188.0,
+      "text": "some kind of blah blah network stuff"
+    },
+    {
+      "index": 309,
+      "start_time": 723188.0,
+      "end_time": 725618.0,
+      "text": "to synchronize the changes around"
+    },
+    {
+      "index": 310,
+      "start_time": 725618.0,
+      "end_time": 727361.0,
+      "text": "and if you think about it,"
+    },
+    {
+      "index": 311,
+      "start_time": 727361.0,
+      "end_time": 729680.0,
+      "text": "this is exactly the same as the synchronization process"
+    },
+    {
+      "index": 312,
+      "start_time": 729680.0,
+      "end_time": 733641.0,
+      "text": "that has to happen with the two data centers,"
+    },
+    {
+      "index": 313,
+      "start_time": 733641.0,
+      "end_time": 735943.0,
+      "text": "exchanging data and this is exactly"
+    },
+    {
+      "index": 314,
+      "start_time": 735943.0,
+      "end_time": 737797.0,
+      "text": "the same synchronization process"
+    },
+    {
+      "index": 315,
+      "start_time": 737797.0,
+      "end_time": 739886.0,
+      "text": "that happened with the Git commits"
+    },
+    {
+      "index": 316,
+      "start_time": 739886.0,
+      "end_time": 742513.0,
+      "text": "being sent via Github or with the Word documents"
+    },
+    {
+      "index": 317,
+      "start_time": 742513.0,
+      "end_time": 743594.0,
+      "text": "being sent by email."
+    },
+    {
+      "index": 318,
+      "start_time": 743594.0,
+      "end_time": 744816.0,
+      "text": "It&#39;s all exactly the same,"
+    },
+    {
+      "index": 319,
+      "start_time": 744816.0,
+      "end_time": 747839.0,
+      "text": "which is you&#39;ve got some changes which are happening"
+    },
+    {
+      "index": 320,
+      "start_time": 747839.0,
+      "end_time": 750576.0,
+      "text": "concurrently, independently from each other"
+    },
+    {
+      "index": 321,
+      "start_time": 750576.0,
+      "end_time": 754334.0,
+      "text": "and those changes are being propagated asynchronously"
+    },
+    {
+      "index": 322,
+      "start_time": 754334.0,
+      "end_time": 756818.0,
+      "text": "and here, of course, now we&#39;re back"
+    },
+    {
+      "index": 323,
+      "start_time": 756818.0,
+      "end_time": 757853.0,
+      "text": "to this problem of conflict."
+    },
+    {
+      "index": 324,
+      "start_time": 757853.0,
+      "end_time": 762273.0,
+      "text": "So take the example of adding two items"
+    },
+    {
+      "index": 325,
+      "start_time": 762273.0,
+      "end_time": 763890.0,
+      "text": "to the to do list."
+    },
+    {
+      "index": 326,
+      "start_time": 763890.0,
+      "end_time": 765986.0,
+      "text": "You can kind of imagine that quite easy to resolve."
+    },
+    {
+      "index": 327,
+      "start_time": 765986.0,
+      "end_time": 768082.0,
+      "text": "You just make sure that you somehow"
+    },
+    {
+      "index": 328,
+      "start_time": 768082.0,
+      "end_time": 769561.0,
+      "text": "decide on a consistent order."
+    },
+    {
+      "index": 329,
+      "start_time": 769561.0,
+      "end_time": 771917.0,
+      "text": "Maybe using some Ids or something"
+    },
+    {
+      "index": 330,
+      "start_time": 771917.0,
+      "end_time": 773106.0,
+      "text": "or some user Ids."
+    },
+    {
+      "index": 331,
+      "start_time": 773106.0,
+      "end_time": 774491.0,
+      "text": "You can order them arbtrially"
+    },
+    {
+      "index": 332,
+      "start_time": 774491.0,
+      "end_time": 777847.0,
+      "text": "but what if one item,"
+    },
+    {
+      "index": 333,
+      "start_time": 777847.0,
+      "end_time": 781281.0,
+      "text": "one change is deleted to do item"
+    },
+    {
+      "index": 334,
+      "start_time": 781281.0,
+      "end_time": 785720.0,
+      "text": "and the other actually edits that same to do item."
+    },
+    {
+      "index": 335,
+      "start_time": 785720.0,
+      "end_time": 790470.0,
+      "text": "So the red one changes buying milk to buying soy milk"
+    },
+    {
+      "index": 336,
+      "start_time": 790470.0,
+      "end_time": 793141.0,
+      "text": "and the blue one just deletes the buying milk item"
+    },
+    {
+      "index": 337,
+      "start_time": 793141.0,
+      "end_time": 796005.0,
+      "text": "and these two changes happen without knowing about"
+    },
+    {
+      "index": 338,
+      "start_time": 796005.0,
+      "end_time": 797820.0,
+      "text": "each other, so how do we resolve this?"
+    },
+    {
+      "index": 339,
+      "start_time": 797820.0,
+      "end_time": 801562.0,
+      "text": "Because if you say that the deletion wins."
+    },
+    {
+      "index": 340,
+      "start_time": 801562.0,
+      "end_time": 804189.0,
+      "text": "So, okay this item was deleted,"
+    },
+    {
+      "index": 341,
+      "start_time": 804189.0,
+      "end_time": 805808.0,
+      "text": "the to do list item was deleted"
+    },
+    {
+      "index": 342,
+      "start_time": 805808.0,
+      "end_time": 809051.0,
+      "text": "so that edit to change buy milk to buy soy milk"
+    },
+    {
+      "index": 343,
+      "start_time": 809051.0,
+      "end_time": 811841.0,
+      "text": "is just gone because the item that it refers to"
+    },
+    {
+      "index": 344,
+      "start_time": 811841.0,
+      "end_time": 813079.0,
+      "text": "is no longer there"
+    },
+    {
+      "index": 345,
+      "start_time": 813079.0,
+      "end_time": 816032.0,
+      "text": "but that means that we&#39;ve forgotten about the fact"
+    },
+    {
+      "index": 346,
+      "start_time": 816032.0,
+      "end_time": 818921.0,
+      "text": "that soy milk was added in there"
+    },
+    {
+      "index": 347,
+      "start_time": 818921.0,
+      "end_time": 820486.0,
+      "text": "and so maybe that&#39;s an important fact"
+    },
+    {
+      "index": 348,
+      "start_time": 820486.0,
+      "end_time": 821682.0,
+      "text": "that we&#39;ve now lost."
+    },
+    {
+      "index": 349,
+      "start_time": 821682.0,
+      "end_time": 823806.0,
+      "text": "On the other hand, we can do it the way other way around."
+    },
+    {
+      "index": 350,
+      "start_time": 823806.0,
+      "end_time": 825536.0,
+      "text": "We could say that this buying soy milk wins"
+    },
+    {
+      "index": 351,
+      "start_time": 825536.0,
+      "end_time": 827646.0,
+      "text": "but when the deletion has been lost"
+    },
+    {
+      "index": 352,
+      "start_time": 827646.0,
+      "end_time": 829890.0,
+      "text": "and so maybe the deletion is meaningful."
+    },
+    {
+      "index": 353,
+      "start_time": 829890.0,
+      "end_time": 832159.0,
+      "text": "So how do we resolve these kind of conflicts?"
+    },
+    {
+      "index": 354,
+      "start_time": 832159.0,
+      "end_time": 835073.0,
+      "text": "In general, we have concurrent operations"
+    },
+    {
+      "index": 355,
+      "start_time": 835073.0,
+      "end_time": 837054.0,
+      "text": "that happen, concurrent doesn&#39;t mean necessarily"
+    },
+    {
+      "index": 356,
+      "start_time": 837054.0,
+      "end_time": 838528.0,
+      "text": "at the same moment in time."
+    },
+    {
+      "index": 357,
+      "start_time": 838528.0,
+      "end_time": 841495.0,
+      "text": "It just means they happen without knowing about each other"
+    },
+    {
+      "index": 358,
+      "start_time": 841495.0,
+      "end_time": 844089.0,
+      "text": "and somehow we need to achieve convergence"
+    },
+    {
+      "index": 359,
+      "start_time": 844089.0,
+      "end_time": 847165.0,
+      "text": "where everybody agrees on the same data at the end,"
+    },
+    {
+      "index": 360,
+      "start_time": 847165.0,
+      "end_time": 849521.0,
+      "text": "and so people talk about eventual consistency"
+    },
+    {
+      "index": 361,
+      "start_time": 849521.0,
+      "end_time": 852284.0,
+      "text": "which is kind of the data base term"
+    },
+    {
+      "index": 362,
+      "start_time": 852284.0,
+      "end_time": 854818.0,
+      "text": "that&#39;s often used for describing these types of system"
+    },
+    {
+      "index": 363,
+      "start_time": 854818.0,
+      "end_time": 857698.0,
+      "text": "where you simply, you can allow different things"
+    },
+    {
+      "index": 364,
+      "start_time": 857698.0,
+      "end_time": 859456.0,
+      "text": "to happen concurrently and you just want"
+    },
+    {
+      "index": 365,
+      "start_time": 859456.0,
+      "end_time": 860896.0,
+      "text": "to end up in the same state at the end."
+    },
+    {
+      "index": 366,
+      "start_time": 860896.0,
+      "end_time": 864216.0,
+      "text": "The problem with the term eventual consistency"
+    },
+    {
+      "index": 367,
+      "start_time": 864216.0,
+      "end_time": 866587.0,
+      "text": "is that it&#39;s actually very vaguely defined"
+    },
+    {
+      "index": 368,
+      "start_time": 866587.0,
+      "end_time": 869174.0,
+      "text": "and so people are very imprecise when talking about it"
+    },
+    {
+      "index": 369,
+      "start_time": 869174.0,
+      "end_time": 871893.0,
+      "text": "and I&#39;d like to break it down into three points,"
+    },
+    {
+      "index": 370,
+      "start_time": 871893.0,
+      "end_time": 875954.0,
+      "text": "three properties that are a bit more precise."
+    },
+    {
+      "index": 371,
+      "start_time": 875954.0,
+      "end_time": 877697.0,
+      "text": "So I&#39;m going to firstly assume"
+    },
+    {
+      "index": 372,
+      "start_time": 877697.0,
+      "end_time": 881265.0,
+      "text": "eventual delivery and that is we sent messages"
+    },
+    {
+      "index": 373,
+      "start_time": 881265.0,
+      "end_time": 883656.0,
+      "text": "over the network and we&#39;re going to assume"
+    },
+    {
+      "index": 374,
+      "start_time": 883656.0,
+      "end_time": 886569.0,
+      "text": "that the network is not interuppted forever."
+    },
+    {
+      "index": 375,
+      "start_time": 886569.0,
+      "end_time": 889252.0,
+      "text": "So we&#39;re going to assume that after some finite amount"
+    },
+    {
+      "index": 376,
+      "start_time": 889252.0,
+      "end_time": 891678.0,
+      "text": "of time, you get a network connection again"
+    },
+    {
+      "index": 377,
+      "start_time": 891678.0,
+      "end_time": 894224.0,
+      "text": "and so if you keep retrying then you can get"
+    },
+    {
+      "index": 378,
+      "start_time": 894224.0,
+      "end_time": 897029.0,
+      "text": "the message through eventually."
+    },
+    {
+      "index": 379,
+      "start_time": 897029.0,
+      "end_time": 898561.0,
+      "text": "You kind of have to make this assumption"
+    },
+    {
+      "index": 380,
+      "start_time": 898561.0,
+      "end_time": 900572.0,
+      "text": "because if you assume that a device can be"
+    },
+    {
+      "index": 381,
+      "start_time": 900572.0,
+      "end_time": 902692.0,
+      "text": "offline forever, then it can never come in synch"
+    },
+    {
+      "index": 382,
+      "start_time": 902692.0,
+      "end_time": 904728.0,
+      "text": "with the other devices again."
+    },
+    {
+      "index": 383,
+      "start_time": 904728.0,
+      "end_time": 907035.0,
+      "text": "Just by definition of offline."
+    },
+    {
+      "index": 384,
+      "start_time": 907035.0,
+      "end_time": 908887.0,
+      "text": "So we&#39;re just going to assume"
+    },
+    {
+      "index": 385,
+      "start_time": 908887.0,
+      "end_time": 910602.0,
+      "text": "that eventually some messages go through"
+    },
+    {
+      "index": 386,
+      "start_time": 910602.0,
+      "end_time": 912166.0,
+      "text": "but we&#39;re not going to make any assumptions"
+    },
+    {
+      "index": 387,
+      "start_time": 912166.0,
+      "end_time": 913277.0,
+      "text": "about how quick that is."
+    },
+    {
+      "index": 388,
+      "start_time": 913277.0,
+      "end_time": 916229.0,
+      "text": "So if I go to Iceland and there&#39;s"
+    },
+    {
+      "index": 389,
+      "start_time": 916229.0,
+      "end_time": 917529.0,
+      "text": "no mobile signal and I&#39;m hiking"
+    },
+    {
+      "index": 390,
+      "start_time": 917529.0,
+      "end_time": 919328.0,
+      "text": "somewhere up on the top of a volcano"
+    },
+    {
+      "index": 391,
+      "start_time": 919328.0,
+      "end_time": 921268.0,
+      "text": "for two weeks, then I won&#39;t get any messages"
+    },
+    {
+      "index": 392,
+      "start_time": 921268.0,
+      "end_time": 923068.0,
+      "text": "for two weeks and when I get back"
+    },
+    {
+      "index": 393,
+      "start_time": 923068.0,
+      "end_time": 925085.0,
+      "text": "to Reykjavik, then I will get some messages"
+    },
+    {
+      "index": 394,
+      "start_time": 925085.0,
+      "end_time": 927468.0,
+      "text": "when I reach an internet connection again."
+    },
+    {
+      "index": 395,
+      "start_time": 927468.0,
+      "end_time": 930968.0,
+      "text": "So that means my message delay is two weeks in that case."
+    },
+    {
+      "index": 396,
+      "start_time": 930968.0,
+      "end_time": 933512.0,
+      "text": "That&#39;s okay, we&#39;re just going to assume that&#39;s alright."
+    },
+    {
+      "index": 397,
+      "start_time": 933512.0,
+      "end_time": 937360.0,
+      "text": "Secondly, the second part of eventual consistency"
+    },
+    {
+      "index": 398,
+      "start_time": 937360.0,
+      "end_time": 940162.0,
+      "text": "is making sure that everybody ends up in the same state."
+    },
+    {
+      "index": 399,
+      "start_time": 940162.0,
+      "end_time": 943606.0,
+      "text": "That is if we assume that eventually everybody"
+    },
+    {
+      "index": 400,
+      "start_time": 943606.0,
+      "end_time": 946661.0,
+      "text": "gets all the messages, then if two people"
+    },
+    {
+      "index": 401,
+      "start_time": 946661.0,
+      "end_time": 949164.0,
+      "text": "have received the same messages, then they should"
+    },
+    {
+      "index": 402,
+      "start_time": 949164.0,
+      "end_time": 950443.0,
+      "text": "be in the same state."
+    },
+    {
+      "index": 403,
+      "start_time": 950443.0,
+      "end_time": 952783.0,
+      "text": "So that means even if they received the messages"
+    },
+    {
+      "index": 404,
+      "start_time": 952783.0,
+      "end_time": 955785.0,
+      "text": "in a different order, they should end up in the same state"
+    },
+    {
+      "index": 405,
+      "start_time": 955785.0,
+      "end_time": 959276.0,
+      "text": "and finally what we want is to not lose data."
+    },
+    {
+      "index": 406,
+      "start_time": 959276.0,
+      "end_time": 963724.0,
+      "text": "Now this, it seems like a kind of ridiculous point"
+    },
+    {
+      "index": 407,
+      "start_time": 963724.0,
+      "end_time": 966765.0,
+      "text": "because of course nobody wants to lose data"
+    },
+    {
+      "index": 408,
+      "start_time": 966765.0,
+      "end_time": 969312.0,
+      "text": "but it is actually quite important to make this explicit."
+    },
+    {
+      "index": 409,
+      "start_time": 969312.0,
+      "end_time": 972358.0,
+      "text": "So quite a few data base users use this mode"
+    },
+    {
+      "index": 410,
+      "start_time": 972358.0,
+      "end_time": 973715.0,
+      "text": "called last writer wins"
+    },
+    {
+      "index": 411,
+      "start_time": 973715.0,
+      "end_time": 976415.0,
+      "text": "where you say if two people change the data"
+    },
+    {
+      "index": 412,
+      "start_time": 976415.0,
+      "end_time": 978448.0,
+      "text": "at the same time, we&#39;re just going"
+    },
+    {
+      "index": 413,
+      "start_time": 978448.0,
+      "end_time": 979475.0,
+      "text": "to pick one of them arbitrally"
+    },
+    {
+      "index": 414,
+      "start_time": 979475.0,
+      "end_time": 981780.0,
+      "text": "based on the time stamp as being the winner"
+    },
+    {
+      "index": 415,
+      "start_time": 981780.0,
+      "end_time": 983905.0,
+      "text": "and the other ones were just going to throw away"
+    },
+    {
+      "index": 416,
+      "start_time": 983905.0,
+      "end_time": 987572.0,
+      "text": "and so this is like equivalent if you think"
+    },
+    {
+      "index": 417,
+      "start_time": 987572.0,
+      "end_time": 989754.0,
+      "text": "about the word document example of,"
+    },
+    {
+      "index": 418,
+      "start_time": 989754.0,
+      "end_time": 992092.0,
+      "text": "well we&#39;ve got two people editing the Word document"
+    },
+    {
+      "index": 419,
+      "start_time": 992092.0,
+      "end_time": 994457.0,
+      "text": "and one person emailed their change to another"
+    },
+    {
+      "index": 420,
+      "start_time": 994457.0,
+      "end_time": 996323.0,
+      "text": "and the other person is just going to say,"
+    },
+    {
+      "index": 421,
+      "start_time": 996323.0,
+      "end_time": 998660.0,
+      "text": "well I made changes myself as well"
+    },
+    {
+      "index": 422,
+      "start_time": 998660.0,
+      "end_time": 1001505.0,
+      "text": "and I&#39;m going to declare that my changes are"
+    },
+    {
+      "index": 423,
+      "start_time": 1001510.0,
+      "end_time": 1003113.0,
+      "text": "newer than your changes"
+    },
+    {
+      "index": 424,
+      "start_time": 1003110.0,
+      "end_time": 1005860.0,
+      "text": "and so I&#39;m just going to ignore your changes, sorry,"
+    },
+    {
+      "index": 425,
+      "start_time": 1005860.0,
+      "end_time": 1008383.0,
+      "text": "and so this is not very friendly to people"
+    },
+    {
+      "index": 426,
+      "start_time": 1008380.0,
+      "end_time": 1009907.0,
+      "text": "because changes get lost."
+    },
+    {
+      "index": 427,
+      "start_time": 1009910.0,
+      "end_time": 1014466.0,
+      "text": "So let&#39;s require not losing data as well."
+    },
+    {
+      "index": 428,
+      "start_time": 1014460.0,
+      "end_time": 1016725.0,
+      "text": "So this is what I mean with eventual consistency"
+    },
+    {
+      "index": 429,
+      "start_time": 1016730.0,
+      "end_time": 1019791.0,
+      "text": "and this is the kind of data structure"
+    },
+    {
+      "index": 430,
+      "start_time": 1019790.0,
+      "end_time": 1021532.0,
+      "text": "to which we might want to apply it."
+    },
+    {
+      "index": 431,
+      "start_time": 1021530.0,
+      "end_time": 1024661.0,
+      "text": "So I&#39;m going to model this to do list now"
+    },
+    {
+      "index": 432,
+      "start_time": 1024660.0000000001,
+      "end_time": 1027252.0000000001,
+      "text": "as a JSON document and you can just imagine"
+    },
+    {
+      "index": 433,
+      "start_time": 1027260.0,
+      "end_time": 1030267.0,
+      "text": "it&#39;s like a list of to do items"
+    },
+    {
+      "index": 434,
+      "start_time": 1030260.0,
+      "end_time": 1032883.0,
+      "text": "which is like each to do item has a title"
+    },
+    {
+      "index": 435,
+      "start_time": 1032890.0000000001,
+      "end_time": 1035266.0000000001,
+      "text": "and the flag done, whether it&#39;s done or not,"
+    },
+    {
+      "index": 436,
+      "start_time": 1035260.0,
+      "end_time": 1037373.0,
+      "text": "true or false and then maybe there&#39;s some settings"
+    },
+    {
+      "index": 437,
+      "start_time": 1037369.9999999999,
+      "end_time": 1039378.9999999999,
+      "text": "and stuff as well on the side,"
+    },
+    {
+      "index": 438,
+      "start_time": 1039380.0000000001,
+      "end_time": 1042712.0000000001,
+      "text": "and so the main data structures that we have here"
+    },
+    {
+      "index": 439,
+      "start_time": 1042710.0,
+      "end_time": 1044021.0,
+      "text": "are an ordered list."
+    },
+    {
+      "index": 440,
+      "start_time": 1044030.0,
+      "end_time": 1046913.0,
+      "text": "That is you&#39;ve got a list of to do items"
+    },
+    {
+      "index": 441,
+      "start_time": 1046910.0000000001,
+      "end_time": 1048512.0000000001,
+      "text": "and they have to appear in a certain order"
+    },
+    {
+      "index": 442,
+      "start_time": 1048510.0,
+      "end_time": 1051353.0,
+      "text": "and the user specifies this order"
+    },
+    {
+      "index": 443,
+      "start_time": 1051350.0,
+      "end_time": 1053361.0,
+      "text": "and also you have maps."
+    },
+    {
+      "index": 444,
+      "start_time": 1053360.0,
+      "end_time": 1055631.0,
+      "text": "So you&#39;ve got, maybe one adjacent object"
+    },
+    {
+      "index": 445,
+      "start_time": 1055640.0,
+      "end_time": 1058055.0,
+      "text": "inside another adjacent object or something like that."
+    },
+    {
+      "index": 446,
+      "start_time": 1058050.0,
+      "end_time": 1060221.0,
+      "text": "Now once we&#39;ve got these data structures"
+    },
+    {
+      "index": 447,
+      "start_time": 1060220.0,
+      "end_time": 1062364.0,
+      "text": "we can then make various changes to them."
+    },
+    {
+      "index": 448,
+      "start_time": 1062370.0,
+      "end_time": 1064545.0,
+      "text": "So as the user interact with the application,"
+    },
+    {
+      "index": 449,
+      "start_time": 1064540.0,
+      "end_time": 1066270.0,
+      "text": "they will make changes."
+    },
+    {
+      "index": 450,
+      "start_time": 1066270.0,
+      "end_time": 1069241.0,
+      "text": "For example, they might set watering plants to true."
+    },
+    {
+      "index": 451,
+      "start_time": 1069240.0,
+      "end_time": 1071090.0,
+      "text": "So they say, okay this is now done,"
+    },
+    {
+      "index": 452,
+      "start_time": 1071090.0,
+      "end_time": 1072945.0,
+      "text": "I&#39;m going to check the box on my phone"
+    },
+    {
+      "index": 453,
+      "start_time": 1072950.0,
+      "end_time": 1075667.0,
+      "text": "and what that does is set this done flag"
+    },
+    {
+      "index": 454,
+      "start_time": 1075660.0,
+      "end_time": 1077173.0,
+      "text": "from false to true."
+    },
+    {
+      "index": 455,
+      "start_time": 1077180.0,
+      "end_time": 1080060.0,
+      "text": "So the operation here, the change operation,"
+    },
+    {
+      "index": 456,
+      "start_time": 1080060.0,
+      "end_time": 1082273.0,
+      "text": "the edit operation, is assigning a value"
+    },
+    {
+      "index": 457,
+      "start_time": 1082270.0,
+      "end_time": 1084702.0,
+      "text": "to a particular field in this JSON document."
+    },
+    {
+      "index": 458,
+      "start_time": 1084700.0,
+      "end_time": 1087172.0,
+      "text": "Another thing that might happen"
+    },
+    {
+      "index": 459,
+      "start_time": 1087170.0,
+      "end_time": 1089062.0,
+      "text": "is somebody might edit a string."
+    },
+    {
+      "index": 460,
+      "start_time": 1089070.0,
+      "end_time": 1091697.0,
+      "text": "So change milk, change buy milk to buy soy milk."
+    },
+    {
+      "index": 461,
+      "start_time": 1091690.0,
+      "end_time": 1095343.0,
+      "text": "So by inserting a few letters into that string,"
+    },
+    {
+      "index": 462,
+      "start_time": 1095350.0,
+      "end_time": 1098068.0,
+      "text": "another thing that might, people might do"
+    },
+    {
+      "index": 463,
+      "start_time": 1098060.0,
+      "end_time": 1099436.0,
+      "text": "is insert a whole new list item"
+    },
+    {
+      "index": 464,
+      "start_time": 1099440.0,
+      "end_time": 1103643.0,
+      "text": "of phone mum between buy milk and before watering water"
+    },
+    {
+      "index": 465,
+      "start_time": 1103640.0,
+      "end_time": 1104622.0,
+      "text": "and plants."
+    },
+    {
+      "index": 466,
+      "start_time": 1104620.0,
+      "end_time": 1107477.0,
+      "text": "So this is editing the ordered list object"
+    },
+    {
+      "index": 467,
+      "start_time": 1107480.0,
+      "end_time": 1109075.0,
+      "text": "to insert a new item."
+    },
+    {
+      "index": 468,
+      "start_time": 1109080.0,
+      "end_time": 1111102.0,
+      "text": "Another thing that people might do"
+    },
+    {
+      "index": 469,
+      "start_time": 1111100.0,
+      "end_time": 1113400.0,
+      "text": "is add another key to this map here"
+    },
+    {
+      "index": 470,
+      "start_time": 1113400.0,
+      "end_time": 1115341.0,
+      "text": "or they might even delete an entire entry."
+    },
+    {
+      "index": 471,
+      "start_time": 1115340.0,
+      "end_time": 1118220.0,
+      "text": "So the top level to do item, just delete the entire list."
+    },
+    {
+      "index": 472,
+      "start_time": 1118220.0,
+      "end_time": 1119219.0,
+      "text": "Why not?"
+    },
+    {
+      "index": 473,
+      "start_time": 1119220.0,
+      "end_time": 1121261.0,
+      "text": "Maybe you have several lists or something like that."
+    },
+    {
+      "index": 474,
+      "start_time": 1121260.0,
+      "end_time": 1124592.0,
+      "text": "So these are the kinds of changes that people"
+    },
+    {
+      "index": 475,
+      "start_time": 1124590.0,
+      "end_time": 1125591.0,
+      "text": "can make to these documents"
+    },
+    {
+      "index": 476,
+      "start_time": 1125590.0,
+      "end_time": 1128169.0,
+      "text": "and what we want to do is have some way of resolving"
+    },
+    {
+      "index": 477,
+      "start_time": 1128170.0,
+      "end_time": 1129171.0,
+      "text": "those changes."
+    },
+    {
+      "index": 478,
+      "start_time": 1129170.0,
+      "end_time": 1132027.0,
+      "text": "So that even if people make these changes concurrently"
+    },
+    {
+      "index": 479,
+      "start_time": 1132030.0,
+      "end_time": 1135325.0,
+      "text": "to each other, we end up with eventual consistency."
+    },
+    {
+      "index": 480,
+      "start_time": 1135320.0,
+      "end_time": 1139277.0,
+      "text": "So we can model this document as a tree"
+    },
+    {
+      "index": 481,
+      "start_time": 1139280.0,
+      "end_time": 1142391.0,
+      "text": "and we can have some data type annotations on it."
+    },
+    {
+      "index": 482,
+      "start_time": 1142390.0,
+      "end_time": 1144600.0,
+      "text": "So say the top level document is a map"
+    },
+    {
+      "index": 483,
+      "start_time": 1144600.0,
+      "end_time": 1147495.0,
+      "text": "and inside it we have a list under the key to do"
+    },
+    {
+      "index": 484,
+      "start_time": 1147500.0,
+      "end_time": 1148501.0,
+      "text": "and so on."
+    },
+    {
+      "index": 485,
+      "start_time": 1148500.0,
+      "end_time": 1149717.0,
+      "text": "Won&#39;t go into too much detail."
+    },
+    {
+      "index": 486,
+      "start_time": 1149720.0,
+      "end_time": 1152603.0,
+      "text": "So this is actually an algorithm that I developed"
+    },
+    {
+      "index": 487,
+      "start_time": 1152600.0,
+      "end_time": 1155186.0,
+      "text": "with a colleague and we wrote this paper about it"
+    },
+    {
+      "index": 488,
+      "start_time": 1155190.0,
+      "end_time": 1156288.0,
+      "text": "a few months ago."
+    },
+    {
+      "index": 489,
+      "start_time": 1156280.0,
+      "end_time": 1159883.0,
+      "text": "So if you&#39;re interested in that, you can find it online."
+    },
+    {
+      "index": 490,
+      "start_time": 1159890.0,
+      "end_time": 1162696.0,
+      "text": "It&#39;s called a Conflict-Free Replicated JSON Datatype."
+    },
+    {
+      "index": 491,
+      "start_time": 1162690.0,
+      "end_time": 1167250.0,
+      "text": "Has anyone here heard of CRDTS before?"
+    },
+    {
+      "index": 492,
+      "start_time": 1167250.0,
+      "end_time": 1168526.0,
+      "text": "Okay a few people, cool."
+    },
+    {
+      "index": 493,
+      "start_time": 1168530.0,
+      "end_time": 1169972.0,
+      "text": "So this is an example of a CRDT."
+    },
+    {
+      "index": 494,
+      "start_time": 1169970.0,
+      "end_time": 1172239.0,
+      "text": "If you don&#39;t know what a CRDT is, don&#39;t worry."
+    },
+    {
+      "index": 495,
+      "start_time": 1172240.0,
+      "end_time": 1175278.0,
+      "text": "This paper is very theoretical ."
+    },
+    {
+      "index": 496,
+      "start_time": 1175280.0,
+      "end_time": 1177456.0,
+      "text": "It looks inside, it looks kind of like this."
+    },
+    {
+      "index": 497,
+      "start_time": 1177450.0,
+      "end_time": 1179679.0,
+      "text": "So I&#39;m not actually going to run through"
+    },
+    {
+      "index": 498,
+      "start_time": 1179680.0,
+      "end_time": 1181544.0,
+      "text": "all of the operational semantics today,"
+    },
+    {
+      "index": 499,
+      "start_time": 1181550.0,
+      "end_time": 1182607.0,
+      "text": "so don&#39;t worry about that."
+    },
+    {
+      "index": 500,
+      "start_time": 1182600.0,
+      "end_time": 1185026.0,
+      "text": "I&#39;m just going to kind give the intuition"
+    },
+    {
+      "index": 501,
+      "start_time": 1185030.0,
+      "end_time": 1186796.0,
+      "text": "about how the algorithm works"
+    },
+    {
+      "index": 502,
+      "start_time": 1186800.0,
+      "end_time": 1190491.0,
+      "text": "and just show kind of some of the curious edge cases"
+    },
+    {
+      "index": 503,
+      "start_time": 1190490.0,
+      "end_time": 1191729.0,
+      "text": "that occur there."
+    },
+    {
+      "index": 504,
+      "start_time": 1191720.0,
+      "end_time": 1193484.0,
+      "text": "Some of the stuff that we have to think about"
+    },
+    {
+      "index": 505,
+      "start_time": 1193490.0,
+      "end_time": 1194818.0,
+      "text": "when trying to do this."
+    },
+    {
+      "index": 506,
+      "start_time": 1194820.0,
+      "end_time": 1196967.0,
+      "text": "So the hope is that this algorithm"
+    },
+    {
+      "index": 507,
+      "start_time": 1196960.0,
+      "end_time": 1199944.0,
+      "text": "would allow people to concurrently edit"
+    },
+    {
+      "index": 508,
+      "start_time": 1199950.0,
+      "end_time": 1202218.0,
+      "text": "JSON documents and merge those edits"
+    },
+    {
+      "index": 509,
+      "start_time": 1202220.0,
+      "end_time": 1206740.0,
+      "text": "and end up with a sensible result at the end."
+    },
+    {
+      "index": 510,
+      "start_time": 1206740.0,
+      "end_time": 1207979.0,
+      "text": "So one example of a document,"
+    },
+    {
+      "index": 511,
+      "start_time": 1207970.0,
+      "end_time": 1209608.0,
+      "text": "we saw the to do list example,"
+    },
+    {
+      "index": 512,
+      "start_time": 1209610.0,
+      "end_time": 1211625.0,
+      "text": "another one might be simply a text document."
+    },
+    {
+      "index": 513,
+      "start_time": 1211630.0,
+      "end_time": 1216333.0,
+      "text": "So."
+    },
+    {
+      "index": 514,
+      "start_time": 1216330.0,
+      "end_time": 1219782.0,
+      "text": "So a text document consists of the file name,"
+    },
+    {
+      "index": 515,
+      "start_time": 1219780.0,
+      "end_time": 1222728.0,
+      "text": "which is just a string."
+    },
+    {
+      "index": 516,
+      "start_time": 1222730.0,
+      "end_time": 1224959.0,
+      "text": "Consists of characters or of the body,"
+    },
+    {
+      "index": 517,
+      "start_time": 1224960.0,
+      "end_time": 1226237.0,
+      "text": "of the actual text."
+    },
+    {
+      "index": 518,
+      "start_time": 1226240.0,
+      "end_time": 1227599.0,
+      "text": "So each individual characters."
+    },
+    {
+      "index": 519,
+      "start_time": 1227600.0,
+      "end_time": 1229779.0,
+      "text": "Like the smallest unit you can edit"
+    },
+    {
+      "index": 520,
+      "start_time": 1229780.0,
+      "end_time": 1233262.0,
+      "text": "and like maybe there might be additional stuff"
+    },
+    {
+      "index": 521,
+      "start_time": 1233260.0,
+      "end_time": 1236018.0,
+      "text": "for formatting, setting fonts and so on,"
+    },
+    {
+      "index": 522,
+      "start_time": 1236020.0,
+      "end_time": 1237675.0,
+      "text": "I&#39;m just going to leave all of that out."
+    },
+    {
+      "index": 523,
+      "start_time": 1237670.0,
+      "end_time": 1239470.0,
+      "text": "Another thing that&#39;s quite useful is cursor positions."
+    },
+    {
+      "index": 524,
+      "start_time": 1239470.0,
+      "end_time": 1242151.0,
+      "text": "So if you use Google Docs, you can see where"
+    },
+    {
+      "index": 525,
+      "start_time": 1242150.0,
+      "end_time": 1244778.0,
+      "text": "in the document another user is editing right now."
+    },
+    {
+      "index": 526,
+      "start_time": 1244780.0,
+      "end_time": 1247980.0,
+      "text": "That&#39;s quite handy to see so that you don&#39;t change"
+    },
+    {
+      "index": 527,
+      "start_time": 1247980.0,
+      "end_time": 1250339.0,
+      "text": "the same place at the same time while you&#39;re online."
+    },
+    {
+      "index": 528,
+      "start_time": 1250340.0,
+      "end_time": 1253258.0,
+      "text": "So you could imagine implementing that as a map"
+    },
+    {
+      "index": 529,
+      "start_time": 1253260.0,
+      "end_time": 1255811.0,
+      "text": "from each client has a position."
+    },
+    {
+      "index": 530,
+      "start_time": 1255810.0,
+      "end_time": 1258059.0,
+      "text": "A position is like a location in the document"
+    },
+    {
+      "index": 531,
+      "start_time": 1258060.0,
+      "end_time": 1260294.0,
+      "text": "and so that would allow you to keep track"
+    },
+    {
+      "index": 532,
+      "start_time": 1260290.0,
+      "end_time": 1261294.0,
+      "text": "of other people&#39;s cursors."
+    },
+    {
+      "index": 533,
+      "start_time": 1261290.0,
+      "end_time": 1265709.0,
+      "text": "So I&#39;ll just focus on the body characters for now."
+    },
+    {
+      "index": 534,
+      "start_time": 1265710.0,
+      "end_time": 1267439.0,
+      "text": "So the ordered list of characters"
+    },
+    {
+      "index": 535,
+      "start_time": 1267440.0,
+      "end_time": 1269124.0,
+      "text": "is what constitutes the content of the document."
+    },
+    {
+      "index": 536,
+      "start_time": 1269130.0,
+      "end_time": 1271504.0,
+      "text": "You might wonder, why this is,"
+    },
+    {
+      "index": 537,
+      "start_time": 1271500.0,
+      "end_time": 1274059.0,
+      "text": "why this is a list of strings"
+    },
+    {
+      "index": 538,
+      "start_time": 1274060.0,
+      "end_time": 1275059.0,
+      "text": "and not a list of characters."
+    },
+    {
+      "index": 539,
+      "start_time": 1275060.0,
+      "end_time": 1278190.0,
+      "text": "So begin footnotes."
+    },
+    {
+      "index": 540,
+      "start_time": 1278190.0,
+      "end_time": 1280064.0,
+      "text": "It&#39;s a list of strings because"
+    },
+    {
+      "index": 541,
+      "start_time": 1280060.0,
+      "end_time": 1284630.0,
+      "text": "in Unicode, if you actually represent like one character,"
+    },
+    {
+      "index": 542,
+      "start_time": 1284630.0,
+      "end_time": 1287543.0,
+      "text": "the smallest editable unit of the document"
+    },
+    {
+      "index": 543,
+      "start_time": 1287550.0,
+      "end_time": 1290486.0,
+      "text": "is not necessarily a single Unicode code point."
+    },
+    {
+      "index": 544,
+      "start_time": 1290480.0,
+      "end_time": 1292619.0,
+      "text": "Because you have things like combining,"
+    },
+    {
+      "index": 545,
+      "start_time": 1292620.0,
+      "end_time": 1295510.0,
+      "text": "combining marks, I think they&#39;re called for accents,"
+    },
+    {
+      "index": 546,
+      "start_time": 1295510.0,
+      "end_time": 1297810.0,
+      "text": "and diacritics and various things"
+    },
+    {
+      "index": 547,
+      "start_time": 1297810.0,
+      "end_time": 1300688.0,
+      "text": "or for emoji, I think the skin color annotation"
+    },
+    {
+      "index": 548,
+      "start_time": 1300690.0,
+      "end_time": 1304375.0,
+      "text": "is a combining mark and so you end up with a sequence"
+    },
+    {
+      "index": 549,
+      "start_time": 1304370.0,
+      "end_time": 1306924.0,
+      "text": "of several Unicode code points that constitutes"
+    },
+    {
+      "index": 550,
+      "start_time": 1306930.0,
+      "end_time": 1309647.0,
+      "text": "an character from user points of view."
+    },
+    {
+      "index": 551,
+      "start_time": 1309640.0,
+      "end_time": 1311531.0,
+      "text": "If you&#39;re interested in this, look at the Unicode annex"
+    },
+    {
+      "index": 552,
+      "start_time": 1311540.0,
+      "end_time": 1312566.0,
+      "text": "number 29."
+    },
+    {
+      "index": 553,
+      "start_time": 1312560.0,
+      "end_time": 1314039.0,
+      "text": "Anyway, end of footnote."
+    },
+    {
+      "index": 554,
+      "start_time": 1314040.0,
+      "end_time": 1315247.0,
+      "text": "This is completely irrelevant."
+    },
+    {
+      "index": 555,
+      "start_time": 1315250.0,
+      "end_time": 1318979.0,
+      "text": "I just wanted to mention that as well."
+    },
+    {
+      "index": 556,
+      "start_time": 1318980.0,
+      "end_time": 1321559.0,
+      "text": "I&#39;ll give a little demo of the text editor"
+    },
+    {
+      "index": 557,
+      "start_time": 1321560.0,
+      "end_time": 1325129.0,
+      "text": "we implemented because its just kind of fun"
+    },
+    {
+      "index": 558,
+      "start_time": 1325120.0,
+      "end_time": 1327586.0,
+      "text": "to make this a bit more interactive."
+    },
+    {
+      "index": 559,
+      "start_time": 1327590.0,
+      "end_time": 1341463.0,
+      "text": "So what I have here is something that doesn&#39;t work."
+    },
+    {
+      "index": 560,
+      "start_time": 1341460.0,
+      "end_time": 1342611.0,
+      "text": "Sorry."
+    },
+    {
+      "index": 561,
+      "start_time": 1342610.0,
+      "end_time": 1352255.0,
+      "text": "This is always the thing with demos."
+    },
+    {
+      "index": 562,
+      "start_time": 1352260.0,
+      "end_time": 1354153.0,
+      "text": "Maybe it has to be on the wifi."
+    },
+    {
+      "index": 563,
+      "start_time": 1354150.0,
+      "end_time": 1362517.0,
+      "text": "Okay, let&#39;s try again."
+    },
+    {
+      "index": 564,
+      "start_time": 1362520.0,
+      "end_time": 1363539.0,
+      "text": "Okay, good."
+    },
+    {
+      "index": 565,
+      "start_time": 1363540.0,
+      "end_time": 1365850.0,
+      "text": "So."
+    },
+    {
+      "index": 566,
+      "start_time": 1365850.0,
+      "end_time": 1368378.0,
+      "text": "So this is a very basic text editor"
+    },
+    {
+      "index": 567,
+      "start_time": 1368380.0,
+      "end_time": 1371618.0,
+      "text": "that we implemented using this data structure,"
+    },
+    {
+      "index": 568,
+      "start_time": 1371610.0,
+      "end_time": 1373007.0,
+      "text": "this algorithm that we developed"
+    },
+    {
+      "index": 569,
+      "start_time": 1373010.0,
+      "end_time": 1376223.0,
+      "text": "and I&#39;ve got actually two windows here, left and right,"
+    },
+    {
+      "index": 570,
+      "start_time": 1376220.0,
+      "end_time": 1378927.0,
+      "text": "which are both instances of this text editor running"
+    },
+    {
+      "index": 571,
+      "start_time": 1378930.0,
+      "end_time": 1386407.0,
+      "text": "and I can say hello to Berlin and it works."
+    },
+    {
+      "index": 572,
+      "start_time": 1386410.0,
+      "end_time": 1388231.0,
+      "text": "So you can see I can type something on one side"
+    },
+    {
+      "index": 573,
+      "start_time": 1388230.0,
+      "end_time": 1389755.0,
+      "text": "and it appears on the other side"
+    },
+    {
+      "index": 574,
+      "start_time": 1389750.0,
+      "end_time": 1392294.0,
+      "text": "and these two editors are actually communicating"
+    },
+    {
+      "index": 575,
+      "start_time": 1392300.0,
+      "end_time": 1394272.0,
+      "text": "via a network connection."
+    },
+    {
+      "index": 576,
+      "start_time": 1394270.0,
+      "end_time": 1395872.0,
+      "text": "So they are two separate processes"
+    },
+    {
+      "index": 577,
+      "start_time": 1395870.0,
+      "end_time": 1397629.0,
+      "text": "that are otherwise don&#39;t share anything."
+    },
+    {
+      "index": 578,
+      "start_time": 1397630.0,
+      "end_time": 1399673.0,
+      "text": "So they could easily be on two separate computers"
+    },
+    {
+      "index": 579,
+      "start_time": 1399670.0,
+      "end_time": 1401668.0,
+      "text": "on other sides of the world, no problem"
+    },
+    {
+      "index": 580,
+      "start_time": 1401670.0,
+      "end_time": 1407590.0,
+      "text": "and what I can now do is can I kill this server."
+    },
+    {
+      "index": 581,
+      "start_time": 1407590.0,
+      "end_time": 1410037.0,
+      "text": "So they use a web socket server here to communicate"
+    },
+    {
+      "index": 582,
+      "start_time": 1410040.0,
+      "end_time": 1413206.0,
+      "text": "and when I kill the server,"
+    },
+    {
+      "index": 583,
+      "start_time": 1413200.0,
+      "end_time": 1414914.0,
+      "text": "what I&#39;m simulating is a network interupption"
+    },
+    {
+      "index": 584,
+      "start_time": 1414920.0,
+      "end_time": 1415920.0,
+      "text": "between the two."
+    },
+    {
+      "index": 585,
+      "start_time": 1415920.0,
+      "end_time": 1417475.0,
+      "text": "So now both editors are offline."
+    },
+    {
+      "index": 586,
+      "start_time": 1417470.0,
+      "end_time": 1420154.0,
+      "text": "So this could be because actually it&#39;s a server outage"
+    },
+    {
+      "index": 587,
+      "start_time": 1420160.0,
+      "end_time": 1422210.0,
+      "text": "or just because the clients have lost their internet"
+    },
+    {
+      "index": 588,
+      "start_time": 1422210.0,
+      "end_time": 1424138.0,
+      "text": "connection, it doesn&#39;t really matter"
+    },
+    {
+      "index": 589,
+      "start_time": 1424140.0,
+      "end_time": 1428731.0,
+      "text": "and so I can keep editing offline."
+    },
+    {
+      "index": 590,
+      "start_time": 1428730.0,
+      "end_time": 1434524.0,
+      "text": "So lets say here."
+    },
+    {
+      "index": 591,
+      "start_time": 1434520.0,
+      "end_time": 1436501.0,
+      "text": "So I&#39;ll say, Hello everyone at GOTO Berlin"
+    },
+    {
+      "index": 592,
+      "start_time": 1436500.0,
+      "end_time": 1438350.0,
+      "text": "and you see it doesn&#39;t appear on the right hand side,"
+    },
+    {
+      "index": 593,
+      "start_time": 1438350.0,
+      "end_time": 1443706.0,
+      "text": "because they&#39;re offline."
+    },
+    {
+      "index": 594,
+      "start_time": 1443710.0,
+      "end_time": 1445940.0,
+      "text": "So we have these two now"
+    },
+    {
+      "index": 595,
+      "start_time": 1445940.0,
+      "end_time": 1448032.0,
+      "text": "and so I&#39;m going to restart the server now"
+    },
+    {
+      "index": 596,
+      "start_time": 1448030.0,
+      "end_time": 1449969.0,
+      "text": "and what we want is for all of those changes"
+    },
+    {
+      "index": 597,
+      "start_time": 1449970.0,
+      "end_time": 1451322.0,
+      "text": "to be preserved."
+    },
+    {
+      "index": 598,
+      "start_time": 1451320.0,
+      "end_time": 1454235.0,
+      "text": "So make sure, look at that everyone at is still there"
+    },
+    {
+      "index": 599,
+      "start_time": 1454240.0,
+      "end_time": 1457659.0,
+      "text": "and hope you&#39;re all doing well is still there."
+    },
+    {
+      "index": 600,
+      "start_time": 1457660.0,
+      "end_time": 1459881.0,
+      "text": "So when I restart the server, the editors"
+    },
+    {
+      "index": 601,
+      "start_time": 1459880.0,
+      "end_time": 1462625.0,
+      "text": "in the background keep trying to reconnect"
+    },
+    {
+      "index": 602,
+      "start_time": 1462620.0,
+      "end_time": 1464086.0,
+      "text": "to the server automatically"
+    },
+    {
+      "index": 603,
+      "start_time": 1464090.0,
+      "end_time": 1465844.0,
+      "text": "and keep retrying in the background"
+    },
+    {
+      "index": 604,
+      "start_time": 1465840.0,
+      "end_time": 1468846.0,
+      "text": "and eventually they will mange to connect"
+    },
+    {
+      "index": 605,
+      "start_time": 1468850.0,
+      "end_time": 1470976.0,
+      "text": "and resychronize and now you see everyone at"
+    },
+    {
+      "index": 606,
+      "start_time": 1470970.0,
+      "end_time": 1473036.0,
+      "text": "has been copied from the left to the right"
+    },
+    {
+      "index": 607,
+      "start_time": 1473040.0,
+      "end_time": 1474770.0,
+      "text": "and the hope you&#39;re all doing well"
+    },
+    {
+      "index": 608,
+      "start_time": 1474770.0,
+      "end_time": 1476319.0,
+      "text": "has been copied from the right to the left"
+    },
+    {
+      "index": 609,
+      "start_time": 1476320.0,
+      "end_time": 1479487.0,
+      "text": "and we didn&#39;t have any like three way merge"
+    },
+    {
+      "index": 610,
+      "start_time": 1479480.0,
+      "end_time": 1481010.0,
+      "text": "user interface for this."
+    },
+    {
+      "index": 611,
+      "start_time": 1481020.0,
+      "end_time": 1482623.0,
+      "text": "Like it just did this automatically."
+    },
+    {
+      "index": 612,
+      "start_time": 1482620.0,
+      "end_time": 1487509.0,
+      "text": "Now, let&#39;s have a look at how this"
+    },
+    {
+      "index": 613,
+      "start_time": 1487510.0,
+      "end_time": 1488991.0,
+      "text": "algorithm actually works because"
+    },
+    {
+      "index": 614,
+      "start_time": 1488990.0,
+      "end_time": 1490773.0,
+      "text": "that&#39;s kind of interesting."
+    },
+    {
+      "index": 615,
+      "start_time": 1490770.0,
+      "end_time": 1493231.0,
+      "text": "This is basically the same as what Google Docs does, right?"
+    },
+    {
+      "index": 616,
+      "start_time": 1493230.0,
+      "end_time": 1496361.0,
+      "text": "So, Google Docs is a bit fussy"
+    },
+    {
+      "index": 617,
+      "start_time": 1496360.0,
+      "end_time": 1497404.0,
+      "text": "with its offline support"
+    },
+    {
+      "index": 618,
+      "start_time": 1497410.0,
+      "end_time": 1499411.0,
+      "text": "but if you force it into actually doing it,"
+    },
+    {
+      "index": 619,
+      "start_time": 1499410.0,
+      "end_time": 1503493.0,
+      "text": "it essentially does the same kind of merge"
+    },
+    {
+      "index": 620,
+      "start_time": 1503490.0,
+      "end_time": 1506711.0,
+      "text": "and I can run a bit of how the algorithm"
+    },
+    {
+      "index": 621,
+      "start_time": 1506710.0,
+      "end_time": 1509347.0,
+      "text": "in Google Docs work."
+    },
+    {
+      "index": 622,
+      "start_time": 1509350.0,
+      "end_time": 1513013.0,
+      "text": "So imagine you have a document consisting"
+    },
+    {
+      "index": 623,
+      "start_time": 1513010.0,
+      "end_time": 1515262.0,
+      "text": "of the letters H E L and O"
+    },
+    {
+      "index": 624,
+      "start_time": 1515260.0,
+      "end_time": 1517451.0,
+      "text": "and you label each letter with the index"
+    },
+    {
+      "index": 625,
+      "start_time": 1517450.0,
+      "end_time": 1518768.0,
+      "text": "of what position it is."
+    },
+    {
+      "index": 626,
+      "start_time": 1518770.0,
+      "end_time": 1522258.0,
+      "text": "So 0, 1, 2, 3 and on the left hand side"
+    },
+    {
+      "index": 627,
+      "start_time": 1522260.0,
+      "end_time": 1523287.0,
+      "text": "we&#39;ve got the green editor"
+    },
+    {
+      "index": 628,
+      "start_time": 1523290.0,
+      "end_time": 1524892.0,
+      "text": "and on the right hand side, we&#39;ve got the purple editor"
+    },
+    {
+      "index": 629,
+      "start_time": 1524890.0,
+      "end_time": 1528217.0,
+      "text": "and each editor now makes an edit to this."
+    },
+    {
+      "index": 630,
+      "start_time": 1528220.0,
+      "end_time": 1531558.0,
+      "text": "So the left hand side inserts a second L character"
+    },
+    {
+      "index": 631,
+      "start_time": 1531560.0,
+      "end_time": 1533002.0,
+      "text": "to change it to Hello"
+    },
+    {
+      "index": 632,
+      "start_time": 1533000.0,
+      "end_time": 1536096.0,
+      "text": "and the right hand side inserts and exclamation mark"
+    },
+    {
+      "index": 633,
+      "start_time": 1536090.0,
+      "end_time": 1540658.0,
+      "text": "at the end, making it H-E-L-O-exclamation mark"
+    },
+    {
+      "index": 634,
+      "start_time": 1540660.0,
+      "end_time": 1543081.0,
+      "text": "and so now we want to merge these two changes"
+    },
+    {
+      "index": 635,
+      "start_time": 1543080.0,
+      "end_time": 1544551.0,
+      "text": "that have happened concurrently"
+    },
+    {
+      "index": 636,
+      "start_time": 1544550.0,
+      "end_time": 1546083.0,
+      "text": "and so in order to do that,"
+    },
+    {
+      "index": 637,
+      "start_time": 1546090.0,
+      "end_time": 1548641.0,
+      "text": "we have the server to,"
+    },
+    {
+      "index": 638,
+      "start_time": 1548640.0,
+      "end_time": 1550654.0,
+      "text": "this is, in this case, run by Google"
+    },
+    {
+      "index": 639,
+      "start_time": 1550650.0,
+      "end_time": 1554752.0,
+      "text": "and these clients send essentially a dif"
+    },
+    {
+      "index": 640,
+      "start_time": 1554750.0,
+      "end_time": 1558251.0,
+      "text": "or like an operation recording what the change,"
+    },
+    {
+      "index": 641,
+      "start_time": 1558250.0,
+      "end_time": 1560887.0,
+      "text": "what change has been made by the user"
+    },
+    {
+      "index": 642,
+      "start_time": 1560890.0,
+      "end_time": 1562927.0,
+      "text": "and sent that operation over to the server"
+    },
+    {
+      "index": 643,
+      "start_time": 1562930.0,
+      "end_time": 1565288.0,
+      "text": "and so the left hand side says insert L"
+    },
+    {
+      "index": 644,
+      "start_time": 1565290.0,
+      "end_time": 1566601.0,
+      "text": "at position three."
+    },
+    {
+      "index": 645,
+      "start_time": 1566600.0,
+      "end_time": 1570867.0,
+      "text": "So you see 0,1,2,3,4 so we inserted the L"
+    },
+    {
+      "index": 646,
+      "start_time": 1570860.0,
+      "end_time": 1572966.0,
+      "text": "so the O has moved from position three"
+    },
+    {
+      "index": 647,
+      "start_time": 1572970.0,
+      "end_time": 1574051.0,
+      "text": "to position four"
+    },
+    {
+      "index": 648,
+      "start_time": 1574050.0,
+      "end_time": 1576224.0,
+      "text": "and so we inserted that L there"
+    },
+    {
+      "index": 649,
+      "start_time": 1576220.0,
+      "end_time": 1579300.0,
+      "text": "and so this side, we have the inserting exclamation mark"
+    },
+    {
+      "index": 650,
+      "start_time": 1579310.0,
+      "end_time": 1580465.0,
+      "text": "at the position four"
+    },
+    {
+      "index": 651,
+      "start_time": 1580460.0,
+      "end_time": 1583083.0,
+      "text": "and so that describes the change that was made"
+    },
+    {
+      "index": 652,
+      "start_time": 1583080.0,
+      "end_time": 1585850.0,
+      "text": "and now server forwards those changes over"
+    },
+    {
+      "index": 653,
+      "start_time": 1585850.0,
+      "end_time": 1589252.0,
+      "text": "to the other client and so the green change,"
+    },
+    {
+      "index": 654,
+      "start_time": 1589260.0,
+      "end_time": 1592435.0,
+      "text": "inserting the L gets forward by the server over here."
+    },
+    {
+      "index": 655,
+      "start_time": 1592430.0,
+      "end_time": 1594275.0,
+      "text": "Insert L at position three,"
+    },
+    {
+      "index": 656,
+      "start_time": 1594280.0,
+      "end_time": 1596784.0,
+      "text": "position three is the right position here."
+    },
+    {
+      "index": 657,
+      "start_time": 1596780.0,
+      "end_time": 1598766.0,
+      "text": "So you end up with Hello exclamation mark."
+    },
+    {
+      "index": 658,
+      "start_time": 1598770.0,
+      "end_time": 1599987.0,
+      "text": "Which is what we wanted."
+    },
+    {
+      "index": 659,
+      "start_time": 1599980.0,
+      "end_time": 1602509.0,
+      "text": "However, if you think about what happens"
+    },
+    {
+      "index": 660,
+      "start_time": 1602510.0,
+      "end_time": 1604714.0,
+      "text": "in the other direction."
+    },
+    {
+      "index": 661,
+      "start_time": 1604710.0,
+      "end_time": 1606958.0,
+      "text": "So this insert exclamation mark at position four,"
+    },
+    {
+      "index": 662,
+      "start_time": 1606960.0,
+      "end_time": 1609511.0,
+      "text": "if we simply send that through unchanged,"
+    },
+    {
+      "index": 663,
+      "start_time": 1609510.0,
+      "end_time": 1613199.0,
+      "text": "what we will get is Hell exclamation mark O"
+    },
+    {
+      "index": 664,
+      "start_time": 1613200.0,
+      "end_time": 1619426.0,
+      "text": "because over here, we inserted the letter L"
+    },
+    {
+      "index": 665,
+      "start_time": 1619430.0,
+      "end_time": 1621555.0,
+      "text": "at position three so the O moved along"
+    },
+    {
+      "index": 666,
+      "start_time": 1621550.0,
+      "end_time": 1623279.0,
+      "text": "from three to four."
+    },
+    {
+      "index": 667,
+      "start_time": 1623280.0,
+      "end_time": 1625292.0,
+      "text": "So really we would need to change that"
+    },
+    {
+      "index": 668,
+      "start_time": 1625300.0,
+      "end_time": 1627568.0,
+      "text": "to insert exclamation mark at position five"
+    },
+    {
+      "index": 669,
+      "start_time": 1627560.0,
+      "end_time": 1630514.0,
+      "text": "and only then we would get the right outcome"
+    },
+    {
+      "index": 670,
+      "start_time": 1630520.0,
+      "end_time": 1632626.0,
+      "text": "of having Hello exclamation mark"
+    },
+    {
+      "index": 671,
+      "start_time": 1632620.0,
+      "end_time": 1636233.0,
+      "text": "and so what has to happen here is that"
+    },
+    {
+      "index": 672,
+      "start_time": 1636240.0,
+      "end_time": 1639192.0,
+      "text": "this position four needs to be changed to position five"
+    },
+    {
+      "index": 673,
+      "start_time": 1639190.0,
+      "end_time": 1641637.0,
+      "text": "because there was concurrently an insert"
+    },
+    {
+      "index": 674,
+      "start_time": 1641640.0,
+      "end_time": 1643606.0,
+      "text": "at position three."
+    },
+    {
+      "index": 675,
+      "start_time": 1643600.0,
+      "end_time": 1645075.0,
+      "text": "So the server has to keep track"
+    },
+    {
+      "index": 676,
+      "start_time": 1645080.0,
+      "end_time": 1648048.0,
+      "text": "of all of these things going on simultaneously"
+    },
+    {
+      "index": 677,
+      "start_time": 1648040.0,
+      "end_time": 1650016.0,
+      "text": "and it has to transform the messages,"
+    },
+    {
+      "index": 678,
+      "start_time": 1650020.0,
+      "end_time": 1652077.0,
+      "text": "rewriting this three to four."
+    },
+    {
+      "index": 679,
+      "start_time": 1652080.0,
+      "end_time": 1654471.0,
+      "text": "Some of the transformation happens on the client as well"
+    },
+    {
+      "index": 680,
+      "start_time": 1654470.0,
+      "end_time": 1656195.0,
+      "text": "but this algorithm does actually depend"
+    },
+    {
+      "index": 681,
+      "start_time": 1656190.0,
+      "end_time": 1657901.0,
+      "text": "on the server to do some work as well"
+    },
+    {
+      "index": 682,
+      "start_time": 1657900.0,
+      "end_time": 1658913.0,
+      "text": "and that works."
+    },
+    {
+      "index": 683,
+      "start_time": 1658920.0,
+      "end_time": 1661461.0,
+      "text": "So this algorithm is called operational transformation"
+    },
+    {
+      "index": 684,
+      "start_time": 1661460.0,
+      "end_time": 1663581.0,
+      "text": "and it&#39;s been around for quite awhile."
+    },
+    {
+      "index": 685,
+      "start_time": 1663580.0,
+      "end_time": 1666008.0,
+      "text": "So it was first discussed in the academic literature"
+    },
+    {
+      "index": 686,
+      "start_time": 1666010.0,
+      "end_time": 1668962.0,
+      "text": "back in the 1980s."
+    },
+    {
+      "index": 687,
+      "start_time": 1668960.0,
+      "end_time": 1671225.0,
+      "text": "Although the first paper that presented"
+    },
+    {
+      "index": 688,
+      "start_time": 1671220.0,
+      "end_time": 1673148.0,
+      "text": "this algorithm was actually incorrect"
+    },
+    {
+      "index": 689,
+      "start_time": 1673150.0,
+      "end_time": 1674515.0,
+      "text": "and they said so in the paper."
+    },
+    {
+      "index": 690,
+      "start_time": 1674520.0,
+      "end_time": 1676609.0,
+      "text": "They said, heres a case in which our algorithm fails."
+    },
+    {
+      "index": 691,
+      "start_time": 1676610.0,
+      "end_time": 1678925.0,
+      "text": "Can someone help us fix it please?"
+    },
+    {
+      "index": 692,
+      "start_time": 1678920.0,
+      "end_time": 1681284.0,
+      "text": "And then several people, researchers came along"
+    },
+    {
+      "index": 693,
+      "start_time": 1681290.0,
+      "end_time": 1683487.0,
+      "text": "and proposed fixes to it, which worked,"
+    },
+    {
+      "index": 694,
+      "start_time": 1683480.0,
+      "end_time": 1687204.0,
+      "text": "and there were several different competing"
+    },
+    {
+      "index": 695,
+      "start_time": 1687210.0,
+      "end_time": 1688350.0,
+      "text": "algorithms there."
+    },
+    {
+      "index": 696,
+      "start_time": 1688350.0,
+      "end_time": 1689533.0,
+      "text": "The one that most of the,"
+    },
+    {
+      "index": 697,
+      "start_time": 1689530.0,
+      "end_time": 1692695.0,
+      "text": "well done operational transformation based systems"
+    },
+    {
+      "index": 698,
+      "start_time": 1692690.0,
+      "end_time": 1695693.0,
+      "text": "are kind of inherit from is called Jupiter"
+    },
+    {
+      "index": 699,
+      "start_time": 1695700.0,
+      "end_time": 1698368.0,
+      "text": "from 1995 and that&#39;s what like Google Docs"
+    },
+    {
+      "index": 700,
+      "start_time": 1698360.0,
+      "end_time": 1701028.0,
+      "text": "and Ethopad is based off"
+    },
+    {
+      "index": 701,
+      "start_time": 1701030.0,
+      "end_time": 1704771.0,
+      "text": "and Google Wave which is now Apache Wave."
+    },
+    {
+      "index": 702,
+      "start_time": 1704770.0,
+      "end_time": 1706724.0,
+      "text": "They all use this Jupiter design"
+    },
+    {
+      "index": 703,
+      "start_time": 1706730.0,
+      "end_time": 1708297.0,
+      "text": "which is to use a central server"
+    },
+    {
+      "index": 704,
+      "start_time": 1708300.0,
+      "end_time": 1710479.0,
+      "text": "that does some of the transformations."
+    },
+    {
+      "index": 705,
+      "start_time": 1710470.0,
+      "end_time": 1712609.0,
+      "text": "Some of the others don&#39;t use a central server"
+    },
+    {
+      "index": 706,
+      "start_time": 1712610.0,
+      "end_time": 1714449.0,
+      "text": "but instead keep track of some kind"
+    },
+    {
+      "index": 707,
+      "start_time": 1714450.0,
+      "end_time": 1716192.0,
+      "text": "of multidimensonal hypercubes"
+    },
+    {
+      "index": 708,
+      "start_time": 1716190.0,
+      "end_time": 1718368.0,
+      "text": "of all of the edits happening simultaneously."
+    },
+    {
+      "index": 709,
+      "start_time": 1718370.0,
+      "end_time": 1720258.0,
+      "text": "They start requiring quite a lot of memory,"
+    },
+    {
+      "index": 710,
+      "start_time": 1720260.0,
+      "end_time": 1721740.0,
+      "text": "some of those algorithms."
+    },
+    {
+      "index": 711,
+      "start_time": 1721740.0,
+      "end_time": 1724328.0,
+      "text": "Which is why they&#39;re not used as often in practice"
+    },
+    {
+      "index": 712,
+      "start_time": 1724330.0,
+      "end_time": 1728739.0,
+      "text": "and so this kind of works fine for Google&#39;s purposes"
+    },
+    {
+      "index": 713,
+      "start_time": 1728740.0,
+      "end_time": 1731043.0,
+      "text": "but remember what we wanted is to be able"
+    },
+    {
+      "index": 714,
+      "start_time": 1731040.0,
+      "end_time": 1732966.0,
+      "text": "to work within enter and encryption"
+    },
+    {
+      "index": 715,
+      "start_time": 1732970.0,
+      "end_time": 1734951.0,
+      "text": "and so in that case we can&#39;t have a server"
+    },
+    {
+      "index": 716,
+      "start_time": 1734950.0,
+      "end_time": 1736552.0,
+      "text": "transforming our messages"
+    },
+    {
+      "index": 717,
+      "start_time": 1736550.0,
+      "end_time": 1738315.0,
+      "text": "because the server would then have to see"
+    },
+    {
+      "index": 718,
+      "start_time": 1738310.0,
+      "end_time": 1739309.0,
+      "text": "the content of the messages"
+    },
+    {
+      "index": 719,
+      "start_time": 1739310.0,
+      "end_time": 1741067.0,
+      "text": "and we want what we want is,"
+    },
+    {
+      "index": 720,
+      "start_time": 1741070.0,
+      "end_time": 1743748.0,
+      "text": "well we want to avoid one central server"
+    },
+    {
+      "index": 721,
+      "start_time": 1743750.0,
+      "end_time": 1745515.0,
+      "text": "because that&#39;s a single point of failure"
+    },
+    {
+      "index": 722,
+      "start_time": 1745510.0,
+      "end_time": 1747901.0,
+      "text": "and we want to avoid that server seeing the content"
+    },
+    {
+      "index": 723,
+      "start_time": 1747900.0,
+      "end_time": 1748928.0,
+      "text": "of our messages."
+    },
+    {
+      "index": 724,
+      "start_time": 1748930.0,
+      "end_time": 1751018.0,
+      "text": "So we want to be able to just forward the messages"
+    },
+    {
+      "index": 725,
+      "start_time": 1751020.0,
+      "end_time": 1753410.0,
+      "text": "and this is where CRDT&#39;s come in."
+    },
+    {
+      "index": 726,
+      "start_time": 1753410.0,
+      "end_time": 1757172.0,
+      "text": "So CRDT stands for communative,"
+    },
+    {
+      "index": 727,
+      "start_time": 1757170.0,
+      "end_time": 1760447.0,
+      "text": "no sorry, conflict free replicated data types"
+    },
+    {
+      "index": 728,
+      "start_time": 1760450.0,
+      "end_time": 1761942.0,
+      "text": "which is a bit of a mouthful"
+    },
+    {
+      "index": 729,
+      "start_time": 1761940.0,
+      "end_time": 1763217.0,
+      "text": "which is people just say CRDTS"
+    },
+    {
+      "index": 730,
+      "start_time": 1763220.0,
+      "end_time": 1766912.0,
+      "text": "and essentially this is a family of data structures"
+    },
+    {
+      "index": 731,
+      "start_time": 1766910.0,
+      "end_time": 1770204.0,
+      "text": "where several nodes can concurrently change"
+    },
+    {
+      "index": 732,
+      "start_time": 1770200.0,
+      "end_time": 1772413.0,
+      "text": "the data and they could automatically merge"
+    },
+    {
+      "index": 733,
+      "start_time": 1772420.0,
+      "end_time": 1775640.0,
+      "text": "and so they&#39;ve got, as part of the definition"
+    },
+    {
+      "index": 734,
+      "start_time": 1775640.0,
+      "end_time": 1778232.0,
+      "text": "of the data structure, they&#39;ve got merge functions"
+    },
+    {
+      "index": 735,
+      "start_time": 1778230.0,
+      "end_time": 1780934.0,
+      "text": "or functions which allow you to apply operations"
+    },
+    {
+      "index": 736,
+      "start_time": 1780930.0,
+      "end_time": 1783117.0,
+      "text": "in a different order and still get the same"
+    },
+    {
+      "index": 737,
+      "start_time": 1783120.0,
+      "end_time": 1786367.0,
+      "text": "outcome at the end and if we want"
+    },
+    {
+      "index": 738,
+      "start_time": 1786370.0,
+      "end_time": 1788309.0,
+      "text": "to model something like a text document"
+    },
+    {
+      "index": 739,
+      "start_time": 1788310.0,
+      "end_time": 1791667.0,
+      "text": "like what I had in our editor example,"
+    },
+    {
+      "index": 740,
+      "start_time": 1791660.0,
+      "end_time": 1795854.0,
+      "text": "in that case we have an ordered list of characters"
+    },
+    {
+      "index": 741,
+      "start_time": 1795860.0,
+      "end_time": 1798167.0,
+      "text": "and so the data type we want here"
+    },
+    {
+      "index": 742,
+      "start_time": 1798160.0,
+      "end_time": 1800411.0,
+      "text": "is an ordered list and several different"
+    },
+    {
+      "index": 743,
+      "start_time": 1800420.0,
+      "end_time": 1803674.0,
+      "text": "algorithms were, have been proposed to that (mumbles),"
+    },
+    {
+      "index": 744,
+      "start_time": 1803670.0,
+      "end_time": 1805594.0,
+      "text": "more recent about in the last 10 years"
+    },
+    {
+      "index": 745,
+      "start_time": 1805590.0,
+      "end_time": 1807031.0,
+      "text": "these things have come up"
+    },
+    {
+      "index": 746,
+      "start_time": 1807030.0,
+      "end_time": 1809584.0,
+      "text": "and the one that I&#39;ll describe now"
+    },
+    {
+      "index": 747,
+      "start_time": 1809590.0,
+      "end_time": 1811570.0,
+      "text": "and that our text editor has based off"
+    },
+    {
+      "index": 748,
+      "start_time": 1811570.0,
+      "end_time": 1813746.0,
+      "text": "is called RGA, replicated growable array."
+    },
+    {
+      "index": 749,
+      "start_time": 1813740.0,
+      "end_time": 1818921.0,
+      "text": "Which came out of a Korean research group in 2011."
+    },
+    {
+      "index": 750,
+      "start_time": 1818930.0,
+      "end_time": 1822215.0,
+      "text": "So let me show you how this one works,"
+    },
+    {
+      "index": 751,
+      "start_time": 1822210.0,
+      "end_time": 1823570.0,
+      "text": "in a nutshell."
+    },
+    {
+      "index": 752,
+      "start_time": 1823570.0,
+      "end_time": 1825542.0,
+      "text": "We start off with the same example document"
+    },
+    {
+      "index": 753,
+      "start_time": 1825540.0,
+      "end_time": 1827261.0,
+      "text": "which is H-E-L-O"
+    },
+    {
+      "index": 754,
+      "start_time": 1827260.0,
+      "end_time": 1829940.0,
+      "text": "but now instead of giving each letter"
+    },
+    {
+      "index": 755,
+      "start_time": 1829940.0,
+      "end_time": 1832570.0,
+      "text": "just an index, 0,1,2,3"
+    },
+    {
+      "index": 756,
+      "start_time": 1832570.0,
+      "end_time": 1834584.0,
+      "text": "I&#39;m going to give each a unique identifier."
+    },
+    {
+      "index": 757,
+      "start_time": 1834590.0,
+      "end_time": 1836368.0,
+      "text": "Each letter has a unique identifier"
+    },
+    {
+      "index": 758,
+      "start_time": 1836360.0,
+      "end_time": 1840415.0,
+      "text": "which might be just 0a, 1a, 2a, 3a"
+    },
+    {
+      "index": 759,
+      "start_time": 1840420.0,
+      "end_time": 1843703.0,
+      "text": "and we now have the same edits happen on the left side,"
+    },
+    {
+      "index": 760,
+      "start_time": 1843700.0,
+      "end_time": 1844891.0,
+      "text": "we insert the letter L"
+    },
+    {
+      "index": 761,
+      "start_time": 1844890.0,
+      "end_time": 1847732.0,
+      "text": "and on the right hand side, we insert the exclamation mark"
+    },
+    {
+      "index": 762,
+      "start_time": 1847740.0,
+      "end_time": 1850494.0,
+      "text": "and every time we insert a new letter,"
+    },
+    {
+      "index": 763,
+      "start_time": 1850490.0,
+      "end_time": 1853507.0,
+      "text": "we have to make up a new identifier for that letter"
+    },
+    {
+      "index": 764,
+      "start_time": 1853510.0,
+      "end_time": 1856072.0,
+      "text": "and we&#39;re going to have a little rule"
+    },
+    {
+      "index": 765,
+      "start_time": 1856070.0,
+      "end_time": 1858108.0,
+      "text": "for how we create new identifiers."
+    },
+    {
+      "index": 766,
+      "start_time": 1858110.0,
+      "end_time": 1860767.0,
+      "text": "So we have, they have to be globally unique"
+    },
+    {
+      "index": 767,
+      "start_time": 1860760.0,
+      "end_time": 1864420.0,
+      "text": "and they also have the certain ordering property"
+    },
+    {
+      "index": 768,
+      "start_time": 1864420.0,
+      "end_time": 1866592.0,
+      "text": "and so we&#39;re going to construct them as follows."
+    },
+    {
+      "index": 769,
+      "start_time": 1866600.0,
+      "end_time": 1869583.0,
+      "text": "Each identifier is a number and a letter"
+    },
+    {
+      "index": 770,
+      "start_time": 1869580.0,
+      "end_time": 1873067.0,
+      "text": "and for the number, we chose one greater"
+    },
+    {
+      "index": 771,
+      "start_time": 1873070.0,
+      "end_time": 1875626.0,
+      "text": "than the highest number we have so far in the document"
+    },
+    {
+      "index": 772,
+      "start_time": 1875620.0,
+      "end_time": 1878698.0,
+      "text": "and so the document so far contains 0 to three as numbers"
+    },
+    {
+      "index": 773,
+      "start_time": 1878700.0,
+      "end_time": 1881107.0,
+      "text": "so the next number we&#39;re going to pick is four"
+    },
+    {
+      "index": 774,
+      "start_time": 1881110.0,
+      "end_time": 1884176.0,
+      "text": "and then we call the left hand one is node A,"
+    },
+    {
+      "index": 775,
+      "start_time": 1884170.0,
+      "end_time": 1885609.0,
+      "text": "the right hand one is Node B"
+    },
+    {
+      "index": 776,
+      "start_time": 1885610.0,
+      "end_time": 1887753.0,
+      "text": "and so that will be the letter that we use"
+    },
+    {
+      "index": 777,
+      "start_time": 1887760.0,
+      "end_time": 1889436.0,
+      "text": "for the identifier and so if we assume"
+    },
+    {
+      "index": 778,
+      "start_time": 1889430.0,
+      "end_time": 1891696.0,
+      "text": "that the names of the nodes are unique."
+    },
+    {
+      "index": 779,
+      "start_time": 1891700.0,
+      "end_time": 1895089.0,
+      "text": "So there&#39;s no other node called A, there&#39;s only one node"
+    },
+    {
+      "index": 780,
+      "start_time": 1895090.0,
+      "end_time": 1898232.0,
+      "text": "called A and the, furthermore we assume"
+    },
+    {
+      "index": 781,
+      "start_time": 1898230.0,
+      "end_time": 1901037.0,
+      "text": "that these numbers are generated by taking"
+    },
+    {
+      "index": 782,
+      "start_time": 1901040.0,
+      "end_time": 1903128.0,
+      "text": "one plus the highest we have."
+    },
+    {
+      "index": 783,
+      "start_time": 1903120.0,
+      "end_time": 1905474.0,
+      "text": "So the numbers per node will always be unique."
+    },
+    {
+      "index": 784,
+      "start_time": 1905480.0,
+      "end_time": 1908634.0,
+      "text": "So that means we generate 4a on the left hand side"
+    },
+    {
+      "index": 785,
+      "start_time": 1908630.0,
+      "end_time": 1910534.0,
+      "text": "and 4b on the right hand side."
+    },
+    {
+      "index": 786,
+      "start_time": 1910540.0,
+      "end_time": 1913493.0,
+      "text": "So it&#39;s the same four because they&#39;re both in the"
+    },
+    {
+      "index": 787,
+      "start_time": 1913490.0,
+      "end_time": 1917201.0,
+      "text": "same starting position but they have two different node Ids"
+    },
+    {
+      "index": 788,
+      "start_time": 1917200.0,
+      "end_time": 1918599.0,
+      "text": "so we get two different identifiers"
+    },
+    {
+      "index": 789,
+      "start_time": 1918600.0,
+      "end_time": 1921426.0,
+      "text": "and so that works"
+    },
+    {
+      "index": 790,
+      "start_time": 1921420.0,
+      "end_time": 1924130.0,
+      "text": "and now we can send these things via server"
+    },
+    {
+      "index": 791,
+      "start_time": 1924130.0,
+      "end_time": 1925856.0,
+      "text": "or it doesn&#39;t even have to be a server"
+    },
+    {
+      "index": 792,
+      "start_time": 1925860.0,
+      "end_time": 1928652.0,
+      "text": "that goes via P2P network or anything else you like as well."
+    },
+    {
+      "index": 793,
+      "start_time": 1928650.0,
+      "end_time": 1932446.0,
+      "text": "So I&#39;ll just use a server here for simplicity"
+    },
+    {
+      "index": 794,
+      "start_time": 1932450.0,
+      "end_time": 1934802.0,
+      "text": "and instead of inserting at the particular position,"
+    },
+    {
+      "index": 795,
+      "start_time": 1934800.0,
+      "end_time": 1936564.0,
+      "text": "we&#39;re now going to say insert L"
+    },
+    {
+      "index": 796,
+      "start_time": 1936560.0,
+      "end_time": 1940304.0,
+      "text": "and we&#39;re going to say the idea of the new letter,"
+    },
+    {
+      "index": 797,
+      "start_time": 1940310.0,
+      "end_time": 1941806.0,
+      "text": "which is 4a and we&#39;re going to say"
+    },
+    {
+      "index": 798,
+      "start_time": 1941800.0,
+      "end_time": 1944711.0,
+      "text": "where to insert it by saying after position 2a"
+    },
+    {
+      "index": 799,
+      "start_time": 1944710.0,
+      "end_time": 1949518.0,
+      "text": "and so 2a is the first L and so the new L"
+    },
+    {
+      "index": 800,
+      "start_time": 1949520.0,
+      "end_time": 1951461.0,
+      "text": "with 4a get&#39;s inserted after 2a"
+    },
+    {
+      "index": 801,
+      "start_time": 1951460.0,
+      "end_time": 1953782.0,
+      "text": "and on the other side, we insert the exclamation mark"
+    },
+    {
+      "index": 802,
+      "start_time": 1953790.0,
+      "end_time": 1955536.0,
+      "text": "after 4, after 3a."
+    },
+    {
+      "index": 803,
+      "start_time": 1955530.0,
+      "end_time": 1958521.0,
+      "text": "3a is the letter O and so inserting"
+    },
+    {
+      "index": 804,
+      "start_time": 1958520.0,
+      "end_time": 1962447.0,
+      "text": "the exclamation mark with ID for b after 3a"
+    },
+    {
+      "index": 805,
+      "start_time": 1962450.0,
+      "end_time": 1964404.0,
+      "text": "means put the exclamation mark after the O"
+    },
+    {
+      "index": 806,
+      "start_time": 1964400.0,
+      "end_time": 1966826.0,
+      "text": "and so, we can now forward these messages."
+    },
+    {
+      "index": 807,
+      "start_time": 1966830.0,
+      "end_time": 1969747.0,
+      "text": "So insert L with 4a after 2a."
+    },
+    {
+      "index": 808,
+      "start_time": 1969750.0,
+      "end_time": 1971934.0,
+      "text": "2a here still means the first L,"
+    },
+    {
+      "index": 809,
+      "start_time": 1971930.0,
+      "end_time": 1974480.0,
+      "text": "so it&#39;s going to put the second L in the right place"
+    },
+    {
+      "index": 810,
+      "start_time": 1974480.0,
+      "end_time": 1976245.0,
+      "text": "and give it ID 4a"
+    },
+    {
+      "index": 811,
+      "start_time": 1976250.0,
+      "end_time": 1978602.0,
+      "text": "and on the other side, we can take this message"
+    },
+    {
+      "index": 812,
+      "start_time": 1978600.0,
+      "end_time": 1980153.0,
+      "text": "and apply that."
+    },
+    {
+      "index": 813,
+      "start_time": 1980150.0,
+      "end_time": 1982900.0,
+      "text": "Insert exclamation mark after 3a."
+    },
+    {
+      "index": 814,
+      "start_time": 1982900.0,
+      "end_time": 1985633.0,
+      "text": "3a is still the letter O"
+    },
+    {
+      "index": 815,
+      "start_time": 1985630.0,
+      "end_time": 1987882.0,
+      "text": "even though we inserted the letter L before it."
+    },
+    {
+      "index": 816,
+      "start_time": 1987890.0,
+      "end_time": 1990323.0,
+      "text": "It hasn&#39;t changed the fact that the ID"
+    },
+    {
+      "index": 817,
+      "start_time": 1990320.0,
+      "end_time": 1992945.0,
+      "text": "of the letter O is still 3a"
+    },
+    {
+      "index": 818,
+      "start_time": 1992940.0,
+      "end_time": 1994469.0,
+      "text": "and so we can put the exclamation mark"
+    },
+    {
+      "index": 819,
+      "start_time": 1994470.0,
+      "end_time": 1996197.0,
+      "text": "with 4b after the letter O,"
+    },
+    {
+      "index": 820,
+      "start_time": 1996200.0,
+      "end_time": 1999216.0,
+      "text": "after 3a and so we end up with the same document"
+    },
+    {
+      "index": 821,
+      "start_time": 1999220.0,
+      "end_time": 2001727.0,
+      "text": "in both places which is very nice."
+    },
+    {
+      "index": 822,
+      "start_time": 2001720.0,
+      "end_time": 2004151.0,
+      "text": "We can now just have some kind of network between"
+    },
+    {
+      "index": 823,
+      "start_time": 2004150.0,
+      "end_time": 2005151.0,
+      "text": "these two."
+    },
+    {
+      "index": 824,
+      "start_time": 2005160.0,
+      "end_time": 2007289.0,
+      "text": "It doesn&#39;t have to transform the messages in anyway,"
+    },
+    {
+      "index": 825,
+      "start_time": 2007280.0,
+      "end_time": 2009329.0,
+      "text": "it just needs to make sure it keeps retrying"
+    },
+    {
+      "index": 826,
+      "start_time": 2009330.0,
+      "end_time": 2011186.0,
+      "text": "and eventually the messages get through."
+    },
+    {
+      "index": 827,
+      "start_time": 2011190.0,
+      "end_time": 2012437.0,
+      "text": "That&#39;s all we need here."
+    },
+    {
+      "index": 828,
+      "start_time": 2012440.0,
+      "end_time": 2015381.0,
+      "text": "We can encrypt them and it&#39;s all very nice."
+    },
+    {
+      "index": 829,
+      "start_time": 2015380.0,
+      "end_time": 2017561.0,
+      "text": "Now there&#39;s still a problem with this algorithm,"
+    },
+    {
+      "index": 830,
+      "start_time": 2017560.0,
+      "end_time": 2021015.0,
+      "text": "which I wonder if anyone can spot?"
+    },
+    {
+      "index": 831,
+      "start_time": 2021010.0,
+      "end_time": 2022250.0,
+      "text": "Yes?"
+    },
+    {
+      "index": 832,
+      "start_time": 2022250.0,
+      "end_time": 2023416.0,
+      "text": "Deletion is one thing."
+    },
+    {
+      "index": 833,
+      "start_time": 2023420.0,
+      "end_time": 2025457.0,
+      "text": "Yes I, deletion is actually quite easy."
+    },
+    {
+      "index": 834,
+      "start_time": 2025460.0,
+      "end_time": 2027801.0,
+      "text": "So what we do for deletion is just to set a flag"
+    },
+    {
+      "index": 835,
+      "start_time": 2027800.0,
+      "end_time": 2030679.0,
+      "text": "for every ID and say that if it&#39;s deleted"
+    },
+    {
+      "index": 836,
+      "start_time": 2030680.0,
+      "end_time": 2034788.0,
+      "text": "then the ID actually remains there, secretly hidden,"
+    },
+    {
+      "index": 837,
+      "start_time": 2034780.0,
+      "end_time": 2037393.0,
+      "text": "but we&#39;re just going to say okay, this O is gone now,"
+    },
+    {
+      "index": 838,
+      "start_time": 2037400.0,
+      "end_time": 2039480.0,
+      "text": "so don&#39;t show it in the user interface."
+    },
+    {
+      "index": 839,
+      "start_time": 2039480.0,
+      "end_time": 2041828.0,
+      "text": "That&#39;s called a tombstone."
+    },
+    {
+      "index": 840,
+      "start_time": 2041820.0,
+      "end_time": 2043159.0,
+      "text": "There&#39;s not."
+    },
+    {
+      "index": 841,
+      "start_time": 2043160.0,
+      "end_time": 2044986.0,
+      "text": "Same position, exactly."
+    },
+    {
+      "index": 842,
+      "start_time": 2044990.0,
+      "end_time": 2053016.0,
+      "text": "So what if two people insert at the same position?"
+    },
+    {
+      "index": 843,
+      "start_time": 2053020.0,
+      "end_time": 2055375.0,
+      "text": "So let&#39;s have a simpler example document here."
+    },
+    {
+      "index": 844,
+      "start_time": 2055370.0,
+      "end_time": 2059200.0,
+      "text": "A,b,c, with Ids 1a, 2a, 3a,"
+    },
+    {
+      "index": 845,
+      "start_time": 2059199.9999999998,
+      "end_time": 2062708.9999999998,
+      "text": "and now let&#39;s say X and Y get inserted here"
+    },
+    {
+      "index": 846,
+      "start_time": 2062710.0,
+      "end_time": 2064151.0,
+      "text": "between A and B."
+    },
+    {
+      "index": 847,
+      "start_time": 2064150.0,
+      "end_time": 2066578.0,
+      "text": "So the left hand inserts X and Y,"
+    },
+    {
+      "index": 848,
+      "start_time": 2066580.0,
+      "end_time": 2068847.0,
+      "text": "gives them two new Ids according to the rules"
+    },
+    {
+      "index": 849,
+      "start_time": 2068850.0,
+      "end_time": 2070274.0,
+      "text": "that I specified earlier."
+    },
+    {
+      "index": 850,
+      "start_time": 2070270.0,
+      "end_time": 2071547.0,
+      "text": "So 4a and 5a and"
+    },
+    {
+      "index": 851,
+      "start_time": 2071550.0000000002,
+      "end_time": 2078749.0000000002,
+      "text": "and so what that means here is insert X after 1a,"
+    },
+    {
+      "index": 852,
+      "start_time": 2078750.0,
+      "end_time": 2082564.0,
+      "text": "insert Y after 4a and on the other side,"
+    },
+    {
+      "index": 853,
+      "start_time": 2082560.0,
+      "end_time": 2084859.0,
+      "text": "on the right hand side, I&#39;m going to insert P and Q"
+    },
+    {
+      "index": 854,
+      "start_time": 2084860.0000000002,
+      "end_time": 2089439.0000000002,
+      "text": "and we&#39;ll have the same rule again for assigning Ids"
+    },
+    {
+      "index": 855,
+      "start_time": 2089440.0,
+      "end_time": 2092028.0,
+      "text": "so they&#39;ll get 4b and 5b as their Ids"
+    },
+    {
+      "index": 856,
+      "start_time": 2092030.0000000002,
+      "end_time": 2095103.0000000002,
+      "text": "and they also appear between A and B"
+    },
+    {
+      "index": 857,
+      "start_time": 2095100.0,
+      "end_time": 2098688.0,
+      "text": "and now we need to make sure that all of these letters"
+    },
+    {
+      "index": 858,
+      "start_time": 2098690.0,
+      "end_time": 2100095.0,
+      "text": "end up in some kind of consistent order"
+    },
+    {
+      "index": 859,
+      "start_time": 2100090.0,
+      "end_time": 2101329.0,
+      "text": "on both nodes afterwards"
+    },
+    {
+      "index": 860,
+      "start_time": 2101330.0,
+      "end_time": 2103833.0,
+      "text": "and so lets take those operations and apply them"
+    },
+    {
+      "index": 861,
+      "start_time": 2103830.0,
+      "end_time": 2104830.0,
+      "text": "to the other side."
+    },
+    {
+      "index": 862,
+      "start_time": 2104830.0,
+      "end_time": 2108938.0,
+      "text": "So insert P with the new Id 4b after 1a."
+    },
+    {
+      "index": 863,
+      "start_time": 2108940.0,
+      "end_time": 2111498.0,
+      "text": "1a is the first letter A, so we insert P there"
+    },
+    {
+      "index": 864,
+      "start_time": 2111500.0,
+      "end_time": 2115278.0,
+      "text": "and then insert Q with letter,"
+    },
+    {
+      "index": 865,
+      "start_time": 2115280.0,
+      "end_time": 2117173.0,
+      "text": "with id 5b after 4b."
+    },
+    {
+      "index": 866,
+      "start_time": 2117170.0,
+      "end_time": 2121063.0,
+      "text": "4b was the letter Q, which we&#39;ve already inserted,"
+    },
+    {
+      "index": 867,
+      "start_time": 2121060.0,
+      "end_time": 2124029.0,
+      "text": "so we can put the, with the letter P."
+    },
+    {
+      "index": 868,
+      "start_time": 2124030.0,
+      "end_time": 2125415.0,
+      "text": "4b with the P."
+    },
+    {
+      "index": 869,
+      "start_time": 2125420.0,
+      "end_time": 2129003.0,
+      "text": "So the Q with 5b goes after the 4b"
+    },
+    {
+      "index": 870,
+      "start_time": 2129000.0,
+      "end_time": 2135459.0,
+      "text": "so we put A, P, Q, X, Y, B, C."
+    },
+    {
+      "index": 871,
+      "start_time": 2135460.0,
+      "end_time": 2137220.0,
+      "text": "So now, okay that&#39;s fine."
+    },
+    {
+      "index": 872,
+      "start_time": 2137220.0,
+      "end_time": 2139581.0,
+      "text": "So far now, we need to make sure that on the other side,"
+    },
+    {
+      "index": 873,
+      "start_time": 2139580.0,
+      "end_time": 2144193.0,
+      "text": "we&#39;re actually going to end up with the same thing."
+    },
+    {
+      "index": 874,
+      "start_time": 2144190.0,
+      "end_time": 2146136.0,
+      "text": "So we need to make sure the X ends up here"
+    },
+    {
+      "index": 875,
+      "start_time": 2146140.0,
+      "end_time": 2148516.0,
+      "text": "after the P Q but before the B"
+    },
+    {
+      "index": 876,
+      "start_time": 2148520.0,
+      "end_time": 2150317.0,
+      "text": "because we put the X here,"
+    },
+    {
+      "index": 877,
+      "start_time": 2150310.0,
+      "end_time": 2152666.0,
+      "text": "then the two would be inconsistent."
+    },
+    {
+      "index": 878,
+      "start_time": 2152670.0,
+      "end_time": 2155264.0,
+      "text": "So, well how do we do this now?"
+    },
+    {
+      "index": 879,
+      "start_time": 2155260.0,
+      "end_time": 2157189.0,
+      "text": "Because the message is going to be the same."
+    },
+    {
+      "index": 880,
+      "start_time": 2157190.0,
+      "end_time": 2158663.0,
+      "text": "The message is just going to be,"
+    },
+    {
+      "index": 881,
+      "start_time": 2158670.0,
+      "end_time": 2161924.0,
+      "text": "insert X with ID 4a after 1a"
+    },
+    {
+      "index": 882,
+      "start_time": 2161920.0,
+      "end_time": 2163612.0,
+      "text": "but if we put it straight after 1a,"
+    },
+    {
+      "index": 883,
+      "start_time": 2163610.0,
+      "end_time": 2165339.0,
+      "text": "then the X will go here"
+    },
+    {
+      "index": 884,
+      "start_time": 2165340.0,
+      "end_time": 2167554.0,
+      "text": "and we have an inconsistency."
+    },
+    {
+      "index": 885,
+      "start_time": 2167550.0,
+      "end_time": 2169984.0,
+      "text": "So I&#39;m gong to introduce a small algorithm"
+    },
+    {
+      "index": 886,
+      "start_time": 2169990.0,
+      "end_time": 2171628.0,
+      "text": "which uses these Ids"
+    },
+    {
+      "index": 887,
+      "start_time": 2171630.0,
+      "end_time": 2177174.0,
+      "text": "and that is, look at the Id of the incoming operation here."
+    },
+    {
+      "index": 888,
+      "start_time": 2177170.0,
+      "end_time": 2179887.0,
+      "text": "When you&#39;re applying an operation that came in"
+    },
+    {
+      "index": 889,
+      "start_time": 2179890.0,
+      "end_time": 2182087.0,
+      "text": "from a different node, in this case that&#39;s 4a."
+    },
+    {
+      "index": 890,
+      "start_time": 2182080.0,
+      "end_time": 2183796.0,
+      "text": "So 4a is the incoming operation"
+    },
+    {
+      "index": 891,
+      "start_time": 2183800.0,
+      "end_time": 2186563.0,
+      "text": "and we first find the position after which"
+    },
+    {
+      "index": 892,
+      "start_time": 2186560.0,
+      "end_time": 2187579.0,
+      "text": "we want to insert."
+    },
+    {
+      "index": 893,
+      "start_time": 2187580.0,
+      "end_time": 2188580.0,
+      "text": "So 1a is here."
+    },
+    {
+      "index": 894,
+      "start_time": 2188580.0,
+      "end_time": 2189928.0,
+      "text": "So we start here, after the A"
+    },
+    {
+      "index": 895,
+      "start_time": 2189930.0,
+      "end_time": 2193797.0,
+      "text": "and we look at the next, the ID of the next element"
+    },
+    {
+      "index": 896,
+      "start_time": 2193800.0,
+      "end_time": 2194986.0,
+      "text": "in that list."
+    },
+    {
+      "index": 897,
+      "start_time": 2194980.0,
+      "end_time": 2200039.0,
+      "text": "Which is 4b and if that ID here, 4b,"
+    },
+    {
+      "index": 898,
+      "start_time": 2200040.0,
+      "end_time": 2201839.0,
+      "text": "is greater than the incoming element,"
+    },
+    {
+      "index": 899,
+      "start_time": 2201840.0,
+      "end_time": 2206237.0,
+      "text": "ID 4a, then we&#39;re going to skip over it"
+    },
+    {
+      "index": 900,
+      "start_time": 2206240.0,
+      "end_time": 2208291.0,
+      "text": "and if it&#39;s greater, the next one"
+    },
+    {
+      "index": 901,
+      "start_time": 2208290.0,
+      "end_time": 2210275.0,
+      "text": "is greater again, we&#39;ll again skip over that"
+    },
+    {
+      "index": 902,
+      "start_time": 2210270.0,
+      "end_time": 2212969.0,
+      "text": "and we keep skipping until we find an element"
+    },
+    {
+      "index": 903,
+      "start_time": 2212970.0,
+      "end_time": 2216425.0,
+      "text": "that is less than the ID of the incoming operation."
+    },
+    {
+      "index": 904,
+      "start_time": 2216430.0,
+      "end_time": 2218604.0,
+      "text": "So 2a is less than 4a."
+    },
+    {
+      "index": 905,
+      "start_time": 2218600.0,
+      "end_time": 2220957.0,
+      "text": "So in this ordering here, we look at first the number"
+    },
+    {
+      "index": 906,
+      "start_time": 2220960.0,
+      "end_time": 2222024.0,
+      "text": "than the letter."
+    },
+    {
+      "index": 907,
+      "start_time": 2222020.0,
+      "end_time": 2225673.0,
+      "text": "So here 4b is greater than 4a because B is greater than A."
+    },
+    {
+      "index": 908,
+      "start_time": 2225680.0,
+      "end_time": 2228038.0,
+      "text": "5b is definitely greater than 4a"
+    },
+    {
+      "index": 909,
+      "start_time": 2228030.0,
+      "end_time": 2229879.0,
+      "text": "because five is greater than four"
+    },
+    {
+      "index": 910,
+      "start_time": 2229880.0,
+      "end_time": 2231596.0,
+      "text": "but two is less than four"
+    },
+    {
+      "index": 911,
+      "start_time": 2231600.0,
+      "end_time": 2233351.0,
+      "text": "so we know now we have to insert"
+    },
+    {
+      "index": 912,
+      "start_time": 2233350.0,
+      "end_time": 2236748.0,
+      "text": "between the 5b and the 2a."
+    },
+    {
+      "index": 913,
+      "start_time": 2236750.0,
+      "end_time": 2239502.0,
+      "text": "Whew and then for the final operation is actually easy."
+    },
+    {
+      "index": 914,
+      "start_time": 2239500.0,
+      "end_time": 2243664.0,
+      "text": "So this insert Y with Id 5a after 4a"
+    },
+    {
+      "index": 915,
+      "start_time": 2243660.0,
+      "end_time": 2244892.0,
+      "text": "while 4a is here."
+    },
+    {
+      "index": 916,
+      "start_time": 2244900.0,
+      "end_time": 2247154.0,
+      "text": "So 5a just goes after it, that works,"
+    },
+    {
+      "index": 917,
+      "start_time": 2247150.0,
+      "end_time": 2249215.0,
+      "text": "and if you&#39;re wondering the skipping here"
+    },
+    {
+      "index": 918,
+      "start_time": 2249220.0,
+      "end_time": 2251640.0,
+      "text": "doesn&#39;t apply on this side because here"
+    },
+    {
+      "index": 919,
+      "start_time": 2251640.0,
+      "end_time": 2253543.0,
+      "text": "the 4b is greater than 4a"
+    },
+    {
+      "index": 920,
+      "start_time": 2253540.0,
+      "end_time": 2259336.0,
+      "text": "so we inserted this 4b here, we didn&#39;t skip over 4a"
+    },
+    {
+      "index": 921,
+      "start_time": 2259330.0,
+      "end_time": 2262016.0,
+      "text": "because 4b is greater than 4a"
+    },
+    {
+      "index": 922,
+      "start_time": 2262020.0,
+      "end_time": 2263964.0,
+      "text": "and so this actually works"
+    },
+    {
+      "index": 923,
+      "start_time": 2263960.0,
+      "end_time": 2266428.0,
+      "text": "and you kind of have to actually prove it"
+    },
+    {
+      "index": 924,
+      "start_time": 2266430.0,
+      "end_time": 2267758.0,
+      "text": "mathematically to convince yourself"
+    },
+    {
+      "index": 925,
+      "start_time": 2267760.0,
+      "end_time": 2269633.0,
+      "text": "this really works in all cases"
+    },
+    {
+      "index": 926,
+      "start_time": 2269630.0,
+      "end_time": 2271986.0,
+      "text": "but we have proved it and so we actually believed it"
+    },
+    {
+      "index": 927,
+      "start_time": 2271990.0,
+      "end_time": 2274995.0,
+      "text": "and so hoorah, we now have an algorithm"
+    },
+    {
+      "index": 928,
+      "start_time": 2274990.0,
+      "end_time": 2276954.0,
+      "text": "which will allow us to make these changes"
+    },
+    {
+      "index": 929,
+      "start_time": 2276960.0,
+      "end_time": 2279494.0,
+      "text": "concurrently without any transformation,"
+    },
+    {
+      "index": 930,
+      "start_time": 2279490.0,
+      "end_time": 2281942.0,
+      "text": "without any coordination and just allow"
+    },
+    {
+      "index": 931,
+      "start_time": 2281940.0,
+      "end_time": 2284983.0,
+      "text": "us to end up in the same place."
+    },
+    {
+      "index": 932,
+      "start_time": 2284990.0,
+      "end_time": 2287576.0,
+      "text": "So let&#39;s say our document is Hey guys"
+    },
+    {
+      "index": 933,
+      "start_time": 2287570.0,
+      "end_time": 2291114.0,
+      "text": "and we decided that is not gender neutral enough,"
+    },
+    {
+      "index": 934,
+      "start_time": 2291120.0,
+      "end_time": 2293535.0,
+      "text": "so one person is going to change it to hey everyone"
+    },
+    {
+      "index": 935,
+      "start_time": 2293530.0,
+      "end_time": 2295471.0,
+      "text": "and the other person is going to change it"
+    },
+    {
+      "index": 936,
+      "start_time": 2295470.0,
+      "end_time": 2299450.0,
+      "text": "to hey folks and what does our editor do in this case now?"
+    },
+    {
+      "index": 937,
+      "start_time": 2299450.0,
+      "end_time": 2301790.0,
+      "text": "So I described just now how deletion works"
+    },
+    {
+      "index": 938,
+      "start_time": 2301790.0,
+      "end_time": 2304683.0,
+      "text": "and so deletion just means setting a flag on these"
+    },
+    {
+      "index": 939,
+      "start_time": 2304690.0,
+      "end_time": 2307283.0,
+      "text": "so if two people are concurrently delete"
+    },
+    {
+      "index": 940,
+      "start_time": 2307280.0,
+      "end_time": 2309948.0,
+      "text": "the same letter, they both delete the G of guys,"
+    },
+    {
+      "index": 941,
+      "start_time": 2309950.0,
+      "end_time": 2313238.0,
+      "text": "well that deleting it once is the same as deleting twice,"
+    },
+    {
+      "index": 942,
+      "start_time": 2313240.0,
+      "end_time": 2315006.0,
+      "text": "it doesn&#39;t get anymore deleted"
+    },
+    {
+      "index": 943,
+      "start_time": 2315000.0,
+      "end_time": 2316439.0,
+      "text": "through being deleted several times."
+    },
+    {
+      "index": 944,
+      "start_time": 2316440.0,
+      "end_time": 2320274.0,
+      "text": "So those letters just get deleted"
+    },
+    {
+      "index": 945,
+      "start_time": 2320270.0,
+      "end_time": 2321657.0,
+      "text": "and the insertion stay"
+    },
+    {
+      "index": 946,
+      "start_time": 2321660.0,
+      "end_time": 2324914.0,
+      "text": "because insertion doesn&#39;t replace another insertion."
+    },
+    {
+      "index": 947,
+      "start_time": 2324920.0,
+      "end_time": 2327638.0,
+      "text": "So as these two merge, what you&#39;re going to end up with"
+    },
+    {
+      "index": 948,
+      "start_time": 2327630.0,
+      "end_time": 2331216.0,
+      "text": "is the two insertion concatinated,"
+    },
+    {
+      "index": 949,
+      "start_time": 2331220.0,
+      "end_time": 2333633.0,
+      "text": "so it will be hey everyone folks"
+    },
+    {
+      "index": 950,
+      "start_time": 2333630.0,
+      "end_time": 2335695.0,
+      "text": "or maybe it will be hey folks everyone."
+    },
+    {
+      "index": 951,
+      "start_time": 2335700.0,
+      "end_time": 2337974.0,
+      "text": "So the order of those two is arbitrary,"
+    },
+    {
+      "index": 952,
+      "start_time": 2337970.0,
+      "end_time": 2340127.0,
+      "text": "that just depends on coincidence of how"
+    },
+    {
+      "index": 953,
+      "start_time": 2340130.0,
+      "end_time": 2342069.0,
+      "text": "the networking happens to work out"
+    },
+    {
+      "index": 954,
+      "start_time": 2342070.0,
+      "end_time": 2345525.0,
+      "text": "and you know there&#39;s no order that is any,"
+    },
+    {
+      "index": 955,
+      "start_time": 2345520.0,
+      "end_time": 2347736.0,
+      "text": "one order isn&#39;t any better than the other."
+    },
+    {
+      "index": 956,
+      "start_time": 2347740.0,
+      "end_time": 2349878.0,
+      "text": "The problem is just that what we have here,"
+    },
+    {
+      "index": 957,
+      "start_time": 2349880.0,
+      "end_time": 2351808.0,
+      "text": "everyone folks is not an English word"
+    },
+    {
+      "index": 958,
+      "start_time": 2351800.0,
+      "end_time": 2354555.0,
+      "text": "and so you kind of end up with junk in the document."
+    },
+    {
+      "index": 959,
+      "start_time": 2354560.0,
+      "end_time": 2357042.0,
+      "text": "Though this is actually what Google Docs does as well."
+    },
+    {
+      "index": 960,
+      "start_time": 2357040.0,
+      "end_time": 2358839.0,
+      "text": "So at this point I&#39;m willing to just say,"
+    },
+    {
+      "index": 961,
+      "start_time": 2358840.0,
+      "end_time": 2361182.0,
+      "text": "okay we&#39;ll tell the users that look here,"
+    },
+    {
+      "index": 962,
+      "start_time": 2361180.0,
+      "end_time": 2362931.0,
+      "text": "this doesn&#39;t pass the spell checker"
+    },
+    {
+      "index": 963,
+      "start_time": 2362930.0,
+      "end_time": 2365911.0,
+      "text": "and it maybe can pop up a warning"
+    },
+    {
+      "index": 964,
+      "start_time": 2365910.0,
+      "end_time": 2368016.0,
+      "text": "saying hey several people edited the document"
+    },
+    {
+      "index": 965,
+      "start_time": 2368020.0,
+      "end_time": 2369021.0,
+      "text": "at the same place."
+    },
+    {
+      "index": 966,
+      "start_time": 2369020.0,
+      "end_time": 2370735.0,
+      "text": "Actually Google Docs doesn&#39;t even do this warning."
+    },
+    {
+      "index": 967,
+      "start_time": 2370740.0,
+      "end_time": 2373045.0,
+      "text": "It just leaves humans to spot it by themselves"
+    },
+    {
+      "index": 968,
+      "start_time": 2373040.0,
+      "end_time": 2375060.0,
+      "text": "and it seems to work in practice"
+    },
+    {
+      "index": 969,
+      "start_time": 2375060.0,
+      "end_time": 2377105.0,
+      "text": "so I think at this point we just say okay,"
+    },
+    {
+      "index": 970,
+      "start_time": 2377110.0,
+      "end_time": 2378111.0,
+      "text": "it&#39;s good enough."
+    },
+    {
+      "index": 971,
+      "start_time": 2378110.0,
+      "end_time": 2379412.0,
+      "text": "We&#39;re not going to try to do a grammatical"
+    },
+    {
+      "index": 972,
+      "start_time": 2379410.0,
+      "end_time": 2382451.0,
+      "text": "analyze of the sentences and do the merges automatically"
+    },
+    {
+      "index": 973,
+      "start_time": 2382450.0,
+      "end_time": 2384289.0,
+      "text": "so that they obey English grammar"
+    },
+    {
+      "index": 974,
+      "start_time": 2384290.0,
+      "end_time": 2386483.0,
+      "text": "because that&#39;s just not going to work"
+    },
+    {
+      "index": 975,
+      "start_time": 2386480.0,
+      "end_time": 2387596.0,
+      "text": "and people have tried that"
+    },
+    {
+      "index": 976,
+      "start_time": 2387600.0,
+      "end_time": 2389754.0,
+      "text": "and it simply doesn&#39;t work."
+    },
+    {
+      "index": 977,
+      "start_time": 2389750.0,
+      "end_time": 2394909.0,
+      "text": "So we&#39;ve got this CRDT, this data structure"
+    },
+    {
+      "index": 978,
+      "start_time": 2394910.0,
+      "end_time": 2396919.0,
+      "text": "for all the lists which several people can change"
+    },
+    {
+      "index": 979,
+      "start_time": 2396920.0,
+      "end_time": 2397920.0,
+      "text": "at the same time."
+    },
+    {
+      "index": 980,
+      "start_time": 2397920.0,
+      "end_time": 2400800.0,
+      "text": "Described deletion and how that works."
+    },
+    {
+      "index": 981,
+      "start_time": 2400800.0,
+      "end_time": 2402941.0,
+      "text": "There&#39;s still a lot of open questions there."
+    },
+    {
+      "index": 982,
+      "start_time": 2402940.0,
+      "end_time": 2404797.0,
+      "text": "So the problem with deletion here is"
+    },
+    {
+      "index": 983,
+      "start_time": 2404800.0,
+      "end_time": 2407994.0,
+      "text": "we need to actually remember for a long time"
+    },
+    {
+      "index": 984,
+      "start_time": 2407990.0,
+      "end_time": 2410717.0,
+      "text": "afterwards where a particular ID is"
+    },
+    {
+      "index": 985,
+      "start_time": 2410720.0,
+      "end_time": 2414116.0,
+      "text": "because we use these Ids as a position in the list"
+    },
+    {
+      "index": 986,
+      "start_time": 2414110.0,
+      "end_time": 2416013.0,
+      "text": "like address like a pointer"
+    },
+    {
+      "index": 987,
+      "start_time": 2416020.0,
+      "end_time": 2417738.0,
+      "text": "and so we can&#39;t just delete,"
+    },
+    {
+      "index": 988,
+      "start_time": 2417740.0,
+      "end_time": 2420201.0,
+      "text": "if something gets deleted from the document,"
+    },
+    {
+      "index": 989,
+      "start_time": 2420200.0,
+      "end_time": 2422083.0,
+      "text": "we can&#39;t then just remove it and forget about it"
+    },
+    {
+      "index": 990,
+      "start_time": 2422080.0,
+      "end_time": 2424332.0,
+      "text": "entirely because then some operation would come in"
+    },
+    {
+      "index": 991,
+      "start_time": 2424330.0,
+      "end_time": 2427084.0,
+      "text": "and insert after 500 and 3a"
+    },
+    {
+      "index": 992,
+      "start_time": 2427090.0,
+      "end_time": 2429229.0,
+      "text": "and we go 500 and 3a, sorry that was deleted."
+    },
+    {
+      "index": 993,
+      "start_time": 2429230.0,
+      "end_time": 2430830.0,
+      "text": "I don&#39;t know where we put that insertion."
+    },
+    {
+      "index": 994,
+      "start_time": 2430820.0,
+      "end_time": 2432603.0,
+      "text": "So we have to keep those things"
+    },
+    {
+      "index": 995,
+      "start_time": 2432610.0,
+      "end_time": 2433796.0,
+      "text": "which are called tombstones."
+    },
+    {
+      "index": 996,
+      "start_time": 2433790.0,
+      "end_time": 2435883.0,
+      "text": "Also haven&#39;t talked about how to do undo,"
+    },
+    {
+      "index": 997,
+      "start_time": 2435890.0,
+      "end_time": 2438569.0,
+      "text": "like you know, control zed type of undo"
+    },
+    {
+      "index": 998,
+      "start_time": 2438570.0,
+      "end_time": 2440996.0,
+      "text": "or how to reorder the elements in the list."
+    },
+    {
+      "index": 999,
+      "start_time": 2440990.0,
+      "end_time": 2442115.0,
+      "text": "That&#39;s kind of interesting"
+    },
+    {
+      "index": 1000,
+      "start_time": 2442120.0,
+      "end_time": 2443875.0,
+      "text": "or how to make all of these Ids efficient"
+    },
+    {
+      "index": 1001,
+      "start_time": 2443870.0,
+      "end_time": 2445762.0,
+      "text": "so it doesn&#39;t take too much storage."
+    },
+    {
+      "index": 1002,
+      "start_time": 2445760.0,
+      "end_time": 2448452.0,
+      "text": "So still a lot of open questions there."
+    },
+    {
+      "index": 1003,
+      "start_time": 2448460.0,
+      "end_time": 2450626.0,
+      "text": "I think the basic algorithm is kind of fine"
+    },
+    {
+      "index": 1004,
+      "start_time": 2450620.0,
+      "end_time": 2452383.0,
+      "text": "but actually putting it into practice"
+    },
+    {
+      "index": 1005,
+      "start_time": 2452390.0,
+      "end_time": 2453830.0,
+      "text": "is still going to need a bit of work"
+    },
+    {
+      "index": 1006,
+      "start_time": 2453820.0,
+      "end_time": 2456935.0,
+      "text": "but I want to talk about some other stuff as well, actually"
+    },
+    {
+      "index": 1007,
+      "start_time": 2456940.0,
+      "end_time": 2459398.0,
+      "text": "so we were talking about these JSON documents earlier"
+    },
+    {
+      "index": 1008,
+      "start_time": 2459400.0,
+      "end_time": 2462693.0,
+      "text": "and so interesting things happened"
+    },
+    {
+      "index": 1009,
+      "start_time": 2462690.0,
+      "end_time": 2465769.0,
+      "text": "when several people concurrently change JSON documents"
+    },
+    {
+      "index": 1010,
+      "start_time": 2465770.0,
+      "end_time": 2469851.0,
+      "text": "that don&#39;t happen just in the case of a text document."
+    },
+    {
+      "index": 1011,
+      "start_time": 2469850.0,
+      "end_time": 2471438.0,
+      "text": "So let&#39;s say we&#39;ve got here,"
+    },
+    {
+      "index": 1012,
+      "start_time": 2471440.0,
+      "end_time": 2473632.0,
+      "text": "it&#39;s a bit of a contrived example I&#39;m afraid,"
+    },
+    {
+      "index": 1013,
+      "start_time": 2473630.0,
+      "end_time": 2477288.0,
+      "text": "a map of colors and so this is,"
+    },
+    {
+      "index": 1014,
+      "start_time": 2477290.0,
+      "end_time": 2479015.0,
+      "text": "imagine this is an actual structure."
+    },
+    {
+      "index": 1015,
+      "start_time": 2479010.0,
+      "end_time": 2484267.0,
+      "text": "So it&#39;s not like curly brace qoutation mark CO etc"
+    },
+    {
+      "index": 1016,
+      "start_time": 2484270.0,
+      "end_time": 2487618.0,
+      "text": "as a text document but it&#39;s actually the JSON syntax tree."
+    },
+    {
+      "index": 1017,
+      "start_time": 2487620.0,
+      "end_time": 2491269.0,
+      "text": "Described here and so one person inserts a new color,"
+    },
+    {
+      "index": 1018,
+      "start_time": 2491270.0,
+      "end_time": 2493450.0,
+      "text": "the color red, into this map"
+    },
+    {
+      "index": 1019,
+      "start_time": 2493450.0,
+      "end_time": 2495558.0,
+      "text": "and so you would then end up with a map"
+    },
+    {
+      "index": 1020,
+      "start_time": 2495560.0,
+      "end_time": 2497112.0,
+      "text": "containing blue and red"
+    },
+    {
+      "index": 1021,
+      "start_time": 2497110.0,
+      "end_time": 2501311.0,
+      "text": "and another person concurrently decides"
+    },
+    {
+      "index": 1022,
+      "start_time": 2501310.0,
+      "end_time": 2503725.0,
+      "text": "actually they want to wipe out the entire contents"
+    },
+    {
+      "index": 1023,
+      "start_time": 2503720.0,
+      "end_time": 2507514.0,
+      "text": "of the map so it sets it to the empty map"
+    },
+    {
+      "index": 1024,
+      "start_time": 2507520.0,
+      "end_time": 2510488.0,
+      "text": "and then adds green into the map"
+    },
+    {
+      "index": 1025,
+      "start_time": 2510490.0,
+      "end_time": 2513760.0,
+      "text": "and so how do we now merge these concurrent changes"
+    },
+    {
+      "index": 1026,
+      "start_time": 2513760.0,
+      "end_time": 2515901.0,
+      "text": "that have happened here?"
+    },
+    {
+      "index": 1027,
+      "start_time": 2515900.0,
+      "end_time": 2519150.0,
+      "text": "What happens, what&#39;s the outcome,"
+    },
+    {
+      "index": 1028,
+      "start_time": 2519150.0,
+      "end_time": 2520914.0,
+      "text": "what is even the right behavior here?"
+    },
+    {
+      "index": 1029,
+      "start_time": 2520910.0,
+      "end_time": 2521951.0,
+      "text": "What do we expect?"
+    },
+    {
+      "index": 1030,
+      "start_time": 2521950.0,
+      "end_time": 2524039.0,
+      "text": "So we can think about it systematically"
+    },
+    {
+      "index": 1031,
+      "start_time": 2524040.0,
+      "end_time": 2526850.0,
+      "text": "and say, well okay blue, does it contain blue?"
+    },
+    {
+      "index": 1032,
+      "start_time": 2526850.0,
+      "end_time": 2530054.0,
+      "text": "Well blue was deleted on the right hand side"
+    },
+    {
+      "index": 1033,
+      "start_time": 2530050.0,
+      "end_time": 2532098.0,
+      "text": "by setting the whole map to empty"
+    },
+    {
+      "index": 1034,
+      "start_time": 2532100.0,
+      "end_time": 2535648.0,
+      "text": "so I guess blue should not be in the final result"
+    },
+    {
+      "index": 1035,
+      "start_time": 2535650.0,
+      "end_time": 2537824.0,
+      "text": "cause it was deleted and the left hand side didn&#39;t touch it."
+    },
+    {
+      "index": 1036,
+      "start_time": 2537820.0,
+      "end_time": 2539010.0,
+      "text": "What about red?"
+    },
+    {
+      "index": 1037,
+      "start_time": 2539010.0,
+      "end_time": 2542214.0,
+      "text": "Red intially didn&#39;t exist but it was inserted on the right,"
+    },
+    {
+      "index": 1038,
+      "start_time": 2542220.0,
+      "end_time": 2544809.0,
+      "text": "on the left hand side and the right hand side"
+    },
+    {
+      "index": 1039,
+      "start_time": 2544810.0,
+      "end_time": 2547112.0,
+      "text": "didn&#39;t touch red so I guess we need red"
+    },
+    {
+      "index": 1040,
+      "start_time": 2547110.0,
+      "end_time": 2548640.0,
+      "text": "to be in the final result."
+    },
+    {
+      "index": 1041,
+      "start_time": 2548640.0,
+      "end_time": 2549704.0,
+      "text": "What about green?"
+    },
+    {
+      "index": 1042,
+      "start_time": 2549700.0,
+      "end_time": 2552004.0,
+      "text": "Green was inserted on the right hand side"
+    },
+    {
+      "index": 1043,
+      "start_time": 2552010.0,
+      "end_time": 2554064.0,
+      "text": "and it was not touched on the left hand side,"
+    },
+    {
+      "index": 1044,
+      "start_time": 2554060.0,
+      "end_time": 2556404.0,
+      "text": "so yes we want green to be in the final results."
+    },
+    {
+      "index": 1045,
+      "start_time": 2556410.0,
+      "end_time": 2559846.0,
+      "text": "So our final expected outcome is to contain red and green"
+    },
+    {
+      "index": 1046,
+      "start_time": 2559840.0,
+      "end_time": 2561024.0,
+      "text": "but not blue."
+    },
+    {
+      "index": 1047,
+      "start_time": 2561030.0,
+      "end_time": 2562916.0,
+      "text": "That seem logical?"
+    },
+    {
+      "index": 1048,
+      "start_time": 2562910.0,
+      "end_time": 2564902.0,
+      "text": "I guess so."
+    },
+    {
+      "index": 1049,
+      "start_time": 2564900.0,
+      "end_time": 2568418.0,
+      "text": "So we can do that and our algorithm does this."
+    },
+    {
+      "index": 1050,
+      "start_time": 2568420.0,
+      "end_time": 2570719.0,
+      "text": "What this means here is that we have"
+    },
+    {
+      "index": 1051,
+      "start_time": 2570720.0,
+      "end_time": 2574863.0,
+      "text": "to keep track of what this setting the map to empty means"
+    },
+    {
+      "index": 1052,
+      "start_time": 2574860.0,
+      "end_time": 2577416.0,
+      "text": "because if you just take this and say,"
+    },
+    {
+      "index": 1053,
+      "start_time": 2577420.0,
+      "end_time": 2580423.0,
+      "text": "on the left hand client,"
+    },
+    {
+      "index": 1054,
+      "start_time": 2580420.0,
+      "end_time": 2583877.0,
+      "text": "you first add the red in and then you take that change"
+    },
+    {
+      "index": 1055,
+      "start_time": 2583880.0,
+      "end_time": 2586108.0,
+      "text": "that came from the right hand side"
+    },
+    {
+      "index": 1056,
+      "start_time": 2586110.0,
+      "end_time": 2587406.0,
+      "text": "which is setting the map to empty"
+    },
+    {
+      "index": 1057,
+      "start_time": 2587400.0,
+      "end_time": 2589096.0,
+      "text": "and if you just apply that naively"
+    },
+    {
+      "index": 1058,
+      "start_time": 2589100.0,
+      "end_time": 2590505.0,
+      "text": "and say you&#39;ve got an operation"
+    },
+    {
+      "index": 1059,
+      "start_time": 2590500.0,
+      "end_time": 2591847.0,
+      "text": "that has sent the map to empty,"
+    },
+    {
+      "index": 1060,
+      "start_time": 2591850.0,
+      "end_time": 2593868.0,
+      "text": "well then you&#39;re going to wipe out the red"
+    },
+    {
+      "index": 1061,
+      "start_time": 2593870.0,
+      "end_time": 2596749.0,
+      "text": "because the red was added concurrently."
+    },
+    {
+      "index": 1062,
+      "start_time": 2596750.0,
+      "end_time": 2598444.0,
+      "text": "So we have to somehow remember"
+    },
+    {
+      "index": 1063,
+      "start_time": 2598440.0,
+      "end_time": 2600250.0,
+      "text": "what the state of the map was"
+    },
+    {
+      "index": 1064,
+      "start_time": 2600250.0,
+      "end_time": 2603580.0,
+      "text": "at the time when you set it to empty."
+    },
+    {
+      "index": 1065,
+      "start_time": 2603580.0,
+      "end_time": 2606854.0,
+      "text": "So we have here, the thing is known as a causal context"
+    },
+    {
+      "index": 1066,
+      "start_time": 2606860.0,
+      "end_time": 2607858.0,
+      "text": "or something like that."
+    },
+    {
+      "index": 1067,
+      "start_time": 2607850.0,
+      "end_time": 2609534.0,
+      "text": "In databases like react or example,"
+    },
+    {
+      "index": 1068,
+      "start_time": 2609540.0,
+      "end_time": 2611275.0,
+      "text": "has anyone used react?"
+    },
+    {
+      "index": 1069,
+      "start_time": 2611270.0,
+      "end_time": 2613602.0,
+      "text": "They have this data types feature, okay."
+    },
+    {
+      "index": 1070,
+      "start_time": 2613610.0,
+      "end_time": 2616981.0,
+      "text": "It works very similair to this that you have"
+    },
+    {
+      "index": 1071,
+      "start_time": 2616980.0,
+      "end_time": 2619927.0,
+      "text": "this little extra bit of information that you pass around"
+    },
+    {
+      "index": 1072,
+      "start_time": 2619920.0,
+      "end_time": 2622151.0,
+      "text": "in a HTP header and that,"
+    },
+    {
+      "index": 1073,
+      "start_time": 2622160.0,
+      "end_time": 2624663.0,
+      "text": "the purpose of that is to keep track of"
+    },
+    {
+      "index": 1074,
+      "start_time": 2624660.0,
+      "end_time": 2627900.0,
+      "text": "what is the state, what was the state of the document"
+    },
+    {
+      "index": 1075,
+      "start_time": 2627900.0,
+      "end_time": 2630781.0,
+      "text": "at this time when you saw it so that then later"
+    },
+    {
+      "index": 1076,
+      "start_time": 2630780.0,
+      "end_time": 2634872.0,
+      "text": "you know what the changes need to apply to."
+    },
+    {
+      "index": 1077,
+      "start_time": 2634870.0,
+      "end_time": 2636661.0,
+      "text": "So let&#39;s look at a different example."
+    },
+    {
+      "index": 1078,
+      "start_time": 2636660.0,
+      "end_time": 2639466.0,
+      "text": "Here we&#39;ve got again an to do list example"
+    },
+    {
+      "index": 1079,
+      "start_time": 2639470.0,
+      "end_time": 2641938.0,
+      "text": "and we&#39;ve got buying milk and it is not yet done"
+    },
+    {
+      "index": 1080,
+      "start_time": 2641940.0,
+      "end_time": 2645069.0,
+      "text": "and so on the left hand side an edit happens"
+    },
+    {
+      "index": 1081,
+      "start_time": 2645060.0,
+      "end_time": 2647776.0,
+      "text": "and it just deletes buy milk from the list"
+    },
+    {
+      "index": 1082,
+      "start_time": 2647780.0,
+      "end_time": 2649544.0,
+      "text": "because maybe it&#39;s been done"
+    },
+    {
+      "index": 1083,
+      "start_time": 2649540.0,
+      "end_time": 2651591.0,
+      "text": "or maybe we no longer need milk or whatever,"
+    },
+    {
+      "index": 1084,
+      "start_time": 2651600.0,
+      "end_time": 2653242.0,
+      "text": "it&#39;s just removed from the list."
+    },
+    {
+      "index": 1085,
+      "start_time": 2653240.0,
+      "end_time": 2656584.0,
+      "text": "On the right hand side, somebody sets done to true."
+    },
+    {
+      "index": 1086,
+      "start_time": 2656580.0,
+      "end_time": 2661013.0,
+      "text": "So taps the button to set buying milk done to true."
+    },
+    {
+      "index": 1087,
+      "start_time": 2661010.0,
+      "end_time": 2666387.0,
+      "text": "What happens if we try to merge these two different updates?"
+    },
+    {
+      "index": 1088,
+      "start_time": 2666390.0,
+      "end_time": 2668607.0,
+      "text": "We can apply the same logic as we have just now"
+    },
+    {
+      "index": 1089,
+      "start_time": 2668610.0,
+      "end_time": 2670712.0,
+      "text": "with the colors with the nested maps."
+    },
+    {
+      "index": 1090,
+      "start_time": 2670710.0,
+      "end_time": 2673466.0,
+      "text": "So with the colors what we said is okay,"
+    },
+    {
+      "index": 1091,
+      "start_time": 2673470.0,
+      "end_time": 2675447.0,
+      "text": "does it contain each of the different things"
+    },
+    {
+      "index": 1092,
+      "start_time": 2675440.0,
+      "end_time": 2676924.0,
+      "text": "depending on who edited what?"
+    },
+    {
+      "index": 1093,
+      "start_time": 2676930.0,
+      "end_time": 2679288.0,
+      "text": "Okay so the title of buying milk,"
+    },
+    {
+      "index": 1094,
+      "start_time": 2679290.0,
+      "end_time": 2681821.0,
+      "text": "on the left hand side that was deleted"
+    },
+    {
+      "index": 1095,
+      "start_time": 2681820.0,
+      "end_time": 2684090.0,
+      "text": "because we deleted the entire to do item."
+    },
+    {
+      "index": 1096,
+      "start_time": 2684090.0,
+      "end_time": 2686085.0,
+      "text": "So I guess the title should not be in the result."
+    },
+    {
+      "index": 1097,
+      "start_time": 2686080.0,
+      "end_time": 2687991.0,
+      "text": "On the right hand side, we didn&#39;t touch the title."
+    },
+    {
+      "index": 1098,
+      "start_time": 2687990.0,
+      "end_time": 2689965.0,
+      "text": "So that&#39;s got to be deleted."
+    },
+    {
+      "index": 1099,
+      "start_time": 2689970.0,
+      "end_time": 2691844.0,
+      "text": "What about done false?"
+    },
+    {
+      "index": 1100,
+      "start_time": 2691840.0,
+      "end_time": 2696409.0,
+      "text": "Well done false was deleted on the left hand side"
+    },
+    {
+      "index": 1101,
+      "start_time": 2696410.0,
+      "end_time": 2699328.0,
+      "text": "and over written on the right hand side with done true."
+    },
+    {
+      "index": 1102,
+      "start_time": 2699330.0,
+      "end_time": 2701433.0,
+      "text": "So I guess done false is out."
+    },
+    {
+      "index": 1103,
+      "start_time": 2701430.0,
+      "end_time": 2703033.0,
+      "text": "What about done true?"
+    },
+    {
+      "index": 1104,
+      "start_time": 2703030.0,
+      "end_time": 2704688.0,
+      "text": "Done true did not appear on the left hand side."
+    },
+    {
+      "index": 1105,
+      "start_time": 2704690.0,
+      "end_time": 2707511.0,
+      "text": "On the right hand side, done true was added"
+    },
+    {
+      "index": 1106,
+      "start_time": 2707510.0,
+      "end_time": 2710429.0,
+      "text": "so we want done true to be in the end result."
+    },
+    {
+      "index": 1107,
+      "start_time": 2710430.0,
+      "end_time": 2713311.0,
+      "text": "So if we apply exactly the same reasoning logic"
+    },
+    {
+      "index": 1108,
+      "start_time": 2713310.0,
+      "end_time": 2715374.0,
+      "text": "what we end up with is a to do item"
+    },
+    {
+      "index": 1109,
+      "start_time": 2715380.0,
+      "end_time": 2720814.0,
+      "text": "that contains the flag done true but no title"
+    },
+    {
+      "index": 1110,
+      "start_time": 2720810.0,
+      "end_time": 2722648.0,
+      "text": "and this is kind of not what you expect"
+    },
+    {
+      "index": 1111,
+      "start_time": 2722650.0,
+      "end_time": 2726269.0,
+      "text": "because like we&#39;ve applied exactly the same logic"
+    },
+    {
+      "index": 1112,
+      "start_time": 2726270.0,
+      "end_time": 2730514.0,
+      "text": "but what we&#39;ve ended up with something is that looks weird"
+    },
+    {
+      "index": 1113,
+      "start_time": 2730510.0,
+      "end_time": 2732902.0,
+      "text": "and it looks weird because we kind of have this implicit"
+    },
+    {
+      "index": 1114,
+      "start_time": 2732910.0,
+      "end_time": 2735018.0,
+      "text": "scheme idea we expected to do item"
+    },
+    {
+      "index": 1115,
+      "start_time": 2735010.0,
+      "end_time": 2737548.0,
+      "text": "to always have a title and the done field"
+    },
+    {
+      "index": 1116,
+      "start_time": 2737550.0,
+      "end_time": 2740334.0,
+      "text": "but this merge here has essentially"
+    },
+    {
+      "index": 1117,
+      "start_time": 2740330.0,
+      "end_time": 2741700.0,
+      "text": "tampered with our schema."
+    },
+    {
+      "index": 1118,
+      "start_time": 2741710.0,
+      "end_time": 2742896.0,
+      "text": "So what do we do here?"
+    },
+    {
+      "index": 1119,
+      "start_time": 2742890.0,
+      "end_time": 2745415.0,
+      "text": "Maybe we need a schema to explicitly say exactly"
+    },
+    {
+      "index": 1120,
+      "start_time": 2745420.0,
+      "end_time": 2747699.0,
+      "text": "what fields something must have"
+    },
+    {
+      "index": 1121,
+      "start_time": 2747700.0,
+      "end_time": 2749740.0,
+      "text": "but in that case what do we do?"
+    },
+    {
+      "index": 1122,
+      "start_time": 2749740.0,
+      "end_time": 2752720.0,
+      "text": "So if somebody changes, if one person changes a field"
+    },
+    {
+      "index": 1123,
+      "start_time": 2752720.0,
+      "end_time": 2754574.0,
+      "text": "within an object that has a schema"
+    },
+    {
+      "index": 1124,
+      "start_time": 2754570.0,
+      "end_time": 2757124.0,
+      "text": "and another person deletes that entire object,"
+    },
+    {
+      "index": 1125,
+      "start_time": 2757120.0,
+      "end_time": 2760778.0,
+      "text": "well do we say the deletion wins?"
+    },
+    {
+      "index": 1126,
+      "start_time": 2760780.0,
+      "end_time": 2762704.0,
+      "text": "So in that case, any changes"
+    },
+    {
+      "index": 1127,
+      "start_time": 2762710.0,
+      "end_time": 2764440.0,
+      "text": "to stuff within the deleted item"
+    },
+    {
+      "index": 1128,
+      "start_time": 2764440.0,
+      "end_time": 2765605.0,
+      "text": "are just going to be lost"
+    },
+    {
+      "index": 1129,
+      "start_time": 2765600.0,
+      "end_time": 2767724.0,
+      "text": "but we said earlier we don&#39;t want to lose data"
+    },
+    {
+      "index": 1130,
+      "start_time": 2767720.0,
+      "end_time": 2769736.0,
+      "text": "so how do we resolve this?"
+    },
+    {
+      "index": 1131,
+      "start_time": 2769740.0,
+      "end_time": 2771180.0,
+      "text": "Well maybe we say, actually the,"
+    },
+    {
+      "index": 1132,
+      "start_time": 2771180.0,
+      "end_time": 2774162.0,
+      "text": "if somebody concurrently changes this"
+    },
+    {
+      "index": 1133,
+      "start_time": 2774160.0,
+      "end_time": 2775289.0,
+      "text": "and sets done to true"
+    },
+    {
+      "index": 1134,
+      "start_time": 2775290.0,
+      "end_time": 2777723.0,
+      "text": "then we actually going to bring the title back as well."
+    },
+    {
+      "index": 1135,
+      "start_time": 2777720.0,
+      "end_time": 2779604.0,
+      "text": "So even though the title was actually deleted"
+    },
+    {
+      "index": 1136,
+      "start_time": 2779610.0,
+      "end_time": 2782042.0,
+      "text": "on the left hand side, we kind of ressurect"
+    },
+    {
+      "index": 1137,
+      "start_time": 2782040.0,
+      "end_time": 2784268.0,
+      "text": "this whole deleted item and say,"
+    },
+    {
+      "index": 1138,
+      "start_time": 2784270.0,
+      "end_time": 2786937.0,
+      "text": "okay it&#39;s gonna both the title and one true"
+    },
+    {
+      "index": 1139,
+      "start_time": 2786940.0,
+      "end_time": 2791008.0,
+      "text": "but then well we forgot about the fact"
+    },
+    {
+      "index": 1140,
+      "start_time": 2791000.0,
+      "end_time": 2792689.0,
+      "text": "that somebody deleted this item."
+    },
+    {
+      "index": 1141,
+      "start_time": 2792690.0,
+      "end_time": 2794994.0,
+      "text": "So it seems like something has got to give here"
+    },
+    {
+      "index": 1142,
+      "start_time": 2795000.0,
+      "end_time": 2796654.0,
+      "text": "and we don&#39;t really know what it is."
+    },
+    {
+      "index": 1143,
+      "start_time": 2796650.0,
+      "end_time": 2799837.0,
+      "text": "We could say that maybe overwriting something"
+    },
+    {
+      "index": 1144,
+      "start_time": 2799840.0,
+      "end_time": 2802810.0,
+      "text": "with an empty map should not have the same semantics"
+    },
+    {
+      "index": 1145,
+      "start_time": 2802810.0,
+      "end_time": 2805437.0,
+      "text": "as deleting it and re adding it again"
+    },
+    {
+      "index": 1146,
+      "start_time": 2805430.0,
+      "end_time": 2807497.0,
+      "text": "or maybe it should have the same semantics."
+    },
+    {
+      "index": 1147,
+      "start_time": 2807500.0,
+      "end_time": 2809516.0,
+      "text": "So I&#39;m afraid this is going to end"
+    },
+    {
+      "index": 1148,
+      "start_time": 2809520.0,
+      "end_time": 2811666.0,
+      "text": "on a slightly depressing note which is,"
+    },
+    {
+      "index": 1149,
+      "start_time": 2811660.0,
+      "end_time": 2815147.0,
+      "text": "like we simply don&#39;t know how to expose"
+    },
+    {
+      "index": 1150,
+      "start_time": 2815150.0,
+      "end_time": 2818002.0,
+      "text": "these kind of concurrently editable data structures"
+    },
+    {
+      "index": 1151,
+      "start_time": 2818000.0,
+      "end_time": 2821883.0,
+      "text": "to application in a way that is not horrendously computing"
+    },
+    {
+      "index": 1152,
+      "start_time": 2821890.0,
+      "end_time": 2824926.0,
+      "text": "and so I think that, I think there&#39;s a lot of value"
+    },
+    {
+      "index": 1153,
+      "start_time": 2824920.0,
+      "end_time": 2826904.0,
+      "text": "in having these kind of data structures"
+    },
+    {
+      "index": 1154,
+      "start_time": 2826910.0,
+      "end_time": 2828562.0,
+      "text": "that you can just merge automatically"
+    },
+    {
+      "index": 1155,
+      "start_time": 2828560.0,
+      "end_time": 2830413.0,
+      "text": "and not have to worry about"
+    },
+    {
+      "index": 1156,
+      "start_time": 2830410.0,
+      "end_time": 2832989.0,
+      "text": "writing manual conflict resolution code"
+    },
+    {
+      "index": 1157,
+      "start_time": 2832990.0,
+      "end_time": 2836819.0,
+      "text": "but at the same time, conccurenacy still is hard,"
+    },
+    {
+      "index": 1158,
+      "start_time": 2836820.0,
+      "end_time": 2840086.0,
+      "text": "even if you abstract away the concurrent communication"
+    },
+    {
+      "index": 1159,
+      "start_time": 2840080.0,
+      "end_time": 2841964.0,
+      "text": "and everything, you&#39;ve still got the problem"
+    },
+    {
+      "index": 1160,
+      "start_time": 2841970.0,
+      "end_time": 2845547.0,
+      "text": "that somehow you can sometimes end"
+    },
+    {
+      "index": 1161,
+      "start_time": 2845540.0,
+      "end_time": 2848618.0,
+      "text": "up in these merge situations where&#39;s there no one right way"
+    },
+    {
+      "index": 1162,
+      "start_time": 2848620.0,
+      "end_time": 2852041.0,
+      "text": "of doing it and so if any of you have ideas,"
+    },
+    {
+      "index": 1163,
+      "start_time": 2852040.0,
+      "end_time": 2853039.0,
+      "text": "I&#39;d love to hear them."
+    },
+    {
+      "index": 1164,
+      "start_time": 2853040.0,
+      "end_time": 2855732.0,
+      "text": "Otherwise, we&#39;re continuing to work on this"
+    },
+    {
+      "index": 1165,
+      "start_time": 2855740.0,
+      "end_time": 2858132.0,
+      "text": "and just try different approaches,"
+    },
+    {
+      "index": 1166,
+      "start_time": 2858130.0,
+      "end_time": 2861244.0,
+      "text": "see what kind of APIs make sense to developers."
+    },
+    {
+      "index": 1167,
+      "start_time": 2861240.0,
+      "end_time": 2864155.0,
+      "text": "We could go back to the old bad days"
+    },
+    {
+      "index": 1168,
+      "start_time": 2864160.0,
+      "end_time": 2866016.0,
+      "text": "and say okay, we&#39;re just going to have this,"
+    },
+    {
+      "index": 1169,
+      "start_time": 2866010.0,
+      "end_time": 2867212.0,
+      "text": "this oh crap scenario,"
+    },
+    {
+      "index": 1170,
+      "start_time": 2867210.0,
+      "end_time": 2869035.0,
+      "text": "we&#39;re just going to let users resolve"
+    },
+    {
+      "index": 1171,
+      "start_time": 2869040.0,
+      "end_time": 2870296.0,
+      "text": "all of the edits manually."
+    },
+    {
+      "index": 1172,
+      "start_time": 2870290.0,
+      "end_time": 2872656.0,
+      "text": "I don&#39;t think that&#39;s really friendly to users"
+    },
+    {
+      "index": 1173,
+      "start_time": 2872660.0,
+      "end_time": 2874647.0,
+      "text": "and so I think that like the popularity of things"
+    },
+    {
+      "index": 1174,
+      "start_time": 2874650.0,
+      "end_time": 2876727.0,
+      "text": "like Google Docs and indeed like,"
+    },
+    {
+      "index": 1175,
+      "start_time": 2876730.0,
+      "end_time": 2881185.0,
+      "text": "Meld or things like that for conflict resolution"
+    },
+    {
+      "index": 1176,
+      "start_time": 2881180.0,
+      "end_time": 2883415.0,
+      "text": "get, shows that I actually, people do need"
+    },
+    {
+      "index": 1177,
+      "start_time": 2883420.0,
+      "end_time": 2885789.0,
+      "text": "a bit of tooling and help in order to,"
+    },
+    {
+      "index": 1178,
+      "start_time": 2885780.0,
+      "end_time": 2888219.0,
+      "text": "in order to resolve conflict."
+    },
+    {
+      "index": 1179,
+      "start_time": 2888220.0,
+      "end_time": 2890323.0,
+      "text": "We could say, okay well just put everything"
+    },
+    {
+      "index": 1180,
+      "start_time": 2890330.0,
+      "end_time": 2891969.0,
+      "text": "on a central server and serialize everything."
+    },
+    {
+      "index": 1181,
+      "start_time": 2891970.0,
+      "end_time": 2894274.0,
+      "text": "That&#39;s an option too but again,"
+    },
+    {
+      "index": 1182,
+      "start_time": 2894270.0,
+      "end_time": 2896162.0,
+      "text": "we&#39;ve got this problem that you require"
+    },
+    {
+      "index": 1183,
+      "start_time": 2896160.0,
+      "end_time": 2897847.0,
+      "text": "a network communication all the time"
+    },
+    {
+      "index": 1184,
+      "start_time": 2897850.0,
+      "end_time": 2899291.0,
+      "text": "and if stuff doesn&#39;t work offline,"
+    },
+    {
+      "index": 1185,
+      "start_time": 2899290.0,
+      "end_time": 2900341.0,
+      "text": "which is also a shame."
+    },
+    {
+      "index": 1186,
+      "start_time": 2900340.0,
+      "end_time": 2902294.0,
+      "text": "So I think it is worth working on this problem"
+    },
+    {
+      "index": 1187,
+      "start_time": 2902290.0,
+      "end_time": 2904268.0,
+      "text": "but it is an open problem."
+    },
+    {
+      "index": 1188,
+      "start_time": 2904270.0,
+      "end_time": 2906573.0,
+      "text": "If you&#39;re interested in more details on this,"
+    },
+    {
+      "index": 1189,
+      "start_time": 2906570.0,
+      "end_time": 2909448.0,
+      "text": "I&#39;ve put, tweeted the slides already"
+    },
+    {
+      "index": 1190,
+      "start_time": 2909450.0,
+      "end_time": 2910678.0,
+      "text": "so you can find it there"
+    },
+    {
+      "index": 1191,
+      "start_time": 2910680.0,
+      "end_time": 2912733.0,
+      "text": "and there are links to all of the papers."
+    },
+    {
+      "index": 1192,
+      "start_time": 2912730.0,
+      "end_time": 2915446.0,
+      "text": "Heres the second page and here is a third page"
+    },
+    {
+      "index": 1193,
+      "start_time": 2915450.0,
+      "end_time": 2916449.0,
+      "text": "of references."
+    },
+    {
+      "index": 1194,
+      "start_time": 2916450.0,
+      "end_time": 2918656.0,
+      "text": "So our paper is one of those"
+    },
+    {
+      "index": 1195,
+      "start_time": 2918660.0,
+      "end_time": 2920227.0,
+      "text": "and there are also several others"
+    },
+    {
+      "index": 1196,
+      "start_time": 2920220.0,
+      "end_time": 2922775.0,
+      "text": "about different CRTDs and different operational"
+    },
+    {
+      "index": 1197,
+      "start_time": 2922780.0,
+      "end_time": 2924128.0,
+      "text": "transformation functions."
+    },
+    {
+      "index": 1198,
+      "start_time": 2924120.0,
+      "end_time": 2927581.0,
+      "text": "So that goes into vast amounts of detail."
+    },
+    {
+      "index": 1199,
+      "start_time": 2927590.0,
+      "end_time": 2930175.0,
+      "text": "Here is a book that I&#39;ve been writing"
+    },
+    {
+      "index": 1200,
+      "start_time": 2930170.0,
+      "end_time": 2931899.0,
+      "text": "that I&#39;ve just sent off to the publishers"
+    },
+    {
+      "index": 1201,
+      "start_time": 2931900.0,
+      "end_time": 2934001.0,
+      "text": "just two days ago."
+    },
+    {
+      "index": 1202,
+      "start_time": 2934000.0,
+      "end_time": 2937050.0,
+      "text": "So you an get an early release of this online already."
+    },
+    {
+      "index": 1203,
+      "start_time": 2937050.0,
+      "end_time": 2939261.0,
+      "text": "This is, it&#39;s not specifically about merging,"
+    },
+    {
+      "index": 1204,
+      "start_time": 2939260.0,
+      "end_time": 2941298.0,
+      "text": "it&#39;s very broad, kind of introduction"
+    },
+    {
+      "index": 1205,
+      "start_time": 2941300.0,
+      "end_time": 2943182.0,
+      "text": "to the architecture of databases"
+    },
+    {
+      "index": 1206,
+      "start_time": 2943180.0,
+      "end_time": 2945393.0,
+      "text": "and what do databases do under the hood, also."
+    },
+    {
+      "index": 1207,
+      "start_time": 2945400.0,
+      "end_time": 2947644.0,
+      "text": "So if you&#39;re interested in this sort of thing,"
+    },
+    {
+      "index": 1208,
+      "start_time": 2947640.0,
+      "end_time": 2950101.0,
+      "text": "I&#39;d love if you could check it out."
+    },
+    {
+      "index": 1209,
+      "start_time": 2950100.0,
+      "end_time": 2952106.0,
+      "text": "Maybe give me any feedback if you"
+    },
+    {
+      "index": 1210,
+      "start_time": 2952110.0,
+      "end_time": 2953146.0,
+      "text": "have any thoughts about it."
+    },
+    {
+      "index": 1211,
+      "start_time": 2953140.0,
+      "end_time": 2954267.0,
+      "text": "That would be wonderful."
+    },
+    {
+      "index": 1212,
+      "start_time": 2954270.0,
+      "end_time": 2955457.0,
+      "text": "Thank you very much all for coming"
+    },
+    {
+      "index": 1213,
+      "start_time": 2955460.0,
+      "end_time": 2957658.0,
+      "text": "and I hope you have a great rest of the conference."
+    },
+    {
+      "index": 1214,
+      "start_time": 2957650.0,
+      "end_time": 2969436.0,
+      "text": "(applause)"
+    },
+    {
+      "index": 1215,
+      "start_time": 2969440.0,
+      "end_time": 2971421.0,
+      "text": "Do we have a minute or two for questions?"
+    },
+    {
+      "index": 1216,
+      "start_time": 2971420.0,
+      "end_time": 2974020.0,
+      "text": "I&#39;m a bit short of time."
+    },
+    {
+      "index": 1217,
+      "start_time": 2974020.0,
+      "end_time": 2975021.0,
+      "text": "We do?"
+    },
+    {
+      "index": 1218,
+      "start_time": 2975020.0,
+      "end_time": 2976400.0,
+      "text": "Okay, does anyone have any questions"
+    },
+    {
+      "index": 1219,
+      "start_time": 2976400.0,
+      "end_time": 2980229.0,
+      "text": "or comments or anything?"
+    },
+    {
+      "index": 1220,
+      "start_time": 2980230.0,
+      "end_time": 2983018.0,
+      "text": "We have some on the app."
+    },
+    {
+      "index": 1221,
+      "start_time": 2983020.0,
+      "end_time": 2983853.0,
+      "text": "That&#39;s alright."
+    },
+    {
+      "index": 1222,
+      "start_time": 2983850.0,
+      "end_time": 2986191.0,
+      "text": "So the question is, &quot;Apart from the operational"
+    },
+    {
+      "index": 1223,
+      "start_time": 2986190.0,
+      "end_time": 2987506.0,
+      "text": "transformation algorithm,"
+    },
+    {
+      "index": 1224,
+      "start_time": 2987510.0,
+      "end_time": 2989886.0,
+      "text": "is there any algorithm which uses weighted operators"
+    },
+    {
+      "index": 1225,
+      "start_time": 2989890.0,
+      "end_time": 2992567.0,
+      "text": "to decide the last operation?"
+    },
+    {
+      "index": 1226,
+      "start_time": 2992560.0,
+      "end_time": 2993860.0,
+      "text": "For instance, the delete operation"
+    },
+    {
+      "index": 1227,
+      "start_time": 2993860.0,
+      "end_time": 2995966.0,
+      "text": "has the lowest impact for that loses."
+    },
+    {
+      "index": 1228,
+      "start_time": 2995970.0,
+      "end_time": 3000382.0,
+      "text": "In terms of weight maybe,"
+    },
+    {
+      "index": 1229,
+      "start_time": 3000380.0,
+      "end_time": 3006363.0,
+      "text": "neural network probabilities making decision faster?&quot;"
+    },
+    {
+      "index": 1230,
+      "start_time": 3006360.0,
+      "end_time": 3008569.0,
+      "text": "So you can used weighting except"
+    },
+    {
+      "index": 1231,
+      "start_time": 3008570.0,
+      "end_time": 3013254.0,
+      "text": "that doesn&#39;t fundamentally resolve the problem."
+    },
+    {
+      "index": 1232,
+      "start_time": 3013260.0,
+      "end_time": 3014824.0,
+      "text": "Which is that you can end up then"
+    },
+    {
+      "index": 1233,
+      "start_time": 3014820.0,
+      "end_time": 3016836.0,
+      "text": "in some kind of scenarios where you&#39;ve just"
+    },
+    {
+      "index": 1234,
+      "start_time": 3016840.0,
+      "end_time": 3018616.0,
+      "text": "got an impasse and you&#39;ve got two things"
+    },
+    {
+      "index": 1235,
+      "start_time": 3018610.0,
+      "end_time": 3021278.0,
+      "text": "with the same weighting and one of them has got to win"
+    },
+    {
+      "index": 1236,
+      "start_time": 3021280.0,
+      "end_time": 3024157.0,
+      "text": "and so you can then arbitraily decide"
+    },
+    {
+      "index": 1237,
+      "start_time": 3024160.0,
+      "end_time": 3026428.0,
+      "text": "whether one thing should win over another"
+    },
+    {
+      "index": 1238,
+      "start_time": 3026430.0,
+      "end_time": 3028106.0,
+      "text": "and so that&#39;s what I was getting at with"
+    },
+    {
+      "index": 1239,
+      "start_time": 3028100.0,
+      "end_time": 3032459.0,
+      "text": "kind of these trade offs here of like,"
+    },
+    {
+      "index": 1240,
+      "start_time": 3032460.0,
+      "end_time": 3034196.0,
+      "text": "you could specify maybe in a schema"
+    },
+    {
+      "index": 1241,
+      "start_time": 3034200.0,
+      "end_time": 3036581.0,
+      "text": "maybe some kind of semantic annotation"
+    },
+    {
+      "index": 1242,
+      "start_time": 3036580.0,
+      "end_time": 3038394.0,
+      "text": "saying we want delete to win"
+    },
+    {
+      "index": 1243,
+      "start_time": 3038390.0,
+      "end_time": 3039668.0,
+      "text": "or we want update to win."
+    },
+    {
+      "index": 1244,
+      "start_time": 3039670.0,
+      "end_time": 3042697.0,
+      "text": "The problem there is that it&#39;s really hard, I think,"
+    },
+    {
+      "index": 1245,
+      "start_time": 3042700.0,
+      "end_time": 3044843.0,
+      "text": "to communicate that to developers of like"
+    },
+    {
+      "index": 1246,
+      "start_time": 3044840.0,
+      "end_time": 3046329.0,
+      "text": "what does that actually mean?"
+    },
+    {
+      "index": 1247,
+      "start_time": 3046330.0,
+      "end_time": 3048384.0,
+      "text": "If you don&#39;t have PHD in distributed systems,"
+    },
+    {
+      "index": 1248,
+      "start_time": 3048380.0,
+      "end_time": 3049744.0,
+      "text": "will you still be able to understand"
+    },
+    {
+      "index": 1249,
+      "start_time": 3049750.0,
+      "end_time": 3053241.0,
+      "text": "what this flag in your schema actually means?"
+    },
+    {
+      "index": 1250,
+      "start_time": 3053240.0,
+      "end_time": 3056296.0,
+      "text": "So I think just making stuff comphrensiable"
+    },
+    {
+      "index": 1251,
+      "start_time": 3056290.0,
+      "end_time": 3058745.0,
+      "text": "in a way that like, somebody can just go"
+    },
+    {
+      "index": 1252,
+      "start_time": 3058750.0,
+      "end_time": 3060514.0,
+      "text": "and build an app and they don&#39;t have"
+    },
+    {
+      "index": 1253,
+      "start_time": 3060510.0,
+      "end_time": 3062812.0,
+      "text": "to know about all of the internal details"
+    },
+    {
+      "index": 1254,
+      "start_time": 3062810.0,
+      "end_time": 3065903.0,
+      "text": "of how conflict resolved internally."
+    },
+    {
+      "index": 1255,
+      "start_time": 3065910.0,
+      "end_time": 3067355.0,
+      "text": "I think would be very good"
+    },
+    {
+      "index": 1256,
+      "start_time": 3067350.0,
+      "end_time": 3070656.0,
+      "text": "and so maybe priorities is one way of doing that"
+    },
+    {
+      "index": 1257,
+      "start_time": 3070660.0,
+      "end_time": 3071904.0,
+      "text": "but I&#39;m not sure."
+    },
+    {
+      "index": 1258,
+      "start_time": 3071900.0,
+      "end_time": 3073103.0,
+      "text": "The other question just there was,"
+    },
+    {
+      "index": 1259,
+      "start_time": 3073100.0,
+      "end_time": 3074976.0,
+      "text": "&quot;How did I make my slides?&quot;"
+    },
+    {
+      "index": 1260,
+      "start_time": 3074980.0,
+      "end_time": 3077910.0,
+      "text": "Which is using an iPad, I draw them by hand"
+    },
+    {
+      "index": 1261,
+      "start_time": 3077910.0,
+      "end_time": 3080449.0,
+      "text": "using a iPad app called Paper"
+    },
+    {
+      "index": 1262,
+      "start_time": 3080450.0,
+      "end_time": 3083345.0,
+      "text": "by a company called 53."
+    },
+    {
+      "index": 1263,
+      "start_time": 3083340.0,
+      "end_time": 3085014.0,
+      "text": "- [Man] I think you should wrap up."
+    },
+    {
+      "index": 1264,
+      "start_time": 3085020.0,
+      "end_time": 3086534.0,
+      "text": "- Okay, thank you very much for coming."
+    },
+    {
+      "index": 1265,
+      "start_time": 3086530.0,
+      "end_time": 3096530.0,
+      "text": "(applause)"
+    }
+  ]
+}

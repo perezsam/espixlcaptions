@@ -1,0 +1,1032 @@
+{
+  "video_id": "iEPxdc-SEBM",
+  "title": "Model predictive control",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 0.0,
+      "end_time": 5679.0,
+      "text": "Model predictive control is an advanced method of process control that has been"
+    },
+    {
+      "index": 2,
+      "start_time": 5679.0,
+      "end_time": 11141.0,
+      "text": "in use in the process industries in chemical plants and oil refineries since"
+    },
+    {
+      "index": 3,
+      "start_time": 11141.0,
+      "end_time": 16457.0,
+      "text": "the 1980s. In recent years it has also been used in power system balancing"
+    },
+    {
+      "index": 4,
+      "start_time": 16457.0,
+      "end_time": 21845.0,
+      "text": "models. Model predictive controllers rely on dynamic models of the process,"
+    },
+    {
+      "index": 5,
+      "start_time": 21845.0,
+      "end_time": 27088.0,
+      "text": "most often linear empirical models obtained by system identification. The"
+    },
+    {
+      "index": 6,
+      "start_time": 27088.0,
+      "end_time": 32477.0,
+      "text": "main advantage of MPC is the fact that it allows the current timeslot to be"
+    },
+    {
+      "index": 7,
+      "start_time": 32476.999999999996,
+      "end_time": 37501.0,
+      "text": "optimized, while keeping future timeslots in account. This is achieved"
+    },
+    {
+      "index": 8,
+      "start_time": 37501.0,
+      "end_time": 43254.0,
+      "text": "by optimizing a finite time-horizon, but only implementing the current timeslot."
+    },
+    {
+      "index": 9,
+      "start_time": 43254.0,
+      "end_time": 48715.0,
+      "text": "MPC has the ability to anticipate future events and can take control actions"
+    },
+    {
+      "index": 10,
+      "start_time": 48715.0,
+      "end_time": 54468.0,
+      "text": "accordingly. PID and LQR controllers do not have this predictive ability. MPC is"
+    },
+    {
+      "index": 11,
+      "start_time": 54468.0,
+      "end_time": 59493.0,
+      "text": "nearly universally implemented as a digital control, although there is"
+    },
+    {
+      "index": 12,
+      "start_time": 59493.0,
+      "end_time": 64954.0,
+      "text": "research into achieving faster response times with specially designed analog"
+    },
+    {
+      "index": 13,
+      "start_time": 64953.99999999999,
+      "end_time": 66338.0,
+      "text": "circuitry. Overview"
+    },
+    {
+      "index": 14,
+      "start_time": 66338.0,
+      "end_time": 71653.0,
+      "text": "The models used in MPC are generally intended to represent the behavior of"
+    },
+    {
+      "index": 15,
+      "start_time": 71653.0,
+      "end_time": 76751.0,
+      "text": "complex dynamical systems. The additional complexity of the MPC control"
+    },
+    {
+      "index": 16,
+      "start_time": 76751.0,
+      "end_time": 81848.0,
+      "text": "algorithm is not generally needed to provide adequate control of simple"
+    },
+    {
+      "index": 17,
+      "start_time": 81848.0,
+      "end_time": 87237.0,
+      "text": "systems, which are often controlled well by generic PID controllers. Common"
+    },
+    {
+      "index": 18,
+      "start_time": 87237.0,
+      "end_time": 92261.0,
+      "text": "dynamic characteristics that are difficult for PID controllers include"
+    },
+    {
+      "index": 19,
+      "start_time": 92261.0,
+      "end_time": 95247.0,
+      "text": "large time delays and high-order dynamics."
+    },
+    {
+      "index": 20,
+      "start_time": 95247.0,
+      "end_time": 100344.0,
+      "text": "MPC models predict the change in the dependent variables of the modeled"
+    },
+    {
+      "index": 21,
+      "start_time": 100344.0,
+      "end_time": 106170.0,
+      "text": "system that will be caused by changes in the independent variables. In a chemical"
+    },
+    {
+      "index": 22,
+      "start_time": 106170.0,
+      "end_time": 111850.0,
+      "text": "process, independent variables that can be adjusted by the controller are often"
+    },
+    {
+      "index": 23,
+      "start_time": 111850.0,
+      "end_time": 116947.0,
+      "text": "either the setpoints of regulatory PID controllers or the final control"
+    },
+    {
+      "index": 24,
+      "start_time": 116947.0,
+      "end_time": 122408.0,
+      "text": "element. Independent variables that cannot be adjusted by the controller are"
+    },
+    {
+      "index": 25,
+      "start_time": 122408.0,
+      "end_time": 127433.0,
+      "text": "used as disturbances. Dependent variables in these processes are other"
+    },
+    {
+      "index": 26,
+      "start_time": 127433.0,
+      "end_time": 132020.0,
+      "text": "measurements that represent either control objectives or process"
+    },
+    {
+      "index": 27,
+      "start_time": 132020.0,
+      "end_time": 135807.0,
+      "text": "constraints. MPC uses the current plant measurements,"
+    },
+    {
+      "index": 28,
+      "start_time": 135807.0,
+      "end_time": 141050.0,
+      "text": "the current dynamic state of the process, the MPC models, and the process"
+    },
+    {
+      "index": 29,
+      "start_time": 141050.0,
+      "end_time": 146220.0,
+      "text": "variable targets and limits to calculate future changes in the dependent"
+    },
+    {
+      "index": 30,
+      "start_time": 146220.0,
+      "end_time": 151973.0,
+      "text": "variables. These changes are calculated to hold the dependent variables close to"
+    },
+    {
+      "index": 31,
+      "start_time": 151973.0,
+      "end_time": 156779.0,
+      "text": "target while honoring constraints on both independent and dependent"
+    },
+    {
+      "index": 32,
+      "start_time": 156779.0,
+      "end_time": 161658.0,
+      "text": "variables. The MPC typically sends out only the first change in each"
+    },
+    {
+      "index": 33,
+      "start_time": 161658.0,
+      "end_time": 167119.0,
+      "text": "independent variable to be implemented, and repeats the calculation when the"
+    },
+    {
+      "index": 34,
+      "start_time": 167119.0,
+      "end_time": 171270.0,
+      "text": "next change is required. While many real processes are not"
+    },
+    {
+      "index": 35,
+      "start_time": 171270.0,
+      "end_time": 176731.0,
+      "text": "linear, they can often be considered to be approximately linear over a small"
+    },
+    {
+      "index": 36,
+      "start_time": 176731.0,
+      "end_time": 182411.0,
+      "text": "operating range. Linear MPC approaches are used in the majority of applications"
+    },
+    {
+      "index": 37,
+      "start_time": 182411.0,
+      "end_time": 187945.0,
+      "text": "with the feedback mechanism of the MPC compensating for prediction errors due"
+    },
+    {
+      "index": 38,
+      "start_time": 187945.0,
+      "end_time": 193480.0,
+      "text": "to structural mismatch between the model and the process. In model predictive"
+    },
+    {
+      "index": 39,
+      "start_time": 193480.0,
+      "end_time": 199087.0,
+      "text": "controllers that consist only of linear models, the superposition principle of"
+    },
+    {
+      "index": 40,
+      "start_time": 199087.0,
+      "end_time": 203966.0,
+      "text": "linear algebra enables the effect of changes in multiple independent"
+    },
+    {
+      "index": 41,
+      "start_time": 203966.0,
+      "end_time": 209063.0,
+      "text": "variables to be added together to predict the response of the dependent"
+    },
+    {
+      "index": 42,
+      "start_time": 209063.0,
+      "end_time": 214452.0,
+      "text": "variables. This simplifies the control problem to a series of direct matrix"
+    },
+    {
+      "index": 43,
+      "start_time": 214452.0,
+      "end_time": 217728.0,
+      "text": "algebra calculations that are fast and robust."
+    },
+    {
+      "index": 44,
+      "start_time": 217728.0,
+      "end_time": 223336.0,
+      "text": "When linear models are not sufficiently accurate to represent the real process"
+    },
+    {
+      "index": 45,
+      "start_time": 223336.0,
+      "end_time": 228651.0,
+      "text": "nonlinearities, several approaches can be used. In some cases, the process"
+    },
+    {
+      "index": 46,
+      "start_time": 228651.0,
+      "end_time": 233822.0,
+      "text": "variables can be transformed before and/or after the linear MPC model to"
+    },
+    {
+      "index": 47,
+      "start_time": 233822.0,
+      "end_time": 239429.0,
+      "text": "reduce the nonlinearity. The process can be controlled with nonlinear MPC that"
+    },
+    {
+      "index": 48,
+      "start_time": 239429.0,
+      "end_time": 245108.0,
+      "text": "uses a nonlinear model directly in the control application. The nonlinear model"
+    },
+    {
+      "index": 49,
+      "start_time": 245108.0,
+      "end_time": 250570.0,
+      "text": "may be in the form of an empirical data fit or a high-fidelity dynamic model"
+    },
+    {
+      "index": 50,
+      "start_time": 250570.0,
+      "end_time": 255813.0,
+      "text": "based on fundamental mass and energy balances. The nonlinear model may be"
+    },
+    {
+      "index": 51,
+      "start_time": 255813.0,
+      "end_time": 260910.0,
+      "text": "linearized to derive a Kalman filter or specify a model for linear MPC."
+    },
+    {
+      "index": 52,
+      "start_time": 260910.00000000003,
+      "end_time": 265643.0,
+      "text": "An algorithmic study by El-Gherwi, Budman, and El Kamel shows that"
+    },
+    {
+      "index": 53,
+      "start_time": 265643.0,
+      "end_time": 270959.0,
+      "text": "utilizing a dual-mode approach can provide significant reduction in online"
+    },
+    {
+      "index": 54,
+      "start_time": 270959.0,
+      "end_time": 276057.0,
+      "text": "computations while maintaining comparative performance to a non-altered"
+    },
+    {
+      "index": 55,
+      "start_time": 276057.0,
+      "end_time": 281736.0,
+      "text": "implementation. The proposed algorithm solves N convex optimization problems in"
+    },
+    {
+      "index": 56,
+      "start_time": 281736.0,
+      "end_time": 286033.0,
+      "text": "parallel based on exchange of information among controllers."
+    },
+    {
+      "index": 57,
+      "start_time": 286033.0,
+      "end_time": 289455.0,
+      "text": "= Theory behind MPC = MPC is based on iterative,"
+    },
+    {
+      "index": 58,
+      "start_time": 289455.0,
+      "end_time": 295135.0,
+      "text": "finite-horizon optimization of a plant model. At time t the current plant state"
+    },
+    {
+      "index": 59,
+      "start_time": 295135.0,
+      "end_time": 300742.0,
+      "text": "is sampled and a cost minimizing control strategy is computed for a relatively"
+    },
+    {
+      "index": 60,
+      "start_time": 300742.0,
+      "end_time": 305985.0,
+      "text": "short time horizon in the future: . Specifically, an online or on-the-fly"
+    },
+    {
+      "index": 61,
+      "start_time": 305985.0,
+      "end_time": 311083.0,
+      "text": "calculation is used to explore state trajectories that emanate from the"
+    },
+    {
+      "index": 62,
+      "start_time": 311083.0,
+      "end_time": 316762.0,
+      "text": "current state and find a cost-minimizing control strategy until time . Only the"
+    },
+    {
+      "index": 63,
+      "start_time": 316762.0,
+      "end_time": 322078.0,
+      "text": "first step of the control strategy is implemented, then the plant state is"
+    },
+    {
+      "index": 64,
+      "start_time": 322078.0,
+      "end_time": 327612.0,
+      "text": "sampled again and the calculations are repeated starting from the new current"
+    },
+    {
+      "index": 65,
+      "start_time": 327612.0,
+      "end_time": 332928.0,
+      "text": "state, yielding a new control and new predicted state path. The prediction"
+    },
+    {
+      "index": 66,
+      "start_time": 332928.0,
+      "end_time": 338244.0,
+      "text": "horizon keeps being shifted forward and for this reason MPC is also called"
+    },
+    {
+      "index": 67,
+      "start_time": 338244.0,
+      "end_time": 343924.0,
+      "text": "receding horizon control. Although this approach is not optimal, in practice it"
+    },
+    {
+      "index": 68,
+      "start_time": 343924.0,
+      "end_time": 349167.0,
+      "text": "has given very good results. Much academic research has been done to find"
+    },
+    {
+      "index": 69,
+      "start_time": 349167.0,
+      "end_time": 353536.0,
+      "text": "fast methods of solution of Euler–Lagrange type equations, to"
+    },
+    {
+      "index": 70,
+      "start_time": 353536.0,
+      "end_time": 358633.0,
+      "text": "understand the global stability properties of MPC&#39;s local optimization,"
+    },
+    {
+      "index": 71,
+      "start_time": 358633.0,
+      "end_time": 363949.0,
+      "text": "and in general to improve the MPC method. To some extent the theoreticians"
+    },
+    {
+      "index": 72,
+      "start_time": 363949.0,
+      "end_time": 369483.0,
+      "text": "have been trying to catch up with the control engineers when it comes to MPC."
+    },
+    {
+      "index": 73,
+      "start_time": 369483.0,
+      "end_time": 373124.0,
+      "text": "= Principles of MPC = Model Predictive Control is a"
+    },
+    {
+      "index": 74,
+      "start_time": 373124.0,
+      "end_time": 376110.0,
+      "text": "multivariable control algorithm that uses:"
+    },
+    {
+      "index": 75,
+      "start_time": 376110.0,
+      "end_time": 381571.0,
+      "text": "an internal dynamic model of the process a history of past control moves and"
+    },
+    {
+      "index": 76,
+      "start_time": 381571.0,
+      "end_time": 386523.0,
+      "text": "an optimization cost function J over the receding prediction horizon,"
+    },
+    {
+      "index": 77,
+      "start_time": 386523.0,
+      "end_time": 392276.0,
+      "text": "to calculate the optimum control moves. An example of a non-linear cost function"
+    },
+    {
+      "index": 78,
+      "start_time": 392276.0,
+      "end_time": 396499.0,
+      "text": "for optimization is given by: without violating constraints"
+    },
+    {
+      "index": 79,
+      "start_time": 396499.0,
+      "end_time": 398830.0,
+      "text": "With: = i -th controlled variable"
+    },
+    {
+      "index": 80,
+      "start_time": 398830.0,
+      "end_time": 402762.0,
+      "text": "= i -th reference variable = i -th manipulated variable"
+    },
+    {
+      "index": 81,
+      "start_time": 402762.0,
+      "end_time": 407204.0,
+      "text": "= weighting coefficient reflecting the relative importance of"
+    },
+    {
+      "index": 82,
+      "start_time": 407204.0,
+      "end_time": 411427.0,
+      "text": "= weighting coefficient penalizing relative big changes in"
+    },
+    {
+      "index": 83,
+      "start_time": 411427.0,
+      "end_time": 412738.0,
+      "text": "etc. Nonlinear MPC"
+    },
+    {
+      "index": 84,
+      "start_time": 412738.0,
+      "end_time": 418272.0,
+      "text": "Nonlinear Model Predictive Control, or NMPC, is a variant of model predictive"
+    },
+    {
+      "index": 85,
+      "start_time": 418272.0,
+      "end_time": 423588.0,
+      "text": "control that is characterized by the use of nonlinear system models in the"
+    },
+    {
+      "index": 86,
+      "start_time": 423588.0,
+      "end_time": 428540.0,
+      "text": "prediction. As in linear MPC, NMPC requires the iterative solution of"
+    },
+    {
+      "index": 87,
+      "start_time": 428540.0,
+      "end_time": 434074.0,
+      "text": "optimal control problems on a finite prediction horizon. While these problems"
+    },
+    {
+      "index": 88,
+      "start_time": 434074.0,
+      "end_time": 439535.0,
+      "text": "are convex in linear MPC, in nonlinear MPC they are not convex anymore. This"
+    },
+    {
+      "index": 89,
+      "start_time": 439535.0,
+      "end_time": 444633.0,
+      "text": "poses challenges for both NMPC stability theory and numerical solution."
+    },
+    {
+      "index": 90,
+      "start_time": 444633.0,
+      "end_time": 449803.0,
+      "text": "The numerical solution of the NMPC optimal control problems is typically"
+    },
+    {
+      "index": 91,
+      "start_time": 449803.0,
+      "end_time": 455483.0,
+      "text": "based on direct optimal control methods using Newton-type optimization schemes,"
+    },
+    {
+      "index": 92,
+      "start_time": 455483.0,
+      "end_time": 460653.0,
+      "text": "in one of the variants: direct single shooting, direct multiple shooting"
+    },
+    {
+      "index": 93,
+      "start_time": 460653.0,
+      "end_time": 465969.0,
+      "text": "methods, or direct collocation. NMPC algorithms typically exploit the fact"
+    },
+    {
+      "index": 94,
+      "start_time": 465969.0,
+      "end_time": 470848.0,
+      "text": "that consecutive optimal control problems are similar to each other."
+    },
+    {
+      "index": 95,
+      "start_time": 470848.0,
+      "end_time": 475144.0,
+      "text": "This allows to initialize the Newton-type solution procedure"
+    },
+    {
+      "index": 96,
+      "start_time": 475144.0,
+      "end_time": 480605.0,
+      "text": "efficiently by a suitably shifted guess from the previously computed optimal"
+    },
+    {
+      "index": 97,
+      "start_time": 480605.0,
+      "end_time": 486067.0,
+      "text": "solution, saving considerable amounts of computation time. The similarity of"
+    },
+    {
+      "index": 98,
+      "start_time": 486067.0,
+      "end_time": 491383.0,
+      "text": "subsequent problems is even further exploited by path following algorithms"
+    },
+    {
+      "index": 99,
+      "start_time": 491383.0,
+      "end_time": 496698.0,
+      "text": "that never attempt to iterate any optimization problem to convergence, but"
+    },
+    {
+      "index": 100,
+      "start_time": 496698.0,
+      "end_time": 502233.0,
+      "text": "instead only take one iteration towards the solution of the most current NMPC"
+    },
+    {
+      "index": 101,
+      "start_time": 502233.0,
+      "end_time": 507548.0,
+      "text": "problem, before proceeding to the next one, which is suitably initialized."
+    },
+    {
+      "index": 102,
+      "start_time": 507548.0,
+      "end_time": 513010.0,
+      "text": "While NMPC applications have in the past been mostly used in the process and"
+    },
+    {
+      "index": 103,
+      "start_time": 513010.0,
+      "end_time": 518471.0,
+      "text": "chemical industries with comparatively slow sampling rates, NMPC is more and"
+    },
+    {
+      "index": 104,
+      "start_time": 518471.0,
+      "end_time": 523714.0,
+      "text": "more being applied to applications with high sampling rates, e.g., in the"
+    },
+    {
+      "index": 105,
+      "start_time": 523714.00000000006,
+      "end_time": 528739.0,
+      "text": "automotive industry, or even when the states are distributed in space"
+    },
+    {
+      "index": 106,
+      "start_time": 528739.0,
+      "end_time": 532088.0,
+      "text": "Robust MPC  Robust variants of Model Predictive"
+    },
+    {
+      "index": 107,
+      "start_time": 532088.0,
+      "end_time": 537550.0,
+      "text": "Control are able to account for set bounded disturbance while still ensuring"
+    },
+    {
+      "index": 108,
+      "start_time": 537550.0,
+      "end_time": 542793.0,
+      "text": "state constraints are met. There are three main approaches to robust MPC:"
+    },
+    {
+      "index": 109,
+      "start_time": 542793.0,
+      "end_time": 548254.0,
+      "text": "Min-max MPC. In this formulation, the optimization is performed with respect"
+    },
+    {
+      "index": 110,
+      "start_time": 548254.0,
+      "end_time": 552987.0,
+      "text": "to all possible evolutions of the disturbance. This is the optimal"
+    },
+    {
+      "index": 111,
+      "start_time": 552987.0,
+      "end_time": 557939.0,
+      "text": "solution to linear robust control problems, however it carries a high"
+    },
+    {
+      "index": 112,
+      "start_time": 557939.0,
+      "end_time": 561871.0,
+      "text": "computational cost. Constraint Tightening MPC. Here the"
+    },
+    {
+      "index": 113,
+      "start_time": 561871.0,
+      "end_time": 567333.0,
+      "text": "state constraints are enlarged by a given margin so that a trajectory can be"
+    },
+    {
+      "index": 114,
+      "start_time": 567333.0,
+      "end_time": 571484.0,
+      "text": "guaranteed to be found under any evolution of disturbance."
+    },
+    {
+      "index": 115,
+      "start_time": 571484.0,
+      "end_time": 576799.0,
+      "text": "Tube MPC. This uses an independent nominal model of the system, and uses a"
+    },
+    {
+      "index": 116,
+      "start_time": 576799.0,
+      "end_time": 582406.0,
+      "text": "feedback controller to ensure the actual state converges to the nominal state."
+    },
+    {
+      "index": 117,
+      "start_time": 582406.0,
+      "end_time": 587941.0,
+      "text": "The amount of separation required from the state constraints is determined by"
+    },
+    {
+      "index": 118,
+      "start_time": 587941.0,
+      "end_time": 593329.0,
+      "text": "the robust positively invariant set, which is the set of all possible state"
+    },
+    {
+      "index": 119,
+      "start_time": 593329.0,
+      "end_time": 598062.0,
+      "text": "deviations that may be introduced by disturbance with the feedback"
+    },
+    {
+      "index": 120,
+      "start_time": 598062.0,
+      "end_time": 600902.0,
+      "text": "controller. Multi-stage MPC. This uses a"
+    },
+    {
+      "index": 121,
+      "start_time": 600902.0,
+      "end_time": 605854.0,
+      "text": "scenario-tree formulation by approximating the uncertainty space with"
+    },
+    {
+      "index": 122,
+      "start_time": 605854.0,
+      "end_time": 611243.0,
+      "text": "a set of samples and the approach is non-conservative because it takes into"
+    },
+    {
+      "index": 123,
+      "start_time": 611243.0,
+      "end_time": 617068.0,
+      "text": "account that the measurement information is available at every time stages in the"
+    },
+    {
+      "index": 124,
+      "start_time": 617068.0,
+      "end_time": 622457.0,
+      "text": "prediction and the decisions at every stage can be different and can act as"
+    },
+    {
+      "index": 125,
+      "start_time": 622457.0,
+      "end_time": 627627.0,
+      "text": "recourse to counteract the effects of uncertainties. The drawback of the"
+    },
+    {
+      "index": 126,
+      "start_time": 627627.0,
+      "end_time": 633161.0,
+      "text": "approach however is that the size of the problem grows exponentially with the"
+    },
+    {
+      "index": 127,
+      "start_time": 633161.0,
+      "end_time": 636875.0,
+      "text": "number of uncertainties and the prediction horizon."
+    },
+    {
+      "index": 128,
+      "start_time": 636875.0,
+      "end_time": 642191.0,
+      "text": "Commercially available MPC software  Commercial MPC packages are available"
+    },
+    {
+      "index": 129,
+      "start_time": 642191.0,
+      "end_time": 647725.0,
+      "text": "and typically contain tools for model identification and analysis, controller"
+    },
+    {
+      "index": 130,
+      "start_time": 647725.0,
+      "end_time": 652313.0,
+      "text": "design and tuning, as well as controller performance evaluation."
+    },
+    {
+      "index": 131,
+      "start_time": 652313.0,
+      "end_time": 657556.0,
+      "text": "A survey of commercially available packages has been provided by S.J. Qin"
+    },
+    {
+      "index": 132,
+      "start_time": 657556.0,
+      "end_time": 661925.0,
+      "text": "and T.A. Badgwell in Control Engineering Practice 11 733–764."
+    },
+    {
+      "index": 133,
+      "start_time": 661925.0,
+      "end_time": 664109.0,
+      "text": "See also  System identification"
+    },
+    {
+      "index": 134,
+      "start_time": 664109.0,
+      "end_time": 666512.0,
+      "text": "Control theory Control engineering"
+    },
+    {
+      "index": 135,
+      "start_time": 666512.0,
+      "end_time": 668187.0,
+      "text": "Feed-forward References"
+    },
+    {
+      "index": 136,
+      "start_time": 668187.0,
+      "end_time": 671755.0,
+      "text": "Further reading  Kwon, W. H.; Bruckstein, Kailath."
+    },
+    {
+      "index": 137,
+      "start_time": 671755.0,
+      "end_time": 676489.0,
+      "text": "&quot;Stabilizing state feedback design via the moving horizon method&quot;."
+    },
+    {
+      "index": 138,
+      "start_time": 676489.0,
+      "end_time": 679911.0,
+      "text": "International Journal of Control 37: pp.631–643."
+    },
+    {
+      "index": 139,
+      "start_time": 679911.0,
+      "end_time": 683698.0,
+      "text": "doi:10.1080/00207178308932998.  CS1 maint: Extra text"
+    },
+    {
+      "index": 140,
+      "start_time": 683698.0,
+      "end_time": 688212.0,
+      "text": "Garcia, C; Prett, Morari. &quot;Model predictive control: theory and"
+    },
+    {
+      "index": 141,
+      "start_time": 688212.0,
+      "end_time": 693674.0,
+      "text": "practice&quot;. Automatica 25: pp.335–348. doi:10.1016/0005-1098(89)90002-2.  CS1"
+    },
+    {
+      "index": 142,
+      "start_time": 693674.0,
+      "end_time": 697315.0,
+      "text": "maint: Extra text Mayne, D.Q.; Michalska. &quot;Receding"
+    },
+    {
+      "index": 143,
+      "start_time": 697315.0,
+      "end_time": 702849.0,
+      "text": "horizon control of nonlinear systems&quot;. IEEE Transactions on Automatic Control"
+    },
+    {
+      "index": 144,
+      "start_time": 702849.0,
+      "end_time": 707073.0,
+      "text": "35: pp.814–824. doi:10.1109/9.57020.  CS1 maint: Extra text"
+    },
+    {
+      "index": 145,
+      "start_time": 707073.0,
+      "end_time": 712316.0,
+      "text": "Mayne, D; Rawlings, Rao, Scokaert. &quot;Constrained model predictive control:"
+    },
+    {
+      "index": 146,
+      "start_time": 712316.0,
+      "end_time": 716102.0,
+      "text": "stability and optimality&quot;. Automatica 36: pp.789–814."
+    },
+    {
+      "index": 147,
+      "start_time": 716102.0,
+      "end_time": 720253.0,
+      "text": "doi:10.1016/S0005-1098(99)00214-9.   CS1 maint: Extra text"
+    },
+    {
+      "index": 148,
+      "start_time": 720253.0,
+      "end_time": 725423.0,
+      "text": "Allgöwer; Zheng. Nonlinear model predictive control. Progress in Systems"
+    },
+    {
+      "index": 149,
+      "start_time": 725423.0,
+      "end_time": 729574.0,
+      "text": "Theory 26. Birkhauser.  Camacho; Bordons. Model predictive"
+    },
+    {
+      "index": 150,
+      "start_time": 729574.0,
+      "end_time": 734380.0,
+      "text": "control. Springer Verlag.  Findeisen; Allgöwer, Biegler. Assessment"
+    },
+    {
+      "index": 151,
+      "start_time": 734380.0,
+      "end_time": 739914.0,
+      "text": "and Future Directions of Nonlinear Model Predictive Control. Lecture Notes in"
+    },
+    {
+      "index": 152,
+      "start_time": 739914.0,
+      "end_time": 743264.0,
+      "text": "Control and Information Sciences 26. Springer."
+    },
+    {
+      "index": 153,
+      "start_time": 743264.0,
+      "end_time": 748725.0,
+      "text": "Diehl, M; Bock, Schlöder, Findeisen, Nagy, Allgöwer. &quot;Real-time optimization"
+    },
+    {
+      "index": 154,
+      "start_time": 748725.0,
+      "end_time": 753240.0,
+      "text": "and Nonlinear Model Predictive Control of Processes governed by"
+    },
+    {
+      "index": 155,
+      "start_time": 753240.0,
+      "end_time": 757900.0,
+      "text": "differential-algebraic equations&quot;. Journal of Process Control 12:"
+    },
+    {
+      "index": 156,
+      "start_time": 757900.0,
+      "end_time": 761614.0,
+      "text": "pp.577–585. doi:10.1016/S0959-1524(01)00023-3.   CS1"
+    },
+    {
+      "index": 157,
+      "start_time": 761614.0,
+      "end_time": 763944.0,
+      "text": "maint: Extra text External links"
+    },
+    {
+      "index": 158,
+      "start_time": 763944.0,
+      "end_time": 769042.0,
+      "text": "Control Tuning and Best Practices P. Orukpe: Basics of Model Predictive"
+    },
+    {
+      "index": 159,
+      "start_time": 769042.0,
+      "end_time": 771954.0,
+      "text": "Control Case Study. Lancaster Waste Water"
+    },
+    {
+      "index": 160,
+      "start_time": 771954.0,
+      "end_time": 777052.0,
+      "text": "Treatment Works, optimisation by means of Model Predictive Control from"
+    },
+    {
+      "index": 161,
+      "start_time": 777052.0,
+      "end_time": 781494.0,
+      "text": "Perceptive Engineering ACADO Toolkit - Open Source Toolkit for"
+    },
+    {
+      "index": 162,
+      "start_time": 781494.0,
+      "end_time": 786008.0,
+      "text": "Automatic Control and Dynamic Optimization providing linear and"
+    },
+    {
+      "index": 163,
+      "start_time": 786008.0,
+      "end_time": 789941.0,
+      "text": "non-linear MPC tools. jMPC Toolbox - Open Source MATLAB"
+    },
+    {
+      "index": 164,
+      "start_time": 789941.0,
+      "end_time": 794091.0,
+      "text": "Toolbox for Linear MPC. Model Predictive Control Free book"
+    },
+    {
+      "index": 165,
+      "start_time": 794091.0,
+      "end_time": 797223.0,
+      "text": "edited by Tao Zheng, Publisher: Sciyo, 2010."
+    },
+    {
+      "index": 166,
+      "start_time": 797223.0,
+      "end_time": 801082.0,
+      "text": "Study on application of NMPC to superfluid cryogenics."
+    },
+    {
+      "index": 167,
+      "start_time": 801082.0,
+      "end_time": 805670.0,
+      "text": "Nonlinear Model Predictive Control Toolbox for MATLAB and Python"
+    },
+    {
+      "index": 168,
+      "start_time": 805670.0,
+      "end_time": 811131.0,
+      "text": "Model Predictive Control Toolbox from MathWorks for design and simulation of"
+    },
+    {
+      "index": 169,
+      "start_time": 811131.0,
+      "end_time": 814772.0,
+      "text": "model predictive controllers in MATLAB and Simulink"
+    },
+    {
+      "index": 170,
+      "start_time": 814772.0,
+      "end_time": 818923.0,
+      "text": "Pulse step model predictive controller - virtual simulator"
+    },
+    {
+      "index": 171,
+      "start_time": 818923.0,
+      "end_time": 828923.0,
+      "text": "Tutorial on MPC with Excel and MATLAB Examples"
+    }
+  ]
+}

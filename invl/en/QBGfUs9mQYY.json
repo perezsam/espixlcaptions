@@ -1,0 +1,870 @@
+{
+  "video_id": "QBGfUs9mQYY",
+  "title": "Androidology - Part 1 of 3 - Architecture Overview",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 149.0,
+      "end_time": 4470.0,
+      "text": "&gt;&gt; CLERON: Hi, my name is Mike Cleron. I&#39;m an engineer on the Android Development Team."
+    },
+    {
+      "index": 2,
+      "start_time": 4470.0,
+      "end_time": 8829.0,
+      "text": "Android is an open software platform for mobile development. It is intended to be a complete"
+    },
+    {
+      "index": 3,
+      "start_time": 8829.0,
+      "end_time": 12860.0,
+      "text": "stack that includes everything from the operating system through middle ware and up through"
+    },
+    {
+      "index": 4,
+      "start_time": 12860.0,
+      "end_time": 17300.0,
+      "text": "applications. In the next few minutes, I&#39;m going to be introducing you to an overview"
+    },
+    {
+      "index": 5,
+      "start_time": 17300.0,
+      "end_time": 21170.0,
+      "text": "of the architecture of the Android platform. And I&#39;m also going to talk about some of the"
+    },
+    {
+      "index": 6,
+      "start_time": 21170.0,
+      "end_time": 25419.0,
+      "text": "key principles that are underlying its design. If I&#39;m going to talk about architecture, we"
+    },
+    {
+      "index": 7,
+      "start_time": 25419.0,
+      "end_time": 30980.0,
+      "text": "need to start with a diagram covered with a lot of little boxes and this is ours. Our"
+    },
+    {
+      "index": 8,
+      "start_time": 30980.0,
+      "end_time": 34810.0,
+      "text": "architecture, we’re going to start at the bottom work up. Our architecture is based"
+    },
+    {
+      "index": 9,
+      "start_time": 34810.0,
+      "end_time": 39690.0,
+      "text": "on the Linux 2.6 Kernel. We use the Linux Kernel as our hardware abstraction layer."
+    },
+    {
+      "index": 10,
+      "start_time": 39690.0,
+      "end_time": 45780.0,
+      "text": "So, if you are an OEM trying to bring up Android on a new device, the first thing you do is"
+    },
+    {
+      "index": 11,
+      "start_time": 45780.0,
+      "end_time": 51320.0,
+      "text": "bring up Linux and get all your drivers in place. The reason we’re using Linux is because"
+    },
+    {
+      "index": 12,
+      "start_time": 51320.0,
+      "end_time": 56450.0,
+      "text": "it provides a proven driver model in a lot of cases existing drivers. It also provides"
+    },
+    {
+      "index": 13,
+      "start_time": 56450.0,
+      "end_time": 62280.0,
+      "text": "memory management, process management, a security model, networking, a lot of core operating"
+    },
+    {
+      "index": 14,
+      "start_time": 62280.0,
+      "end_time": 66010.0,
+      "text": "system infrastructures that are robust and have been proven over time. The next level"
+    },
+    {
+      "index": 15,
+      "start_time": 66010.0,
+      "end_time": 70920.0,
+      "text": "up is our native libraries. Everything that you see here in green is written in C and"
+    },
+    {
+      "index": 16,
+      "start_time": 70920.0,
+      "end_time": 75420.0,
+      "text": "C plus, plus. It’s at this level where a lot of the core power of the Android platform"
+    },
+    {
+      "index": 17,
+      "start_time": 75420.0,
+      "end_time": 80170.0,
+      "text": "comes from. I&#39;m just going to go through and describe what some of these components are."
+    },
+    {
+      "index": 18,
+      "start_time": 80170.0,
+      "end_time": 86060.0,
+      "text": "I&#39;m going to start with the surface manager. The surface manager is responsible for composing"
+    },
+    {
+      "index": 19,
+      "start_time": 86060.0,
+      "end_time": 90390.0,
+      "text": "different drawings surfaces onto the screen. So it’s the surface manager that’s responsible"
+    },
+    {
+      "index": 20,
+      "start_time": 90390.0,
+      "end_time": 94200.0,
+      "text": "for taking different windows that are owned by different applications that are running"
+    },
+    {
+      "index": 21,
+      "start_time": 94200.0,
+      "end_time": 98350.0,
+      "text": "in different processes and all drawing at different times and making sure the pixels"
+    },
+    {
+      "index": 22,
+      "start_time": 98350.0,
+      "end_time": 103920.0,
+      "text": "end up on the screen when they’re supposed to. Below that we have two boxes, OpenGL/ES"
+    },
+    {
+      "index": 23,
+      "start_time": 103920.0,
+      "end_time": 111840.0,
+      "text": "and SGL and these two make up the core of our graphics libraries. OpenGL/ES is a 3D"
+    },
+    {
+      "index": 24,
+      "start_time": 111840.0,
+      "end_time": 116350.0,
+      "text": "library. We have a software implementation that is hardware acceleratable if the device"
+    },
+    {
+      "index": 25,
+      "start_time": 116350.0,
+      "end_time": 123479.0,
+      "text": "has a 3D chip on it. The SGL graphics are for 2D graphics and that is what most of our"
+    },
+    {
+      "index": 26,
+      "start_time": 123479.0,
+      "end_time": 129209.0,
+      "text": "application drawing is based on. One interesting thing about the Android graphics platform"
+    },
+    {
+      "index": 27,
+      "start_time": 129209.0,
+      "end_time": 136200.0,
+      "text": "is that you can combine 3D and 2D graphics in the same application. Moving over, we have"
+    },
+    {
+      "index": 28,
+      "start_time": 136200.0,
+      "end_time": 140749.0,
+      "text": "the Media Framework. The Media Framework was provided by PacketVideo, one of the members"
+    },
+    {
+      "index": 29,
+      "start_time": 140749.0,
+      "end_time": 146159.0,
+      "text": "of the open handset alliance and that contains all of the codex that make up the core of"
+    },
+    {
+      "index": 30,
+      "start_time": 146159.0,
+      "end_time": 153109.0,
+      "text": "the media experience. So, in there you’ll find IMPEG 4, H.264, MP3, AAC, all the audio"
+    },
+    {
+      "index": 31,
+      "start_time": 153109.0,
+      "end_time": 158730.0,
+      "text": "and video codex you need to build a rich media experience. We use Free Type to render our"
+    },
+    {
+      "index": 32,
+      "start_time": 158730.0,
+      "end_time": 164129.0,
+      "text": "fonts. We have an implementation of SQLite, we use that as the core of most of our data"
+    },
+    {
+      "index": 33,
+      "start_time": 164129.0,
+      "end_time": 170659.0,
+      "text": "storage. We have WebKit which is the open source browser engine, that’s what we’re"
+    },
+    {
+      "index": 34,
+      "start_time": 170659.0,
+      "end_time": 175189.0,
+      "text": "using as a core of our browser. It’s the same browser that’s powering Safari from"
+    },
+    {
+      "index": 35,
+      "start_time": 175189.0,
+      "end_time": 181809.0,
+      "text": "Apple and we’d made some, we’ve worked with that engine to make it render well on"
+    },
+    {
+      "index": 36,
+      "start_time": 181809.0,
+      "end_time": 187719.0,
+      "text": "small screens and on mobile devices. Next is The Android Runtime. And the main component"
+    },
+    {
+      "index": 37,
+      "start_time": 187719.0,
+      "end_time": 192989.0,
+      "text": "in the Android Runtime is the Dalvik Virtual Machine. The Android Runtime was designed"
+    },
+    {
+      "index": 38,
+      "start_time": 192989.0,
+      "end_time": 198029.0,
+      "text": "specifically for Android to meet the needs of running in an embedded environment where"
+    },
+    {
+      "index": 39,
+      "start_time": 198029.0,
+      "end_time": 205219.0,
+      "text": "you have limited battery, limited memory, limited CPU. The Dalvik Virtual Machine runs"
+    },
+    {
+      "index": 40,
+      "start_time": 205219.0,
+      "end_time": 212329.0,
+      "text": "something called dex files, D-E-X. And these are bytecodes that are the results of converting"
+    },
+    {
+      "index": 41,
+      "start_time": 212329.0,
+      "end_time": 219639.0,
+      "text": "at build time .Class and .JAR Files. So, these files when they are converted to .dex, become"
+    },
+    {
+      "index": 42,
+      "start_time": 219639.0,
+      "end_time": 226260.0,
+      "text": "a much more efficient bytecode that can run very well on small processors. They use memory"
+    },
+    {
+      "index": 43,
+      "start_time": 226260.0,
+      "end_time": 231870.0,
+      "text": "very efficiently. The data structures are designed to be shared across processes whenever"
+    },
+    {
+      "index": 44,
+      "start_time": 231870.0,
+      "end_time": 237779.0,
+      "text": "possible. And it uses a highly CPU optimized bytecode interpreter. The end result of that"
+    },
+    {
+      "index": 45,
+      "start_time": 237779.0,
+      "end_time": 243260.0,
+      "text": "is that it’s possible to have multiple instances of the Dalvik Virtual Machine running on the"
+    },
+    {
+      "index": 46,
+      "start_time": 243260.0,
+      "end_time": 247760.0,
+      "text": "device at the same time, one in each of several processes and we&#39;ll see why that’s important"
+    },
+    {
+      "index": 47,
+      "start_time": 247760.0,
+      "end_time": 253059.0,
+      "text": "a little bit later on. The next level up from that is the Core Libraries. This is in blue,"
+    },
+    {
+      "index": 48,
+      "start_time": 253059.0,
+      "end_time": 258259.0,
+      "text": "meaning that it’s written in the Java programming language. And the Core library contains all"
+    },
+    {
+      "index": 49,
+      "start_time": 258259.0,
+      "end_time": 265099.0,
+      "text": "of the collection classes, utilities, IO, all the utilities and tools that you’ve"
+    },
+    {
+      "index": 50,
+      "start_time": 265099.0,
+      "end_time": 270659.0,
+      "text": "come to expected to use. Moving up again, we now have the Application Framework. This"
+    },
+    {
+      "index": 51,
+      "start_time": 270659.0,
+      "end_time": 275970.0,
+      "text": "is all written in a Java programming language and the application framework is the toolkit"
+    },
+    {
+      "index": 52,
+      "start_time": 275970.0,
+      "end_time": 281250.0,
+      "text": "that all applications use. These applications include the ones that come with a phone like"
+    },
+    {
+      "index": 53,
+      "start_time": 281250.0,
+      "end_time": 285979.0,
+      "text": "the home application, or the phone application. It includes applications written by Google,"
+    },
+    {
+      "index": 54,
+      "start_time": 285979.0,
+      "end_time": 290440.0,
+      "text": "and it includes applications that will be written by you. So, all applications use the"
+    },
+    {
+      "index": 55,
+      "start_time": 290440.0,
+      "end_time": 296009.0,
+      "text": "same framework and the same APIs. Again, I&#39;m going to go through and talk about what some"
+    },
+    {
+      "index": 56,
+      "start_time": 296009.0,
+      "end_time": 300800.0,
+      "text": "of the main components are in this layer, in the Application Framework. The activity"
+    },
+    {
+      "index": 57,
+      "start_time": 300800.0,
+      "end_time": 307330.0,
+      "text": "manager is what manages the life cycle of applications. It also maintains a common backstack"
+    },
+    {
+      "index": 58,
+      "start_time": 307330.0,
+      "end_time": 312389.0,
+      "text": "so that applications that are running in different processes can have a smoothly integrated navigation"
+    },
+    {
+      "index": 59,
+      "start_time": 312389.0,
+      "end_time": 318939.0,
+      "text": "experience. Next down from that is the package manager. The package manager is what keeps"
+    },
+    {
+      "index": 60,
+      "start_time": 318939.0,
+      "end_time": 324340.0,
+      "text": "track of which applications are installed on your device. So, if you download new applications"
+    },
+    {
+      "index": 61,
+      "start_time": 324340.0,
+      "end_time": 328819.0,
+      "text": "over the air or otherwise install applications, it&#39;s the package manager that’s responsible"
+    },
+    {
+      "index": 62,
+      "start_time": 328819.0,
+      "end_time": 333169.0,
+      "text": "for keeping track of what you have and what the capabilities of each of your applications"
+    },
+    {
+      "index": 63,
+      "start_time": 333169.0,
+      "end_time": 340330.0,
+      "text": "are. The window manager manages Windows. It’s mostly a Java programming language abstraction"
+    },
+    {
+      "index": 64,
+      "start_time": 340330.0,
+      "end_time": 345370.0,
+      "text": "on top of lower level services that are provided by the surface manager. The telephony manager"
+    },
+    {
+      "index": 65,
+      "start_time": 345370.0,
+      "end_time": 350840.0,
+      "text": "contains the APIs that we use to build the phone application that’s central to the"
+    },
+    {
+      "index": 66,
+      "start_time": 350840.0,
+      "end_time": 356710.0,
+      "text": "phone experience. Content providers are a unique piece of the Android platform. That’s"
+    },
+    {
+      "index": 67,
+      "start_time": 356710.0,
+      "end_time": 362020.0,
+      "text": "a framework that allows applications to share their data with other applications. We use"
+    },
+    {
+      "index": 68,
+      "start_time": 362020.0,
+      "end_time": 367069.0,
+      "text": "that in our contacts application so that all of the information in contacts, phone numbers,"
+    },
+    {
+      "index": 69,
+      "start_time": 367069.0,
+      "end_time": 372740.0,
+      "text": "addresses, names is available to any application that wants to make use of them. And other"
+    },
+    {
+      "index": 70,
+      "start_time": 372740.0,
+      "end_time": 376840.0,
+      "text": "applications can use that facility as well to share data. The resource manager is what"
+    },
+    {
+      "index": 71,
+      "start_time": 376840.0,
+      "end_time": 384439.0,
+      "text": "we use to store local iStrings, bitmaps, layout file descriptions, all of the external parts"
+    },
+    {
+      "index": 72,
+      "start_time": 384439.0,
+      "end_time": 389060.0,
+      "text": "of an application that aren’t code. I&#39;m just going to touch lightly on the remaining"
+    },
+    {
+      "index": 73,
+      "start_time": 389060.0,
+      "end_time": 394659.0,
+      "text": "four boxes, view system, location manager, notification manager and XMPP service. The"
+    },
+    {
+      "index": 74,
+      "start_time": 394659.0,
+      "end_time": 399960.0,
+      "text": "view system contains things like buttons and lists, all the building blocks of the UI."
+    },
+    {
+      "index": 75,
+      "start_time": 399960.0,
+      "end_time": 406569.0,
+      "text": "It also handles things like event dispatching, layout, drawing. Location manager, notification"
+    },
+    {
+      "index": 76,
+      "start_time": 406569.0,
+      "end_time": 412280.0,
+      "text": "manager and XMPP service are some APIs that I think will allow developers to create really"
+    },
+    {
+      "index": 77,
+      "start_time": 412280.0,
+      "end_time": 418789.0,
+      "text": "innovative and exciting applications. And the final layer on top is Applications. This"
+    },
+    {
+      "index": 78,
+      "start_time": 418789.0,
+      "end_time": 423969.0,
+      "text": "is where all the applications get written. It includes the home application, the contacts"
+    },
+    {
+      "index": 79,
+      "start_time": 423969.0,
+      "end_time": 429099.0,
+      "text": "application, the browser, your applications. And everything at this layer is, again, using"
+    },
+    {
+      "index": 80,
+      "start_time": 429099.0,
+      "end_time": 433479.0,
+      "text": "the same application framework provided by the layers below. Now, if you’re going to"
+    },
+    {
+      "index": 81,
+      "start_time": 433479.0,
+      "end_time": 438099.0,
+      "text": "write an application, the first step is to decompose it into the components that are"
+    },
+    {
+      "index": 82,
+      "start_time": 438099.0,
+      "end_time": 443229.0,
+      "text": "supported by the Android platform. Here are the four major ones. We have activity, intent"
+    },
+    {
+      "index": 83,
+      "start_time": 443229.0,
+      "end_time": 448689.0,
+      "text": "receiver, service, and content provider. An activity is essentially just a piece of UI"
+    },
+    {
+      "index": 84,
+      "start_time": 448689.0,
+      "end_time": 454099.0,
+      "text": "typically corresponding to one screen. So if you think of something like the mail application,"
+    },
+    {
+      "index": 85,
+      "start_time": 454099.0,
+      "end_time": 458340.0,
+      "text": "that would be decomposed into maybe three major activities, something that lists your"
+    },
+    {
+      "index": 86,
+      "start_time": 458340.0,
+      "end_time": 464409.0,
+      "text": "mail, something that shows you what an individual mail message and a compose screen to put together"
+    },
+    {
+      "index": 87,
+      "start_time": 464409.0,
+      "end_time": 469979.0,
+      "text": "an outgoing email. An intent receiver is something different. An intent receiver is a way for"
+    },
+    {
+      "index": 88,
+      "start_time": 469979.0,
+      "end_time": 474749.0,
+      "text": "which your application to register some code that won’t be running until it’s triggered"
+    },
+    {
+      "index": 89,
+      "start_time": 474749.0,
+      "end_time": 480129.0,
+      "text": "by some external event. And the set of external events that triggers your code is open and"
+    },
+    {
+      "index": 90,
+      "start_time": 480129.0,
+      "end_time": 486340.0,
+      "text": "extensible. So you can write some code and through XML, register it to be woken up and"
+    },
+    {
+      "index": 91,
+      "start_time": 486340.0,
+      "end_time": 492529.0,
+      "text": "run when something happens, when the network, the network activities established or at a"
+    },
+    {
+      "index": 92,
+      "start_time": 492529.0,
+      "end_time": 498039.0,
+      "text": "certain time or when the phone rings or whatever trigger makes sense for your application."
+    },
+    {
+      "index": 93,
+      "start_time": 498039.0,
+      "end_time": 503669.0,
+      "text": "The next major component is a service. A service is a task that doesn’t have any UI, that’s"
+    },
+    {
+      "index": 94,
+      "start_time": 503669.0,
+      "end_time": 508120.0,
+      "text": "long lived, that’s running in the background. A good example is a music player. You may"
+    },
+    {
+      "index": 95,
+      "start_time": 508120.0,
+      "end_time": 512540.0,
+      "text": "start playing some music from an activity, from a piece of UI, but once the music is"
+    },
+    {
+      "index": 96,
+      "start_time": 512539.99999999994,
+      "end_time": 516899.99999999994,
+      "text": "playing, you&#39;d want it to keep playing even if you’re navigating to other parts of the"
+    },
+    {
+      "index": 97,
+      "start_time": 516900.0,
+      "end_time": 522330.0,
+      "text": "user experience. So the code that’s actually running through the playlist playing songs"
+    },
+    {
+      "index": 98,
+      "start_time": 522330.00000000006,
+      "end_time": 526160.0,
+      "text": "would be a service, that’s running in the background. You can connect to it later if"
+    },
+    {
+      "index": 99,
+      "start_time": 526160.0,
+      "end_time": 531380.0,
+      "text": "you want to from an activity or some other component by binding to the service and sending"
+    },
+    {
+      "index": 100,
+      "start_time": 531380.0,
+      "end_time": 537770.0,
+      "text": "messages like “skip to the next” or “rewind.” The last component is a content provider and,"
+    },
+    {
+      "index": 101,
+      "start_time": 537770.0,
+      "end_time": 543780.0,
+      "text": "again, that’s a component that allows you to share some of your data with other processes"
+    },
+    {
+      "index": 102,
+      "start_time": 543780.0,
+      "end_time": 549330.0,
+      "text": "and other applications. Now, any application can store data in whatever may--way it makes"
+    },
+    {
+      "index": 103,
+      "start_time": 549330.0,
+      "end_time": 552930.0,
+      "text": "sense for that application. They can store it in the files. They can store it in our"
+    },
+    {
+      "index": 104,
+      "start_time": 552930.0,
+      "end_time": 557400.0,
+      "text": "super light database, whatever makes sense. But if they want to make that data available"
+    },
+    {
+      "index": 105,
+      "start_time": 557400.0,
+      "end_time": 562300.0,
+      "text": "as part of the platform so that other applications can make use of it, then the content provider"
+    },
+    {
+      "index": 106,
+      "start_time": 562300.0,
+      "end_time": 567470.0,
+      "text": "is the solution for that and we&#39;ve used that for the context database that comes with the"
+    },
+    {
+      "index": 107,
+      "start_time": 567470.0,
+      "end_time": 572730.0,
+      "text": "Android platform so that any application can make use of the information in context. Android"
+    },
+    {
+      "index": 108,
+      "start_time": 572730.0,
+      "end_time": 578280.0,
+      "text": "was designed at a fundamental level to encourage reusing and replacing components. I have an"
+    },
+    {
+      "index": 109,
+      "start_time": 578280.0,
+      "end_time": 583570.0,
+      "text": "example here that shows how that works. On the left, there are four applications that"
+    },
+    {
+      "index": 110,
+      "start_time": 583570.0,
+      "end_time": 587250.0,
+      "text": "might want to pick a photo for some reason. So the home application might want to pick"
+    },
+    {
+      "index": 111,
+      "start_time": 587250.0,
+      "end_time": 592310.0,
+      "text": "it for wallpaper. Contacts might want to pick a person’s face to associate with their"
+    },
+    {
+      "index": 112,
+      "start_time": 592310.0,
+      "end_time": 596740.0,
+      "text": "contact card. Gmail or MMS, you might want to have a photo that you sent to someone in"
+    },
+    {
+      "index": 113,
+      "start_time": 596740.0,
+      "end_time": 602590.0,
+      "text": "an outgoing message. Now, an Android for these applications to make use of the service of"
+    },
+    {
+      "index": 114,
+      "start_time": 602590.0,
+      "end_time": 607850.0,
+      "text": "taking a photo, they first need to make a request. So the client component makes a request"
+    },
+    {
+      "index": 115,
+      "start_time": 607850.0,
+      "end_time": 614410.0,
+      "text": "for specific action. In this case, I’m illustrating that with a talk balloon and the Gmail application"
+    },
+    {
+      "index": 116,
+      "start_time": 614410.0,
+      "end_time": 619400.0,
+      "text": "is requesting that it picks a photo. So the talk balloon is actually representation of"
+    },
+    {
+      "index": 117,
+      "start_time": 619400.0,
+      "end_time": 625500.0,
+      "text": "a formal class in our system called an intent. What the system does when a request is made"
+    },
+    {
+      "index": 118,
+      "start_time": 625500.0,
+      "end_time": 630670.0,
+      "text": "is it looks at all of the installed components and it finds the best available component"
+    },
+    {
+      "index": 119,
+      "start_time": 630670.0,
+      "end_time": 634980.0,
+      "text": "that knows how to do whatever was asked for. In this case, let’s say that the system"
+    },
+    {
+      "index": 120,
+      "start_time": 634980.0,
+      "end_time": 641290.0,
+      "text": "finds the built-in photo gallery. Now, what happens is the Gmail application is now connected"
+    },
+    {
+      "index": 121,
+      "start_time": 641290.0,
+      "end_time": 647020.0,
+      "text": "to the photo gallery. When the user in Gmails wanted to pick a photo, he will be taken to"
+    },
+    {
+      "index": 122,
+      "start_time": 647020.0,
+      "end_time": 652740.0,
+      "text": "the photo gallery and the photo gallery will fulfill whatever was asked for in the intent."
+    },
+    {
+      "index": 123,
+      "start_time": 652740.0,
+      "end_time": 657690.0,
+      "text": "What makes this interesting is that the picking of the matching component is late bound, it&#39;s"
+    },
+    {
+      "index": 124,
+      "start_time": 657690.0,
+      "end_time": 662100.0,
+      "text": "done very late and so you can swap software components at any time. So let’s say you"
+    },
+    {
+      "index": 125,
+      "start_time": 662100.0,
+      "end_time": 665900.0,
+      "text": "didn’t like the built-in photo gallery and you wanted to replace it with one that went"
+    },
+    {
+      "index": 126,
+      "start_time": 665900.0,
+      "end_time": 672660.0,
+      "text": "online to find a richer or bigger set of photos. You can replace our built-in photo gallery"
+    },
+    {
+      "index": 127,
+      "start_time": 672660.0,
+      "end_time": 678410.0,
+      "text": "with one that say goes out to Picasso or whatever your favorite online photo site is. Once you’ve"
+    },
+    {
+      "index": 128,
+      "start_time": 678410.0,
+      "end_time": 685040.0,
+      "text": "done that, then any of the applications on the left will now use the new and better component"
+    },
+    {
+      "index": 129,
+      "start_time": 685040.0,
+      "end_time": 691750.0,
+      "text": "on the right to fulfill the task of picking a photo. And at any time, a new application"
+    },
+    {
+      "index": 130,
+      "start_time": 691750.0,
+      "end_time": 696320.0,
+      "text": "can come along and make use of existing functionality. So if you’re writing a blogger application,"
+    },
+    {
+      "index": 131,
+      "start_time": 696320.0,
+      "end_time": 700140.0,
+      "text": "you don’t have to worry about writing a photo picker yourself. You can just rely on"
+    },
+    {
+      "index": 132,
+      "start_time": 700140.0,
+      "end_time": 704380.0,
+      "text": "whichever one the user has configured to be their preferred photo picking application."
+    },
+    {
+      "index": 133,
+      "start_time": 704380.0,
+      "end_time": 711300.0,
+      "text": "This becomes really important because in Android, it’s not just about picking photos, virtually"
+    },
+    {
+      "index": 134,
+      "start_time": 711300.0,
+      "end_time": 715770.0,
+      "text": "any task has an intent in the middle. If the user is going from point A to point B, there’s"
+    },
+    {
+      "index": 135,
+      "start_time": 715770.0,
+      "end_time": 721740.0,
+      "text": "an intent in the middle and each of those intents is an opportunity to reuse a component"
+    },
+    {
+      "index": 136,
+      "start_time": 721740.0,
+      "end_time": 726170.0,
+      "text": "or to replace a component. So we have intents for going home which means you can replace"
+    },
+    {
+      "index": 137,
+      "start_time": 726170.0,
+      "end_time": 730830.0,
+      "text": "a home application. Or we have an intent for sending an email which means you can replace"
+    },
+    {
+      "index": 138,
+      "start_time": 730830.0,
+      "end_time": 736690.0,
+      "text": "the mail application. All of these are opportunities for replacing and reusing components. If you’re"
+    },
+    {
+      "index": 139,
+      "start_time": 736690.0,
+      "end_time": 741070.0,
+      "text": "interested in finding out more about Android, I encourage you to visit the developer site"
+    },
+    {
+      "index": 140,
+      "start_time": 741070.0,
+      "end_time": 746180.0,
+      "text": "and download the SDK. In the SDK, you’ll find a lot more documentation and sample code"
+    },
+    {
+      "index": 141,
+      "start_time": 746180.0,
+      "end_time": 750290.0,
+      "text": "and you’ll also be able to try building applications of your own. There’s also a"
+    },
+    {
+      "index": 142,
+      "start_time": 750290.0,
+      "end_time": 754170.0,
+      "text": "developer group that you can join to find out more information and I also encourage"
+    },
+    {
+      "index": 143,
+      "start_time": 754170.0,
+      "end_time": 759250.0,
+      "text": "you to check back frequently because we’ll be posting updates to the SDK as the platform"
+    },
+    {
+      "index": 144,
+      "start_time": 759250.0,
+      "end_time": 769250.0,
+      "text": "matures. Thank you for watching."
+    }
+  ]
+}

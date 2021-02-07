@@ -1,0 +1,3312 @@
+{
+  "video_id": "n8ep4leoN9A",
+  "title": "Google I/O 2013 - Jank Free: Chrome Rendering Performance",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 2310.0,
+      "end_time": 7040.0,
+      "text": "&gt;&gt;Tom Wiltzius: Hello, everyone. I think we&#39;re ready to get started."
+    },
+    {
+      "index": 2,
+      "start_time": 7040.0,
+      "end_time": 12100.0,
+      "text": "Welcome to Jank Busters. I&#39;m Tom Wiltzius. I&#39;m a PM on the Chrome graphics team."
+    },
+    {
+      "index": 3,
+      "start_time": 12100.0,
+      "end_time": 15449.0,
+      "text": "&gt;&gt;Nat Duca: I&#39;m Nat Duca. I&#39;m a graphics hacker on the Chrome team."
+    },
+    {
+      "index": 4,
+      "start_time": 15449.0,
+      "end_time": 19210.0,
+      "text": "&gt;&gt;Tom Wiltzius: And we&#39;re here today to talk about Jank on the web, what it is and how"
+    },
+    {
+      "index": 5,
+      "start_time": 19210.0,
+      "end_time": 22550.0,
+      "text": "to avoid it. &gt;&gt;Nat Duca: Yeah. So Jank. Everybody has a"
+    },
+    {
+      "index": 6,
+      "start_time": 22550.0,
+      "end_time": 26359.0,
+      "text": "screen in front of them, probably. Jank really begins with the monitor, right? You&#39;ve got"
+    },
+    {
+      "index": 7,
+      "start_time": 26359.0,
+      "end_time": 30179.0,
+      "text": "this monitor in front of you and it&#39;s designed to sort of trick your eye into this illusion"
+    },
+    {
+      "index": 8,
+      "start_time": 30179.0,
+      "end_time": 35440.0,
+      "text": "of motion, and the way it does that is by updating a frame every couple milliseconds,"
+    },
+    {
+      "index": 9,
+      "start_time": 35440.0,
+      "end_time": 38340.0,
+      "text": "right? And the trick is, your eye wants to go at"
+    },
+    {
+      "index": 10,
+      "start_time": 38340.0,
+      "end_time": 42340.0,
+      "text": "something like 40 hertz, and if you do that, then you&#39;ll perceive motion."
+    },
+    {
+      "index": 11,
+      "start_time": 42340.0,
+      "end_time": 48550.0,
+      "text": "And so monitors out there go anywhere from 30 to 50 to 60 to 70 hertz, right? And if"
+    },
+    {
+      "index": 12,
+      "start_time": 48550.0,
+      "end_time": 53640.0,
+      "text": "you manage to get all of your JavaScript and all your different pieces going at that rate"
+    },
+    {
+      "index": 13,
+      "start_time": 53640.0,
+      "end_time": 58360.0,
+      "text": "of the monitor, then you can present this illusion of smoothness and then people are"
+    },
+    {
+      "index": 14,
+      "start_time": 58360.0,
+      "end_time": 60710.0,
+      "text": "happy. &gt;&gt;Tom Wiltzius: But if you don&#39;t manage that,"
+    },
+    {
+      "index": 15,
+      "start_time": 60710.0,
+      "end_time": 63320.0,
+      "text": "then you end up with Jank. And this is what we&#39;re talking about when we&#39;re talking about"
+    },
+    {
+      "index": 16,
+      "start_time": 63320.0,
+      "end_time": 65790.0,
+      "text": "Jank. It&#39;s anytime that you don&#39;t get a new image"
+    },
+    {
+      "index": 17,
+      "start_time": 65790.0,
+      "end_time": 71030.0,
+      "text": "on the screen every time the monitor refreshes. This comes in all sorts of formats. A hitch"
+    },
+    {
+      "index": 18,
+      "start_time": 71030.0,
+      "end_time": 74479.0,
+      "text": "is when we miss a bunch of frames in a row. A low frame rate is when you&#39;re taking out"
+    },
+    {
+      "index": 19,
+      "start_time": 74479.0,
+      "end_time": 78960.0,
+      "text": "a frame every maybe fifth of a second instead of every 50th. A variable frame rate is maybe"
+    },
+    {
+      "index": 20,
+      "start_time": 78960.0,
+      "end_time": 83450.0,
+      "text": "some combination of these things. And this is particularly painful when you&#39;re trying"
+    },
+    {
+      "index": 21,
+      "start_time": 83450.0,
+      "end_time": 87530.0,
+      "text": "to interact with something. So here&#39;s a div with a bunch of Chrome logos"
+    },
+    {
+      "index": 22,
+      "start_time": 87530.0,
+      "end_time": 93759.0,
+      "text": "moving around and it scrolls sluggishly. It&#39;s what we call a Janky scroll. And the problem"
+    },
+    {
+      "index": 23,
+      "start_time": 93759.0,
+      "end_time": 102149.0,
+      "text": "here is that as I move my finger on the trackpad, I&#39;m scrolling around in this little iframe"
+    },
+    {
+      "index": 24,
+      "start_time": 102149.0,
+      "end_time": 108709.0,
+      "text": "but the frame rate isn&#39;t matched up to the monitor&#39;s refresh rate, and as I move my finger,"
+    },
+    {
+      "index": 25,
+      "start_time": 108709.0,
+      "end_time": 112759.0,
+      "text": "I don&#39;t get the smooth motion on the screen that I sort of expect."
+    },
+    {
+      "index": 26,
+      "start_time": 112759.0,
+      "end_time": 116600.0,
+      "text": "And so the physical metaphor is broken and it doesn&#39;t -- it doesn&#39;t feel good. It doesn&#39;t"
+    },
+    {
+      "index": 27,
+      "start_time": 116600.0,
+      "end_time": 120219.0,
+      "text": "feel fluid. &gt;&gt;Nat Duca: Yeah. So, you know, basically"
+    },
+    {
+      "index": 28,
+      "start_time": 120219.0,
+      "end_time": 123539.0,
+      "text": "what&#39;s going on behind the scenes when you get dropped out of your experience and you"
+    },
+    {
+      "index": 29,
+      "start_time": 123539.0,
+      "end_time": 129810.0,
+      "text": "get something like Jank is one part of the rendering pipeline is getting behind, right?"
+    },
+    {
+      "index": 30,
+      "start_time": 129810.0,
+      "end_time": 133730.0,
+      "text": "Now, if you go on line and you look at our talk from last year&#39;s I/O and also a lot of"
+    },
+    {
+      "index": 31,
+      "start_time": 133730.0,
+      "end_time": 138400.0,
+      "text": "great resources out there on Jank busting, you&#39;ll find that there&#39;s this great feature"
+    },
+    {
+      "index": 32,
+      "start_time": 138400.0,
+      "end_time": 144250.0,
+      "text": "in DevTools called the frames mode. It&#39;s in the Timeline. And you can use that to record,"
+    },
+    {
+      "index": 33,
+      "start_time": 144250.0,
+      "end_time": 149420.0,
+      "text": "basically, an interaction with your page and see, for example, &quot;Oh, hey, this frame ran"
+    },
+    {
+      "index": 34,
+      "start_time": 149420.0,
+      "end_time": 153530.0,
+      "text": "long because of JavaScript.&quot; And there are just thousands of things that can go wrong."
+    },
+    {
+      "index": 35,
+      "start_time": 153530.0,
+      "end_time": 158709.0,
+      "text": "CSS can run long. You can have an XHR that comes back and does some big json parse. You"
+    },
+    {
+      "index": 36,
+      "start_time": 158709.0,
+      "end_time": 163569.0,
+      "text": "can have an image decode that fires. You can -- you know, I can go on for hours on this,"
+    },
+    {
+      "index": 37,
+      "start_time": 163569.0,
+      "end_time": 165450.0,
+      "text": "you know. &gt;&gt;Tom Wiltzius: What Nat is trying to say"
+    },
+    {
+      "index": 38,
+      "start_time": 165450.0,
+      "end_time": 170180.0,
+      "text": "is there&#39;s a lot that gets in the way of the 16 milliseconds you have to make a new image"
+    },
+    {
+      "index": 39,
+      "start_time": 170180.0,
+      "end_time": 175180.0,
+      "text": "before the monitor refreshes. And there are, as Nat says, lots and lots of ways that this"
+    },
+    {
+      "index": 40,
+      "start_time": 175180.0,
+      "end_time": 180189.0,
+      "text": "can go poorly but today we&#39;re going to talk about one kind of specific category and that&#39;s"
+    },
+    {
+      "index": 41,
+      "start_time": 180189.0,
+      "end_time": 184950.0,
+      "text": "what are essentially the green bars in the vertical Timeline in DevTools."
+    },
+    {
+      "index": 42,
+      "start_time": 184950.0,
+      "end_time": 189730.0,
+      "text": "This is what we call sort of rendering, but that breaks down into painting and compositing"
+    },
+    {
+      "index": 43,
+      "start_time": 189730.0,
+      "end_time": 192230.0,
+      "text": "and we&#39;re going to talk about both of those in today&#39;s talk."
+    },
+    {
+      "index": 44,
+      "start_time": 192230.0,
+      "end_time": 196989.0,
+      "text": "&gt;&gt;Nat Duca: And it&#39;s good that Tom saved you from me yammering on because you&#39;d just fall"
+    },
+    {
+      "index": 45,
+      "start_time": 196989.0,
+      "end_time": 199010.0,
+      "text": "asleep and be wasting your time. [ Laughter ]"
+    },
+    {
+      "index": 46,
+      "start_time": 199010.0,
+      "end_time": 203480.0,
+      "text": "&gt;&gt;Tom Wiltzius: So rendering, what are we going to talk about today? We&#39;re going to"
+    },
+    {
+      "index": 47,
+      "start_time": 203480.0,
+      "end_time": 208519.0,
+      "text": "talk about painting speed, what -- what kind of goes into it and how you can try to paint"
+    },
+    {
+      "index": 48,
+      "start_time": 208519.0,
+      "end_time": 211909.0,
+      "text": "as quickly as possible. But then even better than that, we&#39;re going to try to talk about"
+    },
+    {
+      "index": 49,
+      "start_time": 211909.0,
+      "end_time": 216260.0,
+      "text": "how you can avoid painting in the first place, either because you were doing so accidentally"
+    },
+    {
+      "index": 50,
+      "start_time": 216260.0,
+      "end_time": 218900.0,
+      "text": "and you didn&#39;t realize it -- and we&#39;re going to show you how to notice that kind of thing"
+    },
+    {
+      "index": 51,
+      "start_time": 218900.0,
+      "end_time": 223689.0,
+      "text": "-- and then better yet, we&#39;re going to talk about how to deliberately avoid paints from"
+    },
+    {
+      "index": 52,
+      "start_time": 223689.0,
+      "end_time": 227469.0,
+      "text": "the get-go when you&#39;re designing your application. &gt;&gt;Nat Duca: And there will not be a rocket"
+    },
+    {
+      "index": 53,
+      "start_time": 227469.0,
+      "end_time": 231140.0,
+      "text": "ship that we can give you at the end as a takeaway, so sorry."
+    },
+    {
+      "index": 54,
+      "start_time": 231140.0,
+      "end_time": 236430.0,
+      "text": "The beginning building block of rendering in a web browser is preparing pixels to be"
+    },
+    {
+      "index": 55,
+      "start_time": 236430.0,
+      "end_time": 239769.0,
+      "text": "put up on the screen. So if you go to Google -- right? -- we&#39;ve"
+    },
+    {
+      "index": 56,
+      "start_time": 239769.0,
+      "end_time": 244579.0,
+      "text": "all been there, you&#39;re presented with this, which is the nice little happy hello Google"
+    },
+    {
+      "index": 57,
+      "start_time": 244579.0,
+      "end_time": 250709.0,
+      "text": "thing, and you get a blinking cursor, right? Where the only difference between the page"
+    },
+    {
+      "index": 58,
+      "start_time": 250709.0,
+      "end_time": 255370.0,
+      "text": "over time is the cursor coming on and off. Now, what Chrome&#39;s doing behind the scenes"
+    },
+    {
+      "index": 59,
+      "start_time": 255370.0,
+      "end_time": 259930.0,
+      "text": "is it&#39;s actually filling in those black dots for the cursor itself, and what it&#39;s doing"
+    },
+    {
+      "index": 60,
+      "start_time": 259930.0,
+      "end_time": 264490.0,
+      "text": "is it&#39;s got some, you know, logic in it that says, &quot;Ooh, this part of the page has changed."
+    },
+    {
+      "index": 61,
+      "start_time": 264490.0,
+      "end_time": 268830.0,
+      "text": "I need to refill those pixels with black or I need to remove them.&quot;"
+    },
+    {
+      "index": 62,
+      "start_time": 268830.0,
+      "end_time": 273889.0,
+      "text": "And so you get this little update req, this painted area on the screen that we repaint"
+    },
+    {
+      "index": 63,
+      "start_time": 273889.0,
+      "end_time": 278090.0,
+      "text": "and then you see this illusion of a blinking cursor."
+    },
+    {
+      "index": 64,
+      "start_time": 278090.0,
+      "end_time": 282259.0,
+      "text": "Now, if you think about that, that takes some time but it&#39;s probably relatively little and"
+    },
+    {
+      "index": 65,
+      "start_time": 282259.0,
+      "end_time": 285940.0,
+      "text": "if I compared the time taken to blink the cursor versus, say, if I just had the whole"
+    },
+    {
+      "index": 66,
+      "start_time": 285940.0,
+      "end_time": 290780.0,
+      "text": "Google logo blinking -- now, of course people would be upset if I did that to our home page,"
+    },
+    {
+      "index": 67,
+      "start_time": 290780.0,
+      "end_time": 294490.0,
+      "text": "but also, it would take more time to do it, okay? Because there&#39;s just -- you can sort"
+    },
+    {
+      "index": 68,
+      "start_time": 294490.0,
+      "end_time": 298310.0,
+      "text": "of think about this. This is intuitive. We have to touch more pixels, right? So that&#39;s"
+    },
+    {
+      "index": 69,
+      "start_time": 298310.0,
+      "end_time": 302100.0,
+      "text": "one dimension of rendering performance and in particular painting speed, is how many"
+    },
+    {
+      "index": 70,
+      "start_time": 302100.0,
+      "end_time": 306080.0,
+      "text": "pixels you&#39;ve touched. But that&#39;s not the only dimension, of course."
+    },
+    {
+      "index": 71,
+      "start_time": 306080.0,
+      "end_time": 310889.0,
+      "text": "The other part that matters is what you touch and what type of content is in the area that"
+    },
+    {
+      "index": 72,
+      "start_time": 310889.0,
+      "end_time": 314770.0,
+      "text": "you&#39;re updating. So if you take this white block on the upper"
+    },
+    {
+      "index": 73,
+      "start_time": 314770.0,
+      "end_time": 318900.0,
+      "text": "left, that&#39;s just white. And if you think about what Chrome has to do to make those"
+    },
+    {
+      "index": 74,
+      "start_time": 318900.0,
+      "end_time": 324120.0,
+      "text": "pixels white, it just has to sort of put RGBA for white into a bunch of parts of memory."
+    },
+    {
+      "index": 75,
+      "start_time": 324120.0,
+      "end_time": 329250.0,
+      "text": "So that&#39;s a mem set and it&#39;s pretty darn fast. In contrast, the &quot;I&#39;m Feeling Lucky&quot; button"
+    },
+    {
+      "index": 76,
+      "start_time": 329250.0,
+      "end_time": 333240.0,
+      "text": "has all sorts of nasty little details on it, and it&#39;s actually kind of fun to zoom on this"
+    },
+    {
+      "index": 77,
+      "start_time": 333240.0,
+      "end_time": 337169.0,
+      "text": "on a computer with a magnifying glass and see all the things going on there. If any"
+    },
+    {
+      "index": 78,
+      "start_time": 337169.0,
+      "end_time": 341300.0,
+      "text": "of you have actually taken like an undergrad graphics class and had to write like a line"
+    },
+    {
+      "index": 79,
+      "start_time": 341300.0,
+      "end_time": 346150.0,
+      "text": "drawing algorithm, imagine having to do that in Chrome but where you also have antialiasing"
+    },
+    {
+      "index": 80,
+      "start_time": 346150.0,
+      "end_time": 351889.0,
+      "text": "and rounded corners and blurs and text and anti-alias text. It gets really hairy and"
+    },
+    {
+      "index": 81,
+      "start_time": 351889.0,
+      "end_time": 356030.0,
+      "text": "it&#39;s sort of the thing that makes you want to jump off a, you know, cliff, but it&#39;s also"
+    },
+    {
+      "index": 82,
+      "start_time": 356030.0,
+      "end_time": 361669.0,
+      "text": "the thing that makes the CPU chug along. So painting is a slow thing and it&#39;s something"
+    },
+    {
+      "index": 83,
+      "start_time": 361669.0,
+      "end_time": 366020.0,
+      "text": "to be avoided pretty much at all costs. &gt;&gt;Tom Wiltzius: And you want to wonder probably"
+    },
+    {
+      "index": 84,
+      "start_time": 366020.0,
+      "end_time": 370569.0,
+      "text": "like what -- what is expensive and what isn&#39;t, right? Like Nat is just asserting that like,"
+    },
+    {
+      "index": 85,
+      "start_time": 370569.0,
+      "end_time": 376419.0,
+      "text": "oh, drawing his NTOS lines is expensive, but in an ideal world you would be able to measure"
+    },
+    {
+      "index": 86,
+      "start_time": 376419.0,
+      "end_time": 380569.0,
+      "text": "this kind of thing. And this is something that DevTools does allow you to do to a certain"
+    },
+    {
+      "index": 87,
+      "start_time": 380569.0,
+      "end_time": 385410.0,
+      "text": "extent. A good question to ask is like, &quot;Well, which elements on the page are expensive?&quot;"
+    },
+    {
+      "index": 88,
+      "start_time": 385410.0,
+      "end_time": 390949.0,
+      "text": "And a good way to measure that is with continuous painting mode in DevTools, which is a DevTools"
+    },
+    {
+      "index": 89,
+      "start_time": 390949.0,
+      "end_time": 394539.0,
+      "text": "setting that we&#39;re not going to talk about in great detail today but there are some really"
+    },
+    {
+      "index": 90,
+      "start_time": 394539.0,
+      "end_time": 399539.0,
+      "text": "good resources on the web about how to use it. This link -- and our slides will be linked"
+    },
+    {
+      "index": 91,
+      "start_time": 399539.0,
+      "end_time": 404979.0,
+      "text": "on the web later -- will take you to an article that explains in detail how to use continuous"
+    },
+    {
+      "index": 92,
+      "start_time": 404979.0,
+      "end_time": 409410.0,
+      "text": "painting mode to repaint the entire frame as fast as possible and tell you how long"
+    },
+    {
+      "index": 93,
+      "start_time": 409410.0,
+      "end_time": 414379.0,
+      "text": "that takes and then you can hide certain elements and see how does that affect the painting"
+    },
+    {
+      "index": 94,
+      "start_time": 414379.0,
+      "end_time": 416940.0,
+      "text": "time. Because often as not, it&#39;s a single complicated element that&#39;s taking all the"
+    },
+    {
+      "index": 95,
+      "start_time": 416940.0,
+      "end_time": 418680.0,
+      "text": "time. &gt;&gt;Nat Duca: When you look at your page, look"
+    },
+    {
+      "index": 96,
+      "start_time": 418680.0,
+      "end_time": 422789.0,
+      "text": "at all the pieces and keep in the back of your head that not all of them are the same"
+    },
+    {
+      "index": 97,
+      "start_time": 422789.0,
+      "end_time": 427039.0,
+      "text": "cost and you&#39;re paying for some of those effects more than others. And if you start getting"
+    },
+    {
+      "index": 98,
+      "start_time": 427039.0,
+      "end_time": 430710.0,
+      "text": "in a situation where you see painting, start figuring out which ones you&#39;re paying for"
+    },
+    {
+      "index": 99,
+      "start_time": 430710.0,
+      "end_time": 433129.0,
+      "text": "and whether you really want to be paying for that bill for that one."
+    },
+    {
+      "index": 100,
+      "start_time": 433129.0,
+      "end_time": 437349.0,
+      "text": "&gt;&gt;Tom Wiltzius: That&#39;s right. Painting also, I should say, isn&#39;t -- it&#39;s not just about"
+    },
+    {
+      "index": 101,
+      "start_time": 437349.0,
+      "end_time": 441199.0,
+      "text": "the blinking cursor, right? In the blinking cursor case, it makes sense that we need to"
+    },
+    {
+      "index": 102,
+      "start_time": 441199.0,
+      "end_time": 445729.0,
+      "text": "repaint like the part of the screen that&#39;s changed because the pixel output is different."
+    },
+    {
+      "index": 103,
+      "start_time": 445729.0,
+      "end_time": 450819.0,
+      "text": "But there are plenty of cases on the web where even if you change something that doesn&#39;t"
+    },
+    {
+      "index": 104,
+      "start_time": 450819.0,
+      "end_time": 457069.0,
+      "text": "have any sort of material impact on the final presentation of what goes up on the screen,"
+    },
+    {
+      "index": 105,
+      "start_time": 457069.0,
+      "end_time": 461639.0,
+      "text": "you can still incur a costly repaint, and we&#39;re going to show a small demo of that right"
+    },
+    {
+      "index": 106,
+      "start_time": 461639.0,
+      "end_time": 466330.0,
+      "text": "now. If I hit this button, I get elements that"
+    },
+    {
+      "index": 107,
+      "start_time": 466330.0,
+      "end_time": 471069.0,
+      "text": "are added to this screen. It&#39;s -- this is really simple. These are just gray divs. Basically"
+    },
+    {
+      "index": 108,
+      "start_time": 471069.0,
+      "end_time": 473039.0,
+      "text": "styles, right? &gt;&gt;Nat Duca: Winner of Web Site of the Year"
+    },
+    {
+      "index": 109,
+      "start_time": 473039.0,
+      "end_time": 474949.0,
+      "text": "for 2013. &gt;&gt;Tom Wiltzius: Thanks, Nat."
+    },
+    {
+      "index": 110,
+      "start_time": 474949.0,
+      "end_time": 480009.0,
+      "text": "&gt;&gt;Nat Duca: Because you&#39;re good. &gt;&gt;Tom Wiltzius: And what we want to do here"
+    },
+    {
+      "index": 111,
+      "start_time": 480009.0,
+      "end_time": 484039.0,
+      "text": "is get some insight into what is being painted when by the browser."
+    },
+    {
+      "index": 112,
+      "start_time": 484039.0,
+      "end_time": 489300.0,
+      "text": "So if we open up DevTools and we turn on show paint rectangles under the rendering heading"
+    },
+    {
+      "index": 113,
+      "start_time": 489300.0,
+      "end_time": 495870.0,
+      "text": "of settings, then we have -- we have the ability to really see what gets painted as the page"
+    },
+    {
+      "index": 114,
+      "start_time": 495870.0,
+      "end_time": 497870.0,
+      "text": "changes. So again, I&#39;m going to hit this button a few"
+    },
+    {
+      "index": 115,
+      "start_time": 497870.0,
+      "end_time": 504189.0,
+      "text": "times and you can see that as I add additional elements, there&#39;s a red -- red rectangle that"
+    },
+    {
+      "index": 116,
+      "start_time": 504189.0,
+      "end_time": 509180.0,
+      "text": "flashes over the element and that red rectangle means, &quot;This part of the screen just got repainted"
+    },
+    {
+      "index": 117,
+      "start_time": 509180.0,
+      "end_time": 512159.0,
+      "text": "by Chrome.&quot; Or really by Blink in this case. &gt;&gt;Nat Duca: So that&#39;s that rectangle that"
+    },
+    {
+      "index": 118,
+      "start_time": 512159.0,
+      "end_time": 515370.0,
+      "text": "I was showing you in slides but in runtime for your production site."
+    },
+    {
+      "index": 119,
+      "start_time": 515370.0,
+      "end_time": 518940.0,
+      "text": "&gt;&gt;Tom Wiltzius: That&#39;s right. And I can keep adding elements, and now I&#39;m adding elements"
+    },
+    {
+      "index": 120,
+      "start_time": 518940.00000000006,
+      "end_time": 524480.0,
+      "text": "like way below the fold of the page and you can see that as I add more, the only thing"
+    },
+    {
+      "index": 121,
+      "start_time": 524480.0,
+      "end_time": 528370.0,
+      "text": "that gets repainted here is the button, because it ends up in this depressed state and then"
+    },
+    {
+      "index": 122,
+      "start_time": 528370.0,
+      "end_time": 533110.0,
+      "text": "comes out of it, and the scrollbar, because the scrollbar size is changing."
+    },
+    {
+      "index": 123,
+      "start_time": 533110.0,
+      "end_time": 538920.0,
+      "text": "So this is great, right? And it makes sense in some sort of basic logic that as you&#39;re"
+    },
+    {
+      "index": 124,
+      "start_time": 538920.0,
+      "end_time": 542579.0,
+      "text": "adding elements below the fold of the page, you&#39;re not having to repaint anything that"
+    },
+    {
+      "index": 125,
+      "start_time": 542579.0,
+      "end_time": 549700.0,
+      "text": "is on the page. But it&#39;s not always that simple. If I try to do something like inspect this"
+    },
+    {
+      "index": 126,
+      "start_time": 549700.0,
+      "end_time": 555339.0,
+      "text": "container block -- and the DevTools inspection is going to drive the paint rectangles nuts"
+    },
+    {
+      "index": 127,
+      "start_time": 555339.0,
+      "end_time": 560279.0,
+      "text": "a little bit, but if I look at this block that contains all of these elements and then"
+    },
+    {
+      "index": 128,
+      "start_time": 560279.0,
+      "end_time": 565060.0,
+      "text": "I toggle, say, how much padding there is on the right side of that container block, I&#39;m"
+    },
+    {
+      "index": 129,
+      "start_time": 565060.0,
+      "end_time": 569649.0,
+      "text": "not going to end up with any, again, visible change to what gets rendered."
+    },
+    {
+      "index": 130,
+      "start_time": 569649.0,
+      "end_time": 574160.0,
+      "text": "These divs are sized such that even if there&#39;s an extra 10 pixels of padding on the right"
+    },
+    {
+      "index": 131,
+      "start_time": 574160.0,
+      "end_time": 577350.0,
+      "text": "side of that container, the layout is not going to change, nothing is going to look"
+    },
+    {
+      "index": 132,
+      "start_time": 577350.0,
+      "end_time": 582680.0,
+      "text": "any different. But watch what happens when I add some of that padding. You can see in"
+    },
+    {
+      "index": 133,
+      "start_time": 582680.0,
+      "end_time": 589170.0,
+      "text": "-- it&#39;s probably small text, but padding has showed up in the element style in inspector"
+    },
+    {
+      "index": 134,
+      "start_time": 589170.0,
+      "end_time": 594209.0,
+      "text": "and I got this big red rectangle that flashed over the entire container. And the reason"
+    },
+    {
+      "index": 135,
+      "start_time": 594209.0,
+      "end_time": 599420.0,
+      "text": "is that Blink, I mean, it&#39;s not that smart, right? And so when some of this padding got"
+    },
+    {
+      "index": 136,
+      "start_time": 599420.0,
+      "end_time": 604850.0,
+      "text": "added, there was a series of steps that it went through that said, &quot;Okay, now I need"
+    },
+    {
+      "index": 137,
+      "start_time": 604850.0,
+      "end_time": 610670.0,
+      "text": "to think about do I need to recalculate the position of any of the elements inside of"
+    },
+    {
+      "index": 138,
+      "start_time": 610670.0,
+      "end_time": 613800.0,
+      "text": "this container block?&quot; The answer ends up being &quot;no&quot; but in the process,"
+    },
+    {
+      "index": 139,
+      "start_time": 613800.0,
+      "end_time": 618399.0,
+      "text": "it invalidates the -- the sort of visible state of all of these elements on the screen"
+    },
+    {
+      "index": 140,
+      "start_time": 618399.0,
+      "end_time": 621170.0,
+      "text": "and then they all get repainted. &gt;&gt;Nat Duca: Yeah. Blink has a well-meaning"
+    },
+    {
+      "index": 141,
+      "start_time": 621170.0,
+      "end_time": 625760.0,
+      "text": "but sometimes confused brain and so, you know, in this case it&#39;s getting confused. It thinks"
+    },
+    {
+      "index": 142,
+      "start_time": 625760.0,
+      "end_time": 629490.0,
+      "text": "that maybe something bad is about to happen and it causes a repaint. And this is the sort"
+    },
+    {
+      "index": 143,
+      "start_time": 629490.0,
+      "end_time": 632500.0,
+      "text": "of thing that actually happens more often than we&#39;d like."
+    },
+    {
+      "index": 144,
+      "start_time": 632500.0,
+      "end_time": 636660.0,
+      "text": "When you use and write really nice modular code that&#39;s beautiful and has all sorts of"
+    },
+    {
+      "index": 145,
+      "start_time": 636660.0,
+      "end_time": 641110.0,
+      "text": "awesome design patterns in it, sometimes this sort of thing will creep in because somewhere"
+    },
+    {
+      "index": 146,
+      "start_time": 641110.0,
+      "end_time": 645070.0,
+      "text": "deep in there somebody added a class and then removed a class somewhere else and that confused"
+    },
+    {
+      "index": 147,
+      "start_time": 645070.0,
+      "end_time": 650200.0,
+      "text": "the system. So this is something to keep your eye out for when you&#39;re doing sort of day-to-day"
+    },
+    {
+      "index": 148,
+      "start_time": 650200.0,
+      "end_time": 654540.0,
+      "text": "production. Keep an eye out for these erroneous blinks where you would expect there to be"
+    },
+    {
+      "index": 149,
+      "start_time": 654540.0,
+      "end_time": 659060.0,
+      "text": "no red flash and there is. Because once they start creeping in, they&#39;re really devilishly"
+    },
+    {
+      "index": 150,
+      "start_time": 659060.0,
+      "end_time": 663399.0,
+      "text": "hard to stamp out again. &gt;&gt;Tom Wiltzius: Very true. So switching gears"
+    },
+    {
+      "index": 151,
+      "start_time": 663399.0,
+      "end_time": 668829.0,
+      "text": "a little bit, we&#39;ve talked about painting now, but the -- the next best thing from trying"
+    },
+    {
+      "index": 152,
+      "start_time": 668829.0,
+      "end_time": 674170.0,
+      "text": "to avoid unnecessary paints is to not paint at all. And Nat&#39;s going to talk a little bit"
+    },
+    {
+      "index": 153,
+      "start_time": 674170.0,
+      "end_time": 676250.0,
+      "text": "about how we do that for common cases like scrolling."
+    },
+    {
+      "index": 154,
+      "start_time": 676250.0,
+      "end_time": 681029.0,
+      "text": "&gt;&gt;Nat Duca: So like in ye old days -- right, like 1990 something, the way that we would"
+    },
+    {
+      "index": 155,
+      "start_time": 681029.0,
+      "end_time": 685370.0,
+      "text": "scroll a page in a browser was we would repaint parts of it. So we would move bits of the"
+    },
+    {
+      "index": 156,
+      "start_time": 685370.0,
+      "end_time": 689820.0,
+      "text": "pixels up using some low-level things, and then we&#39;d do a big repaint rectangle on the"
+    },
+    {
+      "index": 157,
+      "start_time": 689820.0,
+      "end_time": 694519.0,
+      "text": "area that you&#39;d exposed from the scroll. Now we just talked for, you know, a while"
+    },
+    {
+      "index": 158,
+      "start_time": 694519.0,
+      "end_time": 700110.0,
+      "text": "about how devilishly slow painting is and how it should be avoided. So developers in"
+    },
+    {
+      "index": 159,
+      "start_time": 700110.0,
+      "end_time": 704300.0,
+      "text": "both, you know, Webkit and Blink and Chrome and pretty much everywhere have adopted this"
+    },
+    {
+      "index": 160,
+      "start_time": 704300.0,
+      "end_time": 708389.0,
+      "text": "new notion of a layer. If you look at this picture we&#39;ve got up of"
+    },
+    {
+      "index": 161,
+      "start_time": 708389.0,
+      "end_time": 713209.0,
+      "text": "Gmail, the analogy is this: If I look at Gmail, I know that there&#39;s a part of the page that&#39;s"
+    },
+    {
+      "index": 162,
+      "start_time": 713209.0,
+      "end_time": 717720.0,
+      "text": "just going to move up and down. It&#39;s not going to change visually. It&#39;s just there are going"
+    },
+    {
+      "index": 163,
+      "start_time": 717720.0,
+      "end_time": 721000.0,
+      "text": "to be new pieces shown that weren&#39;t previously visible. Right?"
+    },
+    {
+      "index": 164,
+      "start_time": 721000.0,
+      "end_time": 725079.0,
+      "text": "But the stuff on top of it, the -- the top nav and the left thing, they&#39;ll always be"
+    },
+    {
+      "index": 165,
+      "start_time": 725079.0,
+      "end_time": 729449.0,
+      "text": "there. And so there&#39;s this sort of idea of &quot;Hey, we will detect that using semantic cues"
+    },
+    {
+      "index": 166,
+      "start_time": 729449.0,
+      "end_time": 734839.0,
+      "text": "in your thing like it being an overflow div and we will turn those into layers and each"
+    },
+    {
+      "index": 167,
+      "start_time": 734839.0,
+      "end_time": 740040.0,
+      "text": "layer becomes a picture that we upload to the GPU on your computer, store there, and"
+    },
+    {
+      "index": 168,
+      "start_time": 740040.0,
+      "end_time": 744889.0,
+      "text": "then if the thing that you&#39;re doing to your page is just moving the layers around, we"
+    },
+    {
+      "index": 169,
+      "start_time": 744889.0,
+      "end_time": 748889.0,
+      "text": "can ask the GPU to scroll it for you.&quot; Or, in fact, reposition it and then ask the GPU"
+    },
+    {
+      "index": 170,
+      "start_time": 748889.0,
+      "end_time": 752949.0,
+      "text": "to recompose them. And so it looks like you&#39;re scrolling because you&#39;re only looking down"
+    },
+    {
+      "index": 171,
+      "start_time": 752949.0,
+      "end_time": 755660.0,
+      "text": "at the layers. You just see it -- you know, it looks like you&#39;re seeing the whole Web"
+    },
+    {
+      "index": 172,
+      "start_time": 755660.0,
+      "end_time": 760449.0,
+      "text": "page. But what&#39;s happening underneath is the browser is just re-compositing, skipping that"
+    },
+    {
+      "index": 173,
+      "start_time": 760449.0,
+      "end_time": 767320.0,
+      "text": "expensive paint step, and going nice and jankfree. But this all depends -- this jankfreeness"
+    },
+    {
+      "index": 174,
+      "start_time": 767320.0,
+      "end_time": 771420.0,
+      "text": "is all predicated on you getting good layers in the first place, and if you don&#39;t get those"
+    },
+    {
+      "index": 175,
+      "start_time": 771420.0,
+      "end_time": 773560.0,
+      "text": "layers created, things can go a little bit haywire."
+    },
+    {
+      "index": 176,
+      "start_time": 773560.0,
+      "end_time": 777589.0,
+      "text": "&gt;&gt;Tom Wiltzius: That&#39;s right. It&#39;s also predicated on not like the good layers. It&#39;s predicated"
+    },
+    {
+      "index": 177,
+      "start_time": 777589.0,
+      "end_time": 782190.0,
+      "text": "on the layers being set up in such a way that we don&#39;t need to paint them, right? Like if"
+    },
+    {
+      "index": 178,
+      "start_time": 782190.0,
+      "end_time": 787470.0,
+      "text": "the layer content is changing, then all bets are off on this being a good system. So I&#39;ll"
+    },
+    {
+      "index": 179,
+      "start_time": 787470.0,
+      "end_time": 796260.0,
+      "text": "open up another demo, and this one -- maybe it will load..."
+    },
+    {
+      "index": 180,
+      "start_time": 796260.0,
+      "end_time": 797870.0,
+      "text": "You want to turn off -- &gt;&gt;Nat Duca: I will turn off WiFi."
+    },
+    {
+      "index": 181,
+      "start_time": 797870.0,
+      "end_time": 805720.0,
+      "text": "&gt;&gt;Tom Wiltzius: -- WiFi and try again? In a case where we scroll -- in this case,"
+    },
+    {
+      "index": 182,
+      "start_time": 805720.0,
+      "end_time": 811329.0,
+      "text": "a whole long list of images, we can -- we can do that pretty well, right?"
+    },
+    {
+      "index": 183,
+      "start_time": 811329.0,
+      "end_time": 814720.0,
+      "text": "Nothing on the page is changing here. This is really a simple sort of like static media"
+    },
+    {
+      "index": 184,
+      "start_time": 814720.0,
+      "end_time": 819380.0,
+      "text": "site scenario. And indeed, we can scroll this -- this quite well."
+    },
+    {
+      "index": 185,
+      "start_time": 819380.0,
+      "end_time": 825829.0,
+      "text": "This whole sort of body of the page is in a layer. It&#39;s being re-composited every frame."
+    },
+    {
+      "index": 186,
+      "start_time": 825829.0,
+      "end_time": 831970.0,
+      "text": "&gt;&gt;Nat Duca: We shall bless this jankfree. &gt;&gt;Tom Wiltzius: Right. But if I open up DevTools"
+    },
+    {
+      "index": 187,
+      "start_time": 831970.0,
+      "end_time": 840060.0,
+      "text": "again and I turn on show paint rectangles, as I had, then you can see that part of the"
+    },
+    {
+      "index": 188,
+      "start_time": 840060.0,
+      "end_time": 843329.0,
+      "text": "kind of jankfreeness here is that nothing is being repainted. The only thing that&#39;s"
+    },
+    {
+      "index": 189,
+      "start_time": 843329.0,
+      "end_time": 846009.0,
+      "text": "being repainted is, again, the scrollbar so we can kind of afford."
+    },
+    {
+      "index": 190,
+      "start_time": 846009.0,
+      "end_time": 848990.0,
+      "text": "&gt;&gt;Nat Duca: So we&#39;re keeping that contract with the browser: I won&#39;t repaint and you&#39;ll"
+    },
+    {
+      "index": 191,
+      "start_time": 848990.0,
+      "end_time": 851600.0,
+      "text": "be jankfree. &gt;&gt;Tom Wiltzius: That&#39;s right. But if I hover"
+    },
+    {
+      "index": 192,
+      "start_time": 851600.0,
+      "end_time": 856420.0,
+      "text": "over this image, I&#39;ve got actually kind of like a nice animation that happens. I add"
+    },
+    {
+      "index": 193,
+      "start_time": 856420.0,
+      "end_time": 860130.0,
+      "text": "a shadow, I change the opacity, I brighten the image a little bit. This is the kind of"
+    },
+    {
+      "index": 194,
+      "start_time": 860130.0,
+      "end_time": 865120.0,
+      "text": "thing that&#39;s become increasingly common. And as I do that, you can see that because it&#39;s"
+    },
+    {
+      "index": 195,
+      "start_time": 865120.0,
+      "end_time": 869389.0,
+      "text": "sort of a complicated animation that Chrome doesn&#39;t accelerate very well, I get a lot"
+    },
+    {
+      "index": 196,
+      "start_time": 869389.0,
+      "end_time": 873570.0,
+      "text": "of repaints throughout the course of the animation and that&#39;s those red rectangles flashing over"
+    },
+    {
+      "index": 197,
+      "start_time": 873570.0,
+      "end_time": 879570.0,
+      "text": "the animation again. But that animation is going to play really, really poorly with the"
+    },
+    {
+      "index": 198,
+      "start_time": 879570.0,
+      "end_time": 883820.0,
+      "text": "scroll, and you can probably guess why by now, based on everything we&#39;ve just said."
+    },
+    {
+      "index": 199,
+      "start_time": 883820.0,
+      "end_time": 889209.0,
+      "text": "The -- the browser is going to start repainting to run the animation right at the time when"
+    },
+    {
+      "index": 200,
+      "start_time": 889209.0,
+      "end_time": 895110.0,
+      "text": "it -- what it wants to be doing is re-compositing this static unchanging content over and over"
+    },
+    {
+      "index": 201,
+      "start_time": 895110.0,
+      "end_time": 898800.0,
+      "text": "again in different positions. But if the content&#39;s changed, then it can&#39;t just reposition it."
+    },
+    {
+      "index": 202,
+      "start_time": 898800.0,
+      "end_time": 902959.0,
+      "text": "It needs to repaint it first, re-upload it to the GPU, and then re-composite it. You"
+    },
+    {
+      "index": 203,
+      "start_time": 902959.0,
+      "end_time": 909110.0,
+      "text": "lose all the benefits. And indeed, if I try to scroll with my mouse over here, the resolution"
+    },
+    {
+      "index": 204,
+      "start_time": 909110.0,
+      "end_time": 912920.0,
+      "text": "of this screen is hurting me a little bit, but it gets a lot Jankier, and you can see"
+    },
+    {
+      "index": 205,
+      "start_time": 912920.0,
+      "end_time": 918199.0,
+      "text": "that these are these big red flashes that occur all over -- all over the page and that"
+    },
+    {
+      "index": 206,
+      "start_time": 918199.0,
+      "end_time": 922410.0,
+      "text": "gets in the way of sort of a jankfree scroll. &gt;&gt;Nat Duca: Yeah. So these big red flashes"
+    },
+    {
+      "index": 207,
+      "start_time": 922410.0,
+      "end_time": 926509.0,
+      "text": "are your warning to -- you know, your one-way trip to Janktown, right? You&#39;ve got big red"
+    },
+    {
+      "index": 208,
+      "start_time": 926509.0,
+      "end_time": 931089.0,
+      "text": "flashes and you&#39;re basically going to start repainting all the time and then on a low-end"
+    },
+    {
+      "index": 209,
+      "start_time": 931089.0,
+      "end_time": 935269.0,
+      "text": "machine -- this is a Mac Book Pro so of course it&#39;s going to be in better shape, but on a"
+    },
+    {
+      "index": 210,
+      "start_time": 935269.0,
+      "end_time": 937560.0,
+      "text": "lower-end machine especially you&#39;re going to really start paying dearly."
+    },
+    {
+      "index": 211,
+      "start_time": 937560.0,
+      "end_time": 941370.0,
+      "text": "&gt;&gt;Tom Wiltzius: This is the type of thing that we see as particularly painful on like"
+    },
+    {
+      "index": 212,
+      "start_time": 941370.0,
+      "end_time": 946449.0,
+      "text": "phones or tablets. In this case, I mean, getting rid of the hover effect is a relatively simple"
+    },
+    {
+      "index": 213,
+      "start_time": 946449.0,
+      "end_time": 952829.0,
+      "text": "task, right? So if I uncheck this box, there&#39;s a scroll handler here that will disable the"
+    },
+    {
+      "index": 214,
+      "start_time": 952829.0,
+      "end_time": 958509.0,
+      "text": "hover effect when it first runs and then sets a timer and 200 milliseconds after the final"
+    },
+    {
+      "index": 215,
+      "start_time": 958509.0,
+      "end_time": 963079.0,
+      "text": "on-scroll event, it will re-enable the hover effects. This means that I can start scrolling"
+    },
+    {
+      "index": 216,
+      "start_time": 963079.0,
+      "end_time": 967519.0,
+      "text": "and the hover effects get disabled and no repaint is happening during the scroll but"
+    },
+    {
+      "index": 217,
+      "start_time": 967519.0,
+      "end_time": 971089.0,
+      "text": "then as soon as the scroll is done, I still get my sort of nice animation."
+    },
+    {
+      "index": 218,
+      "start_time": 971089.0,
+      "end_time": 974610.0,
+      "text": "&gt;&gt;Nat Duca: And this is sort of your instant recipe to making it smooth, right? Is if you"
+    },
+    {
+      "index": 219,
+      "start_time": 974610.0,
+      "end_time": 978269.0,
+      "text": "are willing to compromise on some of those gorgeous hover effects or whatever it is that"
+    },
+    {
+      "index": 220,
+      "start_time": 978269.0,
+      "end_time": 982399.0,
+      "text": "is causing your repaint in the first place, if you&#39;re willing to reduce it during the"
+    },
+    {
+      "index": 221,
+      "start_time": 982399.0,
+      "end_time": 986350.0,
+      "text": "scroll or simplify your content in some way, you can go nice and fast again."
+    },
+    {
+      "index": 222,
+      "start_time": 986350.0,
+      "end_time": 988779.0,
+      "text": "&gt;&gt;Tom Wiltzius: That&#39;s right. I mean, this is changing the behavior of the page, right?"
+    },
+    {
+      "index": 223,
+      "start_time": 988779.0,
+      "end_time": 992199.0,
+      "text": "And that&#39;s not always going to be acceptable to you. So it&#39;s important to understand that"
+    },
+    {
+      "index": 224,
+      "start_time": 992199.0,
+      "end_time": 997449.0,
+      "text": "there are often tradeoffs between how well something performs and what it looks -- what"
+    },
+    {
+      "index": 225,
+      "start_time": 997449.0,
+      "end_time": 1001910.0,
+      "text": "it looks like, but it isn&#39;t always going to be possible to achieve whatever sort of like"
+    },
+    {
+      "index": 226,
+      "start_time": 1001910.0,
+      "end_time": 1006880.0,
+      "text": "crazy effect you want in a -- a totally nice performance way."
+    },
+    {
+      "index": 227,
+      "start_time": 1006880.0,
+      "end_time": 1011410.0,
+      "text": "We&#39;re sort of picking on hover here, but really there are all sorts of things that can cause"
+    },
+    {
+      "index": 228,
+      "start_time": 1011410.0,
+      "end_time": 1016630.0,
+      "text": "this sort of problem. The -- the real thing you want to do is use"
+    },
+    {
+      "index": 229,
+      "start_time": 1016630.0,
+      "end_time": 1021009.0,
+      "text": "show paint reqs to sort of look for these big red flashes during your scroll or during"
+    },
+    {
+      "index": 230,
+      "start_time": 1021010.0,
+      "end_time": 1024761.0,
+      "text": "your animation and then try total rid of them. So hover effects are one thing to look out"
+    },
+    {
+      "index": 231,
+      "start_time": 1024760.0,
+      "end_time": 1030720.0,
+      "text": "for but there are a lot of others as well. Common problems come from fixed-position elements"
+    },
+    {
+      "index": 232,
+      "start_time": 1030720.0,
+      "end_time": 1038350.0,
+      "text": "or overflow scroll divs or touch listeners, mouse wheel events, trying to reposition things"
+    },
+    {
+      "index": 233,
+      "start_time": 1038349.9999999999,
+      "end_time": 1042179.9999999999,
+      "text": "in an on-scroll handler for like paralax effects sites. These are all things that we see that"
+    },
+    {
+      "index": 234,
+      "start_time": 1042180.0000000001,
+      "end_time": 1044670.0000000001,
+      "text": "-- &gt;&gt;Nat Duca: Social widgets that you position"
+    },
+    {
+      "index": 235,
+      "start_time": 1044670.0000000001,
+      "end_time": 1048670.0,
+      "text": "when people hover over an article and stuff like that. Like give the pages a chance to"
+    },
+    {
+      "index": 236,
+      "start_time": 1048670.0,
+      "end_time": 1051410.0,
+      "text": "settle before you bring in your, you know, +1 button, right?"
+    },
+    {
+      "index": 237,
+      "start_time": 1051410.0,
+      "end_time": 1054110.0,
+      "text": "&gt;&gt;Tom Wiltzius: Right. Which is not to say that like these things are bad, right? It&#39;s"
+    },
+    {
+      "index": 238,
+      "start_time": 1054110.0,
+      "end_time": 1058940.0,
+      "text": "just that you need to be aware that in sort of liberally using them, you may end up in"
+    },
+    {
+      "index": 239,
+      "start_time": 1058940.0,
+      "end_time": 1062960.0,
+      "text": "a position where you really end up fighting with the rendering system and the performance"
+    },
+    {
+      "index": 240,
+      "start_time": 1062960.0,
+      "end_time": 1066800.0,
+      "text": "is going to go through the floor. There are cases where you really do need that paint,"
+    },
+    {
+      "index": 241,
+      "start_time": 1066800.0,
+      "end_time": 1069580.0,
+      "text": "though, you really do want something to change accident occurring a scroll, and that&#39;s fine."
+    },
+    {
+      "index": 242,
+      "start_time": 1069580.0,
+      "end_time": 1073180.0,
+      "text": "If it&#39;s fast enough, you can still be Jankfree, right? But you&#39;re going to have to be very"
+    },
+    {
+      "index": 243,
+      "start_time": 1073180.0,
+      "end_time": 1078250.0,
+      "text": "vigilant about keeping paint as cheap as possible. For this, you want to be paying a lot of attention"
+    },
+    {
+      "index": 244,
+      "start_time": 1078250.0,
+      "end_time": 1082670.0,
+      "text": "to how visually complicated your CSS is and continuous painting mode that we plugged earlier"
+    },
+    {
+      "index": 245,
+      "start_time": 1082670.0,
+      "end_time": 1087210.0,
+      "text": "is a good way to try to reduce the cost of a lot of those paints. Image decodes and resizes"
+    },
+    {
+      "index": 246,
+      "start_time": 1087210.0,
+      "end_time": 1090830.0,
+      "text": "can be really painful. If you&#39;re on a media site with tons of images, you can blow the"
+    },
+    {
+      "index": 247,
+      "start_time": 1090830.0,
+      "end_time": 1093470.0,
+      "text": "image cache inside of Blink and that can be really painful."
+    },
+    {
+      "index": 248,
+      "start_time": 1093470.0,
+      "end_time": 1096680.0,
+      "text": "&gt;&gt;Nat Duca: Constant vigilance. &gt;&gt;Tom Wiltzius: Constant vigilance is the"
+    },
+    {
+      "index": 249,
+      "start_time": 1096680.0,
+      "end_time": 1100310.0,
+      "text": "answer, yeah. But now Nat&#39;s going to talk about some of the other great applications"
+    },
+    {
+      "index": 250,
+      "start_time": 1100310.0,
+      "end_time": 1101750.0,
+      "text": "of layers. &gt;&gt;Nat Duca: Well, I think we&#39;ve got another"
+    },
+    {
+      "index": 251,
+      "start_time": 1101750.0,
+      "end_time": 1105560.0,
+      "text": "demo for you which is always fun, more fun than us talking but, you know, here&#39;s the"
+    },
+    {
+      "index": 252,
+      "start_time": 1105560.0,
+      "end_time": 1109220.0,
+      "text": "thing. We showed you how you can use layers to scroll smoothly, right? And that&#39;s -- you"
+    },
+    {
+      "index": 253,
+      "start_time": 1109220.0,
+      "end_time": 1112960.0,
+      "text": "can sort of understand that, when we&#39;re moving something up and down. But people like, you"
+    },
+    {
+      "index": 254,
+      "start_time": 1112960.0,
+      "end_time": 1117790.0,
+      "text": "know, drawers and -- and hover effects and, you know, slides that -- that zoom in from"
+    },
+    {
+      "index": 255,
+      "start_time": 1117790.0,
+      "end_time": 1120390.0,
+      "text": "the left, right? And this is a really cool thing. There are"
+    },
+    {
+      "index": 256,
+      "start_time": 1120390.0,
+      "end_time": 1124000.0,
+      "text": "some amazing things you can do here. But the way to make it fast versus the way that you"
+    },
+    {
+      "index": 257,
+      "start_time": 1124000.0,
+      "end_time": 1129100.0,
+      "text": "encode it up quick are often not well aligned, so it&#39;s very important when you do sort of"
+    },
+    {
+      "index": 258,
+      "start_time": 1129100.0,
+      "end_time": 1132970.0,
+      "text": "animations to also think about layers and also think about how can I construct this"
+    },
+    {
+      "index": 259,
+      "start_time": 1132970.0,
+      "end_time": 1138010.0,
+      "text": "animation so it plays well with Chrome&#39;s layered rendering model, not fights against it."
+    },
+    {
+      "index": 260,
+      "start_time": 1138010.0,
+      "end_time": 1141500.0,
+      "text": "&gt;&gt;Tom Wiltzius: Right. And a lot of that comes down to how can I run this animation without"
+    },
+    {
+      "index": 261,
+      "start_time": 1141500.0,
+      "end_time": 1147790.0,
+      "text": "incurring any paints. So here&#39;s a really simple drawer. This is styled like incredibly plainly,"
+    },
+    {
+      "index": 262,
+      "start_time": 1147790.0,
+      "end_time": 1154960.0,
+      "text": "but you can see that if I open up DevTools and I have show paint reqs on, that as I run"
+    },
+    {
+      "index": 263,
+      "start_time": 1154960.0,
+      "end_time": 1159860.0,
+      "text": "this animation, which is a simple CSS animation on the left property -- right? -- like very"
+    },
+    {
+      "index": 264,
+      "start_time": 1159860.0,
+      "end_time": 1166110.0,
+      "text": "basic, I get repaints of the drawer throughout the entire animation. That means every frame,"
+    },
+    {
+      "index": 265,
+      "start_time": 1166110.0,
+      "end_time": 1170860.0,
+      "text": "this entire part of the screen is being repainted, re-uploaded to the GPU, and re-composited."
+    },
+    {
+      "index": 266,
+      "start_time": 1170860.0,
+      "end_time": 1174200.0,
+      "text": "And that&#39;s, again, relatively painful. &gt;&gt;Nat Duca: And if you take that to a low-end"
+    },
+    {
+      "index": 267,
+      "start_time": 1174200.0,
+      "end_time": 1177160.0,
+      "text": "device, it will be worse and worse and worse. Six times worse, often."
+    },
+    {
+      "index": 268,
+      "start_time": 1177160.0,
+      "end_time": 1179590.0,
+      "text": "&gt;&gt;Tom Wiltzius: Right. So the question you want to be asking yourself is, &quot;okay, like"
+    },
+    {
+      "index": 269,
+      "start_time": 1179590.0,
+      "end_time": 1186230.0,
+      "text": "how do I get around this? Like how do I avoid these red rectangles?&quot; And it so happens that"
+    },
+    {
+      "index": 270,
+      "start_time": 1186230.0,
+      "end_time": 1193090.0,
+      "text": "one good way to do so for moving things like this is with transforms, through CSS 3 transforms,"
+    },
+    {
+      "index": 271,
+      "start_time": 1193090.0,
+      "end_time": 1198320.0,
+      "text": "rather than changing the position property. Transforms take elements out of the flow of"
+    },
+    {
+      "index": 272,
+      "start_time": 1198320.0,
+      "end_time": 1203530.0,
+      "text": "the page, which gives the browser some stronger guarantees about what it can move without"
+    },
+    {
+      "index": 273,
+      "start_time": 1203530.0,
+      "end_time": 1207870.0,
+      "text": "risking having to reflow other elements. &gt;&gt;Nat Duca: This is an example of not all"
+    },
+    {
+      "index": 274,
+      "start_time": 1207870.0,
+      "end_time": 1213140.0,
+      "text": "-- you can make the same look in CSS with different types of selectors or different"
+    },
+    {
+      "index": 275,
+      "start_time": 1213140.0,
+      "end_time": 1219060.0,
+      "text": "types of attributes and get the same visual look. But it is going to perform totally differently."
+    },
+    {
+      "index": 276,
+      "start_time": 1219060.0,
+      "end_time": 1222520.0,
+      "text": "&gt;&gt;Tom Wiltzius: Chrome has all these fast pass. But you kind of need to find them, which"
+    },
+    {
+      "index": 277,
+      "start_time": 1222520.0,
+      "end_time": 1230500.0,
+      "text": "can be painful. If I use a Webkit transform here and a translate X, I have this comparatively"
+    },
+    {
+      "index": 278,
+      "start_time": 1230500.0,
+      "end_time": 1234390.0,
+      "text": "much nicer animation, right? You can see it is a little bit smoother if your eyes are"
+    },
+    {
+      "index": 279,
+      "start_time": 1234390.0,
+      "end_time": 1239930.0,
+      "text": "attuned to it. But the really nice thing is I&#39;m not getting any paints, there is no red"
+    },
+    {
+      "index": 280,
+      "start_time": 1239930.0,
+      "end_time": 1243420.0,
+      "text": "rectangles throughout the animation. There are red rectangles at the beginning and end,"
+    },
+    {
+      "index": 281,
+      "start_time": 1243420.0,
+      "end_time": 1248260.0,
+      "text": "though. And we will talk about those next. &gt;&gt;Nat Duca: If you get somebody who stamps"
+    },
+    {
+      "index": 282,
+      "start_time": 1248260.0,
+      "end_time": 1252750.0,
+      "text": "out that first bit of animation and Tom comes over to me and says, I got it! I got it! We"
+    },
+    {
+      "index": 283,
+      "start_time": 1252750.0,
+      "end_time": 1256980.0,
+      "text": "just have red flashes getting in. It is not good enough. Never, ever paint. That&#39;s what"
+    },
+    {
+      "index": 284,
+      "start_time": 1256980.0,
+      "end_time": 1261660.0,
+      "text": "we are looking for. Not, oh, I reduced it a bit. It&#39;s, Don&#39;t paint."
+    },
+    {
+      "index": 285,
+      "start_time": 1261660.0,
+      "end_time": 1267410.0,
+      "text": "&gt;&gt;Tom Wiltzius: We are standing up here stating that this thing is now fast because it is"
+    },
+    {
+      "index": 286,
+      "start_time": 1267410.0,
+      "end_time": 1271530.0,
+      "text": "in layer. You shouldn&#39;t take our word for it. You should want to look for this yourself."
+    },
+    {
+      "index": 287,
+      "start_time": 1271530.0,
+      "end_time": 1275750.0,
+      "text": "The way to do that is to open up DevTools again, turn on show composited layer borders"
+    },
+    {
+      "index": 288,
+      "start_time": 1275750.0,
+      "end_time": 1282230.0,
+      "text": "in DevTools settings. And if you look really carefully -- I will zoom in here -- there"
+    },
+    {
+      "index": 289,
+      "start_time": 1282230.0,
+      "end_time": 1287940.0,
+      "text": "is an orange border that goes around the edge of the page and that orange border is your"
+    },
+    {
+      "index": 290,
+      "start_time": 1287940.0,
+      "end_time": 1293120.0,
+      "text": "cue that says, The content inside of this border is in its own layer."
+    },
+    {
+      "index": 291,
+      "start_time": 1293120.0,
+      "end_time": 1296010.0,
+      "text": "You can see there is only one orange border. It is probably hard to see from the audience"
+    },
+    {
+      "index": 292,
+      "start_time": 1296010.0,
+      "end_time": 1297870.0,
+      "text": "on this screen. &gt;&gt;Nat Duca: Trust us."
+    },
+    {
+      "index": 293,
+      "start_time": 1297870.0,
+      "end_time": 1301360.0,
+      "text": "&gt;&gt;Tom Wiltzius: There is only one orange border on this particular page because there is only"
+    },
+    {
+      "index": 294,
+      "start_time": 1301360.0,
+      "end_time": 1307070.0,
+      "text": "one layer. Again, look really carefully. I will zoom in again. Look really carefully"
+    },
+    {
+      "index": 295,
+      "start_time": 1307070.0,
+      "end_time": 1311430.0,
+      "text": "at the edge of the drawer as this animation runs. You can see that there is another orange"
+    },
+    {
+      "index": 296,
+      "start_time": 1311430.0,
+      "end_time": 1316780.0,
+      "text": "border that pops up along the edge of the drawer during the animation. And that&#39;s your"
+    },
+    {
+      "index": 297,
+      "start_time": 1316780.0,
+      "end_time": 1322100.0,
+      "text": "sign that says, Oh, this content actually got promoted to its own layer and now it is"
+    },
+    {
+      "index": 298,
+      "start_time": 1322100.0,
+      "end_time": 1328130.0,
+      "text": "being moved back and forth, which is great. But the question is: Why the red rectangles"
+    },
+    {
+      "index": 299,
+      "start_time": 1328130.0,
+      "end_time": 1331710.0,
+      "text": "at the beginning and end? And if you look carefully, maybe you can guess"
+    },
+    {
+      "index": 300,
+      "start_time": 1331710.0,
+      "end_time": 1337200.0,
+      "text": "why. There isn&#39;t an orange border before or after this animation runs, right? So what&#39;s"
+    },
+    {
+      "index": 301,
+      "start_time": 1337200.0,
+      "end_time": 1342930.0,
+      "text": "happening is that the layer that the drawer is in during the animation doesn&#39;t exist before"
+    },
+    {
+      "index": 302,
+      "start_time": 1342930.0,
+      "end_time": 1347300.0,
+      "text": "or after the animation, right? So the animation starts. We pop the drawer"
+    },
+    {
+      "index": 303,
+      "start_time": 1347300.0,
+      "end_time": 1352070.0,
+      "text": "out. Put it in its own layer. It is a new layer so we need to render its contents, right?"
+    },
+    {
+      "index": 304,
+      "start_time": 1352070.0,
+      "end_time": 1355860.0,
+      "text": "That&#39;s the first red flash. Then we recomposite it, recomposite it, recomposite"
+    },
+    {
+      "index": 305,
+      "start_time": 1355860.0,
+      "end_time": 1360460.0,
+      "text": "it, move it all the over and pop it back into the base layer. And when we pop it into the"
+    },
+    {
+      "index": 306,
+      "start_time": 1360460.0,
+      "end_time": 1366290.0,
+      "text": "base layer, we need to repaint that part of it. That&#39;s the second red flash."
+    },
+    {
+      "index": 307,
+      "start_time": 1366290.0,
+      "end_time": 1372170.0,
+      "text": "How do we avoid this? One way is sort of incidental. If you use a translate 3D instead of a translate"
+    },
+    {
+      "index": 308,
+      "start_time": 1372170.0,
+      "end_time": 1376720.0,
+      "text": "X, you get a layer even when the thing isn&#39;t moving because it will be promoted to a layer"
+    },
+    {
+      "index": 309,
+      "start_time": 1376720.0,
+      "end_time": 1381390.0,
+      "text": "not due to the animation but due to the CSS transform itself."
+    },
+    {
+      "index": 310,
+      "start_time": 1381390.0,
+      "end_time": 1389430.0,
+      "text": "If we try that and run this animation, you can see that I can now run it back and forth,"
+    },
+    {
+      "index": 311,
+      "start_time": 1389430.0,
+      "end_time": 1392580.0,
+      "text": "no red rectangles. &gt;&gt;Nat Duca: Look, Ma, no red flash, right?"
+    },
+    {
+      "index": 312,
+      "start_time": 1392580.0,
+      "end_time": 1396930.0,
+      "text": "&gt;&gt;Tom Wiltzius: That&#39;s great. That&#39;s kind of what we want. And if I open up the timeline"
+    },
+    {
+      "index": 313,
+      "start_time": 1396930.0,
+      "end_time": 1400730.0,
+      "text": "view, we talked about vertical timeline earlier, usually you would see all sorts of paint events"
+    },
+    {
+      "index": 314,
+      "start_time": 1400730.0,
+      "end_time": 1407340.0,
+      "text": "and stuff, right? But if I start a recording and run this animation, you can see that throughout"
+    },
+    {
+      "index": 315,
+      "start_time": 1407340.0,
+      "end_time": 1411850.0,
+      "text": "the animation, all we get are these composite layer operations over and over and over again,"
+    },
+    {
+      "index": 316,
+      "start_time": 1411850.0,
+      "end_time": 1416470.0,
+      "text": "which are comparatively super, super cheap. That&#39;s really good. This is the ideal timeline"
+    },
+    {
+      "index": 317,
+      "start_time": 1416470.0,
+      "end_time": 1423950.0,
+      "text": "case where, yes, things are moving but there is a minimum of other stuff going on. So that&#39;s"
+    },
+    {
+      "index": 318,
+      "start_time": 1423950.0,
+      "end_time": 1427370.0,
+      "text": "drawers. But sometimes this isn&#39;t quite enough. Sometimes"
+    },
+    {
+      "index": 319,
+      "start_time": 1427370.0,
+      "end_time": 1432400.0,
+      "text": "just seeing those borders isn&#39;t enough to tell you really what&#39;s going on, especially"
+    },
+    {
+      "index": 320,
+      "start_time": 1432400.0,
+      "end_time": 1436780.0,
+      "text": "if you have really complicated animations, et cetera. These are contrived examples. It"
+    },
+    {
+      "index": 321,
+      "start_time": 1436780.0,
+      "end_time": 1442920.0,
+      "text": "is easy for us to come up with a demo. You are trying to debug a site or an app on a"
+    },
+    {
+      "index": 322,
+      "start_time": 1442920.0,
+      "end_time": 1446610.0,
+      "text": "phone in production, there can be lots of stuff going on. There can be all sorts of"
+    },
+    {
+      "index": 323,
+      "start_time": 1446610.0,
+      "end_time": 1451230.0,
+      "text": "layers all over the place. And you can be trying to add more but that&#39;s only causing"
+    },
+    {
+      "index": 324,
+      "start_time": 1451230.0,
+      "end_time": 1454640.0,
+      "text": "you to have too many. Maybe you are running out of memory. All sorts of things can go"
+    },
+    {
+      "index": 325,
+      "start_time": 1454640.0,
+      "end_time": 1456490.0,
+      "text": "wrong, right? So Nat&#39;s going to talk a little bit about"
+    },
+    {
+      "index": 326,
+      "start_time": 1456490.0,
+      "end_time": 1459380.0,
+      "text": "what to do in those more advanced scenarios. &gt;&gt;Nat Duca: What we are going to do now is"
+    },
+    {
+      "index": 327,
+      "start_time": 1459380.0,
+      "end_time": 1463410.0,
+      "text": "we&#39;re going to take the covers off of an internal tool we have been developing in Chrome to"
+    },
+    {
+      "index": 328,
+      "start_time": 1463410.0,
+      "end_time": 1468470.0,
+      "text": "show the nasty innard guts of the compositing system, which is this thing that makes things"
+    },
+    {
+      "index": 329,
+      "start_time": 1468470.0,
+      "end_time": 1473010.0,
+      "text": "Jankfree. As you see this, keep in mind basically this"
+    },
+    {
+      "index": 330,
+      "start_time": 1473010.0,
+      "end_time": 1477590.0,
+      "text": "is very, very brand-new. And it is designed for developers first, but we wanted to show"
+    },
+    {
+      "index": 331,
+      "start_time": 1477590.0,
+      "end_time": 1483860.0,
+      "text": "it because this shows you exactly why things really are slow. The way it works is you get"
+    },
+    {
+      "index": 332,
+      "start_time": 1483860.0,
+      "end_time": 1488410.0,
+      "text": "a relatively current build of Chrome and that will probably be like Friday&#39;s build, not"
+    },
+    {
+      "index": 333,
+      "start_time": 1488410.0,
+      "end_time": 1494340.0,
+      "text": "today&#39;s. So that&#39;s how new it is. And you pop over to your site that you think is Janky."
+    },
+    {
+      "index": 334,
+      "start_time": 1494340.0,
+      "end_time": 1498710.0,
+      "text": "So I&#39;m just going to start with something really simple. This is just a tall site with"
+    },
+    {
+      "index": 335,
+      "start_time": 1498710.0,
+      "end_time": 1505059.0,
+      "text": "some As in it, right? Really bringing out the good content for you guys."
+    },
+    {
+      "index": 336,
+      "start_time": 1505060.0,
+      "end_time": 1509151.0,
+      "text": "[ Laughter ] Remember, we showed you the picture of Gmail,"
+    },
+    {
+      "index": 337,
+      "start_time": 1509150.0,
+      "end_time": 1514050.0,
+      "text": "right, with it broken out in layers. You go over to tracing, this Chrome tracing thing,"
+    },
+    {
+      "index": 338,
+      "start_time": 1514050.0,
+      "end_time": 1518240.0,
+      "text": "and you start it recording. You go back over to here and you do your thing,"
+    },
+    {
+      "index": 339,
+      "start_time": 1518240.0,
+      "end_time": 1520790.0,
+      "text": "whatever that thing happens to be. Just like in Timeline."
+    },
+    {
+      "index": 340,
+      "start_time": 1520790.0,
+      "end_time": 1524650.0,
+      "text": "What you are going to be presented with, once it does its thinking is something that should"
+    },
+    {
+      "index": 341,
+      "start_time": 1524650.0,
+      "end_time": 1528760.0,
+      "text": "actually remind some of you of Android systrace in sort of appearance."
+    },
+    {
+      "index": 342,
+      "start_time": 1528760.0,
+      "end_time": 1531750.0,
+      "text": "What you are seeing here is these all the different times my finger was moving on the"
+    },
+    {
+      "index": 343,
+      "start_time": 1531750.0,
+      "end_time": 1535800.0,
+      "text": "track pad causing it to scroll. And the nice regularity of that that should scream out"
+    },
+    {
+      "index": 344,
+      "start_time": 1535800.0,
+      "end_time": 1539150.0,
+      "text": "Jankfreeness right away. Each one of these green dots are the things"
+    },
+    {
+      "index": 345,
+      "start_time": 1539150.0,
+      "end_time": 1542680.0,
+      "text": "you really want to click on. Everything else is sort of side show."
+    },
+    {
+      "index": 346,
+      "start_time": 1542680.0,
+      "end_time": 1547530.0,
+      "text": "The green dot represents Chrome drawing one frame up onto the screen. That&#39;s kind of where"
+    },
+    {
+      "index": 347,
+      "start_time": 1547530.0,
+      "end_time": 1551800.0,
+      "text": "the meat is. Down here you have got -- in the center here,"
+    },
+    {
+      "index": 348,
+      "start_time": 1551800.0,
+      "end_time": 1556110.0,
+      "text": "you have got a list of the layers on the screen on that frame. There&#39;s two. There is this"
+    },
+    {
+      "index": 349,
+      "start_time": 1556110.0,
+      "end_time": 1560040.0,
+      "text": "one which is shown over here. You can see that&#39;s the really tall page. You can see that&#39;s"
+    },
+    {
+      "index": 350,
+      "start_time": 1560040.0,
+      "end_time": 1563390.0,
+      "text": "the whole darn page. Then you have got this thing which is tall"
+    },
+    {
+      "index": 351,
+      "start_time": 1563390.0,
+      "end_time": 1567560.0,
+      "text": "and narrow. What is that? That&#39;s the scroll bar. It is that little thing. Even on Mac,"
+    },
+    {
+      "index": 352,
+      "start_time": 1567560.0,
+      "end_time": 1571570.0,
+      "text": "we have it, even though it is transparent. That&#39;s sort of the shape of the page."
+    },
+    {
+      "index": 353,
+      "start_time": 1571570.0,
+      "end_time": 1576920.0,
+      "text": "The thing you want to then look at as I go from frame to frame, see this thing over here,"
+    },
+    {
+      "index": 354,
+      "start_time": 1576920.0,
+      "end_time": 1580900.0,
+      "text": "this is our mini map. As you go from frame to frame, you see the green thing which is"
+    },
+    {
+      "index": 355,
+      "start_time": 1580900.0,
+      "end_time": 1586320.0,
+      "text": "the layer moving and that&#39;s the scroll happening. The blue represents the viewport. So just"
+    },
+    {
+      "index": 356,
+      "start_time": 1586320.0,
+      "end_time": 1592210.0,
+      "text": "like in the Gmail example where we showed the Gmail thing -- the mail list moving and"
+    },
+    {
+      "index": 357,
+      "start_time": 1592210.0,
+      "end_time": 1597690.0,
+      "text": "sort of this hole where the viewport was looking, this is the same thing but from my live site."
+    },
+    {
+      "index": 358,
+      "start_time": 1597690.0,
+      "end_time": 1600590.0,
+      "text": "This is kind of -- you can sort of start thinking, this is kind of useful."
+    },
+    {
+      "index": 359,
+      "start_time": 1600590.0,
+      "end_time": 1605020.0,
+      "text": "Hey, that&#39;s a big picture. I wonder how much memory it is using. We have a lot of people"
+    },
+    {
+      "index": 360,
+      "start_time": 1605020.0,
+      "end_time": 1608290.0,
+      "text": "who worry about that, where they say, These layer things are great but they are eating"
+    },
+    {
+      "index": 361,
+      "start_time": 1608290.0,
+      "end_time": 1611830.0,
+      "text": "a lot of memory. You can actually click now on this and see"
+    },
+    {
+      "index": 362,
+      "start_time": 1611830.0,
+      "end_time": 1619080.0,
+      "text": "the actual bytes consumed by that layer. It is like 7 megs, something like that."
+    },
+    {
+      "index": 363,
+      "start_time": 1619080.0,
+      "end_time": 1623160.0,
+      "text": "And I&#39;m beeping. That was fun. [ Laughter ]"
+    },
+    {
+      "index": 364,
+      "start_time": 1623160.0,
+      "end_time": 1627490.0,
+      "text": "So that&#39;s the most fun part of the talk. You can actually get the actual memory consumption"
+    },
+    {
+      "index": 365,
+      "start_time": 1627490.0,
+      "end_time": 1631680.0,
+      "text": "from this tool, which is super useful when you are trying to take your site which is"
+    },
+    {
+      "index": 366,
+      "start_time": 1631680.0,
+      "end_time": 1636760.0,
+      "text": "layer heavy, for instance, and bring it to a phone, which is constrained. Remember, we"
+    },
+    {
+      "index": 367,
+      "start_time": 1636760.0,
+      "end_time": 1642270.0,
+      "text": "had this demo up, right? This drawer. And Tom was saying, trust me, there is a layer"
+    },
+    {
+      "index": 368,
+      "start_time": 1642270.0,
+      "end_time": 1646120.0,
+      "text": "there. Don&#39;t trust, measure. So we are going to reload. I&#39;m going to set"
+    },
+    {
+      "index": 369,
+      "start_time": 1646120.0,
+      "end_time": 1650420.0,
+      "text": "it to do the thing where it was popping in and out and we are going to do the effect."
+    },
+    {
+      "index": 370,
+      "start_time": 1650420.0,
+      "end_time": 1656070.0,
+      "text": "Same old thing. And we wait for it to do a bit of a think. You can see again there is"
+    },
+    {
+      "index": 371,
+      "start_time": 1656070.0,
+      "end_time": 1660090.0,
+      "text": "two big bursts of animation which is when the rendering system was active."
+    },
+    {
+      "index": 372,
+      "start_time": 1660090.0,
+      "end_time": 1663780.0,
+      "text": "I click here. Let&#39;s pick that frame. You can sort of see this, right?"
+    },
+    {
+      "index": 373,
+      "start_time": 1663780.0,
+      "end_time": 1668250.0,
+      "text": "There&#39;s my page as before, right? There is the drawer on the left."
+    },
+    {
+      "index": 374,
+      "start_time": 1668250.0,
+      "end_time": 1673770.0,
+      "text": "And then there is this big stall here. It is Jank. When I click here, you see that it"
+    },
+    {
+      "index": 375,
+      "start_time": 1673770.0,
+      "end_time": 1679000.0,
+      "text": "is gone. There is a hole. where did it go, right? Now you see there are two layers instead"
+    },
+    {
+      "index": 376,
+      "start_time": 1679000.0,
+      "end_time": 1682140.0,
+      "text": "of one. This is the root layer, and that&#39;s this newly"
+    },
+    {
+      "index": 377,
+      "start_time": 1682140.0,
+      "end_time": 1686250.0,
+      "text": "created one. And that got painted. We paid to paint that and pop it out."
+    },
+    {
+      "index": 378,
+      "start_time": 1686250.0,
+      "end_time": 1690110.0,
+      "text": "And we also paid to paint the other layer to create the hole."
+    },
+    {
+      "index": 379,
+      "start_time": 1690110.0,
+      "end_time": 1695060.0,
+      "text": "Now you see on the left in the mini map that drawer starting to slide in under the viewport."
+    },
+    {
+      "index": 380,
+      "start_time": 1695060.0,
+      "end_time": 1698590.0,
+      "text": "So now it is sliding in, sliding in and it is good and we are happy and it is 60 hertz"
+    },
+    {
+      "index": 381,
+      "start_time": 1698590.0,
+      "end_time": 1702040.0,
+      "text": "and it looks smooth. Toward the end, what you are going to see"
+    },
+    {
+      "index": 382,
+      "start_time": 1702040.0,
+      "end_time": 1707720.0,
+      "text": "is it smoosh down. So here -- from here to here, you see that we have two layers like"
+    },
+    {
+      "index": 383,
+      "start_time": 1707720.0,
+      "end_time": 1712050.0,
+      "text": "this still. And then in the next frame, it is smooshed down to one."
+    },
+    {
+      "index": 384,
+      "start_time": 1712050.0,
+      "end_time": 1717140.0,
+      "text": "Ah, right? So then we paid yet again to paint it. We didn&#39;t pay so much of a painting penalty"
+    },
+    {
+      "index": 385,
+      "start_time": 1717140.0,
+      "end_time": 1721220.0,
+      "text": "this time, but maybe on a lower-end device, we would have. If you scroll down, you can"
+    },
+    {
+      "index": 386,
+      "start_time": 1721220.0,
+      "end_time": 1726350.0,
+      "text": "see the painting activity taking place. One other final thing to show about this tool."
+    },
+    {
+      "index": 387,
+      "start_time": 1726350.0,
+      "end_time": 1730170.0,
+      "text": "A lot of people wonder when you get a big -- big site, big production site where there&#39;s"
+    },
+    {
+      "index": 388,
+      "start_time": 1730170.0,
+      "end_time": 1734470.0,
+      "text": "a zillion things going on, you get a ton of layers. And you are like: I didn&#39;t ask for"
+    },
+    {
+      "index": 389,
+      "start_time": 1734470.0,
+      "end_time": 1738290.0,
+      "text": "this. Why is this layer promoted? So if you actually look down at the bottom"
+    },
+    {
+      "index": 390,
+      "start_time": 1738290.0,
+      "end_time": 1745130.0,
+      "text": "of this thing, you can see this compositing reason. This so no promotion reason given."
+    },
+    {
+      "index": 391,
+      "start_time": 1745130.0,
+      "end_time": 1751100.0,
+      "text": "But if I click on this one that&#39;s moving, it is using accelerated animation. That&#39;s"
+    },
+    {
+      "index": 392,
+      "start_time": 1751100.0,
+      "end_time": 1755290.0,
+      "text": "your key to then start understanding, Hey, maybe I should keep this promoted for some"
+    },
+    {
+      "index": 393,
+      "start_time": 1755290.0,
+      "end_time": 1760360.0,
+      "text": "other reason, too, so it stays promoted afterward. And so when we turn this on and do a trace"
+    },
+    {
+      "index": 394,
+      "start_time": 1760360.0,
+      "end_time": 1765030.0,
+      "text": "of this with the real -- that final demo that we say was Jankfree, you will see that, then,"
+    },
+    {
+      "index": 395,
+      "start_time": 1765030.0,
+      "end_time": 1769090.0,
+      "text": "has several promotion reasons that keep it promoted the whole time."
+    },
+    {
+      "index": 396,
+      "start_time": 1769090.0,
+      "end_time": 1773210.0,
+      "text": "So this is sort of the low -- the quick glimpse into a tool that we are trying to get out"
+    },
+    {
+      "index": 397,
+      "start_time": 1773210.0,
+      "end_time": 1776330.0,
+      "text": "there into people&#39;s hands so when you are really under deadline and you need to make"
+    },
+    {
+      "index": 398,
+      "start_time": 1776330.0,
+      "end_time": 1780920.0,
+      "text": "something Jankfree that&#39;s in your available in your arsenal to help with."
+    },
+    {
+      "index": 399,
+      "start_time": 1780920.0,
+      "end_time": 1788490.0,
+      "text": "&gt;&gt;Tom Wiltzius: It is as Nat said super, super new. We have some nascent docs up at this"
+    },
+    {
+      "index": 400,
+      "start_time": 1788490.0,
+      "end_time": 1793860.0,
+      "text": "link. And we do encourage you guys to maybe in the next couple weeks go try it out as"
+    },
+    {
+      "index": 401,
+      "start_time": 1793860.0,
+      "end_time": 1798500.0,
+      "text": "it lands and starts to stabilize. But for sort of advanced use cases, this is"
+    },
+    {
+      "index": 402,
+      "start_time": 1798500.0,
+      "end_time": 1800440.0,
+      "text": "-- &gt;&gt;Nat Duca: You can get very far with DevTools."
+    },
+    {
+      "index": 403,
+      "start_time": 1800440.0,
+      "end_time": 1804700.0,
+      "text": "This is if -- if you are in a pinch, you can check this out. You will be confused, but"
+    },
+    {
+      "index": 404,
+      "start_time": 1804700.0,
+      "end_time": 1807960.0,
+      "text": "it will help. &gt;&gt;Tom Wiltzius: That&#39;s right. But for starters,"
+    },
+    {
+      "index": 405,
+      "start_time": 1807960.0,
+      "end_time": 1813390.0,
+      "text": "as you sort of begin down your journey towards fighting Jank, you want to use DevTools. You"
+    },
+    {
+      "index": 406,
+      "start_time": 1813390.0,
+      "end_time": 1818000.0,
+      "text": "want to turn on Share Paint Rectangles every time you see Jank sort of crop up in the wild."
+    },
+    {
+      "index": 407,
+      "start_time": 1818000.0,
+      "end_time": 1821570.0,
+      "text": "And you want to look for what is repainting and try to figure out why."
+    },
+    {
+      "index": 408,
+      "start_time": 1821570.0,
+      "end_time": 1828090.0,
+      "text": "You want to ask yourself why -- why am I repainting this? And can I either avoid it by being judicious"
+    },
+    {
+      "index": 409,
+      "start_time": 1828090.0,
+      "end_time": 1833730.0,
+      "text": "and not changing style when I don&#39;t have to or by using layers or some combination of"
+    },
+    {
+      "index": 410,
+      "start_time": 1833730.0,
+      "end_time": 1835580.0,
+      "text": "the above. And if you can&#39;t avoid it, you want to make"
+    },
+    {
+      "index": 411,
+      "start_time": 1835580.0,
+      "end_time": 1840190.0,
+      "text": "it as fast as possible by using continuous painting mode that we talked about earlier."
+    },
+    {
+      "index": 412,
+      "start_time": 1840190.0,
+      "end_time": 1844350.0,
+      "text": "&gt;&gt;Nat Duca: There are a lot of great tools. The thing to keep in mind, if you walk away"
+    },
+    {
+      "index": 413,
+      "start_time": 1844350.0,
+      "end_time": 1849910.0,
+      "text": "with nothing else in your take-aways is this, all the browsers are basically building something"
+    },
+    {
+      "index": 414,
+      "start_time": 1849910.0,
+      "end_time": 1854380.0,
+      "text": "around layers. Think about doing your effects, your awesome"
+    },
+    {
+      "index": 415,
+      "start_time": 1854380.0,
+      "end_time": 1859680.0,
+      "text": "immersive Web experiences in terms of layers. Think about whether you&#39;re designing for that,"
+    },
+    {
+      "index": 416,
+      "start_time": 1859680.0,
+      "end_time": 1863080.0,
+      "text": "try to reduce paint. And if you do, the browsers will pay you back"
+    },
+    {
+      "index": 417,
+      "start_time": 1863080.0,
+      "end_time": 1867250.0,
+      "text": "in scores with Jankfreeness, smoothness, right? And if you don&#39;t, then you are going to be"
+    },
+    {
+      "index": 418,
+      "start_time": 1867250.0,
+      "end_time": 1871080.0,
+      "text": "fighting the browser. It is going to be doing its best, but you are asking it to do a hard"
+    },
+    {
+      "index": 419,
+      "start_time": 1871080.0,
+      "end_time": 1874010.0,
+      "text": "thing. So happy Jank busting. [ Laughter ]"
+    },
+    {
+      "index": 420,
+      "start_time": 1874010.0,
+      "end_time": 1877490.0,
+      "text": "&gt;&gt;Tom Wiltzius: I think we&#39;re going to take a few questions because we have some time"
+    },
+    {
+      "index": 421,
+      "start_time": 1877490.0,
+      "end_time": 1884120.0,
+      "text": "left. But if you are hungry for more, we&#39;ve got sort of a collection of links and articles"
+    },
+    {
+      "index": 422,
+      "start_time": 1884120.0,
+      "end_time": 1888650.0,
+      "text": "and whatnot up at jankfree.org. It is just sort of a dumping ground for us. And that&#39;s"
+    },
+    {
+      "index": 423,
+      "start_time": 1888650.0,
+      "end_time": 1890360.0,
+      "text": "where we are going to put these slides as well."
+    },
+    {
+      "index": 424,
+      "start_time": 1890360.0,
+      "end_time": 1893630.0,
+      "text": "If you take away one URL from this talk, it should be that. And you can get to everything"
+    },
+    {
+      "index": 425,
+      "start_time": 1893630.0,
+      "end_time": 1897460.0,
+      "text": "else from there. Html5rocks is the Chrome developer relations Website about this kind"
+    },
+    {
+      "index": 426,
+      "start_time": 1897460.0,
+      "end_time": 1900250.0,
+      "text": "of topic. So you should definitely go check that out."
+    },
+    {
+      "index": 427,
+      "start_time": 1900250.0,
+      "end_time": 1905250.0,
+      "text": "We will continue putting up content about this topic. Go check that out."
+    },
+    {
+      "index": 428,
+      "start_time": 1905250.0,
+      "end_time": 1908590.0,
+      "text": "Our contact info is up here, too. We are happy to talk about things like this if you have"
+    },
+    {
+      "index": 429,
+      "start_time": 1908590.0,
+      "end_time": 1914280.0,
+      "text": "interesting cases that you want to sort of bring to us. We also welcome bugs on the Chrome"
+    },
+    {
+      "index": 430,
+      "start_time": 1914280.0,
+      "end_time": 1919330.0,
+      "text": "bug tracker. With that, I think we will take some questions."
+    },
+    {
+      "index": 431,
+      "start_time": 1919330.0,
+      "end_time": 1926710.0,
+      "text": "Thank you very much. [ Applause ]"
+    },
+    {
+      "index": 432,
+      "start_time": 1926710.0,
+      "end_time": 1932510.0,
+      "text": "&gt;&gt;&gt; Hi. So it seems like layers are really important. But right now, it seems like you"
+    },
+    {
+      "index": 433,
+      "start_time": 1932510.0,
+      "end_time": 1936760.0,
+      "text": "kind of have to do a snake dance to figure out or make something into a layer."
+    },
+    {
+      "index": 434,
+      "start_time": 1936760.0,
+      "end_time": 1941510.0,
+      "text": "&gt;&gt;Nat Duca: I like that expression. &gt;&gt;&gt; Does it make sense for there to be an"
+    },
+    {
+      "index": 435,
+      "start_time": 1941510.0,
+      "end_time": 1946690.0,
+      "text": "explicit style declaration to say, Hey, I know how I want to composite my page?"
+    },
+    {
+      "index": 436,
+      "start_time": 1946690.0,
+      "end_time": 1949520.0,
+      "text": "&gt;&gt;Tom Wiltzius: Right. &gt;&gt;&gt; Let me turn this into a layer, just like"
+    },
+    {
+      "index": 437,
+      "start_time": 1949520.0,
+      "end_time": 1955020.0,
+      "text": "Webkit layer, whatever, make this into a layer, yeah, almost like Z index. Is that coming?"
+    },
+    {
+      "index": 438,
+      "start_time": 1955020.0,
+      "end_time": 1959580.0,
+      "text": "&gt;&gt;Tom Wiltzius: Right. I mean, it is a good question. It actually comes up a fair amount."
+    },
+    {
+      "index": 439,
+      "start_time": 1959580.0,
+      "end_time": 1963040.0,
+      "text": "It is something we&#39;ve resisted because, like, in general, there is resistance to adding"
+    },
+    {
+      "index": 440,
+      "start_time": 1963040.0,
+      "end_time": 1966000.0,
+      "text": "APIs to this. &gt;&gt;Nat Duca: One of the great things about"
+    },
+    {
+      "index": 441,
+      "start_time": 1966000.0,
+      "end_time": 1971130.0,
+      "text": "the Web is that your content can run pretty much anywhere. And, remember I showed you"
+    },
+    {
+      "index": 442,
+      "start_time": 1971130.0,
+      "end_time": 1979210.0,
+      "text": "in the demo that these layers take memory? If you start telling Chrome to use a layer"
+    },
+    {
+      "index": 443,
+      "start_time": 1979210.0,
+      "end_time": 1983240.0,
+      "text": "for that, then you run into the situation of it might fit on your high-end computer,"
+    },
+    {
+      "index": 444,
+      "start_time": 1983240.0,
+      "end_time": 1985960.0,
+      "text": "say, a Pixel, but then it won&#39;t fit on an Android device."
+    },
+    {
+      "index": 445,
+      "start_time": 1985960.0,
+      "end_time": 1990250.0,
+      "text": "And at which point, what are we to do? If you start making assumptions about this definitely"
+    },
+    {
+      "index": 446,
+      "start_time": 1990250.0,
+      "end_time": 1993820.0,
+      "text": "being in a layer and we can&#39;t fit it in memory, what are we going to do?"
+    },
+    {
+      "index": 447,
+      "start_time": 1993820.0,
+      "end_time": 1997510.0,
+      "text": "I totally get where you are coming from. This is something that we as a community, the Web"
+    },
+    {
+      "index": 448,
+      "start_time": 1997510.0,
+      "end_time": 2001210.0,
+      "text": "community, need to really tackle in the next couple of years, of how to improve the statement"
+    },
+    {
+      "index": 449,
+      "start_time": 2001210.0,
+      "end_time": 2004140.0,
+      "text": "of intent. But we also have to think about as we do that,"
+    },
+    {
+      "index": 450,
+      "start_time": 2004140.0,
+      "end_time": 2007880.0,
+      "text": "how to make it work and preserve sort of that promise of the Web where it just sort of works"
+    },
+    {
+      "index": 451,
+      "start_time": 2007880.0,
+      "end_time": 2010710.0,
+      "text": "everywhere. Does that -- &gt;&gt;Tom Wiltzius: I think the intent --"
+    },
+    {
+      "index": 452,
+      "start_time": 2010710.0,
+      "end_time": 2011730.0,
+      "text": "&gt;&gt;Nat Duca: Is that responsive? &gt;&gt;Tom Wiltzius: The intent point is a good"
+    },
+    {
+      "index": 453,
+      "start_time": 2011730.0,
+      "end_time": 2016480.0,
+      "text": "one, right, because, like, in some ways, the layer concept, like, it is kind of an implementation"
+    },
+    {
+      "index": 454,
+      "start_time": 2016480.0,
+      "end_time": 2020470.0,
+      "text": "detail. And that&#39;s not the kind of thing we like to codify with syntax, right?"
+    },
+    {
+      "index": 455,
+      "start_time": 2020470.0,
+      "end_time": 2026740.0,
+      "text": "Instead what we want to codify is stuff about intent, right? So things that, for instance,"
+    },
+    {
+      "index": 456,
+      "start_time": 2026740.0,
+      "end_time": 2032610.0,
+      "text": "the Chrome Compositor is good at right now is moving stuff around, changing opacity and"
+    },
+    {
+      "index": 457,
+      "start_time": 2032610.0,
+      "end_time": 2037490.0,
+      "text": "sort of doing this 60 times a second. And there actually are semantic ways of declaring"
+    },
+    {
+      "index": 458,
+      "start_time": 2037490.0,
+      "end_time": 2041950.0,
+      "text": "all of these things. If you declare them, Chrome will do the right thing. Those things"
+    },
+    {
+      "index": 459,
+      "start_time": 2041950.0,
+      "end_time": 2046810.0,
+      "text": "get layers and those things get hardware accelerated. I think that&#39;s probably more the direction"
+    },
+    {
+      "index": 460,
+      "start_time": 2046810.0,
+      "end_time": 2052280.0,
+      "text": "we want to go. Otherwise, you will try to end up in some senses abuse it, right? You"
+    },
+    {
+      "index": 461,
+      "start_time": 2052280.0000000002,
+      "end_time": 2055280.0000000002,
+      "text": "will try to trick the compositor into doing things that it is not really designed ed for."
+    },
+    {
+      "index": 462,
+      "start_time": 2055280.0000000002,
+      "end_time": 2058580.0000000002,
+      "text": "I wonder -- I don&#39;t know. I wonder if we will end up in a worse place --"
+    },
+    {
+      "index": 463,
+      "start_time": 2058580.0,
+      "end_time": 2063200.0,
+      "text": "&gt;&gt;Nat Duca: TLDR hard problem. And if you have any brilliant observations, come grab"
+    },
+    {
+      "index": 464,
+      "start_time": 2063199.9999999998,
+      "end_time": 2065418.9999999998,
+      "text": "us. &gt;&gt;Tom Wiltzius: We will be in the Chrome performance"
+    },
+    {
+      "index": 465,
+      "start_time": 2065420.0,
+      "end_time": 2069640.0,
+      "text": "area later, too, if anyone wants to talk. In the front."
+    },
+    {
+      "index": 466,
+      "start_time": 2069639.9999999998,
+      "end_time": 2073520.9999999998,
+      "text": "&gt;&gt;&gt; I was just wondering if this tool is available on Chrome for Android?"
+    },
+    {
+      "index": 467,
+      "start_time": 2073520.0,
+      "end_time": 2076270.0,
+      "text": "&gt;&gt;Tom Wiltzius: Sorry, can you repeat the question?"
+    },
+    {
+      "index": 468,
+      "start_time": 2076270.0,
+      "end_time": 2082090.0,
+      "text": "&gt;&gt;&gt; Is this tool available on Chrome for Android? &gt;&gt;Nat Duca: The last one will work on Chrome"
+    },
+    {
+      "index": 469,
+      "start_time": 2082090.0000000002,
+      "end_time": 2084940.0000000002,
+      "text": "eventually. &gt;&gt;Tom Wiltzius: All the DevTools stuff, yes."
+    },
+    {
+      "index": 470,
+      "start_time": 2084940.0,
+      "end_time": 2090370.0,
+      "text": "The last sort of advanced tracing tool doesn&#39;t work yet."
+    },
+    {
+      "index": 471,
+      "start_time": 2090370.0,
+      "end_time": 2091450.0,
+      "text": "&gt;&gt;Nat Duca: It will come. &gt;&gt;Tom Wiltzius: It should."
+    },
+    {
+      "index": 472,
+      "start_time": 2091449.9999999998,
+      "end_time": 2094799.9999999998,
+      "text": "&gt;&gt;Nat Duca: It is all sort of common infrastructure. &gt;&gt;Tom Wiltzius: The basic tracing does work"
+    },
+    {
+      "index": 473,
+      "start_time": 2094800.0000000002,
+      "end_time": 2099100.0,
+      "text": "on Android. The more advanced features to view frames doesn&#39;t work."
+    },
+    {
+      "index": 474,
+      "start_time": 2099100.0,
+      "end_time": 2104020.0,
+      "text": "&gt;&gt;Nat Duca: Haven&#39;t tried it. It might work. We&#39;ll see. But it is all one big happy family."
+    },
+    {
+      "index": 475,
+      "start_time": 2104020.0,
+      "end_time": 2106280.0,
+      "text": "We all think about all platforms. &gt;&gt;Tom Wiltzius: We work across."
+    },
+    {
+      "index": 476,
+      "start_time": 2106280.0,
+      "end_time": 2110120.0,
+      "text": "&gt;&gt;Nat Duca: If it is not working today, it will be working very soon because we want"
+    },
+    {
+      "index": 477,
+      "start_time": 2110120.0,
+      "end_time": 2115130.0,
+      "text": "-- our whole vision here is you write your Web platform thing and we will take care of"
+    },
+    {
+      "index": 478,
+      "start_time": 2115130.0,
+      "end_time": 2122290.0,
+      "text": "all your OSes for you, module a few details. &gt;&gt;&gt; So instead of asking for a layer, is there"
+    },
+    {
+      "index": 479,
+      "start_time": 2122290.0,
+      "end_time": 2128230.0,
+      "text": "a possibility of getting, like, an experimental no-paint attribute, I&#39;m sorry, suppress paint"
+    },
+    {
+      "index": 480,
+      "start_time": 2128230.0,
+      "end_time": 2133370.0,
+      "text": "while we move stuff around? Because sometimes it is kind of like you have to hold the old-style"
+    },
+    {
+      "index": 481,
+      "start_time": 2133370.0,
+      "end_time": 2139160.0,
+      "text": "TV antenna up to get the right -- it is like: Did I do the right thing to kick the compositor"
+    },
+    {
+      "index": 482,
+      "start_time": 2139160.0,
+      "end_time": 2143920.0,
+      "text": "just the right way? If we had attributes that, seriously, we actually"
+    },
+    {
+      "index": 483,
+      "start_time": 2143920.0,
+      "end_time": 2148940.0,
+      "text": "know better than you, don&#39;t repaint this, it might help some edge cases we have."
+    },
+    {
+      "index": 484,
+      "start_time": 2148940.0,
+      "end_time": 2153060.0,
+      "text": "&gt;&gt;Nat Duca: There is a proposal floating around for, I believe we are calling it, prepainting."
+    },
+    {
+      "index": 485,
+      "start_time": 2153060.0,
+      "end_time": 2158110.0,
+      "text": "And if you look on one of chromium&#39;s graphics development mailing lists, you will find a"
+    },
+    {
+      "index": 486,
+      "start_time": 2158110.0,
+      "end_time": 2163760.0,
+      "text": "discussion about it. And I think we intend to broaden that discussion in the coming months."
+    },
+    {
+      "index": 487,
+      "start_time": 2163760.0,
+      "end_time": 2168500.0,
+      "text": "But this is about being able to say, hey, I&#39;m bringing -- So, think about infinite scroll."
+    },
+    {
+      "index": 488,
+      "start_time": 2168500.0,
+      "end_time": 2173760.0,
+      "text": "You are adding elements to the bottom. Hey, Chrome or, hey, browser, I&#39;m adding this image"
+    },
+    {
+      "index": 489,
+      "start_time": 2173760.0,
+      "end_time": 2180190.0,
+      "text": "but, like, if you can&#39;t put that up in time, no big. I&#39;ll put in a placeholder or something."
+    },
+    {
+      "index": 490,
+      "start_time": 2180190.0,
+      "end_time": 2183870.0,
+      "text": "So, hey, this is optional. And please let me know when it really is there so I can get"
+    },
+    {
+      "index": 491,
+      "start_time": 2183870.0,
+      "end_time": 2187330.0,
+      "text": "rid of my placeholder asset. That&#39;s being discussed. I think it may be"
+    },
+    {
+      "index": 492,
+      "start_time": 2187330.0,
+      "end_time": 2191930.0,
+      "text": "abusable for the other things you are thinking about, too. That actually feels relatively"
+    },
+    {
+      "index": 493,
+      "start_time": 2191930.0,
+      "end_time": 2196500.0,
+      "text": "within scope of the platform, I think. We&#39;ll see."
+    },
+    {
+      "index": 494,
+      "start_time": 2196500.0,
+      "end_time": 2202500.0,
+      "text": "&gt;&gt;Tom Wiltzius: I think there is also room to do that kind of thing higher up the stack"
+    },
+    {
+      "index": 495,
+      "start_time": 2202500.0,
+      "end_time": 2206350.0,
+      "text": "before we talk about painting. Like, really what you want to do is declare -- is sort"
+    },
+    {
+      "index": 496,
+      "start_time": 2206350.0,
+      "end_time": 2211230.0,
+      "text": "of make a promise to the browser that you&#39;re not going to do anything that&#39;s going to manipulate"
+    },
+    {
+      "index": 497,
+      "start_time": 2211230.0,
+      "end_time": 2215490.0,
+      "text": "style or layout inside of -- sort of a container block."
+    },
+    {
+      "index": 498,
+      "start_time": 2215490.0,
+      "end_time": 2220950.0,
+      "text": "If you can do that, then, like, further down the stack where we are talking about, we can"
+    },
+    {
+      "index": 499,
+      "start_time": 2220950.0,
+      "end_time": 2224280.0,
+      "text": "do the right thing and not paint. But there is some efforts going around things"
+    },
+    {
+      "index": 500,
+      "start_time": 2224280.0,
+      "end_time": 2225980.0,
+      "text": "like that, too. &gt;&gt;Nat Duca: There is a lot of discussion here."
+    },
+    {
+      "index": 501,
+      "start_time": 2225980.0,
+      "end_time": 2229680.0,
+      "text": "We&#39;re definitely -- please, come on up and we can chat if you want. There is a lot of"
+    },
+    {
+      "index": 502,
+      "start_time": 2229680.0,
+      "end_time": 2233930.0,
+      "text": "discussion in the team about how to basically say to the platform, Hey, I solemnly swear"
+    },
+    {
+      "index": 503,
+      "start_time": 2233930.0,
+      "end_time": 2240210.0,
+      "text": "I&#39;m up to good. Now get out of my way. We know it is not good enough yet."
+    },
+    {
+      "index": 504,
+      "start_time": 2240210.0,
+      "end_time": 2243370.0,
+      "text": "&gt;&gt;&gt; Any love for SVG -- Jankfree SVG any time soon?"
+    },
+    {
+      "index": 505,
+      "start_time": 2243370.0,
+      "end_time": 2247350.0,
+      "text": "&gt;&gt;Nat Duca: Oh, totally. Definitely. One of the people helping build that tool that we"
+    },
+    {
+      "index": 506,
+      "start_time": 2247350.0,
+      "end_time": 2254310.0,
+      "text": "demoed is one of our SVG awesome peoples. &gt;&gt;Tom Wiltzius: Definitely important. The"
+    },
+    {
+      "index": 507,
+      "start_time": 2254310.0,
+      "end_time": 2259290.0,
+      "text": "summary is yes. It is a little harder because of the way SVG works. Gloss over that."
+    },
+    {
+      "index": 508,
+      "start_time": 2259290.0,
+      "end_time": 2261820.0,
+      "text": "In front. &gt;&gt;&gt; Jankfree is awesome especially considering"
+    },
+    {
+      "index": 509,
+      "start_time": 2261820.0,
+      "end_time": 2265130.0,
+      "text": "how poor performance still is six years into smartphones on smartphones."
+    },
+    {
+      "index": 510,
+      "start_time": 2265130.0,
+      "end_time": 2267600.0,
+      "text": "&gt;&gt;Tom Wiltzius: Totally. &gt;&gt;&gt; But I can&#39;t help but look at these demos"
+    },
+    {
+      "index": 511,
+      "start_time": 2267600.0,
+      "end_time": 2272820.0,
+      "text": "with &quot;Oh, make this translate and then make this a 3D translate&quot; and think about people"
+    },
+    {
+      "index": 512,
+      "start_time": 2272820.0,
+      "end_time": 2276980.0,
+      "text": "who used underscores for their CSS variables to make IE7 not look at that one and look"
+    },
+    {
+      "index": 513,
+      "start_time": 2276980.0,
+      "end_time": 2280240.0,
+      "text": "at a different one. It feels like we are introducing another Web"
+    },
+    {
+      "index": 514,
+      "start_time": 2280240.0,
+      "end_time": 2284280.0,
+      "text": "development snake dance. And I wonder if there is anything we can do to mitigate that to"
+    },
+    {
+      "index": 515,
+      "start_time": 2284280.0,
+      "end_time": 2289020.0,
+      "text": "make -- to think about our codebases as something that&#39;s going to live for longer than the six"
+    },
+    {
+      "index": 516,
+      "start_time": 2289020.0,
+      "end_time": 2293230.0,
+      "text": "months that I&#39;m on this project and make it easy for people to maintain down the line."
+    },
+    {
+      "index": 517,
+      "start_time": 2293230.0,
+      "end_time": 2298330.0,
+      "text": "&gt;&gt;Tom Wiltzius: Absolutely. That&#39;s kind of the reason that we were saying what we were"
+    },
+    {
+      "index": 518,
+      "start_time": 2298330.0,
+      "end_time": 2304860.0,
+      "text": "in response to the first question about, like, Oh, can we have a primitive for layer promotion?"
+    },
+    {
+      "index": 519,
+      "start_time": 2304860.0,
+      "end_time": 2310450.0,
+      "text": "And the reason that there is hesitancy to do that kind of thing is because again so"
+    },
+    {
+      "index": 520,
+      "start_time": 2310450.0,
+      "end_time": 2314760.0,
+      "text": "directly targeting implementation details of the browser, you end up in a world of pain"
+    },
+    {
+      "index": 521,
+      "start_time": 2314760.0,
+      "end_time": 2320410.0,
+      "text": "later where, oh, I don&#39;t care about IE7 so much anymore but now my codebase is all kind"
+    },
+    {
+      "index": 522,
+      "start_time": 2320410.0,
+      "end_time": 2323030.0,
+      "text": "of split up because of that. That&#39;s the kind of thing we don&#39;t want to"
+    },
+    {
+      "index": 523,
+      "start_time": 2323030.0,
+      "end_time": 2328500.0,
+      "text": "do. We want to stay as semantic as possible so future versions of the browser don&#39;t need"
+    },
+    {
+      "index": 524,
+      "start_time": 2328500.0,
+      "end_time": 2332480.0,
+      "text": "to handle these kind of weird cases that were targeted very much at implementation."
+    },
+    {
+      "index": 525,
+      "start_time": 2332480.0,
+      "end_time": 2336210.0,
+      "text": "&gt;&gt;Nat Duca: But if there is one thing to keep in the back of your head, it&#39;s this. Probably"
+    },
+    {
+      "index": 526,
+      "start_time": 2336210.0,
+      "end_time": 2340430.0,
+      "text": "for the next couple of years it is going to be messy. So having your infrastructure on"
+    },
+    {
+      "index": 527,
+      "start_time": 2340430.0,
+      "end_time": 2345460.0,
+      "text": "your project be set up to deliver custom CSS or in some way handle special casing for different"
+    },
+    {
+      "index": 528,
+      "start_time": 2345460.0,
+      "end_time": 2349810.0,
+      "text": "browsers is probably the unfortunate reality of our platform at this time."
+    },
+    {
+      "index": 529,
+      "start_time": 2349810.0,
+      "end_time": 2353600.0,
+      "text": "That really stinks and we all know we need to do better. But you find quirks that you"
+    },
+    {
+      "index": 530,
+      "start_time": 2353600.0,
+      "end_time": 2359190.0,
+      "text": "need to apply for Safari different than, say, Chrome, that are different from the old Android"
+    },
+    {
+      "index": 531,
+      "start_time": 2359190.0,
+      "end_time": 2364580.0,
+      "text": "Web view or something like that. I would plan for the possibility of needing"
+    },
+    {
+      "index": 532,
+      "start_time": 2364580.0,
+      "end_time": 2369340.0,
+      "text": "to do that. How are we doing? We got probably one more"
+    },
+    {
+      "index": 533,
+      "start_time": 2369340.0,
+      "end_time": 2370420.0,
+      "text": "question. &gt;&gt;Tom Wiltzius: One more minute."
+    },
+    {
+      "index": 534,
+      "start_time": 2370420.0,
+      "end_time": 2376000.0,
+      "text": "&gt;&gt;Nat Duca: Especially as we are long winded. &gt;&gt;&gt; Hi. You talked about permanent vigilance."
+    },
+    {
+      "index": 535,
+      "start_time": 2376000.0,
+      "end_time": 2380580.0,
+      "text": "Can you tell us how Google internally spots these? Whether you have got automation tools"
+    },
+    {
+      "index": 536,
+      "start_time": 2380580.0,
+      "end_time": 2386220.0,
+      "text": "to assess when things have got worse so that we cannot depend on developers being vigilant"
+    },
+    {
+      "index": 537,
+      "start_time": 2386220.0,
+      "end_time": 2388500.0,
+      "text": "because they will be distracted by other things as well?"
+    },
+    {
+      "index": 538,
+      "start_time": 2388500.0,
+      "end_time": 2390770.0,
+      "text": "&gt;&gt;Tom Wiltzius: Yeah, sure, Nat built some of them. So I will let him --"
+    },
+    {
+      "index": 539,
+      "start_time": 2390770.0,
+      "end_time": 2397870.0,
+      "text": "&gt;&gt;Nat Duca: What we are starting to use, Go Google Chrome telemetry. It is a framework"
+    },
+    {
+      "index": 540,
+      "start_time": 2397870.0,
+      "end_time": 2403680.0,
+      "text": "built in Python on top of DevTools protocol. So DevTools has this fantastic JSON-level"
+    },
+    {
+      "index": 541,
+      "start_time": 2403680.0,
+      "end_time": 2409480.0,
+      "text": "-- or Web socket and then JSON-level protocol where you can talk to the Web page out of"
+    },
+    {
+      "index": 542,
+      "start_time": 2409480.0,
+      "end_time": 2413410.0,
+      "text": "process. And you can build developer tools on top of it. You can also build fantastic"
+    },
+    {
+      "index": 543,
+      "start_time": 2413410.0,
+      "end_time": 2418510.0,
+      "text": "profiling tools and you can get out of Timeline stream in that the painting info of what was"
+    },
+    {
+      "index": 544,
+      "start_time": 2418510.0,
+      "end_time": 2422590.0,
+      "text": "painting then you can build all sorts of cool stuff on that, one of which is telemetry."
+    },
+    {
+      "index": 545,
+      "start_time": 2422590.0,
+      "end_time": 2426850.0,
+      "text": "&gt;&gt;Tom Wiltzius: That&#39;s the harness. And then we have sort of collections of Web content"
+    },
+    {
+      "index": 546,
+      "start_time": 2426850.0,
+      "end_time": 2432190.0,
+      "text": "that are sort of interesting cases for whatever reason that we&#39;re worried about improving"
+    },
+    {
+      "index": 547,
+      "start_time": 2432190.0,
+      "end_time": 2438260.0,
+      "text": "performance of or aggressing performance against. We run sort of banks of content with this"
+    },
+    {
+      "index": 548,
+      "start_time": 2438260.0,
+      "end_time": 2442890.0,
+      "text": "harness, and we have performance waterfalls. &gt;&gt;Nat Duca: Thank you."
+    },
+    {
+      "index": 549,
+      "start_time": 2442890.0,
+      "end_time": 2447720.0,
+      "text": "&gt;&gt;Tom Wiltzius: So hopefully that is compelling. &gt;&gt;Nat Duca: Thanks, everybody, so much for"
+    },
+    {
+      "index": 550,
+      "start_time": 2447720.0,
+      "end_time": 2448250.0,
+      "text": "coming. &gt;&gt;Tom Wiltzius: Yeah."
+    },
+    {
+      "index": 551,
+      "start_time": 2448250.0,
+      "end_time": 2458250.0,
+      "text": "&gt;&gt;Nat Duca: Good luck dejanking. [ Applause ]"
+    }
+  ]
+}

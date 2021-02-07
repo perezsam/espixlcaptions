@@ -1,0 +1,1920 @@
+{
+  "video_id": "Z73LJzx1pnU",
+  "title": "OpenStack block storage 101 final",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 8760.0,
+      "end_time": 13350.0,
+      "text": "Hey there. My name is John Griffith. I am an open source engineer at SolidFire out in"
+    },
+    {
+      "index": 2,
+      "start_time": 13350.0,
+      "end_time": 17119.0,
+      "text": "Boulder, Colorado. We&#39;re building a clustered storage device that&#39;s designed specifically"
+    },
+    {
+      "index": 3,
+      "start_time": 17119.0,
+      "end_time": 20320.0,
+      "text": "for the cloud. Today I wanted to do a quick introduction"
+    },
+    {
+      "index": 4,
+      "start_time": 20320.0,
+      "end_time": 27070.0,
+      "text": "into OpenStack, give you a 101 as far as what OpenStack is, how it came to be, what problem"
+    },
+    {
+      "index": 5,
+      "start_time": 27070.0,
+      "end_time": 31480.0,
+      "text": "it&#39;s trying to solve, and maybe a little bit about what it&#39;s not, as well. I&#39;d also like"
+    },
+    {
+      "index": 6,
+      "start_time": 31480.0,
+      "end_time": 37350.0,
+      "text": "to talk a little bit about the block storage project, specifically, and give you some more"
+    },
+    {
+      "index": 7,
+      "start_time": 37350.0,
+      "end_time": 41610.0,
+      "text": "information about what that is, what you can do with it, what some of the features are,"
+    },
+    {
+      "index": 8,
+      "start_time": 41610.0,
+      "end_time": 47540.0,
+      "text": "and a little bit about the design. Anyway, this is definitely a 101-type introduction."
+    },
+    {
+      "index": 9,
+      "start_time": 47540.0,
+      "end_time": 51890.0,
+      "text": "Hopefully, this will get you started and get you enough information. We can continue and"
+    },
+    {
+      "index": 10,
+      "start_time": 51890.0,
+      "end_time": 58799.0,
+      "text": "move on, and we can dig deeper after this. All of this pretty much started with the hypervisor."
+    },
+    {
+      "index": 11,
+      "start_time": 58799.0,
+      "end_time": 65220.0,
+      "text": "The hypervisor gave us the ability to run virtual machines all on a single box, and"
+    },
+    {
+      "index": 12,
+      "start_time": 65220.0,
+      "end_time": 70780.0,
+      "text": "really start to utilize our hardware better, and save us from things like multiple boxes"
+    },
+    {
+      "index": 13,
+      "start_time": 70780.0,
+      "end_time": 74290.0,
+      "text": "under the desk. If you&#39;re like me, you can remember the day when you had four or five"
+    },
+    {
+      "index": 14,
+      "start_time": 74290.0,
+      "end_time": 79620.0,
+      "text": "workstations sitting under your desk, each one having a different OS, or maybe all even"
+    },
+    {
+      "index": 15,
+      "start_time": 79620.0,
+      "end_time": 83870.0,
+      "text": "the same OS just different configurations. You had to do compile and testing for your"
+    },
+    {
+      "index": 16,
+      "start_time": 83870.0,
+      "end_time": 91060.0,
+      "text": "code and everything on each one individually. It was somewhat of a pain and somewhat expensive,"
+    },
+    {
+      "index": 17,
+      "start_time": 91060.0,
+      "end_time": 96000.0,
+      "text": "as well. Thanks to the hypervisor, we started to have"
+    },
+    {
+      "index": 18,
+      "start_time": 96000.0,
+      "end_time": 100420.0,
+      "text": "the ability to do things like have one single workstation and be able to run four or five"
+    },
+    {
+      "index": 19,
+      "start_time": 100420.0,
+      "end_time": 104000.0,
+      "text": "different VMs inside of it, each with our configuration. You could also go ahead and"
+    },
+    {
+      "index": 20,
+      "start_time": 104000.0,
+      "end_time": 107840.0,
+      "text": "save those configurations and save those setups, and so you could bring them back up later"
+    },
+    {
+      "index": 21,
+      "start_time": 107840.0,
+      "end_time": 113420.0,
+      "text": "as a VM without having a server or a workstation sitting around doing nothing."
+    },
+    {
+      "index": 22,
+      "start_time": 113420.0,
+      "end_time": 118310.0,
+      "text": "Over the years, as virtualization technology continued to improve and we continue to make"
+    },
+    {
+      "index": 23,
+      "start_time": 118310.0,
+      "end_time": 122960.0,
+      "text": "advancements in compute [00:02:00] resources, what happened was is we started to move more"
+    },
+    {
+      "index": 24,
+      "start_time": 122960.0,
+      "end_time": 127700.0,
+      "text": "and more things into the hypervisor, so we started to do more things there, whether it"
+    },
+    {
+      "index": 25,
+      "start_time": 127700.0,
+      "end_time": 134629.0,
+      "text": "be running ecommerce apps, web apps, web servers, DNS servers, so on and so forth. That was"
+    },
+    {
+      "index": 26,
+      "start_time": 134629.0,
+      "end_time": 139069.0,
+      "text": "all great, and we continue to scale that, but what we started to run into then was it"
+    },
+    {
+      "index": 27,
+      "start_time": 139069.0,
+      "end_time": 143560.0,
+      "text": "started to become more and more difficult to do things like deploy a VM. You may not"
+    },
+    {
+      "index": 28,
+      "start_time": 143560.0,
+      "end_time": 150069.0,
+      "text": "have direct access. You would have to go to an admin, an IT admin, and request a VM be"
+    },
+    {
+      "index": 29,
+      "start_time": 150069.0,
+      "end_time": 155620.0,
+      "text": "deployed, not to mention the difficulty added with trying to deploy more hypervisors."
+    },
+    {
+      "index": 30,
+      "start_time": 155620.0,
+      "end_time": 159829.0,
+      "text": "All of these things started to get more and more complex. Then you started to see things"
+    },
+    {
+      "index": 31,
+      "start_time": 159829.0,
+      "end_time": 165389.0,
+      "text": "like storage performance degradations, trouble setting up networks and getting everything"
+    },
+    {
+      "index": 32,
+      "start_time": 165389.0,
+      "end_time": 171719.0,
+      "text": "to talk. We started to really get into some management complexity that caused some difficulties,"
+    },
+    {
+      "index": 33,
+      "start_time": 171719.0,
+      "end_time": 176060.0,
+      "text": "and started to lose some of the efficiencies that we&#39;ve gained. Now, it&#39;s great. We&#39;re"
+    },
+    {
+      "index": 34,
+      "start_time": 176060.0,
+      "end_time": 180549.0,
+      "text": "utilizing our hardware much, much better, but on the other hand, things are getting"
+    },
+    {
+      "index": 35,
+      "start_time": 180549.0,
+      "end_time": 184909.0,
+      "text": "increasingly complicated and difficult to manage."
+    },
+    {
+      "index": 36,
+      "start_time": 184909.0,
+      "end_time": 188870.0,
+      "text": "That&#39;s where the whole concept of cloud computing starts to come in. It&#39;s no longer just about"
+    },
+    {
+      "index": 37,
+      "start_time": 188870.0,
+      "end_time": 194669.0,
+      "text": "a collection of virtual machines. It&#39;s now an orchestration or a management layer of"
+    },
+    {
+      "index": 38,
+      "start_time": 194669.0,
+      "end_time": 202430.0,
+      "text": "hypervisors in virtualization. In addition to that, there&#39;s some key concepts and key"
+    },
+    {
+      "index": 39,
+      "start_time": 202430.0,
+      "end_time": 206620.0,
+      "text": "things that I look for in terms of what is a cloud and what is cloud computing. The whole"
+    },
+    {
+      "index": 40,
+      "start_time": 206620.0,
+      "end_time": 214290.0,
+      "text": "concept to keep in mind is that it&#39;s dynamic. It&#39;s elastic resources that are on demand,"
+    },
+    {
+      "index": 41,
+      "start_time": 214290.0,
+      "end_time": 219329.0,
+      "text": "so it&#39;s not a &quot;file a ticket and next week, or hopefully in 72 hours, or whatever, I&#39;ll"
+    },
+    {
+      "index": 42,
+      "start_time": 219329.0,
+      "end_time": 223129.0,
+      "text": "get a VM.&quot; It&#39;s, &quot;I need it now. I get it now.&quot;"
+    },
+    {
+      "index": 43,
+      "start_time": 223129.0,
+      "end_time": 228069.0,
+      "text": "There&#39;s some key aspects. Like I said, the on demand. One of the other ones is it&#39;s self-service"
+    },
+    {
+      "index": 44,
+      "start_time": 228069.0,
+      "end_time": 234260.0,
+      "text": "for the end user. This means that, typically, you go to a webpage or internal network portal,"
+    },
+    {
+      "index": 45,
+      "start_time": 234260.0,
+      "end_time": 238349.0,
+      "text": "whatever it might be, and you actually request your resources from there and set them up"
+    },
+    {
+      "index": 46,
+      "start_time": 238349.0,
+      "end_time": 242879.0,
+      "text": "yourself [00:04:00], get them right away, use them, and then return them when you&#39;re"
+    },
+    {
+      "index": 47,
+      "start_time": 242879.0,
+      "end_time": 248939.0,
+      "text": "done. Some of the key things that you look for as well are the ability to scale dynamically."
+    },
+    {
+      "index": 48,
+      "start_time": 248939.0,
+      "end_time": 253680.0,
+      "text": "By scale, I mean horizontally scale. It&#39;s not, &quot;take down the server and put in some"
+    },
+    {
+      "index": 49,
+      "start_time": 253680.0,
+      "end_time": 258549.0,
+      "text": "more RAM, or put in another drive,&quot; whatever it might be. It&#39;s actually, &quot;scale horizontally,"
+    },
+    {
+      "index": 50,
+      "start_time": 258548.99999999997,
+      "end_time": 263020.0,
+      "text": "throw in another node, and have that consumed and utilized as a resource.&quot;"
+    },
+    {
+      "index": 51,
+      "start_time": 263020.0,
+      "end_time": 267250.0,
+      "text": "In addition to all those key concepts, the other idea is to be able to take more and"
+    },
+    {
+      "index": 52,
+      "start_time": 267250.0,
+      "end_time": 272370.0,
+      "text": "more IT infrastructure and move it into that utility consumption model. Now we talk about"
+    },
+    {
+      "index": 53,
+      "start_time": 272370.0,
+      "end_time": 277030.0,
+      "text": "taking things like the networking stack and things like that, and moving it in as a resource"
+    },
+    {
+      "index": 54,
+      "start_time": 277030.0,
+      "end_time": 283220.0,
+      "text": "that you can actually check out and utilize on demand and pay for what you use, as opposed"
+    },
+    {
+      "index": 55,
+      "start_time": 283220.0,
+      "end_time": 287550.0,
+      "text": "to having to put three nicks in a machine, or whatever."
+    },
+    {
+      "index": 56,
+      "start_time": 287550.0,
+      "end_time": 292090.0,
+      "text": "All of these things are great, and this all sounds fantastic, until you try and actually"
+    },
+    {
+      "index": 57,
+      "start_time": 292090.0,
+      "end_time": 296580.0,
+      "text": "build it, and then try and manage it and get it all to work together. That&#39;s where OpenStack"
+    },
+    {
+      "index": 58,
+      "start_time": 296580.0,
+      "end_time": 302750.0,
+      "text": "came in. Back in 2010, NASA and Rackspace were both facing these same sorts of challenges."
+    },
+    {
+      "index": 59,
+      "start_time": 302750.0,
+      "end_time": 306390.0,
+      "text": "They got together and they created an open source project called OpenStack. The basic"
+    },
+    {
+      "index": 60,
+      "start_time": 306390.0,
+      "end_time": 312120.0,
+      "text": "premise of OpenStack is to deliver a platform for you to build and manage massively scalable,"
+    },
+    {
+      "index": 61,
+      "start_time": 312120.0,
+      "end_time": 316320.0,
+      "text": "super elastic, and feature-rich clouds with those characteristics that I talked about"
+    },
+    {
+      "index": 62,
+      "start_time": 316320.0,
+      "end_time": 320850.0,
+      "text": "in the last slide. That&#39;s the key. OpenStack provides a number of data center"
+    },
+    {
+      "index": 63,
+      "start_time": 320850.0,
+      "end_time": 325530.0,
+      "text": "resources, including compute, storage, and networking. There&#39;s also a significant number"
+    },
+    {
+      "index": 64,
+      "start_time": 325530.0,
+      "end_time": 330210.0,
+      "text": "of other projects that are starting up and services that are more specific. The key is,"
+    },
+    {
+      "index": 65,
+      "start_time": 330210.0,
+      "end_time": 335730.0,
+      "text": "is they all use the same building blocks, and they all use the same management-type"
+    },
+    {
+      "index": 66,
+      "start_time": 335730.0,
+      "end_time": 343010.0,
+      "text": "interface that OpenStack provides. That sounds great, and that gives you a basic"
+    },
+    {
+      "index": 67,
+      "start_time": 343010.0,
+      "end_time": 350990.0,
+      "text": "idea of what the marketing slide would say. What&#39;s the real deal here? What&#39;s OpenStack"
+    },
+    {
+      "index": 68,
+      "start_time": 350990.0,
+      "end_time": 356500.0,
+      "text": "really trying to do? On top of giving you the ability to actually build a cloud, which"
+    },
+    {
+      "index": 69,
+      "start_time": 356500.0,
+      "end_time": 362250.0,
+      "text": "is huge, the biggest things are is it&#39;s abstracting out physical [00:06:00] and virtualized resources"
+    },
+    {
+      "index": 70,
+      "start_time": 362250.0,
+      "end_time": 369090.0,
+      "text": "and giving you a single common management layer to work with them. We do do things more"
+    },
+    {
+      "index": 71,
+      "start_time": 369090.0,
+      "end_time": 375890.0,
+      "text": "than just virtual machines. We do do bare metal, as well. We do storage. We do networking,"
+    },
+    {
+      "index": 72,
+      "start_time": 375890.0,
+      "end_time": 379670.0,
+      "text": "so on and so forth. One of the keys about OpenStack is, is it"
+    },
+    {
+      "index": 73,
+      "start_time": 379670.0,
+      "end_time": 385470.0,
+      "text": "provides an easy-to-use REST API. Again, it&#39;s self-service, like we talked about. It&#39;s fully"
+    },
+    {
+      "index": 74,
+      "start_time": 385470.0,
+      "end_time": 389620.0,
+      "text": "dynamic. It&#39;s designed to scale. When I say scale, I mean massively scaled to the point"
+    },
+    {
+      "index": 75,
+      "start_time": 389620.0,
+      "end_time": 395330.0,
+      "text": "of tens of thousands of VMs running hundreds of nodes. That&#39;s going to continue to grow,"
+    },
+    {
+      "index": 76,
+      "start_time": 395330.0,
+      "end_time": 399740.0,
+      "text": "and we continue to push that limit. I&#39;ve heard different talks on what some of the goals"
+    },
+    {
+      "index": 77,
+      "start_time": 399740.0,
+      "end_time": 404800.0,
+      "text": "are. I think it&#39;s basically, as long as somebody wants to grow, keep growing and fix what needs"
+    },
+    {
+      "index": 78,
+      "start_time": 404800.0,
+      "end_time": 408210.0,
+      "text": "to be fixed to make it do that. The good thing is, is that the architecture, as it stands"
+    },
+    {
+      "index": 79,
+      "start_time": 408210.0,
+      "end_time": 412470.0,
+      "text": "right now, will allow that, and it will let us continue to do that."
+    },
+    {
+      "index": 80,
+      "start_time": 412470.0,
+      "end_time": 417330.0,
+      "text": "Some of the value propositions that are associated with OpenStack. One of the biggest things"
+    },
+    {
+      "index": 81,
+      "start_time": 417330.0,
+      "end_time": 421360.0,
+      "text": "about OpenStack is you have choice. You have the ability to configure things the way you"
+    },
+    {
+      "index": 82,
+      "start_time": 421360.0,
+      "end_time": 425110.0,
+      "text": "want, and use the things that you want. In some respects, this makes things a little"
+    },
+    {
+      "index": 83,
+      "start_time": 425110.0,
+      "end_time": 428640.0,
+      "text": "bit more complex and a little more difficult for people to grasp and figure out how to"
+    },
+    {
+      "index": 84,
+      "start_time": 428640.0,
+      "end_time": 434270.0,
+      "text": "set this up. On the other hand, it&#39;s fantastic, because it gives you the ability to utilize"
+    },
+    {
+      "index": 85,
+      "start_time": 434270.0,
+      "end_time": 438930.0,
+      "text": "what you want. Also, it gives you the ability to mix and match those things."
+    },
+    {
+      "index": 86,
+      "start_time": 438930.0,
+      "end_time": 445450.0,
+      "text": "Hypervisors is a great example. We have support for VMware, KVM, Hyper-V, Xen, and some others."
+    },
+    {
+      "index": 87,
+      "start_time": 445450.0,
+      "end_time": 449870.0,
+      "text": "The key is you can pick which one of those you want to use. Not only that, not only can"
+    },
+    {
+      "index": 88,
+      "start_time": 449870.0,
+      "end_time": 456000.0,
+      "text": "you pick which one, you can also have a single OpenStack install that utilizes all of them."
+    },
+    {
+      "index": 89,
+      "start_time": 456000.0,
+      "end_time": 460950.0,
+      "text": "You can have Xen on one compute node. You could have KVM on another. You could have"
+    },
+    {
+      "index": 90,
+      "start_time": 460950.0,
+      "end_time": 466550.0,
+      "text": "VMware on another. The idea is all of those are abstracted out into the management layer"
+    },
+    {
+      "index": 91,
+      "start_time": 466550.0,
+      "end_time": 473580.0,
+      "text": "so that, from an end user&#39;s perspective, they just have to request, &quot;Give me a VM.&quot; Then"
+    },
+    {
+      "index": 92,
+      "start_time": 473580.0,
+      "end_time": 478030.0,
+      "text": "depending on some of the characteristics that they might ask for in addition to just a basic"
+    },
+    {
+      "index": 93,
+      "start_time": 478030.0,
+      "end_time": 481960.0,
+      "text": "VM, that may determine which one of those [00:08:00] hypervisors it goes to."
+    },
+    {
+      "index": 94,
+      "start_time": 481960.0,
+      "end_time": 485730.0,
+      "text": "The other thing about OpenStack is is that it supports the whole Infrastructure as a"
+    },
+    {
+      "index": 95,
+      "start_time": 485730.0,
+      "end_time": 491050.0,
+      "text": "Service stack, not just the compute side. We&#39;re talking storage, networking, security,"
+    },
+    {
+      "index": 96,
+      "start_time": 491050.0,
+      "end_time": 497100.0,
+      "text": "so on and so forth. We drive significantly greater resource utilization across the entire"
+    },
+    {
+      "index": 97,
+      "start_time": 497100.0,
+      "end_time": 502340.0,
+      "text": "infrastructure. The other thing is, is we fix some of the scaling issues that you have"
+    },
+    {
+      "index": 98,
+      "start_time": 502340.0,
+      "end_time": 507020.0,
+      "text": "with just compute virtualization or just the hypervisor. Those are some really big things."
+    },
+    {
+      "index": 99,
+      "start_time": 507020.0,
+      "end_time": 511910.0,
+      "text": "The other thing that is key, that a lot of people are focusing in on and really want"
+    },
+    {
+      "index": 100,
+      "start_time": 511910.0,
+      "end_time": 518149.0,
+      "text": "to drive inside of OpenStack, is trying to deliver compatibility between private and"
+    },
+    {
+      "index": 101,
+      "start_time": 518149.0,
+      "end_time": 524500.0,
+      "text": "public clouds. Everybody knows, from the public cloud space, one of the big players that everybody"
+    },
+    {
+      "index": 102,
+      "start_time": 524500.0,
+      "end_time": 531520.0,
+      "text": "always thinks of is Amazon. The idea here is, with Amazon, you deploy some things in"
+    },
+    {
+      "index": 103,
+      "start_time": 531520.0,
+      "end_time": 537190.0,
+      "text": "Amazon, and that&#39;s great. Everything works fine, but you can&#39;t bring all of that same"
+    },
+    {
+      "index": 104,
+      "start_time": 537190.0,
+      "end_time": 543560.0,
+      "text": "stuff back into your in-house cloud quite so easily, because of the differences in compatibility,"
+    },
+    {
+      "index": 105,
+      "start_time": 543560.0,
+      "end_time": 547460.0,
+      "text": "and so on and so forth. Now, however, if you go to a service provider"
+    },
+    {
+      "index": 106,
+      "start_time": 547460.0,
+      "end_time": 552460.0,
+      "text": "that utilizes OpenStack and does a public cloud that way, you do have the ability to"
+    },
+    {
+      "index": 107,
+      "start_time": 552460.0,
+      "end_time": 557590.0,
+      "text": "do things like have overlap between the two. You can have a private cloud running OpenStack"
+    },
+    {
+      "index": 108,
+      "start_time": 557590.0,
+      "end_time": 562010.0,
+      "text": "and a public cloud that you go to a provider for running OpenStack. You can actually have"
+    },
+    {
+      "index": 109,
+      "start_time": 562010.0,
+      "end_time": 568340.0,
+      "text": "things cross and meld in between, which is a huge advantage. The key thing about OpenStack"
+    },
+    {
+      "index": 110,
+      "start_time": 568340.0,
+      "end_time": 574550.0,
+      "text": "is you&#39;re really bringing the whole concept of software-defined infrastructure to life."
+    },
+    {
+      "index": 111,
+      "start_time": 574550.0,
+      "end_time": 578640.0,
+      "text": "You&#39;re really making that happen. Really similar to what we talked about with"
+    },
+    {
+      "index": 112,
+      "start_time": 578640.0,
+      "end_time": 584910.0,
+      "text": "the hypervisor, a lot of the early-use cases for OpenStack were test and development. Over"
+    },
+    {
+      "index": 113,
+      "start_time": 584910.0,
+      "end_time": 589720.0,
+      "text": "time, though, just like we saw with the hypervisor, we started to see more and more enterprise"
+    },
+    {
+      "index": 114,
+      "start_time": 589720.0,
+      "end_time": 595070.0,
+      "text": "IT, DevOps, continuous integration, things like that, all starting to move into OpenStack"
+    },
+    {
+      "index": 115,
+      "start_time": 595070.0,
+      "end_time": 598520.0,
+      "text": "as well and starting to move into the cloud. We&#39;re starting to see more and more things"
+    },
+    {
+      "index": 116,
+      "start_time": 598520.0,
+      "end_time": 604060.0,
+      "text": "like databases of service [00:10:00], whether that be MySQL, or MongoDB, or other NoSQL"
+    },
+    {
+      "index": 117,
+      "start_time": 604060.0,
+      "end_time": 610339.0,
+      "text": "type databases. More and more of those things are moving into OpenStack, as well. We&#39;re"
+    },
+    {
+      "index": 118,
+      "start_time": 610339.0,
+      "end_time": 616330.0,
+      "text": "also seeing it utilized heavily for internal web services as well as external web services."
+    },
+    {
+      "index": 119,
+      "start_time": 616330.0,
+      "end_time": 622120.0,
+      "text": "We&#39;re seeing things like eCommerce, is a huge consumer of OpenStack. You can look at folks"
+    },
+    {
+      "index": 120,
+      "start_time": 622120.0,
+      "end_time": 630000.0,
+      "text": "like WebEx utilizing it. There&#39;s also situations starting with DVI. People are using it to"
+    },
+    {
+      "index": 121,
+      "start_time": 630000.0,
+      "end_time": 637450.0,
+      "text": "deploy DVI implementations. Being an open source project, there&#39;s always"
+    },
+    {
+      "index": 122,
+      "start_time": 637450.0,
+      "end_time": 641410.0,
+      "text": "some good information about the community to look at, and to see how healthy it is and"
+    },
+    {
+      "index": 123,
+      "start_time": 641410.0,
+      "end_time": 646540.0,
+      "text": "how things are going. OpenStack has a community of almost 10,000 people across 87 countries"
+    },
+    {
+      "index": 124,
+      "start_time": 646540.0,
+      "end_time": 652880.0,
+      "text": "right now, which is just massive. There&#39;s greater than 45 companies right now that contributed"
+    },
+    {
+      "index": 125,
+      "start_time": 652880.0,
+      "end_time": 659550.0,
+      "text": "to the last release of OpenStack. There&#39;s more than 40 listed case studies of public"
+    },
+    {
+      "index": 126,
+      "start_time": 659550.0,
+      "end_time": 663410.0,
+      "text": "companies willing to talk about what they&#39;ve done with OpenStack, how they&#39;ve used it,"
+    },
+    {
+      "index": 127,
+      "start_time": 663410.0,
+      "end_time": 669310.0,
+      "text": "and how it&#39;s worked out for them. There&#39;s over 200 vendors involved in the ecosystem."
+    },
+    {
+      "index": 128,
+      "start_time": 669310.0,
+      "end_time": 676200.0,
+      "text": "By vendors, I mean companies like SolidFire that I work for that actually develop a product,"
+    },
+    {
+      "index": 129,
+      "start_time": 676200.0,
+      "end_time": 683110.0,
+      "text": "SolidFire, NetApp, Red Hat, Canonical, so on and so forth. The ecosystem is extremely"
+    },
+    {
+      "index": 130,
+      "start_time": 683110.0,
+      "end_time": 690060.0,
+      "text": "large and really, really diverse. Let&#39;s delve a little bit into storage specifically."
+    },
+    {
+      "index": 131,
+      "start_time": 690060.0,
+      "end_time": 693210.0,
+      "text": "One of the first questions that I typically get from people is, &quot;What&#39;s the difference"
+    },
+    {
+      "index": 132,
+      "start_time": 693210.0,
+      "end_time": 699140.0,
+      "text": "between Cinder and Swift?&quot; Swift is object storage, while Cinder is traditional block"
+    },
+    {
+      "index": 133,
+      "start_time": 699140.0,
+      "end_time": 703720.0,
+      "text": "storage. We put together this little slide. You can take a look. It gives you a decoder"
+    },
+    {
+      "index": 134,
+      "start_time": 703720.0,
+      "end_time": 707970.0,
+      "text": "of what some of the different objectives are between the two, in terms of some of the different"
+    },
+    {
+      "index": 135,
+      "start_time": 707970.0,
+      "end_time": 711130.0,
+      "text": "use cases and workloads that you might target one over the other."
+    },
+    {
+      "index": 136,
+      "start_time": 711130.0,
+      "end_time": 715630.0,
+      "text": "The block storage is definitely the more traditional, the high-performance-type workload, so on"
+    },
+    {
+      "index": 137,
+      "start_time": 715630.0,
+      "end_time": 720870.0,
+      "text": "and so forth ... high-change content, smaller, random read/write, [00:12:00] bursty IO, so"
+    },
+    {
+      "index": 138,
+      "start_time": 720870.0,
+      "end_time": 725120.0,
+      "text": "on and so forth ... while the object storage is more of, &quot;Hey, I&#39;ve got this object,&quot; whether"
+    },
+    {
+      "index": 139,
+      "start_time": 725120.0,
+      "end_time": 730670.0,
+      "text": "it be an image, or a file, or whatever, a video clip, so on and so forth, full object,"
+    },
+    {
+      "index": 140,
+      "start_time": 730670.0,
+      "end_time": 735370.0,
+      "text": "&quot;that I&#39;m actually moving from one place to another.&quot; That&#39;s the big thing."
+    },
+    {
+      "index": 141,
+      "start_time": 735370.0,
+      "end_time": 738410.0,
+      "text": "That&#39;s one of the first questions that come up, so I wanted to talk on that. I&#39;m not going"
+    },
+    {
+      "index": 142,
+      "start_time": 738410.0,
+      "end_time": 743700.0,
+      "text": "to go too much into the Swift or object storage. I do want to talk a little bit more about"
+    },
+    {
+      "index": 143,
+      "start_time": 743700.0,
+      "end_time": 749370.0,
+      "text": "the block storage project. OpenStack&#39;s block storage project is codenamed Cinder. It&#39;s"
+    },
+    {
+      "index": 144,
+      "start_time": 749370.0,
+      "end_time": 755260.0,
+      "text": "architected to provide traditional block-level storage and abstract those block storage resources"
+    },
+    {
+      "index": 145,
+      "start_time": 755260.0,
+      "end_time": 760120.0,
+      "text": "out. It presents persistent block storage in the form of volumes that can be used and"
+    },
+    {
+      "index": 146,
+      "start_time": 760120.0,
+      "end_time": 764279.0,
+      "text": "consumed by Nova. It can be either attached to a compute instance,"
+    },
+    {
+      "index": 147,
+      "start_time": 764279.0,
+      "end_time": 769250.0,
+      "text": "or it can actually be used as the storage location for a compute instance. When I say"
+    },
+    {
+      "index": 148,
+      "start_time": 769250.0,
+      "end_time": 776089.0,
+      "text": "instance, an instance in OpenStack is basically a VM. We call it an instance. Cinder manages"
+    },
+    {
+      "index": 149,
+      "start_time": 776089.0,
+      "end_time": 783190.0,
+      "text": "the creation, detaching, and deleting of these volumes across multiple storage back-ends."
+    },
+    {
+      "index": 150,
+      "start_time": 783190.0,
+      "end_time": 787660.0,
+      "text": "Really similar to what we talked about in terms of the hypervisor choices. You can use"
+    },
+    {
+      "index": 151,
+      "start_time": 787660.0,
+      "end_time": 792420.0,
+      "text": "KVM, you can use Xen, you can use Hyper-V, so on and so forth."
+    },
+    {
+      "index": 152,
+      "start_time": 792420.0,
+      "end_time": 798050.0,
+      "text": "We also do the same sort of model inside of the block storage project. You can have different"
+    },
+    {
+      "index": 153,
+      "start_time": 798050.0,
+      "end_time": 803520.0,
+      "text": "vendors&#39; back-ends. You can have a NetApp back-end. You can have a SolidFire back-end,"
+    },
+    {
+      "index": 154,
+      "start_time": 803520.0,
+      "end_time": 809360.0,
+      "text": "an IBM back-end, whatever it might be. You can have those different back-ends if their"
+    },
+    {
+      "index": 155,
+      "start_time": 809360.0,
+      "end_time": 814270.0,
+      "text": "drivers are included in the project and supported. You can have those, and you can also still"
+    },
+    {
+      "index": 156,
+      "start_time": 814270.0,
+      "end_time": 819130.0,
+      "text": "also have multiples. You can have multiple nodes with multiple back-ends, or even a single"
+    },
+    {
+      "index": 157,
+      "start_time": 819130.0,
+      "end_time": 823620.0,
+      "text": "node with multiple back-ends attached to it that you can use. I&#39;m not going to go into"
+    },
+    {
+      "index": 158,
+      "start_time": 823620.0,
+      "end_time": 828050.0,
+      "text": "too much detail about that. I&#39;ll touch on it a little bit more later. Then there is"
+    },
+    {
+      "index": 159,
+      "start_time": 828050.0,
+      "end_time": 834970.0,
+      "text": "also a built-in block storage back-end that is implemented using LVM that comes with OpenStack,"
+    },
+    {
+      "index": 160,
+      "start_time": 834970.0,
+      "end_time": 838870.0,
+      "text": "as well. Some of the basic features that you get with"
+    },
+    {
+      "index": 161,
+      "start_time": 838870.0,
+      "end_time": 841910.0,
+      "text": "the block storage [inaudible 00:13:59] with Cinder [00:14:00]. Of course, obviously, we"
+    },
+    {
+      "index": 162,
+      "start_time": 841910.0,
+      "end_time": 846980.0,
+      "text": "need create and delete of volumes. The thing that&#39;s nice is it&#39;s create and delete, again,"
+    },
+    {
+      "index": 163,
+      "start_time": 846980.0,
+      "end_time": 851170.0,
+      "text": "on demand. You need a volume, you go and you create it. The call is sent down to the back-end,"
+    },
+    {
+      "index": 164,
+      "start_time": 851170.0,
+      "end_time": 856260.0,
+      "text": "and the back-end is creating that resource on the fly dynamically as you need it, and"
+    },
+    {
+      "index": 165,
+      "start_time": 856260.0,
+      "end_time": 860490.0,
+      "text": "returning the information that you need to connect it and use it. Then when you&#39;re done"
+    },
+    {
+      "index": 166,
+      "start_time": 860490.0,
+      "end_time": 863610.0,
+      "text": "with it, you can delete it and have it just go away."
+    },
+    {
+      "index": 167,
+      "start_time": 863610.0,
+      "end_time": 868029.0,
+      "text": "We also have the ability to do things like specify custom types, and then also add things"
+    },
+    {
+      "index": 168,
+      "start_time": 868029.0,
+      "end_time": 873149.0,
+      "text": "that we call extra-specs. An admin can go in and set up types and extra-specs for the"
+    },
+    {
+      "index": 169,
+      "start_time": 873149.0,
+      "end_time": 880620.0,
+      "text": "volume service. These will do things like specify, say, I want certain QoS levels or"
+    },
+    {
+      "index": 170,
+      "start_time": 880620.0,
+      "end_time": 886399.0,
+      "text": "I want a certain back-end to be targeted for this type, so on and so forth."
+    },
+    {
+      "index": 171,
+      "start_time": 886399.0,
+      "end_time": 890180.0,
+      "text": "In addition, we also do things like cloning. You can take an existing volume, and you can"
+    },
+    {
+      "index": 172,
+      "start_time": 890180.0,
+      "end_time": 896589.0,
+      "text": "actually create a clone of it. You can copy an image out of the Glance, which is the image"
+    },
+    {
+      "index": 173,
+      "start_time": 896589.0,
+      "end_time": 900580.0,
+      "text": "repository. It&#39;s where all the images are stored to create instances. That would be"
+    },
+    {
+      "index": 174,
+      "start_time": 900580.0,
+      "end_time": 908040.0,
+      "text": "somewhat like an equivalent to your ISO or CD-ROM file for your Ubuntu VM, for example."
+    },
+    {
+      "index": 175,
+      "start_time": 908040.0,
+      "end_time": 914160.0,
+      "text": "You can copy that image down to a volume, or you can take in a volume that you have"
+    },
+    {
+      "index": 176,
+      "start_time": 914160.0,
+      "end_time": 919830.0,
+      "text": "that&#39;s bootable, and actually send that back up to Glance, as well. What that does is that"
+    },
+    {
+      "index": 177,
+      "start_time": 919830.0,
+      "end_time": 922959.0,
+      "text": "allows you to do the whole boot-from-volume thing."
+    },
+    {
+      "index": 178,
+      "start_time": 922959.0,
+      "end_time": 928720.0,
+      "text": "You can also do point-in-time copies, so snapshots. You can also turn around and create a volume"
+    },
+    {
+      "index": 179,
+      "start_time": 928720.0,
+      "end_time": 934910.0,
+      "text": "from those snapshots. The snapshots really, for the most part, are, like I said, they&#39;re"
+    },
+    {
+      "index": 180,
+      "start_time": 934910.0,
+      "end_time": 941040.0,
+      "text": "a point-in-time copy. They&#39;re more used as a vehicle for a lot of the underlying things"
+    },
+    {
+      "index": 181,
+      "start_time": 941040.0,
+      "end_time": 947529.0,
+      "text": "that the block storage service does, in my opinion. It&#39;s a great way to get that quick,"
+    },
+    {
+      "index": 182,
+      "start_time": 947529.0,
+      "end_time": 952980.0,
+      "text": "fast, instantaneous point-in-time copy of what&#39;s going on, of the system and stuff,"
+    },
+    {
+      "index": 183,
+      "start_time": 952980.0,
+      "end_time": 956630.0,
+      "text": "and then do things with it afterwards, like a clone, or make a new volume, or so on and"
+    },
+    {
+      "index": 184,
+      "start_time": 956630.0,
+      "end_time": 960690.0,
+      "text": "so forth, to actually replicate it. We also recently [00:16:00] have added things"
+    },
+    {
+      "index": 185,
+      "start_time": 960690.0,
+      "end_time": 967480.0,
+      "text": "like backup of volumes. You can back up to object storage, including Swift, and now Ceph"
+    },
+    {
+      "index": 186,
+      "start_time": 967480.0,
+      "end_time": 972390.0,
+      "text": "we recently added, as well. You can transfer the ownership of a volume. The whole concept"
+    },
+    {
+      "index": 187,
+      "start_time": 972390.0,
+      "end_time": 978589.0,
+      "text": "in OpenStack is you have what&#39;s called tenants. Tenants are individual users or projects inside"
+    },
+    {
+      "index": 188,
+      "start_time": 978589.0,
+      "end_time": 984279.0,
+      "text": "of OpenStack. They don&#39;t have visibility to each other&#39;s resources."
+    },
+    {
+      "index": 189,
+      "start_time": 984279.0,
+      "end_time": 990350.0,
+      "text": "The idea is if you have a volume for your dev group A, and it&#39;s got some cool stuff"
+    },
+    {
+      "index": 190,
+      "start_time": 990350.0,
+      "end_time": 994310.0,
+      "text": "on it, or it&#39;s got a certain development environment, or something that you want to share with somebody,"
+    },
+    {
+      "index": 191,
+      "start_time": 994310.0,
+      "end_time": 998839.0,
+      "text": "or whatever, you can actually go ahead and transfer ownership of that volume over to"
+    },
+    {
+      "index": 192,
+      "start_time": 998839.0,
+      "end_time": 1003190.0,
+      "text": "one of your other tenants in the cloud and give them access to it, or basically just"
+    },
+    {
+      "index": 193,
+      "start_time": 1003190.0,
+      "end_time": 1007260.0,
+      "text": "give them the volume. In addition, some of the really cool things"
+    },
+    {
+      "index": 194,
+      "start_time": 1007260.0,
+      "end_time": 1015490.0,
+      "text": "that we introduced the last release include scheduling. It used to be we just had simple,"
+    },
+    {
+      "index": 195,
+      "start_time": 1015490.0,
+      "end_time": 1020980.0,
+      "text": "basic scheduling, and it was really, really basic. What we have now is we have the ability"
+    },
+    {
+      "index": 196,
+      "start_time": 1020980.0,
+      "end_time": 1026409.0,
+      "text": "to set up scheduling filters. You can do things like, I mentioned before, use volume types,"
+    },
+    {
+      "index": 197,
+      "start_time": 1026410.0000000001,
+      "end_time": 1031241.0000000001,
+      "text": "for example, to specify what back-end you go to or a volume is deployed on."
+    },
+    {
+      "index": 198,
+      "start_time": 1031240.0,
+      "end_time": 1035750.0,
+      "text": "You can also do more complex things. You can do things like capacity filters. You can specify"
+    },
+    {
+      "index": 199,
+      "start_time": 1035750.0,
+      "end_time": 1041959.0,
+      "text": "things to run in a manner where the volume that is requested is being deployed on the"
+    },
+    {
+      "index": 200,
+      "start_time": 1041960.0,
+      "end_time": 1045991.0,
+      "text": "next back-end with the most capacity. You can do things like volume counts, so on and"
+    },
+    {
+      "index": 201,
+      "start_time": 1045990.0,
+      "end_time": 1049950.0,
+      "text": "so forth. There&#39;s a number of options. Then in addition, you can also write your own custom"
+    },
+    {
+      "index": 202,
+      "start_time": 1049950.0,
+      "end_time": 1055270.0,
+      "text": "filters, which is a huge benefit. In addition to all these things, as with pretty"
+    },
+    {
+      "index": 203,
+      "start_time": 1055270.0,
+      "end_time": 1059549.0,
+      "text": "much everything inside of OpenStack, there&#39;s also per-tenant usage quotas that you can"
+    },
+    {
+      "index": 204,
+      "start_time": 1059550.0,
+      "end_time": 1065071.0,
+      "text": "set up. You can set up quotas for different tenants. You can say this tenant is only allowed"
+    },
+    {
+      "index": 205,
+      "start_time": 1065070.0,
+      "end_time": 1072170.0,
+      "text": "to set up this many volumes, or only allowed to consume this amount of storage, or they&#39;re"
+    },
+    {
+      "index": 206,
+      "start_time": 1072170.0,
+      "end_time": 1077420.0,
+      "text": "only allowed to create these types of volumes. There&#39;s a number of things that you can do"
+    },
+    {
+      "index": 207,
+      "start_time": 1077420.0,
+      "end_time": 1082090.0,
+      "text": "there. Again, there&#39;s a lot of [00:18:00] configuration, a lot of options, a lot of"
+    },
+    {
+      "index": 208,
+      "start_time": 1082090.0,
+      "end_time": 1086890.0,
+      "text": "choices that you can set up. One of the things that people ask about ... because"
+    },
+    {
+      "index": 209,
+      "start_time": 1086890.0,
+      "end_time": 1092030.0,
+      "text": "of the fact that the whole point of the block storage service is to abstract those resources"
+    },
+    {
+      "index": 210,
+      "start_time": 1092030.0,
+      "end_time": 1096059.0,
+      "text": "and treat them as pools, and stuff like that ... is, well, then, what&#39;s the advantage of"
+    },
+    {
+      "index": 211,
+      "start_time": 1096060.0,
+      "end_time": 1102861.0,
+      "text": "using, say, for example, a SolidFire device over the LVM, or whatever? There&#39;s, of course,"
+    },
+    {
+      "index": 212,
+      "start_time": 1102860.0,
+      "end_time": 1108450.0,
+      "text": "all the basic things that come with it, like performance, and efficiencies, power management,"
+    },
+    {
+      "index": 213,
+      "start_time": 1108450.0,
+      "end_time": 1112410.0,
+      "text": "all those sorts of things. On top of that, you still can expose your"
+    },
+    {
+      "index": 214,
+      "start_time": 1112410.0,
+      "end_time": 1118460.0,
+      "text": "unique features. You can do this either through custom types ... the volume types and the"
+    },
+    {
+      "index": 215,
+      "start_time": 1118460.0,
+      "end_time": 1123320.0,
+      "text": "extra-specs stuff that I talked about ... or OpenStack also provides this mechanism called"
+    },
+    {
+      "index": 216,
+      "start_time": 1123320.0,
+      "end_time": 1127450.0,
+      "text": "extensions. Extensions can be written and put in to do things above and beyond what"
+    },
+    {
+      "index": 217,
+      "start_time": 1127450.0,
+      "end_time": 1131850.0,
+      "text": "the API does on its own, to expose some of those extra features."
+    },
+    {
+      "index": 218,
+      "start_time": 1131850.0,
+      "end_time": 1137150.0,
+      "text": "Again, like I said, different back-ends have different use cases. There&#39;s definitely clear"
+    },
+    {
+      "index": 219,
+      "start_time": 1137150.0,
+      "end_time": 1143640.0,
+      "text": "choices between them, just based on the characteristics of the device itself. There is also things"
+    },
+    {
+      "index": 220,
+      "start_time": 1143640.0,
+      "end_time": 1148850.0,
+      "text": "that you can do in terms of features that you can expose those things. You get the best"
+    },
+    {
+      "index": 221,
+      "start_time": 1148850.0,
+      "end_time": 1154650.0,
+      "text": "of both worlds without having things get too out of control in terms of that management"
+    },
+    {
+      "index": 222,
+      "start_time": 1154650.0,
+      "end_time": 1160750.0,
+      "text": "interface and that API. This slide shows a little depiction of how"
+    },
+    {
+      "index": 223,
+      "start_time": 1160750.0,
+      "end_time": 1165830.0,
+      "text": "things tie together in a really high-level architectural view of the block storage service."
+    },
+    {
+      "index": 224,
+      "start_time": 1165830.0,
+      "end_time": 1169809.0,
+      "text": "You can see up there you have the user. That user is sending in a rest command to, whether"
+    },
+    {
+      "index": 225,
+      "start_time": 1169810.0,
+      "end_time": 1173921.0,
+      "text": "it be Nova, whether it be Cinder, whatever, into the service of interest. One of the things"
+    },
+    {
+      "index": 226,
+      "start_time": 1173920.0,
+      "end_time": 1178730.0,
+      "text": "that this doesn&#39;t show is that user or that interface, that could be a client, a command-line"
+    },
+    {
+      "index": 227,
+      "start_time": 1178730.0,
+      "end_time": 1186190.0,
+      "text": "client. It could be just a cURL call. It could be the OpenStack dashboard project horizon,"
+    },
+    {
+      "index": 228,
+      "start_time": 1186190.0,
+      "end_time": 1191390.0,
+      "text": "which is the web UI. It could be any one of those. They all work basically the same thing."
+    },
+    {
+      "index": 229,
+      "start_time": 1191390.0,
+      "end_time": 1196410.0,
+      "text": "They&#39;ll send a request down to the service. For example, they&#39;ll send it to Cinder via"
+    },
+    {
+      "index": 230,
+      "start_time": 1196410.0,
+      "end_time": 1200910.0,
+      "text": "the volume API. We have a set API set up, and so the user [00:20:00] knows what to expect"
+    },
+    {
+      "index": 231,
+      "start_time": 1200910.0,
+      "end_time": 1206290.0,
+      "text": "and what&#39;s available. That API will then go ahead and deploy that out to the scheduler."
+    },
+    {
+      "index": 232,
+      "start_time": 1206290.0,
+      "end_time": 1211280.0,
+      "text": "The scheduler will figure out what back-end service to use, so on and so forth, and actually"
+    },
+    {
+      "index": 233,
+      "start_time": 1211280.0,
+      "end_time": 1216650.0,
+      "text": "deploy the call down to the back-end. In the case of SolidFire, you can see we basically"
+    },
+    {
+      "index": 234,
+      "start_time": 1216650.0,
+      "end_time": 1222760.0,
+      "text": "just plug into the volume manager from a SolidFire driver. That driver then just sends JSON-RPC"
+    },
+    {
+      "index": 235,
+      "start_time": 1222760.0,
+      "end_time": 1227480.0,
+      "text": "commands down to the SolidFire cluster to do what we need."
+    },
+    {
+      "index": 236,
+      "start_time": 1227480.0,
+      "end_time": 1232530.0,
+      "text": "I touched on earlier about all the different vendors involved in OpenStack. We wanted to"
+    },
+    {
+      "index": 237,
+      "start_time": 1232530.0,
+      "end_time": 1238640.0,
+      "text": "put together a little slide here to show how diverse this group is and how large it is."
+    },
+    {
+      "index": 238,
+      "start_time": 1238640.0,
+      "end_time": 1246470.0,
+      "text": "You can see we&#39;ve broken it up back to ... based on their major areas of interest, in terms"
+    },
+    {
+      "index": 239,
+      "start_time": 1246470.0,
+      "end_time": 1250080.0,
+      "text": "of where they contribute the most and where they play the most. You can see there&#39;s a"
+    },
+    {
+      "index": 240,
+      "start_time": 1250080.0,
+      "end_time": 1259100.0,
+      "text": "really diverse group. On the compute side alone, we&#39;ve got HP, Dell, IBM, all the players."
+    },
+    {
+      "index": 241,
+      "start_time": 1259100.0,
+      "end_time": 1263590.0,
+      "text": "Everybody&#39;s there. The same on storage. On the storage side, SolidFire, EMC, NetApp,"
+    },
+    {
+      "index": 242,
+      "start_time": 1263590.0,
+      "end_time": 1269450.0,
+      "text": "HP. The point about this is what you have is you"
+    },
+    {
+      "index": 243,
+      "start_time": 1269450.0,
+      "end_time": 1274250.0,
+      "text": "have all of the major vendors, all of the major players, all obviously agreeing and"
+    },
+    {
+      "index": 244,
+      "start_time": 1274250.0,
+      "end_time": 1279669.0,
+      "text": "believing that OpenStack is a good thing and a good direction forward. They&#39;re all contributing"
+    },
+    {
+      "index": 245,
+      "start_time": 1279670.0,
+      "end_time": 1282050.0,
+      "text": "and investing. What that also means for you is, for an end user or for an implementer,"
+    },
+    {
+      "index": 246,
+      "start_time": 1282050.0,
+      "end_time": 1291550.0,
+      "text": "is that you&#39;re not only getting what, for example, SolidFire thinks is good, or what"
+    },
+    {
+      "index": 247,
+      "start_time": 1291550.0,
+      "end_time": 1296411.0,
+      "text": "SolidFire thinks is the best way to do it. You&#39;re getting a collaboration among all the"
+    },
+    {
+      "index": 248,
+      "start_time": 1296410.0,
+      "end_time": 1301740.0,
+      "text": "top key players. That&#39;s the whole point of open-sourcing the project to begin with."
+    },
+    {
+      "index": 249,
+      "start_time": 1301740.0,
+      "end_time": 1306970.0,
+      "text": "The whole idea is to take all of the best ideas and the best people from each of the"
+    },
+    {
+      "index": 250,
+      "start_time": 1306970.0,
+      "end_time": 1310280.0,
+      "text": "different vendors and each of the groups, putting them all together, and having them"
+    },
+    {
+      "index": 251,
+      "start_time": 1310280.0,
+      "end_time": 1315610.0,
+      "text": "all work together to build the best project possible. That&#39;s what I really think is happening"
+    },
+    {
+      "index": 252,
+      "start_time": 1315610.0,
+      "end_time": 1320120.0,
+      "text": "with OpenStack. I think the model is working extremely well. I think that the uptake [00:22:00]"
+    },
+    {
+      "index": 253,
+      "start_time": 1320120.0,
+      "end_time": 1326500.0,
+      "text": "that we have with all of the vendors and stuff is what makes it great and what makes it what"
+    },
+    {
+      "index": 254,
+      "start_time": 1326500.0,
+      "end_time": 1328510.0,
+      "text": "it is. One of the key things with an open source"
+    },
+    {
+      "index": 255,
+      "start_time": 1328510.0,
+      "end_time": 1332809.0,
+      "text": "project and with OpenStack, one of the key things that you need to do is you need to"
+    },
+    {
+      "index": 256,
+      "start_time": 1332810.0,
+      "end_time": 1338371.0,
+      "text": "be able to have some case studies and share those things. OpenStack&#39;s doing a really good"
+    },
+    {
+      "index": 257,
+      "start_time": 1338370.0,
+      "end_time": 1343700.0,
+      "text": "job of that, I think. There&#39;s a lot of really big household names that are coming out as"
+    },
+    {
+      "index": 258,
+      "start_time": 1343700.0,
+      "end_time": 1350059.0,
+      "text": "early adopters that are sharing their story, people like Best Buy, PayPal, Comcast, Bloomberg."
+    },
+    {
+      "index": 259,
+      "start_time": 1350060.0,
+      "end_time": 1354461.0,
+      "text": "You look at all of those, and you get some information about what they&#39;re doing and stuff."
+    },
+    {
+      "index": 260,
+      "start_time": 1354460.0,
+      "end_time": 1359600.0,
+      "text": "It brings all of this to life. It shows that it really is succeeding. It really is working,"
+    },
+    {
+      "index": 261,
+      "start_time": 1359600.0,
+      "end_time": 1364650.0,
+      "text": "and it&#39;s doing what it says it does. The thing about all of these early adopters"
+    },
+    {
+      "index": 262,
+      "start_time": 1364650.0,
+      "end_time": 1370240.0,
+      "text": "and these case studies, and so on and so forth, the key is, is all of these folks are deploying"
+    },
+    {
+      "index": 263,
+      "start_time": 1370240.0,
+      "end_time": 1375240.0,
+      "text": "OpenStack. They&#39;re all configuring it and using it differently. They&#39;re using all of"
+    },
+    {
+      "index": 264,
+      "start_time": 1375240.0,
+      "end_time": 1380110.0,
+      "text": "those customization features and things like that that, sure, adds complexity and makes"
+    },
+    {
+      "index": 265,
+      "start_time": 1380110.0,
+      "end_time": 1384290.0,
+      "text": "it a little more difficult, but at the same time, it also enables them to do what they"
+    },
+    {
+      "index": 266,
+      "start_time": 1384290.0,
+      "end_time": 1391370.0,
+      "text": "want. That&#39;s key. This is really cool to see these. You can check these out at the openstack.org"
+    },
+    {
+      "index": 267,
+      "start_time": 1391370.0,
+      "end_time": 1397690.0,
+      "text": "website and keep an eye on these. It&#39;s cool to see it grow, and see more people come in,"
+    },
+    {
+      "index": 268,
+      "start_time": 1397690.0,
+      "end_time": 1400460.0,
+      "text": "and see what they&#39;re doing, and learn more about it."
+    },
+    {
+      "index": 269,
+      "start_time": 1400460.0,
+      "end_time": 1408150.0,
+      "text": "That was a really quick rundown on the basic concepts and the ideas. SolidFire is committed"
+    },
+    {
+      "index": 270,
+      "start_time": 1408150.0,
+      "end_time": 1412540.0,
+      "text": "to OpenStack. We believe in OpenStack. I am a dedicated resource. This is actually my"
+    },
+    {
+      "index": 271,
+      "start_time": 1412540.0,
+      "end_time": 1420200.0,
+      "text": "job at SolidFire, is to contribute to OpenStack. The key is not only to contribute to the benefit"
+    },
+    {
+      "index": 272,
+      "start_time": 1420200.0,
+      "end_time": 1427080.0,
+      "text": "for our product and making our device fit as good as possible. Of course, I think we"
+    },
+    {
+      "index": 273,
+      "start_time": 1427080.0,
+      "end_time": 1432230.0,
+      "text": "have a great device, and I think it&#39;s one of the best designs for cloud infrastructure."
+    },
+    {
+      "index": 274,
+      "start_time": 1432230.0,
+      "end_time": 1438929.0,
+      "text": "But, we&#39;re really focused on the success and advancement of OpenStack in general for everybody."
+    },
+    {
+      "index": 275,
+      "start_time": 1438930.0,
+      "end_time": 1444951.0,
+      "text": "I think that&#39;s key [00:24:00]. That&#39;s a little bit more about us and our"
+    },
+    {
+      "index": 276,
+      "start_time": 1444950.0,
+      "end_time": 1450600.0,
+      "text": "philosophy towards OpenStack. We&#39;re also really interested in partnering with other people"
+    },
+    {
+      "index": 277,
+      "start_time": 1450600.0,
+      "end_time": 1456370.0,
+      "text": "that have that same vision. That&#39;s why we&#39;ve partnered with people like Rackspace and Nebula,"
+    },
+    {
+      "index": 278,
+      "start_time": 1456370.0,
+      "end_time": 1463799.0,
+      "text": "folks that have a global community view of OpenStack and advancing OpenStack as a whole."
+    },
+    {
+      "index": 279,
+      "start_time": 1463800.0,
+      "end_time": 1470081.0,
+      "text": "There&#39;s a number of related resources you can check out, not only on the OpenStack side."
+    },
+    {
+      "index": 280,
+      "start_time": 1470080.0,
+      "end_time": 1475360.0,
+      "text": "You can go to the SolidFire webpage. We actually have an OpenStack solutions page. You can"
+    },
+    {
+      "index": 281,
+      "start_time": 1475360.0,
+      "end_time": 1480870.0,
+      "text": "go there and get more information about OpenStack, specifically, what SolidFire&#39;s doing with"
+    },
+    {
+      "index": 282,
+      "start_time": 1480870.0,
+      "end_time": 1487490.0,
+      "text": "OpenStack via reference architectures, configuration guides for SolidFire and OpenStack."
+    },
+    {
+      "index": 283,
+      "start_time": 1487490.0,
+      "end_time": 1493510.0,
+      "text": "You can also get some information about just basic features and things that are new inside"
+    },
+    {
+      "index": 284,
+      "start_time": 1493510.0,
+      "end_time": 1498780.0,
+      "text": "of the block storage project, inside of Cinder. We do a screencast. Every month or so, we"
+    },
+    {
+      "index": 285,
+      "start_time": 1498780.0,
+      "end_time": 1503760.0,
+      "text": "try and put up a new screencast about a new feature, how it works, how you can use it,"
+    },
+    {
+      "index": 286,
+      "start_time": 1503760.0,
+      "end_time": 1507990.0,
+      "text": "and just do a screencast demo on it. It&#39;s a real quick, easy-to-follow type of thing."
+    },
+    {
+      "index": 287,
+      "start_time": 1507990.0,
+      "end_time": 1512660.0,
+      "text": "We&#39;re also got some blogs on there. We do recaps of each summit."
+    },
+    {
+      "index": 288,
+      "start_time": 1512660.0,
+      "end_time": 1520620.0,
+      "text": "Every six months, OpenStack has a summit that everybody gets together. One of the key purposes"
+    },
+    {
+      "index": 289,
+      "start_time": 1520620.0,
+      "end_time": 1525200.0,
+      "text": "is all the engineers, all the contributors get together, and we hash out all the ideas"
+    },
+    {
+      "index": 290,
+      "start_time": 1525200.0,
+      "end_time": 1529809.0,
+      "text": "for the next cycle. We do six-month release cycles. We&#39;ll get together, and we&#39;ll spend"
+    },
+    {
+      "index": 291,
+      "start_time": 1529810.0,
+      "end_time": 1534911.0,
+      "text": "a week in some location and go through just figuring out, okay, what are the top features"
+    },
+    {
+      "index": 292,
+      "start_time": 1534910.0,
+      "end_time": 1539880.0,
+      "text": "we want to work on, and brainstorm. It&#39;s our chance to get together. For the other six"
+    },
+    {
+      "index": 293,
+      "start_time": 1539880.0,
+      "end_time": 1545490.0,
+      "text": "months, we just work remotely. We connect via IRC and things like that. It&#39;s a great"
+    },
+    {
+      "index": 294,
+      "start_time": 1545490.0,
+      "end_time": 1549059.0,
+      "text": "opportunity for us to all to get together and get in the same room. It&#39;s a pretty cool"
+    },
+    {
+      "index": 295,
+      "start_time": 1549060.0,
+      "end_time": 1551471.0,
+      "text": "event. If you&#39;re looking at this and you&#39;re thinking,"
+    },
+    {
+      "index": 296,
+      "start_time": 1551470.0,
+      "end_time": 1555720.0,
+      "text": "&quot;Hey, I&#39;ve got some ideas. I want to get involved. How do I contribute to OpenStack?&quot;, it&#39;s a"
+    },
+    {
+      "index": 297,
+      "start_time": 1555720.0,
+      "end_time": 1559240.0,
+      "text": "lot easier than you might think. The first place I tell people to start is if they want"
+    },
+    {
+      "index": 298,
+      "start_time": 1559240.0,
+      "end_time": 1564200.0,
+      "text": "to contribute [00:26:00], go to the wiki.openstack.org webpage. There&#39;s a &quot;how to contribute&quot; section."
+    },
+    {
+      "index": 299,
+      "start_time": 1564200.0,
+      "end_time": 1568169.0,
+      "text": "It&#39;ll walk you through some of those things and get you started."
+    },
+    {
+      "index": 300,
+      "start_time": 1568170.0,
+      "end_time": 1573331.0,
+      "text": "If you want to just play with OpenStack and get started with OpenStack ... I don&#39;t have"
+    },
+    {
+      "index": 301,
+      "start_time": 1573330.0,
+      "end_time": 1578559.0,
+      "text": "it on this slide. I should, but ... go to devstack.org. You can download and deploy"
+    },
+    {
+      "index": 302,
+      "start_time": 1578560.0,
+      "end_time": 1584011.0,
+      "text": "DevStack, which is a full-running OpenStack install and setup. You can run all of that"
+    },
+    {
+      "index": 303,
+      "start_time": 1584010.0,
+      "end_time": 1590850.0,
+      "text": "and do it in a VM. You can deploy the VM on your laptop, whatever, run DevStack on it,"
+    },
+    {
+      "index": 304,
+      "start_time": 1590850.0,
+      "end_time": 1597070.0,
+      "text": "and have a running and working OpenStack setup that you can play with, and get a better idea,"
+    },
+    {
+      "index": 305,
+      "start_time": 1597070.0,
+      "end_time": 1600669.0,
+      "text": "and get a feel, and start experimenting. Then from there, you can do things like dive in"
+    },
+    {
+      "index": 306,
+      "start_time": 1600670.0,
+      "end_time": 1604461.0,
+      "text": "and start figuring out how to do things, like add different options, and so on and so forth."
+    },
+    {
+      "index": 307,
+      "start_time": 1604460.0,
+      "end_time": 1607280.0,
+      "text": "Then if you want, play with the code. If you&#39;re looking at this and you still have"
+    },
+    {
+      "index": 308,
+      "start_time": 1607280.0,
+      "end_time": 1612150.0,
+      "text": "some questions, you want to talk more or learn more, we&#39;re always happy to help. At SolidFire,"
+    },
+    {
+      "index": 309,
+      "start_time": 1612150.0,
+      "end_time": 1618750.0,
+      "text": "you can contact me with technical ideas or block-storage-specific things. My email there,"
+    },
+    {
+      "index": 310,
+      "start_time": 1618750.0,
+      "end_time": 1623010.0,
+      "text": "john.griffith@solidfire. If you&#39;re interested in partnerships ... like I mentioned, we like"
+    },
+    {
+      "index": 311,
+      "start_time": 1623010.0,
+      "end_time": 1627169.0,
+      "text": "to do partnerships with other people that are interested in OpenStack and advancing"
+    },
+    {
+      "index": 312,
+      "start_time": 1627170.0,
+      "end_time": 1632040.0,
+      "text": "the OpenStack project ... you can get a hold of McClain Buggell at solidfire.com. Then"
+    },
+    {
+      "index": 313,
+      "start_time": 1632040.0,
+      "end_time": 1636461.0,
+      "text": "of course, if you just want to learn more about SolidFire and you&#39;re interested in SolidFire,"
+    },
+    {
+      "index": 314,
+      "start_time": 1636460.0,
+      "end_time": 1640049.0,
+      "text": "check out sales@solidfire.com. They&#39;ll get you squared away."
+    },
+    {
+      "index": 315,
+      "start_time": 1640050.0,
+      "end_time": 1646471.0,
+      "text": "Anyway, I hope that was a decent introduction for you and gave you a quick, high-level view"
+    },
+    {
+      "index": 316,
+      "start_time": 1646470.0,
+      "end_time": 1652309.0,
+      "text": "of what OpenStack is and where it&#39;s going. Feel free to send me any questions that you"
+    },
+    {
+      "index": 317,
+      "start_time": 1652310.0,
+      "end_time": 1657670.0,
+      "text": "might have. Also, keep an eye, like I said, on that OpenStack solutions page. We have"
+    },
+    {
+      "index": 318,
+      "start_time": 1657670.0,
+      "end_time": 1662881.0,
+      "text": "some webcasts and screencasts coming up. We&#39;ll continue to add things there, so there&#39;s more"
+    },
+    {
+      "index": 319,
+      "start_time": 1662880.0,
+      "end_time": 1672880.0,
+      "text": "to come. Thanks a lot."
+    }
+  ]
+}

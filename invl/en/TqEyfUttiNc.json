@@ -1,0 +1,732 @@
+{
+  "video_id": "TqEyfUttiNc",
+  "title": "4   11   Spectral Clustering  Three Steps 7 17 Advanced",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 200.0,
+      "end_time": 4160.0,
+      "text": "So basically, let me quickly summarize what we have, learned so far."
+    },
+    {
+      "index": 2,
+      "start_time": 4160.0,
+      "end_time": 7500.0,
+      "text": "Right, so if we want to apply spectral graph partitioning to"
+    },
+    {
+      "index": 3,
+      "start_time": 7500.0,
+      "end_time": 12420.0,
+      "text": "find two clusters in a given graph, there are three steps we have to go through."
+    },
+    {
+      "index": 4,
+      "start_time": 12420.0,
+      "end_time": 16590.0,
+      "text": "In the first step, we have to do what is called pre-processing where we"
+    },
+    {
+      "index": 5,
+      "start_time": 16590.0,
+      "end_time": 18130.0,
+      "text": "construct a matrix representation of a graph."
+    },
+    {
+      "index": 6,
+      "start_time": 19620.0,
+      "end_time": 23860.0,
+      "text": "In the second step, we go and compute the eigenvalue decomposition of this,"
+    },
+    {
+      "index": 7,
+      "start_time": 23860.0,
+      "end_time": 27700.0,
+      "text": "of this graph by identifying eigenvalues and eigenvectors."
+    },
+    {
+      "index": 8,
+      "start_time": 27700.0,
+      "end_time": 31710.0,
+      "text": "In particular, we are interested in the, second smallest eigenvalue lambda 2 and"
+    },
+    {
+      "index": 9,
+      "start_time": 31710.0,
+      "end_time": 34610.0,
+      "text": "the corresponding eigenvector x."
+    },
+    {
+      "index": 10,
+      "start_time": 34610.0,
+      "end_time": 37570.0,
+      "text": "And then, once we have the cor, the, the,"
+    },
+    {
+      "index": 11,
+      "start_time": 37570.0,
+      "end_time": 40980.0,
+      "text": "the vector x, all we have to do is we have to go and"
+    },
+    {
+      "index": 12,
+      "start_time": 40980.0,
+      "end_time": 44309.0,
+      "text": "do the grouping where we basically look at the components of ne, of x."
+    },
+    {
+      "index": 13,
+      "start_time": 44310.0,
+      "end_time": 47370.0,
+      "text": "And determine which nodes belong to the set A, and"
+    },
+    {
+      "index": 14,
+      "start_time": 47370.0,
+      "end_time": 49400.0,
+      "text": "which nodes belong to the set B, right?"
+    },
+    {
+      "index": 15,
+      "start_time": 49400.0,
+      "end_time": 51890.0,
+      "text": "Kind of, who belongs to the left partition,"
+    },
+    {
+      "index": 16,
+      "start_time": 51900.0,
+      "end_time": 52680.0,
+      "text": "who belongs to the right partition."
+    },
+    {
+      "index": 17,
+      "start_time": 52680.0,
+      "end_time": 54640.0,
+      "text": "So, let me now give you an example."
+    },
+    {
+      "index": 18,
+      "start_time": 54640.0,
+      "end_time": 58640.0,
+      "text": "Right, so in the pre-processing step, I take our graph G and"
+    },
+    {
+      "index": 19,
+      "start_time": 58640.0,
+      "end_time": 60730.0,
+      "text": "compute the Laplacian matrix L."
+    },
+    {
+      "index": 20,
+      "start_time": 62500.0,
+      "end_time": 65820.0,
+      "text": "In the second step, then, we do the eigenvalue decomposition, where basically"
+    },
+    {
+      "index": 21,
+      "start_time": 65820.0,
+      "end_time": 71750.0,
+      "text": "we take, our L when we find a set of eigenvalues and a set of eigenvectors."
+    },
+    {
+      "index": 22,
+      "start_time": 71750.0,
+      "end_time": 73290.0,
+      "text": "To this matrix L,"
+    },
+    {
+      "index": 23,
+      "start_time": 73290.0,
+      "end_time": 79920.0,
+      "text": "we take the second smallest eigenvalue and the corresponding eigenvector."
+    },
+    {
+      "index": 24,
+      "start_time": 79920.0,
+      "end_time": 80670.0,
+      "text": "Here it is."
+    },
+    {
+      "index": 25,
+      "start_time": 80670.0,
+      "end_time": 82190.0,
+      "text": "Right? We take this, this one out."
+    },
+    {
+      "index": 26,
+      "start_time": 82190.0,
+      "end_time": 85190.0,
+      "text": "So here are now all the nodes one to, 1 to 6."
+    },
+    {
+      "index": 27,
+      "start_time": 85190.0,
+      "end_time": 90390.0,
+      "text": "And these are the corresponding entries of the eigenvector."
+    },
+    {
+      "index": 28,
+      "start_time": 90400.0,
+      "end_time": 93360.0,
+      "text": "And what we find, for example, is that now what we have to do is,"
+    },
+    {
+      "index": 29,
+      "start_time": 93360.0,
+      "end_time": 94740.0,
+      "text": "we have to group these nodes, right?"
+    },
+    {
+      "index": 30,
+      "start_time": 94740.0,
+      "end_time": 99330.0,
+      "text": "We would like to group these nodes into clusters corresponding to the embedding or"
+    },
+    {
+      "index": 31,
+      "start_time": 99330.0,
+      "end_time": 103679.0,
+      "text": "the labels of the nodes that, that we have in the corresponding eigenvector."
+    },
+    {
+      "index": 32,
+      "start_time": 104800.0,
+      "end_time": 106149.0,
+      "text": "So how do we do this grouping?"
+    },
+    {
+      "index": 33,
+      "start_time": 107600.0,
+      "end_time": 109149.0,
+      "text": "Doing the grouping is very simple."
+    },
+    {
+      "index": 34,
+      "start_time": 109150.0,
+      "end_time": 114790.0,
+      "text": "We basically go and sort the components, of of the vector X, and"
+    },
+    {
+      "index": 35,
+      "start_time": 114790.0,
+      "end_time": 119660.0,
+      "text": "identify clusters, by splitting the vector in 2, so [COUGH]."
+    },
+    {
+      "index": 36,
+      "start_time": 119660.0,
+      "end_time": 120792.0,
+      "text": "A naive approach to this,"
+    },
+    {
+      "index": 37,
+      "start_time": 120793.0,
+      "end_time": 124730.0,
+      "text": "to this case would be to ask, what are the corresponding values that are negative,"
+    },
+    {
+      "index": 38,
+      "start_time": 124730.0,
+      "end_time": 127230.0,
+      "text": "what are the corresponding values that are positive, right."
+    },
+    {
+      "index": 39,
+      "start_time": 127230.0,
+      "end_time": 132660.0,
+      "text": "So if this is our vector X, we would split it here between nodes 3 and 4."
+    },
+    {
+      "index": 40,
+      "start_time": 132660.0,
+      "end_time": 137000.0,
+      "text": "These are all the nodes that are on the right-hand side of the 0."
+    },
+    {
+      "index": 41,
+      "start_time": 137000.0,
+      "end_time": 139640.0,
+      "text": "These are all the nodes on the left-hand side of the 0."
+    },
+    {
+      "index": 42,
+      "start_time": 139640.0,
+      "end_time": 144727.0,
+      "text": "Notice that some of the node labels equals to 0, exactly as we said,"
+    },
+    {
+      "index": 43,
+      "start_time": 144728.0,
+      "end_time": 146700.0,
+      "text": "as we said it should be."
+    },
+    {
+      "index": 44,
+      "start_time": 146700.0,
+      "end_time": 150510.0,
+      "text": "Also notice the sum of the squares of the values equals to 1, which is,"
+    },
+    {
+      "index": 45,
+      "start_time": 150510.0,
+      "end_time": 152130.0,
+      "text": "again, exactly as it should be."
+    },
+    {
+      "index": 46,
+      "start_time": 152130.0,
+      "end_time": 155750.0,
+      "text": "So what this basically means is, now, by splitting this vector in half into kind of"
+    },
+    {
+      "index": 47,
+      "start_time": 155750.0,
+      "end_time": 159790.0,
+      "text": "the positive part and the negative part, we identified the two clusters."
+    },
+    {
+      "index": 48,
+      "start_time": 159790.0,
+      "end_time": 163120.0,
+      "text": "Here is the cluster A, which is composed of nodes 1 to 3,"
+    },
+    {
+      "index": 49,
+      "start_time": 163120.0,
+      "end_time": 166690.0,
+      "text": "and the cluster B that is composed of nodes, 4, 5, and 6."
+    },
+    {
+      "index": 50,
+      "start_time": 166690.0,
+      "end_time": 170500.0,
+      "text": "So I have an A and I have a B, right?"
+    },
+    {
+      "index": 51,
+      "start_time": 170500.0,
+      "end_time": 175930.0,
+      "text": "So, basically, what the components of second smallest eigenvector here basically"
+    },
+    {
+      "index": 52,
+      "start_time": 175930.0,
+      "end_time": 180700.0,
+      "text": "embedded the nodes on a line, assigned them the positive and negative values."
+    },
+    {
+      "index": 53,
+      "start_time": 180700.0,
+      "end_time": 183649.0,
+      "text": "We take all the positive nodes, put them into cluster A."
+    },
+    {
+      "index": 54,
+      "start_time": 183650.0,
+      "end_time": 185260.0,
+      "text": "Take all the negative nodes,"
+    },
+    {
+      "index": 55,
+      "start_time": 185260.0,
+      "end_time": 188370.0,
+      "text": "nodes with negative values, put them in the cluster B."
+    },
+    {
+      "index": 56,
+      "start_time": 188370.0,
+      "end_time": 192230.0,
+      "text": "So, now if I give you a bit more interesting example,"
+    },
+    {
+      "index": 57,
+      "start_time": 192230.0,
+      "end_time": 196340.0,
+      "text": "here I have graph on the left G that you see it has two clusters."
+    },
+    {
+      "index": 58,
+      "start_time": 196340.0,
+      "end_time": 198540.0,
+      "text": "I computed the graph Laplacian."
+    },
+    {
+      "index": 59,
+      "start_time": 198540.0,
+      "end_time": 202700.0,
+      "text": "I computed the lambda 2 and the corresponding eigenvector X."
+    },
+    {
+      "index": 60,
+      "start_time": 202700.0,
+      "end_time": 208739.0,
+      "text": "And all I did here is now I sorted the vector X2, right, the corresponding"
+    },
+    {
+      "index": 61,
+      "start_time": 208740.0,
+      "end_time": 214117.0,
+      "text": "eigenvector to the second smallest eigenvalue by, by the entries."
+    },
+    {
+      "index": 62,
+      "start_time": 214117.0,
+      "end_time": 217579.0,
+      "text": "And what you see very nicely is there is a set of components that"
+    },
+    {
+      "index": 63,
+      "start_time": 217580.0,
+      "end_time": 221230.0,
+      "text": "has a negative value, and a set of components that has a positive value."
+    },
+    {
+      "index": 64,
+      "start_time": 221230.0,
+      "end_time": 224640.0,
+      "text": "So basically, the eigenvalues, or"
+    },
+    {
+      "index": 65,
+      "start_time": 224640.0,
+      "end_time": 228700.0,
+      "text": "the entries of the eigenvector with a positive value correspond to"
+    },
+    {
+      "index": 66,
+      "start_time": 228700.0,
+      "end_time": 232600.0,
+      "text": "one cluster and the remaining ones correspond to the second cluster."
+    },
+    {
+      "index": 67,
+      "start_time": 232600.0,
+      "end_time": 234930.0,
+      "text": "Of course you can now start asking what,"
+    },
+    {
+      "index": 68,
+      "start_time": 234930.0,
+      "end_time": 239710.0,
+      "text": "is there anything interesting about the, eigenvectors that corresponds to,"
+    },
+    {
+      "index": 69,
+      "start_time": 239710.0,
+      "end_time": 243500.0,
+      "text": "let&#39;s say the third smallest eigenvalue, the fourth smallest eigenvalue, and so on."
+    },
+    {
+      "index": 70,
+      "start_time": 243500.0,
+      "end_time": 248320.0,
+      "text": "And just to, for example, show you what happens that, the first case I&#39;ll"
+    },
+    {
+      "index": 71,
+      "start_time": 248320.0,
+      "end_time": 252769.0,
+      "text": "show you is a graph that I have here that actually contains four small clusters."
+    },
+    {
+      "index": 72,
+      "start_time": 252770.0,
+      "end_time": 257660.0,
+      "text": "If the graph contains four small clusters and I still compute, lambda 2 and"
+    },
+    {
+      "index": 73,
+      "start_time": 257660.00000000003,
+      "end_time": 261510.00000000003,
+      "text": "the corresponding eigen vector X2, what, what I show you here is now the,"
+    },
+    {
+      "index": 74,
+      "start_time": 261510.0,
+      "end_time": 263310.0,
+      "text": "the components of this eigenvector and"
+    },
+    {
+      "index": 75,
+      "start_time": 263310.0,
+      "end_time": 267290.0,
+      "text": "you see how, how the entries now first are split into two clusters, right?"
+    },
+    {
+      "index": 76,
+      "start_time": 267290.0,
+      "end_time": 269520.0,
+      "text": "Kind of above zero and below zero."
+    },
+    {
+      "index": 77,
+      "start_time": 269520.0,
+      "end_time": 274810.0,
+      "text": "But then you actually find that here, we have these different steps."
+    },
+    {
+      "index": 78,
+      "start_time": 274810.0,
+      "end_time": 276990.0,
+      "text": "Right? So basically we have the,"
+    },
+    {
+      "index": 79,
+      "start_time": 276990.0,
+      "end_time": 278500.0,
+      "text": "first the two clusters, and"
+    },
+    {
+      "index": 80,
+      "start_time": 278500.0,
+      "end_time": 282760.0,
+      "text": "then each of the two clusters has two small clusters embedded in them."
+    },
+    {
+      "index": 81,
+      "start_time": 282760.0,
+      "end_time": 285740.0,
+      "text": "And we see this kind of from the structure of the components of"
+    },
+    {
+      "index": 82,
+      "start_time": 285740.0,
+      "end_time": 289900.0,
+      "text": "the second eigenvector very nicely."
+    },
+    {
+      "index": 83,
+      "start_time": 289900.0,
+      "end_time": 294169.0,
+      "text": "So the question is, if I have multiple, clusters, how would I go identify them?"
+    },
+    {
+      "index": 84,
+      "start_time": 295660.0,
+      "end_time": 298920.0,
+      "text": "So let me just show you some examples how to do this."
+    },
+    {
+      "index": 85,
+      "start_time": 298920.0,
+      "end_time": 302150.0,
+      "text": "For example, if this is my graph G, the same as I had before,"
+    },
+    {
+      "index": 86,
+      "start_time": 302150.0,
+      "end_time": 306530.0,
+      "text": "I have my Laplacian matrix L that I do eigendecomposition."
+    },
+    {
+      "index": 87,
+      "start_time": 306530.0,
+      "end_time": 309440.0,
+      "text": "For example, here are the components of vector X1, and"
+    },
+    {
+      "index": 88,
+      "start_time": 309440.0,
+      "end_time": 314690.0,
+      "text": "they all have exactly the same value, so exactly as we said and as we have proven."
+    },
+    {
+      "index": 89,
+      "start_time": 314690.0,
+      "end_time": 317700.0,
+      "text": "But for example the components of the third,"
+    },
+    {
+      "index": 90,
+      "start_time": 317700.0,
+      "end_time": 320280.0,
+      "text": "smallest eigenvector are the following."
+    },
+    {
+      "index": 91,
+      "start_time": 320280.0,
+      "end_time": 324190.0,
+      "text": "And now what you see here is for example that, this is the, the bottom cluster."
+    },
+    {
+      "index": 92,
+      "start_time": 324190.0,
+      "end_time": 326870.0,
+      "text": "This is the, the second cluster."
+    },
+    {
+      "index": 93,
+      "start_time": 326870.0,
+      "end_time": 329130.0,
+      "text": "Then this would be the third cluster and"
+    },
+    {
+      "index": 94,
+      "start_time": 329130.0,
+      "end_time": 332820.0,
+      "text": "here these component&#39;s correspond to the fourth cluster."
+    },
+    {
+      "index": 95,
+      "start_time": 332820.0,
+      "end_time": 334560.0,
+      "text": "So basically what does this mean?"
+    },
+    {
+      "index": 96,
+      "start_time": 334560.0,
+      "end_time": 337620.0,
+      "text": "This gives us now an idea of how do we go if we want to"
+    },
+    {
+      "index": 97,
+      "start_time": 337620.0,
+      "end_time": 341140.0,
+      "text": "partition a graph not into clusters but in K of them."
+    },
+    {
+      "index": 98,
+      "start_time": 341140.0,
+      "end_time": 342589.0,
+      "text": "There are two possible approaches."
+    },
+    {
+      "index": 99,
+      "start_time": 343770.0,
+      "end_time": 346240.0,
+      "text": "One approach is to do recursive bipartitioning."
+    },
+    {
+      "index": 100,
+      "start_time": 346240.0,
+      "end_time": 349780.0,
+      "text": "It&#39;s basically take the full graph, split it in two, and now for"
+    },
+    {
+      "index": 101,
+      "start_time": 349780.0,
+      "end_time": 354179.0,
+      "text": "each of the two pieces, again, kind of try to split it in two and we keep applying"
+    },
+    {
+      "index": 102,
+      "start_time": 354180.0,
+      "end_time": 358400.0,
+      "text": "this recursively in until we are getting kind of smaller and smaller pieces."
+    },
+    {
+      "index": 103,
+      "start_time": 358400.0,
+      "end_time": 363800.0,
+      "text": "And another idea is to basically cluster using multiple eigenvalues and"
+    },
+    {
+      "index": 104,
+      "start_time": 363800.0,
+      "end_time": 364409.0,
+      "text": "multiple eigenvectors."
+    },
+    {
+      "index": 105,
+      "start_time": 364410.0,
+      "end_time": 369348.0,
+      "text": "So basically the idea is that, for every node in the graph, we take our"
+    },
+    {
+      "index": 106,
+      "start_time": 369348.0,
+      "end_time": 374410.0,
+      "text": "Laplacian matrix computed the eigenvalue decomposition, and now we take the second"
+    },
+    {
+      "index": 107,
+      "start_time": 374410.0,
+      "end_time": 378100.0,
+      "text": "eigenvector, the third eigenvector, fourth eigenvector, which basically means that"
+    },
+    {
+      "index": 108,
+      "start_time": 378100.0,
+      "end_time": 383469.0,
+      "text": "every node of the graph is now described by a small vector of values."
+    },
+    {
+      "index": 109,
+      "start_time": 383470.0,
+      "end_time": 388550.0,
+      "text": "And now we can apply k-means or something like that to to identify the clusters."
+    },
+    {
+      "index": 110,
+      "start_time": 388550.0,
+      "end_time": 391380.0,
+      "text": "So basically the idea would be that we take the graph,"
+    },
+    {
+      "index": 111,
+      "start_time": 391380.0,
+      "end_time": 393110.0,
+      "text": "compute the Laplacian matrix."
+    },
+    {
+      "index": 112,
+      "start_time": 393110.0,
+      "end_time": 397120.0,
+      "text": "From Laplacian matrix what we will do is for every node i,"
+    },
+    {
+      "index": 113,
+      "start_time": 397120.0,
+      "end_time": 401400.0,
+      "text": "we will come up with it&#39;s corresponding, in some sense, coordinates."
+    },
+    {
+      "index": 114,
+      "start_time": 401400.0,
+      "end_time": 405539.0,
+      "text": "Right? So we will take the coordinate i of"
+    },
+    {
+      "index": 115,
+      "start_time": 405540.0,
+      "end_time": 409790.0,
+      "text": "second smallest eigenvector, coordinate i of the third smallest eigenvector, and"
+    },
+    {
+      "index": 116,
+      "start_time": 409790.0,
+      "end_time": 411120.0,
+      "text": "so on and so forth."
+    },
+    {
+      "index": 117,
+      "start_time": 411120.0,
+      "end_time": 414770.0,
+      "text": "And now that every node is described by a set of coordinates, we can run k-means"
+    },
+    {
+      "index": 118,
+      "start_time": 414770.0,
+      "end_time": 420800.0,
+      "text": "that we have already discussed how to use, to identify, K clusters."
+    },
+    {
+      "index": 119,
+      "start_time": 420800.0,
+      "end_time": 424479.0,
+      "text": "And it turns out in practice, this method, works really well."
+    },
+    {
+      "index": 120,
+      "start_time": 424480.0,
+      "end_time": 428740.0,
+      "text": "So with this, we have finished the discussion of spectral clustering and"
+    },
+    {
+      "index": 121,
+      "start_time": 428740.0,
+      "end_time": 432910.0,
+      "text": "basically given a graph how to find individual clusters of nodes, in it."
+    }
+  ]
+}

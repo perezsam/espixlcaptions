@@ -1,0 +1,1890 @@
+{
+  "video_id": "IlqnNWuqToo",
+  "title": "5   2   Content Based Recommendations 21 00",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 490.0,
+      "end_time": 2620.0,
+      "text": "Welcome back to Mining of Massive Datasets."
+    },
+    {
+      "index": 2,
+      "start_time": 2620.0,
+      "end_time": 5898.0,
+      "text": "We&#39;re going to continue our lesson on recommender systems by looking at"
+    },
+    {
+      "index": 3,
+      "start_time": 5898.0,
+      "end_time": 10770.0,
+      "text": "content-based recommendation systems."
+    },
+    {
+      "index": 4,
+      "start_time": 10770.0,
+      "end_time": 15300.0,
+      "text": "The main idea behind content-based recommendation systems is to recommend"
+    },
+    {
+      "index": 5,
+      "start_time": 15300.0,
+      "end_time": 20470.0,
+      "text": "items to a customer x similar to previous items rated highly by the same customer."
+    },
+    {
+      "index": 6,
+      "start_time": 21970.0,
+      "end_time": 26229.0,
+      "text": "For example, in, in example of movies you might recommend movies"
+    },
+    {
+      "index": 7,
+      "start_time": 26230.0,
+      "end_time": 31490.0,
+      "text": "with the same actor of actors, director, genre and so on."
+    },
+    {
+      "index": 8,
+      "start_time": 31490.0,
+      "end_time": 33160.0,
+      "text": "In the case of websites, blogs or"
+    },
+    {
+      "index": 9,
+      "start_time": 33160.0,
+      "end_time": 38449.0,
+      "text": "news, we might recommend articles with similar content, similar topics."
+    },
+    {
+      "index": 10,
+      "start_time": 38450.0,
+      "end_time": 40210.0,
+      "text": "In the case of people recommendations,"
+    },
+    {
+      "index": 11,
+      "start_time": 40210.0,
+      "end_time": 43600.0,
+      "text": "we might recommendation people with many common friends to each other."
+    },
+    {
+      "index": 12,
+      "start_time": 45200.0,
+      "end_time": 45910.0,
+      "text": "So here&#39;s our plan of action."
+    },
+    {
+      "index": 13,
+      "start_time": 45910.0,
+      "end_time": 48419.0,
+      "text": "We&#39;re going to start with a user and"
+    },
+    {
+      "index": 14,
+      "start_time": 48420.0,
+      "end_time": 53620.0,
+      "text": "find out a set of items the user likes using both explicit and implicit data."
+    },
+    {
+      "index": 15,
+      "start_time": 55520.0,
+      "end_time": 59740.0,
+      "text": "For example, we might look at the items that the user has rated highly and"
+    },
+    {
+      "index": 16,
+      "start_time": 59740.0,
+      "end_time": 62180.0,
+      "text": "the set of items the user has purchased."
+    },
+    {
+      "index": 17,
+      "start_time": 62180.0,
+      "end_time": 65180.0,
+      "text": "And for eat of, each of those items, we&#39;re going to build an item profile."
+    },
+    {
+      "index": 18,
+      "start_time": 66350.0,
+      "end_time": 69200.0,
+      "text": "An item profile is a description of the item."
+    },
+    {
+      "index": 19,
+      "start_time": 70300.0,
+      "end_time": 73400.0,
+      "text": "For example, in this case, we are dealing with geometric shapes."
+    },
+    {
+      "index": 20,
+      "start_time": 73400.0,
+      "end_time": 80220.0,
+      "text": "And let&#39;s say the user likes, they, a red circle and, a red triangle."
+    },
+    {
+      "index": 21,
+      "start_time": 80220.0,
+      "end_time": 85860.0,
+      "text": "We might build item profiles that say that the user likes red items."
+    },
+    {
+      "index": 22,
+      "start_time": 85860.0,
+      "end_time": 86370.0,
+      "text": "Right?"
+    },
+    {
+      "index": 23,
+      "start_time": 86370.0,
+      "end_time": 89150.0,
+      "text": "Or they, or the user likes circles, for instance."
+    },
+    {
+      "index": 24,
+      "start_time": 92320.0,
+      "end_time": 95550.0,
+      "text": "And from these item from these item profiles,"
+    },
+    {
+      "index": 25,
+      "start_time": 95550.0,
+      "end_time": 98340.0,
+      "text": "you&#39;re going to infer a user profile."
+    },
+    {
+      "index": 26,
+      "start_time": 98340.0,
+      "end_time": 101620.0,
+      "text": "The user profile infers the likes of"
+    },
+    {
+      "index": 27,
+      "start_time": 101620.0,
+      "end_time": 104810.0,
+      "text": "the user from the profile of items the user likes."
+    },
+    {
+      "index": 28,
+      "start_time": 104810.0,
+      "end_time": 107630.0,
+      "text": "Because the user here likes a red circle and"
+    },
+    {
+      "index": 29,
+      "start_time": 107630.0,
+      "end_time": 111670.0,
+      "text": "a red triangle we would infer that the user likes the color red."
+    },
+    {
+      "index": 30,
+      "start_time": 111670.0,
+      "end_time": 112900.0,
+      "text": "They like circles."
+    },
+    {
+      "index": 31,
+      "start_time": 112900.0,
+      "end_time": 113770.0,
+      "text": "And they like triangles."
+    },
+    {
+      "index": 32,
+      "start_time": 115900.0,
+      "end_time": 119740.0,
+      "text": "Now once we have a profile of the user we can then match that against a catalog and"
+    },
+    {
+      "index": 33,
+      "start_time": 119740.0,
+      "end_time": 121600.0,
+      "text": "recommend our items to the user."
+    },
+    {
+      "index": 34,
+      "start_time": 121600.0,
+      "end_time": 124869.0,
+      "text": "So, let&#39;s say the catalog has a bunch of items in it."
+    },
+    {
+      "index": 35,
+      "start_time": 124870.0,
+      "end_time": 127640.0,
+      "text": "Some of those items are red, so we can recommend those to the user."
+    },
+    {
+      "index": 36,
+      "start_time": 130180.0,
+      "end_time": 133830.0,
+      "text": "So, let&#39;s, let&#39;s look at how to build these item profiles."
+    },
+    {
+      "index": 37,
+      "start_time": 133830.0,
+      "end_time": 134880.0,
+      "text": "For each item,"
+    },
+    {
+      "index": 38,
+      "start_time": 134880.0,
+      "end_time": 138690.0,
+      "text": "you want to create an item profile, which we can then use to build user profile."
+    },
+    {
+      "index": 39,
+      "start_time": 140500.0,
+      "end_time": 143680.0,
+      "text": "So, the profile is a set of features about the item."
+    },
+    {
+      "index": 40,
+      "start_time": 143680.0,
+      "end_time": 145400.0,
+      "text": "In the case of movies for instance."
+    },
+    {
+      "index": 41,
+      "start_time": 145400.0,
+      "end_time": 152220.0,
+      "text": "The item profile might include author title actor director and so on."
+    },
+    {
+      "index": 42,
+      "start_time": 152220.0,
+      "end_time": 154390.0,
+      "text": "In the case of images and videos."
+    },
+    {
+      "index": 43,
+      "start_time": 154390.0,
+      "end_time": 156709.0,
+      "text": "We might use metadata and tags."
+    },
+    {
+      "index": 44,
+      "start_time": 156710.0,
+      "end_time": 161240.0,
+      "text": "In the case of people the item profile might be a set of friends of the user."
+    },
+    {
+      "index": 45,
+      "start_time": 161240.0,
+      "end_time": 164280.0,
+      "text": "Given that the item profile is a set of features,"
+    },
+    {
+      "index": 46,
+      "start_time": 164280.0,
+      "end_time": 167220.0,
+      "text": "it&#39;s often convenient to think of it as a vector."
+    },
+    {
+      "index": 47,
+      "start_time": 167220.0,
+      "end_time": 171170.0,
+      "text": "The vector could be either Boolean or real valued, and there&#39;s one entry per feature."
+    },
+    {
+      "index": 48,
+      "start_time": 172400.0,
+      "end_time": 176460.0,
+      "text": "For example, in the case of movies, the vector might be,"
+    },
+    {
+      "index": 49,
+      "start_time": 176460.0,
+      "end_time": 179100.0,
+      "text": "the item profile might be a Boolean vector."
+    },
+    {
+      "index": 50,
+      "start_time": 179100.0,
+      "end_time": 181340.0,
+      "text": "And there&#39;s a 0 or a 1."
+    },
+    {
+      "index": 51,
+      "start_time": 181340.0,
+      "end_time": 185420.0,
+      "text": "For each actor, director and so on, depending on whether that actor or"
+    },
+    {
+      "index": 52,
+      "start_time": 185420.0,
+      "end_time": 188488.0,
+      "text": "that director actually participated in that movie."
+    },
+    {
+      "index": 53,
+      "start_time": 193427.0,
+      "end_time": 196170.0,
+      "text": "We&#39;ll look at the special case of text."
+    },
+    {
+      "index": 54,
+      "start_time": 196170.0,
+      "end_time": 198480.0,
+      "text": "For example, we might be recommending news articles."
+    },
+    {
+      "index": 55,
+      "start_time": 199910.0,
+      "end_time": 202379.0,
+      "text": "Now, what&#39;s the item profile in this case."
+    },
+    {
+      "index": 56,
+      "start_time": 203630.0,
+      "end_time": 207410.0,
+      "text": "The simplest item profile in this case is to pick the set of important words in"
+    },
+    {
+      "index": 57,
+      "start_time": 207410.0,
+      "end_time": 208540.0,
+      "text": "the document or the item."
+    },
+    {
+      "index": 58,
+      "start_time": 209830.0,
+      "end_time": 211540.0,
+      "text": "How do you pick the important words in the item?"
+    },
+    {
+      "index": 59,
+      "start_time": 211540.0,
+      "end_time": 217100.0,
+      "text": "The usual heuristic that we get from text mining is the technique called TF-IDF,"
+    },
+    {
+      "index": 60,
+      "start_time": 217100.0,
+      "end_time": 220120.0,
+      "text": "or term frequency inverse document frequency."
+    },
+    {
+      "index": 61,
+      "start_time": 220120.0,
+      "end_time": 224450.0,
+      "text": "Many of you may have come across TF-IDF in the context of information retrieval but"
+    },
+    {
+      "index": 62,
+      "start_time": 224450.0,
+      "end_time": 226589.0,
+      "text": "for those of you who have not here&#39;s a quick refresher."
+    },
+    {
+      "index": 63,
+      "start_time": 230410.0,
+      "end_time": 232890.0,
+      "text": "Let&#39;s say we are looking at a document or"
+    },
+    {
+      "index": 64,
+      "start_time": 232890.0,
+      "end_time": 238290.0,
+      "text": "item j, and is computing the score for term or feature i."
+    },
+    {
+      "index": 65,
+      "start_time": 239390.0,
+      "end_time": 245940.0,
+      "text": "The term frequency TFIJ for feature I in document J"
+    },
+    {
+      "index": 66,
+      "start_time": 245940.0,
+      "end_time": 251660.0,
+      "text": "is just the number of times the feature J, the feature I appears in the document J"
+    },
+    {
+      "index": 67,
+      "start_time": 251660.0,
+      "end_time": 257459.0,
+      "text": "divided by the maximum number of time that same feature appears in any document."
+    },
+    {
+      "index": 68,
+      "start_time": 257459.0,
+      "end_time": 261820.0,
+      "text": "For example, let&#39;s say the feature is a certain word the word apple."
+    },
+    {
+      "index": 69,
+      "start_time": 263160.0,
+      "end_time": 268530.0,
+      "text": "And, int he document that we&#39;re looking at, the word apple appears five times."
+    },
+    {
+      "index": 70,
+      "start_time": 268530.0,
+      "end_time": 272260.0,
+      "text": "But there&#39;s another document where the word apple appears 23 times."
+    },
+    {
+      "index": 71,
+      "start_time": 272260.0,
+      "end_time": 275710.0,
+      "text": "And this is the maximum number of times the word apple appears in"
+    },
+    {
+      "index": 72,
+      "start_time": 275710.0,
+      "end_time": 277600.0,
+      "text": "any document at all."
+    },
+    {
+      "index": 73,
+      "start_time": 277600.0,
+      "end_time": 282910.0,
+      "text": "Then the term frequency, TF ij is, it&#39;s five divided by 23."
+    },
+    {
+      "index": 74,
+      "start_time": 282910.0,
+      "end_time": 287920.0,
+      "text": "Now, I&#39;m glossing over the fact that we need to normalize TF to account for"
+    },
+    {
+      "index": 75,
+      "start_time": 287920.0,
+      "end_time": 289510.0,
+      "text": "the fact that document lengths are different."
+    },
+    {
+      "index": 76,
+      "start_time": 289510.0,
+      "end_time": 291719.0,
+      "text": "Let&#39;s just ignore that for the moment."
+    },
+    {
+      "index": 77,
+      "start_time": 291720.0,
+      "end_time": 292670.0,
+      "text": "Now, the,"
+    },
+    {
+      "index": 78,
+      "start_time": 292670.0,
+      "end_time": 298230.0,
+      "text": "term frequency captures the number of times, A term of years in a document."
+    },
+    {
+      "index": 79,
+      "start_time": 298230.0,
+      "end_time": 302570.0,
+      "text": "Intuitively, the more often, term of years in a document,"
+    },
+    {
+      "index": 80,
+      "start_time": 302570.0,
+      "end_time": 304260.0,
+      "text": "the more important a feature it is."
+    },
+    {
+      "index": 81,
+      "start_time": 304260.0,
+      "end_time": 310920.0,
+      "text": "For example, if a document mentions about Apple five times, we weight Apple as more"
+    },
+    {
+      "index": 82,
+      "start_time": 310920.0,
+      "end_time": 314270.0,
+      "text": "important in that document than in other documents that just mentions it once."
+    },
+    {
+      "index": 83,
+      "start_time": 316430.0,
+      "end_time": 320000.0,
+      "text": "But how do you compare the weight of different terms?"
+    },
+    {
+      "index": 84,
+      "start_time": 320000.0,
+      "end_time": 325520.0,
+      "text": "For example, you know a, a rare word appearing just a couple of times might"
+    },
+    {
+      "index": 85,
+      "start_time": 325520.0,
+      "end_time": 330700.0,
+      "text": "more important than a more common word like the appearing thousands of times."
+    },
+    {
+      "index": 86,
+      "start_time": 330700.0,
+      "end_time": 332950.0,
+      "text": "This is where the document frequency comes in."
+    },
+    {
+      "index": 87,
+      "start_time": 332950.0,
+      "end_time": 337200.0,
+      "text": "Let n i be the number of documents that mention the term i."
+    },
+    {
+      "index": 88,
+      "start_time": 337200.0,
+      "end_time": 340669.0,
+      "text": "And let n be the total number of documents, in the whole system."
+    },
+    {
+      "index": 89,
+      "start_time": 341740.0,
+      "end_time": 348210.0,
+      "text": "The inverse document frequency for the term i is obtained by dividing,"
+    },
+    {
+      "index": 90,
+      "start_time": 348210.0,
+      "end_time": 352609.0,
+      "text": "N by n i, the number of documents that mention the term i and"
+    },
+    {
+      "index": 91,
+      "start_time": 352610.0,
+      "end_time": 355590.0,
+      "text": "then taking the logarithm of that, of that, fraction."
+    },
+    {
+      "index": 92,
+      "start_time": 357580.0,
+      "end_time": 360342.0,
+      "text": "Notice that the more common a term, the larger an i."
+    },
+    {
+      "index": 93,
+      "start_time": 360342.0,
+      "end_time": 365960.0,
+      "text": "And the larger an i, the lower the IDF."
+    },
+    {
+      "index": 94,
+      "start_time": 367750.0,
+      "end_time": 369780.0,
+      "text": "The IDF function ensures, you know,"
+    },
+    {
+      "index": 95,
+      "start_time": 369780.0,
+      "end_time": 374919.0,
+      "text": "gives a lower weight to more common words and a higher weight to rarer words."
+    },
+    {
+      "index": 96,
+      "start_time": 376190.0,
+      "end_time": 378250.0,
+      "text": "So if you put these two pieces together."
+    },
+    {
+      "index": 97,
+      "start_time": 378250.0,
+      "end_time": 383130.0,
+      "text": "The TF-IDF score of feature i for"
+    },
+    {
+      "index": 98,
+      "start_time": 383130.0,
+      "end_time": 388360.0,
+      "text": "document j is obtained by multiplying the Term Frequency and the IDF."
+    },
+    {
+      "index": 99,
+      "start_time": 391600.0,
+      "end_time": 396300.0,
+      "text": "So given a document you compute the TF-IDF scores."
+    },
+    {
+      "index": 100,
+      "start_time": 396300.0,
+      "end_time": 398450.0,
+      "text": "For every term in the document."
+    },
+    {
+      "index": 101,
+      "start_time": 398450.0,
+      "end_time": 403300.0,
+      "text": "And then you sort all the terms in the document by their TF-IDF scores."
+    },
+    {
+      "index": 102,
+      "start_time": 403300.0,
+      "end_time": 406750.0,
+      "text": "And then you have some kind of threshold or"
+    },
+    {
+      "index": 103,
+      "start_time": 406750.0,
+      "end_time": 410100.0,
+      "text": "you might pick the set of words with the highest TF-IDF scores in"
+    },
+    {
+      "index": 104,
+      "start_time": 410100.0,
+      "end_time": 414100.0,
+      "text": "the document together with their scores and that would be the top profile."
+    },
+    {
+      "index": 105,
+      "start_time": 414100.0,
+      "end_time": 414659.0,
+      "text": "So in this case,"
+    },
+    {
+      "index": 106,
+      "start_time": 414660.0,
+      "end_time": 418440.0,
+      "text": "a doc profile is a real value vector as opposed to a boolean vector."
+    },
+    {
+      "index": 107,
+      "start_time": 419870.0,
+      "end_time": 424000.0,
+      "text": "Now that we have item profiles, our next task is to construct user profiles."
+    },
+    {
+      "index": 108,
+      "start_time": 426510.0,
+      "end_time": 430849.0,
+      "text": "Let&#39;s say we have a user who has rated items with profiles i1 through i n."
+    },
+    {
+      "index": 109,
+      "start_time": 433830.0,
+      "end_time": 443870.0,
+      "text": "Now remember, I want to i-n our vectors of, of entries."
+    },
+    {
+      "index": 110,
+      "start_time": 443870.0,
+      "end_time": 447890.0,
+      "text": "Let&#39;s say this is i-1, this i-2, i-3 and so on."
+    },
+    {
+      "index": 111,
+      "start_time": 449250.0,
+      "end_time": 450214.0,
+      "text": "And here is i-n."
+    },
+    {
+      "index": 112,
+      "start_time": 451380.0,
+      "end_time": 455280.0,
+      "text": "These are each is a vector in a high dimensional space,"
+    },
+    {
+      "index": 113,
+      "start_time": 455280.0,
+      "end_time": 460599.0,
+      "text": "with many many Now the simplest way to construct a user"
+    },
+    {
+      "index": 114,
+      "start_time": 460600.0,
+      "end_time": 466204.0,
+      "text": "profile from a set of item profiles is just to average the item profiles."
+    },
+    {
+      "index": 115,
+      "start_time": 466204.0,
+      "end_time": 471172.0,
+      "text": "[SOUND] Where N is the total number of item profiles."
+    },
+    {
+      "index": 116,
+      "start_time": 471172.0,
+      "end_time": 475766.0,
+      "text": "So if I take all the item profiles in the users you know, of,"
+    },
+    {
+      "index": 117,
+      "start_time": 475766.0,
+      "end_time": 480286.0,
+      "text": "of all the item the user has has rated and then take the average,"
+    },
+    {
+      "index": 118,
+      "start_time": 480286.0,
+      "end_time": 484240.0,
+      "text": "that would be the simplest way of constructing a user profile."
+    },
+    {
+      "index": 119,
+      "start_time": 485320.0,
+      "end_time": 488550.0,
+      "text": "Now this doesn&#39;t take into account that the user liked certain items"
+    },
+    {
+      "index": 120,
+      "start_time": 488550.0,
+      "end_time": 489740.0,
+      "text": "more than others."
+    },
+    {
+      "index": 121,
+      "start_time": 489740.0,
+      "end_time": 492970.0,
+      "text": "So in that case we might want to use a weighted average,"
+    },
+    {
+      "index": 122,
+      "start_time": 492970.0,
+      "end_time": 498530.0,
+      "text": "where the weight is equal to the rating given by the user for for each item."
+    },
+    {
+      "index": 123,
+      "start_time": 498530.0,
+      "end_time": 501119.0,
+      "text": "Then you&#39;d have a weighted average item profile."
+    },
+    {
+      "index": 124,
+      "start_time": 506140.0,
+      "end_time": 508990.0,
+      "text": "A variant of this is to normalize these weights"
+    },
+    {
+      "index": 125,
+      "start_time": 508990.0,
+      "end_time": 510890.0,
+      "text": "using the average rating of the user."
+    },
+    {
+      "index": 126,
+      "start_time": 510890.0,
+      "end_time": 513549.0,
+      "text": "And you&#39;ve seen example that makes this idea clear."
+    },
+    {
+      "index": 127,
+      "start_time": 515679.0,
+      "end_time": 518750.0,
+      "text": "And of course, much more sophisticated aggregations are possible."
+    },
+    {
+      "index": 128,
+      "start_time": 518750.0,
+      "end_time": 521890.0,
+      "text": "Here we&#39;re only looking at some very simple examples."
+    },
+    {
+      "index": 129,
+      "start_time": 522679.0,
+      "end_time": 525359.0,
+      "text": "Let&#39;s look at an example that you know?"
+    },
+    {
+      "index": 130,
+      "start_time": 525360.0,
+      "end_time": 528510.0,
+      "text": "That&#39;ll clarify weighted average item profiles."
+    },
+    {
+      "index": 131,
+      "start_time": 528510.0,
+      "end_time": 529790.0,
+      "text": "And how to normalize weights."
+    },
+    {
+      "index": 132,
+      "start_time": 532760.0,
+      "end_time": 535220.0,
+      "text": "Let&#39;s start with an example of a Boolean Utility Matrix."
+    },
+    {
+      "index": 133,
+      "start_time": 536300.0,
+      "end_time": 537870.0,
+      "text": "What&#39;s a Boolean Utility Matrix?"
+    },
+    {
+      "index": 134,
+      "start_time": 537870.0,
+      "end_time": 542930.0,
+      "text": "All we have is information of whether the user purchased an item or not."
+    },
+    {
+      "index": 135,
+      "start_time": 542930.0,
+      "end_time": 543939.0,
+      "text": "For example."
+    },
+    {
+      "index": 136,
+      "start_time": 543940.0,
+      "end_time": 546240.0,
+      "text": "So each entry is either a zero or a one."
+    },
+    {
+      "index": 137,
+      "start_time": 548950.0,
+      "end_time": 551870.0,
+      "text": "Let&#39;s say the items are movies and the only feature is actor."
+    },
+    {
+      "index": 138,
+      "start_time": 554220.0,
+      "end_time": 559110.0,
+      "text": "The item profile in this case is a vector for zero or one for each actor."
+    },
+    {
+      "index": 139,
+      "start_time": 559110.0,
+      "end_time": 561780.0,
+      "text": "Zero if that actor did not appear in that movie."
+    },
+    {
+      "index": 140,
+      "start_time": 561780.0,
+      "end_time": 563420.0,
+      "text": "And one if that actor appeared in that movie."
+    },
+    {
+      "index": 141,
+      "start_time": 566510.0,
+      "end_time": 571630.0,
+      "text": "Suppose user x has watched five movies and two of those movies feature actor a and"
+    },
+    {
+      "index": 142,
+      "start_time": 571630.0,
+      "end_time": 573290.0,
+      "text": "three of those movies feature actor b."
+    },
+    {
+      "index": 143,
+      "start_time": 577310.0,
+      "end_time": 580559.0,
+      "text": "Now the simplest user profile is just the mean of the item profiles."
+    },
+    {
+      "index": 144,
+      "start_time": 582470.0,
+      "end_time": 590350.0,
+      "text": "Remember there are 5 vectors, and 2 of those have a 1 for feature A."
+    },
+    {
+      "index": 145,
+      "start_time": 590350.0,
+      "end_time": 594480.0,
+      "text": "And so the data feature A is going to be 2 divided by the total number of"
+    },
+    {
+      "index": 146,
+      "start_time": 594480.0,
+      "end_time": 597455.0,
+      "text": "item profiles, which is 5, which is 0.4."
+    },
+    {
+      "index": 147,
+      "start_time": 597455.0,
+      "end_time": 601184.0,
+      "text": "And the weight of feature B, correspondingly, is going to be 3/5."
+    },
+    {
+      "index": 148,
+      "start_time": 603850.0,
+      "end_time": 606650.0,
+      "text": "Let&#39;s look at the more complex example of its star ratings."
+    },
+    {
+      "index": 149,
+      "start_time": 609510.0,
+      "end_time": 612810.0,
+      "text": "Suppose we have star ratings in the range of one to five."
+    },
+    {
+      "index": 150,
+      "start_time": 612810.0,
+      "end_time": 615739.0,
+      "text": "And the user has once again watched five movies."
+    },
+    {
+      "index": 151,
+      "start_time": 615740.0,
+      "end_time": 619300.0,
+      "text": "And there are two movies starring actor A and three movies starring actor B."
+    },
+    {
+      "index": 152,
+      "start_time": 620580.0,
+      "end_time": 624700.0,
+      "text": "The movies that actor A starred in, the user rated three and five."
+    },
+    {
+      "index": 153,
+      "start_time": 624700.0,
+      "end_time": 629960.0,
+      "text": "But with the movie that that actor B acted in, the user rated one, two, and four."
+    },
+    {
+      "index": 154,
+      "start_time": 632620.0,
+      "end_time": 637590.0,
+      "text": "So since we have five star ratings and the user gives lower ratings for"
+    },
+    {
+      "index": 155,
+      "start_time": 637590.0,
+      "end_time": 640630.0,
+      "text": "movies they didn&#39;t like and higher ratings for movies they liked."
+    },
+    {
+      "index": 156,
+      "start_time": 640630.0,
+      "end_time": 645880.0,
+      "text": "It&#39;s somewhat apparent from these ratings that the user liked"
+    },
+    {
+      "index": 157,
+      "start_time": 645880.0,
+      "end_time": 651410.0,
+      "text": "at least one of the movies from from Actor A and one of the movies from Actor B."
+    },
+    {
+      "index": 158,
+      "start_time": 651410.0,
+      "end_time": 652790.0,
+      "text": "But didn&#39;t he, but"
+    },
+    {
+      "index": 159,
+      "start_time": 652800.0,
+      "end_time": 656870.0,
+      "text": "they really didn&#39;t like two of Actor B&#39;s movies, the ones that were rated 1 and 2."
+    },
+    {
+      "index": 160,
+      "start_time": 656870.0,
+      "end_time": 660290.0,
+      "text": "1 and 2 are in fact, negative ratings."
+    },
+    {
+      "index": 161,
+      "start_time": 660290.0,
+      "end_time": 661810.0,
+      "text": "Not positive ratings."
+    },
+    {
+      "index": 162,
+      "start_time": 661810.0,
+      "end_time": 663849.0,
+      "text": "And we try to capture this fact."
+    },
+    {
+      "index": 163,
+      "start_time": 663850.0,
+      "end_time": 667240.0,
+      "text": "The idea of normalizing ratings helps us capture the idea that"
+    },
+    {
+      "index": 164,
+      "start_time": 667240.0,
+      "end_time": 670880.0,
+      "text": "some ratings are actually negative ratings and some are positive ratings."
+    },
+    {
+      "index": 165,
+      "start_time": 670880.0,
+      "end_time": 674600.0,
+      "text": "But the baseline, you know, users are very different from each other."
+    },
+    {
+      "index": 166,
+      "start_time": 674600.0,
+      "end_time": 676819.0,
+      "text": "Some users are just more generous in their ratings than others."
+    },
+    {
+      "index": 167,
+      "start_time": 676820.0,
+      "end_time": 679750.0,
+      "text": "So, for, user a, for instance."
+    },
+    {
+      "index": 168,
+      "start_time": 679750.0,
+      "end_time": 682850.0,
+      "text": "A four might be a widely positive rating."
+    },
+    {
+      "index": 169,
+      "start_time": 682850.0,
+      "end_time": 686780.0,
+      "text": "But if for another, four might just be an average rating."
+    },
+    {
+      "index": 170,
+      "start_time": 686780.0,
+      "end_time": 689339.0,
+      "text": "To sort of capture this idea,"
+    },
+    {
+      "index": 171,
+      "start_time": 689340.0,
+      "end_time": 693750.0,
+      "text": "we want to baseline each user&#39;s ratings by their average rating."
+    },
+    {
+      "index": 172,
+      "start_time": 693750.0,
+      "end_time": 697600.0,
+      "text": "So in this case, the, this user&#39;s average rating is a three."
+    },
+    {
+      "index": 173,
+      "start_time": 697600.0,
+      "end_time": 701810.0,
+      "text": "If you, average all the five ratings that the user, has provided,"
+    },
+    {
+      "index": 174,
+      "start_time": 701810.0,
+      "end_time": 704420.0,
+      "text": "the average rating, is a three."
+    },
+    {
+      "index": 175,
+      "start_time": 704420.0,
+      "end_time": 708229.0,
+      "text": "And so what we&#39;re going to do is just subtract the average rating from each of"
+    },
+    {
+      "index": 176,
+      "start_time": 708230.0,
+      "end_time": 711150.0,
+      "text": "the individual movie ratings."
+    },
+    {
+      "index": 177,
+      "start_time": 711150.0,
+      "end_time": 715520.0,
+      "text": "So in this case the movies with actor A the normalized ratings in"
+    },
+    {
+      "index": 178,
+      "start_time": 715520.0,
+      "end_time": 719860.0,
+      "text": "that case a three and five, become zero and plus two."
+    },
+    {
+      "index": 179,
+      "start_time": 719860.0,
+      "end_time": 727320.0,
+      "text": "And for actor B, the normalized ratings become minus two, minus one, and plus one."
+    },
+    {
+      "index": 180,
+      "start_time": 727320.0,
+      "end_time": 732230.0,
+      "text": "Notice that this captures intuition that the user did not like, the,"
+    },
+    {
+      "index": 181,
+      "start_time": 732230.0,
+      "end_time": 736760.0,
+      "text": "the first two movies with actor B, whereas he really liked, the, the,"
+    },
+    {
+      "index": 182,
+      "start_time": 736760.0,
+      "end_time": 739170.0,
+      "text": "the second movie with, with, with actor A."
+    },
+    {
+      "index": 183,
+      "start_time": 739170.0,
+      "end_time": 743370.0,
+      "text": "Where the first movie with actor A was, you know, was kind of an average movie."
+    },
+    {
+      "index": 184,
+      "start_time": 745490.0,
+      "end_time": 748310.0,
+      "text": "Once you do this normalization, then you can compute the profile,"
+    },
+    {
+      "index": 185,
+      "start_time": 748310.0,
+      "end_time": 749949.0,
+      "text": "the profile weights."
+    },
+    {
+      "index": 186,
+      "start_time": 749950.0,
+      "end_time": 754600.0,
+      "text": "But in this case we divide not by the total number of movies."
+    },
+    {
+      "index": 187,
+      "start_time": 754600.0,
+      "end_time": 758510.0,
+      "text": "But by the total number of movies with a specific feature."
+    },
+    {
+      "index": 188,
+      "start_time": 758510.0,
+      "end_time": 761990.0,
+      "text": "So in this case there are two movies with actor A."
+    },
+    {
+      "index": 189,
+      "start_time": 761990.0,
+      "end_time": 763890.0,
+      "text": "And profile weight for"
+    },
+    {
+      "index": 190,
+      "start_time": 763890.0,
+      "end_time": 770260.0,
+      "text": "actor A the feature with actor A is zero plus two divided by two which is one."
+    },
+    {
+      "index": 191,
+      "start_time": 770260.0,
+      "end_time": 775730.0,
+      "text": "And similarly the feature actor B has a profile weight of -2/3."
+    },
+    {
+      "index": 192,
+      "start_time": 775730.0,
+      "end_time": 780420.0,
+      "text": "This indicates a mild positive preference for, for actor A."
+    },
+    {
+      "index": 193,
+      "start_time": 780420.0,
+      "end_time": 782719.0,
+      "text": "And a mild negative preference for actor B."
+    },
+    {
+      "index": 194,
+      "start_time": 784900.0,
+      "end_time": 785430.0,
+      "text": "Now that we have user profiles and"
+    },
+    {
+      "index": 195,
+      "start_time": 785430.0,
+      "end_time": 789140.0,
+      "text": "actor profiles, the next task is to recommend certain items to the user."
+    },
+    {
+      "index": 196,
+      "start_time": 790580.0,
+      "end_time": 796250.0,
+      "text": "The key step in this is to take a pair of user profile and item profile, and"
+    },
+    {
+      "index": 197,
+      "start_time": 796250.0,
+      "end_time": 801210.0,
+      "text": "figure out what the rating for that user and item pair is likely to be."
+    },
+    {
+      "index": 198,
+      "start_time": 803220.0,
+      "end_time": 805390.0,
+      "text": "Remember that both the user profile and"
+    },
+    {
+      "index": 199,
+      "start_time": 805390.0,
+      "end_time": 808740.0,
+      "text": "the item profile are vectors in high-dimensional space."
+    },
+    {
+      "index": 200,
+      "start_time": 808740.0,
+      "end_time": 812400.0,
+      "text": "In this case I&#39;ve shown them in a two-dimensional space, when the reality of"
+    },
+    {
+      "index": 201,
+      "start_time": 812400.0,
+      "end_time": 814100.0,
+      "text": "course, they&#39;re embedded in a much higher dimensional space."
+    },
+    {
+      "index": 202,
+      "start_time": 815200.0,
+      "end_time": 818406.0,
+      "text": "You might recall from a prior lecture that when you have vectors in"
+    },
+    {
+      "index": 203,
+      "start_time": 818406.0,
+      "end_time": 822471.0,
+      "text": "higher dimensional space a good distance metric between the pair of vectors is"
+    },
+    {
+      "index": 204,
+      "start_time": 822471.0,
+      "end_time": 824825.0,
+      "text": "the angle theta between the pair of vectors."
+    },
+    {
+      "index": 205,
+      "start_time": 826927.0,
+      "end_time": 832200.0,
+      "text": "In particular, you can estimate the angle using the cosine formula."
+    },
+    {
+      "index": 206,
+      "start_time": 832200.0,
+      "end_time": 835890.0,
+      "text": "The cosine of Theta, Theta, the angle between the two vectors is given by"
+    },
+    {
+      "index": 207,
+      "start_time": 835890.0,
+      "end_time": 839640.0,
+      "text": "the dot product of the two vectors, divided by the product of the magnitudes."
+    },
+    {
+      "index": 208,
+      "start_time": 841290.0,
+      "end_time": 844280.0,
+      "text": "And this distance, in, in this case,"
+    },
+    {
+      "index": 209,
+      "start_time": 844280.0,
+      "end_time": 848810.0,
+      "text": "we&#39;ll call this cosine similarity between, the user x and the item i."
+    },
+    {
+      "index": 210,
+      "start_time": 850400.0,
+      "end_time": 854200.0,
+      "text": "Now technically the cosine distance is actually the angle theta and"
+    },
+    {
+      "index": 211,
+      "start_time": 854200.0,
+      "end_time": 855250.0,
+      "text": "not the cosine of the angle."
+    },
+    {
+      "index": 212,
+      "start_time": 856370.0,
+      "end_time": 856920.0,
+      "text": "Right?"
+    },
+    {
+      "index": 213,
+      "start_time": 856920.0,
+      "end_time": 861660.0,
+      "text": "The cosine distance, as we studied in an earlier lecture, is the angle theta and"
+    },
+    {
+      "index": 214,
+      "start_time": 861660.0,
+      "end_time": 865130.0,
+      "text": "the cosine similarity is the angle 180 minus theta."
+    },
+    {
+      "index": 215,
+      "start_time": 866580.0,
+      "end_time": 870350.0,
+      "text": "Now the smaller the angle, the more similar the item x and"
+    },
+    {
+      "index": 216,
+      "start_time": 870350.0,
+      "end_time": 876630.0,
+      "text": "the the, the more similar the user x and the item i r."
+    },
+    {
+      "index": 217,
+      "start_time": 876630.0,
+      "end_time": 882750.0,
+      "text": "And therefore the similarity 180 minus data is going to be larger."
+    },
+    {
+      "index": 218,
+      "start_time": 885954.0,
+      "end_time": 890512.0,
+      "text": "But for convenience, were going to actually use the cosine of theta as,"
+    },
+    {
+      "index": 219,
+      "start_time": 890513.0,
+      "end_time": 892610.0,
+      "text": "as a similarity measure."
+    },
+    {
+      "index": 220,
+      "start_time": 892610.0,
+      "end_time": 897590.0,
+      "text": "Notice that as the angle of theta becomes smaller, cost theta becomes larger."
+    },
+    {
+      "index": 221,
+      "start_time": 897590.0,
+      "end_time": 902430.0,
+      "text": "And as it angle theta becomes larger and larger, the cosine becomes smaller and"
+    },
+    {
+      "index": 222,
+      "start_time": 902430.0,
+      "end_time": 905540.0,
+      "text": "smaller in fact, as theta becomes greater than 90,"
+    },
+    {
+      "index": 223,
+      "start_time": 905540.0,
+      "end_time": 907490.0,
+      "text": "the cosine of theta becomes negative."
+    },
+    {
+      "index": 224,
+      "start_time": 908100.0,
+      "end_time": 911690.0,
+      "text": "And, so this captures intuition, that, as the angle becomes smaller and"
+    },
+    {
+      "index": 225,
+      "start_time": 911690.0,
+      "end_time": 915800.0,
+      "text": "smaller, x and i are more and more similar to each other, and the, and"
+    },
+    {
+      "index": 226,
+      "start_time": 915800.0,
+      "end_time": 918920.0,
+      "text": "it&#39;s more likely that x will give a high rating to item i."
+    },
+    {
+      "index": 227,
+      "start_time": 922490.0,
+      "end_time": 924890.0,
+      "text": "So the way we make predictions is as follows."
+    },
+    {
+      "index": 228,
+      "start_time": 925280.0,
+      "end_time": 930670.0,
+      "text": "Given the user x, we compute the cosine similarity between that user and"
+    },
+    {
+      "index": 229,
+      "start_time": 930670.0,
+      "end_time": 932689.0,
+      "text": "all the items in the catalog."
+    },
+    {
+      "index": 230,
+      "start_time": 932690.0,
+      "end_time": 935930.0,
+      "text": "And then you pick the items with the highest cosine similarity and"
+    },
+    {
+      "index": 231,
+      "start_time": 935930.0,
+      "end_time": 936979.0,
+      "text": "recommend those to the user."
+    },
+    {
+      "index": 232,
+      "start_time": 940410.0,
+      "end_time": 943728.0,
+      "text": "And that&#39;s a theory of content-based recommendations."
+    },
+    {
+      "index": 233,
+      "start_time": 944730.0,
+      "end_time": 946100.0,
+      "text": "Now let&#39;s look at some of the pros and"
+    },
+    {
+      "index": 234,
+      "start_time": 946100.0,
+      "end_time": 952810.0,
+      "text": "cons of the content-based recommendation approach."
+    },
+    {
+      "index": 235,
+      "start_time": 952810.0,
+      "end_time": 956119.0,
+      "text": "The biggest pro of the content-based recommendation approach is that you don&#39;t"
+    },
+    {
+      "index": 236,
+      "start_time": 956120.0,
+      "end_time": 960570.0,
+      "text": "need data about other users in order to make recommendations to a specific user."
+    },
+    {
+      "index": 237,
+      "start_time": 961940.0,
+      "end_time": 965590.0,
+      "text": "This turns out to be a very, very good thing because you know,"
+    },
+    {
+      "index": 238,
+      "start_time": 965590.0,
+      "end_time": 969685.0,
+      "text": "you can start working making content-based recommendations from day one for, for"
+    },
+    {
+      "index": 239,
+      "start_time": 969686.0,
+      "end_time": 970771.0,
+      "text": "your very first user."
+    },
+    {
+      "index": 240,
+      "start_time": 975643.0,
+      "end_time": 979267.0,
+      "text": "Another good thing about content-based recommendation is that it can recommend to"
+    },
+    {
+      "index": 241,
+      "start_time": 979267.0,
+      "end_time": 980449.0,
+      "text": "users a very unique taste."
+    },
+    {
+      "index": 242,
+      "start_time": 981780.0,
+      "end_time": 983949.0,
+      "text": "When we go, when we get to collaborative filtering."
+    },
+    {
+      "index": 243,
+      "start_time": 983950.0,
+      "end_time": 988360.0,
+      "text": "We&#39;ll see that collaborative filtering can make recommendations to a user."
+    },
+    {
+      "index": 244,
+      "start_time": 988360.0,
+      "end_time": 990600.0,
+      "text": "We need to find similar users."
+    },
+    {
+      "index": 245,
+      "start_time": 991680.0,
+      "end_time": 994469.0,
+      "text": "The problem with that is if the user were very unique or"
+    },
+    {
+      "index": 246,
+      "start_time": 994470.0,
+      "end_time": 997328.0,
+      "text": "idiosyncratic taste there may not be any other similar users."
+    },
+    {
+      "index": 247,
+      "start_time": 997328.0,
+      "end_time": 1001410.0,
+      "text": "But the content-based approach is able to deal marginally with this,"
+    },
+    {
+      "index": 248,
+      "start_time": 1001410.0,
+      "end_time": 1002819.0,
+      "text": "with the fact that it can make."
+    },
+    {
+      "index": 249,
+      "start_time": 1002820.0,
+      "end_time": 1006100.0,
+      "text": "You know, user can very unique tastes as long as the,"
+    },
+    {
+      "index": 250,
+      "start_time": 1006100.0,
+      "end_time": 1009350.0,
+      "text": "we can build item profiles for the items that the user likes."
+    },
+    {
+      "index": 251,
+      "start_time": 1009350.0,
+      "end_time": 1010290.0,
+      "text": "And a user profile for"
+    },
+    {
+      "index": 252,
+      "start_time": 1010290.0,
+      "end_time": 1013200.0,
+      "text": "the user based on that, we can make recommendations to that user."
+    },
+    {
+      "index": 253,
+      "start_time": 1014150.0,
+      "end_time": 1018100.0,
+      "text": "The third row is that we&#39;re able to recommend new and unpopular items."
+    },
+    {
+      "index": 254,
+      "start_time": 1018100.0,
+      "end_time": 1022350.0,
+      "text": "Now when a new item comes in we don&#39;t need any ratings from users to"
+    },
+    {
+      "index": 255,
+      "start_time": 1022350.0,
+      "end_time": 1023930.0,
+      "text": "build the item profile."
+    },
+    {
+      "index": 256,
+      "start_time": 1023930.0,
+      "end_time": 1027389.0,
+      "text": "The item profile depends entirely on the features of the items and"
+    },
+    {
+      "index": 257,
+      "start_time": 1027390.0000000001,
+      "end_time": 1031365.0000000001,
+      "text": "not on how other users rated the item so we don&#39;t have a so called"
+    },
+    {
+      "index": 258,
+      "start_time": 1031359.9999999999,
+      "end_time": 1036884.9999999999,
+      "text": "first-rater problem that we&#39;ll see in the in the collaborative filtering approach."
+    },
+    {
+      "index": 259,
+      "start_time": 1036890.0000000001,
+      "end_time": 1039158.0000000001,
+      "text": "We can make recommendation for an item as soon as it becomes available."
+    },
+    {
+      "index": 260,
+      "start_time": 1041980.0,
+      "end_time": 1045460.0,
+      "text": "And finally, whenever the content-based approach makes a recommendation,"
+    },
+    {
+      "index": 261,
+      "start_time": 1045460.0,
+      "end_time": 1050470.0,
+      "text": "you can provide an explanation to the user for why a certain item was recommended."
+    },
+    {
+      "index": 262,
+      "start_time": 1050470.0,
+      "end_time": 1053610.0,
+      "text": "In particular, you can just the list the content feature that caused the item to"
+    },
+    {
+      "index": 263,
+      "start_time": 1053610.0,
+      "end_time": 1054600.0,
+      "text": "be recommended."
+    },
+    {
+      "index": 264,
+      "start_time": 1054600.0,
+      "end_time": 1059399.0,
+      "text": "For example, if you, recommend a news article to a user, for"
+    },
+    {
+      "index": 265,
+      "start_time": 1059400.0,
+      "end_time": 1061520.0,
+      "text": "example, using a content-based approach."
+    },
+    {
+      "index": 266,
+      "start_time": 1061520.0,
+      "end_time": 1065500.0,
+      "text": "You might be able to say look in the past you&#39;ve spent a lot of"
+    },
+    {
+      "index": 267,
+      "start_time": 1065500.0,
+      "end_time": 1069230.0,
+      "text": "time reading articles that mention Syria."
+    },
+    {
+      "index": 268,
+      "start_time": 1069230.0,
+      "end_time": 1072600.0,
+      "text": "And that&#39;s why I&#39;m recommending this article on Syria to you."
+    },
+    {
+      "index": 269,
+      "start_time": 1076000.0,
+      "end_time": 1078350.0,
+      "text": "So these have some of the pros of the content-based approach."
+    },
+    {
+      "index": 270,
+      "start_time": 1078350.0,
+      "end_time": 1079419.0,
+      "text": "But now let&#39;s look at the cons."
+    },
+    {
+      "index": 271,
+      "start_time": 1081840.0,
+      "end_time": 1084909.0,
+      "text": "The most important problem or"
+    },
+    {
+      "index": 272,
+      "start_time": 1084910.0,
+      "end_time": 1087440.0,
+      "text": "the most serious problem with a content based approach."
+    },
+    {
+      "index": 273,
+      "start_time": 1087440.0,
+      "end_time": 1091000.0,
+      "text": "Is that finding the appropriate features is very, very hard."
+    },
+    {
+      "index": 274,
+      "start_time": 1091000.0,
+      "end_time": 1094749.0,
+      "text": "For example how do you find features for images."
+    },
+    {
+      "index": 275,
+      "start_time": 1097300.0,
+      "end_time": 1098830.0,
+      "text": "Or movies, or music."
+    },
+    {
+      "index": 276,
+      "start_time": 1098830.0,
+      "end_time": 1103340.0,
+      "text": "Now in the case of movies we suggested a set of features that include actors and"
+    },
+    {
+      "index": 277,
+      "start_time": 1103340.0,
+      "end_time": 1104946.0,
+      "text": "directors and so on."
+    },
+    {
+      "index": 278,
+      "start_time": 1104950.0,
+      "end_time": 1110400.0,
+      "text": "But it turns out that movies often [INAUDIBLE] genres and users are n.ot very"
+    },
+    {
+      "index": 279,
+      "start_time": 1110400.0,
+      "end_time": 1116110.0,
+      "text": "often loyal to specific actors or directors and the similar"
+    },
+    {
+      "index": 280,
+      "start_time": 1116110.0,
+      "end_time": 1122764.0,
+      "text": "case of music it&#39;s very hard to you know boxed music in specific genres and"
+    },
+    {
+      "index": 281,
+      "start_time": 1122760.0,
+      "end_time": 1127640.0,
+      "text": "musicians and so on, and of course, are very hard to find."
+    },
+    {
+      "index": 282,
+      "start_time": 1127640.0,
+      "end_time": 1134421.0,
+      "text": "So in general, the finding of features to make content-based a very very hard"
+    },
+    {
+      "index": 283,
+      "start_time": 1134420.0,
+      "end_time": 1140199.0,
+      "text": "problem, reason why the content-based approach is not more popular."
+    },
+    {
+      "index": 284,
+      "start_time": 1143510.0,
+      "end_time": 1146190.0,
+      "text": "The second problem is one of overspecialization."
+    },
+    {
+      "index": 285,
+      "start_time": 1146190.0,
+      "end_time": 1150910.0,
+      "text": "Remember, the user profile is built using, the item profile of the,"
+    },
+    {
+      "index": 286,
+      "start_time": 1150910.0,
+      "end_time": 1153900.0,
+      "text": "the items that the user has rated or purchased."
+    },
+    {
+      "index": 287,
+      "start_time": 1155360.0,
+      "end_time": 1159370.0,
+      "text": "Now, because of this, if a user has never rated a certain kind of movie or"
+    },
+    {
+      "index": 288,
+      "start_time": 1159370.0,
+      "end_time": 1161439.0,
+      "text": "a certain genre of movie."
+    },
+    {
+      "index": 289,
+      "start_time": 1161440.0,
+      "end_time": 1165590.0,
+      "text": "He will never be recommended a movie in that, in that genre for example."
+    },
+    {
+      "index": 290,
+      "start_time": 1165590.0,
+      "end_time": 1168780.0,
+      "text": "Or he&#39;ll never be recommended a piece of music,"
+    },
+    {
+      "index": 291,
+      "start_time": 1168780.0,
+      "end_time": 1171510.0,
+      "text": "that&#39;s outside his previous, preferences."
+    },
+    {
+      "index": 292,
+      "start_time": 1172660.0,
+      "end_time": 1174870.0,
+      "text": "In general, people might have multiple interests, and"
+    },
+    {
+      "index": 293,
+      "start_time": 1174870.0,
+      "end_time": 1177409.0,
+      "text": "might express only some of them in the past."
+    },
+    {
+      "index": 294,
+      "start_time": 1177410.0,
+      "end_time": 1183960.0,
+      "text": "And so, it&#39;s hard to, you know, so it&#39;d be, Easy this way to miss recommending"
+    },
+    {
+      "index": 295,
+      "start_time": 1183960.0,
+      "end_time": 1189920.0,
+      "text": "interesting items users because you don&#39;t have enough, eh, enough user on the user."
+    },
+    {
+      "index": 296,
+      "start_time": 1189920.0,
+      "end_time": 1192670.0,
+      "text": "Another serious problem of the content-based approach is"
+    },
+    {
+      "index": 297,
+      "start_time": 1192670.0,
+      "end_time": 1196350.0,
+      "text": "that it&#39;s unable to exploit the quality judgments of other users."
+    },
+    {
+      "index": 298,
+      "start_time": 1196350.0,
+      "end_time": 1198600.0,
+      "text": "For example there might be a certain video or"
+    },
+    {
+      "index": 299,
+      "start_time": 1198600.0,
+      "end_time": 1204490.0,
+      "text": "movie that&#39;s widely popular Across a, you know, wide cross-section of users."
+    },
+    {
+      "index": 300,
+      "start_time": 1204490.0,
+      "end_time": 1206840.0,
+      "text": ". However, the current user has not"
+    },
+    {
+      "index": 301,
+      "start_time": 1206840.0,
+      "end_time": 1209700.0,
+      "text": "expressed interest in that kind of movie."
+    },
+    {
+      "index": 302,
+      "start_time": 1209700.0,
+      "end_time": 1210159.0,
+      "text": "And therefore the content they"
+    },
+    {
+      "index": 303,
+      "start_time": 1210160.0,
+      "end_time": 1212360.0,
+      "text": "support should never recommend that movie to that user."
+    },
+    {
+      "index": 304,
+      "start_time": 1216470.0,
+      "end_time": 1219290.0,
+      "text": "A final problem that we have with a content-based approach is one of a, a,"
+    },
+    {
+      "index": 305,
+      "start_time": 1219290.0,
+      "end_time": 1220869.0,
+      "text": "a cold-start problem for new users."
+    },
+    {
+      "index": 306,
+      "start_time": 1222900.0,
+      "end_time": 1225780.0,
+      "text": "Remember, the user profile is built by aggregating item"
+    },
+    {
+      "index": 307,
+      "start_time": 1225780.0,
+      "end_time": 1229149.0,
+      "text": "profiles of the items the user has rated."
+    },
+    {
+      "index": 308,
+      "start_time": 1229150.0,
+      "end_time": 1232310.0,
+      "text": "When you have a new user, the new user has not rated any items, and"
+    },
+    {
+      "index": 309,
+      "start_time": 1232310.0,
+      "end_time": 1236600.0,
+      "text": "so the, so, so there is no user profile."
+    },
+    {
+      "index": 310,
+      "start_time": 1236600.0,
+      "end_time": 1239668.0,
+      "text": "So, there is a challenging problem of how to build a user profile for a new user."
+    },
+    {
+      "index": 311,
+      "start_time": 1241530.0,
+      "end_time": 1247900.0,
+      "text": "In most practical situations new users start with you know most"
+    },
+    {
+      "index": 312,
+      "start_time": 1247900.0,
+      "end_time": 1252290.0,
+      "text": "recommended systems start off new users with some kind of average profile based on"
+    },
+    {
+      "index": 313,
+      "start_time": 1252290.0,
+      "end_time": 1257450.0,
+      "text": "a system wide average And then over time user profile evolves as rates more and"
+    },
+    {
+      "index": 314,
+      "start_time": 1257450.0,
+      "end_time": 1260150.0,
+      "text": "more items and becomes more individualized to the user"
+    }
+  ]
+}

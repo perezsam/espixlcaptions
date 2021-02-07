@@ -1,0 +1,1602 @@
+{
+  "video_id": "voihjWZi0Sk",
+  "title": "5   14   Latent Factor Models 16 11",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 320.0,
+      "end_time": 4540.0,
+      "text": "Anant has already talked to you about recommender systems, and so far we have"
+    },
+    {
+      "index": 2,
+      "start_time": 4540.0,
+      "end_time": 8590.0,
+      "text": "learned how to do, collaborative filtering recommender systems and"
+    },
+    {
+      "index": 3,
+      "start_time": 8590.0,
+      "end_time": 11900.0,
+      "text": "how to do, profile based recommender systems."
+    },
+    {
+      "index": 4,
+      "start_time": 11900.0,
+      "end_time": 14900.0,
+      "text": "What we will do today in this lecture,"
+    },
+    {
+      "index": 5,
+      "start_time": 14900.0,
+      "end_time": 17280.0,
+      "text": "we will look into latent factor recommender models."
+    },
+    {
+      "index": 6,
+      "start_time": 17280.0,
+      "end_time": 20900.0,
+      "text": "So basically the idea will be that we will adopt this"
+    },
+    {
+      "index": 7,
+      "start_time": 20900.0,
+      "end_time": 24550.0,
+      "text": "machine learning perspective where we&#39;ll be using optimization in order to build."
+    },
+    {
+      "index": 8,
+      "start_time": 24550.0,
+      "end_time": 27800.0,
+      "text": "Very accurate recommender systems."
+    },
+    {
+      "index": 9,
+      "start_time": 27800.0,
+      "end_time": 31490.0,
+      "text": "And in particular, our lecture today will be moderated by, by,"
+    },
+    {
+      "index": 10,
+      "start_time": 31490.0,
+      "end_time": 33570.0,
+      "text": "by the Netflix price, right?"
+    },
+    {
+      "index": 11,
+      "start_time": 33570.0,
+      "end_time": 38990.0,
+      "text": "So, Netflix is, is a company that is renting out, DVDs, and in order"
+    },
+    {
+      "index": 12,
+      "start_time": 38990.0,
+      "end_time": 43770.0,
+      "text": "to increase customer experience, Netflix wants to be able to recommend which"
+    },
+    {
+      "index": 13,
+      "start_time": 43770.0,
+      "end_time": 47970.0,
+      "text": "customers will like which movies, and this is called the movie recommender system."
+    },
+    {
+      "index": 14,
+      "start_time": 47970.0,
+      "end_time": 51580.0,
+      "text": "Right, and a few years ago, actually, Netflix prepared some data and"
+    },
+    {
+      "index": 15,
+      "start_time": 51580.0,
+      "end_time": 55890.0,
+      "text": "created The Grand Challenge, where the idea was who can build the best"
+    },
+    {
+      "index": 16,
+      "start_time": 55890.0,
+      "end_time": 60550.0,
+      "text": "recommender system and the person who does that gets a one million dollars prize."
+    },
+    {
+      "index": 17,
+      "start_time": 60550.0,
+      "end_time": 61589.0,
+      "text": "So here is how the."
+    },
+    {
+      "index": 18,
+      "start_time": 62870.0,
+      "end_time": 64340.0,
+      "text": "Competition was structured."
+    },
+    {
+      "index": 19,
+      "start_time": 64340.0,
+      "end_time": 68570.0,
+      "text": "So the idea was that first we would get, scientists would get training data."
+    },
+    {
+      "index": 20,
+      "start_time": 68570.0,
+      "end_time": 72740.0,
+      "text": "This is a set of data of 100 million ratings from 480,000, users."
+    },
+    {
+      "index": 21,
+      "start_time": 72740.0,
+      "end_time": 75429.0,
+      "text": "And around 17,000 movies."
+    },
+    {
+      "index": 22,
+      "start_time": 75430.0,
+      "end_time": 78303.0,
+      "text": "And this is six years&#39; worth of data."
+    },
+    {
+      "index": 23,
+      "start_time": 78303.0,
+      "end_time": 79700.0,
+      "text": "From 2000 to 2005."
+    },
+    {
+      "index": 24,
+      "start_time": 79700.0,
+      "end_time": 80240.0,
+      "text": "Right?"
+    },
+    {
+      "index": 25,
+      "start_time": 80240.0,
+      "end_time": 84619.0,
+      "text": "So based on this data the idea is that we build."
+    },
+    {
+      "index": 26,
+      "start_time": 84620.0,
+      "end_time": 88290.0,
+      "text": "Or create a recommender system and then we would send these"
+    },
+    {
+      "index": 27,
+      "start_time": 88290.0,
+      "end_time": 93400.0,
+      "text": "recommendations to Netflix that would check our predicted recommendation."
+    },
+    {
+      "index": 28,
+      "start_time": 93400.0,
+      "end_time": 95960.0,
+      "text": "Basically how much does a given user like the movie."
+    },
+    {
+      "index": 29,
+      "start_time": 95960.0,
+      "end_time": 102300.0,
+      "text": "We did their test data set which is a set of Ratings that only Netflix has, and"
+    },
+    {
+      "index": 30,
+      "start_time": 102300.0,
+      "end_time": 107670.0,
+      "text": "this way we would want to predict or, the, and make sure that the predicted ratings"
+    },
+    {
+      "index": 31,
+      "start_time": 107670.0,
+      "end_time": 112340.0,
+      "text": "are correspond to the actual true ratings of the people who like those movies."
+    },
+    {
+      "index": 32,
+      "start_time": 112340.0,
+      "end_time": 113660.0,
+      "text": "So that&#39;s basically the idea."
+    },
+    {
+      "index": 33,
+      "start_time": 113660.0,
+      "end_time": 116140.0,
+      "text": "So, we are given hundred million movie ratings, and"
+    },
+    {
+      "index": 34,
+      "start_time": 116140.0,
+      "end_time": 119370.0,
+      "text": "we want to build a recommender system out of this."
+    },
+    {
+      "index": 35,
+      "start_time": 119370.0,
+      "end_time": 122890.0,
+      "text": "So, the way we can think of our ratings data in,"
+    },
+    {
+      "index": 36,
+      "start_time": 122890.0,
+      "end_time": 125220.0,
+      "text": "is in terms of the utility matrix R."
+    },
+    {
+      "index": 37,
+      "start_time": 125220.0,
+      "end_time": 128729.0,
+      "text": "And, basically, the way this matrix is composed is that"
+    },
+    {
+      "index": 38,
+      "start_time": 128729.00000000001,
+      "end_time": 132540.0,
+      "text": "rows corresponds to movies and columns corresponds to users."
+    },
+    {
+      "index": 39,
+      "start_time": 132540.0,
+      "end_time": 133459.0,
+      "text": "And this matrix,"
+    },
+    {
+      "index": 40,
+      "start_time": 133460.0,
+      "end_time": 138520.0,
+      "text": "most of it is empty in a sense that most users haven&#39;t seen most of the movies."
+    },
+    {
+      "index": 41,
+      "start_time": 138520.0,
+      "end_time": 141610.0,
+      "text": "Right? But whenever a mo, a user sees a movie and"
+    },
+    {
+      "index": 42,
+      "start_time": 141610.0,
+      "end_time": 145360.0,
+      "text": "rates that movie, that represents an entry in this matrix, right?"
+    },
+    {
+      "index": 43,
+      "start_time": 145360.0,
+      "end_time": 149730.0,
+      "text": "So for example, this entry, in this particular en,"
+    },
+    {
+      "index": 44,
+      "start_time": 149730.0,
+      "end_time": 154880.0,
+      "text": "element of the matrix, number 5, that would mean that, a user in the,"
+    },
+    {
+      "index": 45,
+      "start_time": 154880.0,
+      "end_time": 160780.0,
+      "text": "in the fourth column liked the third movie a lot and rated it given five stars."
+    },
+    {
+      "index": 46,
+      "start_time": 160780.0,
+      "end_time": 162380.0,
+      "text": "Right? So now given such a,"
+    },
+    {
+      "index": 47,
+      "start_time": 162380.0,
+      "end_time": 165420.0,
+      "text": "such a matrix, we want to formulate."
+    },
+    {
+      "index": 48,
+      "start_time": 165420.0,
+      "end_time": 166970.0,
+      "text": "The recommendation problem."
+    },
+    {
+      "index": 49,
+      "start_time": 166970.0,
+      "end_time": 170410.0,
+      "text": "The way we think of the recommendation problem is in a sense that we want to"
+    },
+    {
+      "index": 50,
+      "start_time": 170410.0,
+      "end_time": 174890.0,
+      "text": "predict how much will a given user like some movie that"
+    },
+    {
+      "index": 51,
+      "start_time": 174890.0,
+      "end_time": 176320.0,
+      "text": "they will see in the future."
+    },
+    {
+      "index": 52,
+      "start_time": 176320.0,
+      "end_time": 181640.0,
+      "text": "So in this sense, we can use the historical rating data to build our model."
+    },
+    {
+      "index": 53,
+      "start_time": 181640.0,
+      "end_time": 184890.0,
+      "text": "This is what we&#39;ll call the training data."
+    },
+    {
+      "index": 54,
+      "start_time": 184900.0,
+      "end_time": 189330.0,
+      "text": "And then using this strange model we want to predict how much the users like"
+    },
+    {
+      "index": 55,
+      "start_time": 189330.0,
+      "end_time": 193000.0,
+      "text": "movies that they haven&#39;t yet seen and we will call this the test data."
+    },
+    {
+      "index": 56,
+      "start_time": 193000.0,
+      "end_time": 197330.0,
+      "text": "And now when I say that we want to predict how much will a user like a given movie"
+    },
+    {
+      "index": 57,
+      "start_time": 197330.0,
+      "end_time": 202450.0,
+      "text": "the way we want to quantify how accurate is our prediction we will use what is"
+    },
+    {
+      "index": 58,
+      "start_time": 202450.0,
+      "end_time": 204600.0,
+      "text": "called the root mean square data."
+    },
+    {
+      "index": 59,
+      "start_time": 204600.0,
+      "end_time": 209400.0,
+      "text": "So, basically the idea will be that our goal is to make predictions about how"
+    },
+    {
+      "index": 60,
+      "start_time": 209400.0,
+      "end_time": 214170.0,
+      "text": "much users are going to like the movies, then we will go and ask these users hey,"
+    },
+    {
+      "index": 61,
+      "start_time": 214170.0,
+      "end_time": 216730.0,
+      "text": "how much do you really like that movie?"
+    },
+    {
+      "index": 62,
+      "start_time": 216730.0,
+      "end_time": 218709.0,
+      "text": "And then we want these two, the prediction and"
+    },
+    {
+      "index": 63,
+      "start_time": 218710.0,
+      "end_time": 221210.0,
+      "text": "the true value, to be as close as possible."
+    },
+    {
+      "index": 64,
+      "start_time": 221210.0,
+      "end_time": 225230.0,
+      "text": "So, the root mean square error, the way the formula works, is follows."
+    },
+    {
+      "index": 65,
+      "start_time": 225230.0,
+      "end_time": 225989.0,
+      "text": "Right?"
+    },
+    {
+      "index": 66,
+      "start_time": 225990.0,
+      "end_time": 232495.0,
+      "text": "For a given user x in movie i I want to predict how much will that"
+    },
+    {
+      "index": 67,
+      "start_time": 232495.0,
+      "end_time": 237500.0,
+      "text": "user-movie pair what will be the rating of user x to movie i."
+    },
+    {
+      "index": 68,
+      "start_time": 237500.0,
+      "end_time": 242610.0,
+      "text": "Of course I also know the true rating for movie i of user x."
+    },
+    {
+      "index": 69,
+      "start_time": 242610.0,
+      "end_time": 246450.0,
+      "text": "And what we want to do is we want the discrepancy between the predicted rating"
+    },
+    {
+      "index": 70,
+      "start_time": 246450.0,
+      "end_time": 247560.0,
+      "text": "and the true rating."
+    },
+    {
+      "index": 71,
+      "start_time": 247560.0,
+      "end_time": 250680.0,
+      "text": "To be, to be small in a sense that we want to take the difference"
+    },
+    {
+      "index": 72,
+      "start_time": 251760.0,
+      "end_time": 253149.0,
+      "text": "square this difference."
+    },
+    {
+      "index": 73,
+      "start_time": 253150.0,
+      "end_time": 253770.0,
+      "text": "The reason we want to"
+    },
+    {
+      "index": 74,
+      "start_time": 253770.0,
+      "end_time": 256450.0,
+      "text": "square is because the difference could be either positive of negative."
+    },
+    {
+      "index": 75,
+      "start_time": 256450.0,
+      "end_time": 259360.0,
+      "text": "So if we square it up, everything is positive."
+    },
+    {
+      "index": 76,
+      "start_time": 259360.0,
+      "end_time": 263780.0,
+      "text": "Now we sum all these errors across all the users and all the movies."
+    },
+    {
+      "index": 77,
+      "start_time": 263780.0,
+      "end_time": 267280.0,
+      "text": "We take the square root and divide by the total number of ratings, and"
+    },
+    {
+      "index": 78,
+      "start_time": 267280.0,
+      "end_time": 269640.0,
+      "text": "this is called root-mean-square error."
+    },
+    {
+      "index": 79,
+      "start_time": 269640.0,
+      "end_time": 275930.0,
+      "text": "So in some sense, our goal is to in some sense complete this matrix R."
+    },
+    {
+      "index": 80,
+      "start_time": 275930.0,
+      "end_time": 279780.0,
+      "text": "Wherever the values for ratings are unknown."
+    },
+    {
+      "index": 81,
+      "start_time": 279780.0,
+      "end_time": 282979.0,
+      "text": "And our goal is to complete this matrix as accurately as possible."
+    },
+    {
+      "index": 82,
+      "start_time": 282980.0,
+      "end_time": 283930.0,
+      "text": "So in some sense,"
+    },
+    {
+      "index": 83,
+      "start_time": 283930.0,
+      "end_time": 288990.0,
+      "text": "we want to predict how much is a given user going to like a given movie."
+    },
+    {
+      "index": 84,
+      "start_time": 290340.0,
+      "end_time": 293299.0,
+      "text": "So what is the input and what is the output, right?"
+    },
+    {
+      "index": 85,
+      "start_time": 293300.0,
+      "end_time": 298140.0,
+      "text": "So what Netflix gives us is the training data of hun, 100 million ratings."
+    },
+    {
+      "index": 86,
+      "start_time": 298140.0,
+      "end_time": 302969.0,
+      "text": "So half a million people, 20,000 movies, and, and ratings."
+    },
+    {
+      "index": 87,
+      "start_time": 302970.0,
+      "end_time": 307140.0,
+      "text": "Our goal is to predict the, a few ratings for every user."
+    },
+    {
+      "index": 88,
+      "start_time": 307140.0,
+      "end_time": 310680.0,
+      "text": "Where the evaluation criteria or the good, the way, how we"
+    },
+    {
+      "index": 89,
+      "start_time": 310680.0,
+      "end_time": 315230.0,
+      "text": "evaluate how good that our predictions, are based on the root mean squared error."
+    },
+    {
+      "index": 90,
+      "start_time": 315230.0,
+      "end_time": 320240.0,
+      "text": "And, what we also know, for example, is that, that the root mean square error of"
+    },
+    {
+      "index": 91,
+      "start_time": 320240.0,
+      "end_time": 325390.0,
+      "text": "the Netflix system that was used in house and at that point in time was zero, 0.95."
+    },
+    {
+      "index": 92,
+      "start_time": 325390.0,
+      "end_time": 326830.0,
+      "text": "Okay?"
+    },
+    {
+      "index": 93,
+      "start_time": 326830.0,
+      "end_time": 331155.0,
+      "text": "So in some sense, on average this, this in,"
+    },
+    {
+      "index": 94,
+      "start_time": 331155.0,
+      "end_time": 336940.0,
+      "text": "in-house recommender system was about one star away from the, from the true rating."
+    },
+    {
+      "index": 95,
+      "start_time": 336940.0,
+      "end_time": 337610.0,
+      "text": "Right?"
+    },
+    {
+      "index": 96,
+      "start_time": 337610.0,
+      "end_time": 342178.0,
+      "text": "So, this competition that was taking place in 2009 and 2010."
+    },
+    {
+      "index": 97,
+      "start_time": 342178.0,
+      "end_time": 346140.0,
+      "text": "More than 2,700 teams joined the competition."
+    },
+    {
+      "index": 98,
+      "start_time": 346140.0,
+      "end_time": 348950.0,
+      "text": "And what matrix also said was whoever is able to"
+    },
+    {
+      "index": 99,
+      "start_time": 348950.0,
+      "end_time": 354479.0,
+      "text": "improve their in-house recommended system by 10% gets $1 million prize."
+    },
+    {
+      "index": 100,
+      "start_time": 354480.0,
+      "end_time": 357220.0,
+      "text": "Right? So the idea is how can"
+    },
+    {
+      "index": 101,
+      "start_time": 357220.0,
+      "end_time": 360600.0,
+      "text": "we beat the in-house recommended system and get."
+    },
+    {
+      "index": 102,
+      "start_time": 360600.0,
+      "end_time": 363289.0,
+      "text": ". The root brings square error from .9 to"
+    },
+    {
+      "index": 103,
+      "start_time": 363289.0,
+      "end_time": 365580.0,
+      "text": ".85 that&#39;s the whole idea."
+    },
+    {
+      "index": 104,
+      "start_time": 366580.0,
+      "end_time": 370820.0,
+      "text": "Now the structure of how to do this is the following."
+    },
+    {
+      "index": 105,
+      "start_time": 370820.0,
+      "end_time": 374599.0,
+      "text": "Basically a modern recommender system today is composed of"
+    },
+    {
+      "index": 106,
+      "start_time": 374600.0,
+      "end_time": 376650.0,
+      "text": "several different components."
+    },
+    {
+      "index": 107,
+      "start_time": 376650.0,
+      "end_time": 379895.0,
+      "text": "And, the idea is that basically we want to adopt this kind of"
+    },
+    {
+      "index": 108,
+      "start_time": 379895.0,
+      "end_time": 383880.0,
+      "text": "multi-scale modeling approach to the, to the rating data."
+    },
+    {
+      "index": 109,
+      "start_time": 383880.0,
+      "end_time": 388200.0,
+      "text": "And the idea is that we want to combine several different views of the data from"
+    },
+    {
+      "index": 110,
+      "start_time": 388200.0,
+      "end_time": 393880.0,
+      "text": "this type of global top level view of the data to some kind of regional modeling of"
+    },
+    {
+      "index": 111,
+      "start_time": 393880.0,
+      "end_time": 399300.0,
+      "text": "the data, all the way down to very local interactions between movies and the users."
+    },
+    {
+      "index": 112,
+      "start_time": 399300.0,
+      "end_time": 400760.0,
+      "text": "Right? And what the,"
+    },
+    {
+      "index": 113,
+      "start_time": 400760.0,
+      "end_time": 402580.0,
+      "text": "the goal of today&#39;s lecture will be,"
+    },
+    {
+      "index": 114,
+      "start_time": 402580.0,
+      "end_time": 406710.0,
+      "text": "that we basically focus on the, on the, original or the,"
+    },
+    {
+      "index": 115,
+      "start_time": 406710.0,
+      "end_time": 411479.0,
+      "text": "you know, the middle level, modeling of the data through matrix factorization."
+    },
+    {
+      "index": 116,
+      "start_time": 411480.0,
+      "end_time": 416550.0,
+      "text": "So the methodology that we&#39;ll be using to, to achieve, our modeling will be"
+    },
+    {
+      "index": 117,
+      "start_time": 416550.0,
+      "end_time": 420540.0,
+      "text": "through matrix factorization which relates very nicely to the singular value,"
+    },
+    {
+      "index": 118,
+      "start_time": 420540.0,
+      "end_time": 422500.0,
+      "text": "the composition and dimensionality reduction."
+    },
+    {
+      "index": 119,
+      "start_time": 423950.0,
+      "end_time": 426500.0,
+      "text": "Lecture that we talked about previously."
+    },
+    {
+      "index": 120,
+      "start_time": 426500.0,
+      "end_time": 430700.0,
+      "text": "But before we kind of go to the main body of today&#39;s lecture, let me talk to you"
+    },
+    {
+      "index": 121,
+      "start_time": 430700.0,
+      "end_time": 435430.0,
+      "text": "about global modeling and also about collaborative filtering which is very"
+    },
+    {
+      "index": 122,
+      "start_time": 435430.0,
+      "end_time": 440900.0,
+      "text": "a local way of modeling the data So what do I mean by global modeling of the data."
+    },
+    {
+      "index": 123,
+      "start_time": 441220.0,
+      "end_time": 444270.0,
+      "text": "The global modeling of the data is basically that you want to kind of"
+    },
+    {
+      "index": 124,
+      "start_time": 444270.0,
+      "end_time": 449510.0,
+      "text": "compute some average, average rating over the movies and, and also over the users."
+    },
+    {
+      "index": 125,
+      "start_time": 449510.0,
+      "end_time": 453300.0,
+      "text": "Right so if you would use a global way to model how much will"
+    },
+    {
+      "index": 126,
+      "start_time": 453300.0,
+      "end_time": 458200.0,
+      "text": "a given user like a given movie then we could say the min movie rating in the,"
+    },
+    {
+      "index": 127,
+      "start_time": 458200.0,
+      "end_time": 461570.0,
+      "text": "in our data set on Netflix is 3.7 stars."
+    },
+    {
+      "index": 128,
+      "start_time": 461571.0,
+      "end_time": 465390.0,
+      "text": "And then we could say oh but for example the Sixth Sense movie."
+    },
+    {
+      "index": 129,
+      "start_time": 465390.0,
+      "end_time": 469900.0,
+      "text": "Is, is rated half a star above the average rating."
+    },
+    {
+      "index": 130,
+      "start_time": 469900.0,
+      "end_time": 472460.0,
+      "text": "And then we could say, oh, but this given user is very critical."
+    },
+    {
+      "index": 131,
+      "start_time": 472460.0,
+      "end_time": 475390.0,
+      "text": "So they tend to, they tend to rate things"
+    },
+    {
+      "index": 132,
+      "start_time": 476250.0,
+      "end_time": 480380.0,
+      "text": "about 0.2 stars below the average rating, right."
+    },
+    {
+      "index": 133,
+      "start_time": 480380.0,
+      "end_time": 484880.0,
+      "text": "So we could now say, okay, so 3.7 is our baseline."
+    },
+    {
+      "index": 134,
+      "start_time": 484880.0,
+      "end_time": 490100.0,
+      "text": "Now we have a movie that is above average for half a star, so that is 4.2, but this"
+    },
+    {
+      "index": 135,
+      "start_time": 490100.0,
+      "end_time": 496100.0,
+      "text": "person, Joe, is a critical person, so they tend to be .2 stars below the average."
+    },
+    {
+      "index": 136,
+      "start_time": 496100.0,
+      "end_time": 499890.0,
+      "text": "So, 4.2 minus, minus .2 equals 4, right?"
+    },
+    {
+      "index": 137,
+      "start_time": 499890.0,
+      "end_time": 504840.0,
+      "text": "So, in some sense our prediction how much will Joe like the Sixth Sense,"
+    },
+    {
+      "index": 138,
+      "start_time": 504840.0,
+      "end_time": 510895.0,
+      "text": "Sense would be 4 stars, as I said because of 3.7 plus .5."
+    },
+    {
+      "index": 139,
+      "start_time": 510895.0,
+      "end_time": 513909.0,
+      "text": "Minus 0.2 equals 4.0, right?"
+    },
+    {
+      "index": 140,
+      "start_time": 513909.0,
+      "end_time": 518880.0,
+      "text": "So this is how basically, just based on the average,"
+    },
+    {
+      "index": 141,
+      "start_time": 518880.0,
+      "end_time": 520850.0,
+      "text": "average of the user rating and"
+    },
+    {
+      "index": 142,
+      "start_time": 520850.0,
+      "end_time": 525500.0,
+      "text": "average of the movie rating and overall average rating throughout the data set,"
+    },
+    {
+      "index": 143,
+      "start_time": 525500.0,
+      "end_time": 529719.0,
+      "text": "we can already make a prediction how much will a user like a given movie."
+    },
+    {
+      "index": 144,
+      "start_time": 529720.0,
+      "end_time": 532150.0,
+      "text": "Of course this is a very crude, very global prediction."
+    },
+    {
+      "index": 145,
+      "start_time": 532150.0,
+      "end_time": 534530.0,
+      "text": "But it turns out to be very useful."
+    },
+    {
+      "index": 146,
+      "start_time": 534530.0,
+      "end_time": 537280.0,
+      "text": "So this is at the end, one end of the spectrum."
+    },
+    {
+      "index": 147,
+      "start_time": 537280.0,
+      "end_time": 541870.0,
+      "text": "On the other end of the spectrum we can use very kind of local neighborhood"
+    },
+    {
+      "index": 148,
+      "start_time": 541870.0,
+      "end_time": 546220.0,
+      "text": "properties of a given user and a given movie to make recommendations."
+    },
+    {
+      "index": 149,
+      "start_time": 546220.0,
+      "end_time": 548440.0,
+      "text": "And this is what collaborative filtering does."
+    },
+    {
+      "index": 150,
+      "start_time": 548440.0,
+      "end_time": 551800.0,
+      "text": "Right? So in some sense the idea is,"
+    },
+    {
+      "index": 151,
+      "start_time": 551800.0,
+      "end_time": 552480.0,
+      "text": "would be following, right?"
+    },
+    {
+      "index": 152,
+      "start_time": 552480.0,
+      "end_time": 553830.0,
+      "text": "So I would like to,"
+    },
+    {
+      "index": 153,
+      "start_time": 553830.0,
+      "end_time": 558740.0,
+      "text": "to estimate what are other movies that are similar to the Sixth Sense that Joe"
+    },
+    {
+      "index": 154,
+      "start_time": 558740.0,
+      "end_time": 563450.0,
+      "text": "also rated and based on this I would then make a recommendation."
+    },
+    {
+      "index": 155,
+      "start_time": 563450.0,
+      "end_time": 563980.0,
+      "text": "Right?"
+    },
+    {
+      "index": 156,
+      "start_time": 563980.0,
+      "end_time": 568380.0,
+      "text": "And based on these kinds of signals I would then make a final estimate that Joe"
+    },
+    {
+      "index": 157,
+      "start_time": 568380.0,
+      "end_time": 573620.0,
+      "text": "is like, going to like our movie with, or rate it with 3.8 stars."
+    },
+    {
+      "index": 158,
+      "start_time": 573620.0,
+      "end_time": 574250.0,
+      "text": "Okay?"
+    },
+    {
+      "index": 159,
+      "start_time": 574250.0,
+      "end_time": 577760.0,
+      "text": "So how does collaborative filtering do what I just said?"
+    },
+    {
+      "index": 160,
+      "start_time": 577760.0,
+      "end_time": 579400.0,
+      "text": "The idea is basically the following."
+    },
+    {
+      "index": 161,
+      "start_time": 579400.0,
+      "end_time": 582829.0,
+      "text": "Is that we want to derive unknown ratings from those,"
+    },
+    {
+      "index": 162,
+      "start_time": 582830.0,
+      "end_time": 584680.0,
+      "text": "from the ratings of similar movies."
+    },
+    {
+      "index": 163,
+      "start_time": 584680.0,
+      "end_time": 586280.0,
+      "text": "Right? This is the item-item base"
+    },
+    {
+      "index": 164,
+      "start_time": 586280.0,
+      "end_time": 587760.0,
+      "text": "collaborative filtering."
+    },
+    {
+      "index": 165,
+      "start_time": 587760.0,
+      "end_time": 591730.0,
+      "text": "So now the, the big question with collaborative filtering."
+    },
+    {
+      "index": 166,
+      "start_time": 591730.0,
+      "end_time": 595370.0,
+      "text": "Is how do we operationalize the notion of similar?"
+    },
+    {
+      "index": 167,
+      "start_time": 595370.0,
+      "end_time": 597500.0,
+      "text": "Right? So, I basically won&#39;t need"
+    },
+    {
+      "index": 168,
+      "start_time": 597500.0,
+      "end_time": 602490.0,
+      "text": "to define a similarity measure that tells me how similar are movies i and j."
+    },
+    {
+      "index": 169,
+      "start_time": 602490.0,
+      "end_time": 604830.0,
+      "text": "And now that I, that for every pair of movies for"
+    },
+    {
+      "index": 170,
+      "start_time": 604830.0,
+      "end_time": 607140.0,
+      "text": "example, I&#39;m able to measure the similarity."
+    },
+    {
+      "index": 171,
+      "start_time": 607140.0,
+      "end_time": 611900.0,
+      "text": "Then the idea is the following, I given that I want to make up a recommendation."
+    },
+    {
+      "index": 172,
+      "start_time": 611900.0,
+      "end_time": 616980.0,
+      "text": "For movie I, the way I will do this is I would go find K nearest neighbors,"
+    },
+    {
+      "index": 173,
+      "start_time": 616980.0,
+      "end_time": 621280.0,
+      "text": "basically K most similar movies to movie I, and then I would ask,"
+    },
+    {
+      "index": 174,
+      "start_time": 621280.0,
+      "end_time": 626520.0,
+      "text": "ask the ratings and, and add them together in a weighted combination where movies"
+    },
+    {
+      "index": 175,
+      "start_time": 626520.0,
+      "end_time": 629910.0,
+      "text": "that are more similar to my movie I, they have a higher weight."
+    },
+    {
+      "index": 176,
+      "start_time": 629910.0,
+      "end_time": 632630.0,
+      "text": "So, this is the formula that I have."
+    },
+    {
+      "index": 177,
+      "start_time": 632630.0,
+      "end_time": 634540.0,
+      "text": "At the bottom, So let me explain it."
+    },
+    {
+      "index": 178,
+      "start_time": 634540.0,
+      "end_time": 635690.0,
+      "text": "Right. So"
+    },
+    {
+      "index": 179,
+      "start_time": 635700.0,
+      "end_time": 639630.0,
+      "text": "what we want to do is we want to predict how much will user x like movie i."
+    },
+    {
+      "index": 180,
+      "start_time": 639630.0,
+      "end_time": 641790.0,
+      "text": "The way we do this is that for a."
+    },
+    {
+      "index": 181,
+      "start_time": 641790.0,
+      "end_time": 643959.0,
+      "text": "For a given movie."
+    },
+    {
+      "index": 182,
+      "start_time": 643960.0,
+      "end_time": 648980.0,
+      "text": "And for we go and find let&#39;s say k-nearest neighbors."
+    },
+    {
+      "index": 183,
+      "start_time": 648980.0,
+      "end_time": 653360.0,
+      "text": "Meaning k most similar movies j to this query movie i."
+    },
+    {
+      "index": 184,
+      "start_time": 653360.0,
+      "end_time": 659770.0,
+      "text": "And then we say what was the rating that this user X gave to that given movie I,"
+    },
+    {
+      "index": 185,
+      "start_time": 659770.0,
+      "end_time": 664120.0,
+      "text": "and then we also multiply this with the similarity to movie I and J right."
+    },
+    {
+      "index": 186,
+      "start_time": 664120.0,
+      "end_time": 669780.0,
+      "text": "So the idea basically is that if movies I and J are very similar, then SIJ will be"
+    },
+    {
+      "index": 187,
+      "start_time": 669780.0,
+      "end_time": 675620.0,
+      "text": "will be high so the rating that user X gave to movie J will have a high weight."
+    },
+    {
+      "index": 188,
+      "start_time": 675620.0,
+      "end_time": 680280.0,
+      "text": "If I, if the movie J is of close similarity to I, then what will happen is"
+    },
+    {
+      "index": 189,
+      "start_time": 680280.0,
+      "end_time": 687170.0,
+      "text": "that, that rating of user X to the movie J will have no weight in this summation."
+    },
+    {
+      "index": 190,
+      "start_time": 687170.0,
+      "end_time": 690780.0,
+      "text": "And then, at the bottom, we just normalize, right?"
+    },
+    {
+      "index": 191,
+      "start_time": 690780.0,
+      "end_time": 693900.0,
+      "text": "And this is one way how we can compute,"
+    },
+    {
+      "index": 192,
+      "start_time": 693900.0,
+      "end_time": 696800.0,
+      "text": "the rating based on the collaborative filtering."
+    },
+    {
+      "index": 193,
+      "start_time": 696800.0,
+      "end_time": 701439.0,
+      "text": "Now how do we put together the local effects and"
+    },
+    {
+      "index": 194,
+      "start_time": 701440.0,
+      "end_time": 705420.0,
+      "text": "the global effects right how do we combine collaborative filtering with glo,"
+    },
+    {
+      "index": 195,
+      "start_time": 705420.0,
+      "end_time": 710100.0,
+      "text": "with the global effects model that I described described two slides ago."
+    },
+    {
+      "index": 196,
+      "start_time": 710100.0,
+      "end_time": 711630.0,
+      "text": "The way we do this is."
+    },
+    {
+      "index": 197,
+      "start_time": 711630.0,
+      "end_time": 713870.0,
+      "text": "That basically we just add the two together."
+    },
+    {
+      "index": 198,
+      "start_time": 713870.0,
+      "end_time": 714940.0,
+      "text": "Right? So here&#39;s,"
+    },
+    {
+      "index": 199,
+      "start_time": 714940.0,
+      "end_time": 717700.0,
+      "text": "here&#39;s the formula that I will explain again."
+    },
+    {
+      "index": 200,
+      "start_time": 717700.0,
+      "end_time": 719740.0,
+      "text": "All right so my recommendation or"
+    },
+    {
+      "index": 201,
+      "start_time": 719740.0,
+      "end_time": 723750.0,
+      "text": "prediction of how much will user i user x like movie i."
+    },
+    {
+      "index": 202,
+      "start_time": 723750.0,
+      "end_time": 726330.0,
+      "text": "Is the, the baseline predictor."
+    },
+    {
+      "index": 203,
+      "start_time": 726330.0,
+      "end_time": 728530.0,
+      "text": "Which is what we talked before."
+    },
+    {
+      "index": 204,
+      "start_time": 728530.0,
+      "end_time": 730880.0,
+      "text": "Right. So the, the baseline predictor for"
+    },
+    {
+      "index": 205,
+      "start_time": 730880.0,
+      "end_time": 736510.0,
+      "text": "user x and movie i is simply the average movie rating plus the average"
+    },
+    {
+      "index": 206,
+      "start_time": 736510.0,
+      "end_time": 741180.0,
+      "text": "deviation for user x plus the average deviation for movie i."
+    },
+    {
+      "index": 207,
+      "start_time": 741180.0,
+      "end_time": 744750.0,
+      "text": "Right. So in our previous case v of x was"
+    },
+    {
+      "index": 208,
+      "start_time": 744750.0,
+      "end_time": 747439.0,
+      "text": "minus point two because our user, Joe, was."
+    },
+    {
+      "index": 209,
+      "start_time": 748540.0,
+      "end_time": 753589.0,
+      "text": "Very critical, and in our case the 6th Sense was a good movie, so"
+    },
+    {
+      "index": 210,
+      "start_time": 753590.0,
+      "end_time": 758992.0,
+      "text": "the bias of that movie was .5, and the overall rating was 3.7."
+    },
+    {
+      "index": 211,
+      "start_time": 758992.0,
+      "end_time": 759935.0,
+      "text": "Right?"
+    },
+    {
+      "index": 212,
+      "start_time": 759936.0,
+      "end_time": 764250.0,
+      "text": "So our baseline recommendation for Joe at that point in time was 4.0."
+    },
+    {
+      "index": 213,
+      "start_time": 764250.0,
+      "end_time": 768530.0,
+      "text": "And now, of course, this is our baseline recommendation."
+    },
+    {
+      "index": 214,
+      "start_time": 768530.0,
+      "end_time": 773470.0,
+      "text": "And now we can take the part from the collaborative filtering, where we take k"
+    },
+    {
+      "index": 215,
+      "start_time": 773470.0,
+      "end_time": 778460.0,
+      "text": "near, closest movie is, j, to the given movie, I."
+    },
+    {
+      "index": 216,
+      "start_time": 778460.0,
+      "end_time": 782430.0,
+      "text": "And ask, what is the deviation of the,"
+    },
+    {
+      "index": 217,
+      "start_time": 782430.0,
+      "end_time": 787709.0,
+      "text": "of the user&#39;s rating with regard to the, to their baseline for that movie."
+    },
+    {
+      "index": 218,
+      "start_time": 787710.0,
+      "end_time": 793870.0,
+      "text": "And take away the combination of this and compute the recommendation right so"
+    },
+    {
+      "index": 219,
+      "start_time": 793870.0,
+      "end_time": 798580.0,
+      "text": "here the the first part is the is the global part of the model and"
+    },
+    {
+      "index": 220,
+      "start_time": 798580.0,
+      "end_time": 802500.0,
+      "text": "the the second part is the collaborative filtering part of the model."
+    },
+    {
+      "index": 221,
+      "start_time": 803460.0,
+      "end_time": 807770.0,
+      "text": "Of course here are a few caveats a few things to to be careful about."
+    },
+    {
+      "index": 222,
+      "start_time": 807770.0,
+      "end_time": 812170.0,
+      "text": "First, first one is that finding coming up with the good similarity measure."
+    },
+    {
+      "index": 223,
+      "start_time": 812170.0,
+      "end_time": 817370.0,
+      "text": "Basically the good SIJ is very hard and sometimes it&#39;s, it&#39;s arbitrary or"
+    },
+    {
+      "index": 224,
+      "start_time": 817370.0,
+      "end_time": 821860.0,
+      "text": "one has to try many different metrics before one starts to work."
+    },
+    {
+      "index": 225,
+      "start_time": 823590.0,
+      "end_time": 827320.0,
+      "text": "But pairwise, the problem with pairwise similarities is that basically they,"
+    },
+    {
+      "index": 226,
+      "start_time": 827320.0,
+      "end_time": 831260.0,
+      "text": "they, they Consider the similarities between the movies but"
+    },
+    {
+      "index": 227,
+      "start_time": 831260.0,
+      "end_time": 834650.0,
+      "text": "they kind of ignore the similarities between the users."
+    },
+    {
+      "index": 228,
+      "start_time": 834650.0,
+      "end_time": 837709.0,
+      "text": "And another thing here we could say is that taking this"
+    },
+    {
+      "index": 229,
+      "start_time": 837710.0,
+      "end_time": 841300.0,
+      "text": "weighted average sometimes can be, can be restricted."
+    },
+    {
+      "index": 230,
+      "start_time": 841300.0,
+      "end_time": 843910.0,
+      "text": "But these are kind of, if there are some issues with this model."
+    },
+    {
+      "index": 231,
+      "start_time": 843910.0,
+      "end_time": 845610.0,
+      "text": "These are the three to talk about."
+    },
+    {
+      "index": 232,
+      "start_time": 845610.0,
+      "end_time": 848360.0,
+      "text": "But in practice this already works quite well."
+    },
+    {
+      "index": 233,
+      "start_time": 848360.0,
+      "end_time": 852280.0,
+      "text": "So let me show you how I do these different models work, okay?"
+    },
+    {
+      "index": 234,
+      "start_time": 852280.0,
+      "end_time": 854970.0,
+      "text": "So what I&#39;m showing you with this yellow arrow is,"
+    },
+    {
+      "index": 235,
+      "start_time": 854970.0,
+      "end_time": 859200.0,
+      "text": "what is the performance of various methods on this Netflix price."
+    },
+    {
+      "index": 236,
+      "start_time": 859200.0,
+      "end_time": 862400.0,
+      "text": "Right, for example, if for a given user we would just go and"
+    },
+    {
+      "index": 237,
+      "start_time": 862400.0,
+      "end_time": 865290.0,
+      "text": "predict the global average, so we would just compute."
+    },
+    {
+      "index": 238,
+      "start_time": 865290.0,
+      "end_time": 868910.0,
+      "text": "what is the global average star rating on the whole."
+    },
+    {
+      "index": 239,
+      "start_time": 868910.0,
+      "end_time": 873400.0,
+      "text": "Netflix data set and what whenever a user comes you could just say 3.7."
+    },
+    {
+      "index": 240,
+      "start_time": 873400.0,
+      "end_time": 874140.0,
+      "text": "That&#39;s our prediction."
+    },
+    {
+      "index": 241,
+      "start_time": 874140.0,
+      "end_time": 878240.0,
+      "text": "If you do that our root and square add on would be 1.12."
+    },
+    {
+      "index": 242,
+      "start_time": 878240.0,
+      "end_time": 880390.0,
+      "text": "Right so if we are kind of very naive and"
+    },
+    {
+      "index": 243,
+      "start_time": 880390.0,
+      "end_time": 883800.0,
+      "text": "don&#39;t even look at the user just always give the same recommendation."
+    },
+    {
+      "index": 244,
+      "start_time": 883800.0,
+      "end_time": 887120.0,
+      "text": "Our root-mean-square error would be 1.12."
+    },
+    {
+      "index": 245,
+      "start_time": 887120.0,
+      "end_time": 891510.0,
+      "text": "If for example for every user, we would say we don&#39;t even care what is the,"
+    },
+    {
+      "index": 246,
+      "start_time": 891510.0,
+      "end_time": 894470.0,
+      "text": "the movie this user is going to, to watch."
+    },
+    {
+      "index": 247,
+      "start_time": 894470.0,
+      "end_time": 895230.0,
+      "text": "We will just go and"
+    },
+    {
+      "index": 248,
+      "start_time": 895230.0,
+      "end_time": 900200.0,
+      "text": "predict the average rating for that movie, that already decreases the error, right."
+    },
+    {
+      "index": 249,
+      "start_time": 900200.0,
+      "end_time": 904450.0,
+      "text": "So, if for every user we just predict what&#39;s their average rating."
+    },
+    {
+      "index": 250,
+      "start_time": 904450.0,
+      "end_time": 908420.0,
+      "text": "That will reduces the error to 1.06."
+    },
+    {
+      "index": 251,
+      "start_time": 908420.0,
+      "end_time": 914240.0,
+      "text": "Now for example told you before that the Netflix recommender system was at 0.95."
+    },
+    {
+      "index": 252,
+      "start_time": 914240.0,
+      "end_time": 920240.0,
+      "text": "Right so kind of much better than this naive global, global model."
+    },
+    {
+      "index": 253,
+      "start_time": 920240.0,
+      "end_time": 925130.0,
+      "text": "But, for example, the simple collaborative filtering that I told you before,"
+    },
+    {
+      "index": 254,
+      "start_time": 925130.0,
+      "end_time": 927560.0,
+      "text": "already beats the, the Netflix model."
+    },
+    {
+      "index": 255,
+      "start_time": 927560.0,
+      "end_time": 930790.0,
+      "text": "So the collaborative filtering that we just talked about,"
+    },
+    {
+      "index": 256,
+      "start_time": 930790.0,
+      "end_time": 932390.0,
+      "text": "gives you, the score of 0.94."
+    },
+    {
+      "index": 257,
+      "start_time": 932390.0,
+      "end_time": 938900.0,
+      "text": "Which is, you know, one percentage point better than, than the Netflix, model."
+    },
+    {
+      "index": 258,
+      "start_time": 938900.0,
+      "end_time": 942449.0,
+      "text": "Of course, the million dollar model is down here."
+    },
+    {
+      "index": 259,
+      "start_time": 942450.0,
+      "end_time": 944710.0,
+      "text": "We need to be at 0.85."
+    },
+    {
+      "index": 260,
+      "start_time": 944710.0,
+      "end_time": 946800.0,
+      "text": "And what we will do now in the rest of the,"
+    },
+    {
+      "index": 261,
+      "start_time": 946800.0,
+      "end_time": 951670.0,
+      "text": "of, of the videos on recommender systems, we will learn how to basically go"
+    },
+    {
+      "index": 262,
+      "start_time": 951670.0,
+      "end_time": 956402.0,
+      "text": "all the way down to here, and how kind of win $1 million."
+    },
+    {
+      "index": 263,
+      "start_time": 956403.0,
+      "end_time": 959290.0,
+      "text": "So right now collaborative filtering is at 0.94."
+    },
+    {
+      "index": 264,
+      "start_time": 959290.0,
+      "end_time": 964300.0,
+      "text": "The question is, what kind of methods can we, can we use all the way down and"
+    },
+    {
+      "index": 265,
+      "start_time": 964300.0,
+      "end_time": 966720.0,
+      "text": "reduce our error to 0.85?"
+    },
+    {
+      "index": 266,
+      "start_time": 966720.0,
+      "end_time": 967682.0,
+      "text": "So that&#39;s the idea."
+    }
+  ]
+}
