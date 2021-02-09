@@ -1,0 +1,1026 @@
+{
+  "video_id": "1GSjbWt0c9M",
+  "title": "Representing Numbers and Letters with Binary: Crash Course Computer Science #4",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3040.0,
+      "end_time": 6100.0,
+      "text": "Hola, soy Carrie Anne, y esto es Crash Course Ciencias de la Computación"
+    },
+    {
+      "index": 2,
+      "start_time": 6100.0,
+      "end_time": 10540.0,
+      "text": "y hoy vamos a hablar acerca de cómo las computadoras guardan y representan información numérica."
+    },
+    {
+      "index": 3,
+      "start_time": 10540.0,
+      "end_time": 12240.0,
+      "text": "Lo que significa que vamos a hablar acerca de matemáticas!"
+    },
+    {
+      "index": 4,
+      "start_time": 12250.0,
+      "end_time": 13260.0,
+      "text": "Pero no se preocupen."
+    },
+    {
+      "index": 5,
+      "start_time": 13260.0,
+      "end_time": 16680.0,
+      "text": "Cada uno de ustedes sabe exactamente lo que necesitan para entender."
+    },
+    {
+      "index": 6,
+      "start_time": 16680.0,
+      "end_time": 20860.0,
+      "text": "El episodio anterior hablamos acerca de cómo los transistores pueden usarse para construir compuertas lógicas, y estas"
+    },
+    {
+      "index": 7,
+      "start_time": 20860.0,
+      "end_time": 22700.0,
+      "text": "evalúan los estados booleanos."
+    },
+    {
+      "index": 8,
+      "start_time": 22700.0,
+      "end_time": 26020.0,
+      "text": "Y en el álgebra booleano, solamente hay dos valores binareos: verdadero y falso."
+    },
+    {
+      "index": 9,
+      "start_time": 26020.0,
+      "end_time": 29790.0,
+      "text": "Pero si solamente tenemos dos valores, cómo podemos representar información más allá"
+    },
+    {
+      "index": 10,
+      "start_time": 29790.0,
+      "end_time": 30880.0,
+      "text": "de estos dos valores?"
+    },
+    {
+      "index": 11,
+      "start_time": 30880.0,
+      "end_time": 32780.0,
+      "text": "Esta es la parte donde interviene la matemática."
+    },
+    {
+      "index": 12,
+      "start_time": 32780.0,
+      "end_time": 41680.0,
+      "text": "INTRO"
+    },
+    {
+      "index": 13,
+      "start_time": 41680.0,
+      "end_time": 46720.0,
+      "text": "Como mencionamos en el último episodio, un valor binario puede usarse para representar un número."
+    },
+    {
+      "index": 14,
+      "start_time": 46720.0,
+      "end_time": 52140.0,
+      "text": "En lugar de verdadero y falso, podemos llamar estos dos estados 1 y 0, y así es increíblemente útil."
+    },
+    {
+      "index": 15,
+      "start_time": 52140.0,
+      "end_time": 55980.0,
+      "text": "Y si quisiéramos representar cosas más grandes solo necesitamos agregar más dígitos binarios."
+    },
+    {
+      "index": 16,
+      "start_time": 55980.0,
+      "end_time": 59190.0,
+      "text": "Esto funciona exactamente de la misma forma que los números decimales con los que estamos familiarizados"
+    },
+    {
+      "index": 17,
+      "start_time": 59190.0,
+      "end_time": 64440.0,
+      "text": "Con los números decimales \"solamente\" hay 10 valores posibles de un solo dígito; de 0 a 9,"
+    },
+    {
+      "index": 18,
+      "start_time": 64440.0,
+      "end_time": 67610.0,
+      "text": "y para obtener números más grandes que 9 entonces añadimos más dígitos al frente."
+    },
+    {
+      "index": 19,
+      "start_time": 67610.0,
+      "end_time": 69120.0,
+      "text": "Podemos hacer lo mismo con binario"
+    },
+    {
+      "index": 20,
+      "start_time": 69120.0,
+      "end_time": 72700.0,
+      "text": "Por ejemplo, tomemos el número 263"
+    },
+    {
+      "index": 21,
+      "start_time": 72710.0,
+      "end_time": 74880.0,
+      "text": "Qué representa exactamente este número?"
+    },
+    {
+      "index": 22,
+      "start_time": 74880.0,
+      "end_time": 78920.0,
+      "text": "Bueno, significa que tenemos 2 \"cienes\", 6 \"dieces\" y 3 \"unos\"."
+    },
+    {
+      "index": 23,
+      "start_time": 78920.0,
+      "end_time": 81510.0,
+      "text": "Y si sumas todos esos, el resultado es 263."
+    },
+    {
+      "index": 24,
+      "start_time": 81510.0,
+      "end_time": 84380.0,
+      "text": "Nota como cada columna tiene un multiplicador diferente."
+    },
+    {
+      "index": 25,
+      "start_time": 84380.0,
+      "end_time": 87520.0,
+      "text": "En este caso, es 100, 10 y 1."
+    },
+    {
+      "index": 26,
+      "start_time": 87520.0,
+      "end_time": 90340.0,
+      "text": "Cada multiplicador es diez veces más grande que el que se encuentra a su derecha."
+    },
+    {
+      "index": 27,
+      "start_time": 90340.0,
+      "end_time": 95340.0,
+      "text": "Eso es debido a que cada columna tiene diez posibles dígitos para trabajar, de 0 a 9, después del cual"
+    },
+    {
+      "index": 28,
+      "start_time": 95340.0,
+      "end_time": 97340.0,
+      "text": "tendrías que añadir uno a la siguiente columna."
+    },
+    {
+      "index": 29,
+      "start_time": 97340.0,
+      "end_time": 102380.0,
+      "text": "Por esta razón, se llama notación en base diez, también conocido como notación decimal, ya que \"deci\" significa \"diez\"."
+    },
+    {
+      "index": 30,
+      "start_time": 102380.0,
+      "end_time": 105900.0,
+      "text": "Y el binario funciona exactamente igual, solo que en base-dos"
+    },
+    {
+      "index": 31,
+      "start_time": 105900.0,
+      "end_time": 109460.0,
+      "text": "Eso es porque solamente hay dos dígitos posibles en binario - 1 y 0."
+    },
+    {
+      "index": 32,
+      "start_time": 109460.0,
+      "end_time": 113900.0,
+      "text": "Esto significa que cada multiplicador debe ser dos veces más grandes que el de la columna a su derecha."
+    },
+    {
+      "index": 33,
+      "start_time": 113900.0,
+      "end_time": 117640.0,
+      "text": "En lugar de centenas, decenas y unidades, tendrémos \"cuatros\", \"dos\" y \"unos\"."
+    },
+    {
+      "index": 34,
+      "start_time": 117640.0,
+      "end_time": 120460.0,
+      "text": "Tomemos por ejemplo el número binario: 101."
+    },
+    {
+      "index": 35,
+      "start_time": 120460.0,
+      "end_time": 124020.0,
+      "text": "Esto significa que tenemos 1 \"cuatro\", 0 \"dos\", y 1 \"uno\"."
+    },
+    {
+      "index": 36,
+      "start_time": 124020.0,
+      "end_time": 127119.0,
+      "text": "Suma todos esos números y el resultado es 5 en base diez."
+    },
+    {
+      "index": 37,
+      "start_time": 127119.0,
+      "end_time": 130700.0,
+      "text": "Pero para representar números más grandes, el binario necesita mucho más dígitos."
+    },
+    {
+      "index": 38,
+      "start_time": 130699.99999999999,
+      "end_time": 132209.0,
+      "text": "Por ejemplo este número en binario 10110111."
+    },
+    {
+      "index": 39,
+      "start_time": 132209.0,
+      "end_time": 134480.0,
+      "text": "Podemos convertirlo a decimal de la misma manera."
+    },
+    {
+      "index": 40,
+      "start_time": 134480.0,
+      "end_time": 144220.0,
+      "text": "Tenemos 1 \"128\", 0 \"64\", 1 \"32\", 1 \"16\", 0 \"8\", 1 \"4\", 1 \"2\", y 1\"1\"."
+    },
+    {
+      "index": 41,
+      "start_time": 144220.0,
+      "end_time": 146660.0,
+      "text": "Si lo sumas el resultado es 183"
+    },
+    {
+      "index": 42,
+      "start_time": 146660.0,
+      "end_time": 149060.0,
+      "text": "Hacer matemáticas con números binarios tampoco es difícil."
+    },
+    {
+      "index": 43,
+      "start_time": 149060.0,
+      "end_time": 152600.0,
+      "text": "Tomemos por ejemplo la suma decimal de 183 + 19."
+    },
+    {
+      "index": 44,
+      "start_time": 152600.0,
+      "end_time": 157820.0,
+      "text": "Primero sumamos 3+9, el resultado es 12, entonces colocamos 2 debajo y llevamos 1 a la columna de decenas."
+    },
+    {
+      "index": 45,
+      "start_time": 157820.0,
+      "end_time": 163080.0,
+      "text": "Ahora sumamos  8+1, más el 1 que habíamos llevado, el resultado es 10, entonces colocamos 0 debajo y llevamos 1."
+    },
+    {
+      "index": 46,
+      "start_time": 163080.0,
+      "end_time": 166120.0,
+      "text": "Finalmente sumamos el 1 más el 1 que habíamos llevado, y el resultado es 2."
+    },
+    {
+      "index": 47,
+      "start_time": 166120.0,
+      "end_time": 168300.0,
+      "text": "Entonces el total de la suma es 202."
+    },
+    {
+      "index": 48,
+      "start_time": 168300.0,
+      "end_time": 170560.0,
+      "text": "Esta es la misma suma, pero en binario."
+    },
+    {
+      "index": 49,
+      "start_time": 170580.0,
+      "end_time": 172960.0,
+      "text": "Justo como antes, empezamos con la columna de las unidades."
+    },
+    {
+      "index": 50,
+      "start_time": 172960.0,
+      "end_time": 175820.0,
+      "text": "Sumar 1+1 resulta en 2, inclusive en binario."
+    },
+    {
+      "index": 51,
+      "start_time": 175820.0,
+      "end_time": 180880.0,
+      "text": "Pero, no existe un símbolo para representar el 2, entonces utilizamos el 10 y colocamos el 0 debajo y llevamos el 1."
+    },
+    {
+      "index": 52,
+      "start_time": 180889.0,
+      "end_time": 182269.0,
+      "text": "Justo como en nuestro ejemplo con el sistema decimal."
+    },
+    {
+      "index": 53,
+      "start_time": 182269.0,
+      "end_time": 188020.0,
+      "text": "1+1, más el 1 que llevamos, es igual a 3, o \"11\" en binario. Entonces colocamos la el 1 debajo"
+    },
+    {
+      "index": 54,
+      "start_time": 188020.0,
+      "end_time": 189540.0,
+      "text": "llevamos 1 de nuevo, y así sucesivamente."
+    },
+    {
+      "index": 55,
+      "start_time": 189540.0,
+      "end_time": 194150.0,
+      "text": "Terminamos con el número 11001010, que es igual que 202 en base diez."
+    },
+    {
+      "index": 56,
+      "start_time": 194150.0,
+      "end_time": 197400.0,
+      "text": "Cada uno de estos dígitos binarios, 1 o 0, es llamado un \"bit\"."
+    },
+    {
+      "index": 57,
+      "start_time": 197400.0,
+      "end_time": 201819.0,
+      "text": "En estos últimos ejemplos, utilizamos números de 8-bits con su valor más bajo siendo 0"
+    },
+    {
+      "index": 58,
+      "start_time": 201820.0,
+      "end_time": 206980.0,
+      "text": "y su valor más alto siendo 255, que requiere que todos los bits sean 1."
+    },
+    {
+      "index": 59,
+      "start_time": 206980.0,
+      "end_time": 210900.0,
+      "text": "Eso son 256 valores diferentes, o 2^8."
+    },
+    {
+      "index": 60,
+      "start_time": 210900.0,
+      "end_time": 214300.0,
+      "text": "Es posible que hayas escuchado acerca de computadoras de 8-bits, o gráficos o audio de 8-bits."
+    },
+    {
+      "index": 61,
+      "start_time": 214300.0,
+      "end_time": 218040.0,
+      "text": "Estas fueron las computadoras que hicieron la mayoría de sus operaciones en tractos de 8-bits."
+    },
+    {
+      "index": 62,
+      "start_time": 218040.0,
+      "end_time": 222939.0,
+      "text": "Pero 256 valores diferentes no es mucho para trabajar, entonces significaba que los gráficos de juegos de 8-bits"
+    },
+    {
+      "index": 63,
+      "start_time": 222940.0,
+      "end_time": 226800.0,
+      "text": "estaban limitados a 256 colores diferentes."
+    },
+    {
+      "index": 64,
+      "start_time": 226800.0,
+      "end_time": 231780.0,
+      "text": "Y los 8-bits es un tamaño tan común en la computación, que tiene su propia palabra especial: un \"byte\""
+    },
+    {
+      "index": 65,
+      "start_time": 231780.0,
+      "end_time": 233139.0,
+      "text": "Un byte son 8 bits."
+    },
+    {
+      "index": 66,
+      "start_time": 233139.0,
+      "end_time": 235930.0,
+      "text": "Si tienes 10 bytes, significa que tenes 80 bits."
+    },
+    {
+      "index": 67,
+      "start_time": 235930.0,
+      "end_time": 238960.0,
+      "text": "Has escuchado de kilobytes, megabytes, gigabytes, etc."
+    },
+    {
+      "index": 68,
+      "start_time": 238960.0,
+      "end_time": 241820.0,
+      "text": "Estos prefijos denotan las diferentes escalas de datos."
+    },
+    {
+      "index": 69,
+      "start_time": 241820.0,
+      "end_time": 246580.0,
+      "text": "Justo como un kilogramo es mil gramos, un kilobyte es mil bytes... o mejor dicho"
+    },
+    {
+      "index": 70,
+      "start_time": 246580.0,
+      "end_time": 247939.0,
+      "text": "8000 bits."
+    },
+    {
+      "index": 71,
+      "start_time": 247940.0,
+      "end_time": 251340.0,
+      "text": "Mega es un millón de bytes (MB), y giga es un billón de bytes (GB)."
+    },
+    {
+      "index": 72,
+      "start_time": 251340.0,
+      "end_time": 255120.0,
+      "text": "Hoy es posible que hayas escuchado de unidades de almacenamiento de hasta un terabyte (TB)."
+    },
+    {
+      "index": 73,
+      "start_time": 255120.0,
+      "end_time": 257479.0,
+      "text": "Eso son 8 trillones de unos y ceros."
+    },
+    {
+      "index": 74,
+      "start_time": 257478.99999999997,
+      "end_time": 258478.99999999997,
+      "text": "Pero espera!"
+    },
+    {
+      "index": 75,
+      "start_time": 258480.00000000003,
+      "end_time": 259479.00000000003,
+      "text": "Eso no siempre es verdad."
+    },
+    {
+      "index": 76,
+      "start_time": 259480.00000000003,
+      "end_time": 264640.0,
+      "text": "En binario, un kilobyte tiene 2^10 bytes, o 1024."
+    },
+    {
+      "index": 77,
+      "start_time": 264640.0,
+      "end_time": 268630.0,
+      "text": "1000 es correcto cuando hablamos de kylobytes, pero debemos reconocer que no  es la única"
+    },
+    {
+      "index": 78,
+      "start_time": 268630.0,
+      "end_time": 269630.0,
+      "text": "definición correcta."
+    },
+    {
+      "index": 79,
+      "start_time": 269630.0,
+      "end_time": 274500.0,
+      "text": "Probablemente has escuchado también de las computadoras de 32-bits o 64-bits - puedes estar casi seguro"
+    },
+    {
+      "index": 80,
+      "start_time": 274500.0,
+      "end_time": 275910.0,
+      "text": "que estás utilizando una en este momento."
+    },
+    {
+      "index": 81,
+      "start_time": 275910.0,
+      "end_time": 279330.0,
+      "text": "Lo que esto significa es que ellas operan en tractos de 32 o 64 bits."
+    },
+    {
+      "index": 82,
+      "start_time": 279330.0,
+      "end_time": 280820.0,
+      "text": "Eso son muchos bits!"
+    },
+    {
+      "index": 83,
+      "start_time": 280820.0,
+      "end_time": 285600.0,
+      "text": "El número más grande que puedes representar con 32 bits es apenas más pequeño que 4.3 billones."
+    },
+    {
+      "index": 84,
+      "start_time": 285600.0,
+      "end_time": 287860.0,
+      "text": "Que sería 31 \"unos\" en binario."
+    },
+    {
+      "index": 85,
+      "start_time": 287860.0,
+      "end_time": 292250.0,
+      "text": "Por eso es que nuestras fotos en Instagram se ven tan delicadas y lindas - están compuestas por millones"
+    },
+    {
+      "index": 86,
+      "start_time": 292250.0,
+      "end_time": 296020.0,
+      "text": "de colores, porque las computadoras de hoy en día procesan colores con gráficas de 32-bits."
+    },
+    {
+      "index": 87,
+      "start_time": 296030.0,
+      "end_time": 300260.0,
+      "text": "Claro, no todo son números positivos - como mi cuenta bancaria durante la universidad."
+    },
+    {
+      "index": 88,
+      "start_time": 300260.0,
+      "end_time": 303320.0,
+      "text": "Entonces necesitamos una manera de representar números positivos y negativos."
+    },
+    {
+      "index": 89,
+      "start_time": 303320.0,
+      "end_time": 308280.0,
+      "text": "La mayoría de las computadoras usan el primer bit como signo: 1 para negativos y 0 para positivos, y"
+    },
+    {
+      "index": 90,
+      "start_time": 308280.0,
+      "end_time": 311280.0,
+      "text": "luego usan los 31 bits restantes para representar el número."
+    },
+    {
+      "index": 91,
+      "start_time": 311280.0,
+      "end_time": 314420.0,
+      "text": "Eso nos da un rango de aproximadamente +/- 2 billones"
+    },
+    {
+      "index": 92,
+      "start_time": 314420.0,
+      "end_time": 317960.0,
+      "text": "Pero aunque es un número bastante grande, no es suficiente para muchas tareas."
+    },
+    {
+      "index": 93,
+      "start_time": 317960.0,
+      "end_time": 323360.0,
+      "text": "Hay 7 billones de personas en la Tierra, y la deuda nacional de EEUU es casi 20 trillones de dólares después de todo."
+    },
+    {
+      "index": 94,
+      "start_time": 323360.0,
+      "end_time": 325800.0,
+      "text": "Por eso es que los números de 64-bits son útiles."
+    },
+    {
+      "index": 95,
+      "start_time": 325800.0,
+      "end_time": 330480.0,
+      "text": "El valor más alto que puede representarse con 64-bits es alrededor de 9.2 quintillónes!"
+    },
+    {
+      "index": 96,
+      "start_time": 330480.0,
+      "end_time": 334540.0,
+      "text": "Esos son muchos posibles números, y esperemos que la deuda nacional de EEUU se mantenga alejado de ese valor por un tiempo!"
+    },
+    {
+      "index": 97,
+      "start_time": 334540.0,
+      "end_time": 338840.0,
+      "text": "Aún más importante, como discutiremos en episodios posteriores, las computadoras deben demarcar ubicaciones"
+    },
+    {
+      "index": 98,
+      "start_time": 338840.0,
+      "end_time": 343100.0,
+      "text": "en su memoria, conocidas como \n\"direcciones\", para lograr almacenar y cargar datos."
+    },
+    {
+      "index": 99,
+      "start_time": 343110.0,
+      "end_time": 347020.0,
+      "text": "Como la memoria de las computadoras a avanzado hasta gigabytes y terabytes - eso son trillones de bytes"
+    },
+    {
+      "index": 100,
+      "start_time": 347020.0,
+      "end_time": 350410.0,
+      "text": "- fue necesario crear memorias de 64-bits también."
+    },
+    {
+      "index": 101,
+      "start_time": 350410.0,
+      "end_time": 353901.0,
+      "text": "Además de números positivos y negativos, las computadoras deben lidiar con números"
+    },
+    {
+      "index": 102,
+      "start_time": 353901.0,
+      "end_time": 360450.0,
+      "text": "que no son completos, como 12.7 y 3.12, o inclusive 43989.1."
+    },
+    {
+      "index": 103,
+      "start_time": 360450.0,
+      "end_time": 364140.0,
+      "text": "Estos son llamados \"números de puntos flotantes\", porque el punto decimal puede \"flotar\" alrededor"
+    },
+    {
+      "index": 104,
+      "start_time": 364140.0,
+      "end_time": 365380.0,
+      "text": "del medio del número."
+    },
+    {
+      "index": 105,
+      "start_time": 365380.0,
+      "end_time": 368380.0,
+      "text": "Varios métodos se han desarrollado para representar los números de puntos flotantes."
+    },
+    {
+      "index": 106,
+      "start_time": 368380.0,
+      "end_time": 371780.0,
+      "text": "El más común es el estándar IEEE 754."
+    },
+    {
+      "index": 107,
+      "start_time": 371780.0,
+      "end_time": 374680.0,
+      "text": "Y tú pensabas que los historiadores eran los únicos malos para nombrar cosas!"
+    },
+    {
+      "index": 108,
+      "start_time": 374690.0,
+      "end_time": 379110.0,
+      "text": "En esencia, este estándar guarda los valores decimales en una especie de notación científica."
+    },
+    {
+      "index": 109,
+      "start_time": 379110.0,
+      "end_time": 385800.0,
+      "text": "Por ejemplo, 625.9 puede ser escrito como 0.6259 x 10^3."
+    },
+    {
+      "index": 110,
+      "start_time": 385800.0,
+      "end_time": 390210.0,
+      "text": "Estos dos números son importantes: el .6259 se llama \"base\"."
+    },
+    {
+      "index": 111,
+      "start_time": 390210.0,
+      "end_time": 391360.0,
+      "text": "Y el 3 se llama \"exponente\"."
+    },
+    {
+      "index": 112,
+      "start_time": 391360.0,
+      "end_time": 395750.0,
+      "text": "En un número de punto flotante de 32 bits, el primer bit se usa para determinar el signo del número - positivo"
+    },
+    {
+      "index": 113,
+      "start_time": 395750.0,
+      "end_time": 396750.0,
+      "text": "o negativo."
+    },
+    {
+      "index": 114,
+      "start_time": 396750.0,
+      "end_time": 401080.0,
+      "text": "Los próximos 8 bits se usan para almacenar el exponente, y los 23 bits restantes para guardar"
+    },
+    {
+      "index": 115,
+      "start_time": 401080.0,
+      "end_time": 402080.0,
+      "text": "la base."
+    },
+    {
+      "index": 116,
+      "start_time": 402080.0,
+      "end_time": 406500.0,
+      "text": "Ok, hemos hablado mucho acerca de números, pero probalemente tu nombre está compuesto de letras,"
+    },
+    {
+      "index": 117,
+      "start_time": 406500.0,
+      "end_time": 409970.0,
+      "text": "así que va a ser muy útil que las computadoras también tengan una manera de representar texto."
+    },
+    {
+      "index": 118,
+      "start_time": 409970.0,
+      "end_time": 413300.0,
+      "text": "Sin embargo, en lugar de tener una forma especial para almacenar letras,"
+    },
+    {
+      "index": 119,
+      "start_time": 413320.0,
+      "end_time": 416120.0,
+      "text": "las computadoras simplemente utilizan números para representar letras."
+    },
+    {
+      "index": 120,
+      "start_time": 416140.0,
+      "end_time": 419420.0,
+      "text": "La manera más sencilla puede ser simplemente numerar las letras del alfabeto:"
+    },
+    {
+      "index": 121,
+      "start_time": 419420.0,
+      "end_time": 422560.0,
+      "text": "A es 1, B es 2, C es 3, y así sucesivamente."
+    },
+    {
+      "index": 122,
+      "start_time": 422560.0,
+      "end_time": 427070.0,
+      "text": "De hecho, Francis Bacon, el famoso escritor Inglés, usaba secuencias de 5-bits para codificar"
+    },
+    {
+      "index": 123,
+      "start_time": 427070.0,
+      "end_time": 431880.0,
+      "text": "todas las 26 letras del alfabeto Inglés para enviar mensajes secretos en los años 1600's."
+    },
+    {
+      "index": 124,
+      "start_time": 431880.0,
+      "end_time": 436670.0,
+      "text": "5-bits pueden almacenar 32 posibles valores, entonces es suficiente para 26 letras,"
+    },
+    {
+      "index": 125,
+      "start_time": 436670.0,
+      "end_time": 440060.0,
+      "text": "pero no suficiente para puntuación, dígitos, y letras mayúsculas y minúsculas."
+    },
+    {
+      "index": 126,
+      "start_time": 440060.0,
+      "end_time": 443860.0,
+      "text": "Entra en juego el ASCII, el Código Americano de Estándares para el Intercambio de Información."
+    },
+    {
+      "index": 127,
+      "start_time": 444020.0,
+      "end_time": 449700.0,
+      "text": "Inventado en 1963, ASCII era un código de 7-bits, capaz de almacenar 128 valores diferentes."
+    },
+    {
+      "index": 128,
+      "start_time": 449710.0,
+      "end_time": 453550.0,
+      "text": "Con este rango de expansión, podía codificar letras mayúsculas, minúsculas, dígitos"
+    },
+    {
+      "index": 129,
+      "start_time": 453550.0,
+      "end_time": 457080.0,
+      "text": "del 0 al 9, y símbolos especiales como \"@\", y puntuación."
+    },
+    {
+      "index": 130,
+      "start_time": 457080.0,
+      "end_time": 462220.0,
+      "text": "Por ejemplo, la letra minúscula \"a\" es representada por el número 97, mientas que la \"A\" mayúscula es representada por el 65."
+    },
+    {
+      "index": 131,
+      "start_time": 462340.0,
+      "end_time": 465580.0,
+      "text": "Los dos puntos \":\" son 58, y el paréntesis cerrado \")\" es 41"
+    },
+    {
+      "index": 132,
+      "start_time": 465590.0,
+      "end_time": 469980.0,
+      "text": "ASCII inclusive tenía una selección especial de códigos de comando, como una nueva de caractéres para decirle"
+    },
+    {
+      "index": 133,
+      "start_time": 469980.0,
+      "end_time": 472460.0,
+      "text": "a la computadora donde colocar el siguiente renglón."
+    },
+    {
+      "index": 134,
+      "start_time": 472500.0,
+      "end_time": 476460.0,
+      "text": "En los sistemas de computación más viejos, la línea de texto continuaría literalmente fuera de"
+    },
+    {
+      "index": 135,
+      "start_time": 476460.0,
+      "end_time": 479110.0,
+      "text": "la pantalla si no incluyeras ese caractér!"
+    },
+    {
+      "index": 136,
+      "start_time": 479110.0,
+      "end_time": 482920.0,
+      "text": "Porque ASCII fue un estándar tan pionero, fue ampliamente utilizado y permitió"
+    },
+    {
+      "index": 137,
+      "start_time": 482920.0,
+      "end_time": 486510.0,
+      "text": "que diferentes computadoras construidas por diferentes empresas fueran capaces de compartir información."
+    },
+    {
+      "index": 138,
+      "start_time": 486510.0,
+      "end_time": 490580.0,
+      "text": "Esta habilidad se llego a conocer universalmente como \"interoperabilidad\"."
+    },
+    {
+      "index": 139,
+      "start_time": 490580.0,
+      "end_time": 495120.0,
+      "text": "Sin embargo, sí tenía una limitación básica, solamente fue diseñada en inglés."
+    },
+    {
+      "index": 140,
+      "start_time": 495120.0,
+      "end_time": 499440.0,
+      "text": "Afortunadamente, había 8 bits en un byte, no 7, y rápidamente se popularizó usar códigos"
+    },
+    {
+      "index": 141,
+      "start_time": 499440.0,
+      "end_time": 505260.0,
+      "text": "del 128 al 255, previamente vacíos, para caractéres \"nacionales\"."
+    },
+    {
+      "index": 142,
+      "start_time": 505270.0,
+      "end_time": 510030.0,
+      "text": "En EEUU, esos números extra servían básicamente para codificar símbolos adicionales, como la notación"
+    },
+    {
+      "index": 143,
+      "start_time": 510030.0,
+      "end_time": 513750.0,
+      "text": "matemática, elementos gráficos y caractéres con acento."
+    },
+    {
+      "index": 144,
+      "start_time": 513750.0,
+      "end_time": 517789.0,
+      "text": "Por el otro lado, mientras los caractéres latinos fueron universalmente usados, las computadoras rusas usaban"
+    },
+    {
+      "index": 145,
+      "start_time": 517789.0,
+      "end_time": 522280.0,
+      "text": "los códigos vacíos para codificar los caractéres cirílicos, y las computadoras griegas para codificar los caractéres griegos, etc."
+    },
+    {
+      "index": 146,
+      "start_time": 522299.99999999994,
+      "end_time": 525279.0,
+      "text": "Los caractéres nacionales funcionaron bastante bien para la mayoría de los países."
+    },
+    {
+      "index": 147,
+      "start_time": 525279.0,
+      "end_time": 529360.0,
+      "text": "El problema fue que, si abrías un correo electrónico escrito en letón en una computadora turca, el resultado"
+    },
+    {
+      "index": 148,
+      "start_time": 529360.0,
+      "end_time": 531709.0,
+      "text": "era completamente incomprensible."
+    },
+    {
+      "index": 149,
+      "start_time": 531709.0,
+      "end_time": 536350.0,
+      "text": "Y las cosas se pusieron realmente complicadas con las computadoras en Asia, con idiomas como en chino y el japonés"
+    },
+    {
+      "index": 150,
+      "start_time": 536350.0,
+      "end_time": 538040.0,
+      "text": "que tienen miles de caractéres."
+    },
+    {
+      "index": 151,
+      "start_time": 538040.0,
+      "end_time": 540819.0,
+      "text": "Simplemente no había manera de codificar todos esos caractéres en 8-bits!"
+    },
+    {
+      "index": 152,
+      "start_time": 540820.0,
+      "end_time": 546600.0,
+      "text": "Así fue, como cada país inventó un código y finalmente todos eran mutuamente incompatibles."
+    },
+    {
+      "index": 153,
+      "start_time": 546600.0,
+      "end_time": 551160.0,
+      "text": "Los japoneses estaban tan familiarizados con este problema de codificación que tenían un nombre especial para ello:"
+    },
+    {
+      "index": 154,
+      "start_time": 551160.0,
+      "end_time": 553600.0,
+      "text": "\"mojibake\" que significa \"texto revuelto\"."
+    },
+    {
+      "index": 155,
+      "start_time": 553660.0,
+      "end_time": 557100.0,
+      "text": "Y así fue como nació el Unicode - un formato para dominarlos a todos."
+    },
+    {
+      "index": 156,
+      "start_time": 557100.0,
+      "end_time": 561420.0,
+      "text": "Concebido en 1992 para finalmente deshacerse de todos los códigos internacionales,"
+    },
+    {
+      "index": 157,
+      "start_time": 561420.0,
+      "end_time": 563980.0,
+      "text": "los reemplazó con un sistema de códigos universal."
+    },
+    {
+      "index": 158,
+      "start_time": 563980.0,
+      "end_time": 568760.0,
+      "text": "La versión más común del Unicode usa 16-bits con un espacio para aproximadamente poco más de un millón de códigos -"
+    },
+    {
+      "index": 159,
+      "start_time": 568840.0,
+      "end_time": 572180.0,
+      "text": "suficiente para caractér de cada idioma jamás creado -"
+    },
+    {
+      "index": 160,
+      "start_time": 572180.0,
+      "end_time": 576260.0,
+      "text": "más de 120.000 de ellos en poco más de 100 tipos de secuencias de comandos"
+    },
+    {
+      "index": 161,
+      "start_time": 576260.0,
+      "end_time": 580000.0,
+      "text": "más un espacio para los símbolos matemáticos e inclusive los caractéres gráficos como los Emojis."
+    },
+    {
+      "index": 162,
+      "start_time": 580000.0,
+      "end_time": 583740.0,
+      "text": "Y de la misma manera que ASCII define una estructura para codificar letras como números binarios,"
+    },
+    {
+      "index": 163,
+      "start_time": 583740.0,
+      "end_time": 586339.0,
+      "text": "otros formatos de archivos - como MP3s o GIFs - usan"
+    },
+    {
+      "index": 164,
+      "start_time": 586340.0,
+      "end_time": 590880.0,
+      "text": "números binarios para codificar sonidos o colores de pixeles en nuestras fotos, películas, y música."
+    },
+    {
+      "index": 165,
+      "start_time": 590880.0,
+      "end_time": 595460.0,
+      "text": "Aún más importante, debajo del capó todo termina siendo largas secuencias de bits."
+    },
+    {
+      "index": 166,
+      "start_time": 595460.0,
+      "end_time": 600020.0,
+      "text": "Los mensajes de texto, este video en YouTube, todas las páginas web en internet, e inclusive el sistema operativo"
+    },
+    {
+      "index": 167,
+      "start_time": 600020.0,
+      "end_time": 603720.0,
+      "text": "de tu computadora, no son nada más que largas secuencias de unos y ceros."
+    },
+    {
+      "index": 168,
+      "start_time": 603730.0,
+      "end_time": 607320.0,
+      "text": "La próxima semana, empezaremos a hablar acerca de cómo tu computadora manipula esas"
+    },
+    {
+      "index": 169,
+      "start_time": 607329.0,
+      "end_time": 610829.0,
+      "text": "secuencias binarias, para saborear por primera vez la  ciencia de la computación."
+    },
+    {
+      "index": 170,
+      "start_time": 610829.0,
+      "end_time": 613780.0,
+      "text": "Gracias por vernos. Te veremos la próxima semana."
+    }
+  ]
+}

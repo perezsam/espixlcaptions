@@ -1,0 +1,1020 @@
+{
+  "video_id": "USPvePv1uzE",
+  "title": "GDB",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 7170.0,
+      "end_time": 12630.0,
+      "text": "[Powered by Google Translate] GDB, el Proyecto GNU Debugger, es una potente herramienta de depuración para C,"
+    },
+    {
+      "index": 2,
+      "start_time": 12630.0,
+      "end_time": 14300.0,
+      "text": "junto con muchos otros idiomas."
+    },
+    {
+      "index": 3,
+      "start_time": 14300.0,
+      "end_time": 17440.0,
+      "text": "Que le permite hurgar dentro de sus programas en C mientras están ejecutando,"
+    },
+    {
+      "index": 4,
+      "start_time": 17440.0,
+      "end_time": 20880.0,
+      "text": "y también le da la oportunidad de ver exactamente lo que sucede"
+    },
+    {
+      "index": 5,
+      "start_time": 20880.0,
+      "end_time": 22490.0,
+      "text": "cuando se bloquea el programa."
+    },
+    {
+      "index": 6,
+      "start_time": 22490.0,
+      "end_time": 24690.0,
+      "text": "Es muy ingenioso, ¿no?"
+    },
+    {
+      "index": 7,
+      "start_time": 24690.0,
+      "end_time": 27980.0,
+      "text": "GDB es software libre, y se ejecuta en los modelos más usuales UNIX y"
+    },
+    {
+      "index": 8,
+      "start_time": 27980.0,
+      "end_time": 31840.0,
+      "text": "Basados ​​en Windows sistemas operativos, por lo que es una herramienta muy extendida."
+    },
+    {
+      "index": 9,
+      "start_time": 31840.0,
+      "end_time": 33560.0,
+      "text": ">> Usted debe aprender a amarla."
+    },
+    {
+      "index": 10,
+      "start_time": 33560.0,
+      "end_time": 36800.0,
+      "text": "Pros GDB tendrá un tiempo mucho más fácil rastrear errores"
+    },
+    {
+      "index": 11,
+      "start_time": 36800.0,
+      "end_time": 39150.0,
+      "text": "que los que salir del paso con conjeturas"
+    },
+    {
+      "index": 12,
+      "start_time": 39150.0,
+      "end_time": 41420.0,
+      "text": "y una cantidad infinita de enunciados impresiones."
+    },
+    {
+      "index": 13,
+      "start_time": 41420.0,
+      "end_time": 45810.0,
+      "text": "GDB es una herramienta de línea de comandos, lo que significa que puede interactuar con él en una terminal"
+    },
+    {
+      "index": 14,
+      "start_time": 45810.0,
+      "end_time": 49720.0,
+      "text": "dando órdenes a través del teclado en lugar de botones haciendo clic con el ratón."
+    },
+    {
+      "index": 15,
+      "start_time": 49720.0,
+      "end_time": 54960.0,
+      "text": ">> Para iniciar GDB, que, literalmente, sólo gdb escribe en el prompt y pulse Enter."
+    },
+    {
+      "index": 16,
+      "start_time": 54960.0,
+      "end_time": 58230.0,
+      "text": "Verás unas líneas impresas en la pantalla"
+    },
+    {
+      "index": 17,
+      "start_time": 58230.0,
+      "end_time": 60810.0,
+      "text": "mostrando la versión del BGF que se está ejecutando,"
+    },
+    {
+      "index": 18,
+      "start_time": 60810.0,
+      "end_time": 67890.0,
+      "text": "su información de derechos de autor, y al final verá el prompt GDB: (gdb)."
+    },
+    {
+      "index": 19,
+      "start_time": 67890.0,
+      "end_time": 70770.0,
+      "text": "Esto le permite saber que el BGF está listo para los comandos."
+    },
+    {
+      "index": 20,
+      "start_time": 70770.0,
+      "end_time": 75400.0,
+      "text": "En este punto, la cosa más importante que saber hacer es dejar de fumar."
+    },
+    {
+      "index": 21,
+      "start_time": 75400.0,
+      "end_time": 77790.0,
+      "text": "Afortunadamente, esto es bastante simple."
+    },
+    {
+      "index": 22,
+      "start_time": 77790.0,
+      "end_time": 79840.0,
+      "text": "El comando quit hace precisamente eso."
+    },
+    {
+      "index": 23,
+      "start_time": 79840.0,
+      "end_time": 83090.0,
+      "text": "Como método abreviado, puede simplemente usar q también."
+    },
+    {
+      "index": 24,
+      "start_time": 83090.0,
+      "end_time": 87410.0,
+      "text": "Tan divertido como arrancar el BGF y luego dejar de fumar inmediatamente es,"
+    },
+    {
+      "index": 25,
+      "start_time": 87410.0,
+      "end_time": 90800.0,
+      "text": "Hablemos ahora un poco sobre el uso de GDB para ayudar a depurar un programa."
+    },
+    {
+      "index": 26,
+      "start_time": 90800.0,
+      "end_time": 94630.0,
+      "text": ">> Para empezar, tengo un programa aquí en factorial.c"
+    },
+    {
+      "index": 27,
+      "start_time": 94630.0,
+      "end_time": 97380.0,
+      "text": "que recibe un entero y trata de calcular el factorial."
+    },
+    {
+      "index": 28,
+      "start_time": 97380.0,
+      "end_time": 101270.0,
+      "text": "En caso de que usted no ha visto antes factoriales o no los recuerdo,"
+    },
+    {
+      "index": 29,
+      "start_time": 101270.0,
+      "end_time": 107840.0,
+      "text": "El factorial del número n es igual al producto de n - (n - 1), (n - 2), y así sucesivamente -"
+    },
+    {
+      "index": 30,
+      "start_time": 107840.0,
+      "end_time": 109230.0,
+      "text": "hasta llegar a 1."
+    },
+    {
+      "index": 31,
+      "start_time": 109230.0,
+      "end_time": 114550.0,
+      "text": "Por lo tanto, el factorial de 3 es 3 * 2 * 1, o 6,"
+    },
+    {
+      "index": 32,
+      "start_time": 114550.0,
+      "end_time": 120180.0,
+      "text": "y el factorial de 4 es 4 * 3 * 2 * 1, o 24."
+    },
+    {
+      "index": 33,
+      "start_time": 120180.0,
+      "end_time": 123970.0,
+      "text": "El factorial de cero es un caso raro, es 1,"
+    },
+    {
+      "index": 34,
+      "start_time": 123970.0,
+      "end_time": 126970.0,
+      "text": "y los factoriales de los números enteros negativos no están definidas."
+    },
+    {
+      "index": 35,
+      "start_time": 126970.0,
+      "end_time": 130280.0,
+      "text": "De todos modos, hay algo en mi programa factorial es funky."
+    },
+    {
+      "index": 36,
+      "start_time": 130280.0,
+      "end_time": 135410.0,
+      "text": "Cuando lo ejecuto, imprime números extraños que no tienen nada que ver con los factoriales."
+    },
+    {
+      "index": 37,
+      "start_time": 135410.0,
+      "end_time": 139030.0,
+      "text": ">> Por lo tanto, podemos usar GDB para ayudar a entender lo que está pasando."
+    },
+    {
+      "index": 38,
+      "start_time": 139030.0,
+      "end_time": 141720.0,
+      "text": "GDB opera en archivos ejecutables,"
+    },
+    {
+      "index": 39,
+      "start_time": 141720.0,
+      "end_time": 144910.0,
+      "text": "que son los archivos binarios producidos por el proceso de compilación."
+    },
+    {
+      "index": 40,
+      "start_time": 144910.0,
+      "end_time": 150940.0,
+      "text": "Es decir, no se puede ejecutar en nuestro GDB. Co. H archivos de código fuente como factorial.c."
+    },
+    {
+      "index": 41,
+      "start_time": 150940.0,
+      "end_time": 154650.0,
+      "text": "Queremos que se ejecute en un solo lugar factorial."
+    },
+    {
+      "index": 42,
+      "start_time": 154650.0,
+      "end_time": 158340.0,
+      "text": "Si el programa requiere ningún argumento de línea de comandos,"
+    },
+    {
+      "index": 43,
+      "start_time": 158340.0,
+      "end_time": 160230.0,
+      "text": "aquí es donde nos gustaría dar más detalles."
+    },
+    {
+      "index": 44,
+      "start_time": 160230.0,
+      "end_time": 164050.0,
+      "text": "En este caso, factorial no requiere ningún argumento de línea de comandos,"
+    },
+    {
+      "index": 45,
+      "start_time": 164050.0,
+      "end_time": 166410.0,
+      "text": "así que sólo tienes que escribir de ejecución o r para abreviar."
+    },
+    {
+      "index": 46,
+      "start_time": 166410.0,
+      "end_time": 170440.0,
+      "text": ">> Esto iniciará el programa ejecutándose factorial."
+    },
+    {
+      "index": 47,
+      "start_time": 170440.0,
+      "end_time": 173940.0,
+      "text": "Cuando el programa deja de funcionar, me pondré mi GDB pedirá de nuevo."
+    },
+    {
+      "index": 48,
+      "start_time": 173940.0,
+      "end_time": 178130.0,
+      "text": "Bueno, vamos a intentar hacer lo mismo otra vez, factorial de 4."
+    },
+    {
+      "index": 49,
+      "start_time": 178130.0,
+      "end_time": 182910.0,
+      "text": "Muy bien, vemos que estamos recibiendo el mismo tipo de basura aquí en GDB."
+    },
+    {
+      "index": 50,
+      "start_time": 182910.0,
+      "end_time": 184850.0,
+      "text": "Ahora que el programa ha terminado,"
+    },
+    {
+      "index": 51,
+      "start_time": 184850.0,
+      "end_time": 186870.0,
+      "text": "no podemos entrar y acceder a su estado,"
+    },
+    {
+      "index": 52,
+      "start_time": 186870.0,
+      "end_time": 189870.0,
+      "text": "por lo que tendremos que empezar a funcionar otra vez antes de que podamos ver lo que está sucediendo."
+    },
+    {
+      "index": 53,
+      "start_time": 189870.0,
+      "end_time": 193570.0,
+      "text": "Sin embargo, necesitamos una manera de detenerlo mientras está en la mitad de su carrera."
+    },
+    {
+      "index": 54,
+      "start_time": 193570.0,
+      "end_time": 196970.0,
+      "text": ">> Para ello, se utiliza lo que se llama un punto de interrupción."
+    },
+    {
+      "index": 55,
+      "start_time": 196970.0,
+      "end_time": 201880.0,
+      "text": "Puntos de interrupción decir GDB para detener el programa en una determinada función o línea de código fuente"
+    },
+    {
+      "index": 56,
+      "start_time": 201880.0,
+      "end_time": 204070.0,
+      "text": "de modo que se puede examinar el estado del programa,"
+    },
+    {
+      "index": 57,
+      "start_time": 204070.0,
+      "end_time": 207380.0,
+      "text": "los valores de las variables, el estado de la memoria y tal, en ese punto."
+    },
+    {
+      "index": 58,
+      "start_time": 207380.0,
+      "end_time": 210750.0,
+      "text": "Puesto que no se sabe muy bien dónde van las cosas mal,"
+    },
+    {
+      "index": 59,
+      "start_time": 210750.0,
+      "end_time": 213510.0,
+      "text": ">> Sólo quiero empezar a depurar la derecha en el comienzo,"
+    },
+    {
+      "index": 60,
+      "start_time": 213510.0,
+      "end_time": 216510.0,
+      "text": "justo cuando empieza principal."
+    },
+    {
+      "index": 61,
+      "start_time": 216510.0,
+      "end_time": 219260.0,
+      "text": "Vamos a establecer un punto de interrupción al principio del principal mediante el comando break."
+    },
+    {
+      "index": 62,
+      "start_time": 219260.0,
+      "end_time": 222640.0,
+      "text": "También se puede utilizar para abreviar b break."
+    },
+    {
+      "index": 63,
+      "start_time": 222640.0,
+      "end_time": 225000.0,
+      "text": "Ahora vamos a iniciar el programa vuelva a funcionar."
+    },
+    {
+      "index": 64,
+      "start_time": 225000.0,
+      "end_time": 228140.0,
+      "text": "Aquí estamos en el comienzo de la principal, al igual que el BGF nos dice."
+    },
+    {
+      "index": 65,
+      "start_time": 228140.0,
+      "end_time": 231970.0,
+      "text": "La línea de código que está a punto de ejecutar, pero aún no ha"
+    },
+    {
+      "index": 66,
+      "start_time": 231970.0,
+      "end_time": 233480.0,
+      "text": "es la línea printf."
+    },
+    {
+      "index": 67,
+      "start_time": 233480.0,
+      "end_time": 237200.0,
+      "text": "Podemos decir GDB para ejecutar esta línea de código e ir a la siguiente línea"
+    },
+    {
+      "index": 68,
+      "start_time": 237200.0,
+      "end_time": 239840.0,
+      "text": "con el siguiente comando o n."
+    },
+    {
+      "index": 69,
+      "start_time": 239840.0,
+      "end_time": 244120.0,
+      "text": ">> Muy bien, ahora GDB nos dice que estamos en la línea de getInt."
+    },
+    {
+      "index": 70,
+      "start_time": 244120.0,
+      "end_time": 246630.0,
+      "text": "Sé que parece que la línea printf no se ha ejecutado"
+    },
+    {
+      "index": 71,
+      "start_time": 246630.0,
+      "end_time": 250070.0,
+      "text": "ya que no se ve \"Introduzca un número entero positivo\" letra en la pantalla,"
+    },
+    {
+      "index": 72,
+      "start_time": 250070.0,
+      "end_time": 252040.0,
+      "text": "pero se ha ejecutado realmente."
+    },
+    {
+      "index": 73,
+      "start_time": 252040.0,
+      "end_time": 256029.0,
+      "text": "Lo que estamos viendo es el sistema operativo suprimir cualquier cosa por escrito a la pantalla"
+    },
+    {
+      "index": 74,
+      "start_time": 256029.0,
+      "end_time": 259649.0,
+      "text": "hasta que absolutamente tiene que hacerlo, que por qué la depuración con impresiones"
+    },
+    {
+      "index": 75,
+      "start_time": 259649.0,
+      "end_time": 261730.0,
+      "text": "a veces puede parecer poco fiable."
+    },
+    {
+      "index": 76,
+      "start_time": 261730.00000000003,
+      "end_time": 266240.0,
+      "text": "De todos modos, vamos a ir de nuevo a la siguiente línea de código y entrar en un int."
+    },
+    {
+      "index": 77,
+      "start_time": 266240.0,
+      "end_time": 270070.0,
+      "text": "Una vez más, vamos a tipo 4."
+    },
+    {
+      "index": 78,
+      "start_time": 270070.0,
+      "end_time": 274540.0,
+      "text": "Así que esto parece raro. Estamos en la línea 12 de acuerdo con GDB,"
+    },
+    {
+      "index": 79,
+      "start_time": 274540.0,
+      "end_time": 277660.0,
+      "text": "pero la siguiente línea que está a punto de ejecutar es sólo una llave de cierre."
+    },
+    {
+      "index": 80,
+      "start_time": 277660.0,
+      "end_time": 282110.0,
+      "text": ">> Eso sólo significa que estamos en el final de un ciclo, nuestro ciclo do while, de hecho,"
+    },
+    {
+      "index": 81,
+      "start_time": 282110.0,
+      "end_time": 286710.0,
+      "text": "GDB y nos está diciendo que la condición de terminación, es decir, nada menos que cero,"
+    },
+    {
+      "index": 82,
+      "start_time": 286710.0,
+      "end_time": 288010.0,
+      "text": "ejecutará a continuación."
+    },
+    {
+      "index": 83,
+      "start_time": 288010.0,
+      "end_time": 290230.0,
+      "text": "Si alguna vez se pone un poco confuso,"
+    },
+    {
+      "index": 84,
+      "start_time": 290230.0,
+      "end_time": 294860.0,
+      "text": "podemos sacar el código fuente en GDB con la lista de comandos o l."
+    },
+    {
+      "index": 85,
+      "start_time": 294860.0,
+      "end_time": 296880.0,
+      "text": "Esto imprime el código fuente"
+    },
+    {
+      "index": 86,
+      "start_time": 296880.0,
+      "end_time": 299010.0,
+      "text": "que está centrado alrededor de la línea que estamos actualmente."
+    },
+    {
+      "index": 87,
+      "start_time": 299010.0,
+      "end_time": 303590.0,
+      "text": "Si tecleamos lista o l otra vez, vamos a ver el siguiente conjunto de líneas de impresión."
+    },
+    {
+      "index": 88,
+      "start_time": 303590.0,
+      "end_time": 306070.0,
+      "text": "Podemos hacer esto hasta que lleguemos al final del archivo."
+    },
+    {
+      "index": 89,
+      "start_time": 306070.0,
+      "end_time": 311210.0,
+      "text": ">> Para volver a donde estábamos, podemos suministrar lista con un número de línea,"
+    },
+    {
+      "index": 90,
+      "start_time": 311210.0,
+      "end_time": 314120.0,
+      "text": "en este caso, la línea 12."
+    },
+    {
+      "index": 91,
+      "start_time": 314120.0,
+      "end_time": 316040.0,
+      "text": "De todos modos, vamos a seguir adelante."
+    },
+    {
+      "index": 92,
+      "start_time": 316040.0,
+      "end_time": 318240.0,
+      "text": "Ahora que estamos en el bucle 4."
+    },
+    {
+      "index": 93,
+      "start_time": 318240.0,
+      "end_time": 321490.0,
+      "text": "Vamos a asegurarnos de que nuestra variable num contiene 4."
+    },
+    {
+      "index": 94,
+      "start_time": 321490.0,
+      "end_time": 326170.0,
+      "text": "Hacemos esto con la impresión, ó p, comando."
+    },
+    {
+      "index": 95,
+      "start_time": 326170.0,
+      "end_time": 331140.0,
+      "text": "Por lo tanto, el BGF nos dice que número es, en efecto almacenar 4, tal y como esperábamos."
+    },
+    {
+      "index": 96,
+      "start_time": 331140.0,
+      "end_time": 335180.0,
+      "text": "Los $ 1 que imprime GDB es una variable GDB especial"
+    },
+    {
+      "index": 97,
+      "start_time": 335180.0,
+      "end_time": 337720.0,
+      "text": "que ya está configurado para almacenar el número 4 también."
+    },
+    {
+      "index": 98,
+      "start_time": 337720.0,
+      "end_time": 342240.0,
+      "text": "Puede pasar por alto esta por ahora, pero estas variables GDB vienen en súper práctico"
+    },
+    {
+      "index": 99,
+      "start_time": 342240.0,
+      "end_time": 346380.0,
+      "text": "en casos más avanzados cuando se desea recordar lo que has hecho en el pasado."
+    },
+    {
+      "index": 100,
+      "start_time": 346380.0,
+      "end_time": 350970.0,
+      "text": "De todos modos, seguir adelante con el siguiente, vemos que empezamos a ir a través del bucle for."
+    },
+    {
+      "index": 101,
+      "start_time": 350970.0,
+      "end_time": 354790.0,
+      "text": "Sigamos por aquí con n bits a poco."
+    },
+    {
+      "index": 102,
+      "start_time": 354790.0,
+      "end_time": 358280.0,
+      "text": "En lugar de escribir n cada vez, también puede simplemente pulsa enter."
+    },
+    {
+      "index": 103,
+      "start_time": 358280.0,
+      "end_time": 363710.0,
+      "text": "Cuando se pulsa enter sin escribir nada, el BGF sólo repite el comando anterior."
+    },
+    {
+      "index": 104,
+      "start_time": 363710.0,
+      "end_time": 365910.0,
+      "text": "Así que ahora nos hemos topado con la llamada printf."
+    },
+    {
+      "index": 105,
+      "start_time": 365910.0,
+      "end_time": 369520.0,
+      "text": "Parece que hemos hecho pasado por nuestro bucle for 4 veces,"
+    },
+    {
+      "index": 106,
+      "start_time": 369520.0,
+      "end_time": 373750.0,
+      "text": "que es lo que queremos hacer con el fin de multiplicar por 1, 2, 3, y 4."
+    },
+    {
+      "index": 107,
+      "start_time": 373750.0,
+      "end_time": 375870.0,
+      "text": ">> Todo parece que está funcionando,"
+    },
+    {
+      "index": 108,
+      "start_time": 375870.0,
+      "end_time": 379680.0,
+      "text": "excepto cuando golpeamos próxima vez tenemos esta enorme cantidad en lugar de 24."
+    },
+    {
+      "index": 109,
+      "start_time": 379680.0,
+      "end_time": 383100.0,
+      "text": "Si se imprime el valor de p factorial utilizando,"
+    },
+    {
+      "index": 110,
+      "start_time": 383100.0,
+      "end_time": 386120.0,
+      "text": "vemos que factorial tiene este número masivo en ella."
+    },
+    {
+      "index": 111,
+      "start_time": 386120.0,
+      "end_time": 388740.0,
+      "text": "Algo definitivamente va mal."
+    },
+    {
+      "index": 112,
+      "start_time": 388740.0,
+      "end_time": 391960.0,
+      "text": "En este punto, sin embargo, que son casi al final del programa,"
+    },
+    {
+      "index": 113,
+      "start_time": 391960.0,
+      "end_time": 394610.0,
+      "text": "y es demasiado tarde para arreglar cualquier cosa."
+    },
+    {
+      "index": 114,
+      "start_time": 394610.0,
+      "end_time": 399750.0,
+      "text": ">> Sin embargo, se puede reiniciar el programa escribiendo r otra vez y luego y para confirmar."
+    },
+    {
+      "index": 115,
+      "start_time": 399750.0,
+      "end_time": 403460.0,
+      "text": "Ahora estamos de vuelta en nuestro punto de interrupción al principio del principal."
+    },
+    {
+      "index": 116,
+      "start_time": 403460.0,
+      "end_time": 406600.0,
+      "text": "Sabemos que todo parece estar bien con la lectura en el n."
+    },
+    {
+      "index": 117,
+      "start_time": 406600.0,
+      "end_time": 408630.0,
+      "text": "para que podamos ir por delante con n."
+    },
+    {
+      "index": 118,
+      "start_time": 408630.0,
+      "end_time": 412280.0,
+      "text": "Alternativamente, puede establecer un nuevo punto de interrupción después de que el ciclo do while"
+    },
+    {
+      "index": 119,
+      "start_time": 412280.0,
+      "end_time": 414910.0,
+      "text": "y salta allí. Vamos a hacer eso."
+    },
+    {
+      "index": 120,
+      "start_time": 414910.0,
+      "end_time": 419080.0,
+      "text": "Parece que la línea 14 llega justo después del bucle."
+    },
+    {
+      "index": 121,
+      "start_time": 419080.0,
+      "end_time": 421070.0,
+      "text": "Vamos a poner un breakpoint allí."
+    },
+    {
+      "index": 122,
+      "start_time": 421070.0,
+      "end_time": 425220.0,
+      "text": "Es una buena práctica para especificar el nombre del archivo en el comando breakpoint"
+    },
+    {
+      "index": 123,
+      "start_time": 425220.0,
+      "end_time": 428480.0,
+      "text": "desde GDB puede confundirse si está trabajando con varios archivos."
+    },
+    {
+      "index": 124,
+      "start_time": 428480.0,
+      "end_time": 433230.0,
+      "text": "Para moverse por delante de este punto de interrupción, usaremos el comando continue o c."
+    },
+    {
+      "index": 125,
+      "start_time": 433230.0,
+      "end_time": 436570.0,
+      "text": ">> Bueno, aquí estamos en el bucle for."
+    },
+    {
+      "index": 126,
+      "start_time": 436570.0,
+      "end_time": 439060.0,
+      "text": "Vamos a ir en la línea 1 más el bucle for,"
+    },
+    {
+      "index": 127,
+      "start_time": 439060.0,
+      "end_time": 441630.0,
+      "text": "y entonces empezaremos variables de impresión para ver qué está pasando."
+    },
+    {
+      "index": 128,
+      "start_time": 441630.0,
+      "end_time": 446410.0,
+      "text": "Vamos a asegurarnos de que i es en realidad 1, como se esperaba."
+    },
+    {
+      "index": 129,
+      "start_time": 446410.0,
+      "end_time": 448300.0,
+      "text": "Sí, eso es todo bueno."
+    },
+    {
+      "index": 130,
+      "start_time": 448300.0,
+      "end_time": 450270.0,
+      "text": "¿Y factorial sin embargo?"
+    },
+    {
+      "index": 131,
+      "start_time": 450270.0,
+      "end_time": 453760.0,
+      "text": "Vaya, eso no es bueno."
+    },
+    {
+      "index": 132,
+      "start_time": 453760.0,
+      "end_time": 455800.0,
+      "text": "Tenemos un número negativo grande aquí."
+    },
+    {
+      "index": 133,
+      "start_time": 455800.0,
+      "end_time": 458190.0,
+      "text": "¿Cómo pasó eso?"
+    },
+    {
+      "index": 134,
+      "start_time": 458190.0,
+      "end_time": 460040.0,
+      "text": "Bueno, si miramos hacia atrás en el código,"
+    },
+    {
+      "index": 135,
+      "start_time": 460040.0,
+      "end_time": 464800.0,
+      "text": "se ve que nunca lo inicializado, así que sólo tengo basura en ese país."
+    },
+    {
+      "index": 136,
+      "start_time": 464800.0,
+      "end_time": 466820.0,
+      "text": "Eso definitivamente deshacerse de nuestro cálculo."
+    },
+    {
+      "index": 137,
+      "start_time": 466820.0,
+      "end_time": 469930.0,
+      "text": ">> Afortunadamente, no tenemos que dejar GDB para solucionar este problema."
+    },
+    {
+      "index": 138,
+      "start_time": 469930.0,
+      "end_time": 474590.0,
+      "text": "Podemos inicializar la derecha y fijarla en el código más adelante mediante el comando de impresión."
+    },
+    {
+      "index": 139,
+      "start_time": 474590.0,
+      "end_time": 479500.0,
+      "text": "Vamos a inicializar a 1, ya que los factoriales de cero y 1 son ambos 1,"
+    },
+    {
+      "index": 140,
+      "start_time": 479500.0,
+      "end_time": 483940.0,
+      "text": "y si lo inicializa a cero, entonces siempre iba a terminar con el cero como nuestro resultado."
+    },
+    {
+      "index": 141,
+      "start_time": 483940.0,
+      "end_time": 488370.0,
+      "text": "Puede establecer cualquier variable de esta manera, que es súper práctico."
+    },
+    {
+      "index": 142,
+      "start_time": 488370.0,
+      "end_time": 490920.0,
+      "text": "Ahora, vamos a continuar con nuestro programa."
+    },
+    {
+      "index": 143,
+      "start_time": 490920.0,
+      "end_time": 494040.0,
+      "text": "Vamos a asegurarnos de que todo está donde debe estar."
+    },
+    {
+      "index": 144,
+      "start_time": 494040.0,
+      "end_time": 499090.0,
+      "text": "Num debe ser de 4, que debería ser 1, y factorial debe ser 1 también."
+    },
+    {
+      "index": 145,
+      "start_time": 499090.0,
+      "end_time": 503990.0,
+      "text": "Podemos abreviar este proceso e imprimir todas nuestras variables locales"
+    },
+    {
+      "index": 146,
+      "start_time": 503990.0,
+      "end_time": 506440.0,
+      "text": "con los lugareños información super-útil de mando,"
+    },
+    {
+      "index": 147,
+      "start_time": 506440.0,
+      "end_time": 509190.0,
+      "text": "que imprime todos nuestros consideradas en el estudio las variables locales."
+    },
+    {
+      "index": 148,
+      "start_time": 509190.0,
+      "end_time": 511980.0,
+      "text": "De todos modos, parece que todo está listo para salir."
+    },
+    {
+      "index": 149,
+      "start_time": 511980.0,
+      "end_time": 514700.0,
+      "text": ">> Vamos a hacer otro go-around del bucle sólo para asegurarse."
+    },
+    {
+      "index": 150,
+      "start_time": 514700.00000000006,
+      "end_time": 518789.00000000006,
+      "text": "Bien, todo se ve muy bien."
+    },
+    {
+      "index": 151,
+      "start_time": 518789.0,
+      "end_time": 521659.0,
+      "text": "Ahora podemos usar el comando Continuar para pasar a la final."
+    },
+    {
+      "index": 152,
+      "start_time": 521659.0,
+      "end_time": 526170.0,
+      "text": "Sweet! 4 factorial imprimir 24 como se esperaba."
+    },
+    {
+      "index": 153,
+      "start_time": 526170.0,
+      "end_time": 528690.0,
+      "text": "Ahora podemos arreglar esto en nuestro código."
+    },
+    {
+      "index": 154,
+      "start_time": 528690.0,
+      "end_time": 533710.0,
+      "text": "En lugar de dejar fuera de GDB, vamos a utilizar otra ficha terminal para hacer esto."
+    },
+    {
+      "index": 155,
+      "start_time": 533710.0,
+      "end_time": 538080.0,
+      "text": "Volviendo a nuestra cuenta GDB, ahora tenemos que volver a compilar nuestro ejecutable."
+    },
+    {
+      "index": 156,
+      "start_time": 538080.0,
+      "end_time": 543180.0,
+      "text": "Una de las mejores cosas de GDB es que usted no necesita salir de GDB a ejecutar make."
+    },
+    {
+      "index": 157,
+      "start_time": 543180.0,
+      "end_time": 546570.0,
+      "text": "Así que no dejan de golpear los puntos de corte de edad,"
+    },
+    {
+      "index": 158,
+      "start_time": 546570.0,
+      "end_time": 550440.0,
+      "text": "vamos a desactivarlos con el, lo has adivinado, deshabilitar comandos."
+    },
+    {
+      "index": 159,
+      "start_time": 550440.0,
+      "end_time": 553320.0,
+      "text": "Esto desactivará todos nuestros puntos de interrupción."
+    },
+    {
+      "index": 160,
+      "start_time": 553320.0,
+      "end_time": 558180.0,
+      "text": "Ahora, podemos reiniciar el programa con r y asegurarse de que todo está bien."
+    },
+    {
+      "index": 161,
+      "start_time": 558180.0,
+      "end_time": 561300.0,
+      "text": "Parece que todo está listo para salir."
+    },
+    {
+      "index": 162,
+      "start_time": 561300.0,
+      "end_time": 564410.0,
+      "text": "Factorial de 4 imprime 24, al igual que lo que pensábamos."
+    },
+    {
+      "index": 163,
+      "start_time": 564410.0,
+      "end_time": 568830.0,
+      "text": "GDB es una de las herramientas más útiles que tienes en tu caja de herramientas."
+    },
+    {
+      "index": 164,
+      "start_time": 568830.0,
+      "end_time": 571970.0,
+      "text": ">> Hay cosas que una tonelada más que puedes hacer con GDB,"
+    },
+    {
+      "index": 165,
+      "start_time": 571970.0,
+      "end_time": 574030.0,
+      "text": "mucho más de lo que puedes hacer con las impresiones simples."
+    },
+    {
+      "index": 166,
+      "start_time": 574030.0,
+      "end_time": 576730.0,
+      "text": "La próxima vez que su programa no es hacer lo que quisiera,"
+    },
+    {
+      "index": 167,
+      "start_time": 576730.0,
+      "end_time": 579740.0,
+      "text": "intente ejecutar GDB para averiguar lo que está pasando dentro."
+    },
+    {
+      "index": 168,
+      "start_time": 579740.0,
+      "end_time": 584380.0,
+      "text": "Con un poco de práctica, usted será capaz de profundizar en tu bug en ningún momento."
+    },
+    {
+      "index": 169,
+      "start_time": 584380.0,
+      "end_time": 588180.0,
+      "text": "Mi nombre es Nate Hardison. Esto es CS50."
+    }
+  ]
+}

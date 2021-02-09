@@ -1,0 +1,1038 @@
+{
+  "video_id": "FZGugFqdr60",
+  "title": "The Central Processing Unit (CPU): Crash Course Computer Science #7",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3160.0,
+      "end_time": 7540.0,
+      "text": "Hola, soy Carrie Anne, esto es Crash Course: Ciencias de la Computación, y hoy vamos a hablar sobre procesadores."
+    },
+    {
+      "index": 2,
+      "start_time": 7540.0,
+      "end_time": 11480.0,
+      "text": "Solo una advertencia: este probablemente sea el episodio más complicado de la serie"
+    },
+    {
+      "index": 3,
+      "start_time": 11540.0,
+      "end_time": 12940.0,
+      "text": "por lo que, si entiendes esto, estás de diez."
+    },
+    {
+      "index": 4,
+      "start_time": 12940.0,
+      "end_time": 16940.0,
+      "text": "Ya hemos hecho una Unidad de Aritmética Lógica, que hace cálculos"
+    },
+    {
+      "index": 5,
+      "start_time": 16949.0,
+      "end_time": 21350.0,
+      "text": "con números binarios, y hemos hecho dos tipos de memoria de computadora: Registros -pequeños trozos"
+    },
+    {
+      "index": 6,
+      "start_time": 21350.0,
+      "end_time": 25999.0,
+      "text": "lineares de memoria, útiles para almacenar un solo valor- y después agrandamos la escala, e hicimos"
+    },
+    {
+      "index": 7,
+      "start_time": 25999.0,
+      "end_time": 30260.0,
+      "text": "memoria RAM, un banco de memoria más grande, que puede almacenar una gran cantidad de números ubicados en distintas direcciones."
+    },
+    {
+      "index": 8,
+      "start_time": 30260.0,
+      "end_time": 34180.0,
+      "text": "Ahota, es tiempo de unir todo y construir el corazón de cualquier computadora,"
+    },
+    {
+      "index": 9,
+      "start_time": 34180.0,
+      "end_time": 37010.0,
+      "text": "pero sin la carga emocional que tienen los corazones humanos."
+    },
+    {
+      "index": 10,
+      "start_time": 37010.0,
+      "end_time": 41940.0,
+      "text": "Para las computadoras, esto es la Unidad Central de Procesamiento, conocido como CPU."
+    },
+    {
+      "index": 11,
+      "start_time": 42060.0,
+      "end_time": 51160.0,
+      "text": " "
+    },
+    {
+      "index": 12,
+      "start_time": 51160.0,
+      "end_time": 53660.0,
+      "text": "El trabajo de un CPU es ejecutar programas."
+    },
+    {
+      "index": 13,
+      "start_time": 53660.0,
+      "end_time": 57800.0,
+      "text": "Programas como Microsoft Office, Safari, o tu amada copia de Half Life: 2 están constituidos"
+    },
+    {
+      "index": 14,
+      "start_time": 57800.0,
+      "end_time": 62570.0,
+      "text": "por una serie de operaciones individuales, llamadas instrucciones, porque instruyen"
+    },
+    {
+      "index": 15,
+      "start_time": 62570.0,
+      "end_time": 63570.0,
+      "text": "a la computadora qué hacer."
+    },
+    {
+      "index": 16,
+      "start_time": 63570.0,
+      "end_time": 67619.0,
+      "text": "Si estas instrucciones son matemáticas, como sumar o restar, el CPU configura su"
+    },
+    {
+      "index": 17,
+      "start_time": 67619.0,
+      "end_time": 70039.0,
+      "text": "Unidad de Aritmética Lógica para que ésta haga la operación matemática."
+    },
+    {
+      "index": 18,
+      "start_time": 70040.0,
+      "end_time": 74120.0,
+      "text": "O puede ser una instrucción de memoria, en cuyo caso el CPU va a hablar con la memoria"
+    },
+    {
+      "index": 19,
+      "start_time": 74120.0,
+      "end_time": 75500.0,
+      "text": "para que esta lea y escriba valores."
+    },
+    {
+      "index": 20,
+      "start_time": 75500.0,
+      "end_time": 79280.0,
+      "text": "Hay muchas partes en un CPU, por lo que vamos a ir pieza por pieza, armandolo"
+    },
+    {
+      "index": 21,
+      "start_time": 79280.0,
+      "end_time": 80280.0,
+      "text": "mientras progresamos."
+    },
+    {
+      "index": 22,
+      "start_time": 80280.0,
+      "end_time": 83950.0,
+      "text": "Más que mostrar cada cable individual, vamos a concentrarnos en bloques funcionales."
+    },
+    {
+      "index": 23,
+      "start_time": 83950.0,
+      "end_time": 88040.0,
+      "text": "Cuando conectemos dos componentes con una línea, es una abstracción de todos los cables necesarios para poder lograr dicha conexión."
+    },
+    {
+      "index": 24,
+      "start_time": 88140.0,
+      "end_time": 90780.0,
+      "text": "Esta vista de alto nivel se llama microarquitectura."
+    },
+    {
+      "index": 25,
+      "start_time": 90780.0,
+      "end_time": 92700.0,
+      "text": "Bien, primero vamos a necesitar una memoria."
+    },
+    {
+      "index": 26,
+      "start_time": 92700.0,
+      "end_time": 95780.0,
+      "text": "Utilicemos el módulo RAM que creamos en el episodio anterior."
+    },
+    {
+      "index": 27,
+      "start_time": 95780.0,
+      "end_time": 100600.0,
+      "text": "Para simplificar las cosas, vamos a asumir que solo tiene 16 ubicaciones de memoria, y que cada una contiene 8 bits."
+    },
+    {
+      "index": 28,
+      "start_time": 100740.0,
+      "end_time": 105320.0,
+      "text": "Agreguemos a nuestro procesador 4 registros de 8 bits, y llamémoslos A, B, C, y D, que"
+    },
+    {
+      "index": 29,
+      "start_time": 105320.0,
+      "end_time": 108060.0,
+      "text": "serán usados para almacenar y manipular valores temporalmente."
+    },
+    {
+      "index": 30,
+      "start_time": 108060.0,
+      "end_time": 111160.0,
+      "text": "Ya sabemos que los datos se pueden guardar en la memoria como valores binarios,"
+    },
+    {
+      "index": 31,
+      "start_time": 111160.0,
+      "end_time": 112920.0,
+      "text": "así como los programas también pueden ser guardados en la memoria."
+    },
+    {
+      "index": 32,
+      "start_time": 112920.0,
+      "end_time": 116560.0,
+      "text": "Podemos asignar una identificación a cada instrucción soportada por nuestro CPU."
+    },
+    {
+      "index": 33,
+      "start_time": 116569.0,
+      "end_time": 120799.0,
+      "text": "En nuestro ejemplo hipotético, usamos los primeros 4 bits para guardar el \"código de operación\""
+    },
+    {
+      "index": 34,
+      "start_time": 120799.0,
+      "end_time": 122740.0,
+      "text": "también llamado opcode."
+    },
+    {
+      "index": 35,
+      "start_time": 122740.0,
+      "end_time": 126220.0,
+      "text": "Los 4 bits restantes especifican de dónde deben provenir los datos para esa operación:"
+    },
+    {
+      "index": 36,
+      "start_time": 126220.0,
+      "end_time": 128300.0,
+      "text": "de los registros, o de una dirección en la memoria."
+    },
+    {
+      "index": 37,
+      "start_time": 128300.00000000001,
+      "end_time": 131470.0,
+      "text": "También necesitamos dos registros adicionales para completar nuestro CPU."
+    },
+    {
+      "index": 38,
+      "start_time": 131470.0,
+      "end_time": 134660.0,
+      "text": "Primero, necesitamos un registro para poder saber dónde estamos en un programa."
+    },
+    {
+      "index": 39,
+      "start_time": 134670.0,
+      "end_time": 139440.0,
+      "text": "Para esto, usamos un registro de dirección de memoria que, como lo sugiere su nombre, almacena la memoria"
+    },
+    {
+      "index": 40,
+      "start_time": 139440.0,
+      "end_time": 140900.0,
+      "text": "de la dirección de la instrucción actual."
+    },
+    {
+      "index": 41,
+      "start_time": 140900.0,
+      "end_time": 146320.0,
+      "text": "Luego, necesitamos otro registro para almacenar la instrucción que esta siendo ejecutada, que llamaremos el registro de instrucción."
+    },
+    {
+      "index": 42,
+      "start_time": 146380.0,
+      "end_time": 150140.0,
+      "text": "Cuando arrancamos nuestra computadora, todos nuestros registros comienzan en 0."
+    },
+    {
+      "index": 43,
+      "start_time": 150140.0,
+      "end_time": 155200.0,
+      "text": "Como ejemplo, hemos iniciado nuestra memoria RAM con un programa de computadora simple que vamos a pasar hoy."
+    },
+    {
+      "index": 44,
+      "start_time": 155200.0,
+      "end_time": 158800.0,
+      "text": "La primer fase de la operación de un CPU se llama la fase de búsqueda."
+    },
+    {
+      "index": 45,
+      "start_time": 158800.0,
+      "end_time": 161120.0,
+      "text": "Aquí es cuando obtenemos nuestra primera instrucción."
+    },
+    {
+      "index": 46,
+      "start_time": 161130.0,
+      "end_time": 164640.0,
+      "text": "Primero, conectamos nuestro registro de dirección de memoria a nuestro módulo RAM."
+    },
+    {
+      "index": 47,
+      "start_time": 164640.0,
+      "end_time": 169210.0,
+      "text": "El valor del registro es 0, por lo que el RAM devuelve cualquier valor almacenado en la dirección 0."
+    },
+    {
+      "index": 48,
+      "start_time": 169210.0,
+      "end_time": 172960.0,
+      "text": "En este caso, 0010 1110."
+    },
+    {
+      "index": 49,
+      "start_time": 172960.0,
+      "end_time": 175250.0,
+      "text": "Luego, este valor es copiado a nuestro registro de instrucción."
+    },
+    {
+      "index": 50,
+      "start_time": 175250.0,
+      "end_time": 179140.0,
+      "text": "Ahora que hemos obtenido una instrucción de nuestra memoria, debemos averiguar qué es esa instrucción"
+    },
+    {
+      "index": 51,
+      "start_time": 179140.0,
+      "end_time": 180760.0,
+      "text": "para así poder ejecutarla."
+    },
+    {
+      "index": 52,
+      "start_time": 180780.0,
+      "end_time": 181740.0,
+      "text": "\"Ejecutar\" en el sentido de hacer que funcione."
+    },
+    {
+      "index": 53,
+      "start_time": 181800.0,
+      "end_time": 182640.0,
+      "text": "No de matarlo."
+    },
+    {
+      "index": 54,
+      "start_time": 182640.0,
+      "end_time": 184580.0,
+      "text": "Esto se llama la fase de decodificación."
+    },
+    {
+      "index": 55,
+      "start_time": 184620.0,
+      "end_time": 188870.0,
+      "text": "En este caso el opcode, que es los primeros 4 bits, es 0010."
+    },
+    {
+      "index": 56,
+      "start_time": 188870.0,
+      "end_time": 193180.0,
+      "text": "Este opcode corresponde a la instrucción \"CARGAR A\", que carga un valor de la memoria RAM"
+    },
+    {
+      "index": 57,
+      "start_time": 193190.0,
+      "end_time": 194230.0,
+      "text": "al Registro A."
+    },
+    {
+      "index": 58,
+      "start_time": 194230.0,
+      "end_time": 199860.0,
+      "text": "La dirección RAM es los últimos 4 bits de nuestra instrucción que son 1110, o 14 en decimal."
+    },
+    {
+      "index": 59,
+      "start_time": 199860.0,
+      "end_time": 203360.0,
+      "text": "Luego, nuestras instrucciones son decodificadas e interpretadas por una Unidad de Control."
+    },
+    {
+      "index": 60,
+      "start_time": 203370.0,
+      "end_time": 206300.0,
+      "text": "Como todo lo que hemos construido, la Unidad de Control también está hecha de puertas lógicas."
+    },
+    {
+      "index": 61,
+      "start_time": 206310.0,
+      "end_time": 211100.0,
+      "text": "Por ejemplo, para reconocer la instrucción CARGAR A, necesitamos un circuito que verifique si el opcode"
+    },
+    {
+      "index": 62,
+      "start_time": 211100.0,
+      "end_time": 215420.0,
+      "text": "coincide con 0010, cosa que podemos hacer con un puñado de puertas lógicas."
+    },
+    {
+      "index": 63,
+      "start_time": 215420.0,
+      "end_time": 218290.0,
+      "text": "Ahora que sabemos con qué instrucción estamos trabajando, podemos seguir adelante, ¡y hacer funcionar"
+    },
+    {
+      "index": 64,
+      "start_time": 218290.0,
+      "end_time": 221320.0,
+      "text": "la instrucción que da comienzo a la fase de ejecución!"
+    },
+    {
+      "index": 65,
+      "start_time": 221320.0,
+      "end_time": 225720.0,
+      "text": "Utilizando la salida de nuestro circuito de comprobación LOAD_A, podemos activar la línea de habilitación de lectura de la memoria RAM"
+    },
+    {
+      "index": 66,
+      "start_time": 225730.0,
+      "end_time": 227300.0,
+      "text": "y enviar la dirección 14."
+    },
+    {
+      "index": 67,
+      "start_time": 227300.0,
+      "end_time": 233480.0,
+      "text": "La memoria RAM obtiene el valor que se encuetra en ensa dirección, que es 00000011, o 3 en decimal."
+    },
+    {
+      "index": 68,
+      "start_time": 233480.0,
+      "end_time": 238120.0,
+      "text": "Bien, debido a la instrucción CARGAR_A, queremos que ese valor seaalmacenado solo en el Registro A"
+    },
+    {
+      "index": 69,
+      "start_time": 238120.0,
+      "end_time": 239780.0,
+      "text": "y no en ninguno de los otros registros."
+    },
+    {
+      "index": 70,
+      "start_time": 239780.0,
+      "end_time": 244280.0,
+      "text": "Entonces, conectando los cables de datos de la memoria RAM a los cuatro registros de datos, podemos usar nuestro circuito de"
+    },
+    {
+      "index": 71,
+      "start_time": 244280.0,
+      "end_time": 247600.0,
+      "text": "comprobación  CARGAR_A para habilitar el activador adecuado, solo para el Registro A."
+    },
+    {
+      "index": 72,
+      "start_time": 247600.0,
+      "end_time": 252000.0,
+      "text": "Y ahí lo tienen: hemos cargado correctamente el valor de la dirección RAM 14 en el Registro A."
+    },
+    {
+      "index": 73,
+      "start_time": 252000.0,
+      "end_time": 256560.0,
+      "text": "Hemos completado esa instrucción,  por lo que podemos apagar todos nuestros cables, y estamos"
+    },
+    {
+      "index": 74,
+      "start_time": 256560.0,
+      "end_time": 258780.0,
+      "text": "listos para ira buscar la siguiente instrucción en la memoria."
+    },
+    {
+      "index": 75,
+      "start_time": 258779.99999999997,
+      "end_time": 263900.0,
+      "text": "Par hacer esto, incrementamos el Registro de Dirección de Memoria por 1, completando la fase de ejecución."
+    },
+    {
+      "index": 76,
+      "start_time": 263920.0,
+      "end_time": 268620.0,
+      "text": "CARGAR_A es solo una de varias posibles instrucciones que nuestro CPU puede ejecutar."
+    },
+    {
+      "index": 77,
+      "start_time": 268620.0,
+      "end_time": 272560.0,
+      "text": "Hay diferentes circuitos lógicos que decodifican diferentes instrucciones, configurando los componentes"
+    },
+    {
+      "index": 78,
+      "start_time": 272560.0,
+      "end_time": 274240.0,
+      "text": "del CPU para que realicen esa acción."
+    },
+    {
+      "index": 79,
+      "start_time": 274240.0,
+      "end_time": 278940.0,
+      "text": "Ver todos esos circuitos decodificadores individuales es demasiado detalle, y como vimos un ejemplo,"
+    },
+    {
+      "index": 80,
+      "start_time": 278940.0,
+      "end_time": 283280.0,
+      "text": "vamos a agrupar a todos como una única Unidad de Control para simplificar las cosas."
+    },
+    {
+      "index": 81,
+      "start_time": 283380.0,
+      "end_time": 291460.0,
+      "text": "Correcto: un nuevo nivel de abstracción."
+    },
+    {
+      "index": 82,
+      "start_time": 291470.0,
+      "end_time": 295690.0,
+      "text": "La Unidad de Control es algo así como el conductor de una orquesta, dirigiendo todas las partes"
+    },
+    {
+      "index": 83,
+      "start_time": 295690.0,
+      "end_time": 297060.0,
+      "text": "diferentes del CPU."
+    },
+    {
+      "index": 84,
+      "start_time": 297060.0,
+      "end_time": 302030.0,
+      "text": "Habiendo completado un ciclo de búsqueda/decodificación/ejecución, estamos listos para empezar todo devuelta,"
+    },
+    {
+      "index": 85,
+      "start_time": 302030.0,
+      "end_time": 303780.0,
+      "text": "comenzando con la fase de búsqueda."
+    },
+    {
+      "index": 86,
+      "start_time": 303780.0,
+      "end_time": 307910.0,
+      "text": "El Registro de Dirección de Memoria ahora tiene el valor 1 en él, por lo que la memoria RAM nos da el valor"
+    },
+    {
+      "index": 87,
+      "start_time": 307910.0,
+      "end_time": 312280.0,
+      "text": "almacenado en la dirección 1, que es 0001 1111."
+    },
+    {
+      "index": 88,
+      "start_time": 312280.0,
+      "end_time": 313960.0,
+      "text": "Ahora, ¡a la fase de decodificación!"
+    },
+    {
+      "index": 89,
+      "start_time": 313960.0,
+      "end_time": 320081.0,
+      "text": "0001 es la instrucción \"CARGAR_B\", que mueve un valor de la memoria RAM al Registro B."
+    },
+    {
+      "index": 90,
+      "start_time": 320081.0,
+      "end_time": 324520.0,
+      "text": "La ubicación de la memoria actualmente es 1111, que es 15 en decimal."
+    },
+    {
+      "index": 91,
+      "start_time": 324520.0,
+      "end_time": 326100.0,
+      "text": "¡A la fase de ejecución!"
+    },
+    {
+      "index": 92,
+      "start_time": 326100.0,
+      "end_time": 331840.0,
+      "text": "La Unidad de Control configura la memoria RAM para que lea la dirección 15, y configura al Registro B para recibir los datos."
+    },
+    {
+      "index": 93,
+      "start_time": 331880.0,
+      "end_time": 338790.0,
+      "text": "¡Bingo! Hemos guardado el valor 00001110 -el número 14 en decimal- en el Registro B."
+    },
+    {
+      "index": 94,
+      "start_time": 338790.0,
+      "end_time": 343780.0,
+      "text": "Lo último que debemos hace es incrementar el registro de dirección de memoria por 1, y hemos terminado con otro ciclo."
+    },
+    {
+      "index": 95,
+      "start_time": 343800.0,
+      "end_time": 345680.0,
+      "text": "Nuestra próxima instrucción es un poco diferente."
+    },
+    {
+      "index": 96,
+      "start_time": 345690.0,
+      "end_time": 346700.0,
+      "text": "Vamos a buscarla."
+    },
+    {
+      "index": 97,
+      "start_time": 346700.0,
+      "end_time": 349380.0,
+      "text": "1000 01 00."
+    },
+    {
+      "index": 98,
+      "start_time": 349380.0,
+      "end_time": 353100.0,
+      "text": "El opcode 1000 es una instrucción ADD."
+    },
+    {
+      "index": 99,
+      "start_time": 353100.0,
+      "end_time": 357340.0,
+      "text": "Esta instrucción usa dos sets de 2 bits en lugar de una dirección de memoria RAM de 4 bits."
+    },
+    {
+      "index": 100,
+      "start_time": 357340.0,
+      "end_time": 362720.0,
+      "text": "Recuerden que 2 bits pueden codificar 4 valores, por lo que 2 bits son suficiente para seleccionar cualquiera de nuestros 4 registros."
+    },
+    {
+      "index": 101,
+      "start_time": 362760.0,
+      "end_time": 369120.0,
+      "text": "El primer set de 2 bits es 01, que en este caso corresponde al Registro B, y 00, que es el Registro A."
+    },
+    {
+      "index": 102,
+      "start_time": 369120.0,
+      "end_time": 377600.0,
+      "text": "Por lo que \"1000 01 00\" es la instrucción para sumar el valor del Registro B dentro del valor del Registro A."
+    },
+    {
+      "index": 103,
+      "start_time": 377600.0,
+      "end_time": 383200.0,
+      "text": "Para ejecutar esta instrucción, necesitamos integrar la Unidad Aritmética Lógica que creamos en el episodio 5 a nuestro CPU."
+    },
+    {
+      "index": 104,
+      "start_time": 383220.0,
+      "end_time": 387400.0,
+      "text": "La Unidad de Control es la responsable de seleccionar los registros correctos para pasar como entradas,"
+    },
+    {
+      "index": 105,
+      "start_time": 387400.0,
+      "end_time": 390160.0,
+      "text": "y configurar la Unidad Aritmética Lógica para realizar la operación adecuada."
+    },
+    {
+      "index": 106,
+      "start_time": 390160.0,
+      "end_time": 394780.0,
+      "text": "Para esta instrucción ADD, la Unidad de Control habilita el Registro B y envía su valor a"
+    },
+    {
+      "index": 107,
+      "start_time": 394780.0,
+      "end_time": 396590.0,
+      "text": "la primer entrada de la Unidad Aritmética Lógica."
+    },
+    {
+      "index": 108,
+      "start_time": 396590.0,
+      "end_time": 400760.0,
+      "text": "También habilita el Registro A, enviando su valor a la segunda entrada de la ALU."
+    },
+    {
+      "index": 109,
+      "start_time": 400760.0,
+      "end_time": 405180.0,
+      "text": "Como ya hemos dicho, la ALU puede realiar varias operaciones, por lo que"
+    },
+    {
+      "index": 110,
+      "start_time": 405180.0,
+      "end_time": 410419.0,
+      "text": "la Unidad de Control debe configurarla para realizar una operación ADD enviándole el opcode ADD."
+    },
+    {
+      "index": 111,
+      "start_time": 410420.0,
+      "end_time": 414520.0,
+      "text": "Por último, la salida debe ser guardada en el Registro A. Pero no puede ser escrita allí directamente"
+    },
+    {
+      "index": 112,
+      "start_time": 414520.0,
+      "end_time": 418720.0,
+      "text": "porque el valor nuevo sería enviado al ALU y se sumaría a si mismo una y otra vez."
+    },
+    {
+      "index": 113,
+      "start_time": 418800.0,
+      "end_time": 423880.0,
+      "text": "Por eso, la Unidad de Control utiliza un registro interno para guardar la salida de datos temporalmente, apagar el"
+    },
+    {
+      "index": 114,
+      "start_time": 423880.0,
+      "end_time": 427750.0,
+      "text": "ALU, y luego escribir el valor en el registro de destino adecuado."
+    },
+    {
+      "index": 115,
+      "start_time": 427750.0,
+      "end_time": 436090.0,
+      "text": "En este caso, nuestra salida de datos fue 3 y 14, que sumados dan 17, o 00010001 en binario,"
+    },
+    {
+      "index": 116,
+      "start_time": 436090.0,
+      "end_time": 440580.0,
+      "text": "que ahora está en el Registro A. Nuevamente, lo último que hacemos es incrementar el registro de dirección"
+    },
+    {
+      "index": 117,
+      "start_time": 440580.0,
+      "end_time": 443320.0,
+      "text": "de memoria por 1, y ya hemos completado otro ciclo."
+    },
+    {
+      "index": 118,
+      "start_time": 443380.0,
+      "end_time": 449140.0,
+      "text": "Okay, busquemos una última instrucción: 01001101."
+    },
+    {
+      "index": 119,
+      "start_time": 449160.0,
+      "end_time": 455040.0,
+      "text": "Cuando la decodificamos vemos que 0100 es una instrucción ALMACENAR_A, con una dirección de memoria RAM de 13."
+    },
+    {
+      "index": 120,
+      "start_time": 455040.0,
+      "end_time": 460680.0,
+      "text": "Como siempre, enviamos la dirección al módulo RAM , pero en lugar de habilitar la memoria para lectura, la habilitamos para escritura."
+    },
+    {
+      "index": 121,
+      "start_time": 460740.0,
+      "end_time": 465540.0,
+      "text": "Al mismo tiempo, habilitamos al Registro A para lectura. Esto nos permite usar la línea de datos para"
+    },
+    {
+      "index": 122,
+      "start_time": 465540.0,
+      "end_time": 467710.0,
+      "text": "pasar los valores escritos en A."
+    },
+    {
+      "index": 123,
+      "start_time": 467710.0,
+      "end_time": 470900.0,
+      "text": "¡Felicitaciones! ¡Acabamos de ejecutar nuestro primer programa de computadora!"
+    },
+    {
+      "index": 124,
+      "start_time": 470900.0,
+      "end_time": 475640.0,
+      "text": "Cargó dos valores de la memoria, los sumó, y luego guardó esa suma en la memoria."
+    },
+    {
+      "index": 125,
+      "start_time": 475640.0,
+      "end_time": 480380.0,
+      "text": "Claro, guiándolos verbalmente por cada uno de los pasos era como si yo manualmente hicera que el CPU"
+    },
+    {
+      "index": 126,
+      "start_time": 480380.0,
+      "end_time": 483540.0,
+      "text": "transicione por sus fases de búsqueda, decodificación, y ejecución."
+    },
+    {
+      "index": 127,
+      "start_time": 483540.0,
+      "end_time": 486360.0,
+      "text": "Pero no hay una pequeña Carrie Anne dentro de cada computadora,"
+    },
+    {
+      "index": 128,
+      "start_time": 486360.0,
+      "end_time": 490610.0,
+      "text": "por lo que la responsabilidad de mantener al CPU funcionando recae sobre un componente llamado el reloj."
+    },
+    {
+      "index": 129,
+      "start_time": 490610.0,
+      "end_time": 495420.0,
+      "text": "Como su nombre sugiere, el reloj dispara una señal eléctrica en intervalos precisos y regulares."
+    },
+    {
+      "index": 130,
+      "start_time": 495420.0,
+      "end_time": 499660.0,
+      "text": "Su señal es utilizada por la Unidad de Control para avanzar las operaciones internas del CPU,"
+    },
+    {
+      "index": 131,
+      "start_time": 499670.0,
+      "end_time": 503400.0,
+      "text": "manteniendo todo a paso continuo -como el sujeto en la proa de una Galera romana, tamborileando rítmicamente"
+    },
+    {
+      "index": 132,
+      "start_time": 503419.0,
+      "end_time": 507449.0,
+      "text": "manteniendo todos los remeros sincronizados... o un metrónomo."
+    },
+    {
+      "index": 133,
+      "start_time": 507449.0,
+      "end_time": 511100.0,
+      "text": "Claro que no puedes ir demasiado rápido, porque a la electricidad también le lleva un determinado tiempo viajar"
+    },
+    {
+      "index": 134,
+      "start_time": 511100.0,
+      "end_time": 513320.0,
+      "text": "por los cables y para que la señal se establezca."
+    },
+    {
+      "index": 135,
+      "start_time": 513320.00000000006,
+      "end_time": 519700.00000000006,
+      "text": "La velocidad con la que un CPU puede ejecutar cada paso del ciclo búsqueda-decodificación-ejecución se llama Velocidad de Rejoj."
+    },
+    {
+      "index": 136,
+      "start_time": 519740.0,
+      "end_time": 522800.0,
+      "text": "Esta velocidad se mide en Hertz -una unidad de frecuencia."
+    },
+    {
+      "index": 137,
+      "start_time": 522799.99999999994,
+      "end_time": 525160.0,
+      "text": "Un Hertz significa un ciclo por segundo."
+    },
+    {
+      "index": 138,
+      "start_time": 525160.0,
+      "end_time": 529180.0,
+      "text": "Dado que me llevó aproximadamente 6 minutos para verbalmente realizar als 4 instrucciones -CARGA, CARGA,"
+    },
+    {
+      "index": 139,
+      "start_time": 529180.0,
+      "end_time": 533900.0,
+      "text": "ADD, ALMACENAR- eso significa que tengo una Velocidad de Reloj  efectva de unos .03 Hertz."
+    },
+    {
+      "index": 140,
+      "start_time": 533900.0,
+      "end_time": 537700.0,
+      "text": "Siendo honesta, no soy una buena computadora, pero aún alguien muy bueno en matemática"
+    },
+    {
+      "index": 141,
+      "start_time": 537700.0,
+      "end_time": 541640.0,
+      "text": "podría ser capaz de hacer un solo calculo mentalmente cada segundo, o 1 Hertz."
+    },
+    {
+      "index": 142,
+      "start_time": 541760.0,
+      "end_time": 548640.0,
+      "text": "El primer CPU de 1 chip fue el Intel 4004, un CPU de 4 bits lanzado en 1971."
+    },
+    {
+      "index": 143,
+      "start_time": 548640.0,
+      "end_time": 552800.0,
+      "text": "Su microarquitectura  es realmente bastante similar a la de nuestro ejemplo de un CPU."
+    },
+    {
+      "index": 144,
+      "start_time": 552800.0,
+      "end_time": 558600.0,
+      "text": "A pesar de ser el primer procesador de su tipo, tenía una sorprendente Velocidad de Reloj de 740 Kilohertz"
+    },
+    {
+      "index": 145,
+      "start_time": 558600.0,
+      "end_time": 562430.0,
+      "text": "-eso es 740 ciclos por segundo."
+    },
+    {
+      "index": 146,
+      "start_time": 562430.0,
+      "end_time": 566400.0,
+      "text": "Puedes pensar \"¡eso es rápido!\", pero no es nada compardo con los procesadores que utilizamos hoy en día."
+    },
+    {
+      "index": 147,
+      "start_time": 566480.0,
+      "end_time": 570860.0,
+      "text": "Un megahertz es un millón de ciclos de reloj por segundo, y la computadora o hasta el teléfono"
+    },
+    {
+      "index": 148,
+      "start_time": 570870.0,
+      "end_time": 574680.0,
+      "text": "en el que estás mirando este video sin duda tenga un par de gigahertz -eso es"
+    },
+    {
+      "index": 149,
+      "start_time": 574680.0,
+      "end_time": 578460.0,
+      "text": "MIL MILLONES de ciclos de CPU cada segundo."
+    },
+    {
+      "index": 150,
+      "start_time": 578520.0,
+      "end_time": 581700.0,
+      "text": "También, puedes haber escuchado de gente que le hace overclocking a sus computadoras."
+    },
+    {
+      "index": 151,
+      "start_time": 581700.0,
+      "end_time": 585800.0,
+      "text": "Eso es cunado modificas la Velocidad de Reloj para hacer más veloz el tempo del CPU -como cuando el tamborilero"
+    },
+    {
+      "index": 152,
+      "start_time": 585800.0,
+      "end_time": 588640.0,
+      "text": "sube la velocidad cuando la Galera romana necesita chocar contra otra nave."
+    },
+    {
+      "index": 153,
+      "start_time": 588640.0,
+      "end_time": 592940.0,
+      "text": "Los manufactureros de chips muchas veces diseñan los CPUs con suficiente tolerancia como par soportar un poco de overclocking,"
+    },
+    {
+      "index": 154,
+      "start_time": 592940.0,
+      "end_time": 598080.0,
+      "text": "pero demasiado puede o sobrecalentar el CPU, o producir gobbledygook a medida que las señales van quedando atrás del tempo del reloj."
+    },
+    {
+      "index": 155,
+      "start_time": 598100.0,
+      "end_time": 602000.0,
+      "text": "Y aunque no se hable mucho del underclocking, es en verdad muy útil."
+    },
+    {
+      "index": 156,
+      "start_time": 602000.0,
+      "end_time": 604980.0,
+      "text": "A veces no es necesario ejecutar el procesador a máxima velocidad..."
+    },
+    {
+      "index": 157,
+      "start_time": 604980.0,
+      "end_time": 608940.0,
+      "text": "por ahí el usuario no está utilizando el dispositivo, o sólo esta ejecutando un programa particularmente exigente."
+    },
+    {
+      "index": 158,
+      "start_time": 608940.0,
+      "end_time": 613190.0,
+      "text": "Al bajar la velocidad del CPU, se puede conservar mucha energía, algo que resulta importante para computadoras"
+    },
+    {
+      "index": 159,
+      "start_time": 613190.0,
+      "end_time": 615740.0,
+      "text": "que utilizan baterías, como las laptops o los smartphones."
+    },
+    {
+      "index": 160,
+      "start_time": 615740.0,
+      "end_time": 619950.0,
+      "text": "Para poder cumplir con estas necesidades, muchos procesadores modernos pueden aumentar o disminuir su Velocidad de Reloj"
+    },
+    {
+      "index": 161,
+      "start_time": 619950.0,
+      "end_time": 623029.0,
+      "text": "en base a la demanda, lo que se llama escala de frecuencia dinámica."
+    },
+    {
+      "index": 162,
+      "start_time": 623029.0,
+      "end_time": 626210.0,
+      "text": "Así, agregando el reloj, nuestro CPU está completo."
+    },
+    {
+      "index": 163,
+      "start_time": 626210.0,
+      "end_time": 628899.0,
+      "text": "Ahora podemos ponerle una caja alrededor, y hacerlo su propio componente."
+    },
+    {
+      "index": 164,
+      "start_time": 628900.0,
+      "end_time": 629600.0,
+      "text": "Así es,"
+    },
+    {
+      "index": 165,
+      "start_time": 629600.0,
+      "end_time": 637040.0,
+      "text": "¡un nuevo nivel de abstracción!"
+    },
+    {
+      "index": 166,
+      "start_time": 637040.0,
+      "end_time": 642480.0,
+      "text": "La memoria RAM, como les mostré en el episodio anterior, está por fuera del CPU como un componente individual, y se"
+    },
+    {
+      "index": 167,
+      "start_time": 642480.0,
+      "end_time": 645380.0,
+      "text": "comiunican utilizando direcciones, datos, y cables de habilitacion"
+    },
+    {
+      "index": 168,
+      "start_time": 645380.0,
+      "end_time": 650100.0,
+      "text": "Aunque el CPU que diseñamos hoy es un ejemplo simplificado, muchas de las mecánicas básicas que discutimos"
+    },
+    {
+      "index": 169,
+      "start_time": 650100.0,
+      "end_time": 652480.0,
+      "text": "todavía se encuentran en procesadores modernos."
+    },
+    {
+      "index": 170,
+      "start_time": 652480.0,
+      "end_time": 656920.0,
+      "text": "En el episodio siguiente, vamos a reforzar nuestro CPU, añadiendo más instrucciones y"
+    },
+    {
+      "index": 171,
+      "start_time": 656920.0,
+      "end_time": 659180.0,
+      "text": "dando nuestros primeros pasos pequeños hacia el software."
+    },
+    {
+      "index": 172,
+      "start_time": 659200.0,
+      "end_time": 660360.0,
+      "text": "Los veré la semana que viene."
+    }
+  ]
+}

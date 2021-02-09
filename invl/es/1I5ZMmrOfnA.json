@@ -1,0 +1,942 @@
+{
+  "video_id": "1I5ZMmrOfnA",
+  "title": "How Computers Calculate - the ALU: Crash Course Computer Science #5",
+  "json": [
+    {
+      "index": 1,
+      "start_time": 3160.0,
+      "end_time": 5860.0,
+      "text": "Hola, soy Carrie Ann y esto es Crash Course Ciencias de la Computación."
+    },
+    {
+      "index": 2,
+      "start_time": 5860.0,
+      "end_time": 9200.0,
+      "text": "En el último episodio, hablamos de cómo los números pueden ser representados en binario."
+    },
+    {
+      "index": 3,
+      "start_time": 9200.0,
+      "end_time": 13740.0,
+      "text": "Representaciones como, 00101010 es 42 en decimal."
+    },
+    {
+      "index": 4,
+      "start_time": 13740.0,
+      "end_time": 19200.0,
+      "text": "Representar y almacenar números es una función importante de una computadora, pero el objetivo real es la computación,"
+    },
+    {
+      "index": 5,
+      "start_time": 19200.0,
+      "end_time": 23480.0,
+      "text": "o manipulación de números en una manera estructurada y útil, como la adición de dos números."
+    },
+    {
+      "index": 6,
+      "start_time": 23560.0,
+      "end_time": 27140.0,
+      "text": "Estas operaciones son manejadas por  una \"Aritmética y Unidad Lógica\" de la computadora,"
+    },
+    {
+      "index": 7,
+      "start_time": 27140.0,
+      "end_time": 29720.0,
+      "text": "pero la mayoría de la gente lo llama por su nombre callejero: el \"ALU\"."
+    },
+    {
+      "index": 8,
+      "start_time": 29720.0,
+      "end_time": 32660.0,
+      "text": "El ALU es el cerebro matemático de una computadora."
+    },
+    {
+      "index": 9,
+      "start_time": 32659.999999999996,
+      "end_time": 36460.0,
+      "text": "Cuando comprendes el diseño y la función de un ALU, entenderás una fundamental"
+    },
+    {
+      "index": 10,
+      "start_time": 36460.0,
+      "end_time": 41860.0,
+      "text": "parte de las computadoras modernas. Esta es \"LA\" cosa\nque hace todo el cálculo en una computadora,"
+    },
+    {
+      "index": 11,
+      "start_time": 41860.0,
+      "end_time": 43860.0,
+      "text": "así que básicamente todas lo utilizan."
+    },
+    {
+      "index": 12,
+      "start_time": 43860.0,
+      "end_time": 45620.0,
+      "text": "Primero, mira esta belleza."
+    },
+    {
+      "index": 13,
+      "start_time": 45620.0,
+      "end_time": 50900.0,
+      "text": "Este es quizás el más famoso ALU de todos, el Intel 74181."
+    },
+    {
+      "index": 14,
+      "start_time": 50900.0,
+      "end_time": 52860.0,
+      "text": "Cuando fue lanzado en 1970,"
+    },
+    {
+      "index": 15,
+      "start_time": 52860.0,
+      "end_time": 57500.0,
+      "text": "fue el primer ALU completo que encaja enteramente en el interior de un solo chip -"
+    },
+    {
+      "index": 16,
+      "start_time": 57580.0,
+      "end_time": 59840.0,
+      "text": "Lo cual era una gran obra de ingeniería en el momento."
+    },
+    {
+      "index": 17,
+      "start_time": 59840.0,
+      "end_time": 63340.0,
+      "text": "Así que hoy vamos a tomar esas puertas lógicas booleanas que aprendimos la semana pasada"
+    },
+    {
+      "index": 18,
+      "start_time": 63340.0,
+      "end_time": 68540.0,
+      "text": "para construir un circuito ALU simple con mucha de la misma funcionalidad que el 74181."
+    },
+    {
+      "index": 19,
+      "start_time": 68540.0,
+      "end_time": 70500.0,
+      "text": "Y en los próximos episodios usaremos"
+    },
+    {
+      "index": 20,
+      "start_time": 70500.0,
+      "end_time": 74159.0,
+      "text": "esto para construir un equipo desde cero. Por lo que se va a poner un poco complicado,"
+    },
+    {
+      "index": 21,
+      "start_time": 74160.0,
+      "end_time": 76020.0,
+      "text": "pero creo que ustedes pueden manejarlo."
+    },
+    {
+      "index": 22,
+      "start_time": 76060.0,
+      "end_time": 85300.0,
+      "text": " "
+    },
+    {
+      "index": 23,
+      "start_time": 85300.0,
+      "end_time": 90280.0,
+      "text": "Un ALU es en realidad dos unidades en una, hay\nuna unidad aritmética y una unidad lógica."
+    },
+    {
+      "index": 24,
+      "start_time": 90280.0,
+      "end_time": 94840.0,
+      "text": "Vamos a empezar con la \"Unidad Aritmética\", que es responsable de manejar todas las operaciones numéricas en una"
+    },
+    {
+      "index": 25,
+      "start_time": 94840.0,
+      "end_time": 99560.0,
+      "text": "computadora, como la suma y la resta. Eso\nTambién hace un montón de otras cosas tan simples como"
+    },
+    {
+      "index": 26,
+      "start_time": 99560.0,
+      "end_time": 103990.0,
+      "text": "agregar un uno a un número, que se llama una operación de incremento, pero hablaremos de eso más tarde."
+    },
+    {
+      "index": 27,
+      "start_time": 103990.0,
+      "end_time": 107960.0,
+      "text": "Hoy, nos vamos a centrar en la pieza de resistencia, la crème de la crème de"
+    },
+    {
+      "index": 28,
+      "start_time": 107980.0,
+      "end_time": 112440.0,
+      "text": "operaciones que subyace en casi todo lo demás que hace una computadora, la adición de dos números."
+    },
+    {
+      "index": 29,
+      "start_time": 112480.0,
+      "end_time": 114220.0,
+      "text": "Podríamos construir este circuito totalmente fuera de"
+    },
+    {
+      "index": 30,
+      "start_time": 114220.0,
+      "end_time": 117580.0,
+      "text": "transistores individuales, pero se estarian\nconfundiendo muy rápido."
+    },
+    {
+      "index": 31,
+      "start_time": 117620.0,
+      "end_time": 123340.0,
+      "text": "Así que en lugar de lo que hemos hablado en el Episodio 3, podemos utilizar un alto nivel de abstracción y construir nuestros componentes"
+    },
+    {
+      "index": 32,
+      "start_time": 123340.0,
+      "end_time": 128140.0,
+      "text": "fuera de puertas lógicas, en este caso: puertas AND, OR,\nNOT y XOR."
+    },
+    {
+      "index": 33,
+      "start_time": 128139.99999999999,
+      "end_time": 132930.0,
+      "text": "El circuito más simple añadiendo que podemos construir toma dos dígitos binarios, y los suma."
+    },
+    {
+      "index": 34,
+      "start_time": 132930.0,
+      "end_time": 138060.0,
+      "text": "Así que tenemos dos entradas, A y B, y una salida, que es la suma de los dos dígitos."
+    },
+    {
+      "index": 35,
+      "start_time": 138060.0,
+      "end_time": 141720.0,
+      "text": "Solo para aclarar: A, B y la salida son todos bits individuales."
+    },
+    {
+      "index": 36,
+      "start_time": 141860.0,
+      "end_time": 144520.0,
+      "text": "Sólo hay cuatro posibles combinaciones de entrada."
+    },
+    {
+      "index": 37,
+      "start_time": 144520.0,
+      "end_time": 147400.0,
+      "text": "Los tres primeros son:\n0 + 0 = 0"
+    },
+    {
+      "index": 38,
+      "start_time": 147400.0,
+      "end_time": 150900.0,
+      "text": "1 + 0 = 1\n0 + 1 = 1"
+    },
+    {
+      "index": 39,
+      "start_time": 150900.0,
+      "end_time": 155420.0,
+      "text": "Hay que recordar que en binario, 1 es lo mismo que\nverdad, y 0 es lo mismo que falso."
+    },
+    {
+      "index": 40,
+      "start_time": 155420.0,
+      "end_time": 159720.0,
+      "text": "Por lo que este conjunto de entradas coincide exactamente con la lógica booleana de una puerta XOR, y podemos utilizarlo como"
+    },
+    {
+      "index": 41,
+      "start_time": 159720.0,
+      "end_time": 160720.0,
+      "text": "nuestro sumador de 1 bit."
+    },
+    {
+      "index": 42,
+      "start_time": 160720.0,
+      "end_time": 166300.0,
+      "text": "Pero la cuarta combinación de entrada, 1 + 1,\nes un caso especial. 1 + 1 es 2 (obviamente)"
+    },
+    {
+      "index": 43,
+      "start_time": 166300.0,
+      "end_time": 170180.0,
+      "text": "pero no hay 2 dígitos en binario, por lo que cuando hablamos de último episodio, el resultado es"
+    },
+    {
+      "index": 44,
+      "start_time": 170180.0,
+      "end_time": 174930.0,
+      "text": "0 y el 1 se lleva a la siguiente columna. Por lo que la suma es realmente 10 en binario."
+    },
+    {
+      "index": 45,
+      "start_time": 174930.0,
+      "end_time": 180280.0,
+      "text": "Ahora, la salida de nuestra puerta XOR es parcialmente correcto  1 más 1, 0 salidas."
+    },
+    {
+      "index": 46,
+      "start_time": 180280.0,
+      "end_time": 183040.0,
+      "text": "Sin embargo, necesitamos un cable de salida extra por ese bit de acarreo."
+    },
+    {
+      "index": 47,
+      "start_time": 183040.0,
+      "end_time": 186980.0,
+      "text": "El bit de acarreo solo es “verdadero” cuando las entradas son 1 y 1, ya que es el único"
+    },
+    {
+      "index": 48,
+      "start_time": 186980.0,
+      "end_time": 190690.0,
+      "text": "momento en que el resultado (dos) es más grande de lo que 1 bit puede almacenar... y convenientemente tenemos"
+    },
+    {
+      "index": 49,
+      "start_time": 190690.0,
+      "end_time": 195091.0,
+      "text": "una puerta para eso! Una puerta AND, que\nsólo es verdad cuando ambas entradas son verdaderas, así que"
+    },
+    {
+      "index": 50,
+      "start_time": 195100.0,
+      "end_time": 197220.0,
+      "text": "vamos a añadir ésta a nuestro circuito también."
+    },
+    {
+      "index": 51,
+      "start_time": 197220.0,
+      "end_time": 199980.0,
+      "text": "Y esto es todo. Este circuito se llama un medio sumador."
+    },
+    {
+      "index": 52,
+      "start_time": 199980.0,
+      "end_time": 204040.0,
+      "text": "No es tan complicado - sólo dos puertas lógicas - pero vamos a abstraer incluso este nivel"
+    },
+    {
+      "index": 53,
+      "start_time": 204040.0,
+      "end_time": 208260.0,
+      "text": "de detalle y encapsular nuestro medio sumador recién acuñado como su propio componente, con dos"
+    },
+    {
+      "index": 54,
+      "start_time": 208260.0,
+      "end_time": 212780.0,
+      "text": "entradas - los bits A y B - y dos salidas, y la suma de los bits de acarreo."
+    },
+    {
+      "index": 55,
+      "start_time": 212780.0,
+      "end_time": 216840.0,
+      "text": "Esto nos lleva a otro nivel de abstracción ... jeh ... Siento que lo digo mucho"
+    },
+    {
+      "index": 56,
+      "start_time": 216860.0,
+      "end_time": 218120.0,
+      "text": "Me pregunto si esto va a convertirse en una cosa."
+    },
+    {
+      "index": 57,
+      "start_time": 223880.0,
+      "end_time": 226480.0,
+      "text": "De todos modos, si usted quiere añadir más de 1 + 1"
+    },
+    {
+      "index": 58,
+      "start_time": 226480.0,
+      "end_time": 230760.0,
+      "text": "vamos a necesitar un “Sumador completo.” Ese medio sumador nos dejó con un bit de acarreo como salida."
+    },
+    {
+      "index": 59,
+      "start_time": 230760.0,
+      "end_time": 234250.0,
+      "text": "Eso significa que cuando nos movemos\na la siguiente columna en una adición de varias columnas,"
+    },
+    {
+      "index": 60,
+      "start_time": 234250.0,
+      "end_time": 239000.0,
+      "text": "y cada columna después de eso, vamos a tener que añadir tres bits juntos, no dos."
+    },
+    {
+      "index": 61,
+      "start_time": 239000.0,
+      "end_time": 240700.0,
+      "text": "Un sumador completo es un poco más complicado."
+    },
+    {
+      "index": 62,
+      "start_time": 240700.0,
+      "end_time": 247040.0,
+      "text": "Se toman tres bits como entradas: A, B y C. Así\nla entrada máxima posible es 1 + 1 + 1,"
+    },
+    {
+      "index": 63,
+      "start_time": 247040.0,
+      "end_time": 252080.0,
+      "text": "lo que equivale a 1 acarreando a 1, por lo que solo necesitamos dos cables de salida: suma y acarreo."
+    },
+    {
+      "index": 64,
+      "start_time": 252080.0,
+      "end_time": 257440.0,
+      "text": "Podemos construir un sumador completo usando medio sumadores. Para ello, se utiliza un medio sumador para añadir A más B"
+    },
+    {
+      "index": 65,
+      "start_time": 257440.0,
+      "end_time": 262660.0,
+      "text": "al igual que antes - pero luego alimentar ese resultado y la entrada C en un segundo medio sumador."
+    },
+    {
+      "index": 66,
+      "start_time": 262670.0,
+      "end_time": 267070.0,
+      "text": "Por último, necesitamos una puerta OR para comprobar si cualquiera de los bits de acarreo son ciertos."
+    },
+    {
+      "index": 67,
+      "start_time": 267070.0,
+      "end_time": 271630.0,
+      "text": "¡Eso es todo, acabamos de hacer un sumador completo! Nuevamente, podemos subir un nivel de abstracción y"
+    },
+    {
+      "index": 68,
+      "start_time": 271630.0,
+      "end_time": 276460.0,
+      "text": "concluir este sumador completo como su propio componente. Este tiene tres entradas, las agrega, y salidas"
+    },
+    {
+      "index": 69,
+      "start_time": 276460.0,
+      "end_time": 278040.0,
+      "text": "la suma y el acarreo, si es que hay uno."
+    },
+    {
+      "index": 70,
+      "start_time": 278040.0,
+      "end_time": 282140.0,
+      "text": "Armado con nuestros nuevos componentes, ahora podemos construir un circuito que toma dos, números de 8 bits"
+    },
+    {
+      "index": 71,
+      "start_time": 282140.0,
+      "end_time": 284340.0,
+      "text": "- Llamémosles A y B - y los suma juntos."
+    },
+    {
+      "index": 72,
+      "start_time": 284340.0,
+      "end_time": 286180.0,
+      "text": "Vamos a empezar con el primer bit de"
+    },
+    {
+      "index": 73,
+      "start_time": 286180.0,
+      "end_time": 291080.0,
+      "text": "A y B, al que llamaremos A0 y B0. A\neste punto, no hay ningún bit de acarreo para lidiar"
+    },
+    {
+      "index": 74,
+      "start_time": 291080.0,
+      "end_time": 295310.0,
+      "text": "con, porque esta es nuestra primera adición.\nAsí que podemos utilizar nuestro medio sumador de añadir estos"
+    },
+    {
+      "index": 75,
+      "start_time": 295310.0,
+      "end_time": 301100.0,
+      "text": "dos bits juntos. La salida es sum0.\nAhora queremos añadir A1 y B1 juntos."
+    },
+    {
+      "index": 76,
+      "start_time": 301100.0,
+      "end_time": 306220.0,
+      "text": "Es posible que no hubo un acarreo de la adición previa de A0 y B0, así que esta vez necesitamos"
+    },
+    {
+      "index": 77,
+      "start_time": 306220.0,
+      "end_time": 311490.0,
+      "text": "utilizar un sumador completo que también introduce el bit de acarreo. Nuestra salida de este resultado es sum1."
+    },
+    {
+      "index": 78,
+      "start_time": 311490.0,
+      "end_time": 316460.0,
+      "text": "Entonces, tomamos cualquier acarreo de este sumador completo, y ejecutarlo en el siguiente sumador completo que maneja"
+    },
+    {
+      "index": 79,
+      "start_time": 316460.0,
+      "end_time": 321540.0,
+      "text": "A2 y B2. Y seguimos haciendo esto en una gran cadena hasta que se hayan agregado los 8 bits."
+    },
+    {
+      "index": 80,
+      "start_time": 321540.0,
+      "end_time": 326060.0,
+      "text": "Observe cómo los bits de acarreo ondulación con interés\ncada sumador subsiguiente. Por esta razón,"
+    },
+    {
+      "index": 81,
+      "start_time": 326060.0,
+      "end_time": 331040.0,
+      "text": "esto se llama un sumador de transporte de rizo de 8 bits. Observe cómo nuestro último sumador completo tiene una ejecución."
+    },
+    {
+      "index": 82,
+      "start_time": 332680.0,
+      "end_time": 336200.0,
+      "text": "Si hay un acarreo en el bit noveno, significa la suma de los dos números es demasiado grande para caber en 8-bits."
+    },
+    {
+      "index": 83,
+      "start_time": 336200.0,
+      "end_time": 337580.0,
+      "text": "Esto se llama un desbordamiento."
+    },
+    {
+      "index": 84,
+      "start_time": 337580.0,
+      "end_time": 343340.0,
+      "text": "En general, se produce un desbordamiento cuando el resultado de una adición es demasiado grande para ser representado por el número de bits que está utilizando."
+    },
+    {
+      "index": 85,
+      "start_time": 343340.0,
+      "end_time": 345770.0,
+      "text": "Normalmente, esto puede causar errores y un comportamiento inesperado."
+    },
+    {
+      "index": 86,
+      "start_time": 345770.0,
+      "end_time": 350200.0,
+      "text": "Famoso, el juego de arcade PacMan original usaba 8 bits para hacer un seguimiento del nivel en el que estabas."
+    },
+    {
+      "index": 87,
+      "start_time": 350200.0,
+      "end_time": 355100.0,
+      "text": "Esto significaba que si pasaba del nivel 255 - el mayor número almacenable en 8 bits"
+    },
+    {
+      "index": 88,
+      "start_time": 355100.0,
+      "end_time": 358130.0,
+      "text": "a nivel 256, la ALU se desbordaba."
+    },
+    {
+      "index": 89,
+      "start_time": 358130.0,
+      "end_time": 361540.0,
+      "text": "Esto causó un montón de errores y problemas técnicos que hacen el nivel inmejorable."
+    },
+    {
+      "index": 90,
+      "start_time": 361540.0,
+      "end_time": 364820.0,
+      "text": "El error se convirtió en un rito de iniciación para los más grandes jugadores de Pacman."
+    },
+    {
+      "index": 91,
+      "start_time": 364820.0,
+      "end_time": 369560.0,
+      "text": "Así que si queremos evitar desbordamientos, podemos extender nuestro circuito con los complementos más completos, lo que nos-"
+    },
+    {
+      "index": 92,
+      "start_time": 369560.0,
+      "end_time": 374980.0,
+      "text": "permite sumar 16 o 32 números de bits. Esto hace que los desbordamientos sean menos probables, pero a la"
+    },
+    {
+      "index": 93,
+      "start_time": 374980.0,
+      "end_time": 379420.0,
+      "text": "expensas de más puertas. Un inconveniente adicional es que se necesita un poco de tiempo para"
+    },
+    {
+      "index": 94,
+      "start_time": 379420.0,
+      "end_time": 381400.0,
+      "text": "cada uno de los acarreos a rizarse hacia adelante."
+    },
+    {
+      "index": 95,
+      "start_time": 381400.0,
+      "end_time": 386400.0,
+      "text": "Es cierto que no es mucho tiempo, los electrones se mueven muy rápido, por lo que estamos hablando de mil millonésimas de segundo,"
+    },
+    {
+      "index": 96,
+      "start_time": 386400.0,
+      "end_time": 389120.0,
+      "text": "pero eso es suficiente para hacer una diferencia en ordenadores rápidos de hoy en día."
+    },
+    {
+      "index": 97,
+      "start_time": 389120.0,
+      "end_time": 395060.0,
+      "text": "Por esta razón, los ordenadores modernos usan un circuito sumador ligeramente diferente llamado 'acarreo-mirar-adelante' sumador"
+    },
+    {
+      "index": 98,
+      "start_time": 395060.0,
+      "end_time": 399860.0,
+      "text": "que es más rápido, pero en última instancia, hace exactamente lo mismo cosa-- añade números binarios."
+    },
+    {
+      "index": 99,
+      "start_time": 399860.0,
+      "end_time": 403600.0,
+      "text": "La unidad aritmética de la ALU también tiene circuitos para otras operaciones matemáticas"
+    },
+    {
+      "index": 100,
+      "start_time": 403600.0,
+      "end_time": 406520.0,
+      "text": "y en general siempre están montadas estos 8 operaciones."
+    },
+    {
+      "index": 101,
+      "start_time": 406540.0,
+      "end_time": 410140.0,
+      "text": "Y al igual que nuestro sumador, estas otras operaciones se construyen a partir de puertas lógicas individuales."
+    },
+    {
+      "index": 102,
+      "start_time": 410140.0,
+      "end_time": 414460.0,
+      "text": "Curiosamente, se habrán dado cuenta de que no hay operaciones de multiplicación y división."
+    },
+    {
+      "index": 103,
+      "start_time": 414460.0,
+      "end_time": 419680.0,
+      "text": "Esto se debe a que las ALUs simples no tienen un circuito para esto, y en su lugar sólo realizan una serie de adiciones."
+    },
+    {
+      "index": 104,
+      "start_time": 419680.0,
+      "end_time": 421880.0,
+      "text": "Digamos que usted desea multiplicar 12 por 5."
+    },
+    {
+      "index": 105,
+      "start_time": 421880.0,
+      "end_time": 426500.0,
+      "text": "Eso es lo mismo que sumar 12 a sí mismo 5 veces. Entonces tomaría 5 pases mediante"
+    },
+    {
+      "index": 106,
+      "start_time": 426500.0,
+      "end_time": 430960.0,
+      "text": "la ALU para hacer esta multiplicación. Y esto es como muchos simples procesos,"
+    },
+    {
+      "index": 107,
+      "start_time": 430960.0,
+      "end_time": 435600.0,
+      "text": "como aquellos en su termostato, control remoto de TV y microondas, hacen la multiplicación."
+    },
+    {
+      "index": 108,
+      "start_time": 435600.0,
+      "end_time": 437220.0,
+      "text": "Es lento, pero hace el trabajo."
+    },
+    {
+      "index": 109,
+      "start_time": 437220.0,
+      "end_time": 440500.0,
+      "text": "Sin embargo, los procesadores más elegantes, como los de su ordenador portátil o teléfono inteligente,"
+    },
+    {
+      "index": 110,
+      "start_time": 440500.0,
+      "end_time": 443600.0,
+      "text": "tienen unidades aritméticas con circuitos dedicados para la multiplicación."
+    },
+    {
+      "index": 111,
+      "start_time": 443600.0,
+      "end_time": 447870.0,
+      "text": "Y como era de esperar, el circuito es más complicada que adición - no hay"
+    },
+    {
+      "index": 112,
+      "start_time": 447870.0,
+      "end_time": 451540.0,
+      "text": "magia, sólo se necesita mucha más puertas lógicas\n- por lo que los procesadores más económicos"
+    },
+    {
+      "index": 113,
+      "start_time": 451540.0,
+      "end_time": 452680.0,
+      "text": "no tienen esta característica."
+    },
+    {
+      "index": 114,
+      "start_time": 452680.0,
+      "end_time": 456720.0,
+      "text": "Ok, vamos a pasar a la otra mitad de la ALU: La unidad lógica."
+    },
+    {
+      "index": 115,
+      "start_time": 456720.0,
+      "end_time": 459700.0,
+      "text": "En lugar de operaciones aritméticas, la unidad lógica realiza ... bueno ..."
+    },
+    {
+      "index": 116,
+      "start_time": 459700.0,
+      "end_time": 464060.0,
+      "text": "operaciones lógicas, como AND, OR y NOT, que hemos hablado anteriormente."
+    },
+    {
+      "index": 117,
+      "start_time": 464070.0,
+      "end_time": 467680.0,
+      "text": "También realiza pruebas numéricas simples, como la comprobación de si un número es negativo."
+    },
+    {
+      "index": 118,
+      "start_time": 467680.0,
+      "end_time": 471600.0,
+      "text": "Por ejemplo, aquí es un circuito que pone a prueba\nsi la salida de la ALU es cero."
+    },
+    {
+      "index": 119,
+      "start_time": 471660.0,
+      "end_time": 475380.0,
+      "text": "Esto se hace usando un montón de puertas OR para ver si cualquiera de los bits son 1."
+    },
+    {
+      "index": 120,
+      "start_time": 475380.0,
+      "end_time": 481460.0,
+      "text": "Incluso si un solo bit es 1, sabemos que el número no puede ser cero y luego usamos una puerta NOT final para voltear esta"
+    },
+    {
+      "index": 121,
+      "start_time": 481460.0,
+      "end_time": 485110.0,
+      "text": "entrada de modo que la salida es 1 sólo si el número de entrada es 0."
+    },
+    {
+      "index": 122,
+      "start_time": 485110.0,
+      "end_time": 489190.0,
+      "text": "Así que esa es una descripción de alto nivel de lo que constituye una ALU. Incluso construimos varios de"
+    },
+    {
+      "index": 123,
+      "start_time": 489190.0,
+      "end_time": 491620.0,
+      "text": "los principales componentes desde cero, como nuestra sumador de ondulación."
+    },
+    {
+      "index": 124,
+      "start_time": 491620.0,
+      "end_time": 494680.0,
+      "text": "Como se vio, es sólo un gran ramo de puertas lógicas conectadas de manera inteligente."
+    },
+    {
+      "index": 125,
+      "start_time": 494680.0,
+      "end_time": 498740.0,
+      "text": "Lo que nos lleva de nuevo a ese ALU admiraba tanto al comienzo del episodio."
+    },
+    {
+      "index": 126,
+      "start_time": 498740.0,
+      "end_time": 501060.0,
+      "text": "El Intel 74181."
+    },
+    {
+      "index": 127,
+      "start_time": 501220.0,
+      "end_time": 506780.0,
+      "text": "A diferencia de la ALU de 8 bits que hicimos hoy, el 74181 sólo podía manejar entradas de 4 bits,"
+    },
+    {
+      "index": 128,
+      "start_time": 506780.0,
+      "end_time": 509040.0,
+      "text": "lo que significa que construyó un ALU que es como"
+    },
+    {
+      "index": 129,
+      "start_time": 509080.0,
+      "end_time": 514700.0,
+      "text": "Dos veces tan buena como aquella archifamoso. CON\n¡TU MENTE! Tipo de."
+    },
+    {
+      "index": 130,
+      "start_time": 514700.00000000006,
+      "end_time": 516820.00000000006,
+      "text": "No hemos construido todo el asunto ... pero se entiende la idea."
+    },
+    {
+      "index": 131,
+      "start_time": 516820.00000000006,
+      "end_time": 521840.00000000006,
+      "text": "El 74181 usan aproximadamente 70 puertas lógicas, y no podría multiplicar o dividir."
+    },
+    {
+      "index": 132,
+      "start_time": 521840.00000000006,
+      "end_time": 527540.0,
+      "text": "Pero fue un gran paso adelante en la miniaturización, abriendo las puertas a los ordenadores más capaces y menos costosos."
+    },
+    {
+      "index": 133,
+      "start_time": 527540.0,
+      "end_time": 530360.0,
+      "text": "Este circuito ALU 4 bits ya es mucho para tomar,"
+    },
+    {
+      "index": 134,
+      "start_time": 530360.0,
+      "end_time": 534819.0,
+      "text": "pero nuestra ALU de 8 bits requeriría cientos de puertas lógicas para construir totalmente e ingenieros"
+    },
+    {
+      "index": 135,
+      "start_time": 534819.0,
+      "end_time": 539129.0,
+      "text": "no quieren ver toda esa complejidad al usar una ALU, por lo que llevaron a cabo un especial"
+    },
+    {
+      "index": 136,
+      "start_time": 539129.0,
+      "end_time": 544160.0,
+      "text": "símbolo para envolverlo todo, que se parece\nun gran 'V'. Sólo otro nivel de abstracción!"
+    },
+    {
+      "index": 137,
+      "start_time": 549440.0,
+      "end_time": 557300.0,
+      "text": "Nuestra 8 bits ALU tiene dos entradas, A y B, cada uno con 8 bits. También necesitamos una manera de especificar qué operación debe realizar la ALU,"
+    },
+    {
+      "index": 138,
+      "start_time": 557300.0,
+      "end_time": 559700.0,
+      "text": "por ejemplo, adición o sustracción."
+    },
+    {
+      "index": 139,
+      "start_time": 559700.0,
+      "end_time": 561880.0,
+      "text": "Para ello, se utiliza un código de operación de 4 bits."
+    },
+    {
+      "index": 140,
+      "start_time": 561880.0,
+      "end_time": 566980.0,
+      "text": "Ya hablaremos de esto más en un episodio posterior, pero en breve, 1000 podría ser el comando"
+    },
+    {
+      "index": 141,
+      "start_time": 567000.0,
+      "end_time": 573279.0,
+      "text": "para añadir, mientras que 1100 es el comando para restar. Básicamente, el código de operación indica la ALU"
+    },
+    {
+      "index": 142,
+      "start_time": 573280.0,
+      "end_time": 578600.0,
+      "text": "que operación realizar. Y el resultado de esa operación en las entradas A y B es una salida de 8 bits."
+    },
+    {
+      "index": 143,
+      "start_time": 578600.0,
+      "end_time": 583760.0,
+      "text": "ALUs también salida de una serie de banderas, que son salidas de 1 bit para estados y estatus particulares."
+    },
+    {
+      "index": 144,
+      "start_time": 583760.0,
+      "end_time": 590260.0,
+      "text": "Por ejemplo, si restamos dos números, y el resultado es 0, nuestro circuito de pruebas de cero, la que hicimos antes,"
+    },
+    {
+      "index": 145,
+      "start_time": 590260.0,
+      "end_time": 595300.0,
+      "text": "Establece el indicador de cero a Verdad (1). Esto es útil si estamos tratando de determinar si dos números son iguales."
+    },
+    {
+      "index": 146,
+      "start_time": 595300.0,
+      "end_time": 597740.0,
+      "text": "Si quisiéramos probar si A era inferior a B,"
+    },
+    {
+      "index": 147,
+      "start_time": 597740.0,
+      "end_time": 603220.0,
+      "text": "podemos usar la ALU para calcular A restar B y ver si la Bandera Negativa se estableció en verdadero."
+    },
+    {
+      "index": 148,
+      "start_time": 603220.0,
+      "end_time": 605700.0,
+      "text": "Si lo fuera, sabemos que A era\nmenor que B."
+    },
+    {
+      "index": 149,
+      "start_time": 605700.0,
+      "end_time": 609620.0,
+      "text": "Y, por último, también hay un cable conectado al llevar a cabo en el sumador construimos,"
+    },
+    {
+      "index": 150,
+      "start_time": 609620.0,
+      "end_time": 613980.0,
+      "text": "así que si hay un desbordamiento, lo sabremos al respecto. Esto se conoce como la bandera de desbordamiento."
+    },
+    {
+      "index": 151,
+      "start_time": 613980.0,
+      "end_time": 618820.0,
+      "text": "ALU más elegantes tendrán más banderas, pero estas tres banderas son universales y de uso frecuente."
+    },
+    {
+      "index": 152,
+      "start_time": 618840.0,
+      "end_time": 621380.0,
+      "text": "De hecho, vamos a utilizar ellos pronto en un episodio futuro."
+    },
+    {
+      "index": 153,
+      "start_time": 621380.0,
+      "end_time": 625640.0,
+      "text": "Así que ya saben cómo el ordenador hace todas sus operaciones matemáticas básicas digitalmente"
+    },
+    {
+      "index": 154,
+      "start_time": 625640.0,
+      "end_time": 627440.0,
+      "text": "sin engranajes o palancas necesarias."
+    },
+    {
+      "index": 155,
+      "start_time": 627440.0,
+      "end_time": 631580.0,
+      "text": "Vamos a utilizar este ALU cuando construimos nuestras CPU dos episodios a partir de ahora."
+    },
+    {
+      "index": 156,
+      "start_time": 631600.0,
+      "end_time": 636560.0,
+      "text": "Pero antes de eso, nuestro equipo va a necesitar algo de memoria! Vamos a hablar de que la próxima semana."
+    }
+  ]
+}
